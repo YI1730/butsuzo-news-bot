@@ -7,6 +7,11 @@ import feedparser
 import requests
 import tweepy
 
+try:
+    from googlenewsdecoder import gnewsdecoder
+except ImportError:  # 保険: ライブラリ未インストール時でもHTTPフォールバックで動作する
+    gnewsdecoder = None
+
 SEARCH_QUERY = (
     "(仏像 OR 如来 OR 開帳 OR 開扉 OR 菩薩 OR 秘仏) "
     "-グラビア -返還 -ストリップ -ヌード -ギャンブル "
@@ -59,9 +64,24 @@ def contains_excluded_keyword(text: str) -> bool:
 
 
 def resolve_original_url(google_news_url: str) -> str:
-    """GoogleニュースのRSS URLを辿って、最終的な配信元メディアのURLを返す。
-    失敗した場合は元のURLをそのまま返すフォールバック。
+    """GoogleニュースのRSS URLから最終的な配信元メディアのURLを返す。
+    googlenewsdecoder で base64 エンコードされたIDをデコードして取得。
+    失敗した場合は HTTP リダイレクト追跡 → 元URLの順にフォールバック。
     """
+    # 1. googlenewsdecoder でデコード（現行のGoogleニュースURL形式に対応）
+    if gnewsdecoder is not None:
+        try:
+            decoded = gnewsdecoder(google_news_url, interval=1)
+            if decoded.get("status") and decoded.get("decoded_url"):
+                return decoded["decoded_url"]
+            print(
+                f"gnewsdecoderでデコード不可: {decoded.get('message')}",
+                file=sys.stderr,
+            )
+        except Exception as e:
+            print(f"gnewsdecoder例外: {e}", file=sys.stderr)
+
+    # 2. HTTPリダイレクト追跡（旧形式URL向けフォールバック）
     try:
         response = requests.get(
             google_news_url,
@@ -72,10 +92,12 @@ def resolve_original_url(google_news_url: str) -> str:
         final_url = response.url
         if final_url and not final_url.startswith("https://news.google.com"):
             return final_url
-        return google_news_url
     except requests.RequestException as e:
-        print(f"URL展開失敗、元のURLを使用: {e}", file=sys.stderr)
-        return google_news_url
+        print(f"HTTP展開失敗: {e}", file=sys.stderr)
+
+    # 3. すべて失敗した場合は元のURLを返す
+    print(f"URL展開失敗、元のURLを使用: {google_news_url}", file=sys.stderr)
+    return google_news_url
 
 
 def build_tweet(title: str, url: str) -> str:
