@@ -4,6 +4,7 @@ import urllib.parse
 from pathlib import Path
 
 import feedparser
+import requests
 import tweepy
 
 SEARCH_QUERY = (
@@ -29,6 +30,12 @@ EXCLUDE_KEYWORDS = [
 POSTED_URLS_FILE = Path(__file__).parent / "posted_urls.txt"
 MAX_POSTS_PER_RUN = 3
 
+RESOLVE_TIMEOUT = 10  # 秒
+RESOLVE_USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+)
+
 
 def build_feed_url() -> str:
     query = urllib.parse.quote_plus(SEARCH_QUERY)
@@ -49,6 +56,26 @@ def append_posted_url(url: str) -> None:
 
 def contains_excluded_keyword(text: str) -> bool:
     return any(keyword in text for keyword in EXCLUDE_KEYWORDS)
+
+
+def resolve_original_url(google_news_url: str) -> str:
+    """GoogleニュースのRSS URLを辿って、最終的な配信元メディアのURLを返す。
+    失敗した場合は元のURLをそのまま返すフォールバック。
+    """
+    try:
+        response = requests.get(
+            google_news_url,
+            headers={"User-Agent": RESOLVE_USER_AGENT},
+            timeout=RESOLVE_TIMEOUT,
+            allow_redirects=True,
+        )
+        final_url = response.url
+        if final_url and not final_url.startswith("https://news.google.com"):
+            return final_url
+        return google_news_url
+    except requests.RequestException as e:
+        print(f"URL展開失敗、元のURLを使用: {e}", file=sys.stderr)
+        return google_news_url
 
 
 def build_tweet(title: str, url: str) -> str:
@@ -111,7 +138,14 @@ def main() -> int:
             print(f"除外キーワードを含むためスキップ: {title}")
             continue
 
-        tweet_text = build_tweet(title, link)
+        original_url = resolve_original_url(link)
+        # 重複判定は展開後URLでも行う
+        if original_url != link and original_url in posted_urls:
+            append_posted_url(link)
+            posted_urls.add(link)
+            continue
+
+        tweet_text = build_tweet(title, original_url)
         try:
             client.create_tweet(text=tweet_text)
         except tweepy.TweepyException as e:
@@ -120,8 +154,11 @@ def main() -> int:
 
         append_posted_url(link)
         posted_urls.add(link)
+        if original_url != link:
+            append_posted_url(original_url)
+            posted_urls.add(original_url)
         posted_count += 1
-        print(f"投稿成功: {title}")
+        print(f"投稿成功: {title} → {original_url}")
 
     print(f"投稿数: {posted_count}")
     return 0
