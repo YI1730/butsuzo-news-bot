@@ -3,7 +3,7 @@ name: Auto Post Buddhist News
 on:
   schedule:
     # 毎日 09:00 / 12:00 / 18:00 JST (UTC で 00:00 / 03:00 / 09:00)
-    - cron: "0 0,3,9 * * *"
+    - cron: "0 22,3,9,12 * * *"
   workflow_dispatch:
 
 permissions:
