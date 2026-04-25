@@ -45,6 +45,7 @@ jobs:
           if ! git diff --quiet posted_urls.txt; then
             git add posted_urls.txt
             git commit -m "chore: update posted_urls.txt"
+            git pull --rebase origin main    # ← この1行を追加！
             git push
           else
             echo "No changes to posted_urls.txt"
@@ -83,6 +84,7 @@ jobs:
           if ! git diff --quiet scraped_history.txt; then
             git add scraped_history.txt
             git commit -m "chore: update scraped_history.txt"
+            git pull --rebase origin main    # ← この1行を追加！
             git push
           else
             echo "No changes to scraped_history.txt"
