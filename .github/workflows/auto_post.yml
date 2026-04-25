@@ -2,15 +2,18 @@ name: Auto Post Buddhist News
 
 on:
   schedule:
-    # 毎日 09:00 / 12:00 / 18:00 JST (UTC で 00:00 / 03:00 / 09:00)
+    # ニュースbot: JST 7:00 / 12:00 / 18:00 / 21:00（UTC 22:00 / 3:00 / 9:00 / 12:00）
     - cron: "0 22,3,9,12 * * *"
+    # 特別公開bot: JST 20:00（UTC 11:00）
+    - cron: "0 11 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  post:
+  post_news:
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22,3,9,12 * * *'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,4 +48,42 @@ jobs:
             git push
           else
             echo "No changes to posted_urls.txt"
+          fi
+
+  scrape_special:
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 11 * * *'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run scrape_special.py
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python scrape_special.py
+
+      - name: Commit scraped_history.txt
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet scraped_history.txt; then
+            git add scraped_history.txt
+            git commit -m "chore: update scraped_history.txt"
+            git push
+          else
+            echo "No changes to scraped_history.txt"
           fi
