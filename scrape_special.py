@@ -8,6 +8,7 @@
 """
 
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -16,7 +17,7 @@ from urllib.parse import urljoin
 import feedparser
 import requests
 import tweepy
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -109,44 +110,110 @@ def is_excluded(text: str) -> bool:
 # ---------------------------------------------------------------------------
 
 
+# 公開期間が終了したイベントは紫系の色で表記される
+KANBUTSU_ENDED_COLORS = {"#191970", "#7b68ee", "#0000ff"}
+# 全角・半角の数字を含む日付パターン
+KANBUTSU_DATE_RE = re.compile(
+    r"[０-９0-9]+月[０-９0-9]+日(?:[〜～~][０-９0-9]+月[０-９0-9]+日)?"
+)
+
+
 def scrape_kanbutsuzanmai() -> list[dict]:
-    """観仏三昧 仏像の公開情報"""
-    url = "http://www.kanbutuzanmai.com/butsuzoukoukai.html"
-    html = fetch_html(url)
+    """仏像の公開情報ページから個別イベント（寺院・展示名・期間・公式URL）を抽出。
+
+    - 投稿には情報元ページのURLや名称を一切含めない（公式URLが取れた場合のみ記載）
+    - 公開期間が終了済みのエントリは除外
+    """
+    source_url = "http://www.kanbutuzanmai.com/butsuzoukoukai.html"
+    html = fetch_html(source_url)
     if not html:
         return []
 
     soup = BeautifulSoup(html, "html.parser")
     items: list[dict] = []
-    seen_titles: set[str] = set()
+    seen_keys: set[str] = set()
 
-    # ページ内の各リンクを走査し、開帳/公開などのキーワードを含むものを抽出
-    event_keywords = ["公開", "開帳", "開扉", "拝観", "御開帳", "特別", "秘仏"]
     for a in soup.find_all("a", href=True):
-        title = a.get_text(strip=True)
-        if not title or len(title) < 4 or len(title) > 100:
+        href = a["href"].strip()
+        # 外部リンクのみ対象（情報元サイト内のリンクは除外）
+        if not href.startswith(("http://", "https://")):
             continue
-        if title in seen_titles:
+        if "kanbutuzanmai" in href.lower():
             continue
-        if is_excluded(title):
-            continue
-        if not any(kw in title for kw in event_keywords):
-            continue
-        link = urljoin(url, a["href"])
-        seen_titles.add(title)
-        items.append({"title": title, "url": link, "source": "観仏三昧"})
 
-    # フォールバック: 個別リンクが取れない場合はトップページ情報
-    if not items:
+        # 終了済みエントリ（紫系の色）はスキップ
+        ended = False
+        for ancestor in a.parents:
+            if ancestor.name == "font":
+                color = (ancestor.get("color") or "").lower()
+                if color in KANBUTSU_ENDED_COLORS:
+                    ended = True
+                    break
+        if ended:
+            continue
+
+        temple = a.get_text(" ", strip=True)
+        if not temple:
+            continue
+
+        # 直前のテキストから日付を抽出（<br> または親要素の境界まで遡る）
+        prev_text = ""
+        for sib in a.previous_siblings:
+            if getattr(sib, "name", None) == "br":
+                break
+            if isinstance(sib, NavigableString):
+                prev_text = str(sib) + prev_text
+            elif hasattr(sib, "get_text"):
+                prev_text = sib.get_text() + prev_text
+            if len(prev_text) > 100:
+                break
+        m = KANBUTSU_DATE_RE.search(prev_text)
+        date_range = m.group(0) if m else ""
+
+        # 直後のテキストから展示名・タイトルを抽出（次の<br>または<a>まで）
+        title_text = ""
+        for sib in a.next_siblings:
+            if getattr(sib, "name", None) in ("br", "a"):
+                break
+            if isinstance(sib, NavigableString):
+                title_text += str(sib)
+            elif hasattr(sib, "get_text"):
+                title_text += sib.get_text()
+            if len(title_text) > 300:
+                break
+        title_text = title_text.strip()
+
+        # 投稿文の本文を構築: 「寺院名 展示名（期間）」
+        body_parts: list[str] = [temple]
+        if title_text:
+            body_parts.append(title_text)
+        body = " ".join(body_parts).strip()
+        if date_range:
+            body = f"{body}（{date_range}）"
+
+        if not body or len(body) < 5:
+            continue
+        if is_excluded(body):
+            continue
+        # 情報元サイト名・ドメインを文中から完全に排除
+        if "観仏三昧" in body or "kanbutuzanmai" in body.lower():
+            continue
+
+        key = f"{href}|{body}"
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+
         items.append(
             {
-                "title": "観仏三昧 仏像の公開情報（更新あり）",
-                "url": url,
-                "source": "観仏三昧",
+                "title": body,
+                "url": href,  # 公式URL（外部リンク）
+                "source": "kanbutsu",  # 内部識別用。投稿文には現れない
+                "header": "【仏像特別公開情報】",
             }
         )
 
-    return items[:10]
+    return items
 
 
 def scrape_museum_rss(museum_name: str, rss_candidates: list[str]) -> list[dict]:
@@ -255,15 +322,25 @@ def scrape_inori_nara() -> list[dict]:
 # ---------------------------------------------------------------------------
 
 
-def build_tweet(title: str, url: str) -> str:
-    header = "【仏像特別公開・イベント情報】"
+def build_tweet(
+    title: str,
+    url: str,
+    header: str = "【仏像特別公開・イベント情報】",
+) -> str:
+    """投稿文を組み立てる。url が空文字なら URL 行は省略する。"""
     hashtags = "#仏像 #特別公開"
-    # X の文字数制限（280文字）に収める
-    reserved = len(header) + 1 + 1 + len(url) + 1 + len(hashtags)
+    if url:
+        # 4行: header / title / url / hashtags
+        reserved = len(header) + 1 + 1 + len(url) + 1 + len(hashtags)
+    else:
+        # 3行: header / title / hashtags（URL行なし）
+        reserved = len(header) + 1 + 1 + len(hashtags)
     max_title_len = 280 - reserved
     if len(title) > max_title_len and max_title_len > 1:
         title = title[: max_title_len - 1] + "…"
-    return f"{header}\n{title}\n{url}\n{hashtags}"
+    if url:
+        return f"{header}\n{title}\n{url}\n{hashtags}"
+    return f"{header}\n{title}\n{hashtags}"
 
 
 def get_twitter_client() -> tweepy.Client:
@@ -287,8 +364,9 @@ def get_twitter_client() -> tweepy.Client:
 
 def history_key(item: dict) -> str:
     """重複判定用キー: URL + タイトル の組み合わせ。
-    同じURLでもタイトル（期間情報など）が変われば再投稿対象。"""
-    return f"{item['url']}\t{item['title']}"
+    URLが空（取得できない場合）でもタイトルでユニーク化される。"""
+    url_part = item.get("url") or "__no_url__"
+    return f"{url_part}\t{item['title']}"
 
 
 # ---------------------------------------------------------------------------
@@ -375,7 +453,8 @@ def main() -> int:
         if is_excluded(item["title"]):
             continue
 
-        tweet_text = build_tweet(item["title"], item["url"])
+        header = item.get("header") or "【仏像特別公開・イベント情報】"
+        tweet_text = build_tweet(item["title"], item.get("url") or "", header=header)
         try:
             client.create_tweet(text=tweet_text)
         except tweepy.TweepyException as e:
