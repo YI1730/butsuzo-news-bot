@@ -1,0 +1,395 @@
+"""仏像専門サイトと国立博物館の特別公開情報をスクレイピングしてXへ投稿する。
+
+ターゲット:
+1. 観仏三昧（仏像の公開情報）
+2. 国立博物館（東京・奈良・京都・九州）のRSS
+3. 京都非公開文化財特別公開
+4. 祈りの回廊（奈良県秘宝・秘仏特別開帳）
+"""
+
+import os
+import sys
+import time
+from pathlib import Path
+from urllib.parse import urljoin
+
+import feedparser
+import requests
+import tweepy
+from bs4 import BeautifulSoup
+
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+)
+REQUEST_TIMEOUT = 15
+SLEEP_BETWEEN_REQUESTS = 3  # 秒
+MAX_POSTS_PER_RUN = 5
+
+SCRAPED_HISTORY_FILE = Path(__file__).parent / "scraped_history.txt"
+
+# 国立博物館の更新情報フィルタ用
+RELEVANT_KEYWORDS = [
+    "仏像",
+    "如来",
+    "菩薩",
+    "観音",
+    "明王",
+    "天部",
+    "羅漢",
+    "秘仏",
+    "開帳",
+    "開扉",
+    "特別公開",
+    "特別展",
+    "御開帳",
+    "本尊",
+    "曼荼羅",
+]
+
+EXCLUDE_KEYWORDS = [
+    "グラビア",
+    "ストリップ",
+    "ヌード",
+    "ギャンブル",
+    "クラブツーリズム",
+    "賭博",
+    "ゲーム",
+]
+
+
+# ---------------------------------------------------------------------------
+# 履歴・HTTPユーティリティ
+# ---------------------------------------------------------------------------
+
+
+def load_history() -> set[str]:
+    if not SCRAPED_HISTORY_FILE.exists():
+        return set()
+    with SCRAPED_HISTORY_FILE.open("r", encoding="utf-8") as f:
+        return {line.strip() for line in f if line.strip()}
+
+
+def append_history(key: str) -> None:
+    with SCRAPED_HISTORY_FILE.open("a", encoding="utf-8") as f:
+        f.write(key + "\n")
+
+
+def fetch_html(url: str) -> str | None:
+    try:
+        response = requests.get(
+            url,
+            headers={"User-Agent": USER_AGENT},
+            timeout=REQUEST_TIMEOUT,
+        )
+        response.raise_for_status()
+        # 文字化け対策
+        if response.encoding == "ISO-8859-1" or not response.encoding:
+            response.encoding = response.apparent_encoding
+        return response.text
+    except requests.RequestException as e:
+        print(f"取得失敗 {url}: {e}", file=sys.stderr)
+        return None
+
+
+def is_relevant(text: str) -> bool:
+    if not text:
+        return False
+    if any(kw in text for kw in EXCLUDE_KEYWORDS):
+        return False
+    return any(kw in text for kw in RELEVANT_KEYWORDS)
+
+
+def is_excluded(text: str) -> bool:
+    return any(kw in text for kw in EXCLUDE_KEYWORDS)
+
+
+# ---------------------------------------------------------------------------
+# 各ターゲットのスクレイパー
+# ---------------------------------------------------------------------------
+
+
+def scrape_kanbutsuzanmai() -> list[dict]:
+    """観仏三昧 仏像の公開情報"""
+    url = "http://www.kanbutuzanmai.com/butsuzoukoukai.html"
+    html = fetch_html(url)
+    if not html:
+        return []
+
+    soup = BeautifulSoup(html, "html.parser")
+    items: list[dict] = []
+    seen_titles: set[str] = set()
+
+    # ページ内の各リンクを走査し、開帳/公開などのキーワードを含むものを抽出
+    event_keywords = ["公開", "開帳", "開扉", "拝観", "御開帳", "特別", "秘仏"]
+    for a in soup.find_all("a", href=True):
+        title = a.get_text(strip=True)
+        if not title or len(title) < 4 or len(title) > 100:
+            continue
+        if title in seen_titles:
+            continue
+        if is_excluded(title):
+            continue
+        if not any(kw in title for kw in event_keywords):
+            continue
+        link = urljoin(url, a["href"])
+        seen_titles.add(title)
+        items.append({"title": title, "url": link, "source": "観仏三昧"})
+
+    # フォールバック: 個別リンクが取れない場合はトップページ情報
+    if not items:
+        items.append(
+            {
+                "title": "観仏三昧 仏像の公開情報（更新あり）",
+                "url": url,
+                "source": "観仏三昧",
+            }
+        )
+
+    return items[:10]
+
+
+def scrape_museum_rss(museum_name: str, rss_candidates: list[str]) -> list[dict]:
+    """国立博物館のRSSフィードから「仏像」関連のエントリを抽出。
+
+    複数のRSS候補を順に試し、最初にエントリが取れたものを使用する。
+    """
+    items: list[dict] = []
+    for rss_url in rss_candidates:
+        feed = feedparser.parse(rss_url)
+        if not feed.entries:
+            continue
+        for entry in feed.entries[:30]:
+            title = getattr(entry, "title", "").strip()
+            link = getattr(entry, "link", "").strip()
+            summary = getattr(entry, "summary", "")
+            check_text = f"{title} {summary}"
+            if not (title and link):
+                continue
+            if not is_relevant(check_text):
+                continue
+            items.append(
+                {
+                    "title": f"{museum_name}：{title}",
+                    "url": link,
+                    "source": museum_name,
+                }
+            )
+        if items:
+            break
+    return items
+
+
+def scrape_souda_kyoto() -> list[dict]:
+    """京都非公開文化財特別公開（そうだ京都）"""
+    url = "https://souda-kyoto.jp/event/detail/autumn-cultural-properties.html"
+    html = fetch_html(url)
+    if not html:
+        return []
+
+    soup = BeautifulSoup(html, "html.parser")
+
+    # ページタイトルを取得
+    h1 = soup.find("h1")
+    title_text = h1.get_text(strip=True) if h1 else None
+    if not title_text:
+        title_tag = soup.find("title")
+        title_text = title_tag.get_text(strip=True) if title_tag else "京都非公開文化財特別公開"
+
+    # 開催情報（期間など）を取得し、履歴キーをユニークにする
+    period = ""
+    for p in soup.find_all(["p", "div", "span"]):
+        text = p.get_text(strip=True)
+        if text and ("月" in text and "日" in text) and len(text) < 80:
+            period = text
+            break
+
+    full_title = f"{title_text}{(' ' + period) if period else ''}"
+    return [{"title": full_title, "url": url, "source": "京都非公開文化財特別公開"}]
+
+
+def scrape_inori_nara() -> list[dict]:
+    """祈りの回廊 奈良県 秘宝・秘仏特別開帳"""
+    url = "https://inori.nara-kankou.or.jp/inori/hihou/"
+    html = fetch_html(url)
+    if not html:
+        return []
+
+    soup = BeautifulSoup(html, "html.parser")
+    items: list[dict] = []
+    seen_links: set[str] = set()
+
+    # サイト内の個別寺院ページへのリンクを抽出
+    keywords = ["秘", "開帳", "開扉", "公開", "如来", "菩薩", "観音", "仏", "御本尊", "明王"]
+    for a in soup.find_all("a", href=True):
+        title = a.get_text(strip=True)
+        if not title or len(title) < 3 or len(title) > 100:
+            continue
+        if is_excluded(title):
+            continue
+        href = urljoin(url, a["href"])
+        # 同サイト内のリンクのみ対象
+        if "inori.nara-kankou.or.jp" not in href:
+            continue
+        # トップページ自身は除外
+        if href.rstrip("/") == url.rstrip("/"):
+            continue
+        if href in seen_links:
+            continue
+        if not any(kw in title for kw in keywords):
+            continue
+        seen_links.add(href)
+        items.append({"title": title, "url": href, "source": "祈りの回廊"})
+
+    # フォールバック
+    if not items:
+        h1 = soup.find("h1")
+        page_title = h1.get_text(strip=True) if h1 else "祈りの回廊 秘宝・秘仏特別開帳"
+        items.append({"title": page_title, "url": url, "source": "祈りの回廊"})
+
+    return items[:10]
+
+
+# ---------------------------------------------------------------------------
+# X投稿
+# ---------------------------------------------------------------------------
+
+
+def build_tweet(title: str, url: str) -> str:
+    header = "【仏像特別公開・イベント情報】"
+    hashtags = "#仏像 #特別公開"
+    # X の文字数制限（280文字）に収める
+    reserved = len(header) + 1 + 1 + len(url) + 1 + len(hashtags)
+    max_title_len = 280 - reserved
+    if len(title) > max_title_len and max_title_len > 1:
+        title = title[: max_title_len - 1] + "…"
+    return f"{header}\n{title}\n{url}\n{hashtags}"
+
+
+def get_twitter_client() -> tweepy.Client:
+    required = [
+        "X_API_KEY",
+        "X_API_SECRET",
+        "X_ACCESS_TOKEN",
+        "X_ACCESS_TOKEN_SECRET",
+    ]
+    missing = [name for name in required if not os.environ.get(name)]
+    if missing:
+        raise RuntimeError(f"必須の環境変数が未設定です: {', '.join(missing)}")
+
+    return tweepy.Client(
+        consumer_key=os.environ["X_API_KEY"],
+        consumer_secret=os.environ["X_API_SECRET"],
+        access_token=os.environ["X_ACCESS_TOKEN"],
+        access_token_secret=os.environ["X_ACCESS_TOKEN_SECRET"],
+    )
+
+
+def history_key(item: dict) -> str:
+    """重複判定用キー: URL + タイトル の組み合わせ。
+    同じURLでもタイトル（期間情報など）が変われば再投稿対象。"""
+    return f"{item['url']}\t{item['title']}"
+
+
+# ---------------------------------------------------------------------------
+# main
+# ---------------------------------------------------------------------------
+
+
+def main() -> int:
+    history = load_history()
+    items: list[dict] = []
+
+    print("[1/4] 観仏三昧を取得中...")
+    try:
+        items.extend(scrape_kanbutsuzanmai())
+    except Exception as e:
+        print(f"観仏三昧スクレイピング失敗: {e}", file=sys.stderr)
+    time.sleep(SLEEP_BETWEEN_REQUESTS)
+
+    print("[2/4] 国立博物館RSSを取得中...")
+    museums = [
+        (
+            "東京国立博物館",
+            [
+                "https://www.tnm.jp/uploads/rss/news.xml",
+                "https://www.tnm.jp/rss/news.xml",
+            ],
+        ),
+        (
+            "奈良国立博物館",
+            [
+                "https://www.narahaku.go.jp/rss/news.xml",
+                "https://www.narahaku.go.jp/news.xml",
+            ],
+        ),
+        (
+            "京都国立博物館",
+            [
+                "https://www.kyohaku.go.jp/jp/rss/news.xml",
+                "https://www.kyohaku.go.jp/rss/news.xml",
+            ],
+        ),
+        (
+            "九州国立博物館",
+            [
+                "https://www.kyuhaku.jp/news/news.xml",
+                "https://www.kyuhaku.jp/rss/news.xml",
+            ],
+        ),
+    ]
+    for name, candidates in museums:
+        try:
+            items.extend(scrape_museum_rss(name, candidates))
+        except Exception as e:
+            print(f"{name} RSS取得失敗: {e}", file=sys.stderr)
+        time.sleep(SLEEP_BETWEEN_REQUESTS)
+
+    print("[3/4] 京都非公開文化財特別公開を取得中...")
+    try:
+        items.extend(scrape_souda_kyoto())
+    except Exception as e:
+        print(f"そうだ京都スクレイピング失敗: {e}", file=sys.stderr)
+    time.sleep(SLEEP_BETWEEN_REQUESTS)
+
+    print("[4/4] 祈りの回廊を取得中...")
+    try:
+        items.extend(scrape_inori_nara())
+    except Exception as e:
+        print(f"祈りの回廊スクレイピング失敗: {e}", file=sys.stderr)
+
+    print(f"取得アイテム数: {len(items)}")
+
+    if not items:
+        print("投稿対象がありません")
+        return 0
+
+    client = get_twitter_client()
+    posted_count = 0
+    for item in items:
+        if posted_count >= MAX_POSTS_PER_RUN:
+            break
+        key = history_key(item)
+        if key in history:
+            continue
+        if is_excluded(item["title"]):
+            continue
+
+        tweet_text = build_tweet(item["title"], item["url"])
+        try:
+            client.create_tweet(text=tweet_text)
+        except tweepy.TweepyException as e:
+            print(f"投稿失敗: [{item['source']}] {item['title']} ({e})", file=sys.stderr)
+            continue
+
+        append_history(key)
+        history.add(key)
+        posted_count += 1
+        print(f"投稿成功: [{item['source']}] {item['title']}")
+
+    print(f"投稿数: {posted_count}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
