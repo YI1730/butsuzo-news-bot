@@ -25,7 +25,7 @@ USER_AGENT = (
 )
 REQUEST_TIMEOUT = 15
 SLEEP_BETWEEN_REQUESTS = 3  # 秒
-MAX_POSTS_PER_RUN = 5
+MAX_POSTS_PER_RUN = 1  # 1日4回実行するため1回あたり1件に制限
 
 SCRAPED_HISTORY_FILE = Path(__file__).parent / "scraped_history.txt"
 
