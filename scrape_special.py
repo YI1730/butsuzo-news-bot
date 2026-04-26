@@ -458,7 +458,11 @@ def main() -> int:
         try:
             client.create_tweet(text=tweet_text)
         except tweepy.TweepyException as e:
-            print(f"投稿失敗: [{item['source']}] {item['title']} ({e})", file=sys.stderr)
+            err_str = str(e)
+            print(f"投稿失敗: [{item['source']}] {item['title']} ({err_str})", file=sys.stderr)
+            if "429" in err_str or "Too Many Requests" in err_str:
+                print("レート制限 (429) を検出。ループを中断します。", file=sys.stderr)
+                break
             continue
 
         append_history(key)
