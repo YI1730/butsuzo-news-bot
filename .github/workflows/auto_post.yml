@@ -2,10 +2,8 @@ name: Auto Post Buddhist News
 
 on:
   schedule:
-    # ニュースbot: JST 7:00 / 12:00 / 18:00 / 21:00（UTC 22:00 / 3:00 / 9:00 / 12:00）
+    # JST 7:00 / 12:00 / 18:00 / 21:00（UTC 22:00 / 3:00 / 9:00 / 12:00）
     - cron: "0 22,3,9,12 * * *"
-    # 特別公開bot: JST 20:00（UTC 11:00）
-    - cron: "0 11 * * *"
   workflow_dispatch:
 
 permissions:
@@ -13,7 +11,6 @@ permissions:
 
 jobs:
   post_news:
-    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22,3,9,12 * * *'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,18 +42,19 @@ jobs:
           if ! git diff --quiet posted_urls.txt; then
             git add posted_urls.txt
             git commit -m "chore: update posted_urls.txt"
-            git pull --rebase origin main    # ← この1行を追加！
             git push
           else
             echo "No changes to posted_urls.txt"
           fi
 
   scrape_special:
-    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 11 * * *'
     runs-on: ubuntu-latest
+    needs: post_news
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -84,7 +82,6 @@ jobs:
           if ! git diff --quiet scraped_history.txt; then
             git add scraped_history.txt
             git commit -m "chore: update scraped_history.txt"
-            git pull --rebase origin main    # ← この1行を追加！
             git push
           else
             echo "No changes to scraped_history.txt"
