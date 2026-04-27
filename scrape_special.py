@@ -460,8 +460,8 @@ def main() -> int:
         except tweepy.TweepyException as e:
             err_str = str(e)
             print(f"投稿失敗: [{item['source']}] {item['title']} ({err_str})", file=sys.stderr)
-            if "429" in err_str or "Too Many Requests" in err_str:
-                print("レート制限 (429) を検出。ループを中断します。", file=sys.stderr)
+            if any(code in err_str for code in ("429", "Too Many Requests", "402", "Payment Required", "403", "Forbidden")):
+                print(f"致命的なAPIエラーを検出。ループを中断します: {err_str}", file=sys.stderr)
                 break
             continue
 
