@@ -11,6 +11,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 from pathlib import Path
 from urllib.parse import urljoin
 
@@ -188,7 +189,8 @@ def scrape_kanbutsuzanmai() -> list[dict]:
             if len(prev_text) > 100:
                 break
         m = KANBUTSU_DATE_RE.search(prev_text)
-        date_range = m.group(0) if m else ""
+        # NFKC正規化で全角数字を半角に統一（例：５月１日 → 5月1日）
+        date_range = unicodedata.normalize("NFKC", m.group(0)) if m else ""
 
         # 直後のテキストから展示名・タイトルを抽出（次の<br>または<a>まで）
         title_text = ""
