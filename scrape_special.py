@@ -76,13 +76,29 @@ def append_history(key: str) -> None:
         f.write(key + "\n")
 
 
-def fetch_html(url: str) -> bytes | None:
-    """指定URLのHTMLをraw bytesで返す。
+def decode_html(content: bytes) -> str:
+    """日本語サイト向けの堅牢な文字コードデコード。
 
-    chardetがShift-JISをGBKと誤検出して文字化けする問題を避けるため、
-    response.textではなくresponse.content（生バイト列）を返す。
-    呼び出し側でBeautifulSoup(html, "html.parser")に渡すことで、
-    HTML内の<meta charset>タグから正確なエンコーディングが自動検出される。
+    UTF-8 → Shift-JIS(CP932) → EUC-JP の順に厳格モードで試行し、
+    最初に成功したエンコーディングでデコードした文字列を返す。
+    すべて失敗した場合は UTF-8 でエラー文字を置換しながらデコードする。
+
+    chardet が Shift-JIS を GBK 等として誤検出する問題を回避するため、
+    Pythonの標準デコーダで明示的にフォールバックを試行する設計。
+    """
+    for encoding in ("utf-8", "cp932", "euc_jp"):
+        try:
+            return content.decode(encoding)
+        except UnicodeDecodeError:
+            continue
+    return content.decode("utf-8", errors="replace")
+
+
+def fetch_html(url: str) -> str | None:
+    """指定URLのHTMLを decode_html で適切にデコードした文字列で返す。
+
+    UTF-8 / Shift-JIS / EUC-JP の順に厳格デコードを試行するため、
+    chardet による Shift-JIS の GBK 誤検出問題が発生しない。
     """
     try:
         response = requests.get(
@@ -91,7 +107,7 @@ def fetch_html(url: str) -> bytes | None:
             timeout=REQUEST_TIMEOUT,
         )
         response.raise_for_status()
-        return response.content  # 生バイト列をそのまま返す（デコードしない）
+        return decode_html(response.content)
     except requests.RequestException as e:
         print(f"取得失敗 {url}: {e}", file=sys.stderr)
         return None
