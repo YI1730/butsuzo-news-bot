@@ -76,7 +76,14 @@ def append_history(key: str) -> None:
         f.write(key + "\n")
 
 
-def fetch_html(url: str) -> str | None:
+def fetch_html(url: str) -> bytes | None:
+    """指定URLのHTMLをraw bytesで返す。
+
+    chardetがShift-JISをGBKと誤検出して文字化けする問題を避けるため、
+    response.textではなくresponse.content（生バイト列）を返す。
+    呼び出し側でBeautifulSoup(html, "html.parser")に渡すことで、
+    HTML内の<meta charset>タグから正確なエンコーディングが自動検出される。
+    """
     try:
         response = requests.get(
             url,
@@ -84,10 +91,7 @@ def fetch_html(url: str) -> str | None:
             timeout=REQUEST_TIMEOUT,
         )
         response.raise_for_status()
-        # 文字化け対策
-        if response.encoding == "ISO-8859-1" or not response.encoding:
-            response.encoding = response.apparent_encoding
-        return response.text
+        return response.content  # 生バイト列をそのまま返す（デコードしない）
     except requests.RequestException as e:
         print(f"取得失敗 {url}: {e}", file=sys.stderr)
         return None
