@@ -110,8 +110,22 @@ def build_card_html(item: dict) -> str:
 
 def build_html(items: list[dict], last_updated: str) -> str:
     lu_display = format_fetched_at(last_updated) if last_updated else "—"
-    total = len(items)
-    cards_html = "\n".join(build_card_html(item) for item in items)
+
+    # fetched_at の降順でソート（最新が先頭）。同値の場合は元の順を維持（安定ソート）
+    items_sorted = sorted(
+        items,
+        key=lambda x: x.get("fetched_at", ""),
+        reverse=True,
+    )
+
+    # ニュース（Google News）と それ以外（特別公開・イベント系） に分割
+    news_items = [x for x in items_sorted if x.get("source") == "google_news"]
+    other_items = [x for x in items_sorted if x.get("source") != "google_news"]
+
+    news_cards = "\n".join(build_card_html(item) for item in news_items)
+    other_cards = "\n".join(build_card_html(item) for item in other_items)
+    news_count = len(news_items)
+    other_count = len(other_items)
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -145,10 +159,23 @@ def build_html(items: list[dict], last_updated: str) -> str:
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
         <p class="text-xs text-amber-300 mt-0.5">更新: {lu_display}</p>
       </div>
-      <span id="count" class="text-xs bg-amber-700 text-amber-100 px-2 py-1 rounded-full font-medium">{total}件</span>
+      <span id="count" class="text-xs bg-amber-700 text-amber-100 px-2 py-1 rounded-full font-medium">0件</span>
     </div>
+
+    <!-- タブ切替（セグメント形式） -->
+    <div class="max-w-xl mx-auto bg-amber-950 p-1 rounded-xl flex gap-1">
+      <button onclick="setTab('news')" id="tab-btn-news"
+        class="tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors">
+        📰 ニュース<span class="text-xs opacity-60 ml-1">{news_count}</span>
+      </button>
+      <button onclick="setTab('other')" id="tab-btn-other"
+        class="tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors">
+        🛕 特別公開<span class="text-xs opacity-60 ml-1">{other_count}</span>
+      </button>
+    </div>
+
     <!-- フィルターバー -->
-    <div class="flex gap-2 pb-3 max-w-xl mx-auto">
+    <div class="flex gap-2 py-2 pb-3 max-w-xl mx-auto">
       <button onclick="setFilter('unposted')" id="btn-unposted"
         class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">未投稿</button>
       <button onclick="setFilter('all')" id="btn-all"
@@ -159,29 +186,57 @@ def build_html(items: list[dict], last_updated: str) -> str:
     </div>
   </header>
 
-  <!-- カードリスト -->
-  <main id="card-list" class="px-4 py-4 space-y-3 max-w-xl mx-auto">
-{cards_html}
+  <!-- カードリスト（タブごとに分離） -->
+  <main class="px-4 py-4 max-w-xl mx-auto">
+    <div id="tab-news" class="tab-pane space-y-3">
+{news_cards}
+    </div>
+    <div id="tab-other" class="tab-pane space-y-3 hidden">
+{other_cards}
+    </div>
   </main>
 
   <script>
+    let currentTab = 'news';
     let currentFilter = 'unposted';
+
+    function setTab(tab) {{
+      currentTab = tab;
+      ['news','other'].forEach(t => {{
+        const btn = document.getElementById('tab-btn-' + t);
+        if (btn) {{
+          btn.className = 'tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors ' +
+            (t === tab ? 'bg-white text-amber-900 shadow' : 'text-amber-200');
+        }}
+        const pane = document.getElementById('tab-' + t);
+        if (pane) pane.classList.toggle('hidden', t !== tab);
+      }});
+      applyFilter();
+      window.scrollTo({{top: 0, behavior: 'instant'}});
+    }}
 
     function setFilter(mode) {{
       currentFilter = mode;
-      const labels = {{ unposted: '未投稿', all: 'すべて', posted: '投稿済み' }};
       ['unposted','all','posted'].forEach(m => {{
         const btn = document.getElementById('btn-' + m);
-        if (!btn) return;
-        btn.className = 'filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors ' +
-          (m === mode ? 'bg-white text-amber-900' : 'bg-amber-800 text-amber-200');
+        if (btn) {{
+          btn.className = 'filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors ' +
+            (m === mode ? 'bg-white text-amber-900' : 'bg-amber-800 text-amber-200');
+        }}
       }});
+      applyFilter();
+    }}
+
+    function applyFilter() {{
+      // 表示中のタブのカードのみフィルタリング・カウント対象にする
+      const activePane = document.getElementById('tab-' + currentTab);
+      if (!activePane) return;
       let shown = 0;
-      document.querySelectorAll('[data-item-id]').forEach(card => {{
+      activePane.querySelectorAll('[data-item-id]').forEach(card => {{
         const posted = card.classList.contains('is-posted');
         let show = true;
-        if (mode === 'unposted') show = !posted;
-        if (mode === 'posted')   show = posted;
+        if (currentFilter === 'unposted') show = !posted;
+        if (currentFilter === 'posted')   show = posted;
         card.style.display = show ? '' : 'none';
         if (show) shown++;
       }});
@@ -196,11 +251,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
         const btn = card.querySelector('.post-btn');
         if (btn) btn.innerHTML = '投稿済み ✓';
       }}
-      // 未投稿フィルター中なら少し遅らせてカードを非表示
       if (currentFilter === 'unposted') {{
         setTimeout(() => {{
           if (card) card.style.display = 'none';
-          setFilter(currentFilter);
+          applyFilter();
         }}, 800);
       }}
     }}
@@ -221,7 +275,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
           if (btn) btn.innerHTML = '投稿済み ✓';
         }}
       }});
-      setFilter('unposted');
+      setTab('news');         // デフォルトはニュースタブ
+      setFilter('unposted');  // デフォルトは未投稿フィルター
     }}
 
     if ('serviceWorker' in navigator) {{
