@@ -1,15 +1,21 @@
-import os
+"""Google News RSS から仏像関連ニュースを取得し docs/data/news.json に蓄積する。
+
+X API は一切使用しない。投稿はダッシュボード（docs/index.html）から手動で行う。
+"""
+
+import hashlib
+import json
 import sys
 import urllib.parse
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
 import feedparser
 import requests
-import tweepy
 
 try:
     from googlenewsdecoder import gnewsdecoder
-except ImportError:  # 保険: ライブラリ未インストール時でもHTTPフォールバックで動作する
+except ImportError:  # ライブラリ未インストール時でも HTTP フォールバックで動作する
     gnewsdecoder = None
 
 SEARCH_QUERY = (
@@ -32,14 +38,21 @@ EXCLUDE_KEYWORDS = [
     "ゲーム",
 ]
 
-POSTED_URLS_FILE = Path(__file__).parent / "posted_urls.txt"
-MAX_POSTS_PER_RUN = 3
+NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
+MAX_ITEMS_PER_RUN = 10   # 1回の実行で追加する最大件数
+MAX_TOTAL_ITEMS = 500    # JSON に保持する最大件数（古いものは削除）
 
-RESOLVE_TIMEOUT = 10  # 秒
+RESOLVE_TIMEOUT = 10
 RESOLVE_USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
 )
+JST = timezone(timedelta(hours=9))
+
+
+# ---------------------------------------------------------------------------
+# ユーティリティ
+# ---------------------------------------------------------------------------
 
 
 def build_feed_url() -> str:
@@ -47,16 +60,22 @@ def build_feed_url() -> str:
     return f"{RSS_BASE}?q={query}&{RSS_PARAMS}"
 
 
-def load_posted_urls() -> set[str]:
-    if not POSTED_URLS_FILE.exists():
-        return set()
-    with POSTED_URLS_FILE.open("r", encoding="utf-8") as f:
-        return {line.strip() for line in f if line.strip()}
+def load_news_data() -> dict:
+    if not NEWS_JSON_FILE.exists():
+        return {"last_updated": "", "items": []}
+    with NEWS_JSON_FILE.open("r", encoding="utf-8") as f:
+        return json.load(f)
 
 
-def append_posted_url(url: str) -> None:
-    with POSTED_URLS_FILE.open("a", encoding="utf-8") as f:
-        f.write(url + "\n")
+def save_news_data(data: dict) -> None:
+    NEWS_JSON_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with NEWS_JSON_FILE.open("w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+
+
+def item_id(url: str, title: str = "") -> str:
+    """URL（+ タイトル）のハッシュから12文字の一意IDを生成"""
+    return hashlib.md5((url + title).encode()).hexdigest()[:12]
 
 
 def contains_excluded_keyword(text: str) -> bool:
@@ -64,11 +83,7 @@ def contains_excluded_keyword(text: str) -> bool:
 
 
 def resolve_original_url(google_news_url: str) -> str:
-    """GoogleニュースのRSS URLから最終的な配信元メディアのURLを返す。
-    googlenewsdecoder で base64 エンコードされたIDをデコードして取得。
-    失敗した場合は HTTP リダイレクト追跡 → 元URLの順にフォールバック。
-    """
-    # 1. googlenewsdecoder でデコード（現行のGoogleニュースURL形式に対応）
+    """Google News の RSS URL から配信元の最終 URL を取得する。"""
     if gnewsdecoder is not None:
         try:
             decoded = gnewsdecoder(google_news_url, interval=1)
@@ -81,7 +96,6 @@ def resolve_original_url(google_news_url: str) -> str:
         except Exception as e:
             print(f"gnewsdecoder例外: {e}", file=sys.stderr)
 
-    # 2. HTTPリダイレクト追跡（旧形式URL向けフォールバック）
     try:
         response = requests.get(
             google_news_url,
@@ -95,40 +109,12 @@ def resolve_original_url(google_news_url: str) -> str:
     except requests.RequestException as e:
         print(f"HTTP展開失敗: {e}", file=sys.stderr)
 
-    # 3. すべて失敗した場合は元のURLを返す
-    print(f"URL展開失敗、元のURLを使用: {google_news_url}", file=sys.stderr)
     return google_news_url
 
 
-def build_tweet(title: str, url: str) -> str:
-    header = "【仏像速報】"
-    hashtags = "#仏像 #仏像ニュース"
-    # Xの文字数制限（280文字）に収まるようにタイトルを必要なら切り詰める
-    # URLは t.co により 23 文字扱いになるが、安全マージンを取って実測で計算
-    reserved = len(header) + 1 + 1 + len(url) + 1 + len(hashtags)
-    max_title_len = 280 - reserved
-    if len(title) > max_title_len and max_title_len > 1:
-        title = title[: max_title_len - 1] + "…"
-    return f"{header}\n{title}\n{url}\n{hashtags}"
-
-
-def get_twitter_client() -> tweepy.Client:
-    required = [
-        "X_API_KEY",
-        "X_API_SECRET",
-        "X_ACCESS_TOKEN",
-        "X_ACCESS_TOKEN_SECRET",
-    ]
-    missing = [name for name in required if not os.environ.get(name)]
-    if missing:
-        raise RuntimeError(f"必須の環境変数が未設定です: {', '.join(missing)}")
-
-    return tweepy.Client(
-        consumer_key=os.environ["X_API_KEY"],
-        consumer_secret=os.environ["X_API_SECRET"],
-        access_token=os.environ["X_ACCESS_TOKEN"],
-        access_token_secret=os.environ["X_ACCESS_TOKEN_SECRET"],
-    )
+# ---------------------------------------------------------------------------
+# main
+# ---------------------------------------------------------------------------
 
 
 def main() -> int:
@@ -140,62 +126,47 @@ def main() -> int:
         print(f"RSSの取得に失敗しました: {feed.bozo_exception}", file=sys.stderr)
         return 1
 
-    posted_urls = load_posted_urls()
+    data = load_news_data()
+    existing_ids = {item["id"] for item in data["items"]}
 
-    # ===== 差分抽出フェーズ（X APIを一切呼ばない）=====
-    # 新規投稿候補が1件も無ければ X API 認証をスキップして即終了する
-    candidates: list[tuple[str, str]] = []
+    added_count = 0
     for entry in feed.entries:
-        if len(candidates) >= MAX_POSTS_PER_RUN:
+        if added_count >= MAX_ITEMS_PER_RUN:
             break
 
         title = getattr(entry, "title", "").strip()
         link = getattr(entry, "link", "").strip()
         if not title or not link:
             continue
-        if link in posted_urls:
-            continue
+
         if contains_excluded_keyword(title):
             print(f"除外キーワードを含むためスキップ: {title}")
             continue
 
-        candidates.append((title, link))
-
-    if not candidates:
-        print("新規投稿なし。X API認証をスキップして終了します")
-        return 0
-
-    # ===== 投稿フェーズ（ここで初めてX API認証を発生させる）=====
-    client = get_twitter_client()
-
-    posted_count = 0
-    for title, link in candidates:
         original_url = resolve_original_url(link)
-        # 重複判定は展開後URLでも行う（API呼び出しなし、ローカル判定のみ）
-        if original_url != link and original_url in posted_urls:
-            append_posted_url(link)
-            posted_urls.add(link)
+        uid = item_id(original_url)
+
+        if uid in existing_ids:
             continue
 
-        # テキスト＋URLのみのシンプル投稿（画像アップロードは行わない）
-        tweet_text = build_tweet(title, original_url)
-        try:
-            client.create_tweet(text=tweet_text)
-        except tweepy.TweepyException as e:
-            # API無駄打ち防止: 失敗したら理由を問わず即終了。リトライ・続行は一切しない
-            print(f"投稿失敗: {title} ({e})", file=sys.stderr)
-            print("API無駄打ち防止のため、ここで処理を打ち切ります", file=sys.stderr)
-            break
+        data["items"].insert(0, {
+            "id": uid,
+            "title": title,
+            "url": original_url,
+            "source": "google_news",
+            "header": "【仏像速報】",
+            "hashtags": "#仏像 #仏像ニュース",
+            "fetched_at": datetime.now(JST).isoformat(),
+        })
+        existing_ids.add(uid)
+        added_count += 1
+        print(f"追加: {title}")
 
-        append_posted_url(link)
-        posted_urls.add(link)
-        if original_url != link:
-            append_posted_url(original_url)
-            posted_urls.add(original_url)
-        posted_count += 1
-        print(f"投稿成功: {title} → {original_url}")
-
-    print(f"投稿数: {posted_count}")
+    # 古いアイテムを削除して上限を守る
+    data["items"] = data["items"][:MAX_TOTAL_ITEMS]
+    data["last_updated"] = datetime.now(JST).isoformat()
+    save_news_data(data)
+    print(f"追加件数: {added_count} / 合計: {len(data['items'])}件")
     return 0
 
 

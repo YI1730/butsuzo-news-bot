@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#92400e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="仏像ニュース">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <title>仏像ニュース ダッシュボード</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { -webkit-tap-highlight-color: transparent; }
+    .card.is-posted { opacity: 0.45; }
+    .card.is-posted .post-btn {
+      background: #d1d5db !important;
+      color: #6b7280 !important;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-amber-50 min-h-screen pb-8">
+
+  <!-- ヘッダー -->
+  <header class="bg-amber-900 text-white px-4 pt-safe-top sticky top-0 z-20 shadow-lg">
+    <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
+      <div>
+        <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
+        <p class="text-xs text-amber-300 mt-0.5">更新: —</p>
+      </div>
+      <span id="count" class="text-xs bg-amber-700 text-amber-100 px-2 py-1 rounded-full font-medium">0件</span>
+    </div>
+    <!-- フィルターバー -->
+    <div class="flex gap-2 pb-3 max-w-xl mx-auto">
+      <button onclick="setFilter('unposted')" id="btn-unposted"
+        class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">未投稿</button>
+      <button onclick="setFilter('all')" id="btn-all"
+        class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">すべて</button>
+      <button onclick="setFilter('posted')" id="btn-posted"
+        class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">投稿済み</button>
+      <button onclick="resetAll()" class="ml-auto text-xs text-amber-400 underline">リセット</button>
+    </div>
+  </header>
+
+  <!-- カードリスト -->
+  <main id="card-list" class="px-4 py-4 space-y-3 max-w-xl mx-auto">
+
+  </main>
+
+  <script>
+    let currentFilter = 'unposted';
+
+    function setFilter(mode) {
+      currentFilter = mode;
+      const labels = { unposted: '未投稿', all: 'すべて', posted: '投稿済み' };
+      ['unposted','all','posted'].forEach(m => {
+        const btn = document.getElementById('btn-' + m);
+        if (!btn) return;
+        btn.className = 'filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors ' +
+          (m === mode ? 'bg-white text-amber-900' : 'bg-amber-800 text-amber-200');
+      });
+      let shown = 0;
+      document.querySelectorAll('[data-item-id]').forEach(card => {
+        const posted = card.classList.contains('is-posted');
+        let show = true;
+        if (mode === 'unposted') show = !posted;
+        if (mode === 'posted')   show = posted;
+        card.style.display = show ? '' : 'none';
+        if (show) shown++;
+      });
+      document.getElementById('count').textContent = shown + '件';
+    }
+
+    function handlePostClick(event, itemId) {
+      localStorage.setItem('posted_' + itemId, '1');
+      const card = document.querySelector('[data-item-id="' + itemId + '"]');
+      if (card) {
+        card.classList.add('is-posted');
+        const btn = card.querySelector('.post-btn');
+        if (btn) btn.innerHTML = '投稿済み ✓';
+      }
+      // 未投稿フィルター中なら少し遅らせてカードを非表示
+      if (currentFilter === 'unposted') {
+        setTimeout(() => {
+          if (card) card.style.display = 'none';
+          setFilter(currentFilter);
+        }, 800);
+      }
+    }
+
+    function resetAll() {
+      if (!confirm('投稿済みの記録をすべてリセットしますか？')) return;
+      document.querySelectorAll('[data-item-id]').forEach(card => {
+        localStorage.removeItem('posted_' + card.dataset.itemId);
+      });
+      location.reload();
+    }
+
+    function init() {
+      document.querySelectorAll('[data-item-id]').forEach(card => {
+        if (localStorage.getItem('posted_' + card.dataset.itemId) === '1') {
+          card.classList.add('is-posted');
+          const btn = card.querySelector('.post-btn');
+          if (btn) btn.innerHTML = '投稿済み ✓';
+        }
+      });
+      setFilter('unposted');
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
