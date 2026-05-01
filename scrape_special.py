@@ -464,29 +464,42 @@ def main() -> int:
         print("投稿対象がありません")
         return 0
 
-    client = get_twitter_client()
-    posted_count = 0
+    # ===== 差分抽出フェーズ（X APIを一切呼ばない）=====
+    # 履歴・除外チェックを先に済ませ、未投稿候補が無ければX API認証をスキップ
+    candidates: list[dict] = []
     for item in items:
-        if posted_count >= MAX_POSTS_PER_RUN:
+        if len(candidates) >= MAX_POSTS_PER_RUN:
             break
         key = history_key(item)
         if key in history:
             continue
         if is_excluded(item["title"]):
             continue
+        candidates.append(item)
 
+    if not candidates:
+        print("新規アイテムなし。X API認証をスキップして終了します")
+        return 0
+
+    # ===== 投稿フェーズ（ここで初めてX API認証を発生させる）=====
+    client = get_twitter_client()
+    posted_count = 0
+    for item in candidates:
         header = item.get("header") or "【仏像特別公開・イベント情報】"
+        # テキスト＋URLのみのシンプル投稿（画像アップロードは行わない）
         tweet_text = build_tweet(item["title"], item.get("url") or "", header=header)
         try:
             client.create_tweet(text=tweet_text)
         except tweepy.TweepyException as e:
-            err_str = str(e)
-            print(f"投稿失敗: [{item['source']}] {item['title']} ({err_str})", file=sys.stderr)
-            if any(code in err_str for code in ("429", "Too Many Requests", "402", "Payment Required", "403", "Forbidden")):
-                print(f"致命的なAPIエラーを検出。ループを中断します: {err_str}", file=sys.stderr)
-                break
-            continue
+            # API無駄打ち防止: 失敗したら理由を問わず即終了。リトライ・続行は一切しない
+            print(
+                f"投稿失敗: [{item['source']}] {item['title']} ({e})",
+                file=sys.stderr,
+            )
+            print("API無駄打ち防止のため、ここで処理を打ち切ります", file=sys.stderr)
+            break
 
+        key = history_key(item)
         append_history(key)
         history.add(key)
         posted_count += 1
