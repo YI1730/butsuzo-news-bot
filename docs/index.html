@@ -56,19 +56,23 @@
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
 
-    <!-- タブ切替（セグメント形式・3タブ） -->
+    <!-- タブ切替（セグメント形式・4タブ） -->
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
-        class="tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         📰 ニュース<span class="opacity-60 ml-0.5">36</span>
       </button>
       <button onclick="setTab('exhibition')" id="tab-btn-exhibition"
-        class="tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         🏛 特別展<span class="opacity-60 ml-0.5">16</span>
       </button>
       <button onclick="setTab('other')" id="tab-btn-other"
-        class="tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         🛕 特別公開<span class="opacity-60 ml-0.5">154</span>
+      </button>
+      <button onclick="setTab('goods')" id="tab-btn-goods"
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
+        🛒 書籍・グッズ<span class="opacity-60 ml-0.5">0</span>
       </button>
     </div>
 
@@ -3859,6 +3863,9 @@
       </div>
     </div>
     </div>
+    <div id="tab-goods" class="tab-pane space-y-3 hidden">
+
+    </div>
   </main>
 
   <script>
@@ -3867,10 +3874,10 @@
 
     function setTab(tab) {
       currentTab = tab;
-      ['news','exhibition','other'].forEach(t => {
+      ['news','exhibition','other','goods'].forEach(t => {
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {
-          btn.className = 'tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight ' +
+          btn.className = 'tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight ' +
             (t === tab ? 'bg-white text-brand-800 shadow' : 'text-brand-200');
         }
         const pane = document.getElementById('tab-' + t);

@@ -28,6 +28,7 @@ SOURCE_LABELS: dict[str, str] = {
     "exhibition":               "🏛 特別展",
     "exhibition_rss":           "🏛 特別展",
     "kanbutsu":                 "🛕 仏像公開",
+    "amazon_goods":             "🛒 Amazon",
     "東京国立博物館":            "🏛 東京国博",
     "奈良国立博物館":            "🏛 奈良国博",
     "京都国立博物館":            "🏛 京都国博",
@@ -39,6 +40,7 @@ SOURCE_LABELS: dict[str, str] = {
 # タブ別ソース定義
 NEWS_TAB_SOURCES       = {"google_news", "bangumi_tv"}
 EXHIBITION_TAB_SOURCES = {"exhibition", "exhibition_rss"}
+GOODS_TAB_SOURCES      = {"amazon_goods"}
 
 # 取り込みセッション区切りの閾値（秒）— これ以上 fetched_at が離れると新セッション扱い
 SEPARATOR_THRESHOLD_SECONDS = 30 * 60
@@ -212,17 +214,20 @@ def build_html(items: list[dict], last_updated: str) -> str:
         reverse=True,
     )
 
-    # 3タブに分割: ニュース / 特別展情報 / 特別公開
+    # 4タブに分割: ニュース / 特別展 / 特別公開 / 書籍・グッズ
+    classified = NEWS_TAB_SOURCES | EXHIBITION_TAB_SOURCES | GOODS_TAB_SOURCES
     news_items  = [x for x in items_sorted if x.get("source") in NEWS_TAB_SOURCES]
     exhib_items = [x for x in items_sorted if x.get("source") in EXHIBITION_TAB_SOURCES]
-    other_items = [x for x in items_sorted
-                   if x.get("source") not in NEWS_TAB_SOURCES | EXHIBITION_TAB_SOURCES]
+    goods_items = [x for x in items_sorted if x.get("source") in GOODS_TAB_SOURCES]
+    other_items = [x for x in items_sorted if x.get("source") not in classified]
 
     news_cards  = build_cards_with_separators(news_items)
     exhib_cards = build_cards_with_separators(exhib_items)
+    goods_cards = build_cards_with_separators(goods_items)
     other_cards = build_cards_with_separators(other_items)
     news_count  = len(news_items)
     exhib_count = len(exhib_items)
+    goods_count = len(goods_items)
     other_count = len(other_items)
 
     return f"""<!DOCTYPE html>
@@ -283,19 +288,23 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
 
-    <!-- タブ切替（セグメント形式・3タブ） -->
+    <!-- タブ切替（セグメント形式・4タブ） -->
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
-        class="tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         📰 ニュース<span class="opacity-60 ml-0.5">{news_count}</span>
       </button>
       <button onclick="setTab('exhibition')" id="tab-btn-exhibition"
-        class="tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         🏛 特別展<span class="opacity-60 ml-0.5">{exhib_count}</span>
       </button>
       <button onclick="setTab('other')" id="tab-btn-other"
-        class="tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         🛕 特別公開<span class="opacity-60 ml-0.5">{other_count}</span>
+      </button>
+      <button onclick="setTab('goods')" id="tab-btn-goods"
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
+        🛒 書籍・グッズ<span class="opacity-60 ml-0.5">{goods_count}</span>
       </button>
     </div>
 
@@ -322,6 +331,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
     <div id="tab-other" class="tab-pane space-y-3 hidden">
 {other_cards}
     </div>
+    <div id="tab-goods" class="tab-pane space-y-3 hidden">
+{goods_cards}
+    </div>
   </main>
 
   <script>
@@ -330,10 +342,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
 
     function setTab(tab) {{
       currentTab = tab;
-      ['news','exhibition','other'].forEach(t => {{
+      ['news','exhibition','other','goods'].forEach(t => {{
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {{
-          btn.className = 'tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight ' +
+          btn.className = 'tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight ' +
             (t === tab ? 'bg-white text-brand-800 shadow' : 'text-brand-200');
         }}
         const pane = document.getElementById('tab-' + t);
