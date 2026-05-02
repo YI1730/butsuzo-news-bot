@@ -25,6 +25,8 @@ ICON_COLOR = (0, 174, 149)
 SOURCE_LABELS: dict[str, str] = {
     "google_news":              "📰 ニュース",
     "bangumi_tv":               "📺 仏像TV",
+    "exhibition":               "🏛 特別展",
+    "exhibition_rss":           "🏛 特別展",
     "kanbutsu":                 "🛕 仏像公開",
     "東京国立博物館":            "🏛 東京国博",
     "奈良国立博物館":            "🏛 奈良国博",
@@ -34,8 +36,9 @@ SOURCE_LABELS: dict[str, str] = {
     "祈りの回廊":               "🙏 奈良秘仏",
 }
 
-# ニュースタブに表示するソース一覧（それ以外は「特別公開」タブに入る）
-NEWS_TAB_SOURCES = {"google_news", "bangumi_tv"}
+# タブ別ソース定義
+NEWS_TAB_SOURCES       = {"google_news", "bangumi_tv"}
+EXHIBITION_TAB_SOURCES = {"exhibition", "exhibition_rss"}
 
 # 取り込みセッション区切りの閾値（秒）— これ以上 fetched_at が離れると新セッション扱い
 SEPARATOR_THRESHOLD_SECONDS = 30 * 60
@@ -175,13 +178,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
         reverse=True,
     )
 
-    # ニュース（Google News + 仏像TV）と それ以外（特別公開・イベント系） に分割
+    # 3タブに分割: ニュース / 特別展情報 / 特別公開
     news_items  = [x for x in items_sorted if x.get("source") in NEWS_TAB_SOURCES]
-    other_items = [x for x in items_sorted if x.get("source") not in NEWS_TAB_SOURCES]
+    exhib_items = [x for x in items_sorted if x.get("source") in EXHIBITION_TAB_SOURCES]
+    other_items = [x for x in items_sorted
+                   if x.get("source") not in NEWS_TAB_SOURCES | EXHIBITION_TAB_SOURCES]
 
     news_cards  = build_cards_with_separators(news_items)
+    exhib_cards = build_cards_with_separators(exhib_items)
     other_cards = build_cards_with_separators(other_items)
     news_count  = len(news_items)
+    exhib_count = len(exhib_items)
     other_count = len(other_items)
 
     return f"""<!DOCTYPE html>
@@ -242,15 +249,19 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
 
-    <!-- タブ切替（セグメント形式） -->
+    <!-- タブ切替（セグメント形式・3タブ） -->
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
-        class="tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors">
-        📰 ニュース<span class="text-xs opacity-60 ml-1">{news_count}</span>
+        class="tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight">
+        📰 ニュース<span class="opacity-60 ml-0.5">{news_count}</span>
+      </button>
+      <button onclick="setTab('exhibition')" id="tab-btn-exhibition"
+        class="tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight">
+        🏛 特別展<span class="opacity-60 ml-0.5">{exhib_count}</span>
       </button>
       <button onclick="setTab('other')" id="tab-btn-other"
-        class="tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors">
-        🛕 特別公開<span class="text-xs opacity-60 ml-1">{other_count}</span>
+        class="tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight">
+        🛕 特別公開<span class="opacity-60 ml-0.5">{other_count}</span>
       </button>
     </div>
 
@@ -271,6 +282,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
     <div id="tab-news" class="tab-pane space-y-3">
 {news_cards}
     </div>
+    <div id="tab-exhibition" class="tab-pane space-y-3 hidden">
+{exhib_cards}
+    </div>
     <div id="tab-other" class="tab-pane space-y-3 hidden">
 {other_cards}
     </div>
@@ -282,10 +296,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
 
     function setTab(tab) {{
       currentTab = tab;
-      ['news','other'].forEach(t => {{
+      ['news','exhibition','other'].forEach(t => {{
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {{
-          btn.className = 'tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors ' +
+          btn.className = 'tab-btn flex-1 py-1 text-xs font-bold rounded-lg transition-colors leading-tight ' +
             (t === tab ? 'bg-white text-brand-800 shadow' : 'text-brand-200');
         }}
         const pane = document.getElementById('tab-' + t);

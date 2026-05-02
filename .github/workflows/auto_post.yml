@@ -32,6 +32,9 @@ jobs:
       - name: Fetch special sites
         run: python scrape_special.py
 
+      - name: Fetch exhibition info
+        run: python scrape_exhibition.py
+
       - name: Generate dashboard HTML
         run: python generate_dashboard.py
 
