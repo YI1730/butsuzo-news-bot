@@ -2,6 +2,7 @@ name: Update Buddhist News Dashboard
 
 on:
   schedule:
+    # JST 6:30 / 10:30 / 15:30 / 17:30 / 20:30 / 23:30
     - cron: "30 21,1,6,8,11,14 * * *"
   workflow_dispatch:
 
@@ -31,6 +32,9 @@ jobs:
 
       - name: Fetch special sites
         run: python scrape_special.py
+
+      - name: Fetch exhibition info
+        run: python scrape_exhibition.py
 
       - name: Generate dashboard HTML
         run: python generate_dashboard.py
