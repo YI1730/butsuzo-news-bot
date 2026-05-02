@@ -6,7 +6,9 @@ X API は一切使用しない。投稿はダッシュボード（docs/index.htm
 import hashlib
 import json
 import sys
+import time as time_module
 import urllib.parse
+from calendar import timegm
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -42,6 +44,7 @@ EXCLUDE_KEYWORDS = [
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
 MAX_ITEMS_PER_RUN = 10   # 1回の実行で追加する最大件数
 MAX_TOTAL_ITEMS = 500    # JSON に保持する最大件数（古いものは削除）
+MAX_ARTICLE_AGE_DAYS = 30  # これより古い記事は収集しない
 
 RESOLVE_TIMEOUT = 10
 RESOLVE_USER_AGENT = (
@@ -81,6 +84,33 @@ def item_id(url: str, title: str = "") -> str:
 
 def contains_excluded_keyword(text: str) -> bool:
     return any(keyword in text for keyword in EXCLUDE_KEYWORDS)
+
+
+def parse_published_at(entry) -> datetime | None:
+    """feedparser エントリから公開日時（aware datetime、JST）を取得する。
+
+    feedparser は published_parsed を UTC の struct_time で返す。
+    取得できない場合は None を返す。
+    """
+    pt = getattr(entry, "published_parsed", None)
+    if pt is None:
+        pt = getattr(entry, "updated_parsed", None)
+    if pt is None:
+        return None
+    try:
+        # struct_time (UTC) → timestamp → datetime (UTC) → JST
+        ts = timegm(pt)
+        return datetime.fromtimestamp(ts, tz=JST)
+    except Exception:
+        return None
+
+
+def is_article_too_old(published: datetime | None) -> bool:
+    """公開日が MAX_ARTICLE_AGE_DAYS 日より前なら True。published が None なら False（スキップしない）。"""
+    if published is None:
+        return False
+    cutoff = datetime.now(JST) - timedelta(days=MAX_ARTICLE_AGE_DAYS)
+    return published < cutoff
 
 
 def extract_og_image(content: bytes) -> str:
@@ -171,6 +201,13 @@ def main() -> int:
             print(f"除外キーワードを含むためスキップ: {title}")
             continue
 
+        # 公開日チェック：30日より古い記事は除外
+        published = parse_published_at(entry)
+        if is_article_too_old(published):
+            pub_str = published.strftime("%Y-%m-%d") if published else "不明"
+            print(f"古い記事のためスキップ（{pub_str}）: {title}")
+            continue
+
         original_url = resolve_original_url(link)
         uid = item_id(original_url)
 
@@ -182,6 +219,8 @@ def main() -> int:
         if image_url:
             print(f"  画像取得: {image_url[:60]}")
 
+        published_at_str = published.isoformat() if published else ""
+
         data["items"].insert(0, {
             "id": uid,
             "title": title,
@@ -190,6 +229,7 @@ def main() -> int:
             "header": "【仏像速報】",
             "hashtags": "#仏像 #仏像ニュース",
             "fetched_at": datetime.now(JST).isoformat(),
+            "published_at": published_at_str,
             "image_url": image_url,
         })
         existing_ids.add(uid)

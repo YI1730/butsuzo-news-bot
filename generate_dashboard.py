@@ -82,6 +82,17 @@ def format_fetched_at(iso: str) -> str:
         return iso[:10] if iso else ""
 
 
+def format_published_at(iso: str) -> str:
+    """ISO 8601 の公開日を「M月D日」形式に変換する。空文字なら空文字を返す。"""
+    if not iso:
+        return ""
+    try:
+        dt = datetime.fromisoformat(iso)
+        return dt.strftime("%-m月%-d日")
+    except Exception:
+        return ""
+
+
 def build_card_html(item: dict) -> str:
     uid = item.get("id", "")
     title = item.get("title", "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
@@ -90,6 +101,7 @@ def build_card_html(item: dict) -> str:
     header = item.get("header", "【仏像速報】")
     hashtags = item.get("hashtags", "#仏像")
     fetched_at = format_fetched_at(item.get("fetched_at", ""))
+    published_at = format_published_at(item.get("published_at", ""))
     source_label = SOURCE_LABELS.get(source, f"📌 {source}")
     image_url = item.get("image_url", "")
 
@@ -108,11 +120,33 @@ def build_card_html(item: dict) -> str:
             f'           onerror="this.style.display=\'none\'">\n'
         )
 
+    # 公開日バッジ（published_at がある場合のみ）
+    pub_badge_html = ""
+    if published_at:
+        pub_badge_html = f'<span class="text-xs text-gray-500 shrink-0">📅 {published_at}</span>'
+
+    # メタ行：ソースラベル / 公開日 / 取込日
+    if pub_badge_html:
+        meta_html = (
+            f'      <div class="flex items-center justify-between mb-2 gap-2">\n'
+            f'        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">{source_label}</span>\n'
+            f'        <div class="flex items-center gap-1.5 shrink-0">\n'
+            f'          {pub_badge_html}\n'
+            f'          <span class="text-gray-300">·</span>\n'
+            f'          <span class="text-xs text-gray-400">取込 {fetched_at}</span>\n'
+            f'        </div>\n'
+            f'      </div>'
+        )
+    else:
+        meta_html = (
+            f'      <div class="flex items-center justify-between mb-2 gap-2">\n'
+            f'        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">{source_label}</span>\n'
+            f'        <span class="text-xs text-gray-400 shrink-0">{fetched_at}</span>\n'
+            f'      </div>'
+        )
+
     return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}">
-{image_html}      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">{source_label}</span>
-        <span class="text-xs text-gray-400 shrink-0">{fetched_at}</span>
-      </div>
+{image_html}{meta_html}
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">{title}</p>
       <div class="flex items-center gap-3">
         <a href="{intent_url}" target="_blank" rel="noopener"

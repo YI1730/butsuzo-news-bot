@@ -20,6 +20,8 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.parse import urljoin
 
+from calendar import timegm
+
 import feedparser
 import requests
 from bs4 import BeautifulSoup
@@ -33,6 +35,7 @@ SLEEP_BETWEEN_REQUESTS = 3
 
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
 MAX_TOTAL_ITEMS = 500
+MAX_ARTICLE_AGE_DAYS = 30  # これより古い記事は収集しない
 
 JST = timezone(timedelta(hours=9))
 
@@ -145,6 +148,45 @@ def is_relevant(text: str, keywords: list[str] | None = None) -> bool:
 
 def is_excluded(text: str) -> bool:
     return any(kw in text for kw in EXCLUDE_KEYWORDS)
+
+
+def parse_prtimes_date(html: str) -> datetime | None:
+    """PR TIMES 記事ページから公開日時を抽出する（JST aware datetime）。
+
+    ページ内の time[datetime] 属性、または「YYYY年MM月DD日 HH時MM分」テキストを探す。
+    """
+    try:
+        soup = BeautifulSoup(html[:200_000], "html.parser")
+        # 1) <time datetime="2026-04-24T12:05:00+09:00"> 形式
+        time_tag = soup.find("time", attrs={"datetime": True})
+        if time_tag:
+            dt_str = time_tag["datetime"]
+            # ISO 8601 パース
+            for fmt in ("%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M%z", "%Y-%m-%d"):
+                try:
+                    dt = datetime.strptime(dt_str[:25], fmt[:len(dt_str[:25])])
+                    if dt.tzinfo is None:
+                        dt = dt.replace(tzinfo=JST)
+                    return dt.astimezone(JST)
+                except ValueError:
+                    continue
+        # 2) 「YYYY年MM月DD日 HH時MM分」テキスト
+        text = soup.get_text()
+        m = re.search(r"(\d{4})年(\d{1,2})月(\d{1,2})日\s*(\d{1,2})時(\d{2})分", text)
+        if m:
+            y, mo, d, h, mi = (int(x) for x in m.groups())
+            return datetime(y, mo, d, h, mi, tzinfo=JST)
+    except Exception:
+        pass
+    return None
+
+
+def is_article_too_old(published: datetime | None) -> bool:
+    """公開日が MAX_ARTICLE_AGE_DAYS 日より前なら True。None なら False（スキップしない）。"""
+    if published is None:
+        return False
+    cutoff = datetime.now(JST) - timedelta(days=MAX_ARTICLE_AGE_DAYS)
+    return published < cutoff
 
 
 # ---------------------------------------------------------------------------
@@ -391,17 +433,46 @@ def main() -> int:
         item["id"] = uid
         item["fetched_at"] = datetime.now(JST).isoformat()
 
-        # image_url が未設定の場合のみ OGP 取得
+        # image_url が未設定の場合: ページを取得して OGP + 公開日を同時に取得
         if "image_url" not in item:
-            if item.get("url"):
-                image_url = fetch_og_image(item["url"])
-                item["image_url"] = image_url
-                if image_url:
-                    print(f"  画像取得: {image_url[:60]}")
+            url = item.get("url", "")
+            if url:
+                html_content = fetch_html(url)
+                if html_content:
+                    # OGP 画像
+                    soup_tmp = BeautifulSoup(html_content[:200_000], "html.parser")
+                    image_url = ""
+                    for prop in ("og:image", "twitter:image"):
+                        for attr in ("property", "name"):
+                            tag = soup_tmp.find("meta", attrs={attr: prop})
+                            if tag and tag.get("content", "").startswith("http"):
+                                image_url = tag["content"].strip()
+                                break
+                        if image_url:
+                            break
+                    item["image_url"] = image_url
+                    if image_url:
+                        print(f"  画像取得: {image_url[:60]}")
+
+                    # 公開日（PR TIMES など）
+                    if "published_at" not in item:
+                        pub_dt = parse_prtimes_date(html_content)
+                        if pub_dt and is_article_too_old(pub_dt):
+                            pub_str = pub_dt.strftime("%Y-%m-%d")
+                            print(f"古い記事のためスキップ（{pub_str}）: {item['title'][:60]}")
+                            continue
+                        item["published_at"] = pub_dt.isoformat() if pub_dt else ""
+                else:
+                    item["image_url"] = ""
+                    item.setdefault("published_at", "")
             else:
                 item["image_url"] = ""
-        elif item.get("image_url"):
-            print(f"  画像（事前取得）: {item['image_url'][:60]}")
+                item.setdefault("published_at", "")
+        else:
+            # image_url 事前取得済み（museum.or.jp 等）
+            if item.get("image_url"):
+                print(f"  画像（事前取得）: {item['image_url'][:60]}")
+            item.setdefault("published_at", "")
 
         data["items"].insert(0, item)
         existing_ids.add(uid)
