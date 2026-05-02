@@ -452,7 +452,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v2';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v3';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -464,7 +464,8 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = e.request.url;
-  if (url.includes('/data/news.json')) {
+  // index.html と news.json は常に network-first（最新コンテンツを優先）
+  if (url.endsWith('/') || url.includes('/index.html') || url.includes('/data/news.json')) {
     e.respondWith(
       fetch(e.request).then(res => {
         const clone = res.clone();
@@ -474,6 +475,7 @@ self.addEventListener('fetch', e => {
     );
     return;
   }
+  // その他（アイコン・manifest 等）はキャッシュ優先
   e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
 });
 """
