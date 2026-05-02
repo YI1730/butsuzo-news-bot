@@ -24,6 +24,7 @@ ICON_COLOR = (0, 174, 149)
 
 SOURCE_LABELS: dict[str, str] = {
     "google_news":              "📰 ニュース",
+    "bangumi_tv":               "📺 仏像TV",
     "kanbutsu":                 "🛕 仏像公開",
     "東京国立博物館":            "🏛 東京国博",
     "奈良国立博物館":            "🏛 奈良国博",
@@ -32,6 +33,12 @@ SOURCE_LABELS: dict[str, str] = {
     "京都非公開文化財特別公開":  "⛩ 京都特別公開",
     "祈りの回廊":               "🙏 奈良秘仏",
 }
+
+# ニュースタブに表示するソース一覧（それ以外は「特別公開」タブに入る）
+NEWS_TAB_SOURCES = {"google_news", "bangumi_tv"}
+
+# 取り込みセッション区切りの閾値（秒）— これ以上 fetched_at が離れると新セッション扱い
+SEPARATOR_THRESHOLD_SECONDS = 30 * 60
 
 
 # ---------------------------------------------------------------------------
@@ -117,6 +124,47 @@ def build_card_html(item: dict) -> str:
     </div>"""
 
 
+def build_separator_html(dt: datetime) -> str:
+    """取り込み時刻を表す区切り線（カード間に挿入）を生成。"""
+    label = dt.strftime("%-m月%-d日 %H:%M")
+    return f"""    <div class="separator flex items-center gap-3 my-2">
+      <div class="flex-1 h-px bg-brand-300"></div>
+      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 {label} 取込</span>
+      <div class="flex-1 h-px bg-brand-300"></div>
+    </div>"""
+
+
+def build_cards_with_separators(items: list[dict]) -> str:
+    """fetched_at が一定以上離れた境界に区切り線を挟みつつカードを並べる。
+
+    items は fetched_at の降順でソート済みである前提。
+    各セッション（同じ取り込み実行で追加されたグループ）の頭に区切り線を挿入する。
+    """
+    output: list[str] = []
+    prev_fetched: datetime | None = None
+
+    for item in items:
+        fetched_str = item.get("fetched_at", "")
+        try:
+            fetched = datetime.fromisoformat(fetched_str) if fetched_str else None
+        except Exception:
+            fetched = None
+
+        # 新セッションの先頭（または最初の項目）で区切り線を出す
+        if fetched is not None:
+            if prev_fetched is None:
+                output.append(build_separator_html(fetched))
+            else:
+                delta = (prev_fetched - fetched).total_seconds()
+                if delta > SEPARATOR_THRESHOLD_SECONDS:
+                    output.append(build_separator_html(fetched))
+            prev_fetched = fetched
+
+        output.append(build_card_html(item))
+
+    return "\n".join(output)
+
+
 def build_html(items: list[dict], last_updated: str) -> str:
     lu_display = format_fetched_at(last_updated) if last_updated else "—"
 
@@ -127,12 +175,12 @@ def build_html(items: list[dict], last_updated: str) -> str:
         reverse=True,
     )
 
-    # ニュース（Google News）と それ以外（特別公開・イベント系） に分割
-    news_items  = [x for x in items_sorted if x.get("source") == "google_news"]
-    other_items = [x for x in items_sorted if x.get("source") != "google_news"]
+    # ニュース（Google News + 仏像TV）と それ以外（特別公開・イベント系） に分割
+    news_items  = [x for x in items_sorted if x.get("source") in NEWS_TAB_SOURCES]
+    other_items = [x for x in items_sorted if x.get("source") not in NEWS_TAB_SOURCES]
 
-    news_cards  = "\n".join(build_card_html(item) for item in news_items)
-    other_cards = "\n".join(build_card_html(item) for item in other_items)
+    news_cards  = build_cards_with_separators(news_items)
+    other_cards = build_cards_with_separators(other_items)
     news_count  = len(news_items)
     other_count = len(other_items)
 
@@ -271,6 +319,22 @@ def build_html(items: list[dict], last_updated: str) -> str:
         card.style.display = show ? '' : 'none';
         if (show) shown++;
       }});
+      // 区切り線（separator）は、その配下に表示中カードが1枚も無ければ隠す
+      const children = Array.from(activePane.children);
+      for (let i = 0; i < children.length; i++) {{
+        const el = children[i];
+        if (!el.classList.contains('separator')) continue;
+        let hasVisible = false;
+        for (let j = i + 1; j < children.length; j++) {{
+          const next = children[j];
+          if (next.classList.contains('separator')) break;
+          if (next.style.display !== 'none') {{
+            hasVisible = true;
+            break;
+          }}
+        }}
+        el.style.display = hasVisible ? '' : 'none';
+      }}
       document.getElementById('count').textContent = shown + '件';
     }}
 

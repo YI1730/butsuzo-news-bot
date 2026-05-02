@@ -8,7 +8,10 @@ X API は一切使用しない。投稿はダッシュボード（docs/index.htm
 2. 国立博物館（東京・奈良・京都・九州）のRSS
 3. 京都非公開文化財特別公開
 4. 祈りの回廊（奈良県秘宝・秘仏特別開帳）
+5. bangumi.org（テレビ番組表「仏像」検索結果）
 """
+
+from __future__ import annotations
 
 import hashlib
 import json
@@ -293,6 +296,104 @@ def scrape_souda_kyoto() -> list[dict]:
     }]
 
 
+def scrape_bangumi_tv() -> list[dict]:
+    """bangumi.org のキーワード「仏像」TV番組検索結果を取得。
+
+    検索結果は AJAX で動的に読み込まれるため、エンドポイント
+    /fetch_search_content/ を直接叩く（XMLHttpRequest ヘッダ必要）。
+    """
+    endpoint = "https://bangumi.org/fetch_search_content/?q=%E4%BB%8F%E5%83%8F&type=tv"
+    referer = "https://bangumi.org/search?q=%E4%BB%8F%E5%83%8F"
+    try:
+        response = requests.get(
+            endpoint,
+            headers={
+                "User-Agent": USER_AGENT,
+                "X-Requested-With": "XMLHttpRequest",
+                "Referer": referer,
+            },
+            timeout=REQUEST_TIMEOUT,
+        )
+        response.raise_for_status()
+        html = decode_html(response.content)
+    except requests.RequestException as e:
+        print(f"bangumi.org取得失敗: {e}", file=sys.stderr)
+        return []
+
+    soup = BeautifulSoup(html, "html.parser")
+    items: list[dict] = []
+    seen_keys: set[str] = set()
+
+    for li in soup.find_all("li", class_="block"):
+        a = li.find("a", href=True)
+        if not a:
+            continue
+        href = a["href"].strip()
+        if not href:
+            continue
+        if href.startswith("/"):
+            href = urljoin("https://bangumi.org", href)
+        # 詳細ページの ?from=search は除去
+        href = href.split("?")[0]
+
+        box2 = li.find("div", class_="box-2")
+        if not box2:
+            continue
+
+        ps = box2.find_all("p")
+        if len(ps) < 2:
+            continue
+
+        # box-2 の構成: [ジャンル, 番組名, 放送日時+チャンネル]
+        # （ジャンル <p class="nomal"> が無いケースもあり得るため柔軟に）
+        nomal = box2.find("p", class_="nomal")
+        repletions = box2.find_all("p", class_="repletion")
+        if len(repletions) < 1:
+            continue
+
+        title = repletions[0].get_text(strip=True)
+        schedule = repletions[1].get_text(strip=True) if len(repletions) >= 2 else ""
+        # 全角スペースを半角スペースに
+        schedule = schedule.replace("　", " ").strip()
+        # 全角数字も半角に正規化（5月3日 等の表記統一）
+        title = unicodedata.normalize("NFKC", title)
+        schedule = unicodedata.normalize("NFKC", schedule)
+
+        if not title or len(title) < 2:
+            continue
+        if is_excluded(title):
+            continue
+
+        full_title = f"{title}（{schedule}）" if schedule else title
+
+        # 一覧画像（noimage プレースホルダは除外）
+        image_url = ""
+        img = li.find("img")
+        if img:
+            data_src = (img.get("data-src") or "").strip()
+            if data_src and "noimage" not in data_src.lower():
+                if data_src.startswith("//"):
+                    image_url = "https:" + data_src
+                elif data_src.startswith("http"):
+                    image_url = data_src
+
+        key = f"{href}|{full_title}"
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+
+        items.append({
+            "title": full_title,
+            "url": href,
+            "source": "bangumi_tv",
+            "header": "【仏像TVオンエア予定】",
+            "hashtags": "#仏像 #TV番組 #放送予定",
+            "image_url": image_url,  # 事前取得済み（OGP fetchをスキップする目印）
+        })
+
+    return items
+
+
 def scrape_inori_nara() -> list[dict]:
     """祈りの回廊 奈良県 秘宝・秘仏特別開帳"""
     url = "https://inori.nara-kankou.or.jp/inori/hihou/"
@@ -354,14 +455,14 @@ def main() -> int:
 
     all_items: list[dict] = []
 
-    print("[1/4] 観仏三昧を取得中...")
+    print("[1/5] 観仏三昧を取得中...")
     try:
         all_items.extend(scrape_kanbutsuzanmai())
     except Exception as e:
         print(f"観仏三昧スクレイピング失敗: {e}", file=sys.stderr)
     time.sleep(SLEEP_BETWEEN_REQUESTS)
 
-    print("[2/4] 国立博物館RSSを取得中...")
+    print("[2/5] 国立博物館RSSを取得中...")
     museums = [
         ("東京国立博物館", [
             "https://www.tnm.jp/uploads/rss/news.xml",
@@ -387,18 +488,25 @@ def main() -> int:
             print(f"{name} RSS取得失敗: {e}", file=sys.stderr)
         time.sleep(SLEEP_BETWEEN_REQUESTS)
 
-    print("[3/4] 京都非公開文化財特別公開を取得中...")
+    print("[3/5] 京都非公開文化財特別公開を取得中...")
     try:
         all_items.extend(scrape_souda_kyoto())
     except Exception as e:
         print(f"そうだ京都スクレイピング失敗: {e}", file=sys.stderr)
     time.sleep(SLEEP_BETWEEN_REQUESTS)
 
-    print("[4/4] 祈りの回廊を取得中...")
+    print("[4/5] 祈りの回廊を取得中...")
     try:
         all_items.extend(scrape_inori_nara())
     except Exception as e:
         print(f"祈りの回廊スクレイピング失敗: {e}", file=sys.stderr)
+    time.sleep(SLEEP_BETWEEN_REQUESTS)
+
+    print("[5/5] bangumi.org（仏像TV番組）を取得中...")
+    try:
+        all_items.extend(scrape_bangumi_tv())
+    except Exception as e:
+        print(f"bangumi.orgスクレイピング失敗: {e}", file=sys.stderr)
 
     print(f"取得アイテム数: {len(all_items)}")
 
@@ -412,14 +520,18 @@ def main() -> int:
             continue
         item["id"] = uid
         item["fetched_at"] = datetime.now(JST).isoformat()
-        # 新規アイテムの OGP 画像を取得（URL がある場合のみ）
-        if item.get("url"):
-            image_url = fetch_og_image(item["url"])
-            item["image_url"] = image_url
-            if image_url:
-                print(f"  画像取得: {image_url[:60]}")
-        else:
-            item["image_url"] = ""
+        # 新規アイテムの OGP 画像を取得
+        # （bangumi_tv 等で事前に image_url がセット済みの場合は再取得しない）
+        if "image_url" not in item:
+            if item.get("url"):
+                image_url = fetch_og_image(item["url"])
+                item["image_url"] = image_url
+                if image_url:
+                    print(f"  画像取得: {image_url[:60]}")
+            else:
+                item["image_url"] = ""
+        elif item.get("image_url"):
+            print(f"  画像（事前取得）: {item['image_url'][:60]}")
         data["items"].insert(0, item)
         existing_ids.add(uid)
         added_count += 1
