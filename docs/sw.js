@@ -1,4 +1,4 @@
-const CACHE = 'butsuzo-v1';
+const CACHE = 'butsuzo-v2';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -10,7 +10,6 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = e.request.url;
-  // news.json はネットワーク優先（最新データを取得）、失敗時はキャッシュ
   if (url.includes('/data/news.json')) {
     e.respondWith(
       fetch(e.request).then(res => {
@@ -21,6 +20,5 @@ self.addEventListener('fetch', e => {
     );
     return;
   }
-  // その他はキャッシュ優先
   e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
 });

@@ -19,18 +19,18 @@ DOCS_DIR = Path(__file__).parent / "docs"
 NEWS_JSON_FILE = DOCS_DIR / "data" / "news.json"
 JST = timezone(timedelta(hours=9))
 
-# アイコン背景色（和風ブラウン #92400e = RGB 146, 64, 14）
-ICON_COLOR = (146, 64, 14)
+# ブランドカラー #00AE95 = RGB(0, 174, 149)
+ICON_COLOR = (0, 174, 149)
 
 SOURCE_LABELS: dict[str, str] = {
-    "google_news":         "📰 ニュース",
-    "kanbutsu":            "🛕 仏像公開",
-    "東京国立博物館":       "🏛 東京国博",
-    "奈良国立博物館":       "🏛 奈良国博",
-    "京都国立博物館":       "🏛 京都国博",
-    "九州国立博物館":       "🏛 九州国博",
-    "京都非公開文化財特別公開": "⛩ 京都特別公開",
-    "祈りの回廊":          "🙏 奈良秘仏",
+    "google_news":              "📰 ニュース",
+    "kanbutsu":                 "🛕 仏像公開",
+    "東京国立博物館":            "🏛 東京国博",
+    "奈良国立博物館":            "🏛 奈良国博",
+    "京都国立博物館":            "🏛 京都国博",
+    "九州国立博物館":            "🏛 九州国博",
+    "京都非公開文化財特別公開":  "⛩ 京都特別公開",
+    "祈りの回廊":               "🙏 奈良秘仏",
 }
 
 
@@ -47,13 +47,11 @@ def create_solid_png(size: int, color: tuple[int, int, int]) -> bytes:
         crc = zlib.crc32(name + data) & 0xFFFFFFFF
         return struct.pack(">I", len(data)) + name + data + struct.pack(">I", crc)
 
-    # 各スキャンライン: filter_byte(0x00) + R G B × width
     scanline = b"\x00" + bytes([r, g, b]) * size
     raw = scanline * size
     compressed = zlib.compress(raw, 9)
 
     png = b"\x89PNG\r\n\x1a\n"
-    # IHDR: width, height, bit_depth=8, color_type=2(RGB), compression=0, filter=0, interlace=0
     png += chunk(b"IHDR", struct.pack(">IIBBBBB", size, size, 8, 2, 0, 0, 0))
     png += chunk(b"IDAT", compressed)
     png += chunk(b"IEND", b"")
@@ -83,15 +81,26 @@ def build_card_html(item: dict) -> str:
     hashtags = item.get("hashtags", "#仏像")
     fetched_at = format_fetched_at(item.get("fetched_at", ""))
     source_label = SOURCE_LABELS.get(source, f"📌 {source}")
+    image_url = item.get("image_url", "")
 
-    # X Web Intent URL（テキスト＋URL を URL エンコード）
+    # X Web Intent URL
     post_text = f"{header}\n{item.get('title', '')}\n{hashtags}"
     intent_params = urllib.parse.urlencode({"text": post_text, "url": url})
     intent_url = f"https://x.com/intent/post?{intent_params}"
 
-    return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="{uid}">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">{source_label}</span>
+    # OGP 画像ブロック（image_url がある場合のみ）
+    image_html = ""
+    if image_url:
+        img_url_escaped = image_url.replace('"', "&quot;")
+        image_html = (
+            f'      <img src="{img_url_escaped}" alt="" loading="lazy"\n'
+            f'           class="w-full h-40 object-cover rounded-xl mb-3"\n'
+            f'           onerror="this.style.display=\'none\'">\n'
+        )
+
+    return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}">
+{image_html}      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">{source_label}</span>
         <span class="text-xs text-gray-400 shrink-0">{fetched_at}</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">{title}</p>
@@ -111,7 +120,7 @@ def build_card_html(item: dict) -> str:
 def build_html(items: list[dict], last_updated: str) -> str:
     lu_display = format_fetched_at(last_updated) if last_updated else "—"
 
-    # fetched_at の降順でソート（最新が先頭）。同値の場合は元の順を維持（安定ソート）
+    # fetched_at の降順でソート（最新が先頭）
     items_sorted = sorted(
         items,
         key=lambda x: x.get("fetched_at", ""),
@@ -119,12 +128,12 @@ def build_html(items: list[dict], last_updated: str) -> str:
     )
 
     # ニュース（Google News）と それ以外（特別公開・イベント系） に分割
-    news_items = [x for x in items_sorted if x.get("source") == "google_news"]
+    news_items  = [x for x in items_sorted if x.get("source") == "google_news"]
     other_items = [x for x in items_sorted if x.get("source") != "google_news"]
 
-    news_cards = "\n".join(build_card_html(item) for item in news_items)
+    news_cards  = "\n".join(build_card_html(item) for item in news_items)
     other_cards = "\n".join(build_card_html(item) for item in other_items)
-    news_count = len(news_items)
+    news_count  = len(news_items)
     other_count = len(other_items)
 
     return f"""<!DOCTYPE html>
@@ -132,7 +141,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#92400e">
+  <meta name="theme-color" content="#00AE95">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="仏像ニュース">
@@ -140,6 +149,29 @@ def build_html(items: list[dict], last_updated: str) -> str:
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
   <title>仏像ニュース ダッシュボード</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {{
+      theme: {{
+        extend: {{
+          colors: {{
+            brand: {{
+              50:  '#e6f9f7',
+              100: '#ccf3ee',
+              200: '#99e7de',
+              300: '#66dbce',
+              400: '#33cfbe',
+              500: '#00AE95',
+              600: '#008e78',
+              700: '#006e5c',
+              800: '#004e41',
+              900: '#002e26',
+              950: '#001812',
+            }}
+          }}
+        }}
+      }}
+    }}
+  </script>
   <style>
     body {{ -webkit-tap-highlight-color: transparent; }}
     .card.is-posted {{ opacity: 0.45; }}
@@ -150,20 +182,20 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
   </style>
 </head>
-<body class="bg-amber-50 min-h-screen pb-8">
+<body class="bg-brand-50 min-h-screen pb-8">
 
   <!-- ヘッダー -->
-  <header class="bg-amber-900 text-white px-4 pt-safe-top sticky top-0 z-20 shadow-lg">
+  <header class="bg-brand-600 text-white px-4 pt-safe-top sticky top-0 z-20 shadow-lg">
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-amber-300 mt-0.5">更新: {lu_display}</p>
+        <p class="text-xs text-brand-200 mt-0.5">更新: {lu_display}</p>
       </div>
-      <span id="count" class="text-xs bg-amber-700 text-amber-100 px-2 py-1 rounded-full font-medium">0件</span>
+      <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
 
     <!-- タブ切替（セグメント形式） -->
-    <div class="max-w-xl mx-auto bg-amber-950 p-1 rounded-xl flex gap-1">
+    <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
         class="tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors">
         📰 ニュース<span class="text-xs opacity-60 ml-1">{news_count}</span>
@@ -182,7 +214,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
         class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">すべて</button>
       <button onclick="setFilter('posted')" id="btn-posted"
         class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">投稿済み</button>
-      <button onclick="resetAll()" class="ml-auto text-xs text-amber-400 underline">リセット</button>
+      <button onclick="resetAll()" class="ml-auto text-xs text-brand-300 underline">リセット</button>
     </div>
   </header>
 
@@ -206,7 +238,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {{
           btn.className = 'tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors ' +
-            (t === tab ? 'bg-white text-amber-900 shadow' : 'text-amber-200');
+            (t === tab ? 'bg-white text-brand-800 shadow' : 'text-brand-200');
         }}
         const pane = document.getElementById('tab-' + t);
         if (pane) pane.classList.toggle('hidden', t !== tab);
@@ -221,14 +253,13 @@ def build_html(items: list[dict], last_updated: str) -> str:
         const btn = document.getElementById('btn-' + m);
         if (btn) {{
           btn.className = 'filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors ' +
-            (m === mode ? 'bg-white text-amber-900' : 'bg-amber-800 text-amber-200');
+            (m === mode ? 'bg-white text-brand-800' : 'bg-brand-700 text-brand-200');
         }}
       }});
       applyFilter();
     }}
 
     function applyFilter() {{
-      // 表示中のタブのカードのみフィルタリング・カウント対象にする
       const activePane = document.getElementById('tab-' + currentTab);
       if (!activePane) return;
       let shown = 0;
@@ -275,8 +306,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
           if (btn) btn.innerHTML = '投稿済み ✓';
         }}
       }});
-      setTab('news');         // デフォルトはニュースタブ
-      setFilter('unposted');  // デフォルトは未投稿フィルター
+      setTab('news');
+      setFilter('unposted');
     }}
 
     if ('serviceWorker' in navigator) {{
@@ -300,8 +331,8 @@ MANIFEST = {
     "description": "仏像関連ニュース・特別公開情報の投稿管理ダッシュボード",
     "start_url": "./",
     "display": "standalone",
-    "background_color": "#fffbeb",
-    "theme_color": "#92400e",
+    "background_color": "#e6f9f7",
+    "theme_color": "#00AE95",
     "lang": "ja",
     "icons": [
         {"src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
@@ -309,7 +340,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v1';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v2';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -321,7 +352,6 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = e.request.url;
-  // news.json はネットワーク優先（最新データを取得）、失敗時はキャッシュ
   if (url.includes('/data/news.json')) {
     e.respondWith(
       fetch(e.request).then(res => {
@@ -332,7 +362,6 @@ self.addEventListener('fetch', e => {
     );
     return;
   }
-  // その他はキャッシュ優先
   e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
 });
 """
@@ -344,7 +373,6 @@ self.addEventListener('fetch', e => {
 
 
 def main() -> None:
-    # news.json 読み込み
     if NEWS_JSON_FILE.exists():
         with NEWS_JSON_FILE.open("r", encoding="utf-8") as f:
             data = json.load(f)
@@ -360,22 +388,17 @@ def main() -> None:
     icons_dir = DOCS_DIR / "icons"
     icons_dir.mkdir(exist_ok=True)
 
-    # index.html
-    html = build_html(items, last_updated)
-    (DOCS_DIR / "index.html").write_text(html, encoding="utf-8")
+    (DOCS_DIR / "index.html").write_text(build_html(items, last_updated), encoding="utf-8")
     print("生成: docs/index.html")
 
-    # manifest.json
     (DOCS_DIR / "manifest.json").write_text(
         json.dumps(MANIFEST, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     print("生成: docs/manifest.json")
 
-    # sw.js
     (DOCS_DIR / "sw.js").write_text(SERVICE_WORKER, encoding="utf-8")
     print("生成: docs/sw.js")
 
-    # PWA アイコン（単色 PNG）
     for size in (192, 512):
         path = icons_dir / f"icon-{size}.png"
         path.write_bytes(create_solid_png(size, ICON_COLOR))

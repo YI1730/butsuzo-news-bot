@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#92400e">
+  <meta name="theme-color" content="#00AE95">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="仏像ニュース">
@@ -11,6 +11,29 @@
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
   <title>仏像ニュース ダッシュボード</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#e6f9f7',
+              100: '#ccf3ee',
+              200: '#99e7de',
+              300: '#66dbce',
+              400: '#33cfbe',
+              500: '#00AE95',
+              600: '#008e78',
+              700: '#006e5c',
+              800: '#004e41',
+              900: '#002e26',
+              950: '#001812',
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
     body { -webkit-tap-highlight-color: transparent; }
     .card.is-posted { opacity: 0.45; }
@@ -21,20 +44,20 @@
     }
   </style>
 </head>
-<body class="bg-amber-50 min-h-screen pb-8">
+<body class="bg-brand-50 min-h-screen pb-8">
 
   <!-- ヘッダー -->
-  <header class="bg-amber-900 text-white px-4 pt-safe-top sticky top-0 z-20 shadow-lg">
+  <header class="bg-brand-600 text-white px-4 pt-safe-top sticky top-0 z-20 shadow-lg">
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-amber-300 mt-0.5">更新: 5月2日 12:05</p>
+        <p class="text-xs text-brand-200 mt-0.5">更新: 5月2日 12:05</p>
       </div>
-      <span id="count" class="text-xs bg-amber-700 text-amber-100 px-2 py-1 rounded-full font-medium">0件</span>
+      <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
 
     <!-- タブ切替（セグメント形式） -->
-    <div class="max-w-xl mx-auto bg-amber-950 p-1 rounded-xl flex gap-1">
+    <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
         class="tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors">
         📰 ニュース<span class="text-xs opacity-60 ml-1">20</span>
@@ -53,16 +76,16 @@
         class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">すべて</button>
       <button onclick="setFilter('posted')" id="btn-posted"
         class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">投稿済み</button>
-      <button onclick="resetAll()" class="ml-auto text-xs text-amber-400 underline">リセット</button>
+      <button onclick="resetAll()" class="ml-auto text-xs text-brand-300 underline">リセット</button>
     </div>
   </header>
 
   <!-- カードリスト（タブごとに分離） -->
   <main class="px-4 py-4 max-w-xl mx-auto">
     <div id="tab-news" class="tab-pane space-y-3">
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="1810d92a7fae">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="1810d92a7fae">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:05</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大黒天像３年ぶりに特別御開帳 鷲子山上神社（とちぎテレビ） - Yahoo!ニュース</p>
@@ -77,9 +100,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="1c6035e6f59d">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="1c6035e6f59d">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:05</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">“7年に一度のご開帳” 弘法大師が彫ったとされる菩薩像 4月4日（土）・5日（日）に 三重・桑名市「徳蓮寺」 - 日テレNEWS NNN</p>
@@ -94,9 +117,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="2597cbc27631">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="2597cbc27631">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:04</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">仏像模型の謎…県が500万円で製作、行方不明 知事も「確認中」 [広島県] - 朝日新聞</p>
@@ -111,9 +134,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="545c5a018d17">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="545c5a018d17">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:04</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">【プレビュー】「ガンダーラの仏像と仏伝一釈尊のすがた一」半蔵門ミュージアムで5月23日から 仏像誕生の地・ガンダーラで表現された崇高な釈尊の姿に迫る - 美術展ナビ</p>
@@ -128,9 +151,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="8c38b83738c4">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="8c38b83738c4">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:04</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">コンセプトは「善光寺から、はじまる」 御開帳向けポスターデザイン発表 - 信濃毎日新聞デジタル</p>
@@ -145,9 +168,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="eef4c7744b9a">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="eef4c7744b9a">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:04</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">佐々木聖子さん（2）少女期は音楽や仏像に浸る - 日本経済新聞</p>
@@ -162,9 +185,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="47857f76e738">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="47857f76e738">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:04</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">これぞ「豊川」発掘へ 豊川稲荷の御開帳に合わせJCが募集 - 東愛知新聞</p>
@@ -179,9 +202,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="bd22d2a5467c">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="bd22d2a5467c">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:04</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">基山町 大興善寺で 本尊の「秘仏」が１２年に１度のご開帳 - NHKニュース</p>
@@ -196,9 +219,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="de0ecbeb33ff">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="de0ecbeb33ff">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:04</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">創建１３００年 柳津虚空蔵尊で新たに制作された「前立本尊」特別御開帳に多くの参拝者〈宮城・登米市〉（仙台放送） - Yahoo!ニュース</p>
@@ -213,9 +236,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="5ab78fef86a5">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="5ab78fef86a5">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 12:04</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">とにかく、たくさん仏像が見たいならココ！ 京都駅近くの龍谷ミュージアム 「特殊」な仏像の手にも注目 - 京都新聞デジタル</p>
@@ -230,9 +253,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="8078e5d4bf30">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="8078e5d4bf30">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">長野市・善光寺の御開帳 公式ポスター発表 コンセプトは「善光寺から、はじまる」外国人観光客にもアピール！ローマ字表記も 来年4月4日から77日間【長野】 - 日テレNEWS NNN</p>
@@ -247,9 +270,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="4db450eef08c">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="4db450eef08c">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">浜松市三ヶ日・摩訶耶寺の秘仏「正観世音菩薩」、５月特別ご開帳 高野山真言宗の古刹、開創１３００年を記念 - 静岡新聞DIGITAL</p>
@@ -264,9 +287,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e500b9b2c973">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e500b9b2c973">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">秩父宿、「御宿印」を宿泊客へ 銘仙柄の切り絵、札所総開帳に合わせ（みんなの経済新聞ネットワーク） - Yahoo!ニュース</p>
@@ -281,9 +304,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="907310ae21e8">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="907310ae21e8">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">佐賀・基山町の大興善寺で12年ぶり秘仏開帳 本尊の「十一面観世音菩薩」 - 47NEWS</p>
@@ -298,9 +321,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="ab8a61dc433c">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="ab8a61dc433c">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">小山・泉龍寺で24年に１度の御開帳 鎌倉時代からの秘仏「乙女不動尊」 29日まで - 下野新聞社</p>
@@ -315,9 +338,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="bd69fe7553a7">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="bd69fe7553a7">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:39</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">唐招提寺 千手観音菩薩立像：六田知弘の古仏巡礼 - nippon.com</p>
@@ -332,9 +355,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="d4a8a48e0dbf">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="d4a8a48e0dbf">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:39</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">秘仏の本尊が一斉に…三浦三十三観音、１２年に１度の本開帳 １８日から - カナロコ</p>
@@ -349,9 +372,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="9f9d42bde3e4">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="9f9d42bde3e4">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:39</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">滋賀県草津市の国史跡の寺院が5月4、5日に一般公開 普段は見られぬ重文の仏像も里帰り - 京都新聞デジタル</p>
@@ -366,9 +389,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="74ce26ee2622">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="74ce26ee2622">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:39</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">国宝の秘仏七つ17、18日大阪で開帳 春のおでかけ先にいかが [大阪府] - 朝日新聞</p>
@@ -383,9 +406,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="79ff65f3993f">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="79ff65f3993f">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:39</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">【次回の日曜美術館】「秘仏・蔵王権現降臨」 Ｅテレ 5月3日朝放送 - 美術展ナビ</p>
@@ -402,9 +425,9 @@
     </div>
     </div>
     <div id="tab-other" class="tab-pane space-y-3 hidden">
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="c06da7d703dd">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="c06da7d703dd">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🙏 奈良秘仏</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🙏 奈良秘仏</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">開催中奈良エリア京都府木津川市加茂町西小札場40浄瑠璃寺三重塔初層開扉・薬師如来坐像毎月8日三重塔〈国宝〉の薬師如来坐像（重文）が特別に公開されます。※好天の日に限る。催事場：浄瑠璃寺　三重塔</p>
@@ -419,9 +442,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="590a99863ed2">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="590a99863ed2">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">⛩ 京都特別公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">⛩ 京都特別公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">令和7年度 京都非公開文化財特別公開｜そうだ 京都、行こう。 日程2025年11月1日（土）～12日（水）住所京都市上京区新町通上立売上ル安楽小路町425アクセス地下鉄烏丸線「今出川駅」下車徒歩約10分場所光照院門跡</p>
@@ -436,9 +459,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="6050d73e266d">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="6050d73e266d">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">神奈川県立金沢文庫 特別展「集まれ！ 金沢文庫の生き物たち（仮）」（3月27日~5月16日）</p>
@@ -453,9 +476,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="a81e7e807e70">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="a81e7e807e70">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">埼玉県立歴史と民俗の博物館 美術特集展示「信仰を形に－仏教彫刻と慈光寺経－」（3月9日）</p>
@@ -470,9 +493,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="8de69c8ae6fd">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="8de69c8ae6fd">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">和歌山県立博物館 企画展「きのくに工芸のきらめき」（2月27日~4月11日）</p>
@@ -487,9 +510,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="3ab84a0c097e">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="3ab84a0c097e">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">愛媛県歴史文化博物館 特別展「江戸時代　四国遍路の旅－「遍路日記」の世界－」（2月20日~4月5日）</p>
@@ -504,9 +527,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="cbd9cfd6dba8">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="cbd9cfd6dba8">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">奈良国立博物館 「（2月6日~3月14日）</p>
@@ -521,9 +544,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="0212cdb56c93">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="0212cdb56c93">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">根津美術館 企画展「根津美術館の仏像コレクション」（1月30日~3月28日）</p>
@@ -538,9 +561,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="7726d5e95538">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="7726d5e95538">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">岐阜県博物館 開館50周年記念企画展「けんぱく推しセレクション」（1月30日~3月22日）</p>
@@ -555,9 +578,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="59e6cd2f3256">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="59e6cd2f3256">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">九州歴史資料館 企画展「福岡の寺社絵図（仮）</p>
@@ -572,9 +595,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="716177c229ef">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="716177c229ef">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">山梨県立博物館 シンボル展「大善寺不動明王像－現代に伝わる巨大絵画　二幅同時公開－」（1月23日~3月23日）</p>
@@ -589,9 +612,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="287b03236cc2">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="287b03236cc2">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">神奈川県立金沢文庫 特別展「禅籍の精華－建仁寺両足院の学問－（仮）」（1月22日~3月22日）</p>
@@ -606,9 +629,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="32411a939d07">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="32411a939d07">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">栗東歴史民俗博物館 特集展示「大宝神社展」（1月9日~2月23日）</p>
@@ -623,9 +646,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="8f407a00ca97">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="8f407a00ca97">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">龍谷大学龍谷ミュージアム シリーズ展「仏教の思想と文化－インドから日本へ－　特集展示：インド細密画の神やほとけたち－畠中光享コレクション－（仮称）」（1月9日~2月21日）</p>
@@ -640,9 +663,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="884126123dc5">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="884126123dc5">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">徳川美術館 企画展「古写経　祈りの美」（1月5日~1月31日）</p>
@@ -657,9 +680,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="b542ef610f15">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="b542ef610f15">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">和歌山県立博物館 企画展「海南の古刹 願成寺」（12月19日~2月14日）</p>
@@ -674,9 +697,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="45d8cb24929a">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="45d8cb24929a">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">サントリー美術館 「法華経の美術（仮称）」（12月12日~2月7日）</p>
@@ -691,9 +714,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="5be48ffce197">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="5be48ffce197">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">静嘉堂文庫美術館 「THE MASKS　仮面に魅せられた人々」前期11/21～12/20・後期12/22～1/17（11月21日~1月17日）</p>
@@ -708,9 +731,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="06c5a4dd8054">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="06c5a4dd8054">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">神奈川県立金沢文庫（11月20日~1月17日）</p>
@@ -725,9 +748,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="f0074c00f881">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="f0074c00f881">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">出光美術館（門司） 「神々のすがた－縁起絵巻から仙厓･放菴まで－」（11月3日~12月19日）</p>
@@ -742,9 +765,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="4943bd87b2e6">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="4943bd87b2e6">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">栗東歴史民俗博物館 特別展「栗東町文化財保護条例制定70年展」（11月3日~12月19日）</p>
@@ -759,9 +782,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="4b48a2d180c7">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="4b48a2d180c7">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">奈良国立博物館</p>
@@ -776,9 +799,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="918164f35412">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="918164f35412">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">半蔵門ミュージアム 特別展「足利樺崎寺と運慶－二体の大日如来像－」（10月24日~12月20日）</p>
@@ -793,9 +816,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="7fed10e47247">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="7fed10e47247">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大和文華館 特別展「地上の天堂　杭州と呉越国－渡海する信仰と美－」（10月24日~12月6日）</p>
@@ -810,9 +833,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="a30ddc64d62e">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="a30ddc64d62e">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">鎌倉国宝館 特別展「瑞泉寺七百年」（10月24日~12月6日）</p>
@@ -827,9 +850,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="7c14620313f7">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="7c14620313f7">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">MOA美術館 「伊豆の仏像　パート１」（10月23日~12月13日）</p>
@@ -844,9 +867,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="787ad6e01f81">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="787ad6e01f81">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">神奈川県立歴史博物館 特別展「入門！神奈川県立歴史博物館－県博の守り伝えていくコレクション－」（10月17日~12月13日）</p>
@@ -861,9 +884,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="fbb95215c3b2">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="fbb95215c3b2">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">福井県立若狭歴史博物館 特別展「戦国の若狭と京極家の女性たち－常高院とキリスト教と若狭の1600年－」（10月17日~11月15日）</p>
@@ -878,9 +901,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="946da084dc70">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="946da084dc70">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">和歌山県立博物館 企画展「くらひらく－博物館の蔵仕事事例集－」</p>
@@ -895,9 +918,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="b6eaee2ed52f">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="b6eaee2ed52f">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">浜松市美術館 館蔵品展示3「はまびのみほとけ－中国・朝鮮の金銅仏から新収蔵の平安仏まで－」（10月10日~12月6日）</p>
@@ -912,9 +935,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="4e30c4a803d1">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="4e30c4a803d1">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">浜松市美術館 「みほとけのキセキⅢ－三・遠・駿　神仏オールスター☆－」（10月10日~12月6日）</p>
@@ -929,9 +952,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="2ebcadd0f293">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="2ebcadd0f293">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大津市歴史博物館 企画展「未来へつなぐ　大津のたから－大津の文化財保護60年のあゆみ－」（10月10日~11月23日）</p>
@@ -946,9 +969,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e74468be8d9c">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e74468be8d9c">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">広島県立歴史博物館 （ふくやま草戸千軒ミュージアム）企画展「大本山佛通寺展」（10月9日~11月29日）</p>
@@ -963,9 +986,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="3d2235de863b">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="3d2235de863b">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">熊本県立美術館 特別展「熊本地震から10年　仏像　国宝×肥後仏」（10月9日~11月29日）</p>
@@ -980,9 +1003,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="0103b4b2d523">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="0103b4b2d523">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">永青文庫 「永青文庫の禅画PartⅠ　白隠ワールド」（10月3日~11月29日）</p>
@@ -997,9 +1020,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="694b23cc926c">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="694b23cc926c">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大分県立歴史博物館 開館45周年記念特別展「ほとけのいますところ」（10月2日~11月15日）</p>
@@ -1014,9 +1037,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="727251627abf">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="727251627abf">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">MIHO MUSEUM 特別展「百済寺（仮称）」（9月26日~12月6日）</p>
@@ -1031,9 +1054,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="395c8d052f6a">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="395c8d052f6a">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">龍谷大学龍谷ミュージアム 「東三河の普門寺さん－1300年の至宝－」（9月19日~11月23日）</p>
@@ -1048,9 +1071,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="0671d28c4f73">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="0671d28c4f73">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">仙台市博物館 特別展「東北　珠玉の仏教絵画（仮）」（9月18日~11月8日）</p>
@@ -1065,9 +1088,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="140b70cef0e9">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="140b70cef0e9">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">神奈川県立金沢文庫 特別展「国宝でよみとく奇珍異宝（仮）」（9月18日~11月8日）</p>
@@ -1082,9 +1105,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="3fb10de46e3f">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="3fb10de46e3f">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">東京都江戸東京博物館 特別展「豊臣兄弟！」（9月15日~11月8日）</p>
@@ -1099,9 +1122,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="cef91f186ba4">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="cef91f186ba4">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">五島美術館 「秋の優品展　唐草文の美」（9月5日~10月12日）</p>
@@ -1116,9 +1139,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="490be4be637d">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="490be4be637d">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">東京国立博物館 親と子のギャラリー「この顔どんな顔？能面のあらわすきもち」（9月1日~10月25日）</p>
@@ -1133,9 +1156,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="d876e2714c86">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="d876e2714c86">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">香川県立ミュージアム 「おとろしいもん－「こわい」をめぐる歴史と美術」（8月1日~10月4日）</p>
@@ -1150,9 +1173,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="47fecdca884e">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="47fecdca884e">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">福井県立若狭歴史博物館 テーマ展「ほとけをかざる－仏教荘厳の世界－」（8月1日~8月30日）</p>
@@ -1167,9 +1190,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="41b9e1307860">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="41b9e1307860">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大倉集古館 企画展「祈りと救いの美－国宝 普賢菩薩騎象像との出会い－」（7月24日~10月19日）</p>
@@ -1184,9 +1207,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="300f87c42778">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="300f87c42778">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">もりおか歴史文化館 テーマ展「よみがえる文化財」（7月24日~10月19日）</p>
@@ -1201,9 +1224,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="358db20ee757">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="358db20ee757">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">福田美術館 「幸せになりたい！－祈りの絵画－」（7月18日~9月6日）</p>
@@ -1218,9 +1241,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e940e956597d">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e940e956597d">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">栗東歴史民俗博物館 企画展「『近江栗太郡志』刊行100周年記念展」（7月18日~8月30日）</p>
@@ -1235,9 +1258,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="09d1e4c412ad">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="09d1e4c412ad">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">中尊寺讃衝蔵秘仏堂 「秘佛御開帳一字金輪佛頂尊」（7月17日~11月15日）</p>
@@ -1252,9 +1275,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="41484d4191bc">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="41484d4191bc">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">遠野市立博物館 特別展「遠野物語とオシラサマ」（7月17日~9月27日）</p>
@@ -1269,9 +1292,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="26bb2724b4e2">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="26bb2724b4e2">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">東京国立博物館</p>
@@ -1286,9 +1309,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="95b423312b2b">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="95b423312b2b">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">京都国立博物館 特集展示「埋納（アンダーグラウンド）－地下に願いを－」（7月14日~9月6日）</p>
@@ -1303,9 +1326,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="407d2dea75c1">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="407d2dea75c1">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">永青文庫 「大名家の狂言道具コレクション」（7月11日~9月6日）</p>
@@ -1320,9 +1343,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="87bbb88e6806">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="87bbb88e6806">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">長野県立歴史館 企画展「戸隠の至宝－守り継がれた信仰と由緒－」（7月11日~8月23日）</p>
@@ -1337,9 +1360,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="f85097a03bf7">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="f85097a03bf7">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">龍谷大学龍谷ミュージアム シリーズ展「仏教の思想と文化－インドから日本へ－　特集展示：仏教美術の聖なる怪物」（7月11日~8月16日）</p>
@@ -1354,9 +1377,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="8e27d3b905d4">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="8e27d3b905d4">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大阪歴史博物館 特別展「豊臣兄弟！」（7月8日~8月31日）</p>
@@ -1371,9 +1394,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="ed16a978b870">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="ed16a978b870">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">九州国立博物館 特集展示「九州渡来仏」（7月7日~8月30日）</p>
@@ -1388,9 +1411,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e1c89598ccc5">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e1c89598ccc5">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">三井記念美術館 特別展「京都・真如堂の名宝」（7月4日~8月30日）</p>
@@ -1405,9 +1428,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="750285a1c387">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="750285a1c387">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">なら歴史芸術文化村 修理完成記念「ほとけさまとしゅうり」（7月4日~8月16日）</p>
@@ -1422,9 +1445,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="b4098dddc691">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="b4098dddc691">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">徳川美術館 企画展「お能、はじめまして。」（6月25日~7月20日）</p>
@@ -1439,9 +1462,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="09f2c15b67d7">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="09f2c15b67d7">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">東京国立博物館 特集「</p>
@@ -1456,9 +1479,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="de3ce5f7de73">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="de3ce5f7de73">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">岩手県立博物館 企画展「すこやかであるために－円環する生・老・病・死－」（6月20日~8月16日）</p>
@@ -1473,9 +1496,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="cc8ce5c305c9">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="cc8ce5c305c9">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">彦根城博物館 テーマ展「「天下一」の面打－名工の技 幽玄の美－」（6月18日~7月20日）</p>
@@ -1490,9 +1513,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="fd3f3ad8b7fb">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="fd3f3ad8b7fb">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">高岡の森弘前藩歴史館 企画展「津軽信政と高照神社」（6月17日~8月30日）</p>
@@ -1507,9 +1530,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="3dbf179d8f79">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="3dbf179d8f79">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">福岡市美術館 コレクション展示（古美術）「松永耳庵と仏教美術」（6月2日~8月9日）</p>
@@ -1524,9 +1547,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="03e2c47c5032">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="03e2c47c5032">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大津市歴史博物館</p>
@@ -1541,9 +1564,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="020041d2697a">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="020041d2697a">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">根津美術館 企画展「はじめての古美術鑑賞－美術のなかの文字－」</p>
@@ -1558,9 +1581,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="4d6a3be9b73f">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="4d6a3be9b73f">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">九州国立博物館 特集展示「科学の眼でみる遼の金工品」（5月26日~7月20日）</p>
@@ -1575,9 +1598,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="458e4f31d704">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="458e4f31d704">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">半蔵門ミュージアム</p>
@@ -1592,9 +1615,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="9732d759e641">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="9732d759e641">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">神奈川県立金沢文庫 特別展「いわきの古刹 長福寺と薬王寺－東海興律・密教研鑽－」（5月22日~7月20日）</p>
@@ -1609,9 +1632,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="d26c07bc77a9">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="d26c07bc77a9">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">霞会館記念学習院ミュージアム 特別企画展「伊勢の名刹 専修寺－寺宝からみる公家文化－」（5月22日~6月13日）</p>
@@ -1626,9 +1649,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="c96523f43763">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="c96523f43763">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">光源寺 (東住吉区東田辺2-21-3)「大阪の歴史再発見 非公開文化財の特別公開　光源寺阿弥陀如来立像」（5月6日）</p>
@@ -1643,9 +1666,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e91d8d30b526">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e91d8d30b526">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">智積院展示収蔵庫宝物館 企画展「智積院境内の変遷－荘厳の美－」（4月25日~7月12日）</p>
@@ -1660,9 +1683,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="3bcd20b8aa26">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="3bcd20b8aa26">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">藤田美術館</p>
@@ -1677,9 +1700,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="d533f3afa392">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="d533f3afa392">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">春日大社国宝殿 「重要文化財指定　競馬図屏風と馬の美術」「豊臣兄弟と春日大社」（4月25日~7月12日）</p>
@@ -1694,9 +1717,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="aa51851e5859">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="aa51851e5859">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">泉屋博古館東京 特集展示「住友財団助成による文化財修復成果　文化財よ、永遠に2026」（4月25日~7月5日）</p>
@@ -1711,9 +1734,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="703796c97fe5">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="703796c97fe5">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">上淀白鳳の丘展示館 企画展「国史跡 上淀廃寺の美を読み解く展　入門編」（4月25日~6月28日）</p>
@@ -1728,9 +1751,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="7def29de6657">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="7def29de6657">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">三重県総合博物館 企画展「まつりを旅する　受け継いできた三重の宝もの」（4月25日~6月21日）</p>
@@ -1745,9 +1768,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="a9a7a14f26ff">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="a9a7a14f26ff">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">静岡県立美術館 開館40周年記念「静岡県立美術館をひらく 7つの扉」（4月25日~6月21日）</p>
@@ -1762,9 +1785,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="d9fffa49cba9">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="d9fffa49cba9">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大阪市立美術館</p>
@@ -1779,9 +1802,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="95e11bdc3e98">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="95e11bdc3e98">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">神戸市立博物館 「神戸百華－コレクションが開く神戸の魅力－」（4月25日~6月14日）</p>
@@ -1796,9 +1819,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="905c0e722dbd">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="905c0e722dbd">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">東大寺ミュージアム 開館15周年記念リレー展示「八宗兼学の寺　第4弾　鑑真和上と律・天台」（4月25日~6月8日）</p>
@@ -1813,9 +1836,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="5ab3f3188106">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="5ab3f3188106">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">なら歴史芸術文化村 修理完成記念「仁王さんと當麻曼荼羅」（4月25日~6月7日）</p>
@@ -1830,9 +1853,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="fb421a91b4cc">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="fb421a91b4cc">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">京都文化博物館 「令和8年 新指定 国宝・重要文化財」（4月25日~5月17日）</p>
@@ -1847,9 +1870,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="aaf5e50a4742">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="aaf5e50a4742">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">法隆寺大宝蔵殿 特別展「戦国争乱期の法隆寺－秀長とその時代－」（4月24日~6月14日）</p>
@@ -1864,9 +1887,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="23c792df52b4">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="23c792df52b4">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">岡山県立博物館 テーマ展「弘法寺 踟供養面」（4月24日~6月7日）</p>
@@ -1881,9 +1904,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="b8224e03c34c">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="b8224e03c34c">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">井原市立平櫛田中美術館 「写実－仏像、ロダン、そして鏡獅子－」（4月21日~7月5日）</p>
@@ -1898,9 +1921,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="4952107e73b0">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="4952107e73b0">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">九州国立博物館</p>
@@ -1915,9 +1938,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="05a6192fd365">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="05a6192fd365">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">西大寺聚宝館 「聚宝館特別公開」（4月20日~5月10日）</p>
@@ -1932,9 +1955,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="82e70abd0281">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="82e70abd0281">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">太宰府市文化ふれあい館 開館30周年記念展「知っとう？太宰府のたからもの－市内の指定文化財－」（4月18日~7月12日）</p>
@@ -1949,9 +1972,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="5e1f90bda8d0">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="5e1f90bda8d0">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">府中市郷土の森博物館 企画展「江戸時代の冠婚葬祭　誕生から供養まで」（4月18日~7月5日）</p>
@@ -1966,9 +1989,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="c322e797a913">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="c322e797a913">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">高野山霊宝館 企画展「御社遷宮にちなみたどる　高野山の神々」（4月18日~7月5日）</p>
@@ -1983,9 +2006,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="a4cc66099625">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="a4cc66099625">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">米沢市上杉博物館 開館25周年記念特別展「上杉謙信と川中島合戦」（4月18日~6月21日）</p>
@@ -2000,9 +2023,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="37793e068a3f">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="37793e068a3f">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">比叡山国宝殿 企画展「比叡物語－名宝で語る信仰と歴史－」（4月18日~6月15日）</p>
@@ -2017,9 +2040,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="0b27fd3f6f87">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="0b27fd3f6f87">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">龍谷大学龍谷ミュージアム 「京都・真如堂の名宝」（4月18日~6月14日）</p>
@@ -2034,9 +2057,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="2df9c2b7a700">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="2df9c2b7a700">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">名古屋市蓬左文庫</p>
@@ -2051,9 +2074,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="1b9c1270c6d3">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="1b9c1270c6d3">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">徳川美術館 ・名古屋市蓬左文庫特別展「豊臣兄弟！」（4月18日~6月14日）</p>
@@ -2068,9 +2091,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="cc30795c9859">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="cc30795c9859">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">あわら市郷土歴史資料館 「集まれ、地域のお宝狛犬！」（4月18日~5月17日）</p>
@@ -2085,9 +2108,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="387c6765d1d7">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="387c6765d1d7">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">下関市立歴史博物館 企画展「壇ノ浦の合戦と阿弥陀寺・赤間宮」（4月17日~7月5日）</p>
@@ -2102,9 +2125,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="49711daee21f">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="49711daee21f">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">京都市歴史資料館 特別展「真如堂の歴史と信仰」（4月11日~6月21日）</p>
@@ -2119,9 +2142,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e51f92087c58">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e51f92087c58">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大東市立歴史民俗資料館 「野崎まいりと野崎観音慈眼寺の刷物」（4月11日~6月7日）</p>
@@ -2136,9 +2159,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e950af0ed959">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e950af0ed959">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">法隆寺 「夢殿本尊救世観音像特別開扉」（4月11日~5月18日）</p>
@@ -2153,9 +2176,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="18be2dbee11f">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="18be2dbee11f">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">奈良国立博物館 特別展「神仏の山 吉野・大峯－蔵王権現に捧げた祈りと美－」（4月10日~6月7日）</p>
@@ -2170,9 +2193,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="aa33bb7f7a54">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="aa33bb7f7a54">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">群馬県立歴史博物館 特別展「金井沢碑建立1300年記念 金井沢碑－1300年の時を超えたメッセージ－」（4月10日~6月7日）</p>
@@ -2187,9 +2210,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="748d95c3956c">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="748d95c3956c">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">本間美術館 「受け継がれる文化財」</p>
@@ -2204,9 +2227,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="47de014329be">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="47de014329be">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">今治市玉川近代美術館 春の特別公開「国宝伊予国奈良原山経塚出土品」（4月7日~5月6日）</p>
@@ -2221,9 +2244,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="7dbd55441bc4">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="7dbd55441bc4">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">花園大学歴史博物館 「揮灑－近世妙心寺の禅匠－」（4月6日~8月2日）</p>
@@ -2238,9 +2261,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="8cd5ec713d12">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="8cd5ec713d12">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">高浜町郷土資料館 「子生区・金蔵寺 秘仏千手観音像特別公開展」（4月6日~5月24日）</p>
@@ -2255,9 +2278,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="ea3b157f4505">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="ea3b157f4505">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">泉屋博古館 特別展「住友財団文化財維持・修復事業助成の成果　文化財よ、永遠に2026－次代につなぐ技とひと－」（4月4日~6月28日）</p>
@@ -2272,9 +2295,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="570e8b653a97">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="570e8b653a97">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">井原市文化財センター古代まほろば館 企画展「天部像を知る－仏の守護神たち－」（4月4日~5月17日）</p>
@@ -2289,9 +2312,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="30e073eaeb2e">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="30e073eaeb2e">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">吉崎御坊蓮如上人記念館 特別展「船乗りたちは何を拝んだのか」（4月1日~9月28日）</p>
@@ -2306,9 +2329,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="f00cf1a08e03">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="f00cf1a08e03">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">高崎市榛名歴史民俗資料館 ミニ企画展「榛名神社丙午還暦大祭の資料展」（4月1日~5月31日）</p>
@@ -2323,9 +2346,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="281d6370e2ee">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="281d6370e2ee">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">鹿児島県歴史・美術センター黎明館</p>
@@ -2340,9 +2363,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="5f6a3926c9b9">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="5f6a3926c9b9">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">臼杵市歴史資料館 特別企画展「臼杵のお寺に伝わる宝もの」</p>
@@ -2357,9 +2380,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="6fdc442f13a1">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="6fdc442f13a1">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">相国寺承天閣美術館 「相国寺の近代」（3月28日~5月17日）</p>
@@ -2374,9 +2397,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="c600649015d3">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="c600649015d3">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大覚寺霊宝館 「大覚寺寺号勅許(開創)1150年記念　旧嵯峨御所大覚寺の名宝－守り伝えられてきた寺宝－」（3月27日~5月25日）</p>
@@ -2391,9 +2414,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="3b36e376cfc0">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="3b36e376cfc0">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">仁和寺霊宝館 「仁和寺と江戸の文化－時代を超えた輝き－」（3月27日~5月6日）</p>
@@ -2408,9 +2431,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="efbd97cb13d5">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="efbd97cb13d5">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">金峯山寺蔵王堂 「国宝仁王門大修理勧進　日本最大秘仏本尊特別ご開帳」（3月24日~5月6日）</p>
@@ -2425,9 +2448,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="048e348f62cd">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="048e348f62cd">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">早稲田大学会津八一記念博物館 企画展示「雲岡へのまなざし－小川晴暘が見つめた中国仏教遺跡－」（3月23日~5月31日）</p>
@@ -2442,9 +2465,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="0d9200fec238">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="0d9200fec238">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">川越市立博物館 収蔵品展「石でつくった！」（3月21日~5月24日）</p>
@@ -2459,9 +2482,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="0a7920fbf298">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="0a7920fbf298">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">倉吉博物館 「波波伎神社宮司船越家資料の世界」（3月20日~5月31日）</p>
@@ -2476,9 +2499,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="3dc54371f30b">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="3dc54371f30b">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">東寺宝物館 特別展「室町時代の東寺－庄園と東寺興隆－」（3月20日~5月25日）</p>
@@ -2493,9 +2516,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="3c5e0e7f740e">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="3c5e0e7f740e">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">神奈川県立金沢文庫 特別展「至高の宝蔵－金沢北条氏の残した国宝－」（3月20日~5月17日）</p>
@@ -2510,9 +2533,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="7f9f45a70c3a">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="7f9f45a70c3a">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">大分県立歴史博物館 企画展「れきはくコレクション2026」（3月20日~5月6日）</p>
@@ -2527,9 +2550,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="f76dae91bc45">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="f76dae91bc45">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">筑紫野市歴史博物館 「指定文化財修理完了記念　宝満山入峯絵巻の世界－宝満山と絵巻－」（3月20日~5月6日）</p>
@@ -2544,9 +2567,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="f7477f3a878c">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="f7477f3a878c">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">醍醐寺霊宝館 特別展「黄金に宿る　祈りと秀吉の夢」（3月20日~5月6日）</p>
@@ -2561,9 +2584,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="bab4bfffd51f">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="bab4bfffd51f">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">秩父札所 「午年総開帳」（3月18日~11月30日）</p>
@@ -2578,9 +2601,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="b45516bc991a">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="b45516bc991a">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">長谷寺宗宝蔵 「春季特別寺宝展」（3月14日~7月5日）</p>
@@ -2595,9 +2618,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="99e540565e63">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="99e540565e63">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">千葉県立中央博物館 トピックス展「式年神幸祭記念　香取神宮展」（3月14日~5月31日）</p>
@@ -2612,9 +2635,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="6654416d6b80">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="6654416d6b80">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">坂井市龍翔博物館 コレクション展「坂井の人びとの信仰」（3月14日~5月24日）</p>
@@ -2629,9 +2652,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e18946b34814">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e18946b34814">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">長谷寺観音ミュージアム 「女神と祈り、春の目覚め」（3月14日~5月10日）</p>
@@ -2646,9 +2669,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e17f3c1f1b9d">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e17f3c1f1b9d">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">山梨県立博物館 開館20周年記念特別展「山梨の禅宗文化」（3月14日~5月6日）</p>
@@ -2663,9 +2686,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="c1cff1940755">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="c1cff1940755">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">埼玉県立歴史と民俗の博物館 特別展「埼玉の宝物－人々が守り伝えた文化財－」（3月14日~5月6日）</p>
@@ -2680,9 +2703,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="cc2e1a708006">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="cc2e1a708006">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">海の見える杜美術館 「うみもりコレクション物語絵名品展　世にも美妙なものがたり」（3月14日~5月6日）</p>
@@ -2697,9 +2720,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="9695579b1878">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="9695579b1878">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">鹿児島県歴史・美術センター黎明館 企画展「中世武士の戦いと生活」（3月12日~5月31日）</p>
@@ -2714,9 +2737,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="aafc7f83dd51">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="aafc7f83dd51">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">福井県立歴史博物館 企画展「阿弥陀さまのすがた－福井 仏教美術の名品から－」（3月12日~5月6日）</p>
@@ -2731,9 +2754,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="25a76ae9792d">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="25a76ae9792d">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">埼玉県立歴史と民俗の博物館（3月10日~5月31日）</p>
@@ -2748,9 +2771,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="fa6ae0e00b47">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="fa6ae0e00b47">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">埼玉県立歴史と民俗の博物館 美術特集展示「仏教の美術」（3月10日~5月31日）</p>
@@ -2765,9 +2788,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="dcc4481601a7">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="dcc4481601a7">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">宮代町郷土資料館 企画展「社寺札に見る信仰」（3月7日~5月5日）</p>
@@ -2782,9 +2805,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="727ada945b25">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="727ada945b25">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">浜名梱包輸送シルクロード・ミュージアム 「超人仏陀 BUDDHA THE HERO」（3月7日~6月28日）</p>
@@ -2799,9 +2822,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="5e2c98d0cd0a">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="5e2c98d0cd0a">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">四天王寺宝物館 「仏具の煌めき－寺院荘厳の美と信仰－」（3月7日~5月5日）</p>
@@ -2816,9 +2839,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="549c37ade530">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="549c37ade530">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">藤田美術館 「（3月1日~5月31日）</p>
@@ -2833,9 +2856,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="e8a08f4e04ea">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e8a08f4e04ea">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">高知県立歴史民俗資料館 企画展「歴民コレクションをひもとく－あつめる、つたえる－」（2月27日~5月17日）</p>
@@ -2850,9 +2873,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="482d32fb7622">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="482d32fb7622">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">石川県七尾美術館 「七美コレクションダイアリー　収蔵品でつづる30年」（2月21日~5月24日）</p>
@@ -2867,9 +2890,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="f66111178a87">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="f66111178a87">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">遊行寺宝物館 企画展「高僧達の軌跡」（2月21日~5月11日）</p>
@@ -2884,9 +2907,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="22cfc6d5ab7d">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="22cfc6d5ab7d">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">出雲弥生の森博物館 「須佐神社の本殿－文化財修理と棟札・古文書－」（2月14日~5月11日）</p>
@@ -2901,9 +2924,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="cebdb16de429">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="cebdb16de429">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">福井県立歴史博物館 写真展「福井の仏像－阿弥陀如来のすがた－」（2月13日~5月12日）</p>
@@ -2918,9 +2941,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="ab8f4b802d04">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="ab8f4b802d04">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">土岐市美濃焼伝統産業会館 「出張展示　美濃焼と土岐のものがたり－新博物館の展示を先取り！－」（2月7日~6月7日）</p>
@@ -2935,9 +2958,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="5a4f570874a1">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="5a4f570874a1">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">アーティゾン美術館 「カタリウム」（2月7日~5月24日）</p>
@@ -2952,9 +2975,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="95d52a3a78df">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="95d52a3a78df">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">埼玉県立川の博物館 企画展「巡礼者は秩父を目指す！－文献とモノから見つめ直す秩父札所の歴史－」（2月7日~5月6日）</p>
@@ -2969,9 +2992,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="6c6bc546d505">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="6c6bc546d505">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">多治見市文化財保護センター 企画展「神仏習合と里山伏」（2月2日~6月26日）</p>
@@ -2986,9 +3009,9 @@
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-amber-100 transition-opacity duration-300" data-item-id="aeb6bea73cd5">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="aeb6bea73cd5">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-amber-800 bg-amber-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
         <span class="text-xs text-gray-400 shrink-0">5月2日 08:40</span>
       </div>
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">上原美術館 企画展「東風吹かば 仏教東漸」（1月24日~5月18日）</p>
@@ -3016,7 +3039,7 @@
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {
           btn.className = 'tab-btn flex-1 py-1.5 text-sm font-bold rounded-lg transition-colors ' +
-            (t === tab ? 'bg-white text-amber-900 shadow' : 'text-amber-200');
+            (t === tab ? 'bg-white text-brand-800 shadow' : 'text-brand-200');
         }
         const pane = document.getElementById('tab-' + t);
         if (pane) pane.classList.toggle('hidden', t !== tab);
@@ -3031,14 +3054,13 @@
         const btn = document.getElementById('btn-' + m);
         if (btn) {
           btn.className = 'filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors ' +
-            (m === mode ? 'bg-white text-amber-900' : 'bg-amber-800 text-amber-200');
+            (m === mode ? 'bg-white text-brand-800' : 'bg-brand-700 text-brand-200');
         }
       });
       applyFilter();
     }
 
     function applyFilter() {
-      // 表示中のタブのカードのみフィルタリング・カウント対象にする
       const activePane = document.getElementById('tab-' + currentTab);
       if (!activePane) return;
       let shown = 0;
@@ -3085,8 +3107,8 @@
           if (btn) btn.innerHTML = '投稿済み ✓';
         }
       });
-      setTab('news');         // デフォルトはニュースタブ
-      setFilter('unposted');  // デフォルトは未投稿フィルター
+      setTab('news');
+      setFilter('unposted');
     }
 
     if ('serviceWorker' in navigator) {

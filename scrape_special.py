@@ -103,6 +103,23 @@ def fetch_html(url: str) -> str | None:
         return None
 
 
+def fetch_og_image(url: str) -> str:
+    """指定 URL のページから OGP / Twitter Card 画像 URL を取得する（失敗時は空文字）。"""
+    try:
+        resp = requests.get(
+            url, headers={"User-Agent": USER_AGENT}, timeout=8
+        )
+        soup = BeautifulSoup(resp.content[:200_000], "html.parser")
+        for prop in ("og:image", "twitter:image"):
+            for attr in ("property", "name"):
+                tag = soup.find("meta", attrs={attr: prop})
+                if tag and tag.get("content", "").startswith("http"):
+                    return tag["content"].strip()
+    except Exception:
+        pass
+    return ""
+
+
 def is_relevant(text: str) -> bool:
     if not text:
         return False
@@ -385,7 +402,7 @@ def main() -> int:
 
     print(f"取得アイテム数: {len(all_items)}")
 
-    # 新規アイテムのみ先頭に追記
+    # 新規アイテムのみ先頭に追記（OGP 画像も取得）
     added_count = 0
     for item in all_items:
         uid = item_id(item.get("url", ""), item["title"])
@@ -395,6 +412,14 @@ def main() -> int:
             continue
         item["id"] = uid
         item["fetched_at"] = datetime.now(JST).isoformat()
+        # 新規アイテムの OGP 画像を取得（URL がある場合のみ）
+        if item.get("url"):
+            image_url = fetch_og_image(item["url"])
+            item["image_url"] = image_url
+            if image_url:
+                print(f"  画像取得: {image_url[:60]}")
+        else:
+            item["image_url"] = ""
         data["items"].insert(0, item)
         existing_ids.add(uid)
         added_count += 1

@@ -12,6 +12,7 @@ from pathlib import Path
 
 import feedparser
 import requests
+from bs4 import BeautifulSoup
 
 try:
     from googlenewsdecoder import gnewsdecoder
@@ -82,6 +83,33 @@ def contains_excluded_keyword(text: str) -> bool:
     return any(keyword in text for keyword in EXCLUDE_KEYWORDS)
 
 
+def extract_og_image(content: bytes) -> str:
+    """HTML バイト列から OGP / Twitter Card 画像 URL を抽出する。"""
+    try:
+        soup = BeautifulSoup(content[:200_000], "html.parser")
+        for prop in ("og:image", "twitter:image"):
+            for attr in ("property", "name"):
+                tag = soup.find("meta", attrs={attr: prop})
+                if tag and tag.get("content", "").startswith("http"):
+                    return tag["content"].strip()
+    except Exception:
+        pass
+    return ""
+
+
+def fetch_og_image(url: str) -> str:
+    """指定 URL のページから OGP 画像 URL を取得する（失敗時は空文字）。"""
+    try:
+        resp = requests.get(
+            url,
+            headers={"User-Agent": RESOLVE_USER_AGENT},
+            timeout=8,
+        )
+        return extract_og_image(resp.content)
+    except Exception:
+        return ""
+
+
 def resolve_original_url(google_news_url: str) -> str:
     """Google News の RSS URL から配信元の最終 URL を取得する。"""
     if gnewsdecoder is not None:
@@ -149,6 +177,11 @@ def main() -> int:
         if uid in existing_ids:
             continue
 
+        # 新規アイテムのみ OGP 画像を取得
+        image_url = fetch_og_image(original_url)
+        if image_url:
+            print(f"  画像取得: {image_url[:60]}")
+
         data["items"].insert(0, {
             "id": uid,
             "title": title,
@@ -157,6 +190,7 @@ def main() -> int:
             "header": "【仏像速報】",
             "hashtags": "#仏像 #仏像ニュース",
             "fetched_at": datetime.now(JST).isoformat(),
+            "image_url": image_url,
         })
         existing_ids.add(uid)
         added_count += 1
