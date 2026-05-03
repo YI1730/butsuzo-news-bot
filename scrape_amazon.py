@@ -1,94 +1,99 @@
-"""Amazon Creators API を使って仏像関連商品（書籍・グッズ）の新着を取得し
+"""Amazon 検索結果をスクレイピングして仏像関連商品（書籍・グッズ）の新着を取得し
 docs/data/news.json に追記する。
 
-OAuth 2.0 Client Credentials grant でアクセストークンを取得し、
-SearchItems 相当のエンドポイントで商品を検索する。
+X API 不使用。API 認証不要。requests + BeautifulSoup による HTML スクレイピング。
 
-環境変数:
-  AMAZON_CLIENT_ID      OAuth Client ID
-  AMAZON_CLIENT_SECRET  OAuth Client Secret
-  AMAZON_STORE_ID       アソシエイトの Store ID（Partner Tag）
+検索対象 URL:
+  ① 書籍（新着順）:
+     https://www.amazon.co.jp/s?k=仏像&i=stripbooks&s=date-desc-rank
+  ② ホビー/グッズ（新着順）:
+     https://www.amazon.co.jp/s?k=仏像+-仏具+-神具&i=hobby&s=date-desc-rank
 
-注意:
-  Creators API の正式エンドポイント URL が不明なため、下記 CONFIG セクションの
-  TOKEN_URL / SEARCH_ENDPOINT は仮値です。実際の URL に書き換えてください。
+アソシエイトタグ: yoshikingnenj-22
 """
 
 from __future__ import annotations
 
-import base64
 import hashlib
 import json
-import os
+import re
 import sys
 import time
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 
 import requests
+from bs4 import BeautifulSoup
 
 # ===========================================================================
-# CONFIG — Creators API の実際の URL に合わせて以下を修正してください
+# 設定
 # ===========================================================================
 
-# OAuth トークンエンドポイント
-TOKEN_URL = "https://api.amazon.com/auth/o2/token"
+ASSOCIATE_TAG = "yoshikingnenj-22"
 
-# OAuth スコープ
-# ・デフォルト: "creator_api"（Creators API の推定スコープ名）
-# ・GitHub Secret AMAZON_OAUTH_SCOPE を設定することで上書き可能
-# ・他の候補例: "amazon_advertising:api" / "profile" / "sellingpartnerapi::catalog_items"
-_SCOPE_DEFAULT = "creator_api"
-OAUTH_SCOPE = os.environ.get("AMAZON_OAUTH_SCOPE", _SCOPE_DEFAULT).strip() or _SCOPE_DEFAULT
+# 書籍（stripbooks）: 新着順
+BOOK_URL = (
+    "https://www.amazon.co.jp/s"
+    "?k=%E4%BB%8F%E5%83%8F"
+    "&i=stripbooks"
+    "&s=date-desc-rank"
+)
 
-# 商品検索 API エンドポイント（Creators API の正式 URL に修正してください）
-SEARCH_ENDPOINT = "https://api.creator.amazon.com/v1/products/search"
-
-# Marketplace（日本: www.amazon.co.jp）
-MARKETPLACE = "www.amazon.co.jp"
-
-# ===========================================================================
-# スクレイパー設定
-# ===========================================================================
+# ホビー/グッズ（hobby）: 仏像 -仏具 -神具 新着順
+GOODS_URL = (
+    "https://www.amazon.co.jp/s"
+    "?k=%E4%BB%8F%E5%83%8F+-%E4%BB%8F%E5%85%B7+-%E7%A5%9E%E5%85%B7"
+    "&i=hobby"
+    "&s=date-desc-rank"
+)
 
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
 MAX_TOTAL_ITEMS = 500
-MAX_ITEMS_PER_QUERY = 10
 JST = timezone(timedelta(hours=9))
 
-REQUEST_TIMEOUT = 15
-SLEEP_BETWEEN_REQUESTS = 1.5
-
-USER_AGENT = "ButsuzoNewsBot/1.0 (+https://yi1730.github.io/butsuzo-news-bot/)"
+# リクエスト間隔（Amazon の負荷軽減・ブロック回避）
+SLEEP_BETWEEN_PAGES = 4
+SLEEP_BETWEEN_ITEMS = 0  # 検索結果ページは1リクエストで複数アイテム取得
 
 SOURCE_AMAZON = "amazon_goods"
 
-# 検索クエリ
-BOOK_KEYWORD  = "仏像"
-GOODS_KEYWORD = "仏像 -仏具 -神具"  # 信仰用品を除外
+# ===========================================================================
+# HTTP ヘッダー（ブラウザ偽装）
+# ===========================================================================
+# ※ Amazon は User-Agent 等を厳しく検査する。
+#    GitHub Actions の IP から連続アクセスすると CAPTCHA / 空結果になる場合がある。
+
+REQUEST_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/124.0.0.0 Safari/537.36"
+    ),
+    "Accept": (
+        "text/html,application/xhtml+xml,application/xml;"
+        "q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8"
+    ),
+    "Accept-Language": "ja-JP,ja;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Accept-Encoding": "gzip, deflate, br",
+    "DNT": "1",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "Cache-Control": "max-age=0",
+    "Referer": "https://www.amazon.co.jp/",
+    "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"macOS"',
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "same-origin",
+    "Sec-Fetch-User": "?1",
+}
+
+REQUEST_TIMEOUT = 20
 
 # ===========================================================================
-# 認証情報
-# ===========================================================================
-
-CLIENT_ID     = os.environ.get("AMAZON_CLIENT_ID", "").strip()
-CLIENT_SECRET = os.environ.get("AMAZON_CLIENT_SECRET", "").strip()
-STORE_ID      = os.environ.get("AMAZON_STORE_ID", "").strip()
-
-
-def check_credentials() -> bool:
-    missing = []
-    if not CLIENT_ID:     missing.append("AMAZON_CLIENT_ID")
-    if not CLIENT_SECRET: missing.append("AMAZON_CLIENT_SECRET")
-    if not STORE_ID:      missing.append("AMAZON_STORE_ID")
-    if missing:
-        print(f"環境変数未設定（スキップ）: {', '.join(missing)}", file=sys.stderr)
-        return False
-    return True
-
-
-# ===========================================================================
-# JSON ユーティリティ（既存スクレイパーと同様）
+# JSON ユーティリティ
 # ===========================================================================
 
 
@@ -110,285 +115,189 @@ def item_id(url: str, title: str = "") -> str:
 
 
 # ===========================================================================
-# OAuth 2.0 アクセストークン取得
+# URL ユーティリティ
 # ===========================================================================
 
 
-def _try_token_request(data: dict, headers: dict) -> str | None:
-    """トークンリクエストを実行し、成功したら access_token を返す。失敗したら None。"""
-    resp = requests.post(
-        TOKEN_URL, data=data, headers=headers, timeout=REQUEST_TIMEOUT
-    )
-    if resp.status_code == 200:
-        body = resp.json()
-        token = body.get("access_token")
-        if token:
-            ttl = body.get("expires_in", "?")
-            print(f"  トークン取得成功（有効期限 {ttl} 秒）")
-            return token
-        print(f"  200 だが access_token なし: {body}", file=sys.stderr)
-        return None
-    # 失敗 — エラー全文を出力（診断用）
-    print(f"  status={resp.status_code}", file=sys.stderr)
-    try:
-        err = resp.json()
-        print(f"  error={err.get('error', '?')}", file=sys.stderr)
-        print(f"  error_description={err.get('error_description', '?')}", file=sys.stderr)
-    except Exception:
-        print(f"  body={resp.text[:500]}", file=sys.stderr)
-    return None
+def extract_asin(url: str) -> str:
+    """URL から ASIN（10桁英数字）を抽出する。取得できなければ空文字。"""
+    # /dp/XXXXXXXXXX または /gp/product/XXXXXXXXXX パターン
+    m = re.search(r"/(?:dp|gp/product)/([A-Z0-9]{10})", url)
+    return m.group(1) if m else ""
 
 
-def get_access_token() -> str | None:
-    """Client Credentials grant でアクセストークンを取得。
-
-    Amazon LWA は認証情報の渡し方が API によって異なるため、以下の順に試みる:
-      1) Authorization: Basic ヘッダー + body に grant_type / scope
-      2) body に client_id / client_secret / scope を含む形式
-    scope は常に送信する（OAUTH_SCOPE が空の場合もデフォルト値を使用）。
-    """
-    print(f"  使用 scope: {OAUTH_SCOPE}")
-    base64_creds = base64.b64encode(
-        f"{CLIENT_ID}:{CLIENT_SECRET}".encode()
-    ).decode()
-    common_headers = {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "User-Agent":   USER_AGENT,
-        "Accept":       "application/json",
-    }
-
-    # --- 試行 1: Basic Auth ヘッダー方式 ---
-    print("  [試行1] Basic Auth ヘッダー方式...")
-    payload1 = {
-        "grant_type": "client_credentials",
-        "scope":      OAUTH_SCOPE,  # 必須パラメーターとして常に送信
-    }
-    headers1 = {**common_headers, "Authorization": f"Basic {base64_creds}"}
-    try:
-        token = _try_token_request(payload1, headers1)
-        if token:
-            return token
-    except requests.RequestException as e:
-        print(f"  試行1 例外: {e}", file=sys.stderr)
-
-    # --- 試行 2: body に client_id/secret を含む方式 ---
-    print("  [試行2] body パラメーター方式...")
-    payload2 = {
-        "grant_type":    "client_credentials",
-        "client_id":     CLIENT_ID,
-        "client_secret": CLIENT_SECRET,
-        "scope":         OAUTH_SCOPE,  # 必須パラメーターとして常に送信
-    }
-    try:
-        token = _try_token_request(payload2, common_headers)
-        if token:
-            return token
-    except requests.RequestException as e:
-        print(f"  試行2 例外: {e}", file=sys.stderr)
-
-    print("すべての認証方式が失敗しました。", file=sys.stderr)
-    print(
-        f"  → TOKEN_URL={TOKEN_URL}",
-        file=sys.stderr,
-    )
-    print(
-        f"  → OAUTH_SCOPE={OAUTH_SCOPE}（GitHub Secret AMAZON_OAUTH_SCOPE で上書き可）",
-        file=sys.stderr,
-    )
-    print(
-        "  → 正しいスコープ名が不明な場合は API 提供元のドキュメントを確認してください。",
-        file=sys.stderr,
-    )
-    return None
-
-
-# ===========================================================================
-# 商品検索
-# ===========================================================================
-
-
-def search_products(
-    token: str,
-    keyword: str,
-    search_index: str | None = None,
-    limit: int = MAX_ITEMS_PER_QUERY,
-) -> list[dict]:
-    """SearchItems 相当のエンドポイントを叩いて商品配列を返す。
-
-    レスポンスのスキーマは API 仕様により異なる可能性があるため、
-    複数の候補キー（items/Items/results/products）から取得を試みる。
-    """
-    params = {
-        "keywords":     keyword,
-        "sortBy":       "newest",
-        "itemCount":    limit,
-        "associateTag": STORE_ID,
-        "marketplace":  MARKETPLACE,
-    }
-    if search_index:
-        params["searchIndex"] = search_index
-
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept":        "application/json",
-        "User-Agent":    USER_AGENT,
-    }
-
-    try:
-        resp = requests.get(
-            SEARCH_ENDPOINT,
-            params=params,
-            headers=headers,
-            timeout=REQUEST_TIMEOUT,
-        )
-        if resp.status_code == 401:
-            print("  認証エラー（401）: トークンが無効か期限切れ", file=sys.stderr)
-            return []
-        if resp.status_code == 403:
-            print("  権限不足（403）: API 利用権限を確認してください", file=sys.stderr)
-            return []
-        if resp.status_code == 404:
-            print(
-                "  エンドポイント不正（404）: SEARCH_ENDPOINT を確認してください",
-                file=sys.stderr,
-            )
-            return []
-        if resp.status_code == 429:
-            print("  レートリミット（429）: しばらく待って再試行", file=sys.stderr)
-            return []
-        if resp.status_code >= 400:
-            print(
-                f"  検索失敗 status={resp.status_code} body={resp.text[:200]}",
-                file=sys.stderr,
-            )
-            return []
-        body = resp.json()
-        # 複数候補キーから抽出
-        return (
-            body.get("items")
-            or body.get("Items")
-            or body.get("results")
-            or body.get("products")
-            or body.get("data", {}).get("items")
-            or []
-        )
-    except requests.RequestException as e:
-        print(f"  検索例外 [{keyword}]: {e}", file=sys.stderr)
-        return []
-    except ValueError as e:
-        print(f"  検索レスポンス JSON パース失敗: {e}", file=sys.stderr)
-        return []
-
-
-# ===========================================================================
-# レスポンス → news.json アイテム形式に変換
-# ===========================================================================
-
-
-def _pick(d: dict, *keys: str, default=""):
-    """ネスト dict から複数キー候補を順に試して取り出す。"""
-    for key in keys:
-        if "." in key:
-            cur = d
-            for part in key.split("."):
-                if isinstance(cur, dict) and part in cur:
-                    cur = cur[part]
-                else:
-                    cur = None
-                    break
-            if cur:
-                return cur
-        elif key in d and d[key]:
-            return d[key]
-    return default
+def build_product_url(asin: str) -> str:
+    """ASIN からアソシエイトタグ付きの商品 URL を生成する。"""
+    return f"https://www.amazon.co.jp/dp/{asin}?tag={ASSOCIATE_TAG}"
 
 
 def append_associate_tag(url: str) -> str:
-    """URL にアソシエイトタグを付与する（既に付いていれば触らない）。"""
-    if not url or not STORE_ID:
+    """既存 URL にアソシエイトタグを付与する（重複防止）。"""
+    if not url:
         return url
-    if "tag=" in url:
+    if f"tag={ASSOCIATE_TAG}" in url:
         return url
-    sep = "&" if "?" in url else "?"
-    return f"{url}{sep}tag={STORE_ID}"
+    # 既に tag= パラメーターがある場合は上書き
+    parsed = urlparse(url)
+    qs = parse_qs(parsed.query, keep_blank_values=True)
+    qs["tag"] = [ASSOCIATE_TAG]
+    new_query = urlencode({k: v[0] for k, v in qs.items()})
+    return urlunparse(parsed._replace(query=new_query))
 
 
-def normalize_item(raw: dict, item_type: str) -> dict | None:
-    """API レスポンスのアイテム1件を news.json 形式に変換する。"""
-    asin = _pick(raw, "asin", "ASIN", "productId", "id")
+# ===========================================================================
+# スクレイパー
+# ===========================================================================
 
-    title = _pick(
-        raw,
-        "title",
-        "name",
-        "ItemInfo.Title.DisplayValue",
-    ).strip()
 
-    # 商品ページ URL
-    url = _pick(raw, "detailPageUrl", "DetailPageURL", "productUrl", "url")
-    if not url and asin:
-        url = f"https://www.amazon.co.jp/dp/{asin}"
-    url = append_associate_tag(url)
-
-    # 画像 URL
-    image_url = ""
-    img_candidates = [
-        raw.get("image"),
-        raw.get("mainImage"),
-        raw.get("imageUrl"),
-        raw.get("thumbnailUrl"),
-        _pick(raw, "Images.Primary.Large.URL"),
-        _pick(raw, "Images.Primary.Medium.URL"),
-    ]
-    for cand in img_candidates:
-        if isinstance(cand, str) and cand.startswith("http"):
-            image_url = cand
-            break
-        if isinstance(cand, dict):
-            v = cand.get("url") or cand.get("URL")
-            if v and v.startswith("http"):
-                image_url = v
-                break
-
-    # 発売日
-    released = _pick(
-        raw,
-        "releaseDate", "ReleaseDate",
-        "publicationDate", "PublicationDate",
-        "ItemInfo.ProductInfo.ReleaseDate.DisplayValue",
-    )
-
-    if not (title and (url or asin)):
+def fetch_page(session: requests.Session, url: str) -> BeautifulSoup | None:
+    """指定 URL を取得して BeautifulSoup を返す。失敗・ブロック検知時は None。"""
+    try:
+        resp = session.get(url, headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT)
+        if resp.status_code != 200:
+            print(f"  HTTP {resp.status_code}: {url[:80]}", file=sys.stderr)
+            return None
+        html = resp.text
+        # CAPTCHA / ロボット判定ページの検知
+        if "robot" in html.lower() and "captcha" in html.lower():
+            print("  ⚠ CAPTCHA / Bot 検知ページが返されました", file=sys.stderr)
+            return None
+        if "api-services-support@amazon.com" in html:
+            print("  ⚠ Amazon エラーページ（ブロック）が返されました", file=sys.stderr)
+            return None
+        return BeautifulSoup(html, "html.parser")
+    except requests.RequestException as e:
+        print(f"  取得失敗: {e}", file=sys.stderr)
         return None
 
-    # ハッシュタグ＆ヘッダーを item_type で切り分け
-    if item_type == "book":
-        hashtags = "#仏像 #仏像新刊情報"
-        header   = "【仏像新刊】"
-    else:
-        hashtags = "#仏像 #仏像のある暮らし"
-        header   = "【仏像グッズ】"
 
-    # released → published_at（ISO 8601 JST）
-    published_at = ""
-    if released:
-        try:
-            dt = datetime.fromisoformat(str(released)[:10])
-            published_at = dt.replace(tzinfo=JST).isoformat()
-        except (ValueError, TypeError):
-            pass
+# 仏像関連キーワード（いずれか含む商品のみ収集）
+RELEVANT_KEYWORDS = [
+    "仏像", "如来", "菩薩", "観音", "明王", "天部", "羅漢",
+    "秘仏", "大仏", "仏教", "仏陀", "釈迦", "弥勒", "不動",
+]
 
-    return {
-        "title":        title,
-        "url":          url,
-        "source":       SOURCE_AMAZON,
-        "item_type":    item_type,
-        "asin":         asin,
-        "header":       header,
-        "hashtags":     hashtags,
-        "image_url":    image_url,
-        "published_at": published_at,
-    }
+# 除外キーワード（タイトルに含まれていたら除外）
+EXCLUDE_KEYWORDS = [
+    "グラビア", "ストリップ", "ヌード", "ギャンブル", "賭博",
+]
+
+
+def is_relevant_title(title: str) -> bool:
+    """仏像関連キーワードを含むか確認（無関係の商品を弾く）。"""
+    if any(kw in title for kw in EXCLUDE_KEYWORDS):
+        return False
+    return any(kw in title for kw in RELEVANT_KEYWORDS)
+
+
+def parse_search_results(soup: BeautifulSoup, item_type: str) -> list[dict]:
+    """Amazon 検索結果ページから商品リストを抽出する。
+
+    実際の HTML 構造（2026年5月確認）:
+      - コンテナ: div[data-component-type="s-search-result"][data-asin]
+      - タイトル: h2.get_text() 直接（h2 > a > span 構造ではない）
+      - 発売日:   span.a-text-normal 内の YYYY/MM/DD テキスト
+      - 画像:     img.s-image の src 属性
+    """
+    items: list[dict] = []
+
+    cards = soup.find_all(
+        "div",
+        attrs={"data-component-type": "s-search-result", "data-asin": True},
+    )
+    if not cards:
+        # フォールバック
+        cards = soup.find_all("div", class_="s-result-item", attrs={"data-asin": True})
+    if not cards:
+        print("  商品カードが見つかりませんでした（HTML 構造変更 or ブロック）", file=sys.stderr)
+        return []
+
+    print(f"  カード数: {len(cards)}")
+
+    for card in cards:
+        asin = card.get("data-asin", "").strip()
+        if not asin:
+            continue  # data-asin が空（スポンサー枠等）はスキップ
+
+        # --- タイトル（h2 直下のテキスト）---
+        h2 = card.find("h2")
+        if not h2:
+            continue
+        title = h2.get_text(strip=True)
+        if not title:
+            continue
+
+        # 無関係の商品を除外（仏像キーワードフィルタ）
+        if not is_relevant_title(title):
+            continue
+
+        # --- 商品 URL（ASIN から生成）---
+        product_url = build_product_url(asin)
+
+        # --- 画像 URL ---
+        image_url = ""
+        img_tag = card.find("img", class_="s-image")
+        if img_tag:
+            image_url = img_tag.get("src", "")
+            srcset = img_tag.get("srcset", "")
+            if srcset:
+                # srcset の末尾（最高解像度）を取得
+                parts = [p.strip() for p in srcset.split(",") if p.strip()]
+                if parts:
+                    image_url = parts[-1].split()[0]
+
+        # --- 発売日（span.a-text-normal 内の YYYY/MM/DD）---
+        # 商品検索結果ページには発売日が表示される
+        release_date_str = ""
+        for sp in card.find_all("span", class_="a-text-normal"):
+            t = sp.get_text(strip=True)
+            if re.match(r"\d{4}/\d{1,2}/\d{1,2}", t):
+                release_date_str = t
+                break
+
+        # published_at: 発売日が取れた場合はその日付、なければ実行日（今日）
+        # ※ scrape_amazon.py 内では 14日フィルターは使わないが、
+        #    ダッシュボードで 📅 表示されるよう設定する
+        if release_date_str:
+            try:
+                y, m, d = (int(x) for x in release_date_str.split("/"))
+                published_at = datetime(y, m, d, tzinfo=JST).isoformat()
+            except Exception:
+                published_at = datetime.now(JST).isoformat()
+        else:
+            published_at = datetime.now(JST).isoformat()
+
+        # --- ハッシュタグ / ヘッダー ---
+        if item_type == "book":
+            hashtags = "#仏像 #仏像新刊情報"
+            header   = "【仏像新刊】"
+        else:
+            hashtags = "#仏像 #仏像のある暮らし"
+            header   = "【仏像グッズ】"
+
+        items.append({
+            "title":        title,
+            "url":          product_url,
+            "asin":         asin,
+            "source":       SOURCE_AMAZON,
+            "item_type":    item_type,
+            "header":       header,
+            "hashtags":     hashtags,
+            "image_url":    image_url,
+            "published_at": published_at,
+        })
+
+    return items
+
+
+def scrape_amazon_search(url: str, item_type: str,
+                          session: requests.Session) -> list[dict]:
+    """Amazon 検索結果ページをスクレイピングして商品リストを返す。"""
+    print(f"  URL: {url[:80]}")
+    soup = fetch_page(session, url)
+    if not soup:
+        return []
+    return parse_search_results(soup, item_type)
 
 
 # ===========================================================================
@@ -397,18 +306,22 @@ def normalize_item(raw: dict, item_type: str) -> dict | None:
 
 
 def main() -> int:
-    if not check_credentials():
-        # 認証情報がなくてもワークフロー全体は失敗させない
-        return 0
-
-    print("Amazon Creators API トークン取得中...")
-    token = get_access_token()
-    if not token:
-        print("アクセストークン取得失敗のため処理中断", file=sys.stderr)
-        return 0  # 他の scraper を妨げないため 0 終了
+    # セッションを使い回してクッキーを保持（ブロック回避の一助）
+    session = requests.Session()
+    # まず Amazon トップページを訪問してクッキーを取得
+    print("Amazon トップページを訪問中（クッキー取得）...")
+    try:
+        session.get(
+            "https://www.amazon.co.jp/",
+            headers=REQUEST_HEADERS,
+            timeout=REQUEST_TIMEOUT,
+        )
+    except Exception as e:
+        print(f"  トップページ訪問失敗（続行）: {e}", file=sys.stderr)
+    time.sleep(2)
 
     data = load_news_data()
-    existing_ids = {item["id"] for item in data["items"]}
+    existing_ids   = {item["id"]   for item in data["items"]}
     existing_asins = {
         item.get("asin") for item in data["items"]
         if item.get("source") == SOURCE_AMAZON and item.get("asin")
@@ -416,35 +329,29 @@ def main() -> int:
 
     all_new: list[dict] = []
 
-    print(f"[1/2] 書籍カテゴリー検索: keyword='{BOOK_KEYWORD}'")
-    raw_books = search_products(token, BOOK_KEYWORD, search_index="Books")
-    print(f"  取得件数: {len(raw_books)}")
-    for raw in raw_books:
-        norm = normalize_item(raw, "book")
-        if norm:
-            all_new.append(norm)
-    time.sleep(SLEEP_BETWEEN_REQUESTS)
+    print("[1/2] 書籍カテゴリー（仏像 新着順）を取得中...")
+    book_items = scrape_amazon_search(BOOK_URL, "book", session)
+    print(f"  取得: {len(book_items)}件")
+    all_new.extend(book_items)
+    time.sleep(SLEEP_BETWEEN_PAGES)
 
-    print(f"[2/2] グッズ検索: keyword='{GOODS_KEYWORD}'")
-    raw_goods = search_products(token, GOODS_KEYWORD, search_index="All")
-    print(f"  取得件数: {len(raw_goods)}")
-    for raw in raw_goods:
-        norm = normalize_item(raw, "goods")
-        if norm:
-            all_new.append(norm)
+    print("[2/2] ホビー/グッズ（仏像 -仏具 -神具 新着順）を取得中...")
+    goods_items = scrape_amazon_search(GOODS_URL, "goods", session)
+    print(f"  取得: {len(goods_items)}件")
+    all_new.extend(goods_items)
 
     print(f"取得アイテム合計: {len(all_new)}")
 
     added_count = 0
     for item in all_new:
-        # ASIN による重複排除（最優先）
+        # ASIN 重複排除（最優先）
         if item.get("asin") and item["asin"] in existing_asins:
             continue
         uid = item_id(item["url"], item["title"])
         if uid in existing_ids:
             continue
 
-        item["id"] = uid
+        item["id"]         = uid
         item["fetched_at"] = datetime.now(JST).isoformat()
 
         data["items"].insert(0, item)
