@@ -31,11 +31,15 @@ import requests
 # CONFIG — Creators API の実際の URL に合わせて以下を修正してください
 # ===========================================================================
 
-# OAuth トークンエンドポイント（LWA 系の場合は https://api.amazon.com/auth/o2/token）
+# OAuth トークンエンドポイント
 TOKEN_URL = "https://api.amazon.com/auth/o2/token"
 
-# OAuth スコープ（必要な場合のみ。Creators API のスコープ名が判明したら設定）
-OAUTH_SCOPE = ""
+# OAuth スコープ
+# ・デフォルト: "creator_api"（Creators API の推定スコープ名）
+# ・GitHub Secret AMAZON_OAUTH_SCOPE を設定することで上書き可能
+# ・他の候補例: "amazon_advertising:api" / "profile" / "sellingpartnerapi::catalog_items"
+_SCOPE_DEFAULT = "creator_api"
+OAUTH_SCOPE = os.environ.get("AMAZON_OAUTH_SCOPE", _SCOPE_DEFAULT).strip() or _SCOPE_DEFAULT
 
 # 商品検索 API エンドポイント（Creators API の正式 URL に修正してください）
 SEARCH_ENDPOINT = "https://api.creator.amazon.com/v1/products/search"
@@ -139,9 +143,11 @@ def get_access_token() -> str | None:
     """Client Credentials grant でアクセストークンを取得。
 
     Amazon LWA は認証情報の渡し方が API によって異なるため、以下の順に試みる:
-      1) Authorization: Basic ヘッダー + body に grant_type/scope のみ
-      2) body に client_id/client_secret を含む形式
+      1) Authorization: Basic ヘッダー + body に grant_type / scope
+      2) body に client_id / client_secret / scope を含む形式
+    scope は常に送信する（OAUTH_SCOPE が空の場合もデフォルト値を使用）。
     """
+    print(f"  使用 scope: {OAUTH_SCOPE}")
     base64_creds = base64.b64encode(
         f"{CLIENT_ID}:{CLIENT_SECRET}".encode()
     ).decode()
@@ -153,9 +159,10 @@ def get_access_token() -> str | None:
 
     # --- 試行 1: Basic Auth ヘッダー方式 ---
     print("  [試行1] Basic Auth ヘッダー方式...")
-    payload1 = {"grant_type": "client_credentials"}
-    if OAUTH_SCOPE:
-        payload1["scope"] = OAUTH_SCOPE
+    payload1 = {
+        "grant_type": "client_credentials",
+        "scope":      OAUTH_SCOPE,  # 必須パラメーターとして常に送信
+    }
     headers1 = {**common_headers, "Authorization": f"Basic {base64_creds}"}
     try:
         token = _try_token_request(payload1, headers1)
@@ -170,9 +177,8 @@ def get_access_token() -> str | None:
         "grant_type":    "client_credentials",
         "client_id":     CLIENT_ID,
         "client_secret": CLIENT_SECRET,
+        "scope":         OAUTH_SCOPE,  # 必須パラメーターとして常に送信
     }
-    if OAUTH_SCOPE:
-        payload2["scope"] = OAUTH_SCOPE
     try:
         token = _try_token_request(payload2, common_headers)
         if token:
@@ -182,7 +188,15 @@ def get_access_token() -> str | None:
 
     print("すべての認証方式が失敗しました。", file=sys.stderr)
     print(
-        "  → TOKEN_URL / OAUTH_SCOPE / 認証情報が正しいか確認してください。",
+        f"  → TOKEN_URL={TOKEN_URL}",
+        file=sys.stderr,
+    )
+    print(
+        f"  → OAUTH_SCOPE={OAUTH_SCOPE}（GitHub Secret AMAZON_OAUTH_SCOPE で上書き可）",
+        file=sys.stderr,
+    )
+    print(
+        "  → 正しいスコープ名が不明な場合は API 提供元のドキュメントを確認してください。",
         file=sys.stderr,
     )
     return None
