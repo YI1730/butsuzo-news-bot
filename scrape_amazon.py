@@ -40,11 +40,11 @@ BOOK_URL = (
     "&s=date-desc-rank"
 )
 
-# ホビー/グッズ（hobby）: 仏像 -仏具 -神具 新着順
+# グッズ（全カテゴリー/aps）: 仏像 -仏具 -神具 新着順
 GOODS_URL = (
     "https://www.amazon.co.jp/s"
     "?k=%E4%BB%8F%E5%83%8F+-%E4%BB%8F%E5%85%B7+-%E7%A5%9E%E5%85%B7"
-    "&i=hobby"
+    "&i=aps"
     "&s=date-desc-rank"
 )
 
