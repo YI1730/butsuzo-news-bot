@@ -36,6 +36,13 @@ jobs:
       - name: Fetch exhibition info
         run: python scrape_exhibition.py
 
+      - name: Fetch Amazon products
+        env:
+          AMAZON_CLIENT_ID:     ${{ secrets.AMAZON_CLIENT_ID }}
+          AMAZON_CLIENT_SECRET: ${{ secrets.AMAZON_CLIENT_SECRET }}
+          AMAZON_STORE_ID:      ${{ secrets.AMAZON_STORE_ID }}
+        run: python scrape_amazon.py
+
       - name: Generate dashboard HTML
         run: python generate_dashboard.py
 
