@@ -106,8 +106,15 @@ def build_card_html(item: dict) -> str:
     published_at = format_published_at(item.get("published_at", ""))
     source_label = SOURCE_LABELS.get(source, f"📌 {source}")
     image_url = item.get("image_url", "")
+    desc = item.get("description", "")
+    desc_escaped = (
+        desc.replace("&", "&amp;")
+            .replace('"', "&quot;")
+            .replace("<", "&lt;")
+            .replace(">", "&gt;")
+    )
 
-    # X Web Intent URL
+    # X Web Intent URL（description は JS 側で動的挿入するため、ここでは含めない）
     post_text = f"{header}\n{item.get('title', '')}\n{hashtags}"
     intent_params = urllib.parse.urlencode({"text": post_text, "url": url})
     intent_url = f"https://x.com/intent/post?{intent_params}"
@@ -153,6 +160,7 @@ def build_card_html(item: dict) -> str:
       <div class="flex items-center gap-3">
         <a href="{intent_url}" target="_blank" rel="noopener"
            onclick="handlePostClick(event,'{uid}')"
+           data-description="{desc_escaped}"
            class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           にポスト
@@ -399,11 +407,31 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     function handlePostClick(event, itemId) {{
-      localStorage.setItem('posted_' + itemId, '1');
       const card = document.querySelector('[data-item-id="' + itemId + '"]');
+      const btn = card ? card.querySelector('.post-btn') : null;
+      const desc = btn ? (btn.getAttribute('data-description') || '') : '';
+
+      // description がある場合はリンク遷移を止めて、紹介文入りの URL で開く
+      if (desc && btn) {{
+        event.preventDefault();
+        try {{
+          const u = new URL(btn.getAttribute('href') || '');
+          const text = u.searchParams.get('text') || '';
+          const url  = u.searchParams.get('url')  || '';
+          // text = "[header]\n[title]\n[hashtags]" → description を hashtags の直前に挿入
+          const parts = text.split('\n');
+          parts.splice(parts.length - 1, 0, desc);
+          const newText = parts.join('\n');
+          const newParams = new URLSearchParams({{ text: newText, url: url }});
+          window.open('https://x.com/intent/post?' + newParams.toString(), '_blank', 'noopener');
+        }} catch(e) {{
+          window.open(btn.getAttribute('href') || '', '_blank', 'noopener');
+        }}
+      }}
+
+      localStorage.setItem('posted_' + itemId, '1');
       if (card) {{
         card.classList.add('is-posted');
-        const btn = card.querySelector('.post-btn');
         if (btn) btn.innerHTML = '投稿済み ✓';
       }}
       if (currentFilter === 'unposted') {{

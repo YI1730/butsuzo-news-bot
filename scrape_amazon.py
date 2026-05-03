@@ -30,7 +30,7 @@ from bs4 import BeautifulSoup
 # 設定
 # ===========================================================================
 
-ASSOCIATE_TAG = "yoshikingnenj-22"
+ASSOCIATE_TAG = "butsuzo03-22"
 
 # 書籍（stripbooks）: 新着順
 BOOK_URL = (
@@ -180,6 +180,7 @@ RELEVANT_KEYWORDS = [
 # 除外キーワード（タイトルに含まれていたら除外）
 EXCLUDE_KEYWORDS = [
     "グラビア", "ストリップ", "ヌード", "ギャンブル", "賭博",
+    "仏壇", "神棚", "仏具", "風水", "金運", "厄除け",
 ]
 
 
@@ -290,6 +291,42 @@ def parse_search_results(soup: BeautifulSoup, item_type: str) -> list[dict]:
     return items
 
 
+def fetch_book_description(asin: str, session: requests.Session) -> str:
+    """書籍詳細ページから紹介文を取得し、100文字程度に丸めて返す。"""
+    url = f"https://www.amazon.co.jp/dp/{asin}"
+    try:
+        soup = fetch_page(session, url)
+        if not soup:
+            return ""
+
+        # 1) <meta name="description"> を最初に試す
+        meta = soup.find("meta", attrs={"name": "description"})
+        if meta:
+            content = meta.get("content", "").strip()
+            if content and len(content) > 10:
+                return content[:100]
+
+        # 2) 書籍説明ブロック #bookDescription_feature_div
+        book_div = soup.find(id="bookDescription_feature_div")
+        if book_div:
+            text = book_div.get_text(" ", strip=True)
+            text = re.sub(r"\s+", " ", text)
+            if text:
+                return text[:100]
+
+        # 3) 商品説明 #productDescription
+        prod_div = soup.find(id="productDescription")
+        if prod_div:
+            text = prod_div.get_text(" ", strip=True)
+            text = re.sub(r"\s+", " ", text)
+            if text:
+                return text[:100]
+
+    except Exception as e:
+        print(f"  書籍説明取得失敗 ({asin}): {e}", file=sys.stderr)
+    return ""
+
+
 def scrape_amazon_search(url: str, item_type: str,
                           session: requests.Session) -> list[dict]:
     """Amazon 検索結果ページをスクレイピングして商品リストを返す。"""
@@ -353,6 +390,16 @@ def main() -> int:
 
         item["id"]         = uid
         item["fetched_at"] = datetime.now(JST).isoformat()
+
+        # 書籍のみ詳細ページから紹介文を取得
+        if item.get("item_type") == "book" and item.get("asin"):
+            time.sleep(2)  # 詳細ページ取得前に少し待機
+            desc = fetch_book_description(item["asin"], session)
+            item["description"] = desc
+            if desc:
+                print(f"  紹介文取得: {desc[:40]}…")
+        else:
+            item["description"] = ""
 
         data["items"].insert(0, item)
         existing_ids.add(uid)
