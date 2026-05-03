@@ -35,7 +35,7 @@ SLEEP_BETWEEN_REQUESTS = 3
 
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
 MAX_TOTAL_ITEMS = 500
-MAX_ARTICLE_AGE_DAYS = 30  # これより古い記事は収集しない
+MAX_ARTICLE_AGE_DAYS = 7   # これより古い記事は収集しない
 
 JST = timezone(timedelta(hours=9))
 

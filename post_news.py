@@ -44,7 +44,7 @@ EXCLUDE_KEYWORDS = [
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
 MAX_ITEMS_PER_RUN = 10   # 1回の実行で追加する最大件数
 MAX_TOTAL_ITEMS = 500    # JSON に保持する最大件数（古いものは削除）
-MAX_ARTICLE_AGE_DAYS = 30  # これより古い記事は収集しない
+MAX_ARTICLE_AGE_DAYS = 7   # これより古い記事は収集しない
 
 RESOLVE_TIMEOUT = 10
 RESOLVE_USER_AGENT = (
