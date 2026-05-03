@@ -418,10 +418,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
           const u = new URL(btn.getAttribute('href') || '');
           const text = u.searchParams.get('text') || '';
           const url  = u.searchParams.get('url')  || '';
-          // text = "[header]\n[title]\n[hashtags]" → description を hashtags の直前に挿入
-          const parts = text.split('\n');
+          // text を改行で分割し、description を hashtags の直前に挿入する
+          const parts = text.split('\\n');
           parts.splice(parts.length - 1, 0, desc);
-          const newText = parts.join('\n');
+          const newText = parts.join('\\n');
           const newParams = new URLSearchParams({{ text: newText, url: url }});
           window.open('https://x.com/intent/post?' + newParams.toString(), '_blank', 'noopener');
         }} catch(e) {{
@@ -492,7 +492,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v3';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v4';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
