@@ -16,6 +16,7 @@ SearchItems 相当のエンドポイントで商品を検索する。
 
 from __future__ import annotations
 
+import base64
 import hashlib
 import json
 import os
@@ -109,47 +110,82 @@ def item_id(url: str, title: str = "") -> str:
 # ===========================================================================
 
 
+def _try_token_request(data: dict, headers: dict) -> str | None:
+    """トークンリクエストを実行し、成功したら access_token を返す。失敗したら None。"""
+    resp = requests.post(
+        TOKEN_URL, data=data, headers=headers, timeout=REQUEST_TIMEOUT
+    )
+    if resp.status_code == 200:
+        body = resp.json()
+        token = body.get("access_token")
+        if token:
+            ttl = body.get("expires_in", "?")
+            print(f"  トークン取得成功（有効期限 {ttl} 秒）")
+            return token
+        print(f"  200 だが access_token なし: {body}", file=sys.stderr)
+        return None
+    # 失敗 — エラー全文を出力（診断用）
+    print(f"  status={resp.status_code}", file=sys.stderr)
+    try:
+        err = resp.json()
+        print(f"  error={err.get('error', '?')}", file=sys.stderr)
+        print(f"  error_description={err.get('error_description', '?')}", file=sys.stderr)
+    except Exception:
+        print(f"  body={resp.text[:500]}", file=sys.stderr)
+    return None
+
+
 def get_access_token() -> str | None:
-    """Client Credentials grant でアクセストークンを取得。"""
-    payload = {
+    """Client Credentials grant でアクセストークンを取得。
+
+    Amazon LWA は認証情報の渡し方が API によって異なるため、以下の順に試みる:
+      1) Authorization: Basic ヘッダー + body に grant_type/scope のみ
+      2) body に client_id/client_secret を含む形式
+    """
+    base64_creds = base64.b64encode(
+        f"{CLIENT_ID}:{CLIENT_SECRET}".encode()
+    ).decode()
+    common_headers = {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "User-Agent":   USER_AGENT,
+        "Accept":       "application/json",
+    }
+
+    # --- 試行 1: Basic Auth ヘッダー方式 ---
+    print("  [試行1] Basic Auth ヘッダー方式...")
+    payload1 = {"grant_type": "client_credentials"}
+    if OAUTH_SCOPE:
+        payload1["scope"] = OAUTH_SCOPE
+    headers1 = {**common_headers, "Authorization": f"Basic {base64_creds}"}
+    try:
+        token = _try_token_request(payload1, headers1)
+        if token:
+            return token
+    except requests.RequestException as e:
+        print(f"  試行1 例外: {e}", file=sys.stderr)
+
+    # --- 試行 2: body に client_id/secret を含む方式 ---
+    print("  [試行2] body パラメーター方式...")
+    payload2 = {
         "grant_type":    "client_credentials",
         "client_id":     CLIENT_ID,
         "client_secret": CLIENT_SECRET,
     }
     if OAUTH_SCOPE:
-        payload["scope"] = OAUTH_SCOPE
-
+        payload2["scope"] = OAUTH_SCOPE
     try:
-        resp = requests.post(
-            TOKEN_URL,
-            data=payload,
-            headers={
-                "Content-Type": "application/x-www-form-urlencoded",
-                "User-Agent":   USER_AGENT,
-                "Accept":       "application/json",
-            },
-            timeout=REQUEST_TIMEOUT,
-        )
-        if resp.status_code != 200:
-            print(
-                f"トークン取得失敗 status={resp.status_code} body={resp.text[:300]}",
-                file=sys.stderr,
-            )
-            return None
-        body = resp.json()
-        token = body.get("access_token")
-        if not token:
-            print(f"access_token がレスポンスに含まれず: {body}", file=sys.stderr)
-            return None
-        ttl = body.get("expires_in", "?")
-        print(f"  アクセストークン取得成功（有効期限 {ttl} 秒）")
-        return token
+        token = _try_token_request(payload2, common_headers)
+        if token:
+            return token
     except requests.RequestException as e:
-        print(f"トークン取得例外: {e}", file=sys.stderr)
-        return None
-    except ValueError as e:
-        print(f"トークンレスポンス JSON パース失敗: {e}", file=sys.stderr)
-        return None
+        print(f"  試行2 例外: {e}", file=sys.stderr)
+
+    print("すべての認証方式が失敗しました。", file=sys.stderr)
+    print(
+        "  → TOKEN_URL / OAUTH_SCOPE / 認証情報が正しいか確認してください。",
+        file=sys.stderr,
+    )
+    return None
 
 
 # ===========================================================================
