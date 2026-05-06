@@ -51,7 +51,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5">更新: 5月6日 17:18</p>
+        <p class="text-xs text-brand-200 mt-0.5">更新: 5月6日 18:13</p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -60,7 +60,7 @@
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        📰 ニュース<span class="opacity-60 ml-0.5">114</span>
+        📰 ニュース<span class="opacity-60 ml-0.5">115</span>
       </button>
       <button onclick="setTab('exhibition')" id="tab-btn-exhibition"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
@@ -72,7 +72,7 @@
       </button>
       <button onclick="setTab('goods')" id="tab-btn-goods"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        🛒 書籍・グッズ<span class="opacity-60 ml-0.5">152</span>
+        🛒 書籍・グッズ<span class="opacity-60 ml-0.5">153</span>
       </button>
     </div>
 
@@ -91,6 +91,36 @@
   <!-- カードリスト（タブごとに分離） -->
   <main class="px-4 py-4 max-w-xl mx-auto">
     <div id="tab-news" class="tab-pane space-y-3">
+    <div class="separator flex items-center gap-3 my-2">
+      <div class="flex-1 h-px bg-brand-300"></div>
+      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 5月6日 18:12 取込</span>
+      <div class="flex-1 h-px bg-brand-300"></div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="af88e8dd67a9">
+      <img src="https://static.sanyonews.jp/image/article/size1/4/7/1/c/471c16a0f92282e919a79904593af5db_1.jpg" alt="" loading="lazy"
+           class="w-full h-40 object-cover rounded-xl mb-3"
+           onerror="this.style.display='none'">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <span class="text-xs text-gray-500 shrink-0">📅 5月1日</span>
+          <span class="text-gray-300">·</span>
+          <span class="text-xs text-gray-400">取込 5月6日 18:12</span>
+        </div>
+      </div>
+      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">式年開帳前に桜植樹 奈義・滝神社 ３３年ぶり、４月に大祭 - 山陽新聞</p>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E9%80%9F%E5%A0%B1%E3%80%91%0A%E5%BC%8F%E5%B9%B4%E9%96%8B%E5%B8%B3%E5%89%8D%E3%81%AB%E6%A1%9C%E6%A4%8D%E6%A8%B9+%E5%A5%88%E7%BE%A9%E3%83%BB%E6%BB%9D%E7%A5%9E%E7%A4%BE+%EF%BC%93%EF%BC%93%E5%B9%B4%E3%81%B6%E3%82%8A%E3%80%81%EF%BC%94%E6%9C%88%E3%81%AB%E5%A4%A7%E7%A5%AD+-+%E5%B1%B1%E9%99%BD%E6%96%B0%E8%81%9E%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&url=https%3A%2F%2Fwww.sanyonews.jp%2Farticle%2F1874676" target="_blank" rel="noopener"
+           onclick="handlePostClick(event,'af88e8dd67a9')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://www.sanyonews.jp/article/1874676" target="_blank" rel="noopener"
+           class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
     <div class="separator flex items-center gap-3 my-2">
       <div class="flex-1 h-px bg-brand-300"></div>
       <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 5月6日 13:54 取込</span>
@@ -6129,6 +6159,36 @@
     </div>
     </div>
     <div id="tab-goods" class="tab-pane space-y-3 hidden">
+    <div class="separator flex items-center gap-3 my-2">
+      <div class="flex-1 h-px bg-brand-300"></div>
+      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 5月6日 18:13 取込</span>
+      <div class="flex-1 h-px bg-brand-300"></div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="bd37cbb95106">
+      <img src="https://m.media-amazon.com/images/I/51iBUMRfUYL._AC_UL960_FMwebp_QL65_.jpg" alt="" loading="lazy"
+           class="w-full h-40 object-cover rounded-xl mb-3"
+           onerror="this.style.display='none'">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛒 Amazon</span>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <span class="text-xs text-gray-500 shrink-0">📅 5月6日</span>
+          <span class="text-gray-300">·</span>
+          <span class="text-xs text-gray-400">取込 5月6日 18:13</span>
+        </div>
+      </div>
+      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">の中国禅仏像飾り、人工観葉植物、LEDライト付き人工鉢植え、リビングルームや玄関テーブルに飾るクリエイティブなライトリング、モデルハウスのソフトファニチャー (半円灯籠1個 + 松葉台座)</p>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E3%82%B0%E3%83%83%E3%82%BA%E3%80%91%0A%E3%81%AE%E4%B8%AD%E5%9B%BD%E7%A6%85%E4%BB%8F%E5%83%8F%E9%A3%BE%E3%82%8A%E3%80%81%E4%BA%BA%E5%B7%A5%E8%A6%B3%E8%91%89%E6%A4%8D%E7%89%A9%E3%80%81LED%E3%83%A9%E3%82%A4%E3%83%88%E4%BB%98%E3%81%8D%E4%BA%BA%E5%B7%A5%E9%89%A2%E6%A4%8D%E3%81%88%E3%80%81%E3%83%AA%E3%83%93%E3%83%B3%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%A0%E3%82%84%E7%8E%84%E9%96%A2%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AB%E9%A3%BE%E3%82%8B%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%81%AA%E3%83%A9%E3%82%A4%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0%E3%80%81%E3%83%A2%E3%83%87%E3%83%AB%E3%83%8F%E3%82%A6%E3%82%B9%E3%81%AE%E3%82%BD%E3%83%95%E3%83%88%E3%83%95%E3%82%A1%E3%83%8B%E3%83%81%E3%83%A3%E3%83%BC+%28%E5%8D%8A%E5%86%86%E7%81%AF%E7%B1%A01%E5%80%8B+%2B+%E6%9D%BE%E8%91%89%E5%8F%B0%E5%BA%A7%29%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%81%AE%E3%81%82%E3%82%8B%E6%9A%AE%E3%82%89%E3%81%97&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0FM882R2T%3Ftag%3Dbutsuzo03-22" target="_blank" rel="noopener"
+           onclick="handlePostClick(event,'bd37cbb95106')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://www.amazon.co.jp/dp/B0FM882R2T?tag=butsuzo03-22" target="_blank" rel="noopener"
+           class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
     <div class="separator flex items-center gap-3 my-2">
       <div class="flex-1 h-px bg-brand-300"></div>
       <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 5月6日 12:06 取込</span>
