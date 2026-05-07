@@ -22,9 +22,10 @@ except ImportError:  # ライブラリ未インストール時でも HTTP フォ
     gnewsdecoder = None
 
 SEARCH_QUERY = (
-    "(仏像 OR 如来 OR 開帳 OR 開扉 OR 菩薩 OR 秘仏) "
+    "(仏像 OR 如来 OR 開帳 OR 開扉 OR 菩薩 OR 秘仏 OR 明王 "
+    "OR 神像 OR 重要文化財 OR 木造 OR 木像) "
     "-グラビア -返還 -ストリップ -ヌード -ギャンブル "
-    "-クラブツーリズム -賭博 -リアルタイム -ゲーム"
+    "-みほとけ -クラブツーリズム -賭博 -ゲーム"
 )
 RSS_BASE = "https://news.google.com/rss/search"
 RSS_PARAMS = "hl=ja&gl=JP&ceid=JP:ja"
@@ -35,9 +36,9 @@ EXCLUDE_KEYWORDS = [
     "ストリップ",
     "ヌード",
     "ギャンブル",
+    "みほとけ",
     "クラブツーリズム",
     "賭博",
-    "リアルタイム",
     "ゲーム",
 ]
 

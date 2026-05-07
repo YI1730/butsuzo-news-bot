@@ -280,8 +280,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
     .card.is-posted .post-btn {{
       background: #d1d5db !important;
       color: #6b7280 !important;
-      pointer-events: none;
+      /* pointer-events: none を外して再投稿可能にする */
     }}
+    .card.is-posted .post-btn:active {{ background: #9ca3af !important; }}
   </style>
 </head>
 <body class="bg-brand-50 min-h-screen pb-8">
@@ -432,7 +433,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       localStorage.setItem('posted_' + itemId, '1');
       if (card) {{
         card.classList.add('is-posted');
-        if (btn) btn.innerHTML = '投稿済み ✓';
+        if (btn) btn.innerHTML = '✓ 再投稿';
       }}
       if (currentFilter === 'unposted') {{
         setTimeout(() => {{
@@ -455,7 +456,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
         if (localStorage.getItem('posted_' + card.dataset.itemId) === '1') {{
           card.classList.add('is-posted');
           const btn = card.querySelector('.post-btn');
-          if (btn) btn.innerHTML = '投稿済み ✓';
+          if (btn) btn.innerHTML = '✓ 再投稿';
         }}
       }});
       setTab('news');
