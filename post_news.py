@@ -3,6 +3,8 @@
 X API は一切使用しない。投稿はダッシュボード（docs/index.html）から手動で行う。
 """
 
+from __future__ import annotations
+
 import hashlib
 import json
 import sys
@@ -21,26 +23,51 @@ try:
 except ImportError:  # ライブラリ未インストール時でも HTTP フォールバックで動作する
     gnewsdecoder = None
 
-SEARCH_QUERY = (
-    "(仏像 OR 如来 OR 開帳 OR 開扉 OR 菩薩 OR 秘仏 OR 明王 "
-    "OR 神像 OR 重要文化財 OR 木造 OR 木像) "
-    "-グラビア -返還 -ストリップ -ヌード -ギャンブル "
-    "-みほとけ -クラブツーリズム -賭博 -ゲーム"
-)
 RSS_BASE = "https://news.google.com/rss/search"
 RSS_PARAMS = "hl=ja&gl=JP&ceid=JP:ja"
 
-EXCLUDE_KEYWORDS = [
-    "グラビア",
-    "返還",
-    "ストリップ",
-    "ヌード",
-    "ギャンブル",
-    "みほとけ",
-    "クラブツーリズム",
-    "賭博",
-    "ゲーム",
+# 検索キーワードの設定ファイル（Streamlit から編集可能）
+KEYWORDS_CONFIG_FILE = Path(__file__).parent / "config" / "news_keywords.json"
+
+# 設定ファイルが存在しない／壊れている場合のフォールバック値
+_FALLBACK_INCLUDE = [
+    "仏像", "如来", "開帳", "開扉", "菩薩", "秘仏",
+    "明王", "神像", "重要文化財", "木造", "木像",
 ]
+_FALLBACK_EXCLUDE = [
+    "グラビア", "返還", "ストリップ", "ヌード", "ギャンブル",
+    "みほとけ", "クラブツーリズム", "賭博", "ゲーム",
+]
+
+
+def load_keywords() -> tuple[list[str], list[str]]:
+    """config/news_keywords.json から含む/除外キーワードを読み込む。"""
+    try:
+        if KEYWORDS_CONFIG_FILE.exists():
+            with KEYWORDS_CONFIG_FILE.open("r", encoding="utf-8") as f:
+                data = json.load(f)
+            inc = [k.strip() for k in data.get("include", []) if isinstance(k, str) and k.strip()]
+            exc = [k.strip() for k in data.get("exclude", []) if isinstance(k, str) and k.strip()]
+            if inc:  # 含むが空のときはフォールバックを使う（検索結果が膨大になるため）
+                return inc, exc
+            print("⚠ 含むキーワードが空のためフォールバックを使用", file=sys.stderr)
+    except Exception as e:
+        print(f"⚠ キーワード設定の読み込みに失敗: {e} → フォールバック使用", file=sys.stderr)
+    return list(_FALLBACK_INCLUDE), list(_FALLBACK_EXCLUDE)
+
+
+def build_search_query(includes: list[str], excludes: list[str]) -> str:
+    """Google News RSS 用のクエリ文字列を組み立てる。"""
+    inc_part = " OR ".join(includes)
+    exc_part = " ".join(f"-{w}" for w in excludes)
+    if exc_part:
+        return f"({inc_part}) {exc_part}"
+    return f"({inc_part})"
+
+
+# モジュール読み込み時にキーワードを評価（GitHub Actions 実行時の値を固定）
+INCLUDE_KEYWORDS, EXCLUDE_KEYWORDS = load_keywords()
+SEARCH_QUERY = build_search_query(INCLUDE_KEYWORDS, EXCLUDE_KEYWORDS)
 
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
 MAX_ITEMS_PER_RUN = 10   # 1回の実行で追加する最大件数
@@ -177,6 +204,8 @@ def resolve_original_url(google_news_url: str) -> str:
 
 
 def main() -> int:
+    print(f"含むキーワード ({len(INCLUDE_KEYWORDS)}): {', '.join(INCLUDE_KEYWORDS)}")
+    print(f"除外キーワード ({len(EXCLUDE_KEYWORDS)}): {', '.join(EXCLUDE_KEYWORDS)}")
     feed_url = build_feed_url()
     print(f"RSS取得: {feed_url}")
     feed = feedparser.parse(feed_url)
