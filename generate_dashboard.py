@@ -345,6 +345,47 @@ def build_html(items: list[dict], last_updated: str) -> str:
     </div>
   </main>
 
+  <!-- フッター: ニュース検索キーワード設定（クライアント側フィルター） -->
+  <footer class="px-4 pb-8 pt-2 max-w-xl mx-auto">
+    <details id="kw-panel" class="bg-white rounded-2xl shadow-sm p-4 border border-brand-100">
+      <summary class="text-sm font-bold text-brand-800 cursor-pointer select-none flex items-center justify-between">
+        <span>🔍 ニュース検索キーワード</span>
+        <span id="kw-status" class="text-xs font-normal text-gray-400"></span>
+      </summary>
+      <div class="mt-3 space-y-3">
+        <div>
+          <label class="block text-xs font-medium text-gray-700 mb-1">
+            含むキーワード <span class="text-gray-400">（カンマ区切り・いずれか1つ含めば表示）</span>
+          </label>
+          <input id="kw-include" type="text" placeholder="例: 仏像, 如来, 菩薩, 重要文化財"
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+            autocomplete="off" inputmode="search">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-700 mb-1">
+            除外キーワード <span class="text-gray-400">（いずれか1つでも含めば非表示）</span>
+          </label>
+          <input id="kw-exclude" type="text" placeholder="例: グラビア, ヌード, ゲーム"
+            class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+            autocomplete="off" inputmode="search">
+        </div>
+        <div class="flex gap-2">
+          <button onclick="applyKeywords()"
+            class="flex-1 bg-brand-600 text-white text-sm font-bold py-2 rounded-lg active:bg-brand-700 transition-colors">
+            適用
+          </button>
+          <button onclick="clearKeywords()"
+            class="px-4 bg-gray-100 text-gray-700 text-sm font-bold py-2 rounded-lg active:bg-gray-200 transition-colors">
+            クリア
+          </button>
+        </div>
+        <p class="text-[11px] text-gray-500 leading-relaxed">
+          ※ 取り込み済みの<strong>ニュースタブ</strong>記事のタイトルに対して適用されるフィルターです。GitHub Actions の取得自体には影響しません。
+        </p>
+      </div>
+    </details>
+  </footer>
+
   <script>
     let currentTab = 'news';
     let currentFilter = 'unposted';
@@ -376,15 +417,63 @@ def build_html(items: list[dict], last_updated: str) -> str:
       applyFilter();
     }}
 
+    function parseKeywords(s) {{
+      return (s || '').split(/[,、\s]+/).map(k => k.trim()).filter(Boolean);
+    }}
+
+    function matchKeywords(title, includes, excludes) {{
+      for (const kw of excludes) {{
+        if (title.indexOf(kw) !== -1) return false;
+      }}
+      if (includes.length === 0) return true;
+      return includes.some(kw => title.indexOf(kw) !== -1);
+    }}
+
+    function getActiveKeywords() {{
+      const incEl = document.getElementById('kw-include');
+      const excEl = document.getElementById('kw-exclude');
+      return {{
+        inc: parseKeywords(incEl ? incEl.value : ''),
+        exc: parseKeywords(excEl ? excEl.value : ''),
+      }};
+    }}
+
+    function updateKeywordStatus() {{
+      const status = document.getElementById('kw-status');
+      if (!status) return;
+      const {{ inc, exc }} = getActiveKeywords();
+      if (inc.length === 0 && exc.length === 0) {{
+        status.textContent = '';
+      }} else {{
+        const parts = [];
+        if (inc.length) parts.push('含 ' + inc.length);
+        if (exc.length) parts.push('除 ' + exc.length);
+        status.textContent = '(' + parts.join(' / ') + ')';
+      }}
+    }}
+
     function applyFilter() {{
       const activePane = document.getElementById('tab-' + currentTab);
       if (!activePane) return;
+
+      // ニュースタブのみキーワードフィルターを適用
+      const useKw = (currentTab === 'news');
+      const {{ inc, exc }} = useKw ? getActiveKeywords() : {{ inc: [], exc: [] }};
+
       let shown = 0;
       activePane.querySelectorAll('[data-item-id]').forEach(card => {{
         const posted = card.classList.contains('is-posted');
         let show = true;
         if (currentFilter === 'unposted') show = !posted;
         if (currentFilter === 'posted')   show = posted;
+
+        // キーワードフィルター（ニュースタブのみ）
+        if (show && useKw && (inc.length || exc.length)) {{
+          const titleEl = card.querySelector('p.text-sm.font-semibold');
+          const title = titleEl ? titleEl.textContent : '';
+          if (!matchKeywords(title, inc, exc)) show = false;
+        }}
+
         card.style.display = show ? '' : 'none';
         if (show) shown++;
       }});
@@ -451,6 +540,34 @@ def build_html(items: list[dict], last_updated: str) -> str:
       location.reload();
     }}
 
+    function applyKeywords() {{
+      const inc = (document.getElementById('kw-include').value || '').trim();
+      const exc = (document.getElementById('kw-exclude').value || '').trim();
+      localStorage.setItem('kw_include', inc);
+      localStorage.setItem('kw_exclude', exc);
+      updateKeywordStatus();
+      if (currentTab === 'news') applyFilter();
+    }}
+
+    function clearKeywords() {{
+      const incEl = document.getElementById('kw-include');
+      const excEl = document.getElementById('kw-exclude');
+      if (incEl) incEl.value = '';
+      if (excEl) excEl.value = '';
+      localStorage.removeItem('kw_include');
+      localStorage.removeItem('kw_exclude');
+      updateKeywordStatus();
+      if (currentTab === 'news') applyFilter();
+    }}
+
+    function loadKeywords() {{
+      const incEl = document.getElementById('kw-include');
+      const excEl = document.getElementById('kw-exclude');
+      if (incEl) incEl.value = localStorage.getItem('kw_include') || '';
+      if (excEl) excEl.value = localStorage.getItem('kw_exclude') || '';
+      updateKeywordStatus();
+    }}
+
     function init() {{
       document.querySelectorAll('[data-item-id]').forEach(card => {{
         if (localStorage.getItem('posted_' + card.dataset.itemId) === '1') {{
@@ -459,8 +576,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
           if (btn) btn.innerHTML = '✓ 再投稿';
         }}
       }});
+      loadKeywords();
       setTab('news');
       setFilter('unposted');
+
+      // Enter キーで適用
+      ['kw-include', 'kw-exclude'].forEach(id => {{
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('keydown', e => {{
+          if (e.key === 'Enter') {{ e.preventDefault(); applyKeywords(); }}
+        }});
+      }});
     }}
 
     if ('serviceWorker' in navigator) {{
@@ -493,7 +619,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v4';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v5';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
