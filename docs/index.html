@@ -52,7 +52,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5">更新: 5月9日 21:12</p>
+        <p class="text-xs text-brand-200 mt-0.5">更新: 5月9日 21:36</p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -61,7 +61,7 @@
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        📰 ニュース<span class="opacity-60 ml-0.5">187</span>
+        📰 ニュース<span class="opacity-60 ml-0.5">188</span>
       </button>
       <button onclick="setTab('exhibition')" id="tab-btn-exhibition"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
@@ -73,7 +73,7 @@
       </button>
       <button onclick="setTab('goods')" id="tab-btn-goods"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        🛒 書籍・グッズ<span class="opacity-60 ml-0.5">151</span>
+        🛒 書籍・グッズ<span class="opacity-60 ml-0.5">150</span>
       </button>
     </div>
 
@@ -92,6 +92,33 @@
   <!-- カードリスト（タブごとに分離） -->
   <main class="px-4 py-4 max-w-xl mx-auto">
     <div id="tab-news" class="tab-pane space-y-3">
+    <div class="separator flex items-center gap-3 my-2">
+      <div class="flex-1 h-px bg-brand-300"></div>
+      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 5月9日 21:35 取込</span>
+      <div class="flex-1 h-px bg-brand-300"></div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="bd22d2a5467c">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <span class="text-xs text-gray-500 shrink-0">📅 4月30日</span>
+          <span class="text-gray-300">·</span>
+          <span class="text-xs text-gray-400">取込 5月9日 21:35</span>
+        </div>
+      </div>
+      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">基山町 大興善寺で 本尊の「秘仏」が１２年に１度のご開帳 - NHKニュース</p>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E9%80%9F%E5%A0%B1%E3%80%91%0A%E5%9F%BA%E5%B1%B1%E7%94%BA+%E5%A4%A7%E8%88%88%E5%96%84%E5%AF%BA%E3%81%A7+%E6%9C%AC%E5%B0%8A%E3%81%AE%E3%80%8C%E7%A7%98%E4%BB%8F%E3%80%8D%E3%81%8C%EF%BC%91%EF%BC%92%E5%B9%B4%E3%81%AB%EF%BC%91%E5%BA%A6%E3%81%AE%E3%81%94%E9%96%8B%E5%B8%B3+-+NHK%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&url=https%3A%2F%2Fnews.web.nhk%2Fnewsweb%2Fna%2Fnb-5080021709" target="_blank" rel="noopener"
+           onclick="handlePostClick(event,'bd22d2a5467c')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://news.web.nhk/newsweb/na/nb-5080021709" target="_blank" rel="noopener"
+           class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
     <div class="separator flex items-center gap-3 my-2">
       <div class="flex-1 h-px bg-brand-300"></div>
       <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 5月9日 20:25 取込</span>
@@ -12026,31 +12053,6 @@
           にポスト
         </a>
         <a href="https://www.amazon.co.jp/dp/B0GXJP9P9Y?tag=yoshikingnenj-22" target="_blank" rel="noopener"
-           class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-      </div>
-    </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="c23a5e0315e0">
-      <img src="https://m.media-amazon.com/images/I/51tfxGDx08L._AC_UL960_FMwebp_QL65_.jpg" alt="" loading="lazy"
-           class="w-full h-40 object-cover rounded-xl mb-3"
-           onerror="this.style.display='none'">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛒 Amazon</span>
-        <div class="flex items-center gap-1.5 shrink-0">
-          <span class="text-xs text-gray-500 shrink-0">📅 5月3日</span>
-          <span class="text-gray-300">·</span>
-          <span class="text-xs text-gray-400">取込 5月3日 23:49</span>
-        </div>
-      </div>
-      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">壁掛け仏像スタンド、伸縮式プルプレート付き神スタンドシェルフ、木製ホームテンプル神殿仏壇テーブル(ブラック、22.8×9.8×2.6インチ)</p>
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E3%82%B0%E3%83%83%E3%82%BA%E3%80%91%0A%E5%A3%81%E6%8E%9B%E3%81%91%E4%BB%8F%E5%83%8F%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%80%81%E4%BC%B8%E7%B8%AE%E5%BC%8F%E3%83%97%E3%83%AB%E3%83%97%E3%83%AC%E3%83%BC%E3%83%88%E4%BB%98%E3%81%8D%E7%A5%9E%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E3%82%B7%E3%82%A7%E3%83%AB%E3%83%95%E3%80%81%E6%9C%A8%E8%A3%BD%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%86%E3%83%B3%E3%83%97%E3%83%AB%E7%A5%9E%E6%AE%BF%E4%BB%8F%E5%A3%87%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%28%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%80%8122.8%C3%979.8%C3%972.6%E3%82%A4%E3%83%B3%E3%83%81%29%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%81%AE%E3%81%82%E3%82%8B%E6%9A%AE%E3%82%89%E3%81%97&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0FKGJCYRL%3Ftag%3Dyoshikingnenj-22" target="_blank" rel="noopener"
-           onclick="handlePostClick(event,'c23a5e0315e0')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://www.amazon.co.jp/dp/B0FKGJCYRL?tag=yoshikingnenj-22" target="_blank" rel="noopener"
            class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
