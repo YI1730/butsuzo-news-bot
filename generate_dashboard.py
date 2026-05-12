@@ -332,7 +332,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       </button>
       <button onclick="setTab('archive')" id="tab-btn-archive"
         class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
-        📜 アーカイブ
+        📜 訪問記
       </button>
     </div>
 
@@ -362,11 +362,11 @@ def build_html(items: list[dict], last_updated: str) -> str:
     <div id="tab-goods" class="tab-pane space-y-3 hidden">
 {goods_cards}
     </div>
-    <!-- アーカイブタブ：過去のつぶやきをランダム表示 -->
+    <!-- 訪問記タブ：過去の訪問記をランダム表示 -->
     <div id="tab-archive" class="tab-pane space-y-3 hidden">
       <div class="flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
         <div>
-          <p class="text-sm font-bold text-brand-800">📜 過去のつぶやき</p>
+          <p class="text-sm font-bold text-brand-800">📜 過去の訪問記</p>
           <p class="text-xs text-gray-500 mt-0.5">ランダムに数件ピックアップしています</p>
         </div>
         <button onclick="shuffleArchive()"
@@ -625,7 +625,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const aid = item.id || '';
       const intentUrl = 'https://x.com/intent/post?text=' + encodeURIComponent(text);
       // 改行を <br> に置換しつつ HTML エスケープ
-      const safeText = escapeHtml(text).replace(/\n/g, '<br>');
+      const safeText = escapeHtml(text).replace(/\\n/g, '<br>');
       return (
         '<div class="archive-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-archive-id="' + escapeHtml(aid) + '">' +
           '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
@@ -642,7 +642,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const container = document.getElementById('archive-cards');
       if (!container) return;
       if (!Array.isArray(archiveData) || archiveData.length === 0) {{
-        container.innerHTML = '<p class="text-center text-sm text-gray-400 py-6">アーカイブはまだありません。<br>Streamlit 管理画面から登録してください。</p>';
+        container.innerHTML = '<p class="text-center text-sm text-gray-400 py-6">訪問記はまだ登録されていません。<br>Streamlit 管理画面から追加してください。</p>';
         applyFilter();
         return;
       }}
@@ -664,7 +664,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
         }})
         .catch(() => {{
           archiveData = [];
-          container.innerHTML = '<p class="text-center text-sm text-red-400 py-6">アーカイブの読み込みに失敗しました。</p>';
+          container.innerHTML = '<p class="text-center text-sm text-red-400 py-6">訪問記の読み込みに失敗しました。</p>';
         }});
     }}
 
@@ -808,7 +808,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v12';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v13';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
