@@ -166,6 +166,7 @@ def build_card_html(item: dict) -> str:
           にポスト
         </a>
         <a href="{url}" target="_blank" rel="noopener noreferrer"
+           onclick="return openExternal(event, this.href)"
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>"""
@@ -507,6 +508,51 @@ def build_html(items: list[dict], last_updated: str) -> str:
       document.getElementById('count').textContent = shown + '件';
     }}
 
+    // ────────────────────────────────────────────────────────
+    // 外部リンクを「OSの規定ブラウザ」で開く（PWA 内蔵ブラウザ回避）
+    //
+    // Android (standalone PWA) では target="_blank" でも Chrome Custom Tabs
+    // にリンクが閉じ込められる。intent:// URI で OS のリンクハンドラに渡すと
+    // 規定のブラウザアプリ（Chrome 等）で開く。
+    //
+    // iOS / 通常ブラウザは preventDefault せず、href の target="_blank" に任せる
+    // （iOS 17+ は standalone PWA から自動で Safari の新規タブで開く）。
+    // ────────────────────────────────────────────────────────
+    function isStandalonePWA() {{
+      try {{
+        if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) return true;
+        if (window.navigator && window.navigator.standalone === true) return true;
+      }} catch (e) {{}}
+      return false;
+    }}
+
+    function openExternal(event, url) {{
+      if (!url) return true;
+      const ua = navigator.userAgent || '';
+      // Android の standalone PWA でのみ intent: URI を使う
+      if (isStandalonePWA() && /Android/i.test(ua)) {{
+        try {{
+          const u = new URL(url, location.href);
+          const scheme = (u.protocol || 'https:').replace(':', '');
+          // intent://<host><path><query><hash>#Intent;scheme=https;end
+          const intentUrl =
+            'intent://' + u.host + u.pathname + u.search + u.hash +
+            '#Intent;scheme=' + scheme + ';end';
+          event.preventDefault();
+          const a = document.createElement('a');
+          a.href = intentUrl;
+          a.style.display = 'none';
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(function () {{ a.remove(); }}, 100);
+          return false;
+        }} catch (e) {{
+          // 失敗時はフォールスルーして通常リンクとして開かせる
+        }}
+      }}
+      return true;
+    }}
+
     function handlePostClick(event, itemId) {{
       const card = document.querySelector('[data-item-id="' + itemId + '"]');
       const btn = card ? card.querySelector('.post-btn') : null;
@@ -636,7 +682,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v8';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v9';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
