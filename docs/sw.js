@@ -1,4 +1,4 @@
-const CACHE = 'butsuzo-v10';
+const CACHE = 'butsuzo-v11';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 

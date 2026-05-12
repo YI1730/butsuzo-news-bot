@@ -166,7 +166,7 @@ def build_card_html(item: dict) -> str:
           にポスト
         </a>
         <a href="{url}" target="_blank" rel="noopener noreferrer"
-           onclick="return openExternal(event, this.href)"
+           data-external-url="{url}"
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>"""
@@ -526,35 +526,39 @@ def build_html(items: list[dict], last_updated: str) -> str:
       return false;
     }}
 
-    function openExternal(event, url) {{
-      if (!url) return true;
+    // Android standalone PWA では target="_blank" が Custom Tabs に閉じ込められる。
+    // 起動時に該当環境を判定し、外部リンクの href 自体を intent:// に書き換える。
+    // これにより Chrome が「intent URI = 外部アプリ起動」として処理し、
+    // ユーザーの規定ブラウザでリンクが開かれる。
+    function buildIntentUrl(url) {{
+      const u = new URL(url, location.href);
+      const scheme = (u.protocol || 'https:').replace(':', '');
+      const fallback = encodeURIComponent(url);
+      return (
+        'intent://' + u.host + u.pathname + u.search + u.hash +
+        '#Intent;scheme=' + scheme +
+        ';action=android.intent.action.VIEW' +
+        ';category=android.intent.category.BROWSABLE' +
+        ';S.browser_fallback_url=' + fallback +
+        ';end'
+      );
+    }}
+
+    function rewriteExternalLinksForAndroidPWA() {{
       const ua = navigator.userAgent || '';
-      // Android の standalone PWA でのみ intent: URI を使う
-      if (isStandalonePWA() && /Android/i.test(ua)) {{
+      if (!isStandalonePWA()) return;
+      if (!/Android/i.test(ua)) return;
+      document.querySelectorAll('a.read-btn[data-external-url]').forEach(function (a) {{
+        const original = a.getAttribute('data-external-url');
+        if (!original) return;
         try {{
-          const u = new URL(url, location.href);
-          const scheme = (u.protocol || 'https:').replace(':', '');
-          const fallback = encodeURIComponent(url);
-          // intent URI:
-          //   - scheme:           元URLのスキーム
-          //   - action=VIEW:      明示的に「URL を表示」アクション
-          //   - S.browser_fallback_url: 規定ブラウザが見つからない場合のフォールバック
-          const intentUrl =
-            'intent://' + u.host + u.pathname + u.search + u.hash +
-            '#Intent;scheme=' + scheme +
-            ';action=android.intent.action.VIEW' +
-            ';S.browser_fallback_url=' + fallback +
-            ';end';
-          event.preventDefault();
-          // a.click() は新しい Chrome では Custom Tabs に閉じ込められる場合があるため、
-          // window.location.href で OS に直接インテントを渡す（PWA は背景に残る）。
-          window.location.href = intentUrl;
-          return false;
-        }} catch (e) {{
-          // 失敗時はフォールスルーして通常リンクとして開かせる
-        }}
-      }}
-      return true;
+          const intentUrl = buildIntentUrl(original);
+          a.setAttribute('href', intentUrl);
+          // intent URI は新規タブ不要・noopener 付与で逆に挙動が崩れる場合があるので解除
+          a.removeAttribute('target');
+          a.removeAttribute('rel');
+        }} catch (e) {{}}
+      }});
     }}
 
     function handlePostClick(event, itemId) {{
@@ -630,6 +634,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     function init() {{
+      // 外部リンクを Android PWA 環境では intent:// URI に書き換える
+      rewriteExternalLinksForAndroidPWA();
+
       document.querySelectorAll('[data-item-id]').forEach(card => {{
         if (localStorage.getItem('posted_' + card.dataset.itemId) === '1') {{
           card.classList.add('is-posted');
@@ -686,7 +693,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v10';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v11';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
