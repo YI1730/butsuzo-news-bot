@@ -17,6 +17,9 @@ from pathlib import Path
 
 DOCS_DIR = Path(__file__).parent / "docs"
 NEWS_JSON_FILE = DOCS_DIR / "data" / "news.json"
+# Streamlit 管理画面が編集するアーカイブつぶやき（PWA からも参照させる）
+ARCHIVES_SRC = Path(__file__).parent / "data" / "archives.json"
+ARCHIVES_DST = DOCS_DIR / "data" / "archives.json"
 JST = timezone(timedelta(hours=9))
 
 # ブランドカラー #00AE95 = RGB(0, 174, 149)
@@ -309,23 +312,27 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
 
-    <!-- タブ切替（セグメント形式・4タブ） -->
+    <!-- タブ切替（セグメント形式・5タブ） -->
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
-        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
         📰 ニュース<span class="opacity-60 ml-0.5">{news_count}</span>
       </button>
       <button onclick="setTab('exhibition')" id="tab-btn-exhibition"
-        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
         🏛 特別展<span class="opacity-60 ml-0.5">{exhib_count}</span>
       </button>
       <button onclick="setTab('other')" id="tab-btn-other"
-        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
         🛕 特別公開<span class="opacity-60 ml-0.5">{other_count}</span>
       </button>
       <button onclick="setTab('goods')" id="tab-btn-goods"
-        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
         🛒 書籍・グッズ<span class="opacity-60 ml-0.5">{goods_count}</span>
+      </button>
+      <button onclick="setTab('archive')" id="tab-btn-archive"
+        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
+        📜 アーカイブ
       </button>
     </div>
 
@@ -354,6 +361,22 @@ def build_html(items: list[dict], last_updated: str) -> str:
     </div>
     <div id="tab-goods" class="tab-pane space-y-3 hidden">
 {goods_cards}
+    </div>
+    <!-- アーカイブタブ：過去のつぶやきをランダム表示 -->
+    <div id="tab-archive" class="tab-pane space-y-3 hidden">
+      <div class="flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
+        <div>
+          <p class="text-sm font-bold text-brand-800">📜 過去のつぶやき</p>
+          <p class="text-xs text-gray-500 mt-0.5">ランダムに数件ピックアップしています</p>
+        </div>
+        <button onclick="shuffleArchive()"
+          class="bg-brand-600 active:bg-brand-700 text-white text-xs font-bold px-3 py-2 rounded-full transition-colors">
+          🔀 別の候補
+        </button>
+      </div>
+      <div id="archive-cards" class="space-y-3">
+        <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
+      </div>
     </div>
   </main>
 
@@ -401,18 +424,27 @@ def build_html(items: list[dict], last_updated: str) -> str:
   <script>
     let currentTab = 'news';
     let currentFilter = 'unposted';
+    let archiveData = null;  // data/archives.json をキャッシュ
 
     function setTab(tab) {{
       currentTab = tab;
-      ['news','exhibition','other','goods'].forEach(t => {{
+      ['news','exhibition','other','goods','archive'].forEach(t => {{
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {{
-          btn.className = 'tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight ' +
+          btn.className = 'tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight ' +
             (t === tab ? 'bg-white text-brand-800 shadow' : 'text-brand-200');
         }}
         const pane = document.getElementById('tab-' + t);
         if (pane) pane.classList.toggle('hidden', t !== tab);
       }});
+      // アーカイブタブを開いたタイミングで初回ロード
+      if (tab === 'archive') {{
+        if (!archiveData) {{
+          loadArchive();
+        }} else {{
+          renderArchive();
+        }}
+      }}
       applyFilter();
       window.scrollTo({{top: 0, behavior: 'instant'}});
     }}
@@ -467,6 +499,14 @@ def build_html(items: list[dict], last_updated: str) -> str:
     function applyFilter() {{
       const activePane = document.getElementById('tab-' + currentTab);
       if (!activePane) return;
+
+      // アーカイブタブはフィルター対象外（カードは archive-cards 配下で renderArchive が管理）
+      if (currentTab === 'archive') {{
+        const archiveCards = document.getElementById('archive-cards');
+        const shown = archiveCards ? archiveCards.querySelectorAll('[data-archive-id]').length : 0;
+        document.getElementById('count').textContent = shown + '件';
+        return;
+      }}
 
       // ニュースタブのみキーワードフィルターを適用
       const useKw = (currentTab === 'news');
@@ -559,6 +599,81 @@ def build_html(items: list[dict], last_updated: str) -> str:
           a.removeAttribute('rel');
         }} catch (e) {{}}
       }});
+    }}
+
+    // ────────────────────────────────────────────────────────
+    // 過去アーカイブつぶやき: data/archives.json を fetch し、
+    // ランダムに 3〜5 件選んでカード表示。各カードに X Web Intent ボタン。
+    // ────────────────────────────────────────────────────────
+    function escapeHtml(s) {{
+      return (s == null ? '' : String(s))
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }}
+
+    function pickRandom(arr, count) {{
+      const a = arr.slice();
+      for (let i = a.length - 1; i > 0; i--) {{
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }}
+      return a.slice(0, Math.min(count, a.length));
+    }}
+
+    function buildArchiveCardHtml(item) {{
+      const text = item.text || '';
+      const aid = item.id || '';
+      const intentUrl = 'https://x.com/intent/post?text=' + encodeURIComponent(text);
+      // 改行を <br> に置換しつつ HTML エスケープ
+      const safeText = escapeHtml(text).replace(/\n/g, '<br>');
+      return (
+        '<div class="archive-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-archive-id="' + escapeHtml(aid) + '">' +
+          '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
+          '<a href="' + intentUrl + '" target="_blank" rel="noopener noreferrer" ' +
+              'class="post-btn-archive flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">' +
+            '<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
+            '𝕏 にポスト' +
+          '</a>' +
+        '</div>'
+      );
+    }}
+
+    function renderArchive() {{
+      const container = document.getElementById('archive-cards');
+      if (!container) return;
+      if (!Array.isArray(archiveData) || archiveData.length === 0) {{
+        container.innerHTML = '<p class="text-center text-sm text-gray-400 py-6">アーカイブはまだありません。<br>Streamlit 管理画面から登録してください。</p>';
+        applyFilter();
+        return;
+      }}
+      // 3〜5 件のランダム選択（件数が少ない場合は全件）
+      const k = Math.min(archiveData.length, 3 + Math.floor(Math.random() * 3));
+      const picked = pickRandom(archiveData, k);
+      container.innerHTML = picked.map(buildArchiveCardHtml).join('');
+      applyFilter();
+    }}
+
+    function loadArchive() {{
+      const container = document.getElementById('archive-cards');
+      if (!container) return;
+      fetch('./data/archives.json', {{ cache: 'no-cache' }})
+        .then(r => r.ok ? r.json() : [])
+        .then(data => {{
+          archiveData = Array.isArray(data) ? data.filter(x => x && x.text) : [];
+          renderArchive();
+        }})
+        .catch(() => {{
+          archiveData = [];
+          container.innerHTML = '<p class="text-center text-sm text-red-400 py-6">アーカイブの読み込みに失敗しました。</p>';
+        }});
+    }}
+
+    function shuffleArchive() {{
+      if (archiveData) {{
+        renderArchive();
+      }} else {{
+        loadArchive();
+      }}
     }}
 
     function handlePostClick(event, itemId) {{
@@ -693,7 +808,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v11';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v12';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -705,8 +820,9 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = e.request.url;
-  // index.html と news.json は常に network-first（最新コンテンツを優先）
-  if (url.endsWith('/') || url.includes('/index.html') || url.includes('/data/news.json')) {
+  // index.html / news.json / archives.json は常に network-first（最新コンテンツを優先）
+  if (url.endsWith('/') || url.includes('/index.html')
+      || url.includes('/data/news.json') || url.includes('/data/archives.json')) {
     e.respondWith(
       fetch(e.request).then(res => {
         const clone = res.clone();
@@ -753,6 +869,22 @@ def main() -> None:
 
     (DOCS_DIR / "sw.js").write_text(SERVICE_WORKER, encoding="utf-8")
     print("生成: docs/sw.js")
+
+    # data/archives.json を docs/data/archives.json にコピー（PWA から fetch させるため）
+    ARCHIVES_DST.parent.mkdir(parents=True, exist_ok=True)
+    if ARCHIVES_SRC.exists():
+        try:
+            archives_data = json.loads(ARCHIVES_SRC.read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"⚠ archives.json 読み込み失敗: {e} → 空配列を出力")
+            archives_data = []
+    else:
+        archives_data = []
+    ARCHIVES_DST.write_text(
+        json.dumps(archives_data, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"生成: docs/data/archives.json ({len(archives_data) if isinstance(archives_data, list) else 0}件)")
 
     # アイコンはロゴ入り PNG をリポジトリに同梱しているため、上書き生成しない。
     # （tools/generate_logo.py で再生成可能。GitHub Actions では更新しない）

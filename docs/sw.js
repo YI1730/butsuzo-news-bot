@@ -1,4 +1,4 @@
-const CACHE = 'butsuzo-v11';
+const CACHE = 'butsuzo-v12';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -10,8 +10,9 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = e.request.url;
-  // index.html と news.json は常に network-first（最新コンテンツを優先）
-  if (url.endsWith('/') || url.includes('/index.html') || url.includes('/data/news.json')) {
+  // index.html / news.json / archives.json は常に network-first（最新コンテンツを優先）
+  if (url.endsWith('/') || url.includes('/index.html')
+      || url.includes('/data/news.json') || url.includes('/data/archives.json')) {
     e.respondWith(
       fetch(e.request).then(res => {
         const clone = res.clone();
