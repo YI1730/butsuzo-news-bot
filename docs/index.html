@@ -12754,17 +12754,21 @@
         try {
           const u = new URL(url, location.href);
           const scheme = (u.protocol || 'https:').replace(':', '');
-          // intent://<host><path><query><hash>#Intent;scheme=https;end
+          const fallback = encodeURIComponent(url);
+          // intent URI:
+          //   - scheme:           元URLのスキーム
+          //   - action=VIEW:      明示的に「URL を表示」アクション
+          //   - S.browser_fallback_url: 規定ブラウザが見つからない場合のフォールバック
           const intentUrl =
             'intent://' + u.host + u.pathname + u.search + u.hash +
-            '#Intent;scheme=' + scheme + ';end';
+            '#Intent;scheme=' + scheme +
+            ';action=android.intent.action.VIEW' +
+            ';S.browser_fallback_url=' + fallback +
+            ';end';
           event.preventDefault();
-          const a = document.createElement('a');
-          a.href = intentUrl;
-          a.style.display = 'none';
-          document.body.appendChild(a);
-          a.click();
-          setTimeout(function () { a.remove(); }, 100);
+          // a.click() は新しい Chrome では Custom Tabs に閉じ込められる場合があるため、
+          // window.location.href で OS に直接インテントを渡す（PWA は背景に残る）。
+          window.location.href = intentUrl;
           return false;
         } catch (e) {
           // 失敗時はフォールスルーして通常リンクとして開かせる
