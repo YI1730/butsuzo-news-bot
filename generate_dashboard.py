@@ -17,9 +17,11 @@ from pathlib import Path
 
 DOCS_DIR = Path(__file__).parent / "docs"
 NEWS_JSON_FILE = DOCS_DIR / "data" / "news.json"
-# Streamlit 管理画面が編集するアーカイブつぶやき（PWA からも参照させる）
+# Streamlit 管理画面が編集する訪問記・予約投稿（PWA からも参照させる）
 ARCHIVES_SRC = Path(__file__).parent / "data" / "archives.json"
 ARCHIVES_DST = DOCS_DIR / "data" / "archives.json"
+SCHEDULED_SRC = Path(__file__).parent / "data" / "scheduled_posts.json"
+SCHEDULED_DST = DOCS_DIR / "data" / "scheduled_posts.json"
 JST = timezone(timedelta(hours=9))
 
 # ブランドカラー #00AE95 = RGB(0, 174, 149)
@@ -41,9 +43,11 @@ SOURCE_LABELS: dict[str, str] = {
 }
 
 # タブ別ソース定義
-NEWS_TAB_SOURCES       = {"google_news", "bangumi_tv"}
-EXHIBITION_TAB_SOURCES = {"exhibition", "exhibition_rss"}
-GOODS_TAB_SOURCES      = {"amazon_goods"}
+# 「特別展」タブは更新頻度が低いため「特別公開」タブにマージ（other 扱い）。
+NEWS_TAB_SOURCES = {"google_news", "bangumi_tv"}
+GOODS_TAB_SOURCES = {"amazon_goods"}
+# EXHIBITION 系は OTHER に統合（other は明示的にこの集合の補集合として求める）
+_EXHIBITION_SOURCES_MERGED = {"exhibition", "exhibition_rss"}
 
 # 取り込みセッション区切りの閾値（秒）— これ以上 fetched_at が離れると新セッション扱い
 SEPARATOR_THRESHOLD_SECONDS = 30 * 60
@@ -226,19 +230,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
         reverse=True,
     )
 
-    # 4タブに分割: ニュース / 特別展 / 特別公開 / 書籍・グッズ
-    classified = NEWS_TAB_SOURCES | EXHIBITION_TAB_SOURCES | GOODS_TAB_SOURCES
+    # 4タブに分割: ニュース / 特別公開 / 書籍・グッズ / 訪問記
+    # （旧「特別展」は更新頻度が低いため、特別公開タブ＝other にマージ済み）
     news_items  = [x for x in items_sorted if x.get("source") in NEWS_TAB_SOURCES]
-    exhib_items = [x for x in items_sorted if x.get("source") in EXHIBITION_TAB_SOURCES]
     goods_items = [x for x in items_sorted if x.get("source") in GOODS_TAB_SOURCES]
+    classified  = NEWS_TAB_SOURCES | GOODS_TAB_SOURCES
     other_items = [x for x in items_sorted if x.get("source") not in classified]
 
     news_cards  = build_cards_with_separators(news_items)
-    exhib_cards = build_cards_with_separators(exhib_items)
     goods_cards = build_cards_with_separators(goods_items)
     other_cards = build_cards_with_separators(other_items)
     news_count  = len(news_items)
-    exhib_count = len(exhib_items)
     goods_count = len(goods_items)
     other_count = len(other_items)
 
@@ -312,26 +314,22 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
 
-    <!-- タブ切替（セグメント形式・5タブ） -->
+    <!-- タブ切替（セグメント形式・4タブ） -->
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
-        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         📰 ニュース<span class="opacity-60 ml-0.5">{news_count}</span>
       </button>
-      <button onclick="setTab('exhibition')" id="tab-btn-exhibition"
-        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
-        🏛 特別展<span class="opacity-60 ml-0.5">{exhib_count}</span>
-      </button>
       <button onclick="setTab('other')" id="tab-btn-other"
-        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         🛕 特別公開<span class="opacity-60 ml-0.5">{other_count}</span>
       </button>
       <button onclick="setTab('goods')" id="tab-btn-goods"
-        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         🛒 書籍・グッズ<span class="opacity-60 ml-0.5">{goods_count}</span>
       </button>
       <button onclick="setTab('archive')" id="tab-btn-archive"
-        class="tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight">
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         📜 訪問記
       </button>
     </div>
@@ -353,17 +351,15 @@ def build_html(items: list[dict], last_updated: str) -> str:
     <div id="tab-news" class="tab-pane space-y-3">
 {news_cards}
     </div>
-    <div id="tab-exhibition" class="tab-pane space-y-3 hidden">
-{exhib_cards}
-    </div>
     <div id="tab-other" class="tab-pane space-y-3 hidden">
 {other_cards}
     </div>
     <div id="tab-goods" class="tab-pane space-y-3 hidden">
 {goods_cards}
     </div>
-    <!-- 訪問記タブ：過去の訪問記をランダム表示 -->
+    <!-- 訪問記タブ：過去の訪問記ランダム＋予約投稿 -->
     <div id="tab-archive" class="tab-pane space-y-3 hidden">
+      <!-- 過去の訪問記（ランダム） -->
       <div class="flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
         <div>
           <p class="text-sm font-bold text-brand-800">📜 過去の訪問記</p>
@@ -375,6 +371,15 @@ def build_html(items: list[dict], last_updated: str) -> str:
         </button>
       </div>
       <div id="archive-cards" class="space-y-3">
+        <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
+      </div>
+
+      <!-- 予約投稿 -->
+      <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm mt-4">
+        <p class="text-sm font-bold text-brand-800">📅 予約投稿</p>
+        <p class="text-xs text-gray-500 mt-0.5">Streamlit で登録した予約投稿の一覧です</p>
+      </div>
+      <div id="scheduled-cards" class="space-y-3">
         <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
       </div>
     </div>
@@ -424,26 +429,24 @@ def build_html(items: list[dict], last_updated: str) -> str:
   <script>
     let currentTab = 'news';
     let currentFilter = 'unposted';
-    let archiveData = null;  // data/archives.json をキャッシュ
+    let archiveData = null;    // data/archives.json をキャッシュ
+    let scheduledData = null;  // data/scheduled_posts.json をキャッシュ
 
     function setTab(tab) {{
       currentTab = tab;
-      ['news','exhibition','other','goods','archive'].forEach(t => {{
+      ['news','other','goods','archive'].forEach(t => {{
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {{
-          btn.className = 'tab-btn flex-1 py-1 text-[10px] font-bold rounded-lg transition-colors leading-tight ' +
+          btn.className = 'tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight ' +
             (t === tab ? 'bg-white text-brand-800 shadow' : 'text-brand-200');
         }}
         const pane = document.getElementById('tab-' + t);
         if (pane) pane.classList.toggle('hidden', t !== tab);
       }});
-      // アーカイブタブを開いたタイミングで初回ロード
+      // 訪問記タブを開いたタイミングで初回ロード
       if (tab === 'archive') {{
-        if (!archiveData) {{
-          loadArchive();
-        }} else {{
-          renderArchive();
-        }}
+        if (!archiveData) {{ loadArchive(); }} else {{ renderArchive(); }}
+        if (!scheduledData) {{ loadScheduled(); }} else {{ renderScheduled(); }}
       }}
       applyFilter();
       window.scrollTo({{top: 0, behavior: 'instant'}});
@@ -500,11 +503,13 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const activePane = document.getElementById('tab-' + currentTab);
       if (!activePane) return;
 
-      // アーカイブタブはフィルター対象外（カードは archive-cards 配下で renderArchive が管理）
+      // 訪問記タブはフィルター対象外（カードは archive-cards / scheduled-cards 配下で動的生成）
       if (currentTab === 'archive') {{
         const archiveCards = document.getElementById('archive-cards');
-        const shown = archiveCards ? archiveCards.querySelectorAll('[data-archive-id]').length : 0;
-        document.getElementById('count').textContent = shown + '件';
+        const scheduledCards = document.getElementById('scheduled-cards');
+        const aShown = archiveCards ? archiveCards.querySelectorAll('[data-archive-id]').length : 0;
+        const sShown = scheduledCards ? scheduledCards.querySelectorAll('[data-scheduled-id]').length : 0;
+        document.getElementById('count').textContent = (aShown + sShown) + '件';
         return;
       }}
 
@@ -623,11 +628,19 @@ def build_html(items: list[dict], last_updated: str) -> str:
     function buildArchiveCardHtml(item) {{
       const text = item.text || '';
       const aid = item.id || '';
+      const imgUrl = item.image_url || '';
       const intentUrl = 'https://x.com/intent/post?text=' + encodeURIComponent(text);
-      // 改行を <br> に置換しつつ HTML エスケープ
       const safeText = escapeHtml(text).replace(/\\n/g, '<br>');
+      // image_url が http(s) で始まる時のみ <img> を表示
+      let imgHtml = '';
+      if (imgUrl && /^https?:\/\//i.test(imgUrl)) {{
+        imgHtml = '<img src="' + escapeHtml(imgUrl) + '" alt="" loading="lazy" ' +
+                  'class="w-full h-40 object-cover rounded-xl mb-3" ' +
+                  'onerror="this.style.display=\\'none\\'">';
+      }}
       return (
         '<div class="archive-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-archive-id="' + escapeHtml(aid) + '">' +
+          imgHtml +
           '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
           '<a href="' + intentUrl + '" target="_blank" rel="noopener noreferrer" ' +
               'class="post-btn-archive flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">' +
@@ -674,6 +687,67 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }} else {{
         loadArchive();
       }}
+    }}
+
+    // ────────────────────────────────────────────────────────
+    // 予約投稿 (scheduled_posts.json) の表示
+    // ────────────────────────────────────────────────────────
+    const WEEKDAY_LABEL_JA = {{ mon:'月', tue:'火', wed:'水', thu:'木', fri:'金', sat:'土', sun:'日' }};
+
+    function buildScheduledCardHtml(item) {{
+      const text = item.text || '';
+      const sid = item.id || '';
+      const wd = item.weekday || '*';
+      const tm = item.time || '';
+      const wdLabel = (wd === '*') ? '毎日' : (WEEKDAY_LABEL_JA[wd] || wd);
+      const intentUrl = 'https://x.com/intent/post?text=' + encodeURIComponent(text);
+      const safeText = escapeHtml(text).replace(/\\n/g, '<br>');
+      return (
+        '<div class="scheduled-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-scheduled-id="' + escapeHtml(sid) + '">' +
+          '<div class="flex items-center gap-2 mb-2">' +
+            '<span class="text-xs font-bold text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full">🗓 ' + escapeHtml(wdLabel) + ' ' + escapeHtml(tm) + '</span>' +
+          '</div>' +
+          '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
+          '<a href="' + intentUrl + '" target="_blank" rel="noopener noreferrer" ' +
+              'class="post-btn-scheduled flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">' +
+            '<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
+            '𝕏 にポスト' +
+          '</a>' +
+        '</div>'
+      );
+    }}
+
+    function renderScheduled() {{
+      const container = document.getElementById('scheduled-cards');
+      if (!container) return;
+      if (!Array.isArray(scheduledData) || scheduledData.length === 0) {{
+        container.innerHTML = '<p class="text-center text-sm text-gray-400 py-6">予約投稿はまだ登録されていません。<br>Streamlit 管理画面の「③ 予約投稿」から追加してください。</p>';
+        return;
+      }}
+      // 曜日 → 時刻 でソート（毎日「*」は先頭）
+      const wdOrder = {{ '*': -1, mon:0, tue:1, wed:2, thu:3, fri:4, sat:5, sun:6 }};
+      const sorted = scheduledData.slice().sort((a, b) => {{
+        const wa = wdOrder[a.weekday] != null ? wdOrder[a.weekday] : 99;
+        const wb = wdOrder[b.weekday] != null ? wdOrder[b.weekday] : 99;
+        if (wa !== wb) return wa - wb;
+        return (a.time || '').localeCompare(b.time || '');
+      }});
+      container.innerHTML = sorted.map(buildScheduledCardHtml).join('');
+    }}
+
+    function loadScheduled() {{
+      const container = document.getElementById('scheduled-cards');
+      if (!container) return;
+      fetch('./data/scheduled_posts.json', {{ cache: 'no-cache' }})
+        .then(r => r.ok ? r.json() : [])
+        .then(data => {{
+          scheduledData = Array.isArray(data) ? data.filter(x => x && x.text) : [];
+          renderScheduled();
+        }})
+        .catch(() => {{
+          scheduledData = [];
+          container.innerHTML = '<p class="text-center text-sm text-red-400 py-6">予約投稿の読み込みに失敗しました。</p>';
+        }});
     }}
 
     function handlePostClick(event, itemId) {{
@@ -808,7 +882,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v13';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v14';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -820,9 +894,11 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = e.request.url;
-  // index.html / news.json / archives.json は常に network-first（最新コンテンツを優先）
+  // index.html / news.json / archives.json / scheduled_posts.json は常に network-first
   if (url.endsWith('/') || url.includes('/index.html')
-      || url.includes('/data/news.json') || url.includes('/data/archives.json')) {
+      || url.includes('/data/news.json')
+      || url.includes('/data/archives.json')
+      || url.includes('/data/scheduled_posts.json')) {
     e.respondWith(
       fetch(e.request).then(res => {
         const clone = res.clone();
@@ -870,7 +946,7 @@ def main() -> None:
     (DOCS_DIR / "sw.js").write_text(SERVICE_WORKER, encoding="utf-8")
     print("生成: docs/sw.js")
 
-    # data/archives.json を docs/data/archives.json にコピー（PWA から fetch させるため）
+    # data/archives.json / data/scheduled_posts.json を docs/data/ にコピー（PWA から fetch させるため）
     ARCHIVES_DST.parent.mkdir(parents=True, exist_ok=True)
     if ARCHIVES_SRC.exists():
         try:
@@ -885,6 +961,20 @@ def main() -> None:
         encoding="utf-8",
     )
     print(f"生成: docs/data/archives.json ({len(archives_data) if isinstance(archives_data, list) else 0}件)")
+
+    if SCHEDULED_SRC.exists():
+        try:
+            scheduled_data = json.loads(SCHEDULED_SRC.read_text(encoding="utf-8"))
+        except Exception as e:
+            print(f"⚠ scheduled_posts.json 読み込み失敗: {e} → 空配列を出力")
+            scheduled_data = []
+    else:
+        scheduled_data = []
+    SCHEDULED_DST.write_text(
+        json.dumps(scheduled_data, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    print(f"生成: docs/data/scheduled_posts.json ({len(scheduled_data) if isinstance(scheduled_data, list) else 0}件)")
 
     # アイコンはロゴ入り PNG をリポジトリに同梱しているため、上書き生成しない。
     # （tools/generate_logo.py で再生成可能。GitHub Actions では更新しない）
