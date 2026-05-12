@@ -158,15 +158,16 @@ def build_card_html(item: dict) -> str:
 {image_html}{meta_html}
       <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">{title}</p>
       <div class="flex items-center gap-3">
-        <a href="{intent_url}" target="_blank" rel="noopener"
+        <a href="{intent_url}" target="_blank" rel="noopener noreferrer"
            onclick="handlePostClick(event,'{uid}')"
            data-description="{desc_escaped}"
            class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           にポスト
         </a>
-        <a href="{url}" target="_blank" rel="noopener"
-           class="text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+        <a href="{url}" target="_blank" rel="noopener noreferrer"
+           onclick="openExternal(event, '{url}')"
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>"""
 
@@ -496,6 +497,52 @@ def build_html(items: list[dict], last_updated: str) -> str:
       document.getElementById('count').textContent = shown + '件';
     }}
 
+    // ────────────────────────────────────────────────────────
+    // PWA UX: 外部リンクは必ず「スマホの標準ブラウザ」で開く
+    // standalone (PWA) で動作している場合、a target=_blank だけでは
+    // アプリ内ブラウザに飛ぶ端末があるため、JS で明示的にウィンドウを開く。
+    // ────────────────────────────────────────────────────────
+    function isStandalonePWA() {{
+      try {{
+        if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) return true;
+        if (window.navigator && window.navigator.standalone === true) return true; // iOS Safari
+      }} catch (e) {{}}
+      return false;
+    }}
+
+    function openExternal(event, url) {{
+      if (!url) return;
+      // PWA でなければブラウザ既定の挙動に任せる
+      if (!isStandalonePWA()) return;
+      // 「クリック直後」というユーザー操作のコンテキスト内で window.open を呼ぶことが重要
+      if (event) {{ event.preventDefault(); event.stopPropagation(); }}
+      const win = window.open(url, '_blank', 'noopener,noreferrer');
+      // ポップアップブロッカー等で開けなかった場合のフォールバック
+      if (!win) {{
+        try {{
+          const a = document.createElement('a');
+          a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+          document.body.appendChild(a); a.click(); a.remove();
+        }} catch (e) {{}}
+      }}
+    }}
+
+    // 全てのカード内 a[target=_blank] にもデリゲートで保険を掛ける（OGP 画像クリックなど将来の追加要素対策）
+    document.addEventListener('click', function(e) {{
+      const a = e.target && e.target.closest && e.target.closest('a[target="_blank"]');
+      if (!a) return;
+      // post-btn は handlePostClick が制御するので除外
+      if (a.classList.contains('post-btn')) return;
+      // read-btn は openExternal が制御するので除外（onclick で発火済み）
+      if (a.classList.contains('read-btn')) return;
+      const href = a.getAttribute('href');
+      if (!href) return;
+      if (!isStandalonePWA()) return;
+      e.preventDefault();
+      const win = window.open(href, '_blank', 'noopener,noreferrer');
+      if (!win) {{ try {{ a.click(); }} catch (err) {{}} }}
+    }}, true);
+
     function handlePostClick(event, itemId) {{
       const card = document.querySelector('[data-item-id="' + itemId + '"]');
       const btn = card ? card.querySelector('.post-btn') : null;
@@ -619,7 +666,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v5';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v6';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 

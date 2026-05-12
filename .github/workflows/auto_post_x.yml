@@ -1,0 +1,70 @@
+name: Auto Post to X
+
+# 毎時 5 分にランダム投稿／予約投稿をチェックして X に投稿する。
+# 投稿ロジックは auto_post_runner.py、データソースは
+#   config/auto_post_config.json
+#   data/archives.json
+#   data/scheduled_posts.json
+#   data/post_history.json
+
+on:
+  schedule:
+    # GitHub Actions の最小スケジュール間隔は 1 時間
+    - cron: "5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# 同時実行ロック（複数イベントで重複起動した場合に多重投稿を防ぐ）
+concurrency:
+  group: auto-post-x
+  cancel-in-progress: false
+
+jobs:
+  auto_post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install "tweepy>=4.14.0"
+
+      - name: Run auto_post_runner
+        env:
+          X_CONSUMER_KEY:        ${{ secrets.X_CONSUMER_KEY }}
+          X_CONSUMER_SECRET:     ${{ secrets.X_CONSUMER_SECRET }}
+          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        run: python auto_post_runner.py
+
+      - name: Commit history / config updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/post_history.json config/auto_post_config.json || true
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(auto_post): update history/config [skip ci]"
+            # コミット競合に強くするため rebase 付き pull で再試行
+            for i in 1 2 3; do
+              if git push; then
+                exit 0
+              fi
+              echo "push failed (attempt $i), pulling --rebase and retrying"
+              git pull --rebase || true
+            done
+            echo "push failed after retries" >&2
+            exit 1
+          else
+            echo "No changes to commit"
+          fi
