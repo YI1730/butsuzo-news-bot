@@ -3,7 +3,7 @@
   "short_name": "仏像ニュース",
   "description": "仏像関連ニュース・特別公開情報の投稿管理ダッシュボード",
   "start_url": "./",
-  "display": "browser",
+  "display": "standalone",
   "background_color": "#00AE95",
   "theme_color": "#00AE95",
   "lang": "ja",

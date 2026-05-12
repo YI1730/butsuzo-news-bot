@@ -244,10 +244,11 @@ def build_html(items: list[dict], last_updated: str) -> str:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#00AE95">
-  <!-- ホーム画面アイコンから「通常の Safari」として起動するため、apple-mobile-web-app-capable は no。
-       これにより外部リンク（記事を読むボタン等）が確実に標準ブラウザの新規タブで開く。 -->
-  <meta name="apple-mobile-web-app-capable" content="no">
-  <meta name="mobile-web-app-capable" content="no">
+  <!-- PWA として「アプリのように」起動。iOS 17+ では standalone PWA でも
+       target="_blank" の外部リンクは自動で Safari の新規タブで開かれるため、
+       アプリ感と外部リンクの両立ができる。 -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="仏像ニュース">
   <link rel="manifest" href="./manifest.json">
@@ -619,9 +620,9 @@ MANIFEST = {
     "short_name": "仏像ニュース",
     "description": "仏像関連ニュース・特別公開情報の投稿管理ダッシュボード",
     "start_url": "./",
-    # 外部リンクを規定ブラウザで開くため、standalone ではなく browser として起動。
-    # ホーム画面アイコンから開いても通常の Safari/Chrome タブで開く挙動になる。
-    "display": "browser",
+    # standalone: ホーム画面アイコンから「アプリのように」全画面で起動。
+    # iOS 17+ では PWA でも target="_blank" の外部リンクは自動で Safari の新規タブで開かれる。
+    "display": "standalone",
     "background_color": "#00AE95",  # スプラッシュ背景もブランドカラーで埋める
     "theme_color": "#00AE95",
     "lang": "ja",
@@ -635,7 +636,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v7';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v8';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
