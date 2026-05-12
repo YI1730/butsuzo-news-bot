@@ -645,7 +645,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
           '<a href="' + intentUrl + '" target="_blank" rel="noopener noreferrer" ' +
               'class="post-btn-archive flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">' +
             '<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
-            '𝕏 にポスト' +
+            'にポスト' +
           '</a>' +
         '</div>'
       );
@@ -723,7 +723,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
           '<a href="' + intentUrl + '" target="_blank" rel="noopener noreferrer" ' +
               'class="post-btn-scheduled flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">' +
             '<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
-            '𝕏 にポスト' +
+            'にポスト' +
           '</a>' +
         '</div>'
       );
