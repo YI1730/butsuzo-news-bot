@@ -12636,7 +12636,7 @@
       <div class="flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
         <div>
           <p class="text-sm font-bold text-brand-800">📜 過去の訪問記</p>
-          <p class="text-xs text-gray-500 mt-0.5">ランダムに数件ピックアップしています</p>
+          <p class="text-xs text-gray-500 mt-0.5">ランダムに数件ピックアップ・Streamlit 保存後 ~5分で反映</p>
         </div>
         <button onclick="shuffleArchive()"
           class="bg-brand-600 active:bg-brand-700 text-white text-xs font-bold px-3 py-2 rounded-full transition-colors">
@@ -12939,11 +12939,23 @@
       applyFilter();
     }
 
+    // GitHub raw を優先的に参照する（Streamlit 保存後 ~5 分で即時反映される）。
+    // 失敗時のみ同梱の docs/data/archives.json にフォールバック。
+    const _RAW_BASE = 'https://raw.githubusercontent.com/YI1730/butsuzo-news-bot/main';
+
+    function _fetchJson(remoteUrl, localUrl) {
+      // raw.githubusercontent.com の cache を回避するためタイムスタンプを付ける
+      const ts = Date.now();
+      return fetch(remoteUrl + '?t=' + ts, { cache: 'no-store' })
+        .then(r => r.ok ? r.json() : Promise.reject(new Error('remote ' + r.status)))
+        .catch(() => fetch(localUrl, { cache: 'no-cache' })
+          .then(r => r.ok ? r.json() : []));
+    }
+
     function loadArchive() {
       const container = document.getElementById('archive-cards');
       if (!container) return;
-      fetch('./data/archives.json', { cache: 'no-cache' })
-        .then(r => r.ok ? r.json() : [])
+      _fetchJson(_RAW_BASE + '/data/archives.json', './data/archives.json')
         .then(data => {
           archiveData = Array.isArray(data) ? data.filter(x => x && x.text) : [];
           renderArchive();
@@ -13011,8 +13023,7 @@
     function loadScheduled() {
       const container = document.getElementById('scheduled-cards');
       if (!container) return;
-      fetch('./data/scheduled_posts.json', { cache: 'no-cache' })
-        .then(r => r.ok ? r.json() : [])
+      _fetchJson(_RAW_BASE + '/data/scheduled_posts.json', './data/scheduled_posts.json')
         .then(data => {
           scheduledData = Array.isArray(data) ? data.filter(x => x && x.text) : [];
           renderScheduled();
