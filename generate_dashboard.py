@@ -166,7 +166,6 @@ def build_card_html(item: dict) -> str:
           にポスト
         </a>
         <a href="{url}" target="_blank" rel="noopener noreferrer"
-           onclick="openExternal(event, '{url}')"
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>"""
@@ -245,11 +244,21 @@ def build_html(items: list[dict], last_updated: str) -> str:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#00AE95">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- ホーム画面アイコンから「通常の Safari」として起動するため、apple-mobile-web-app-capable は no。
+       これにより外部リンク（記事を読むボタン等）が確実に標準ブラウザの新規タブで開く。 -->
+  <meta name="apple-mobile-web-app-capable" content="no">
+  <meta name="mobile-web-app-capable" content="no">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="仏像ニュース">
   <link rel="manifest" href="./manifest.json">
-  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <!-- ファビコン群 -->
+  <link rel="icon" href="./favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
+  <!-- iOS ホーム画面アイコン -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="./icons/icon-512.png">
   <title>仏像ニュース ダッシュボード</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -497,52 +506,6 @@ def build_html(items: list[dict], last_updated: str) -> str:
       document.getElementById('count').textContent = shown + '件';
     }}
 
-    // ────────────────────────────────────────────────────────
-    // PWA UX: 外部リンクは必ず「スマホの標準ブラウザ」で開く
-    // standalone (PWA) で動作している場合、a target=_blank だけでは
-    // アプリ内ブラウザに飛ぶ端末があるため、JS で明示的にウィンドウを開く。
-    // ────────────────────────────────────────────────────────
-    function isStandalonePWA() {{
-      try {{
-        if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) return true;
-        if (window.navigator && window.navigator.standalone === true) return true; // iOS Safari
-      }} catch (e) {{}}
-      return false;
-    }}
-
-    function openExternal(event, url) {{
-      if (!url) return;
-      // PWA でなければブラウザ既定の挙動に任せる
-      if (!isStandalonePWA()) return;
-      // 「クリック直後」というユーザー操作のコンテキスト内で window.open を呼ぶことが重要
-      if (event) {{ event.preventDefault(); event.stopPropagation(); }}
-      const win = window.open(url, '_blank', 'noopener,noreferrer');
-      // ポップアップブロッカー等で開けなかった場合のフォールバック
-      if (!win) {{
-        try {{
-          const a = document.createElement('a');
-          a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
-          document.body.appendChild(a); a.click(); a.remove();
-        }} catch (e) {{}}
-      }}
-    }}
-
-    // 全てのカード内 a[target=_blank] にもデリゲートで保険を掛ける（OGP 画像クリックなど将来の追加要素対策）
-    document.addEventListener('click', function(e) {{
-      const a = e.target && e.target.closest && e.target.closest('a[target="_blank"]');
-      if (!a) return;
-      // post-btn は handlePostClick が制御するので除外
-      if (a.classList.contains('post-btn')) return;
-      // read-btn は openExternal が制御するので除外（onclick で発火済み）
-      if (a.classList.contains('read-btn')) return;
-      const href = a.getAttribute('href');
-      if (!href) return;
-      if (!isStandalonePWA()) return;
-      e.preventDefault();
-      const win = window.open(href, '_blank', 'noopener,noreferrer');
-      if (!win) {{ try {{ a.click(); }} catch (err) {{}} }}
-    }}, true);
-
     function handlePostClick(event, itemId) {{
       const card = document.querySelector('[data-item-id="' + itemId + '"]');
       const btn = card ? card.querySelector('.post-btn') : null;
@@ -656,17 +619,23 @@ MANIFEST = {
     "short_name": "仏像ニュース",
     "description": "仏像関連ニュース・特別公開情報の投稿管理ダッシュボード",
     "start_url": "./",
-    "display": "standalone",
-    "background_color": "#e6f9f7",
+    # 外部リンクを規定ブラウザで開くため、standalone ではなく browser として起動。
+    # ホーム画面アイコンから開いても通常の Safari/Chrome タブで開く挙動になる。
+    "display": "browser",
+    "background_color": "#00AE95",  # スプラッシュ背景もブランドカラーで埋める
     "theme_color": "#00AE95",
     "lang": "ja",
     "icons": [
-        {"src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
-        {"src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"},
+        {"src": "./icons/favicon-16x16.png", "sizes": "16x16",   "type": "image/png"},
+        {"src": "./icons/favicon-32x32.png", "sizes": "32x32",   "type": "image/png"},
+        {"src": "./icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png"},
+        {"src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+        {"src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+        {"src": "./icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"},
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v6';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v7';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -727,10 +696,16 @@ def main() -> None:
     (DOCS_DIR / "sw.js").write_text(SERVICE_WORKER, encoding="utf-8")
     print("生成: docs/sw.js")
 
+    # アイコンはロゴ入り PNG をリポジトリに同梱しているため、上書き生成しない。
+    # （tools/generate_logo.py で再生成可能。GitHub Actions では更新しない）
+    # 既存ファイルが無い場合のみフォールバックで単色 PNG を生成する
     for size in (192, 512):
         path = icons_dir / f"icon-{size}.png"
-        path.write_bytes(create_solid_png(size, ICON_COLOR))
-        print(f"生成: docs/icons/icon-{size}.png")
+        if not path.exists():
+            path.write_bytes(create_solid_png(size, ICON_COLOR))
+            print(f"生成(フォールバック): docs/icons/icon-{size}.png")
+        else:
+            print(f"スキップ(既存): docs/icons/icon-{size}.png")
 
     print("ダッシュボード生成完了")
 
