@@ -102,9 +102,17 @@ def format_published_at(iso: str) -> str:
         return ""
 
 
-def build_card_html(item: dict) -> str:
+def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
     uid = item.get("id", "")
-    title = item.get("title", "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    raw_title = item.get("title", "")
+    title = raw_title.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    # コピーボタン用に属性値として安全な形式（"を&quot;にエスケープ）
+    title_for_attr = (
+        raw_title.replace("&", "&amp;")
+                 .replace('"', "&quot;")
+                 .replace("<", "&lt;")
+                 .replace(">", "&gt;")
+    )
     url = item.get("url", "")
     source = item.get("source", "")
     header = item.get("header", "【仏像速報】")
@@ -161,9 +169,25 @@ def build_card_html(item: dict) -> str:
             f'      </div>'
         )
 
+    # タイトル行：show_copy_btn=True のときはコピーボタンを横に並べる
+    if show_copy_btn:
+        title_block_html = (
+            f'      <div class="flex items-start gap-2 mb-3">\n'
+            f'        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">{title}</p>\n'
+            f'        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" '
+            f'data-copy-text="{title_for_attr}" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">\n'
+            f'          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>\n'
+            f'        </button>\n'
+            f'      </div>'
+        )
+    else:
+        title_block_html = (
+            f'      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">{title}</p>'
+        )
+
     return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}">
 {image_html}{meta_html}
-      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">{title}</p>
+{title_block_html}
       <div class="flex items-center gap-3">
         <a href="{intent_url}" target="_blank" rel="noopener noreferrer"
            onclick="handlePostClick(event,'{uid}')"
@@ -189,11 +213,14 @@ def build_separator_html(dt: datetime) -> str:
     </div>"""
 
 
-def build_cards_with_separators(items: list[dict]) -> str:
+def build_cards_with_separators(items: list[dict], show_copy_btn: bool = False) -> str:
     """fetched_at が一定以上離れた境界に区切り線を挟みつつカードを並べる。
 
     items は fetched_at の降順でソート済みである前提。
     各セッション（同じ取り込み実行で追加されたグループ）の頭に区切り線を挿入する。
+
+    show_copy_btn=True のときは、カードのタイトル横にコピーボタンを表示する
+    （特別公開タブで使用）。
     """
     output: list[str] = []
     prev_fetched: datetime | None = None
@@ -215,7 +242,7 @@ def build_cards_with_separators(items: list[dict]) -> str:
                     output.append(build_separator_html(fetched))
             prev_fetched = fetched
 
-        output.append(build_card_html(item))
+        output.append(build_card_html(item, show_copy_btn=show_copy_btn))
 
     return "\n".join(output)
 
@@ -239,7 +266,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
 
     news_cards  = build_cards_with_separators(news_items)
     goods_cards = build_cards_with_separators(goods_items)
-    other_cards = build_cards_with_separators(other_items)
+    # 特別公開タブ（other）はタイトル横にコピーボタンを表示
+    other_cards = build_cards_with_separators(other_items, show_copy_btn=True)
     news_count  = len(news_items)
     goods_count = len(goods_items)
     other_count = len(other_items)
@@ -797,6 +825,42 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }}
     }}
 
+    // 特別公開タブのタイトル横コピーボタン用
+    function copyText(btn) {{
+      if (!btn) return;
+      const text = btn.getAttribute('data-copy-text') || '';
+      if (!text) return;
+      const showDone = () => {{
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span class="text-[11px] font-bold text-brand-700">✓ コピー</span>';
+        setTimeout(() => {{ btn.innerHTML = orig; }}, 1200);
+      }};
+      if (navigator.clipboard && window.isSecureContext) {{
+        navigator.clipboard.writeText(text).then(showDone).catch(() => {{
+          // 失敗時は textarea フォールバック
+          fallbackCopy(text, showDone);
+        }});
+      }} else {{
+        fallbackCopy(text, showDone);
+      }}
+    }}
+
+    function fallbackCopy(text, onDone) {{
+      try {{
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        if (onDone) onDone();
+      }} catch(e) {{
+        // 何もしない（ユーザーへの過剰な通知は避ける）
+      }}
+    }}
+
     function resetAll() {{
       if (!confirm('投稿済みの記録をすべてリセットしますか？')) return;
       document.querySelectorAll('[data-item-id]').forEach(card => {{
@@ -893,7 +957,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v15';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v16';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
