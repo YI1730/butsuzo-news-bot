@@ -897,6 +897,53 @@ def build_html(items: list[dict], last_updated: str) -> str:
       updateKeywordStatus();
     }}
 
+    // ── 横スワイプでタブ切替（モバイル用 / 両端ループ） ─────────
+    const TAB_ORDER = ['news', 'other', 'goods', 'archive'];
+    function swipeToNextTab(dir) {{
+      // dir: +1 で次のタブ（右→左スワイプ）、-1 で前のタブ（左→右スワイプ）
+      const i = TAB_ORDER.indexOf(currentTab);
+      if (i < 0) return;
+      const n = TAB_ORDER.length;
+      const next = TAB_ORDER[((i + dir) % n + n) % n];
+      setTab(next);
+    }}
+    function attachSwipeHandler() {{
+      // <main> 配下でのみ反応（ヘッダーのタブボタン/フィルターは除外）
+      const surface = document.querySelector('main') || document.body;
+      let sx = 0, sy = 0, st = 0, tracking = false;
+      const THRESHOLD_X = 60;   // 最小水平移動量(px)
+      const MAX_OFF_AXIS = 50;  // 縦方向のブレ許容量(px)
+      const MAX_DURATION = 700; // スワイプ完了までの上限(ms)
+
+      surface.addEventListener('touchstart', (e) => {{
+        if (e.touches.length !== 1) {{ tracking = false; return; }}
+        // 入力欄/テキストエリアではスワイプを無効化
+        const t = e.target;
+        if (t && t.closest && t.closest('input, textarea, select, [contenteditable="true"]')) {{
+          tracking = false; return;
+        }}
+        const p = e.touches[0];
+        sx = p.clientX; sy = p.clientY; st = Date.now();
+        tracking = true;
+      }}, {{ passive: true }});
+
+      surface.addEventListener('touchend', (e) => {{
+        if (!tracking) return;
+        tracking = false;
+        const p = (e.changedTouches && e.changedTouches[0]) || null;
+        if (!p) return;
+        const dx = p.clientX - sx;
+        const dy = p.clientY - sy;
+        const dt = Date.now() - st;
+        if (dt > MAX_DURATION) return;
+        if (Math.abs(dx) < THRESHOLD_X) return;     // 移動量不足
+        if (Math.abs(dy) > MAX_OFF_AXIS) return;     // 縦スクロール扱い
+        if (Math.abs(dx) < Math.abs(dy) * 1.5) return; // 角度が立ちすぎ
+        // dx < 0 → 指が左へ移動 → 次のタブへ
+        swipeToNextTab(dx < 0 ? +1 : -1);
+      }}, {{ passive: true }});
+    }}
+
     function init() {{
       // 外部リンクを Android PWA 環境では intent:// URI に書き換える
       rewriteExternalLinksForAndroidPWA();
@@ -911,6 +958,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       loadKeywords();
       setTab('news');
       setFilter('unposted');
+      attachSwipeHandler();
 
       // Enter キーで適用
       ['kw-include', 'kw-exclude'].forEach(id => {{
@@ -957,7 +1005,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v16';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v17';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
