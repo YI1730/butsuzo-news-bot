@@ -456,7 +456,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
 
   <script>
     let currentTab = 'news';
-    let currentFilter = 'unposted';
+    let currentFilter = 'all';
     let archiveData = null;    // data/archives.json をキャッシュ
     let scheduledData = null;  // data/scheduled_posts.json をキャッシュ
 
@@ -957,7 +957,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }});
       loadKeywords();
       setTab('news');
-      setFilter('unposted');
+      setFilter('all');
       attachSwipeHandler();
 
       // Enter キーで適用
@@ -1005,7 +1005,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v17';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v18';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 

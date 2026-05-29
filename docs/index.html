@@ -13802,7 +13802,7 @@
 
   <script>
     let currentTab = 'news';
-    let currentFilter = 'unposted';
+    let currentFilter = 'all';
     let archiveData = null;    // data/archives.json をキャッシュ
     let scheduledData = null;  // data/scheduled_posts.json をキャッシュ
 
@@ -14303,7 +14303,7 @@
       });
       loadKeywords();
       setTab('news');
-      setFilter('unposted');
+      setFilter('all');
       attachSwipeHandler();
 
       // Enter キーで適用
