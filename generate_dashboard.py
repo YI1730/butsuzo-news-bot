@@ -264,12 +264,19 @@ def build_html(items: list[dict], last_updated: str) -> str:
     classified  = NEWS_TAB_SOURCES | GOODS_TAB_SOURCES
     other_items = [x for x in items_sorted if x.get("source") not in classified]
 
+    # 書籍・グッズタブは item_type で 書籍 / グッズ に分割（書籍を上に表示）
+    book_items  = [x for x in goods_items if x.get("item_type") == "book"]
+    other_goods = [x for x in goods_items if x.get("item_type") != "book"]
+
     news_cards  = build_cards_with_separators(news_items)
-    goods_cards = build_cards_with_separators(goods_items)
+    book_cards  = build_cards_with_separators(book_items)
+    goods_cards = build_cards_with_separators(other_goods)
     # 特別公開タブ（other）はタイトル横にコピーボタンを表示
     other_cards = build_cards_with_separators(other_items, show_copy_btn=True)
     news_count  = len(news_items)
     goods_count = len(goods_items)
+    book_count  = len(book_items)
+    other_goods_count = len(other_goods)
     other_count = len(other_items)
 
     return f"""<!DOCTYPE html>
@@ -383,6 +390,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
 {other_cards}
     </div>
     <div id="tab-goods" class="tab-pane space-y-3 hidden">
+      <!-- 書籍（上段） -->
+      <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
+        <p class="text-sm font-bold text-brand-800">📚 書籍 <span class="opacity-60 ml-0.5">{book_count}</span></p>
+        <p class="text-xs text-gray-500 mt-0.5">仏像関連の新刊・書籍</p>
+      </div>
+{book_cards}
+      <!-- グッズ（下段） -->
+      <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm mt-4">
+        <p class="text-sm font-bold text-brand-800">🛒 グッズ <span class="opacity-60 ml-0.5">{other_goods_count}</span></p>
+        <p class="text-xs text-gray-500 mt-0.5">仏像関連のグッズ・雑貨</p>
+      </div>
 {goods_cards}
     </div>
     <!-- 訪問記タブ：過去の訪問記ランダム＋予約投稿 -->
@@ -1005,7 +1023,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v18';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v19';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
