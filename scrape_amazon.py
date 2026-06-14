@@ -327,14 +327,45 @@ def fetch_book_description(asin: str, session: requests.Session) -> str:
     return ""
 
 
+def build_page_url(base_url: str, page: int) -> str:
+    """検索 URL に page パラメーターを付与する（page=1 はそのまま）。"""
+    if page <= 1:
+        return base_url
+    parsed = urlparse(base_url)
+    qs = parse_qs(parsed.query, keep_blank_values=True)
+    qs["page"] = [str(page)]
+    new_query = urlencode({k: v[0] for k, v in qs.items()})
+    return urlunparse(parsed._replace(query=new_query))
+
+
 def scrape_amazon_search(url: str, item_type: str,
-                          session: requests.Session) -> list[dict]:
-    """Amazon 検索結果ページをスクレイピングして商品リストを返す。"""
-    print(f"  URL: {url[:80]}")
-    soup = fetch_page(session, url)
-    if not soup:
-        return []
-    return parse_search_results(soup, item_type)
+                          session: requests.Session,
+                          pages: int = 1) -> list[dict]:
+    """Amazon 検索結果ページをスクレイピングして商品リストを返す。
+
+    pages>1 のときは複数ページを取得して新着の取りこぼしを減らす。
+    ページ間は ASIN で重複排除する。
+    """
+    collected: list[dict] = []
+    seen_asins: set[str] = set()
+    for p in range(1, pages + 1):
+        page_url = build_page_url(url, p)
+        print(f"  URL (p{p}): {page_url[:90]}")
+        soup = fetch_page(session, page_url)
+        if not soup:
+            # ブロック・空ページ。後続ページも失敗する可能性が高いので打ち切り
+            break
+        page_items = parse_search_results(soup, item_type)
+        for it in page_items:
+            asin = it.get("asin", "")
+            if asin and asin in seen_asins:
+                continue
+            if asin:
+                seen_asins.add(asin)
+            collected.append(it)
+        if p < pages:
+            time.sleep(SLEEP_BETWEEN_PAGES)
+    return collected
 
 
 # ===========================================================================
@@ -367,13 +398,14 @@ def main() -> int:
     all_new: list[dict] = []
 
     print("[1/2] 書籍カテゴリー（仏像 新着順）を取得中...")
-    book_items = scrape_amazon_search(BOOK_URL, "book", session)
+    # 新刊の取りこぼし防止のため書籍は2ページ取得
+    book_items = scrape_amazon_search(BOOK_URL, "book", session, pages=2)
     print(f"  取得: {len(book_items)}件")
     all_new.extend(book_items)
     time.sleep(SLEEP_BETWEEN_PAGES)
 
     print("[2/2] ホビー/グッズ（仏像 -仏具 -神具 新着順）を取得中...")
-    goods_items = scrape_amazon_search(GOODS_URL, "goods", session)
+    goods_items = scrape_amazon_search(GOODS_URL, "goods", session, pages=2)
     print(f"  取得: {len(goods_items)}件")
     all_new.extend(goods_items)
 

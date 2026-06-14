@@ -69,6 +69,14 @@ def build_search_query(includes: list[str], excludes: list[str]) -> str:
 INCLUDE_KEYWORDS, EXCLUDE_KEYWORDS = load_keywords()
 SEARCH_QUERY = build_search_query(INCLUDE_KEYWORDS, EXCLUDE_KEYWORDS)
 
+# 配信元ドメインによる除外リスト（仏像と無関係なサイトを排除）。
+# Google News はキーワードが本文に含まれるだけの無関係サイトも拾うため、
+# ここに列挙したドメイン（およびそのサブドメイン）からの記事は収集しない。
+EXCLUDE_DOMAINS = [
+    "ppid.semarangkota.go.id",
+    "cfecgc-orange.org",
+]
+
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
 MAX_ITEMS_PER_RUN = 10   # 1回の実行で追加する最大件数
 MAX_TOTAL_ITEMS = 500    # JSON に保持する最大件数（古いものは削除）
@@ -112,6 +120,26 @@ def item_id(url: str, title: str = "") -> str:
 
 def contains_excluded_keyword(text: str) -> bool:
     return any(keyword in text for keyword in EXCLUDE_KEYWORDS)
+
+
+def is_excluded_domain(url: str) -> bool:
+    """配信元ドメインが除外リストに該当するか判定する。
+
+    Google News のキーワード検索では仏像系の語を含む無関係サイト
+    （海外行政サイト・労組サイト等）が紛れ込むため、ドメイン単位で除外する。
+    サブドメインも一致対象（例: news.example.com は example.com にマッチ）。
+    """
+    try:
+        host = (urllib.parse.urlparse(url).hostname or "").lower()
+    except Exception:
+        return False
+    if not host:
+        return False
+    for dom in EXCLUDE_DOMAINS:
+        d = dom.lower().lstrip(".")
+        if host == d or host.endswith("." + d):
+            return True
+    return False
 
 
 def parse_published_at(entry) -> datetime | None:
@@ -239,6 +267,12 @@ def main() -> int:
             continue
 
         original_url = resolve_original_url(link)
+
+        # 配信元ドメインが除外リストに該当する記事はスキップ
+        if is_excluded_domain(original_url):
+            print(f"除外ドメインのためスキップ: {original_url}")
+            continue
+
         uid = item_id(original_url)
 
         if uid in existing_ids:
