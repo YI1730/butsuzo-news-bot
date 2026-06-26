@@ -63,7 +63,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5">更新: 6月26日 19:05</p>
+        <p class="text-xs text-brand-200 mt-0.5">更新: 6月26日 20:31</p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -72,11 +72,11 @@
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        📰 ニュース<span class="opacity-60 ml-0.5">201</span>
+        📰 ニュース<span class="opacity-60 ml-0.5">200</span>
       </button>
       <button onclick="setTab('other')" id="tab-btn-other"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        🛕 特別公開<span class="opacity-60 ml-0.5">175</span>
+        🛕 特別公開<span class="opacity-60 ml-0.5">176</span>
       </button>
       <button onclick="setTab('goods')" id="tab-btn-goods"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
@@ -5432,34 +5432,40 @@
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="b02a29d38511">
-      <img src="https://images.keizai.biz/takamatsu_keizai/photonews/1781841695_b.jpg" alt="" loading="lazy"
+    </div>
+    <div id="tab-other" class="tab-pane space-y-3 hidden">
+    <div class="separator flex items-center gap-3 my-2">
+      <div class="flex-1 h-px bg-brand-300"></div>
+      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 6月26日 20:30 取込</span>
+      <div class="flex-1 h-px bg-brand-300"></div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="48ed870b9ab2">
+      <img src="http://www.narita-bungei-skytown.jp/ogimage.png" alt="" loading="lazy"
            class="w-full h-40 object-cover rounded-xl mb-3"
            onerror="this.style.display='none'">
       <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
-        <div class="flex items-center gap-1.5 shrink-0">
-          <span class="text-xs text-gray-500 shrink-0">📅 6月19日</span>
-          <span class="text-gray-300">·</span>
-          <span class="text-xs text-gray-400">取込 6月20日 12:05</span>
-        </div>
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs text-gray-400 shrink-0">6月26日 20:30</span>
       </div>
-      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">インド・マトゥラー由来のナーガニー立像 インド・ニューデリーの国立博物館や米国カンザスシティーのネルソン・アトキンス美術館にもよく似た像が所蔵され、これらの像はかつて同じ場所にあったと見られる＝高松・四国村ミウゼアムで仏像展「祈りのかたち」展 - 高松経済新聞</p>
+      <div class="flex items-start gap-2 mb-3">
+        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">成田市文化芸術センター</p>
+        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="成田市文化芸術センター" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
+          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+      </div>
       <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E9%80%9F%E5%A0%B1%E3%80%91%0A%E3%82%A4%E3%83%B3%E3%83%89%E3%83%BB%E3%83%9E%E3%83%88%E3%82%A5%E3%83%A9%E3%83%BC%E7%94%B1%E6%9D%A5%E3%81%AE%E3%83%8A%E3%83%BC%E3%82%AC%E3%83%8B%E3%83%BC%E7%AB%8B%E5%83%8F+%E3%82%A4%E3%83%B3%E3%83%89%E3%83%BB%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%87%E3%83%AA%E3%83%BC%E3%81%AE%E5%9B%BD%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8%E3%82%84%E7%B1%B3%E5%9B%BD%E3%82%AB%E3%83%B3%E3%82%B6%E3%82%B9%E3%82%B7%E3%83%86%E3%82%A3%E3%83%BC%E3%81%AE%E3%83%8D%E3%83%AB%E3%82%BD%E3%83%B3%E3%83%BB%E3%82%A2%E3%83%88%E3%82%AD%E3%83%B3%E3%82%B9%E7%BE%8E%E8%A1%93%E9%A4%A8%E3%81%AB%E3%82%82%E3%82%88%E3%81%8F%E4%BC%BC%E3%81%9F%E5%83%8F%E3%81%8C%E6%89%80%E8%94%B5%E3%81%95%E3%82%8C%E3%80%81%E3%81%93%E3%82%8C%E3%82%89%E3%81%AE%E5%83%8F%E3%81%AF%E3%81%8B%E3%81%A4%E3%81%A6%E5%90%8C%E3%81%98%E5%A0%B4%E6%89%80%E3%81%AB%E3%81%82%E3%81%A3%E3%81%9F%E3%81%A8%E8%A6%8B%E3%82%89%E3%82%8C%E3%82%8B%EF%BC%9D%E9%AB%98%E6%9D%BE%E3%83%BB%E5%9B%9B%E5%9B%BD%E6%9D%91%E3%83%9F%E3%82%A6%E3%82%BC%E3%82%A2%E3%83%A0%E3%81%A7%E4%BB%8F%E5%83%8F%E5%B1%95%E3%80%8C%E7%A5%88%E3%82%8A%E3%81%AE%E3%81%8B%E3%81%9F%E3%81%A1%E3%80%8D%E5%B1%95+-+%E9%AB%98%E6%9D%BE%E7%B5%8C%E6%B8%88%E6%96%B0%E8%81%9E%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&url=https%3A%2F%2Ftakamatsu.keizai.biz%2Fphotoflash%2F6547%2F" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'b02a29d38511')"
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E6%88%90%E7%94%B0%E5%B8%82%E6%96%87%E5%8C%96%E8%8A%B8%E8%A1%93%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=http%3A%2F%2Fwww.narita-bungei-skytown.jp%2F" target="_blank" rel="noopener noreferrer"
+           onclick="handlePostClick(event,'48ed870b9ab2')"
            data-description=""
            class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           にポスト
         </a>
-        <a href="https://takamatsu.keizai.biz/photoflash/6547/" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://takamatsu.keizai.biz/photoflash/6547/"
+        <a href="http://www.narita-bungei-skytown.jp/" target="_blank" rel="noopener noreferrer"
+           data-external-url="http://www.narita-bungei-skytown.jp/"
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    </div>
-    <div id="tab-other" class="tab-pane space-y-3 hidden">
     <div class="separator flex items-center gap-3 my-2">
       <div class="flex-1 h-px bg-brand-300"></div>
       <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 6月26日 17:19 取込</span>
