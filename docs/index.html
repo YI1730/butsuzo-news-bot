@@ -63,7 +63,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5">更新: 7月25日 12:07</p>
+        <p class="text-xs text-brand-200 mt-0.5">更新: 7月25日 13:45</p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -72,11 +72,11 @@
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        📰 ニュース<span class="opacity-60 ml-0.5">188</span>
+        📰 ニュース<span class="opacity-60 ml-0.5">189</span>
       </button>
       <button onclick="setTab('other')" id="tab-btn-other"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        🛕 特別公開<span class="opacity-60 ml-0.5">179</span>
+        🛕 特別公開<span class="opacity-60 ml-0.5">178</span>
       </button>
       <button onclick="setTab('goods')" id="tab-btn-goods"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
@@ -103,6 +103,37 @@
   <!-- カードリスト（タブごとに分離） -->
   <main class="px-4 py-4 max-w-xl mx-auto">
     <div id="tab-news" class="tab-pane space-y-3">
+    <div class="separator flex items-center gap-3 my-2">
+      <div class="flex-1 h-px bg-brand-300"></div>
+      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 7月25日 13:42 取込</span>
+      <div class="flex-1 h-px bg-brand-300"></div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="6b9614e00bd5">
+      <img src="https://newsatcl-pctr.c.yimg.jp/t/amd-img/20260722-00000001-hakoshin-000-1-view.jpg?exp=10800" alt="" loading="lazy"
+           class="w-full h-40 object-cover rounded-xl mb-3"
+           onerror="this.style.display='none'">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <span class="text-xs text-gray-500 shrink-0">📅 7月22日</span>
+          <span class="text-gray-300">·</span>
+          <span class="text-xs text-gray-400">取込 7月25日 13:42</span>
+        </div>
+      </div>
+      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">函館遺愛学院 国指定重要文化財「遺愛学院本館」一般公開 ハリスルームなど（函館新聞デジタル） - Yahoo!ニュース</p>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E9%80%9F%E5%A0%B1%E3%80%91%0A%E5%87%BD%E9%A4%A8%E9%81%BA%E6%84%9B%E5%AD%A6%E9%99%A2+%E5%9B%BD%E6%8C%87%E5%AE%9A%E9%87%8D%E8%A6%81%E6%96%87%E5%8C%96%E8%B2%A1%E3%80%8C%E9%81%BA%E6%84%9B%E5%AD%A6%E9%99%A2%E6%9C%AC%E9%A4%A8%E3%80%8D%E4%B8%80%E8%88%AC%E5%85%AC%E9%96%8B+%E3%83%8F%E3%83%AA%E3%82%B9%E3%83%AB%E3%83%BC%E3%83%A0%E3%81%AA%E3%81%A9%EF%BC%88%E5%87%BD%E9%A4%A8%E6%96%B0%E8%81%9E%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%EF%BC%89+-+Yahoo%21%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&url=https%3A%2F%2Fnews.yahoo.co.jp%2Farticles%2F4c404b725eb54ab994c3ad92353747372258c38d" target="_blank" rel="noopener noreferrer"
+           onclick="handlePostClick(event,'6b9614e00bd5')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://news.yahoo.co.jp/articles/4c404b725eb54ab994c3ad92353747372258c38d" target="_blank" rel="noopener noreferrer"
+           data-external-url="https://news.yahoo.co.jp/articles/4c404b725eb54ab994c3ad92353747372258c38d"
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
     <div class="separator flex items-center gap-3 my-2">
       <div class="flex-1 h-px bg-brand-300"></div>
       <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 7月25日 10:50 取込</span>
@@ -5226,6 +5257,140 @@
     <div id="tab-other" class="tab-pane space-y-3 hidden">
     <div class="separator flex items-center gap-3 my-2">
       <div class="flex-1 h-px bg-brand-300"></div>
+      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 7月25日 13:44 取込</span>
+      <div class="flex-1 h-px bg-brand-300"></div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="4e30c4a803d1">
+      <img src="https://www.city.hamamatsu.shizuoka.jp/shared/images/ogp.png" alt="" loading="lazy"
+           class="w-full h-40 object-cover rounded-xl mb-3"
+           onerror="this.style.display='none'">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs text-gray-400 shrink-0">7月25日 13:44</span>
+      </div>
+      <div class="flex items-start gap-2 mb-3">
+        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">浜松市美術館 「みほとけのキセキⅢ－三・遠・駿　神仏オールスター☆－」（10月10日~12月6日）</p>
+        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="浜松市美術館 「みほとけのキセキⅢ－三・遠・駿　神仏オールスター☆－」（10月10日~12月6日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
+          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E6%B5%9C%E6%9D%BE%E5%B8%82%E7%BE%8E%E8%A1%93%E9%A4%A8+%E3%80%8C%E3%81%BF%E3%81%BB%E3%81%A8%E3%81%91%E3%81%AE%E3%82%AD%E3%82%BB%E3%82%AD%E2%85%A2%EF%BC%8D%E4%B8%89%E3%83%BB%E9%81%A0%E3%83%BB%E9%A7%BF%E3%80%80%E7%A5%9E%E4%BB%8F%E3%82%AA%E3%83%BC%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%BC%E2%98%86%EF%BC%8D%E3%80%8D%EF%BC%8810%E6%9C%8810%E6%97%A5~12%E6%9C%886%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fwww.city.hamamatsu.shizuoka.jp%2Fartmuse%2F" target="_blank" rel="noopener noreferrer"
+           onclick="handlePostClick(event,'4e30c4a803d1')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://www.city.hamamatsu.shizuoka.jp/artmuse/" target="_blank" rel="noopener noreferrer"
+           data-external-url="https://www.city.hamamatsu.shizuoka.jp/artmuse/"
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="2ebcadd0f293">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs text-gray-400 shrink-0">7月25日 13:44</span>
+      </div>
+      <div class="flex items-start gap-2 mb-3">
+        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">大津市歴史博物館 企画展「未来へつなぐ　大津のたから－大津の文化財保護60年のあゆみ－」（10月10日~11月23日）</p>
+        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="大津市歴史博物館 企画展「未来へつなぐ　大津のたから－大津の文化財保護60年のあゆみ－」（10月10日~11月23日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
+          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E5%A4%A7%E6%B4%A5%E5%B8%82%E6%AD%B4%E5%8F%B2%E5%8D%9A%E7%89%A9%E9%A4%A8+%E4%BC%81%E7%94%BB%E5%B1%95%E3%80%8C%E6%9C%AA%E6%9D%A5%E3%81%B8%E3%81%A4%E3%81%AA%E3%81%90%E3%80%80%E5%A4%A7%E6%B4%A5%E3%81%AE%E3%81%9F%E3%81%8B%E3%82%89%EF%BC%8D%E5%A4%A7%E6%B4%A5%E3%81%AE%E6%96%87%E5%8C%96%E8%B2%A1%E4%BF%9D%E8%AD%B760%E5%B9%B4%E3%81%AE%E3%81%82%E3%82%86%E3%81%BF%EF%BC%8D%E3%80%8D%EF%BC%8810%E6%9C%8810%E6%97%A5~11%E6%9C%8823%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fwww.rekihaku.otsu.shiga.jp%2F" target="_blank" rel="noopener noreferrer"
+           onclick="handlePostClick(event,'2ebcadd0f293')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://www.rekihaku.otsu.shiga.jp/" target="_blank" rel="noopener noreferrer"
+           data-external-url="https://www.rekihaku.otsu.shiga.jp/"
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="e74468be8d9c">
+      <img src="https://www.pref.hiroshima.lg.jp/img/hiroshima-edu.png" alt="" loading="lazy"
+           class="w-full h-40 object-cover rounded-xl mb-3"
+           onerror="this.style.display='none'">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs text-gray-400 shrink-0">7月25日 13:44</span>
+      </div>
+      <div class="flex items-start gap-2 mb-3">
+        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">広島県立歴史博物館 （ふくやま草戸千軒ミュージアム）企画展「大本山佛通寺展」（10月9日~11月29日）</p>
+        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="広島県立歴史博物館 （ふくやま草戸千軒ミュージアム）企画展「大本山佛通寺展」（10月9日~11月29日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
+          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E5%BA%83%E5%B3%B6%E7%9C%8C%E7%AB%8B%E6%AD%B4%E5%8F%B2%E5%8D%9A%E7%89%A9%E9%A4%A8+%EF%BC%88%E3%81%B5%E3%81%8F%E3%82%84%E3%81%BE%E8%8D%89%E6%88%B8%E5%8D%83%E8%BB%92%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%EF%BC%89%E4%BC%81%E7%94%BB%E5%B1%95%E3%80%8C%E5%A4%A7%E6%9C%AC%E5%B1%B1%E4%BD%9B%E9%80%9A%E5%AF%BA%E5%B1%95%E3%80%8D%EF%BC%8810%E6%9C%889%E6%97%A5~11%E6%9C%8829%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fwww.pref.hiroshima.lg.jp%2Fsite%2Frekishih%2F" target="_blank" rel="noopener noreferrer"
+           onclick="handlePostClick(event,'e74468be8d9c')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://www.pref.hiroshima.lg.jp/site/rekishih/" target="_blank" rel="noopener noreferrer"
+           data-external-url="https://www.pref.hiroshima.lg.jp/site/rekishih/"
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="0103b4b2d523">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs text-gray-400 shrink-0">7月25日 13:44</span>
+      </div>
+      <div class="flex items-start gap-2 mb-3">
+        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">永青文庫 「永青文庫の禅画PartⅠ　白隠ワールド」（10月3日~11月29日）</p>
+        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="永青文庫 「永青文庫の禅画PartⅠ　白隠ワールド」（10月3日~11月29日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
+          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E6%B0%B8%E9%9D%92%E6%96%87%E5%BA%AB+%E3%80%8C%E6%B0%B8%E9%9D%92%E6%96%87%E5%BA%AB%E3%81%AE%E7%A6%85%E7%94%BBPart%E2%85%A0%E3%80%80%E7%99%BD%E9%9A%A0%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E3%80%8D%EF%BC%8810%E6%9C%883%E6%97%A5~11%E6%9C%8829%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fwww.eiseibunko.com%2F" target="_blank" rel="noopener noreferrer"
+           onclick="handlePostClick(event,'0103b4b2d523')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://www.eiseibunko.com/" target="_blank" rel="noopener noreferrer"
+           data-external-url="https://www.eiseibunko.com/"
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="694b23cc926c">
+      <img src="https://www.pref.oita.jp/img/ogp-oita-pref.png" alt="" loading="lazy"
+           class="w-full h-40 object-cover rounded-xl mb-3"
+           onerror="this.style.display='none'">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
+        <span class="text-xs text-gray-400 shrink-0">7月25日 13:44</span>
+      </div>
+      <div class="flex items-start gap-2 mb-3">
+        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">大分県立歴史博物館 開館45周年記念特別展「ほとけのいますところ」（10月2日~11月15日）</p>
+        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="大分県立歴史博物館 開館45周年記念特別展「ほとけのいますところ」（10月2日~11月15日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
+          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+        </button>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E5%A4%A7%E5%88%86%E7%9C%8C%E7%AB%8B%E6%AD%B4%E5%8F%B2%E5%8D%9A%E7%89%A9%E9%A4%A8+%E9%96%8B%E9%A4%A845%E5%91%A8%E5%B9%B4%E8%A8%98%E5%BF%B5%E7%89%B9%E5%88%A5%E5%B1%95%E3%80%8C%E3%81%BB%E3%81%A8%E3%81%91%E3%81%AE%E3%81%84%E3%81%BE%E3%81%99%E3%81%A8%E3%81%93%E3%82%8D%E3%80%8D%EF%BC%8810%E6%9C%882%E6%97%A5~11%E6%9C%8815%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fwww.pref.oita.jp%2Fsite%2Frekishihakubutsukan%2F" target="_blank" rel="noopener noreferrer"
+           onclick="handlePostClick(event,'694b23cc926c')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://www.pref.oita.jp/site/rekishihakubutsukan/" target="_blank" rel="noopener noreferrer"
+           data-external-url="https://www.pref.oita.jp/site/rekishihakubutsukan/"
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
+    <div class="separator flex items-center gap-3 my-2">
+      <div class="flex-1 h-px bg-brand-300"></div>
       <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 7月25日 12:06 取込</span>
       <div class="flex-1 h-px bg-brand-300"></div>
     </div>
@@ -9860,172 +10025,44 @@
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="a30ddc64d62e">
-      <img src="https://www.city.kamakura.kanagawa.jp/shared/site_rn/images/sns/logo.png" alt="" loading="lazy"
-           class="w-full h-40 object-cover rounded-xl mb-3"
-           onerror="this.style.display='none'">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
-        <span class="text-xs text-gray-400 shrink-0">7月16日 17:42</span>
-      </div>
-      <div class="flex items-start gap-2 mb-3">
-        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">鎌倉国宝館 特別展「瑞泉寺七百年」（10月24日~12月6日）</p>
-        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="鎌倉国宝館 特別展「瑞泉寺七百年」（10月24日~12月6日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
-          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E9%8E%8C%E5%80%89%E5%9B%BD%E5%AE%9D%E9%A4%A8+%E7%89%B9%E5%88%A5%E5%B1%95%E3%80%8C%E7%91%9E%E6%B3%89%E5%AF%BA%E4%B8%83%E7%99%BE%E5%B9%B4%E3%80%8D%EF%BC%8810%E6%9C%8824%E6%97%A5~12%E6%9C%886%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fwww.city.kamakura.kanagawa.jp%2Fkokuhoukan%2Fexhibition.html" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'a30ddc64d62e')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://www.city.kamakura.kanagawa.jp/kokuhoukan/exhibition.html" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://www.city.kamakura.kanagawa.jp/kokuhoukan/exhibition.html"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-      </div>
-    </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="787ad6e01f81">
-      <img src="https://ch.kanagawa-museum.jp/kch-cms/wp-content/themes/kanagawa-museum/images/ogp.jpg" alt="" loading="lazy"
-           class="w-full h-40 object-cover rounded-xl mb-3"
-           onerror="this.style.display='none'">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
-        <span class="text-xs text-gray-400 shrink-0">7月16日 17:42</span>
-      </div>
-      <div class="flex items-start gap-2 mb-3">
-        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">神奈川県立歴史博物館 特別展「入門！神奈川県立歴史博物館－県博の守り伝えていくコレクション－」（10月17日~12月13日）</p>
-        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="神奈川県立歴史博物館 特別展「入門！神奈川県立歴史博物館－県博の守り伝えていくコレクション－」（10月17日~12月13日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
-          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E7%AB%8B%E6%AD%B4%E5%8F%B2%E5%8D%9A%E7%89%A9%E9%A4%A8+%E7%89%B9%E5%88%A5%E5%B1%95%E3%80%8C%E5%85%A5%E9%96%80%EF%BC%81%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E7%AB%8B%E6%AD%B4%E5%8F%B2%E5%8D%9A%E7%89%A9%E9%A4%A8%EF%BC%8D%E7%9C%8C%E5%8D%9A%E3%81%AE%E5%AE%88%E3%82%8A%E4%BC%9D%E3%81%88%E3%81%A6%E3%81%84%E3%81%8F%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%8D%E3%80%8D%EF%BC%8810%E6%9C%8817%E6%97%A5~12%E6%9C%8813%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fch.kanagawa-museum.jp%2F" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'787ad6e01f81')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://ch.kanagawa-museum.jp/" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://ch.kanagawa-museum.jp/"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-      </div>
-    </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="fbb95215c3b2">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
-        <span class="text-xs text-gray-400 shrink-0">7月16日 17:42</span>
-      </div>
-      <div class="flex items-start gap-2 mb-3">
-        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">福井県立若狭歴史博物館 特別展「戦国の若狭と京極家の女性たち－常高院とキリスト教と若狭の1600年－」（10月17日~11月15日）</p>
-        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="福井県立若狭歴史博物館 特別展「戦国の若狭と京極家の女性たち－常高院とキリスト教と若狭の1600年－」（10月17日~11月15日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
-          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E7%A6%8F%E4%BA%95%E7%9C%8C%E7%AB%8B%E8%8B%A5%E7%8B%AD%E6%AD%B4%E5%8F%B2%E5%8D%9A%E7%89%A9%E9%A4%A8+%E7%89%B9%E5%88%A5%E5%B1%95%E3%80%8C%E6%88%A6%E5%9B%BD%E3%81%AE%E8%8B%A5%E7%8B%AD%E3%81%A8%E4%BA%AC%E6%A5%B5%E5%AE%B6%E3%81%AE%E5%A5%B3%E6%80%A7%E3%81%9F%E3%81%A1%EF%BC%8D%E5%B8%B8%E9%AB%98%E9%99%A2%E3%81%A8%E3%82%AD%E3%83%AA%E3%82%B9%E3%83%88%E6%95%99%E3%81%A8%E8%8B%A5%E7%8B%AD%E3%81%AE1600%E5%B9%B4%EF%BC%8D%E3%80%8D%EF%BC%8810%E6%9C%8817%E6%97%A5~11%E6%9C%8815%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fwakahaku.pref.fukui.lg.jp%2F" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'fbb95215c3b2')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://wakahaku.pref.fukui.lg.jp/" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://wakahaku.pref.fukui.lg.jp/"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-      </div>
-    </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="946da084dc70">
-      <img src="https://hakubutu.wakayama.jp/cms/hakubutsu-management/contents/themes/hakubutsu-theme/tmpl-img/ogp.png?v=20260716174246" alt="" loading="lazy"
-           class="w-full h-40 object-cover rounded-xl mb-3"
-           onerror="this.style.display='none'">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
-        <span class="text-xs text-gray-400 shrink-0">7月16日 17:42</span>
-      </div>
-      <div class="flex items-start gap-2 mb-3">
-        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">和歌山県立博物館 企画展「くらひらく－博物館の蔵仕事事例集－」</p>
-        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="和歌山県立博物館 企画展「くらひらく－博物館の蔵仕事事例集－」" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
-          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E5%92%8C%E6%AD%8C%E5%B1%B1%E7%9C%8C%E7%AB%8B%E5%8D%9A%E7%89%A9%E9%A4%A8+%E4%BC%81%E7%94%BB%E5%B1%95%E3%80%8C%E3%81%8F%E3%82%89%E3%81%B2%E3%82%89%E3%81%8F%EF%BC%8D%E5%8D%9A%E7%89%A9%E9%A4%A8%E3%81%AE%E8%94%B5%E4%BB%95%E4%BA%8B%E4%BA%8B%E4%BE%8B%E9%9B%86%EF%BC%8D%E3%80%8D%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fhakubutu.wakayama.jp%2F" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'946da084dc70')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://hakubutu.wakayama.jp/" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://hakubutu.wakayama.jp/"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-      </div>
-    </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="b6eaee2ed52f">
-      <img src="https://www.city.hamamatsu.shizuoka.jp/shared/images/ogp.png" alt="" loading="lazy"
-           class="w-full h-40 object-cover rounded-xl mb-3"
-           onerror="this.style.display='none'">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
-        <span class="text-xs text-gray-400 shrink-0">7月16日 17:42</span>
-      </div>
-      <div class="flex items-start gap-2 mb-3">
-        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">浜松市美術館 館蔵品展示3「はまびのみほとけ－中国・朝鮮の金銅仏から新収蔵の平安仏まで－」（10月10日~12月6日）</p>
-        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="浜松市美術館 館蔵品展示3「はまびのみほとけ－中国・朝鮮の金銅仏から新収蔵の平安仏まで－」（10月10日~12月6日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
-          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E6%B5%9C%E6%9D%BE%E5%B8%82%E7%BE%8E%E8%A1%93%E9%A4%A8+%E9%A4%A8%E8%94%B5%E5%93%81%E5%B1%95%E7%A4%BA3%E3%80%8C%E3%81%AF%E3%81%BE%E3%81%B3%E3%81%AE%E3%81%BF%E3%81%BB%E3%81%A8%E3%81%91%EF%BC%8D%E4%B8%AD%E5%9B%BD%E3%83%BB%E6%9C%9D%E9%AE%AE%E3%81%AE%E9%87%91%E9%8A%85%E4%BB%8F%E3%81%8B%E3%82%89%E6%96%B0%E5%8F%8E%E8%94%B5%E3%81%AE%E5%B9%B3%E5%AE%89%E4%BB%8F%E3%81%BE%E3%81%A7%EF%BC%8D%E3%80%8D%EF%BC%8810%E6%9C%8810%E6%97%A5~12%E6%9C%886%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fwww.city.hamamatsu.shizuoka.jp%2Fartmuse%2F" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'b6eaee2ed52f')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://www.city.hamamatsu.shizuoka.jp/artmuse/" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://www.city.hamamatsu.shizuoka.jp/artmuse/"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-      </div>
-    </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="4e30c4a803d1">
-      <img src="https://www.city.hamamatsu.shizuoka.jp/shared/images/ogp.png" alt="" loading="lazy"
-           class="w-full h-40 object-cover rounded-xl mb-3"
-           onerror="this.style.display='none'">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛕 仏像公開</span>
-        <span class="text-xs text-gray-400 shrink-0">7月16日 17:18</span>
-      </div>
-      <div class="flex items-start gap-2 mb-3">
-        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">浜松市美術館 「みほとけのキセキⅢ－三・遠・駿　神仏オールスター☆－」（10月10日~12月6日）</p>
-        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" data-copy-text="浜松市美術館 「みほとけのキセキⅢ－三・遠・駿　神仏オールスター☆－」（10月10日~12月6日）" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">
-          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        </button>
-      </div>
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B%E6%83%85%E5%A0%B1%E3%80%91%0A%E6%B5%9C%E6%9D%BE%E5%B8%82%E7%BE%8E%E8%A1%93%E9%A4%A8+%E3%80%8C%E3%81%BF%E3%81%BB%E3%81%A8%E3%81%91%E3%81%AE%E3%82%AD%E3%82%BB%E3%82%AD%E2%85%A2%EF%BC%8D%E4%B8%89%E3%83%BB%E9%81%A0%E3%83%BB%E9%A7%BF%E3%80%80%E7%A5%9E%E4%BB%8F%E3%82%AA%E3%83%BC%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%BC%E2%98%86%EF%BC%8D%E3%80%8D%EF%BC%8810%E6%9C%8810%E6%97%A5~12%E6%9C%886%E6%97%A5%EF%BC%89%0A%23%E4%BB%8F%E5%83%8F+%23%E7%89%B9%E5%88%A5%E5%85%AC%E9%96%8B&url=https%3A%2F%2Fwww.city.hamamatsu.shizuoka.jp%2Fartmuse%2F" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'4e30c4a803d1')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://www.city.hamamatsu.shizuoka.jp/artmuse/" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://www.city.hamamatsu.shizuoka.jp/artmuse/"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-      </div>
-    </div>
     </div>
     <div id="tab-goods" class="tab-pane space-y-3 hidden">
       <!-- 書籍（上段） -->
       <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
-        <p class="text-sm font-bold text-brand-800">📚 書籍 <span class="opacity-60 ml-0.5">42</span></p>
+        <p class="text-sm font-bold text-brand-800">📚 書籍 <span class="opacity-60 ml-0.5">43</span></p>
         <p class="text-xs text-gray-500 mt-0.5">仏像関連の新刊・書籍</p>
       </div>
+    <div class="separator flex items-center gap-3 my-2">
+      <div class="flex-1 h-px bg-brand-300"></div>
+      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 7月25日 13:45 取込</span>
+      <div class="flex-1 h-px bg-brand-300"></div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="c22e70466d3c">
+      <img src="https://m.media-amazon.com/images/I/71AnIETF2yL._AC_UY654_FMwebp_QL65_.jpg" alt="" loading="lazy"
+           class="w-full h-40 object-cover rounded-xl mb-3"
+           onerror="this.style.display='none'">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛒 Amazon</span>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <span class="text-xs text-gray-500 shrink-0">📅 7月22日</span>
+          <span class="text-gray-300">·</span>
+          <span class="text-xs text-gray-400">取込 7月25日 13:45</span>
+        </div>
+      </div>
+      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">マンガで学ぶ印相と踊念仏入門: 手と身体でひらく仏教のパフォーマンス (マンガで学ぶ仏教学シリーズvol.7)</p>
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E6%96%B0%E5%88%8A%E3%80%91%0A%E3%83%9E%E3%83%B3%E3%82%AC%E3%81%A7%E5%AD%A6%E3%81%B6%E5%8D%B0%E7%9B%B8%E3%81%A8%E8%B8%8A%E5%BF%B5%E4%BB%8F%E5%85%A5%E9%96%80%3A+%E6%89%8B%E3%81%A8%E8%BA%AB%E4%BD%93%E3%81%A7%E3%81%B2%E3%82%89%E3%81%8F%E4%BB%8F%E6%95%99%E3%81%AE%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9+%28%E3%83%9E%E3%83%B3%E3%82%AC%E3%81%A7%E5%AD%A6%E3%81%B6%E4%BB%8F%E6%95%99%E5%AD%A6%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BAvol.7%29%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E6%96%B0%E5%88%8A%E6%83%85%E5%A0%B1&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2F4911500824%3Ftag%3Dbutsuzo03-22" target="_blank" rel="noopener noreferrer"
+           onclick="handlePostClick(event,'c22e70466d3c')"
+           data-description="Amazonで河合孝治, 河合明のマンガで学ぶ印相と踊念仏入門: 手と身体でひらく仏教のパフォーマンス (マンガで学ぶ仏教学シリーズvol.7)。アマゾンならポイント還元本が多数。河合孝治, 河合明作"
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://www.amazon.co.jp/dp/4911500824?tag=butsuzo03-22" target="_blank" rel="noopener noreferrer"
+           data-external-url="https://www.amazon.co.jp/dp/4911500824?tag=butsuzo03-22"
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+      </div>
+    </div>
     <div class="separator flex items-center gap-3 my-2">
       <div class="flex-1 h-px bg-brand-300"></div>
       <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 7月25日 00:57 取込</span>
@@ -11220,7 +11257,7 @@
     </div>
       <!-- グッズ（下段） -->
       <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm mt-4">
-        <p class="text-sm font-bold text-brand-800">🛒 グッズ <span class="opacity-60 ml-0.5">91</span></p>
+        <p class="text-sm font-bold text-brand-800">🛒 グッズ <span class="opacity-60 ml-0.5">90</span></p>
         <p class="text-xs text-gray-500 mt-0.5">仏像関連のグッズ・雑貨</p>
       </div>
     <div class="separator flex items-center gap-3 my-2">
@@ -13725,37 +13762,6 @@
         </a>
         <a href="https://www.amazon.co.jp/dp/B0H1BX2FDS?tag=butsuzo03-22" target="_blank" rel="noopener noreferrer"
            data-external-url="https://www.amazon.co.jp/dp/B0H1BX2FDS?tag=butsuzo03-22"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-      </div>
-    </div>
-    <div class="separator flex items-center gap-3 my-2">
-      <div class="flex-1 h-px bg-brand-300"></div>
-      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 7月16日 17:19 取込</span>
-      <div class="flex-1 h-px bg-brand-300"></div>
-    </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="349dfd0dadd4">
-      <img src="https://m.media-amazon.com/images/I/61ZPbmM-r-L._AC_UL960_FMwebp_QL65_.jpg" alt="" loading="lazy"
-           class="w-full h-40 object-cover rounded-xl mb-3"
-           onerror="this.style.display='none'">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">🛒 Amazon</span>
-        <div class="flex items-center gap-1.5 shrink-0">
-          <span class="text-xs text-gray-500 shrink-0">📅 7月16日</span>
-          <span class="text-gray-300">·</span>
-          <span class="text-xs text-gray-400">取込 7月16日 17:19</span>
-        </div>
-      </div>
-      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">木彫りの仏像【十一面観音菩薩立像】総高43cm 桧木製高級木彫り 観世音菩薩 守り本尊 開運 木彫り 置物</p>
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E3%82%B0%E3%83%83%E3%82%BA%E3%80%91%0A%E6%9C%A8%E5%BD%AB%E3%82%8A%E3%81%AE%E4%BB%8F%E5%83%8F%E3%80%90%E5%8D%81%E4%B8%80%E9%9D%A2%E8%A6%B3%E9%9F%B3%E8%8F%A9%E8%96%A9%E7%AB%8B%E5%83%8F%E3%80%91%E7%B7%8F%E9%AB%9843cm+%E6%A1%A7%E6%9C%A8%E8%A3%BD%E9%AB%98%E7%B4%9A%E6%9C%A8%E5%BD%AB%E3%82%8A+%E8%A6%B3%E4%B8%96%E9%9F%B3%E8%8F%A9%E8%96%A9+%E5%AE%88%E3%82%8A%E6%9C%AC%E5%B0%8A+%E9%96%8B%E9%81%8B+%E6%9C%A8%E5%BD%AB%E3%82%8A+%E7%BD%AE%E7%89%A9%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%81%AE%E3%81%82%E3%82%8B%E6%9A%AE%E3%82%89%E3%81%97&url=https%3A%2F%2Fwww.amazon.co.jp%2Fdp%2FB0F436YGHJ%3Ftag%3Dbutsuzo03-22" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'349dfd0dadd4')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://www.amazon.co.jp/dp/B0F436YGHJ?tag=butsuzo03-22" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://www.amazon.co.jp/dp/B0F436YGHJ?tag=butsuzo03-22"
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
       </div>
     </div>
