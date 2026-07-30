@@ -5,3 +5,5 @@ venv/
 .env
 
 .github/workflows/auto_post.yml
+# PAT に workflow スコープが無いため git 経由で push 不可。GitHub Web UI で管理。
+.github/workflows/post_visit.yml

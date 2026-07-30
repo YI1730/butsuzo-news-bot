@@ -3,5 +3,7 @@ feedparser>=6.0.10
 googlenewsdecoder>=0.1.7
 lxml>=5.0.0
 requests>=2.31.0
+# 訪問ツイート自動投稿（post_visit_tweet.py 用、X API v2 OAuth1.0a）
+requests-oauthlib>=2.0.0
 # ロゴ生成（tools/generate_logo.py 用、GitHub Actions では未使用）
 Pillow>=10.0.0
