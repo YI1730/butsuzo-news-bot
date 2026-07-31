@@ -755,33 +755,73 @@ def build_html(items: list[dict], last_updated: str) -> str:
     // ────────────────────────────────────────────────────────
     const WEEKDAY_LABEL_JA = {{ mon:'月', tue:'火', wed:'水', thu:'木', fri:'金', sat:'土', sun:'日' }};
 
+    // 告知画像をクリップボードにコピーする（X投稿画面に貼り付け→画像添付できる）。
+    // 失敗時（CORS非対応・非対応ブラウザ）は画像を別タブで開いて長押しコピーに誘導。
+    function _pngFromBlob(blob) {{
+      return new Promise(function (resolve, reject) {{
+        const img = new Image();
+        img.onload = function () {{
+          try {{
+            const c = document.createElement('canvas');
+            c.width = img.naturalWidth; c.height = img.naturalHeight;
+            c.getContext('2d').drawImage(img, 0, 0);
+            c.toBlob(function (b) {{ b ? resolve(b) : reject(new Error('toBlob')); }}, 'image/png');
+          }} catch (e) {{ reject(e); }}
+        }};
+        img.onerror = function () {{ reject(new Error('img load')); }};
+        img.src = URL.createObjectURL(blob);
+      }});
+    }}
+
+    function copyPromoImage(btn) {{
+      const url = (btn && btn.dataset) ? btn.dataset.img : '';
+      if (!url) return;
+      const original = btn.textContent;
+      const flash = function (msg) {{
+        btn.textContent = msg;
+        setTimeout(function () {{ btn.textContent = original; }}, 1600);
+      }};
+      const fallback = function () {{
+        window.open(url, '_blank', 'noopener');
+        flash('↗ 画像を開きました（長押しでコピー）');
+      }};
+      if (navigator.clipboard && window.ClipboardItem) {{
+        try {{
+          const blobPromise = fetch(url, {{ mode: 'cors' }})
+            .then(function (r) {{ if (!r.ok) throw new Error('http ' + r.status); return r.blob(); }})
+            .then(function (b) {{ return (b.type === 'image/png') ? b : _pngFromBlob(b); }});
+          const item = new ClipboardItem({{ 'image/png': blobPromise }});
+          navigator.clipboard.write([item])
+            .then(function () {{ flash('✓ 画像をコピーしました'); }})
+            .catch(function () {{ fallback(); }});
+          return;
+        }} catch (e) {{ /* fallthrough */ }}
+      }}
+      fallback();
+    }}
+
     function buildScheduledCardHtml(item) {{
       const text = item.text || '';
       const sid = item.id || '';
-      const wd = item.weekday || '*';
-      const tm = item.time || '';
       const imgUrl = (item.image_url || '').trim();
-      const wdLabel = (wd === '*') ? '毎日' : (WEEKDAY_LABEL_JA[wd] || wd);
       const intentUrl = 'https://x.com/intent/post?text=' + encodeURIComponent(text);
       const safeText = escapeHtml(text).replace(/\\n/g, '<br>');
-      // 添付画像URL（ドラッグ&ドロップの目印。X画面に手動で添付する）
+      // 告知用の画像：本文の下に表示し、ワンタップでコピー→X投稿画面に貼付できる
       let imgHtml = '';
       if (imgUrl && /^https?:\/\//i.test(imgUrl)) {{
         imgHtml =
           '<div class="mb-3 p-2 bg-brand-50 rounded-xl">' +
-            '<p class="text-xs font-bold text-brand-800 mb-1">🖼 添付画像（X画面にドラッグ＆ドロップ）</p>' +
-            '<a href="' + escapeHtml(imgUrl) + '" target="_blank" rel="noopener noreferrer" class="block">' +
-              '<img src="' + escapeHtml(imgUrl) + '" alt="" loading="lazy" ' +
-                'class="w-full h-32 object-cover rounded-lg" onerror="this.style.display=\\'none\\'">' +
-            '</a>' +
-            '<p class="text-[10px] text-gray-500 mt-1 break-all">' + escapeHtml(imgUrl) + '</p>' +
+            '<p class="text-xs font-bold text-brand-800 mb-1">🖼 告知用の画像</p>' +
+            '<img src="' + escapeHtml(imgUrl) + '" alt="" loading="lazy" ' +
+              'class="w-full h-40 object-cover rounded-lg mb-2" onerror="this.style.display=\\'none\\'">' +
+            '<button type="button" data-img="' + escapeHtml(imgUrl) + '" onclick="copyPromoImage(this)" ' +
+              'class="w-full bg-brand-600 active:bg-brand-700 text-white text-xs font-bold py-2 rounded-full transition-colors">' +
+              '📋 画像をコピー（つぶやきに貼付）' +
+            '</button>' +
           '</div>';
       }}
       return (
         '<div class="scheduled-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-scheduled-id="' + escapeHtml(sid) + '">' +
-          '<div class="flex items-center gap-2 mb-2">' +
-            '<span class="text-xs font-bold text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full">🗓 ' + escapeHtml(wdLabel) + ' ' + escapeHtml(tm) + '</span>' +
-          '</div>' +
           '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
           imgHtml +
           '<a href="' + intentUrl + '" target="_blank" rel="noopener noreferrer" ' +
@@ -1041,7 +1081,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v20';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v21';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
