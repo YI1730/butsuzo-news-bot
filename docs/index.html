@@ -13894,27 +13894,27 @@
       </div>
     </div>
     </div>
-    <!-- 訪問記タブ：過去の訪問記ランダム＋予約投稿 -->
+    <!-- 訪問記タブ：週次ピック（訪問記14件）＋告知（予約投稿） -->
     <div id="tab-archive" class="tab-pane space-y-3 hidden">
-      <!-- 過去の訪問記（ランダム） -->
+      <!-- 訪問記ピックリスト（今週分・ランダム14件） -->
       <div class="flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
         <div>
-          <p class="text-sm font-bold text-brand-800">📜 過去の訪問記</p>
-          <p class="text-xs text-gray-500 mt-0.5">ランダムに数件ピックアップ・Streamlit 保存後 ~5分で反映</p>
+          <p class="text-sm font-bold text-brand-800">📜 訪問記ピック（今週分・14件）</p>
+          <p class="text-xs text-gray-500 mt-0.5">各カードの「にポスト」でX投稿画面を開き、画像添付・日時予約はX上で行います</p>
         </div>
         <button onclick="shuffleArchive()"
-          class="bg-brand-600 active:bg-brand-700 text-white text-xs font-bold px-3 py-2 rounded-full transition-colors">
-          🔀 別の候補
+          class="bg-brand-600 active:bg-brand-700 text-white text-xs font-bold px-3 py-2 rounded-full transition-colors shrink-0">
+          🔀 引き直す
         </button>
       </div>
       <div id="archive-cards" class="space-y-3">
         <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
       </div>
 
-      <!-- 予約投稿 -->
+      <!-- 告知（予約投稿）: 1日2件の枠 -->
       <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm mt-4">
-        <p class="text-sm font-bold text-brand-800">📅 予約投稿</p>
-        <p class="text-xs text-gray-500 mt-0.5">Streamlit で登録した予約投稿の一覧です</p>
+        <p class="text-sm font-bold text-brand-800">📣 告知（1日2件の枠）</p>
+        <p class="text-xs text-gray-500 mt-0.5">画像URLがある告知はカード内に表示。X画面へドラッグ＆ドロップで添付してください</p>
       </div>
       <div id="scheduled-cards" class="space-y-3">
         <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
@@ -14153,6 +14153,9 @@
         .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
 
+    // 週次ピックの表示件数（2件/日 × 7日）
+    const VISIT_PICK_COUNT = 14;
+
     function pickRandom(arr, count) {
       const a = arr.slice();
       for (let i = a.length - 1; i > 0; i--) {
@@ -14196,8 +14199,8 @@
         applyFilter();
         return;
       }
-      // 3〜5 件のランダム選択（件数が少ない場合は全件）
-      const k = Math.min(archiveData.length, 3 + Math.floor(Math.random() * 3));
+      // 今週分としてランダム 14 件（2件/日×7日）を選ぶ。重複回避なし・件数が少なければ全件。
+      const k = Math.min(archiveData.length, VISIT_PICK_COUNT);
       const picked = pickRandom(archiveData, k);
       container.innerHTML = picked.map(buildArchiveCardHtml).join('');
       applyFilter();
@@ -14248,15 +14251,30 @@
       const sid = item.id || '';
       const wd = item.weekday || '*';
       const tm = item.time || '';
+      const imgUrl = (item.image_url || '').trim();
       const wdLabel = (wd === '*') ? '毎日' : (WEEKDAY_LABEL_JA[wd] || wd);
       const intentUrl = 'https://x.com/intent/post?text=' + encodeURIComponent(text);
       const safeText = escapeHtml(text).replace(/\n/g, '<br>');
+      // 添付画像URL（ドラッグ&ドロップの目印。X画面に手動で添付する）
+      let imgHtml = '';
+      if (imgUrl && /^https?:\/\//i.test(imgUrl)) {
+        imgHtml =
+          '<div class="mb-3 p-2 bg-brand-50 rounded-xl">' +
+            '<p class="text-xs font-bold text-brand-800 mb-1">🖼 添付画像（X画面にドラッグ＆ドロップ）</p>' +
+            '<a href="' + escapeHtml(imgUrl) + '" target="_blank" rel="noopener noreferrer" class="block">' +
+              '<img src="' + escapeHtml(imgUrl) + '" alt="" loading="lazy" ' +
+                'class="w-full h-32 object-cover rounded-lg" onerror="this.style.display=\'none\'">' +
+            '</a>' +
+            '<p class="text-[10px] text-gray-500 mt-1 break-all">' + escapeHtml(imgUrl) + '</p>' +
+          '</div>';
+      }
       return (
         '<div class="scheduled-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-scheduled-id="' + escapeHtml(sid) + '">' +
           '<div class="flex items-center gap-2 mb-2">' +
             '<span class="text-xs font-bold text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full">🗓 ' + escapeHtml(wdLabel) + ' ' + escapeHtml(tm) + '</span>' +
           '</div>' +
           '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
+          imgHtml +
           '<a href="' + intentUrl + '" target="_blank" rel="noopener noreferrer" ' +
               'class="post-btn-scheduled flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">' +
             '<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
