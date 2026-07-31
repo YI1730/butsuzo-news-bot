@@ -405,11 +405,25 @@ def build_html(items: list[dict], last_updated: str) -> str:
     </div>
     <!-- 訪問記タブ：週次ピック（訪問記14件）＋告知（予約投稿） -->
     <div id="tab-archive" class="tab-pane space-y-3 hidden">
+      <!-- 予約の手順ガイド + Xの投稿画面を開くボタン -->
+      <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
+        <p class="text-sm font-bold text-brand-800">🗓 予約投稿の手順</p>
+        <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">
+          ①カードの「📋 本文をコピー」（告知は画像も）→ ②下の「✍️ Xの投稿画面を開く」→
+          ③本文を貼り付け・画像を貼り付け → ④時計アイコンで日時を指定して「予約」。<br>
+          ※ 予約は<b>スマホのブラウザ</b>版 x.com でのみ動作します（Xアプリ／簡易投稿では不可）。
+        </p>
+        <a href="https://x.com/compose/post" target="_blank" rel="noopener noreferrer"
+          class="mt-2 w-full flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          ✍️ Xの投稿画面を開く
+        </a>
+      </div>
       <!-- 訪問記ピックリスト（今週分・ランダム14件） -->
       <div class="flex items-center justify-between bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
         <div>
           <p class="text-sm font-bold text-brand-800">📜 訪問記ピック（今週分・14件）</p>
-          <p class="text-xs text-gray-500 mt-0.5">各カードの「にポスト」でX投稿画面を開き、画像添付・日時予約はX上で行います</p>
+          <p class="text-xs text-gray-500 mt-0.5">「📋 本文をコピー」→ Xの投稿画面に貼り付けて日時予約</p>
         </div>
         <button onclick="shuffleArchive()"
           class="bg-brand-600 active:bg-brand-700 text-white text-xs font-bold px-3 py-2 rounded-full transition-colors shrink-0">
@@ -423,7 +437,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <!-- 告知（予約投稿）: 1日2件の枠 -->
       <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm mt-4">
         <p class="text-sm font-bold text-brand-800">📣 告知（1日2件の枠）</p>
-        <p class="text-xs text-gray-500 mt-0.5">画像URLがある告知はカード内に表示。X画面へドラッグ＆ドロップで添付してください</p>
+        <p class="text-xs text-gray-500 mt-0.5">「📋 本文をコピー」「📋 画像をコピー」→ Xの投稿画面に貼り付けて日時予約</p>
       </div>
       <div id="scheduled-cards" class="space-y-3">
         <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
@@ -674,11 +688,39 @@ def build_html(items: list[dict], last_updated: str) -> str:
       return a.slice(0, Math.min(count, a.length));
     }}
 
+    // テキストをクリップボードにコピーする（x.com の投稿画面に貼り付け→予約する用）
+    function copyText(btn) {{
+      const t = (btn && btn.dataset) ? decodeURIComponent(btn.dataset.text || '') : '';
+      if (!t) return;
+      const original = btn.textContent;
+      const flash = function (m) {{
+        btn.textContent = m;
+        setTimeout(function () {{ btn.textContent = original; }}, 1500);
+      }};
+      if (navigator.clipboard && navigator.clipboard.writeText) {{
+        navigator.clipboard.writeText(t)
+          .then(function () {{ flash('✓ 本文をコピーしました'); }})
+          .catch(function () {{ _copyTextFallback(t, flash); }});
+      }} else {{
+        _copyTextFallback(t, flash);
+      }}
+    }}
+    function _copyTextFallback(t, flash) {{
+      try {{
+        const ta = document.createElement('textarea');
+        ta.value = t;
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.focus(); ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        flash('✓ 本文をコピーしました');
+      }} catch (e) {{ flash('コピー失敗'); }}
+    }}
+
     function buildArchiveCardHtml(item) {{
       const text = item.text || '';
       const aid = item.id || '';
       const imgUrl = item.image_url || '';
-      const intentUrl = 'https://x.com/intent/post?text=' + encodeURIComponent(text);
       const safeText = escapeHtml(text).replace(/\\n/g, '<br>');
       // image_url が http(s) で始まる時のみ <img> を表示
       let imgHtml = '';
@@ -691,11 +733,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
         '<div class="archive-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-archive-id="' + escapeHtml(aid) + '">' +
           imgHtml +
           '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
-          '<a href="' + intentUrl + '" target="_blank" rel="noopener noreferrer" ' +
-              'class="post-btn-archive flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">' +
-            '<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
-            'にポスト' +
-          '</a>' +
+          '<button type="button" data-text="' + encodeURIComponent(text) + '" onclick="copyText(this)" ' +
+              'class="w-full flex items-center justify-center gap-1.5 bg-brand-600 active:bg-brand-700 text-white text-sm font-bold py-2.5 px-4 rounded-full transition-colors">' +
+            '📋 本文をコピー' +
+          '</button>' +
         '</div>'
       );
     }}
@@ -804,7 +845,6 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const text = item.text || '';
       const sid = item.id || '';
       const imgUrl = (item.image_url || '').trim();
-      const intentUrl = 'https://x.com/intent/post?text=' + encodeURIComponent(text);
       const safeText = escapeHtml(text).replace(/\\n/g, '<br>');
       // 告知用の画像：本文の下に表示し、ワンタップでコピー→X投稿画面に貼付できる
       let imgHtml = '';
@@ -815,7 +855,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
             '<img src="' + escapeHtml(imgUrl) + '" alt="" loading="lazy" ' +
               'class="w-full h-40 object-cover rounded-lg mb-2" onerror="this.style.display=\\'none\\'">' +
             '<button type="button" data-img="' + escapeHtml(imgUrl) + '" onclick="copyPromoImage(this)" ' +
-              'class="w-full bg-brand-600 active:bg-brand-700 text-white text-xs font-bold py-2 rounded-full transition-colors">' +
+              'class="w-full bg-brand-500 active:bg-brand-700 text-white text-xs font-bold py-2 rounded-full transition-colors">' +
               '📋 画像をコピー（つぶやきに貼付）' +
             '</button>' +
           '</div>';
@@ -824,11 +864,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
         '<div class="scheduled-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-scheduled-id="' + escapeHtml(sid) + '">' +
           '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
           imgHtml +
-          '<a href="' + intentUrl + '" target="_blank" rel="noopener noreferrer" ' +
-              'class="post-btn-scheduled flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">' +
-            '<svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>' +
-            'にポスト' +
-          '</a>' +
+          '<button type="button" data-text="' + encodeURIComponent(text) + '" onclick="copyText(this)" ' +
+              'class="w-full flex items-center justify-center gap-1.5 bg-brand-600 active:bg-brand-700 text-white text-sm font-bold py-2.5 px-4 rounded-full transition-colors">' +
+            '📋 本文をコピー' +
+          '</button>' +
         '</div>'
       );
     }}
@@ -1081,7 +1120,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v21';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v22';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
