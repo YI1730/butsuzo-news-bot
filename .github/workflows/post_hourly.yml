@@ -48,7 +48,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/post_history.json data/scheduled_log.json
+          for f in data/post_history.json data/scheduled_log.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
           if ! git diff --staged --quiet; then
             git commit -m "chore: update auto-post logs"
             git pull --rebase --autostash origin main || true
