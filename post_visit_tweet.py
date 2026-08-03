@@ -1,8 +1,13 @@
-"""訪問ツイート（data/archives.json）を X API v2 の無料枠で自動投稿する。
+"""訪問ツイート（data/archives.json）を X API（Pay Per Use）で自動投稿する。
 
-無料枠で使えるのは v2 の POST /2/tweets（テキスト投稿）のみ。
+通常は v2 の POST /2/tweets（テキスト投稿）のみを使う。
 画像は「本文に含まれる pic.twitter.com/xxx（＝既存ツイートのメディアリンク）」を
-X 側が展開して表示するため、media/upload（有料）は使わない。
+X 側が展開して表示する想定で、media/upload は使わない。
+
+ただし告知（scheduled_posts.json）で use_media_upload=true が指定された
+アイテムのみ、image_url の画像を v1.1 media/upload でアップロードし、
+ネイティブ画像として添付する（post_hourly.py から呼び出される）。
+トークン消費を抑えるため、アップロードは明示的に指定された場合のみ行う。
 
 重複防止:
     data/post_history.json（{id: 最終投稿ISO8601}）で
@@ -31,6 +36,8 @@ import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+import requests
+
 try:
     from requests_oauthlib import OAuth1Session
 except ImportError:  # ローカルで未インストールでも --dry-run は動くように
@@ -45,6 +52,8 @@ ARCHIVES_FILE = BASE_DIR / "data" / "archives.json"
 HISTORY_FILE = BASE_DIR / "data" / "post_history.json"
 
 TWEETS_ENDPOINT = "https://api.twitter.com/2/tweets"
+MEDIA_UPLOAD_ENDPOINT = "https://upload.twitter.com/1.1/media/upload.json"
+MEDIA_MAX_BYTES = 5 * 1024 * 1024  # 画像アップロードの上限（5MB）
 
 # 直近この日数以内に投稿した訪問記は再投稿しない
 DEDUP_WINDOW_DAYS = 180
@@ -198,10 +207,60 @@ def get_oauth_session() -> "OAuth1Session":
     )
 
 
-def post_tweet(session: "OAuth1Session", text: str) -> tuple[bool, str]:
-    """テキストを X に投稿する。戻り値 (成功?, メッセージ)。"""
+def upload_media_from_url(session: "OAuth1Session", image_url: str) -> tuple[str | None, str]:
+    """image_url の画像をダウンロードし、v1.1 media/upload でアップロードする。
+
+    戻り値: (media_id_string or None, メッセージ)。
+    トークンを余分に消費するため、呼び出し元が明示的に必要と判断した場合のみ使う。
+    """
     try:
-        resp = session.post(TWEETS_ENDPOINT, json={"text": text}, timeout=20)
+        img_resp = requests.get(image_url, timeout=20)
+    except Exception as e:
+        return None, f"画像ダウンロード例外: {e}"
+    if not img_resp.ok:
+        return None, f"画像ダウンロード失敗 HTTP {img_resp.status_code}"
+    content = img_resp.content
+    if not content:
+        return None, "画像データが空でした"
+    if len(content) > MEDIA_MAX_BYTES:
+        return None, f"画像サイズが大きすぎます（{len(content) // 1024}KB、上限{MEDIA_MAX_BYTES // 1024 // 1024}MB）"
+
+    try:
+        upload_resp = session.post(
+            MEDIA_UPLOAD_ENDPOINT,
+            files={"media": content},
+            timeout=30,
+        )
+    except Exception as e:
+        return None, f"アップロードリクエスト例外: {e}"
+
+    if upload_resp.status_code not in (200, 201):
+        hint = ""
+        if upload_resp.status_code == 403:
+            hint = " → メディアアップロード権限が無い可能性（Developer Portal のアプリ設定を確認）"
+        elif upload_resp.status_code == 402:
+            hint = " → メディアアップロードが現在のプランで利用不可の可能性"
+        return None, f"アップロード失敗 HTTP {upload_resp.status_code}{hint}: {upload_resp.text[:300]}"
+
+    try:
+        media_id = upload_resp.json().get("media_id_string")
+    except Exception:
+        media_id = None
+    if not media_id:
+        return None, "media_id を取得できませんでした"
+    return media_id, f"アップロード成功 (media_id: {media_id})"
+
+
+def post_tweet(session: "OAuth1Session", text: str, media_id: str | None = None) -> tuple[bool, str]:
+    """テキストを X に投稿する。media_id 指定時はネイティブ画像として添付する。
+
+    戻り値 (成功?, メッセージ)。
+    """
+    payload: dict = {"text": text}
+    if media_id:
+        payload["media"] = {"media_ids": [media_id]}
+    try:
+        resp = session.post(TWEETS_ENDPOINT, json=payload, timeout=20)
     except Exception as e:
         return False, f"リクエスト例外: {e}"
 
@@ -218,8 +277,7 @@ def post_tweet(session: "OAuth1Session", text: str) -> tuple[bool, str]:
     if resp.status_code == 401:
         hint = " → 認証情報（4つのキー）が誤っている可能性。"
     elif resp.status_code == 402:
-        hint = (" → 無料枠で使えない機能を叩いています。"
-                "v2 の POST /2/tweets を使い、v1.1 やメディアは使わないこと。")
+        hint = " → クレジット残高不足、または現在のプランで利用不可の可能性。"
     elif resp.status_code == 403:
         hint = (" → アプリ権限が Read only の可能性。"
                 "Developer Portal で User authentication を Read and Write に。")

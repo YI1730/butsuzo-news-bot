@@ -164,7 +164,8 @@ def main() -> int:
         log = load_sched_log()
         for s in due_promos:
             dup = log.get(s.get("id", "")) == today
-            print(f"[告知]{'（本日投稿済）' if dup else ''}", (s.get("text") or "")[:70])
+            upload = "画像アップロードあり" if (s.get("use_media_upload") and s.get("image_url")) else "テキストのみ"
+            print(f"[告知]{'（本日投稿済）' if dup else ''}（{upload}）", (s.get("text") or "")[:70])
         return 0
 
     # ── 実投稿 ──────────────────────────────────────────────
@@ -204,7 +205,19 @@ def main() -> int:
                 continue
             if session is None:
                 session = pv.get_oauth_session()
-            ok, msg = pv.post_tweet(session, text)
+
+            # use_media_upload=true のときのみ image_url を実際にアップロードして添付。
+            # トークン消費を抑えるため、明示的に指定されたものだけアップロードする。
+            media_id = None
+            image_url = (s.get("image_url") or "").strip()
+            if s.get("use_media_upload") and image_url:
+                media_id, upload_msg = pv.upload_media_from_url(session, image_url)
+                print(f"[告知] 画像{upload_msg}")
+                if not media_id:
+                    print(f"[告知] 画像アップロード失敗のため投稿を見送り: {sid}")
+                    continue
+
+            ok, msg = pv.post_tweet(session, text, media_id=media_id)
             print(f"[告知] {msg}")
             if ok:
                 log[sid] = today

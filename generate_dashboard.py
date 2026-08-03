@@ -1200,6 +1200,12 @@ def build_html(items: list[dict], last_updated: str) -> str:
               'class="w-full text-xs border border-gray-300 rounded-lg px-1.5 py-1.5 mb-1.5">' +
             '<input data-role="image_url" type="text" placeholder="添付画像URL（任意）" value="' + escapeHtml(item.image_url || '') + '" ' +
               'class="w-full text-xs border border-gray-300 rounded-lg px-2 py-1.5 mb-1.5">' +
+            '<label class="flex items-start gap-1.5 text-[11px] text-gray-600 mb-1.5">' +
+              '<input type="checkbox" data-role="use_media_upload" class="mt-0.5" ' + (item.use_media_upload ? 'checked' : '') + '>' +
+              '<span>🖼 画像をアップロードして添付する（自動投稿時）。' +
+                'OFFなら本文の pic.twitter.com リンクなど、テキストのみで投稿します。' +
+                'アップロードは追加のトークンを消費するため、本当に必要な告知だけONにしてください。</span>' +
+            '</label>' +
             '<div class="flex gap-1.5">' +
               '<button onclick="savePromoItem(\\'' + escapeHtml(sid).replace(/\\'/g, "\\\\'") + '\\')" ' +
                 'class="flex-1 bg-brand-600 active:bg-brand-700 text-white text-[11px] font-bold py-1.5 rounded-full">💾 保存</button>' +
@@ -1227,18 +1233,20 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const card = document.querySelector('[data-promo-id="' + CSS.escape(sid) + '"]');
       if (!card) return null;
       const get = function (role) {{ const el = card.querySelector('[data-role="' + role + '"]'); return el ? el.value : ''; }};
+      const uploadCheckbox = card.querySelector('[data-role="use_media_upload"]');
       return {{
         card: card,
         text: (get('text') || '').trim(),
         weekdays: _readPromoWeekdays(card),
         time: get('time') || '09:00',
         image_url: (get('image_url') || '').trim(),
+        use_media_upload: !!(uploadCheckbox && uploadCheckbox.checked),
       }};
     }}
 
     function addPromoDraft() {{
       const list = _settingsSched || (_settingsSched = []);
-      list.unshift({{ id: '_new_' + Date.now(), text: '', weekdays: ['*'], time: '09:00', image_url: '' }});
+      list.unshift({{ id: '_new_' + Date.now(), text: '', weekdays: ['*'], time: '09:00', image_url: '', use_media_upload: false }});
       const container = document.getElementById('promo-edit-list');
       if (container) container.innerHTML = renderPromoEditList();
     }}
@@ -1251,10 +1259,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
         if (statusEl) statusEl.textContent = '本文を入力してください';
         return;
       }}
+      if (fields.use_media_upload && !fields.image_url) {{
+        if (statusEl) statusEl.textContent = '画像アップロードをONにする場合は画像URLを入力してください';
+        return;
+      }}
       const list = _settingsSched || [];
       const isNew = sid.indexOf('_new_') === 0;
       const finalId = isNew ? Math.random().toString(16).slice(2, 14) : sid;
-      const updated = {{ id: finalId, text: fields.text, weekdays: fields.weekdays, time: fields.time, image_url: fields.image_url }};
+      const updated = {{
+        id: finalId, text: fields.text, weekdays: fields.weekdays, time: fields.time,
+        image_url: fields.image_url, use_media_upload: fields.use_media_upload,
+      }};
       const idx = list.findIndex(function (x) {{ return (x.id || '') === sid; }});
       if (idx === -1) {{ list.push(updated); }} else {{ list[idx] = updated; }}
       _settingsSched = list;
@@ -1524,7 +1539,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v24';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v25';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
