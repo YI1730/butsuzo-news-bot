@@ -13894,6 +13894,38 @@
       <div id="scheduled-cards" class="space-y-3">
         <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
       </div>
+
+      <!-- ⚙️ 自動投稿の設定（訪問の時刻・告知の曜日時刻をこの端末から編集） -->
+      <details id="settings-panel" class="bg-white rounded-2xl shadow-sm border border-brand-100 mt-4">
+        <summary class="text-sm font-bold text-brand-800 cursor-pointer select-none px-4 py-3">
+          ⚙️ 自動投稿の設定（訪問の時刻・告知の登録）
+        </summary>
+        <div class="px-4 pb-4 space-y-4">
+
+          <!-- GitHubトークン -->
+          <div id="settings-token-block" class="bg-brand-50 rounded-xl p-3">
+            <p class="text-xs font-bold text-brand-800 mb-1">🔑 GitHub トークン</p>
+            <p class="text-[11px] text-gray-500 mb-2 leading-relaxed">
+              設定の保存には、この butsuzo-news-bot リポジトリへの書き込み権限を持つ
+              GitHub Personal Access Token が必要です。この端末のブラウザにのみ保存され、外部には送信されません。
+            </p>
+            <div class="flex gap-2">
+              <input id="settings-token-input" type="password" placeholder="ghp_..."
+                class="flex-1 min-w-0 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                autocomplete="off">
+              <button onclick="saveGithubToken()"
+                class="shrink-0 bg-brand-600 active:bg-brand-700 text-white text-xs font-bold px-3 py-2 rounded-lg transition-colors">
+                保存
+              </button>
+            </div>
+            <p id="settings-token-status" class="text-[11px] text-gray-500 mt-1"></p>
+          </div>
+
+          <div id="settings-body" class="space-y-4">
+            <p class="text-xs text-gray-400 text-center py-2">トークンを保存すると設定を編集できます</p>
+          </div>
+        </div>
+      </details>
     </div>
   </main>
 
@@ -14356,6 +14388,319 @@
         });
     }
 
+    // ────────────────────────────────────────────────────────
+    // ⚙️ 自動投稿の設定（GitHub Contents API 経由で直接コミット）
+    // 訪問記の投稿時刻・回数と、告知の曜日・時刻・本文・画像URLをこの端末から編集する。
+    // トークンは localStorage にのみ保存し、外部には送信しない。
+    // ────────────────────────────────────────────────────────
+    const GH_OWNER = 'YI1730';
+    const GH_REPO = 'butsuzo-news-bot';
+    const GH_API = 'https://api.github.com';
+    const GH_TOKEN_KEY = 'butsuzo_gh_pat';
+    const CONFIG_PATH = 'config/auto_post_config.json';
+    const SCHED_PATH = 'data/scheduled_posts.json';
+
+    function getGithubToken() {
+      try { return localStorage.getItem(GH_TOKEN_KEY) || ''; } catch (e) { return ''; }
+    }
+
+    function saveGithubToken() {
+      const input = document.getElementById('settings-token-input');
+      const status = document.getElementById('settings-token-status');
+      const t = (input && input.value || '').trim();
+      if (!t) { if (status) status.textContent = 'トークンを入力してください'; return; }
+      try {
+        localStorage.setItem(GH_TOKEN_KEY, t);
+        if (input) input.value = '';
+        if (status) status.textContent = '✓ 保存しました';
+      } catch (e) {
+        if (status) status.textContent = '保存に失敗しました（ブラウザの設定をご確認ください）';
+        return;
+      }
+      loadSettingsPanel();
+    }
+
+    // UTF-8 文字列 <-> Base64（GitHub Contents API は Base64 でやり取りする）
+    function utf8ToBase64(str) {
+      return btoa(unescape(encodeURIComponent(str)));
+    }
+    function base64ToUtf8(b64) {
+      return decodeURIComponent(escape(atob(b64.replace(/\n/g, ''))));
+    }
+
+    function ghGetFile(path) {
+      const token = getGithubToken();
+      return fetch(GH_API + '/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + path + '?t=' + Date.now(), {
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Accept': 'application/vnd.github+json',
+        },
+        cache: 'no-store',
+      }).then(function (r) {
+        if (!r.ok) throw new Error('GitHub API GET 失敗 HTTP ' + r.status);
+        return r.json();
+      }).then(function (body) {
+        const content = JSON.parse(base64ToUtf8(body.content || ''));
+        return { content: content, sha: body.sha };
+      });
+    }
+
+    function ghPutFile(path, contentObj, sha, message) {
+      const token = getGithubToken();
+      const bodyStr = JSON.stringify(contentObj, null, 2) + '\n';
+      return fetch(GH_API + '/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + path, {
+        method: 'PUT',
+        headers: {
+          'Authorization': 'Bearer ' + token,
+          'Accept': 'application/vnd.github+json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: message,
+          content: utf8ToBase64(bodyStr),
+          sha: sha,
+          branch: 'main',
+        }),
+      }).then(function (r) {
+        if (!r.ok) {
+          return r.json().catch(function () { return {}; }).then(function (e) {
+            throw new Error('GitHub API PUT 失敗 HTTP ' + r.status + ': ' + (e.message || ''));
+          });
+        }
+        return r.json();
+      }).then(function (body) {
+        return body.content && body.content.sha;
+      });
+    }
+
+    let _settingsConfig = null;
+    let _settingsConfigSha = null;
+    let _settingsSched = null;
+    let _settingsSchedSha = null;
+
+    function loadSettingsPanel() {
+      const body = document.getElementById('settings-body');
+      const tokenStatus = document.getElementById('settings-token-status');
+      if (!body) return;
+      const token = getGithubToken();
+      if (!token) {
+        body.innerHTML = '<p class="text-xs text-gray-400 text-center py-2">トークンを保存すると設定を編集できます</p>';
+        return;
+      }
+      if (tokenStatus && !tokenStatus.textContent) {
+        tokenStatus.textContent = '✓ トークン設定済み';
+      }
+      body.innerHTML = '<p class="text-xs text-gray-400 text-center py-4">読み込み中...</p>';
+
+      Promise.all([
+        ghGetFile(CONFIG_PATH).catch(function (e) { return { content: { visit_enabled: true, visit_hours: [8, 20] }, sha: null, _err: e }; }),
+        ghGetFile(SCHED_PATH).catch(function (e) { return { content: [], sha: null, _err: e }; }),
+      ]).then(function (results) {
+        _settingsConfig = results[0].content || {};
+        _settingsConfigSha = results[0].sha;
+        _settingsSched = Array.isArray(results[1].content) ? results[1].content : [];
+        _settingsSchedSha = results[1].sha;
+        renderSettingsBody();
+      }).catch(function (e) {
+        body.innerHTML = '<p class="text-xs text-red-500 text-center py-4">読み込み失敗: ' + escapeHtml(String(e.message || e)) + '</p>';
+      });
+    }
+
+    function renderSettingsBody() {
+      const body = document.getElementById('settings-body');
+      if (!body) return;
+      const cfg = _settingsConfig || {};
+      const hours = Array.isArray(cfg.visit_hours) ? cfg.visit_hours.map(Number) : [];
+      const enabled = cfg.visit_enabled !== false;
+
+      // 訪問記の時刻設定（0-23 のトグルチップ）
+      let hourChips = '';
+      for (let h = 0; h < 24; h++) {
+        const on = hours.indexOf(h) !== -1;
+        hourChips +=
+          '<button type="button" data-hour="' + h + '" onclick="toggleVisitHour(' + h + ')" ' +
+            'class="visit-hour-chip w-9 h-9 rounded-lg text-xs font-bold transition-colors ' +
+            (on ? 'bg-brand-600 text-white' : 'bg-gray-100 text-gray-500') + '">' +
+            h +
+          '</button>';
+      }
+
+      let html = '';
+      html += '<div class="border-t border-gray-100 pt-3">';
+      html += '  <p class="text-xs font-bold text-brand-800 mb-1">📜 訪問記の自動投稿</p>';
+      html += '  <label class="flex items-center gap-2 text-xs text-gray-600 mb-2">';
+      html += '    <input type="checkbox" id="visit-enabled-checkbox" ' + (enabled ? 'checked' : '') + ' onchange="onVisitEnabledChange()">';
+      html += '    自動投稿を有効にする';
+      html += '  </label>';
+      html += '  <p class="text-[11px] text-gray-500 mb-2">投稿する時刻（JST）をタップして選択。選んだ時刻の数 = 1日の投稿回数です。</p>';
+      html += '  <div class="grid grid-cols-6 gap-1.5 mb-2">' + hourChips + '</div>';
+      html += '  <button onclick="saveVisitConfig()" class="w-full bg-brand-600 active:bg-brand-700 text-white text-xs font-bold py-2 rounded-full transition-colors">💾 訪問記の設定を保存</button>';
+      html += '  <p id="visit-config-status" class="text-[11px] text-gray-500 mt-1"></p>';
+      html += '</div>';
+
+      // 告知の一覧
+      html += '<div class="border-t border-gray-100 pt-3">';
+      html += '  <p class="text-xs font-bold text-brand-800 mb-2">📣 告知の登録・編集</p>';
+      html += '  <div id="promo-edit-list" class="space-y-2">' + renderPromoEditList() + '</div>';
+      html += '  <button onclick="addPromoDraft()" class="w-full mt-2 bg-gray-100 active:bg-gray-200 text-gray-700 text-xs font-bold py-2 rounded-full transition-colors">＋ 告知を追加</button>';
+      html += '</div>';
+
+      body.innerHTML = html;
+    }
+
+    function onVisitEnabledChange() {
+      // チェックボックス変更は保存ボタンで確定するので、ここでは何もしない（見た目のみ）
+    }
+
+    function toggleVisitHour(h) {
+      const cfg = _settingsConfig || { visit_hours: [] };
+      const hours = Array.isArray(cfg.visit_hours) ? cfg.visit_hours.map(Number) : [];
+      const idx = hours.indexOf(h);
+      if (idx === -1) { hours.push(h); } else { hours.splice(idx, 1); }
+      hours.sort(function (a, b) { return a - b; });
+      cfg.visit_hours = hours;
+      _settingsConfig = cfg;
+      renderSettingsBody();
+    }
+
+    function saveVisitConfig() {
+      const status = document.getElementById('visit-config-status');
+      const checkbox = document.getElementById('visit-enabled-checkbox');
+      const cfg = _settingsConfig || {};
+      cfg.visit_enabled = checkbox ? !!checkbox.checked : true;
+      cfg.visit_hours = Array.isArray(cfg.visit_hours) ? cfg.visit_hours.map(Number).sort(function (a, b) { return a - b; }) : [];
+      if (status) status.textContent = '保存中...';
+      ghPutFile(CONFIG_PATH, cfg, _settingsConfigSha, 'chore(pwa): update visit auto-post config')
+        .then(function (sha) {
+          _settingsConfigSha = sha;
+          if (status) status.textContent = '✓ 保存しました（次回の毎時実行から反映）';
+        })
+        .catch(function (e) {
+          if (status) status.textContent = '❌ 保存失敗: ' + (e.message || e);
+        });
+    }
+
+    const WD_LABEL_OPTIONS = [
+      { code: '*', label: '毎日' }, { code: 'mon', label: '月' }, { code: 'tue', label: '火' },
+      { code: 'wed', label: '水' }, { code: 'thu', label: '木' }, { code: 'fri', label: '金' },
+      { code: 'sat', label: '土' }, { code: 'sun', label: '日' },
+    ];
+
+    function _wdOptionsHtml(selected) {
+      return WD_LABEL_OPTIONS.map(function (o) {
+        return '<option value="' + o.code + '"' + (o.code === selected ? ' selected' : '') + '>' + o.label + '</option>';
+      }).join('');
+    }
+
+    function renderPromoEditList() {
+      const list = _settingsSched || [];
+      if (list.length === 0) {
+        return '<p class="text-[11px] text-gray-400 py-2">告知はまだ登録されていません。</p>';
+      }
+      return list.map(function (item, i) {
+        const sid = item.id || ('idx' + i);
+        return (
+          '<div class="border border-gray-200 rounded-xl p-2.5" data-promo-id="' + escapeHtml(sid) + '">' +
+            '<textarea data-role="text" rows="3" placeholder="告知本文" ' +
+              'class="w-full text-xs border border-gray-300 rounded-lg p-2 mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500">' +
+              escapeHtml(item.text || '') +
+            '</textarea>' +
+            '<div class="flex gap-1.5 mb-1.5">' +
+              '<select data-role="weekday" class="flex-1 min-w-0 text-xs border border-gray-300 rounded-lg px-1.5 py-1.5">' +
+                _wdOptionsHtml(item.weekday || '*') +
+              '</select>' +
+              '<input data-role="time" type="time" value="' + escapeHtml(item.time || '09:00') + '" ' +
+                'class="flex-1 min-w-0 text-xs border border-gray-300 rounded-lg px-1.5 py-1.5">' +
+            '</div>' +
+            '<input data-role="image_url" type="text" placeholder="添付画像URL（任意）" value="' + escapeHtml(item.image_url || '') + '" ' +
+              'class="w-full text-xs border border-gray-300 rounded-lg px-2 py-1.5 mb-1.5">' +
+            '<div class="flex gap-1.5">' +
+              '<button onclick="savePromoItem(\'' + escapeHtml(sid).replace(/\'/g, "\\'") + '\')" ' +
+                'class="flex-1 bg-brand-600 active:bg-brand-700 text-white text-[11px] font-bold py-1.5 rounded-full">💾 保存</button>' +
+              '<button onclick="deletePromoItem(\'' + escapeHtml(sid).replace(/\'/g, "\\'") + '\')" ' +
+                'class="flex-1 bg-red-50 active:bg-red-100 text-red-600 text-[11px] font-bold py-1.5 rounded-full">🗑 削除</button>' +
+            '</div>' +
+            '<p class="promo-item-status text-[11px] text-gray-500 mt-1"></p>' +
+          '</div>'
+        );
+      }).join('');
+    }
+
+    function _readPromoCardFields(sid) {
+      const card = document.querySelector('[data-promo-id="' + CSS.escape(sid) + '"]');
+      if (!card) return null;
+      const get = function (role) { const el = card.querySelector('[data-role="' + role + '"]'); return el ? el.value : ''; };
+      return {
+        card: card,
+        text: (get('text') || '').trim(),
+        weekday: get('weekday') || '*',
+        time: get('time') || '09:00',
+        image_url: (get('image_url') || '').trim(),
+      };
+    }
+
+    function addPromoDraft() {
+      const list = _settingsSched || (_settingsSched = []);
+      list.unshift({ id: '_new_' + Date.now(), text: '', weekday: '*', time: '09:00', image_url: '' });
+      const container = document.getElementById('promo-edit-list');
+      if (container) container.innerHTML = renderPromoEditList();
+    }
+
+    function savePromoItem(sid) {
+      const fields = _readPromoCardFields(sid);
+      if (!fields) return;
+      const statusEl = fields.card.querySelector('.promo-item-status');
+      if (!fields.text) {
+        if (statusEl) statusEl.textContent = '本文を入力してください';
+        return;
+      }
+      const list = _settingsSched || [];
+      const isNew = sid.indexOf('_new_') === 0;
+      const finalId = isNew ? Math.random().toString(16).slice(2, 14) : sid;
+      const updated = { id: finalId, text: fields.text, weekday: fields.weekday, time: fields.time, image_url: fields.image_url };
+      const idx = list.findIndex(function (x) { return (x.id || '') === sid; });
+      if (idx === -1) { list.push(updated); } else { list[idx] = updated; }
+      _settingsSched = list;
+
+      if (statusEl) statusEl.textContent = '保存中...';
+      ghPutFile(SCHED_PATH, list, _settingsSchedSha, 'chore(pwa): update scheduled promo ' + finalId)
+        .then(function (sha) {
+          _settingsSchedSha = sha;
+          const container = document.getElementById('promo-edit-list');
+          if (container) container.innerHTML = renderPromoEditList();
+          scheduledData = null; // PWA上部のカード表示も次回反映されるようキャッシュを捨てる
+        })
+        .catch(function (e) {
+          if (statusEl) statusEl.textContent = '❌ 保存失敗: ' + (e.message || e);
+        });
+    }
+
+    function deletePromoItem(sid) {
+      const list = _settingsSched || [];
+      const isNew = sid.indexOf('_new_') === 0;
+      if (isNew) {
+        _settingsSched = list.filter(function (x) { return (x.id || '') !== sid; });
+        const container = document.getElementById('promo-edit-list');
+        if (container) container.innerHTML = renderPromoEditList();
+        return;
+      }
+      const fields = _readPromoCardFields(sid);
+      const statusEl = fields ? fields.card.querySelector('.promo-item-status') : null;
+      const newList = list.filter(function (x) { return (x.id || '') !== sid; });
+      if (statusEl) statusEl.textContent = '削除中...';
+      ghPutFile(SCHED_PATH, newList, _settingsSchedSha, 'chore(pwa): delete scheduled promo ' + sid)
+        .then(function (sha) {
+          _settingsSched = newList;
+          _settingsSchedSha = sha;
+          const container = document.getElementById('promo-edit-list');
+          if (container) container.innerHTML = renderPromoEditList();
+          scheduledData = null;
+        })
+        .catch(function (e) {
+          if (statusEl) statusEl.textContent = '❌ 削除失敗: ' + (e.message || e);
+        });
+    }
+
     function handlePostClick(event, itemId) {
       const card = document.querySelector('[data-item-id="' + itemId + '"]');
       const btn = card ? card.querySelector('.post-btn') : null;
@@ -14534,6 +14879,16 @@
           if (e.key === 'Enter') { e.preventDefault(); applyKeywords(); }
         });
       });
+
+      // ⚙️ 自動投稿の設定パネル：開いたときに読み込む
+      const settingsPanel = document.getElementById('settings-panel');
+      if (settingsPanel) {
+        const tokenStatus = document.getElementById('settings-token-status');
+        if (tokenStatus && getGithubToken()) { tokenStatus.textContent = '✓ トークン設定済み'; }
+        settingsPanel.addEventListener('toggle', function () {
+          if (settingsPanel.open) loadSettingsPanel();
+        });
+      }
     }
 
     if ('serviceWorker' in navigator) {
