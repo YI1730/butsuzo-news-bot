@@ -1054,9 +1054,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }});
     }}
 
-    function renderSettingsBody() {{
-      const body = document.getElementById('settings-body');
-      if (!body) return;
+    function visitSectionHtml() {{
       const cfg = _settingsConfig || {{}};
       const hours = Array.isArray(cfg.visit_hours) ? cfg.visit_hours.map(Number) : [];
       const enabled = cfg.visit_enabled !== false;
@@ -1074,18 +1072,23 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }}
 
       let html = '';
-      html += '<div class="border-t border-gray-100 pt-3">';
-      html += '  <p class="text-xs font-bold text-brand-800 mb-1">📜 訪問記の自動投稿</p>';
-      html += '  <label class="flex items-center gap-2 text-xs text-gray-600 mb-2">';
-      html += '    <input type="checkbox" id="visit-enabled-checkbox" ' + (enabled ? 'checked' : '') + ' onchange="onVisitEnabledChange()">';
-      html += '    自動投稿を有効にする';
-      html += '  </label>';
-      html += '  <p class="text-[11px] text-gray-500 mb-2">投稿する時刻（JST）をタップして選択。選んだ時刻の数 = 1日の投稿回数です。</p>';
-      html += '  <div class="grid grid-cols-6 gap-1.5 mb-2">' + hourChips + '</div>';
-      html += '  <button onclick="saveVisitConfig()" class="w-full bg-brand-600 active:bg-brand-700 text-white text-xs font-bold py-2 rounded-full transition-colors">💾 訪問記の設定を保存</button>';
-      html += '  <p id="visit-config-status" class="text-[11px] text-gray-500 mt-1"></p>';
-      html += '</div>';
+      html += '<p class="text-xs font-bold text-brand-800 mb-1">📜 訪問記の自動投稿</p>';
+      html += '<label class="flex items-center gap-2 text-xs text-gray-600 mb-2">';
+      html += '  <input type="checkbox" id="visit-enabled-checkbox" ' + (enabled ? 'checked' : '') + ' onchange="onVisitEnabledChange()">';
+      html += '  自動投稿を有効にする';
+      html += '</label>';
+      html += '<p class="text-[11px] text-gray-500 mb-2">投稿する時刻（JST）をタップして選択。選んだ時刻の数 = 1日の投稿回数です。</p>';
+      html += '<div class="grid grid-cols-6 gap-1.5 mb-2">' + hourChips + '</div>';
+      html += '<button onclick="saveVisitConfig()" class="w-full bg-brand-600 active:bg-brand-700 text-white text-xs font-bold py-2 rounded-full transition-colors">💾 訪問記の設定を保存</button>';
+      html += '<p id="visit-config-status" class="text-[11px] text-gray-500 mt-1"></p>';
+      return html;
+    }}
 
+    function renderSettingsBody() {{
+      const body = document.getElementById('settings-body');
+      if (!body) return;
+      let html = '';
+      html += '<div id="visit-config-section" class="border-t border-gray-100 pt-3">' + visitSectionHtml() + '</div>';
       // 告知の一覧
       html += '<div class="border-t border-gray-100 pt-3">';
       html += '  <p class="text-xs font-bold text-brand-800 mb-2">📣 告知の登録・編集</p>';
@@ -1108,7 +1111,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
       hours.sort(function (a, b) {{ return a - b; }});
       cfg.visit_hours = hours;
       _settingsConfig = cfg;
-      renderSettingsBody();
+      // 訪問設定部分のみ再描画（告知の未保存編集を巻き込まない）
+      const section = document.getElementById('visit-config-section');
+      if (section) section.innerHTML = visitSectionHtml();
     }}
 
     function saveVisitConfig() {{
@@ -1128,16 +1133,52 @@ def build_html(items: list[dict], last_updated: str) -> str:
         }});
     }}
 
+    // 曜日は複数選択可（毎日 or 個別曜日の組み合わせ）。
+    // 「毎日」を選ぶと個別曜日は解除、個別曜日を選ぶと「毎日」は解除される。
     const WD_LABEL_OPTIONS = [
       {{ code: '*', label: '毎日' }}, {{ code: 'mon', label: '月' }}, {{ code: 'tue', label: '火' }},
       {{ code: 'wed', label: '水' }}, {{ code: 'thu', label: '木' }}, {{ code: 'fri', label: '金' }},
       {{ code: 'sat', label: '土' }}, {{ code: 'sun', label: '日' }},
     ];
+    const WD_CHIP_ON = 'bg-brand-600 text-white border-brand-600';
+    const WD_CHIP_OFF = 'bg-white text-gray-500 border-gray-300';
 
-    function _wdOptionsHtml(selected) {{
-      return WD_LABEL_OPTIONS.map(function (o) {{
-        return '<option value="' + o.code + '"' + (o.code === selected ? ' selected' : '') + '>' + o.label + '</option>';
-      }}).join('');
+    // 旧形式（weekday: 単一文字列）にも対応した曜日リストを返す
+    function itemWeekdaysForDisplay(item) {{
+      if (Array.isArray(item.weekdays) && item.weekdays.length) return item.weekdays;
+      const legacy = item.weekday;
+      if (!legacy || legacy === '*') return ['*'];
+      return [legacy];
+    }}
+
+    function _promoWeekdayChipsHtml(item) {{
+      const wds = itemWeekdaysForDisplay(item);
+      const isDaily = wds.length === 1 && wds[0] === '*';
+      return '<div class="promo-weekday-row flex flex-wrap gap-1 mb-1.5">' +
+        WD_LABEL_OPTIONS.map(function (o) {{
+          const isActive = isDaily ? (o.code === '*') : (wds.indexOf(o.code) !== -1);
+          return '<button type="button" data-wd="' + o.code + '" onclick="toggleWeekdayChip(this)" ' +
+            'class="px-2 py-1 rounded-full text-[10px] font-bold border transition-colors ' +
+            (isActive ? WD_CHIP_ON : WD_CHIP_OFF) + '">' + o.label + '</button>';
+        }}).join('') +
+        '</div>';
+    }}
+
+    function toggleWeekdayChip(btn) {{
+      const row = btn.closest('.promo-weekday-row');
+      if (!row) return;
+      const code = btn.getAttribute('data-wd');
+      const setActive = function (el, active) {{
+        el.className = 'px-2 py-1 rounded-full text-[10px] font-bold border transition-colors ' + (active ? WD_CHIP_ON : WD_CHIP_OFF);
+      }};
+      if (code === '*') {{
+        row.querySelectorAll('[data-wd]').forEach(function (b) {{ setActive(b, b === btn); }});
+        return;
+      }}
+      const isActive = btn.className.indexOf('bg-brand-600') !== -1;
+      setActive(btn, !isActive);
+      const allBtn = row.querySelector('[data-wd="*"]');
+      if (allBtn) setActive(allBtn, false);
     }}
 
     function renderPromoEditList() {{
@@ -1153,13 +1194,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
               'class="w-full text-xs border border-gray-300 rounded-lg p-2 mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500">' +
               escapeHtml(item.text || '') +
             '</textarea>' +
-            '<div class="flex gap-1.5 mb-1.5">' +
-              '<select data-role="weekday" class="flex-1 min-w-0 text-xs border border-gray-300 rounded-lg px-1.5 py-1.5">' +
-                _wdOptionsHtml(item.weekday || '*') +
-              '</select>' +
-              '<input data-role="time" type="time" value="' + escapeHtml(item.time || '09:00') + '" ' +
-                'class="flex-1 min-w-0 text-xs border border-gray-300 rounded-lg px-1.5 py-1.5">' +
-            '</div>' +
+            '<p class="text-[10px] text-gray-500 mb-1">曜日（複数選択可）</p>' +
+            _promoWeekdayChipsHtml(item) +
+            '<input data-role="time" type="time" value="' + escapeHtml(item.time || '09:00') + '" ' +
+              'class="w-full text-xs border border-gray-300 rounded-lg px-1.5 py-1.5 mb-1.5">' +
             '<input data-role="image_url" type="text" placeholder="添付画像URL（任意）" value="' + escapeHtml(item.image_url || '') + '" ' +
               'class="w-full text-xs border border-gray-300 rounded-lg px-2 py-1.5 mb-1.5">' +
             '<div class="flex gap-1.5">' +
@@ -1174,6 +1212,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }}).join('');
     }}
 
+    function _readPromoWeekdays(card) {{
+      const row = card.querySelector('.promo-weekday-row');
+      if (!row) return ['*'];
+      const active = Array.prototype.slice.call(row.querySelectorAll('[data-wd]'))
+        .filter(function (b) {{ return b.className.indexOf('bg-brand-600') !== -1; }})
+        .map(function (b) {{ return b.getAttribute('data-wd'); }});
+      if (active.length === 0) return ['*']; // 何も選ばれていなければ毎日として扱う
+      if (active.indexOf('*') !== -1) return ['*'];
+      return active;
+    }}
+
     function _readPromoCardFields(sid) {{
       const card = document.querySelector('[data-promo-id="' + CSS.escape(sid) + '"]');
       if (!card) return null;
@@ -1181,7 +1230,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       return {{
         card: card,
         text: (get('text') || '').trim(),
-        weekday: get('weekday') || '*',
+        weekdays: _readPromoWeekdays(card),
         time: get('time') || '09:00',
         image_url: (get('image_url') || '').trim(),
       }};
@@ -1189,7 +1238,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
 
     function addPromoDraft() {{
       const list = _settingsSched || (_settingsSched = []);
-      list.unshift({{ id: '_new_' + Date.now(), text: '', weekday: '*', time: '09:00', image_url: '' }});
+      list.unshift({{ id: '_new_' + Date.now(), text: '', weekdays: ['*'], time: '09:00', image_url: '' }});
       const container = document.getElementById('promo-edit-list');
       if (container) container.innerHTML = renderPromoEditList();
     }}
@@ -1205,7 +1254,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const list = _settingsSched || [];
       const isNew = sid.indexOf('_new_') === 0;
       const finalId = isNew ? Math.random().toString(16).slice(2, 14) : sid;
-      const updated = {{ id: finalId, text: fields.text, weekday: fields.weekday, time: fields.time, image_url: fields.image_url }};
+      const updated = {{ id: finalId, text: fields.text, weekdays: fields.weekdays, time: fields.time, image_url: fields.image_url }};
       const idx = list.findIndex(function (x) {{ return (x.id || '') === sid; }});
       if (idx === -1) {{ list.push(updated); }} else {{ list[idx] = updated; }}
       _settingsSched = list;
@@ -1475,7 +1524,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v23';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v24';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 

@@ -4,7 +4,9 @@
 
 - 訪問記: config/auto_post_config.json の visit_hours に現在「時」が含まれれば、
   archives.json からランダム1件（直近180日は重複回避）を投稿。
-- 告知:   scheduled_posts.json の weekday/time が現在の曜日・時に一致すれば投稿。
+- 告知:   scheduled_posts.json の weekdays/time が現在の曜日・時に一致すれば投稿。
+          weekdays は複数曜日を指定できる配列（例 ["mon","wed","fri"]）。
+          ["*"] または未指定は毎日。旧形式の単一 weekday フィールドにも対応。
           同日の二重投稿は data/scheduled_log.json で防止。
 
 設定ファイル（PWAまたはStreamlitから編集）:
@@ -102,6 +104,28 @@ def _hour_of(time_str: str) -> int | None:
         return None
 
 
+def _item_weekdays(item: dict) -> list[str]:
+    """告知アイテムの曜日リストを返す（'*' は毎日）。
+
+    新形式: weekdays（配列、例 ["mon","wed"] や ["*"]）
+    旧形式: weekday（単一文字列 '*' または曜日コード）にもフォールバック対応。
+    """
+    wds = item.get("weekdays")
+    if isinstance(wds, list) and wds:
+        codes = [w for w in wds if isinstance(w, str) and (w in _WEEKDAY_CODES or w == "*")]
+        if codes:
+            return codes
+    legacy = item.get("weekday")
+    if not legacy or legacy == "*":
+        return ["*"]
+    return [legacy]
+
+
+def _weekday_matches(item: dict, cur_wd: str) -> bool:
+    wds = _item_weekdays(item)
+    return "*" in wds or cur_wd in wds
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="毎時自動投稿エンジン")
     parser.add_argument("--dry-run", action="store_true",
@@ -124,7 +148,7 @@ def main() -> int:
     plan_visit = bool(config["visit_enabled"]) and (cur_hour in config["visit_hours"])
     due_promos = [
         s for s in scheduled
-        if (s.get("weekday") in ("*", cur_wd)) and (_hour_of(s.get("time")) == cur_hour)
+        if _weekday_matches(s, cur_wd) and (_hour_of(s.get("time")) == cur_hour)
     ]
     print(f"→ 訪問投稿予定: {plan_visit} / 告知該当: {len(due_promos)}件")
 
