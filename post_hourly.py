@@ -2,9 +2,15 @@
 
 現在時刻(JST)に応じて、設定に基づき訪問記・告知を投稿する。
 
-- 訪問記: config/auto_post_config.json の visit_hours に現在「時」が含まれれば、
-  archives.json からランダム1件（直近180日は重複回避）を投稿。
-- 告知:   scheduled_posts.json の weekdays/time が現在の曜日・時に一致すれば投稿。
+GitHub Actions の cron は高負荷時に大幅に間引かれる（実測: 1日24回のはずが6回程度）。
+そのため「実行時刻が指定時刻とぴったり一致」する方式では投稿を取りこぼす。
+本エンジンは「指定時刻を過ぎたか」で判定し、CATCHUP_GRACE_HOURS 以内であれば
+後続の実行が取りこぼしを埋める。
+
+- 訪問記: config/auto_post_config.json の visit_hours のスロットを過ぎていて、
+  そのスロット分が今日まだ未投稿なら archives.json からランダム1件を投稿
+  （直近180日は重複回避）。投稿済み判定は post_history.json の時刻から行う。
+- 告知:   scheduled_posts.json の weekdays が今日に該当し、time を過ぎていれば投稿。
           weekdays は複数曜日を指定できる配列（例 ["mon","wed","fri"]）。
           ["*"] または未指定は毎日。旧形式の単一 weekday フィールドにも対応。
           同日の二重投稿は data/scheduled_log.json で防止。
@@ -43,6 +49,11 @@ SCHED_LOG_FILE = BASE_DIR / "data" / "scheduled_log.json"
 _WEEKDAY_CODES = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
 
 _DEFAULT_CONFIG = {"visit_enabled": True, "visit_hours": [8, 20]}
+
+# GitHub Actions の cron は高負荷時に実行が間引かれるため（実測で 1日24回 → 6回程度）、
+# 「ちょうどその時」に実行されないと投稿を取りこぼす。
+# そこで指定時刻を過ぎた分は、この猶予時間内であれば後続の実行が代わりに投稿する。
+CATCHUP_GRACE_HOURS = 6
 
 
 def load_config() -> dict:
@@ -126,6 +137,61 @@ def _weekday_matches(item: dict, cur_wd: str) -> bool:
     return "*" in wds or cur_wd in wds
 
 
+def _grace_for(slot_hour: int, all_hours: list[int]) -> int:
+    """スロットの猶予時間。次のスロットに食い込まないよう上限を調整する。"""
+    later = [h for h in sorted(all_hours) if h > slot_hour]
+    gap = (later[0] - slot_hour) if later else (24 - slot_hour)
+    return max(1, min(CATCHUP_GRACE_HOURS, gap))
+
+
+def due_visit_hour(config: dict, now: datetime, history: dict[str, str]) -> int | None:
+    """今日まだ投稿していない訪問記スロットのうち、最も早いものを返す。
+
+    「実行時刻がぴったり一致」ではなく「指定時刻を過ぎたか」で判定するため、
+    cron が間引かれても後続の実行が取りこぼしを埋められる。
+    投稿済みかどうかは post_history.json のタイムスタンプから判定するので、
+    追加の状態ファイル（＝ワークフローの変更）は不要。
+    """
+    if not config.get("visit_enabled"):
+        return None
+    hours = config.get("visit_hours") or []
+    today = now.date()
+    # 今日すでに投稿した時刻の一覧
+    posted_today: list[int] = []
+    for iso in history.values():
+        dt = _parse_jst(iso)
+        if dt is not None and dt.date() == today:
+            posted_today.append(dt.hour)
+    for h in sorted(hours):
+        grace = _grace_for(h, hours)
+        # そのスロットの猶予枠内にすでに投稿があれば消化済みとみなす
+        if any(h <= ph < h + grace for ph in posted_today):
+            continue
+        if h <= now.hour < h + grace:
+            return h
+    return None
+
+
+def _parse_jst(iso: str) -> datetime | None:
+    try:
+        dt = datetime.fromisoformat(iso)
+    except Exception:
+        return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=JST)
+    return dt.astimezone(JST)
+
+
+def promo_is_due(item: dict, now: datetime, cur_wd: str) -> bool:
+    """告知が「今日の指定時刻を過ぎ、猶予時間内」であれば True。"""
+    if not _weekday_matches(item, cur_wd):
+        return False
+    h = _hour_of(item.get("time"))
+    if h is None:
+        return False
+    return h <= now.hour < h + CATCHUP_GRACE_HOURS
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="毎時自動投稿エンジン")
     parser.add_argument("--dry-run", action="store_true",
@@ -135,97 +201,108 @@ def main() -> int:
     args = parser.parse_args()
 
     now = datetime.now(JST)
-    cur_hour = args.hour if args.hour is not None else now.hour
+    if args.hour is not None:
+        # テスト用に「時」を上書き（取りこぼし判定も上書き後の時刻で評価する）
+        now = now.replace(hour=args.hour, minute=0, second=0, microsecond=0)
+    cur_hour = now.hour
     cur_wd = _WEEKDAY_CODES[now.weekday()]
     today = now.strftime("%Y-%m-%d")
 
     config = load_config()
     scheduled = load_scheduled()
+    history = pv.load_history()
 
     print(f"JST {now:%Y-%m-%d %H:%M} (hour={cur_hour}, {cur_wd})")
-    print(f"訪問設定: enabled={config['visit_enabled']} hours={config['visit_hours']}")
+    print(f"訪問設定: enabled={config['visit_enabled']} hours={config['visit_hours']}"
+          f" / 取りこぼし補完 {CATCHUP_GRACE_HOURS}時間以内")
 
-    plan_visit = bool(config["visit_enabled"]) and (cur_hour in config["visit_hours"])
+    visit_slot = due_visit_hour(config, now, history)
+    sched_log = load_sched_log()
     due_promos = [
         s for s in scheduled
-        if _weekday_matches(s, cur_wd) and (_hour_of(s.get("time")) == cur_hour)
+        if promo_is_due(s, now, cur_wd) and sched_log.get(s.get("id", "")) != today
     ]
-    print(f"→ 訪問投稿予定: {plan_visit} / 告知該当: {len(due_promos)}件")
+    if visit_slot is None:
+        print("→ 訪問投稿予定: なし（時間外、または本日分は投稿済み）")
+    else:
+        late = cur_hour - visit_slot
+        print(f"→ 訪問投稿予定: あり（{visit_slot}時のスロット"
+              f"{'・' + str(late) + '時間遅れの取りこぼし補完' if late else ''}）")
+    print(f"→ 告知該当: {len(due_promos)}件")
 
     # ── DRY RUN ─────────────────────────────────────────────
     if args.dry_run:
         print("=== DRY RUN（投稿しません） ===")
-        if plan_visit:
-            archives = pv.load_archives()
-            history = pv.load_history()
-            picks = pv.pick_candidates(archives, history, 1)
+        if visit_slot is not None:
+            picks = pv.pick_candidates(pv.load_archives(), history, 1)
             if picks:
                 print("[訪問]", picks[0].get("text", "")[:70])
-        log = load_sched_log()
+            else:
+                print("[訪問] 投稿可能な候補がありません")
         for s in due_promos:
-            dup = log.get(s.get("id", "")) == today
             upload = "画像アップロードあり" if (s.get("use_media_upload") and s.get("image_url")) else "テキストのみ"
-            print(f"[告知]{'（本日投稿済）' if dup else ''}（{upload}）", (s.get("text") or "")[:70])
+            print(f"[告知]（{upload}）", (s.get("text") or "")[:70])
         return 0
 
     # ── 実投稿 ──────────────────────────────────────────────
     session = None
     posted = 0
+    failed = 0
 
     # 訪問記
-    if plan_visit:
-        archives = pv.load_archives()
-        history = pv.load_history()
-        picks = pv.pick_candidates(archives, history, 1)
+    if visit_slot is not None:
+        picks = pv.pick_candidates(pv.load_archives(), history, 1)
         if not picks:
             print("[訪問] 投稿可能な候補がありません")
         else:
-            p = picks[0]
-            text = (p.get("text") or "").strip()
+            item = picks[0]
+            text = (item.get("text") or "").strip()
             if text:
                 if session is None:
                     session = pv.get_oauth_session()
                 ok, msg = pv.post_tweet(session, text)
                 print(f"[訪問] {msg}")
                 if ok:
-                    history[p["id"]] = now.isoformat()
+                    history[item["id"]] = now.isoformat()
                     pv.save_history(history)
                     posted += 1
+                else:
+                    failed += 1
 
     # 告知
-    if due_promos:
-        log = load_sched_log()
-        for s in due_promos:
-            sid = s.get("id", "")
-            if log.get(sid) == today:
-                print(f"[告知] 本日投稿済みのためスキップ: {sid}")
+    for s in due_promos:
+        sid = s.get("id", "")
+        text = (s.get("text") or "").strip()
+        if not text:
+            continue
+        if session is None:
+            session = pv.get_oauth_session()
+
+        # use_media_upload=true のときのみ image_url を実際にアップロードして添付。
+        # トークン消費を抑えるため、明示的に指定されたものだけアップロードする。
+        media_id = None
+        image_url = (s.get("image_url") or "").strip()
+        if s.get("use_media_upload") and image_url:
+            media_id, upload_msg = pv.upload_media_from_url(session, image_url)
+            print(f"[告知] 画像{upload_msg}")
+            if not media_id:
+                print(f"[告知] 画像アップロード失敗のため投稿を見送り: {sid}")
+                failed += 1
                 continue
-            text = (s.get("text") or "").strip()
-            if not text:
-                continue
-            if session is None:
-                session = pv.get_oauth_session()
 
-            # use_media_upload=true のときのみ image_url を実際にアップロードして添付。
-            # トークン消費を抑えるため、明示的に指定されたものだけアップロードする。
-            media_id = None
-            image_url = (s.get("image_url") or "").strip()
-            if s.get("use_media_upload") and image_url:
-                media_id, upload_msg = pv.upload_media_from_url(session, image_url)
-                print(f"[告知] 画像{upload_msg}")
-                if not media_id:
-                    print(f"[告知] 画像アップロード失敗のため投稿を見送り: {sid}")
-                    continue
+        ok, msg = pv.post_tweet(session, text, media_id=media_id)
+        print(f"[告知] {msg}")
+        if ok:
+            sched_log[sid] = today
+            save_sched_log(sched_log)
+            posted += 1
+        else:
+            failed += 1
 
-            ok, msg = pv.post_tweet(session, text, media_id=media_id)
-            print(f"[告知] {msg}")
-            if ok:
-                log[sid] = today
-                save_sched_log(log)
-                posted += 1
-
-    print(f"投稿完了: {posted}件")
-    return 0
+    print(f"投稿完了: {posted}件 / 失敗: {failed}件")
+    # 失敗があれば異常終了させ、GitHub Actions 上で赤く見えるようにする。
+    # （以前は常に 0 を返していたため、投稿失敗が成功として見えていた）
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":
