@@ -201,7 +201,13 @@ def resolve_original_url(google_news_url: str) -> str:
     if gnewsdecoder is not None:
         try:
             decoded = gnewsdecoder(google_news_url, interval=1)
-            if decoded.get("status") and decoded.get("decoded_url"):
+            # 成功フラグのキーはバージョンで異なる:
+            #   v0.1.x → "status" / v0.2.x 以降 → "success"
+            # どちらでも動くよう両方を見る（片方しか無い版でも取りこぼさない）。
+            ok = decoded.get("success")
+            if ok is None:
+                ok = decoded.get("status")
+            if ok and decoded.get("decoded_url"):
                 return decoded["decoded_url"]
             print(
                 f"gnewsdecoderでデコード不可: {decoded.get('message')}",
@@ -267,6 +273,14 @@ def main() -> int:
             continue
 
         original_url = resolve_original_url(link)
+
+        # URL を解決できなかった記事は保存しない。
+        # Google News の RSS URL のまま保存すると、ダッシュボードの投稿リンクが
+        # 元記事ではなく RSS URL になり、OGP 画像も取得できないため。
+        # スキップしても次回以降の実行で再取得される（RSS に残っている限り）。
+        if original_url.startswith("https://news.google.com"):
+            print(f"URL解決に失敗したためスキップ: {title}", file=sys.stderr)
+            continue
 
         # 配信元ドメインが除外リストに該当する記事はスキップ
         if is_excluded_domain(original_url):
