@@ -20,8 +20,12 @@ from bs4 import BeautifulSoup
 
 try:
     from googlenewsdecoder import gnewsdecoder
-except ImportError:  # ライブラリ未インストール時でも HTTP フォールバックで動作する
+except Exception as _e:  # 依存の破壊的変更で import 自体が失敗することがある
     gnewsdecoder = None
+    # 黙って HTTP フォールバックに落ちると、URL を一切解決できず全件スキップ
+    # されても気づけない（2026-10-03 selectolax 1.0 で実際に発生）。
+    # ::warning:: は GitHub Actions の実行サマリーに警告として表示される。
+    print(f"::warning::googlenewsdecoder の読み込みに失敗: {_e}", file=sys.stderr)
 
 RSS_BASE = "https://news.google.com/rss/search"
 RSS_PARAMS = "hl=ja&gl=JP&ceid=JP:ja"
@@ -252,6 +256,7 @@ def main() -> int:
     existing_ids = {item["id"] for item in data["items"]}
 
     added_count = 0
+    unresolved_count = 0
     for entry in feed.entries:
         if added_count >= MAX_ITEMS_PER_RUN:
             break
@@ -280,6 +285,7 @@ def main() -> int:
         # スキップしても次回以降の実行で再取得される（RSS に残っている限り）。
         if original_url.startswith("https://news.google.com"):
             print(f"URL解決に失敗したためスキップ: {title}", file=sys.stderr)
+            unresolved_count += 1
             continue
 
         # 配信元ドメインが除外リストに該当する記事はスキップ
@@ -319,6 +325,12 @@ def main() -> int:
     data["last_updated"] = datetime.now(JST).isoformat()
     save_news_data(data)
     print(f"追加件数: {added_count} / 合計: {len(data['items'])}件")
+    if unresolved_count:
+        print(
+            f"::warning::Google News の URL 解決に {unresolved_count} 件失敗"
+            "（googlenewsdecoder の不具合・仕様変更の可能性）",
+            file=sys.stderr,
+        )
     return 0
 
 

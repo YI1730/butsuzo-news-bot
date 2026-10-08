@@ -1,6 +1,11 @@
 beautifulsoup4>=4.12.0
 feedparser>=6.0.10
-googlenewsdecoder>=0.1.7
+# Google News の URL 解決。上限を付けて、破壊的変更の自動取り込みを防ぐ。
+#   2026-09-20: v0.2.1 で戻り値キーが status→success に変更（コードで両対応済み）
+googlenewsdecoder>=0.1.7,<0.3
+# googlenewsdecoder 0.2.x は selectolax.parser を使うが、selectolax 1.0
+# （2026-10-03）でこのモジュールが削除され import に失敗する。1.0 未満に固定。
+selectolax>=0.4.12,<1.0
 lxml>=5.0.0
 requests>=2.31.0
 # 訪問ツイート自動投稿（post_visit_tweet.py 用、X API v2 OAuth1.0a）
