@@ -217,10 +217,12 @@ def fetch_article_text(url: str) -> str:
 
 def score_items(client, usage: Usage, items: list[dict], recent_candidates: list[dict]) -> int:
     """items を SCORE_BATCH_SIZE 件ずつ採点し、各記事の "ai" に書き込む。採点件数を返す。"""
-    context = "\n".join(f"- {c['title']}" for c in recent_candidates) or "（なし）"
+    known = list(recent_candidates)  # 重複判定用。採点が進むたびに新しい候補を足していく
     scored = 0
     for i in range(0, len(items), SCORE_BATCH_SIZE):
         batch = items[i:i + SCORE_BATCH_SIZE]
+        # 前のまとまりで候補になった記事も渡す（まとまりをまたいだ重複を見逃さないため）
+        context = "\n".join(f"- {c['title']}" for c in known) or "（なし）"
         articles = [
             {
                 "id": it["id"],
@@ -253,6 +255,8 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
                 "scored_at": now,
             }
             scored += 1
+            if it["ai"]["score"] >= CANDIDATE_THRESHOLD and not it["ai"]["duplicate"]:
+                known.append(it)
     return scored
 
 
