@@ -14,6 +14,8 @@ from calendar import timegm
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+from news_store import trim_per_source
+
 import feedparser
 import requests
 from bs4 import BeautifulSoup
@@ -73,6 +75,22 @@ def build_search_query(includes: list[str], excludes: list[str]) -> str:
 INCLUDE_KEYWORDS, EXCLUDE_KEYWORDS = load_keywords()
 SEARCH_QUERY = build_search_query(INCLUDE_KEYWORDS, EXCLUDE_KEYWORDS)
 
+# Google News RSS は 1 検索あたり最大 100 件で、しかも新着順ではなく関連度順に返す。
+# 全キーワードを 1 本の OR 検索にすると、新着が後回しになったり 100 件の枠から
+# こぼれたりする（実測: 配信から取り込みまで中央値 31 時間）。
+# そこでキーワードを少数ずつに分けた複数の検索にし、各検索を直近に絞る。
+KEYWORDS_PER_QUERY = 3
+QUERY_RECENCY = "when:2d"
+
+
+def build_search_queries(includes: list[str], excludes: list[str]) -> list[str]:
+    """キーワードを KEYWORDS_PER_QUERY 個ずつに分けた検索クエリ群を返す。"""
+    queries = []
+    for i in range(0, len(includes), KEYWORDS_PER_QUERY):
+        q = build_search_query(includes[i:i + KEYWORDS_PER_QUERY], excludes)
+        queries.append(f"{q} {QUERY_RECENCY}")
+    return queries
+
 # 配信元ドメインによる除外リスト（仏像と無関係なサイトを排除）。
 # Google News はキーワードが本文に含まれるだけの無関係サイトも拾うため、
 # ここに列挙したドメイン（およびそのサブドメイン）からの記事は収集しない。
@@ -82,9 +100,12 @@ EXCLUDE_DOMAINS = [
 ]
 
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
-MAX_ITEMS_PER_RUN = 10   # 1回の実行で追加する最大件数
-MAX_TOTAL_ITEMS = 500    # JSON に保持する最大件数（古いものは削除）
-MAX_ARTICLE_AGE_DAYS = 14  # これより古い記事は収集しない
+# Google News の記事 ID → 解決済み URL のキャッシュ。毎時実行しても
+# 同じ記事を何度もデコードしない（Google への負荷と実行時間を抑える）。
+URL_CACHE_FILE = Path(__file__).parent / "data" / "gnews_url_cache.json"
+URL_CACHE_MAX = 3000     # キャッシュの保持件数
+MAX_ITEMS_PER_RUN = 50   # 1回の実行で追加する最大件数
+MAX_ARTICLE_AGE_DAYS = 3   # 速報として扱う期間。これより古い記事は収集しない
 
 RESOLVE_TIMEOUT = 10
 RESOLVE_USER_AGENT = (
@@ -99,9 +120,47 @@ JST = timezone(timedelta(hours=9))
 # ---------------------------------------------------------------------------
 
 
-def build_feed_url() -> str:
-    query = urllib.parse.quote_plus(SEARCH_QUERY)
-    return f"{RSS_BASE}?q={query}&{RSS_PARAMS}"
+def build_feed_url(query: str = SEARCH_QUERY) -> str:
+    return f"{RSS_BASE}?q={urllib.parse.quote_plus(query)}&{RSS_PARAMS}"
+
+
+def load_url_cache() -> dict[str, str]:
+    try:
+        with URL_CACHE_FILE.open("r", encoding="utf-8") as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {}
+
+
+def save_url_cache(cache: dict[str, str]) -> None:
+    # dict は挿入順を保つので、末尾（新しい方）から URL_CACHE_MAX 件を残す
+    items = list(cache.items())[-URL_CACHE_MAX:]
+    URL_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with URL_CACHE_FILE.open("w", encoding="utf-8") as f:
+        json.dump(dict(items), f, ensure_ascii=False, indent=0)
+
+
+def fetch_entries(queries: list[str]) -> list:
+    """全クエリの RSS を取得し、記事 ID で重複を除いて新しい順に並べる。"""
+    seen: set[str] = set()
+    entries = []
+    for q in queries:
+        feed = feedparser.parse(build_feed_url(q))
+        if feed.bozo and not feed.entries:
+            print(f"::warning::RSS取得失敗: {q[:40]} ({feed.bozo_exception})", file=sys.stderr)
+            continue
+        for e in feed.entries:
+            key = getattr(e, "id", "") or getattr(e, "link", "")
+            if key and key not in seen:
+                seen.add(key)
+                entries.append(e)
+        time_module.sleep(1)  # 連続リクエストを避ける
+    entries.sort(
+        key=lambda e: parse_published_at(e) or datetime.min.replace(tzinfo=JST),
+        reverse=True,
+    )
+    return entries
 
 
 def load_news_data() -> dict:
@@ -244,20 +303,20 @@ def resolve_original_url(google_news_url: str) -> str:
 def main() -> int:
     print(f"含むキーワード ({len(INCLUDE_KEYWORDS)}): {', '.join(INCLUDE_KEYWORDS)}")
     print(f"除外キーワード ({len(EXCLUDE_KEYWORDS)}): {', '.join(EXCLUDE_KEYWORDS)}")
-    feed_url = build_feed_url()
-    print(f"RSS取得: {feed_url}")
-    feed = feedparser.parse(feed_url)
-
-    if feed.bozo and not feed.entries:
-        print(f"RSSの取得に失敗しました: {feed.bozo_exception}", file=sys.stderr)
+    queries = build_search_queries(INCLUDE_KEYWORDS, EXCLUDE_KEYWORDS)
+    entries = fetch_entries(queries)
+    print(f"RSS取得: {len(queries)}クエリ / 重複除去後 {len(entries)}件")
+    if not entries:
+        print("RSSの取得に失敗しました（全クエリで0件）", file=sys.stderr)
         return 1
 
     data = load_news_data()
     existing_ids = {item["id"] for item in data["items"]}
+    url_cache = load_url_cache()
 
     added_count = 0
     unresolved_count = 0
-    for entry in feed.entries:
+    for entry in entries:
         if added_count >= MAX_ITEMS_PER_RUN:
             break
 
@@ -270,14 +329,17 @@ def main() -> int:
             print(f"除外キーワードを含むためスキップ: {title}")
             continue
 
-        # 公開日チェック：30日より古い記事は除外
+        # 公開日チェック：MAX_ARTICLE_AGE_DAYS より古い記事は除外
         published = parse_published_at(entry)
         if is_article_too_old(published):
             pub_str = published.strftime("%Y-%m-%d") if published else "不明"
             print(f"古い記事のためスキップ（{pub_str}）: {title}")
             continue
 
-        original_url = resolve_original_url(link)
+        cache_key = getattr(entry, "id", "") or link
+        original_url = url_cache.get(cache_key) or resolve_original_url(link)
+        if not original_url.startswith("https://news.google.com"):
+            url_cache[cache_key] = original_url
 
         # URL を解決できなかった記事は保存しない。
         # Google News の RSS URL のまま保存すると、ダッシュボードの投稿リンクが
@@ -321,9 +383,10 @@ def main() -> int:
         print(f"追加: {title}")
 
     # 古いアイテムを削除して上限を守る
-    data["items"] = data["items"][:MAX_TOTAL_ITEMS]
+    data["items"] = trim_per_source(data["items"])
     data["last_updated"] = datetime.now(JST).isoformat()
     save_news_data(data)
+    save_url_cache(url_cache)
     print(f"追加件数: {added_count} / 合計: {len(data['items'])}件")
     if unresolved_count:
         print(

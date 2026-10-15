@@ -1,5 +1,7 @@
 name: Update Buddhist News Dashboard
 
+# Google ニュースは news_hourly.yml が毎時取得する。ここでは特別公開・特別展・Amazon を取得。
+
 on:
   schedule:
     # JST 6:30 / 10:30 / 15:30 / 17:30 / 20:30 / 23:30
@@ -8,6 +10,11 @@ on:
 
 permissions:
   contents: write
+
+# news_hourly.yml と同時に走って news.json の push が衝突しないよう直列化する
+concurrency:
+  group: news-json
+  cancel-in-progress: false
 
 jobs:
   update_dashboard:
@@ -26,9 +33,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Fetch news (Google RSS)
-        run: python post_news.py
 
       - name: Fetch special sites
         run: python scrape_special.py
@@ -53,6 +57,7 @@ jobs:
           git add docs/
           if ! git diff --staged --quiet; then
             git commit -m "chore: update news dashboard"
+            git pull --rebase origin main
             git push
           else
             echo "No changes to commit"

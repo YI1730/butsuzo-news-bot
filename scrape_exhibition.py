@@ -18,6 +18,8 @@ import time
 import unicodedata
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+from news_store import trim_per_source
 from urllib.parse import urljoin
 
 from calendar import timegm
@@ -34,7 +36,6 @@ REQUEST_TIMEOUT = 15
 SLEEP_BETWEEN_REQUESTS = 3
 
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
-MAX_TOTAL_ITEMS = 500
 MAX_ARTICLE_AGE_DAYS = 14  # これより古い記事は収集しない
 
 JST = timezone(timedelta(hours=9))
@@ -479,7 +480,7 @@ def main() -> int:
         added_count += 1
         print(f"追加: [{item['source']}] {item['title'][:70]}")
 
-    data["items"] = data["items"][:MAX_TOTAL_ITEMS]
+    data["items"] = trim_per_source(data["items"])
     data["last_updated"] = datetime.now(JST).isoformat()
     save_news_data(data)
     print(f"追加件数: {added_count} / 合計: {len(data['items'])}件")
