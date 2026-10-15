@@ -15,6 +15,8 @@ import zlib
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
+from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD
+
 DOCS_DIR = Path(__file__).parent / "docs"
 NEWS_JSON_FILE = DOCS_DIR / "data" / "news.json"
 # Streamlit 管理画面が編集する訪問記・予約投稿（PWA からも参照させる）
@@ -131,6 +133,13 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
 
     # X Web Intent URL（description は JS 側で動的挿入するため、ここでは含めない）
     post_text = f"{header}\n{item.get('title', '')}\n{hashtags}"
+    ai = item.get("ai") or {}
+    if ai.get("post_text"):
+        # AI（curate_news.py）が記事を読んで書いた投稿文を使う
+        post_text = ai["post_text"]
+    if source == "google_news":
+        # ニュースの description は AI 採点用の要約。投稿文には差し込まない
+        desc_escaped = ""
     intent_params = urllib.parse.urlencode({"text": post_text, "url": url})
     intent_url = f"https://x.com/intent/post?{intent_params}"
 
@@ -169,6 +178,29 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
             f'      </div>'
         )
 
+    # AI 採点バッジ（採点済みのニュースのみ）
+    ai_html = ""
+    if "score" in ai:
+        score = ai["score"]
+        if score >= CANDIDATE_THRESHOLD and not ai.get("duplicate"):
+            badge_cls = "bg-amber-100 text-amber-800 border-amber-300"
+            label = f"⭐ {score}点"
+        else:
+            badge_cls = "bg-gray-100 text-gray-500 border-gray-200"
+            label = f"AI {score}点" + ("・重複" if ai.get("duplicate") else "")
+        esc = lambda t: t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        ai_html = (
+            f'      <div class="flex items-center gap-1.5 mb-2 flex-wrap">\n'
+            f'        <span class="text-[11px] font-bold border px-2 py-0.5 rounded-full {badge_cls}">{label}</span>\n'
+            f'        <span class="text-[11px] text-gray-500">{esc(ai.get("category", ""))}・{esc(ai.get("reason", ""))}</span>\n'
+            f'      </div>\n'
+        )
+        if ai.get("post_text"):
+            ai_html += (
+                f'      <p class="text-xs text-gray-700 bg-amber-50 border border-amber-100 rounded-lg p-2 mb-3 '
+                f'whitespace-pre-wrap leading-relaxed">{esc(ai["post_text"])}</p>\n'
+            )
+
     # タイトル行：show_copy_btn=True のときはコピーボタンを横に並べる
     if show_copy_btn:
         title_block_html = (
@@ -188,6 +220,7 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
     return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}">
 {image_html}{meta_html}
 {title_block_html}
+{ai_html}
       <div class="flex items-center gap-3">
         <a href="{intent_url}" target="_blank" rel="noopener noreferrer"
            onclick="handlePostClick(event,'{uid}')"
@@ -268,12 +301,38 @@ def build_html(items: list[dict], last_updated: str) -> str:
     book_items  = [x for x in goods_items if x.get("item_type") == "book"]
     other_goods = [x for x in goods_items if x.get("item_type") != "book"]
 
-    news_cards  = build_cards_with_separators(news_items)
+    # AI がノイズと判定したニュースは表示しない。配信候補は上部の専用欄に出し、
+    # 時系列の一覧からは外す（同じ data-item-id のカードが 2 枚並ぶと投稿済み記録が崩れるため）
+    def ai_of(x: dict) -> dict:
+        return x.get("ai") or {}
+
+    def is_candidate(x: dict) -> bool:
+        return ai_of(x).get("score", 0) >= CANDIDATE_THRESHOLD and not ai_of(x).get("duplicate")
+
+    news_items = [x for x in news_items if ai_of(x).get("score", 100) >= NOISE_THRESHOLD]
+    candidate_cutoff = (datetime.now(JST) - timedelta(hours=72)).isoformat()
+    candidates = sorted(
+        (x for x in news_items if is_candidate(x) and x.get("fetched_at", "") >= candidate_cutoff),
+        key=lambda x: (ai_of(x)["score"], x.get("fetched_at", "")),
+        reverse=True,
+    )
+    candidate_ids = {x["id"] for x in candidates}
+    news_items = [x for x in news_items if x["id"] not in candidate_ids]
+    candidates_html = ""
+    if candidates:
+        candidates_html = (
+            '    <div class="rounded-2xl border-2 border-amber-300 bg-amber-50/60 p-3 space-y-3">\n'
+            f'      <p class="text-sm font-bold text-amber-800">⭐ 配信候補（AIが選定・{len(candidates)}件）</p>\n'
+            f'      <p class="text-[11px] text-amber-700 -mt-2">記事を読んで配信価値を採点し、投稿文も作成済み。「にポスト」で下書き入りのXが開きます</p>\n'
+            + "\n".join(build_card_html(x) for x in candidates)
+            + "\n    </div>"
+        )
+    news_cards  = candidates_html + "\n" + build_cards_with_separators(news_items)
     book_cards  = build_cards_with_separators(book_items)
     goods_cards = build_cards_with_separators(other_goods)
     # 特別公開タブ（other）はタイトル横にコピーボタンを表示
     other_cards = build_cards_with_separators(other_items, show_copy_btn=True)
-    news_count  = len(news_items)
+    news_count  = len(news_items) + len(candidates)
     goods_count = len(goods_items)
     book_count  = len(book_items)
     other_goods_count = len(other_goods)
@@ -720,8 +779,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
       return a.slice(0, Math.min(count, a.length));
     }}
 
-    // テキストをクリップボードにコピーする（x.com の投稿画面に貼り付け→予約する用）
-    function copyText(btn) {{
+    // テキストをクリップボードにコピーする（x.com の投稿画面に貼り付け→予約する用）。
+    // data-text は encodeURIComponent 済み。特別公開タブの copyText（data-copy-text）
+    // とは別関数にする（同名だと後の定義に上書きされてこちらが動かなくなる）。
+    function copyEncodedText(btn) {{
       const t = (btn && btn.dataset) ? decodeURIComponent(btn.dataset.text || '') : '';
       if (!t) return;
       const original = btn.textContent;
@@ -765,7 +826,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
         '<div class="archive-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-archive-id="' + escapeHtml(aid) + '">' +
           imgHtml +
           '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
-          '<button type="button" data-text="' + encodeURIComponent(text) + '" onclick="copyText(this)" ' +
+          '<button type="button" data-text="' + encodeURIComponent(text) + '" onclick="copyEncodedText(this)" ' +
               'class="w-full flex items-center justify-center gap-1.5 bg-brand-600 active:bg-brand-700 text-white text-sm font-bold py-2.5 px-4 rounded-full transition-colors">' +
             '📋 本文をコピー' +
           '</button>' +
@@ -896,7 +957,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
         '<div class="scheduled-card bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-scheduled-id="' + escapeHtml(sid) + '">' +
           '<p class="text-sm text-gray-800 leading-relaxed mb-3 whitespace-pre-wrap break-words">' + safeText + '</p>' +
           imgHtml +
-          '<button type="button" data-text="' + encodeURIComponent(text) + '" onclick="copyText(this)" ' +
+          '<button type="button" data-text="' + encodeURIComponent(text) + '" onclick="copyEncodedText(this)" ' +
               'class="w-full flex items-center justify-center gap-1.5 bg-brand-600 active:bg-brand-700 text-white text-sm font-bold py-2.5 px-4 rounded-full transition-colors">' +
             '📋 本文をコピー' +
           '</button>' +

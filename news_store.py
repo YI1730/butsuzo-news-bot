@@ -11,6 +11,10 @@ from collections import defaultdict
 
 MAX_ITEMS_PER_SOURCE = 300
 
+# AI 採点（curate_news.py）のしきい値。ダッシュボード表示でも同じ値を使う。
+CANDIDATE_THRESHOLD = 70   # これ以上を「⭐配信候補」として投稿文を作り通知する
+NOISE_THRESHOLD = 30       # これ未満はダッシュボードのニュースタブに出さない
+
 
 def trim_per_source(items: list[dict], cap: int = MAX_ITEMS_PER_SOURCE) -> list[dict]:
     """並び順（新しい順）を保ったまま、各 source を先頭から cap 件までに絞る。"""

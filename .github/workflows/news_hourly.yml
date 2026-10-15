@@ -35,6 +35,13 @@ jobs:
       - name: Fetch news (Google RSS)
         run: python post_news.py
 
+      # Claude で採点し、配信候補の投稿文を作ってスマホに通知する
+      - name: Curate news with Claude
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python curate_news.py
+
       - name: Generate dashboard HTML
         run: python generate_dashboard.py
 

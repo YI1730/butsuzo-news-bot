@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import sys
 import time as time_module
 import urllib.parse
@@ -185,6 +186,30 @@ def contains_excluded_keyword(text: str) -> bool:
     return any(keyword in text for keyword in EXCLUDE_KEYWORDS)
 
 
+_ARTICLE_URL_RULES = [
+    # Google News は写真ギャラリーのページ URL を返すことがある。本文が無く（AI が読めない）、
+    # 同じ記事が写真ごとに別記事として重複登録されるので、記事本体の URL に直す。
+    (re.compile(r"^(https://news\.yahoo\.co\.jp/articles/[0-9a-f]+)/images/\d+/?$"), r"\1"),
+    (re.compile(r"^https://news\.livedoor\.com/article/image_detail/(\d+)/.*$"),
+     r"https://news.livedoor.com/article/detail/\1/"),
+    (re.compile(r"^https://natalie\.mu/(\w+)/gallery/news/(\d+)/\d+/?$"), r"https://natalie.mu/\1/news/\2"),
+]
+
+
+def normalize_article_url(url: str) -> str:
+    """写真ページ等の URL を記事本体の URL に直し、計測用の utm_* パラメータを除く。"""
+    for pattern, repl in _ARTICLE_URL_RULES:
+        if pattern.match(url):
+            url = pattern.sub(repl, url)
+            break
+    parts = urllib.parse.urlsplit(url)
+    if "utm_" in parts.query:
+        q = [(k, v) for k, v in urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
+             if not k.startswith("utm_")]
+        url = urllib.parse.urlunsplit(parts._replace(query=urllib.parse.urlencode(q)))
+    return url
+
+
 def is_excluded_domain(url: str) -> bool:
     """配信元ドメインが除外リストに該当するか判定する。
 
@@ -244,6 +269,29 @@ def extract_og_image(content: bytes) -> str:
     except Exception:
         pass
     return ""
+
+
+def extract_og_description(content: bytes) -> str:
+    """HTML バイト列から記事の要約（og:description / description）を抽出する。"""
+    try:
+        soup = BeautifulSoup(content[:200_000], "html.parser")
+        for prop in ("og:description", "description", "twitter:description"):
+            for attr in ("property", "name"):
+                tag = soup.find("meta", attrs={attr: prop})
+                if tag and tag.get("content", "").strip():
+                    return " ".join(tag["content"].split())[:400]
+    except Exception:
+        pass
+    return ""
+
+
+def fetch_page_meta(url: str) -> tuple[str, str]:
+    """記事ページから (OGP画像URL, 要約) を1回のリクエストで取得する。失敗時は空文字。"""
+    try:
+        resp = requests.get(url, headers={"User-Agent": RESOLVE_USER_AGENT}, timeout=8)
+        return extract_og_image(resp.content), extract_og_description(resp.content)
+    except Exception:
+        return "", ""
 
 
 def fetch_og_image(url: str) -> str:
@@ -350,6 +398,8 @@ def main() -> int:
             unresolved_count += 1
             continue
 
+        original_url = normalize_article_url(original_url)
+
         # 配信元ドメインが除外リストに該当する記事はスキップ
         if is_excluded_domain(original_url):
             print(f"除外ドメインのためスキップ: {original_url}")
@@ -361,7 +411,7 @@ def main() -> int:
             continue
 
         # 新規アイテムのみ OGP 画像を取得
-        image_url = fetch_og_image(original_url)
+        image_url, description = fetch_page_meta(original_url)
         if image_url:
             print(f"  画像取得: {image_url[:60]}")
 
@@ -377,6 +427,8 @@ def main() -> int:
             "fetched_at": datetime.now(JST).isoformat(),
             "published_at": published_at_str,
             "image_url": image_url,
+            # AI 採点（curate_news.py）の判断材料。ダッシュボードの投稿文にも使われる
+            "description": description,
         })
         existing_ids.add(uid)
         added_count += 1
