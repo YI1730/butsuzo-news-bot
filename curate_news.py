@@ -37,6 +37,9 @@ SCORE_BATCH_SIZE = 20      # 1 回の API 呼び出しで採点する件数
 MAX_SCORE_PER_RUN = 80
 MAX_POSTS_PER_RUN = 8
 ARTICLE_BODY_CHARS = 4000  # 投稿文作成時に渡す本文の上限文字数
+# 投稿文の形式・文体の版。POST_SYSTEM を変えたら上げると、既存の配信候補も作り直される
+#   3: 文章 → 【仏像速報】タイトル の順、運営者の文体（ハッシュタグなし）
+POST_FORMAT = 3
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
 TARGET_SOURCES = {"google_news"}
@@ -105,17 +108,20 @@ POST_SYSTEM = """あなたは X アカウント「仏像リンク」の中の人
 投稿は「あなたの文章」→「【仏像速報】記事タイトル」→「記事 URL」の順に並ぶので、
 タイトルや URL、【仏像速報】の見出しは書かないでください（システムが後ろに付けます）。
 
-# 書き方
-- 「何が（仏像名）」「どこで（寺・博物館名と都道府県）」「いつ（公開期間・日付）」を、記事に書かれている範囲で必ず入れる
-- 見どころを 1 つだけ具体的に（像の特徴、◯十年ぶり、など）
-- 最後に仏像好きの目線のひとことを短く。押しつけや誇張はしない
-- 末尾にハッシュタグを 2〜3 個（#仏像 と、寺名や仏像名など記事に合うもの）
-- 絵文字は使っても 1〜2 個
+# 文体（運営者の好みに合わせる）
+- 1 行目に寺や博物館の名前を「若狭町・三方石観世音。」のように置き、1 行空けてから本文を書く
+- 本文は落ち着いた常体（〜だ、〜らしい、〜とのこと）。盛らない・煽らない。でもドライすぎず、体温のある書き方
+- 「感動」「必見」「すごい」のような感情語や宣伝文句で言わず、像の姿や公開の事情など具体的な事実で伝える
+- 何が（仏像名）・どこで・いつ（公開期間や日付）を、記事に書かれている範囲で自然に入れる
+- 最後に、仏像好きとしての短い本音や小さなオチをそっと添えてよい（カッコ書きも可）。
+  例:「（次は33年後。さすがに自信がない…）」「会えるうちに会っておきたい。」
+- ハッシュタグは使わない。絵文字も基本は使わない
 - 指定された文字数以内に収める
 
 # 守ること
 - 記事に書かれていない事実（日付、所在地、像の名前、指定区分など）を推測で書かない
-- 記事の文章をそのまま長く引用しない。自分の言葉で要約する"""
+- 記事の文章をそのまま長く引用しない。自分の言葉で要約する
+- 明らかにバズを狙った書き方や、ニヒル・クールすぎる書き方はしない"""
 
 POST_SCHEMA = {
     "type": "object",
@@ -341,14 +347,15 @@ def main() -> int:
         it for it in news
         if it.get("ai", {}).get("score", 0) >= CANDIDATE_THRESHOLD
         and not it["ai"].get("duplicate")
-        and "post_text" not in it["ai"]
+        # 投稿文が無いもの、または古い文体（POST_FORMAT 未満）のものを作り直す
+        and it["ai"].get("post_format", 0) < POST_FORMAT
     ][:MAX_POSTS_PER_RUN]
     topic = os.environ.get("NTFY_TOPIC", "").strip()
     written = 0
     for it in candidates:
         text = write_post(client, usage, it)
         it["ai"]["post_text"] = text or ""
-        it["ai"]["post_format"] = 2  # 2: post_text は文章部分のみ（タイトルは表示時に付ける）
+        it["ai"]["post_format"] = POST_FORMAT
         if text:
             written += 1
             print(f"⭐ {it['ai']['score']}点 {it['title'][:40]}\n   {text}")

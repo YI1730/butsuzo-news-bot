@@ -42,6 +42,19 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python curate_news.py
 
+      # 仏像リンク宛ての返信を取得し、返信すべきものを選んで返信案を作る
+      - name: Triage replies
+        env:
+          ANTHROPIC_API_KEY:     ${{ secrets.ANTHROPIC_API_KEY }}
+          NTFY_TOPIC:            ${{ secrets.NTFY_TOPIC }}
+          X_API_KEY:             ${{ secrets.X_API_KEY }}
+          X_API_SECRET:          ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        # 返信の取得に失敗してもニュースの更新は止めない
+        continue-on-error: true
+        run: python triage_replies.py
+
       - name: Generate dashboard HTML
         run: python generate_dashboard.py
 
@@ -49,7 +62,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/ data/gnews_url_cache.json
+          git add docs/ data/gnews_url_cache.json data/replies.json
           if git diff --staged --quiet; then
             echo "No changes to commit"; exit 0
           fi

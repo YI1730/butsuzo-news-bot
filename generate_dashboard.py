@@ -408,7 +408,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
 
-    <!-- タブ切替（セグメント形式・4タブ） -->
+    <!-- タブ切替（セグメント形式・5タブ） -->
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
@@ -425,6 +425,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <button onclick="setTab('archive')" id="tab-btn-archive"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         📜 訪問記
+      </button>
+      <button onclick="setTab('replies')" id="tab-btn-replies"
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
+        💬 返信<span id="replies-count" class="ml-0.5"></span>
       </button>
     </div>
 
@@ -534,6 +538,19 @@ def build_html(items: list[dict], last_updated: str) -> str:
         </div>
       </details>
     </div>
+    <!-- 返信タブ：仏像リンク宛ての返信を AI が仕分け（triage_replies.py） -->
+    <div id="tab-replies" class="tab-pane space-y-3 hidden">
+      <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
+        <p class="text-sm font-bold text-brand-800">💬 返信すべき返信</p>
+        <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">
+          仏像リンク宛ての返信を毎時取得し、AIが返信すべきものだけを選んで返信案を作っています。
+          文面を直して「仏像リンクで返信」を押すと、1〜2分で仏像リンクのアカウントから送信されます。
+        </p>
+      </div>
+      <div id="replies-cards" class="space-y-3">
+        <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
+      </div>
+    </div>
   </main>
 
   <!-- フッター: ニュース検索キーワード設定（クライアント側フィルター） -->
@@ -585,7 +602,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
 
     function setTab(tab) {{
       currentTab = tab;
-      ['news','other','goods','archive'].forEach(t => {{
+      ['news','other','goods','archive','replies'].forEach(t => {{
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {{
           btn.className = 'tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight ' +
@@ -599,6 +616,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
         if (!archiveData) {{ loadArchive(); }} else {{ renderArchive(); }}
         if (!scheduledData) {{ loadScheduled(); }} else {{ renderScheduled(); }}
       }}
+      if (tab === 'replies') {{ loadReplies(); }}
       applyFilter();
       window.scrollTo({{top: 0, behavior: 'instant'}});
     }}
@@ -653,6 +671,12 @@ def build_html(items: list[dict], last_updated: str) -> str:
     function applyFilter() {{
       const activePane = document.getElementById('tab-' + currentTab);
       if (!activePane) return;
+
+      if (currentTab === 'replies') {{
+        const n = document.querySelectorAll('#replies-cards [data-reply-id]').length;
+        document.getElementById('count').textContent = n + '件';
+        return;
+      }}
 
       // 訪問記タブはフィルター対象外（カードは archive-cards / scheduled-cards 配下で動的生成）
       if (currentTab === 'archive') {{
@@ -761,6 +785,115 @@ def build_html(items: list[dict], last_updated: str) -> str:
     // 過去アーカイブつぶやき: data/archives.json を fetch し、
     // ランダムに 3〜5 件選んでカード表示。各カードに X Web Intent ボタン。
     // ────────────────────────────────────────────────────────
+    // ────────────────────────────────────────────────────────
+    // 💬 返信タブ: data/replies.json を表示し、返信／返信不要を data/reply_queue.json に積む
+    // （reply_send.yml が push を検知して仏像リンクのアカウントから送信する）
+    // ────────────────────────────────────────────────────────
+    let repliesData = null;
+    const REPLY_QUEUE_PATH = 'data/reply_queue.json';
+    const PRIORITY_ORDER = {{ '高': 0, '中': 1, '低': 2 }};
+
+    function _replyQueued(id) {{
+      try {{ return localStorage.getItem('reply_queued_' + id) === '1'; }} catch (e) {{ return false; }}
+    }}
+
+    function loadReplies() {{
+      _fetchJson(_RAW_BASE + '/data/replies.json', './data/replies.json')
+        .then(function (d) {{ repliesData = (d && Array.isArray(d.items)) ? d.items : []; renderReplies(); }})
+        .catch(function () {{ repliesData = []; renderReplies(); }});
+    }}
+
+    function _replyCardHtml(it, open) {{
+      const ai = it.ai || {{}};
+      const when = (it.created_at || '').replace('T', ' ').slice(5, 16);
+      const tweetUrl = 'https://x.com/' + encodeURIComponent(it.author_username || 'i') + '/status/' + it.id;
+      const pri = ai.priority || '-';
+      const priCls = pri === '高' ? 'bg-red-100 text-red-700' : (pri === '中' ? 'bg-amber-100 text-amber-800' : 'bg-gray-100 text-gray-500');
+      let h = '<div class="bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-reply-id="' + escapeHtml(it.id) + '">';
+      h += '<div class="flex items-center gap-1.5 mb-2 flex-wrap">' +
+        '<span class="text-[11px] font-bold px-2 py-0.5 rounded-full ' + priCls + '">' + escapeHtml(pri) + '</span>' +
+        '<span class="text-[11px] text-gray-500">' + escapeHtml(ai.category || '') + '・' + escapeHtml(ai.reason || '') + '</span></div>';
+      h += '<p class="text-xs text-gray-500 mb-1">@' + escapeHtml(it.author_username || '') + '（' + escapeHtml(it.author_name || '') + '）・' + escapeHtml(when) + '</p>';
+      h += '<p class="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap mb-2">' + escapeHtml(it.text || '') + '</p>';
+      if (it.parent_text) {{
+        h += '<p class="text-[11px] text-gray-500 bg-gray-50 rounded-lg p-2 mb-2 whitespace-pre-wrap">↪ ' +
+          (it.parent_is_ours ? '仏像リンクの投稿: ' : '') + escapeHtml(it.parent_text.slice(0, 140)) + '</p>';
+      }}
+      if (!open) {{
+        h += '<a href="' + tweetUrl + '" target="_blank" rel="noopener noreferrer" class="text-xs text-gray-400 underline">Xで見る</a></div>';
+        return h;
+      }}
+      h += '<textarea data-role="reply-text" rows="3" class="w-full text-sm border border-gray-300 rounded-lg p-2 mb-1 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="返信文を入力">' +
+        escapeHtml(ai.reply_draft || '') + '</textarea>';
+      h += '<p class="reply-status text-[11px] text-gray-500 mb-2"></p>';
+      h += '<div class="flex gap-2 items-center">' +
+        '<button type="button" onclick="queueReply(this, \\'reply\\')" class="flex-1 bg-black active:bg-gray-700 text-white text-sm font-bold py-2.5 rounded-full">仏像リンクで返信</button>' +
+        '<button type="button" onclick="queueReply(this, \\'dismiss\\')" class="shrink-0 bg-gray-100 active:bg-gray-200 text-gray-600 text-xs font-bold py-2.5 px-3 rounded-full">返信不要</button>' +
+        '<a href="' + tweetUrl + '" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs text-gray-400 underline">Xで見る</a>' +
+        '</div></div>';
+      return h;
+    }}
+
+    function renderReplies() {{
+      const box = document.getElementById('replies-cards');
+      const items = (repliesData || []).filter(function (it) {{ return it.status === 'open' && !_replyQueued(it.id) && it.ai; }});
+      const need = items.filter(function (it) {{ return it.ai.needs_reply; }})
+        .sort(function (a, b) {{
+          return (PRIORITY_ORDER[a.ai.priority] - PRIORITY_ORDER[b.ai.priority]) || (b.created_at || '').localeCompare(a.created_at || '');
+        }});
+      const skip = items.filter(function (it) {{ return !it.ai.needs_reply; }});
+      const badge = document.getElementById('replies-count');
+      if (badge) badge.textContent = need.length ? ' ' + need.length : '';
+      if (!box) return;
+      let h = need.length ? need.map(function (it) {{ return _replyCardHtml(it, true); }}).join('')
+        : '<p class="text-center text-sm text-gray-400 py-6">返信すべき返信はありません。</p>';
+      if (skip.length) {{
+        h += '<details class="bg-white rounded-2xl border border-gray-200 p-3"><summary class="text-xs text-gray-500 cursor-pointer">AIが返信不要と判定（' +
+          skip.length + '件）※返信したいものは「返信する」で戻せます</summary><div class="space-y-2 mt-2">' +
+          skip.map(function (it) {{
+            return _replyCardHtml(it, false).replace('</div>', '') +
+              '<button type="button" onclick="promoteReply(\\'' + escapeHtml(it.id) + '\\')" class="text-xs text-brand-700 underline ml-3">返信する</button></div>';
+          }}).join('') + '</div></details>';
+      }}
+      box.innerHTML = h;
+      if (currentTab === 'replies') applyFilter();
+    }}
+
+    function promoteReply(id) {{
+      const it = (repliesData || []).find(function (x) {{ return x.id === id; }});
+      if (it && it.ai) {{ it.ai.needs_reply = true; it.ai.priority = it.ai.priority === '低' ? '中' : it.ai.priority; }}
+      renderReplies();
+    }}
+
+    function queueReply(btn, action) {{
+      const card = btn.closest('[data-reply-id]');
+      const id = card.getAttribute('data-reply-id');
+      const status = card.querySelector('.reply-status');
+      const ta = card.querySelector('[data-role="reply-text"]');
+      const text = ta ? ta.value.trim() : '';
+      if (!getGithubToken()) {{
+        status.textContent = '送信には GitHub トークンが必要です（📜訪問記タブ下の「⚙️ 自動投稿の設定」で保存）';
+        return;
+      }}
+      if (action === 'reply') {{
+        if (!text) {{ status.textContent = '返信文を入力してください'; return; }}
+        if (!confirm('仏像リンクのアカウントから返信します。よろしいですか？\\n\\n' + text)) return;
+      }}
+      status.textContent = '送信予約中...';
+      ghGetFile(REPLY_QUEUE_PATH).then(function (f) {{
+        const q = Array.isArray(f.content) ? f.content : [];
+        q.push({{ id: id, action: action, text: action === 'reply' ? text : '', queued_at: new Date().toISOString() }});
+        return ghPutFile(REPLY_QUEUE_PATH, q, f.sha, 'chore(pwa): ' + action + ' reply ' + id);
+      }}).then(function () {{
+        try {{ localStorage.setItem('reply_queued_' + id, '1'); }} catch (e) {{}}
+        card.innerHTML = '<p class="text-sm text-gray-500 text-center py-2">' +
+          (action === 'reply' ? '✓ 返信を送信予約しました（1〜2分で仏像リンクから送信されます）' : '✓ 返信不要にしました') + '</p>';
+        renderReplies();
+      }}).catch(function (e) {{
+        status.textContent = '❌ 失敗: ' + (e.message || e);
+      }});
+    }}
+
     function escapeHtml(s) {{
       return (s == null ? '' : String(s))
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -1483,7 +1616,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     // ── 横スワイプでタブ切替（モバイル用 / 両端ループ） ─────────
-    const TAB_ORDER = ['news', 'other', 'goods', 'archive'];
+    const TAB_ORDER = ['news', 'other', 'goods', 'archive', 'replies'];
     function swipeToNextTab(dir) {{
       // dir: +1 で次のタブ（右→左スワイプ）、-1 で前のタブ（左→右スワイプ）
       const i = TAB_ORDER.indexOf(currentTab);
@@ -1541,7 +1674,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
         }}
       }});
       loadKeywords();
-      setTab('news');
+      setTab(location.hash === '#replies' ? 'replies' : 'news');
+      loadReplies();  // タブのバッジ（要返信の件数）表示のため
       setFilter('all');
       attachSwipeHandler();
 
@@ -1693,6 +1827,12 @@ def main() -> None:
         encoding="utf-8",
     )
     print(f"生成: docs/data/scheduled_posts.json ({len(scheduled_data) if isinstance(scheduled_data, list) else 0}件)")
+
+    # 返信の仕分け結果（triage_replies.py）。PWA は GitHub raw を優先して読み、失敗時にこちらを使う
+    replies_src = Path(__file__).parent / "data" / "replies.json"
+    if replies_src.exists():
+        (DOCS_DIR / "data" / "replies.json").write_text(
+            replies_src.read_text(encoding="utf-8"), encoding="utf-8")
 
     # アイコンはロゴ入り PNG をリポジトリに同梱しているため、上書き生成しない。
     # （tools/generate_logo.py で再生成可能。GitHub Actions では更新しない）
