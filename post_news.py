@@ -355,8 +355,11 @@ def main() -> int:
     entries = fetch_entries(queries)
     print(f"RSS取得: {len(queries)}クエリ / 重複除去後 {len(entries)}件")
     if not entries:
-        print("RSSの取得に失敗しました（全クエリで0件）", file=sys.stderr)
-        return 1
+        # Google 側の一時的な制限などで全クエリが失敗することがある。ここで異常終了すると
+        # 後続の AI 採点・返信の仕分けまで止まるため、警告にとどめて正常終了する
+        print("::warning::RSSの取得に失敗しました（全クエリで0件）。次回の実行で再取得します",
+              file=sys.stderr)
+        return 0
 
     data = load_news_data()
     existing_ids = {item["id"] for item in data["items"]}
