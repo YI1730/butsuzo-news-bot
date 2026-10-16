@@ -421,10 +421,12 @@ def main() -> int:
             return False
 
     news = [it for it in data["items"] if it.get("source") in TARGET_SOURCES and recent(it)]
-    unscored = [
-        it for it in news
-        if it.get("ai", {}).get("score_version", 1 if "ai" in it else 0) < SCORE_VERSION
-    ][:MAX_SCORE_PER_RUN]
+    # 新しい記事から採点する（採点基準の更新で採点し直す記事が多いときも、新着を先に）
+    unscored = sorted(
+        (it for it in news
+         if it.get("ai", {}).get("score_version", 1 if "ai" in it else 0) < SCORE_VERSION),
+        key=lambda it: it.get("fetched_at", ""), reverse=True,
+    )[:MAX_SCORE_PER_RUN]
     # 重複判定の材料（配信済み・配信候補）。いまから採点する記事自体は含めない
     # （含めると、再採点時に記事が「自分自身の重複」と判定されてしまう）
     scoring_ids = {it["id"] for it in unscored}
