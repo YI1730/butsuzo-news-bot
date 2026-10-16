@@ -28,9 +28,10 @@ from bs4 import BeautifulSoup
 from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD, compose_news_post
 from post_news import JST, RESOLVE_USER_AGENT, load_news_data, save_news_data
 
-MODEL = "claude-opus-5-5"
+# 採点・投稿文・返信の仕分けすべてで使うモデル（2026-10: 費用を抑えるため Opus 5.5 → Sonnet 5.5）
+MODEL = "claude-sonnet-5-5"
 # 価格（USD / 100万トークン）。実行ごとの費用をログに出すために使う
-PRICE_INPUT, PRICE_OUTPUT, PRICE_CACHE_READ, PRICE_CACHE_WRITE = 4.00, 20.00, 0.20, 5.00
+PRICE_INPUT, PRICE_OUTPUT, PRICE_CACHE_READ, PRICE_CACHE_WRITE = 2.00, 10.00, 0.20, 2.50
 
 SCORE_WINDOW_HOURS = 48    # これより前に取り込んだ記事は採点しない（速報として扱わない）
 SCORE_BATCH_SIZE = 20      # 1 回の API 呼び出しで採点する件数
