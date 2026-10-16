@@ -21,6 +21,7 @@ from pathlib import Path
 from urllib.parse import urldefrag, urljoin, urlparse
 
 import requests
+import urllib3
 from bs4 import BeautifulSoup
 
 from news_store import trim_per_source
@@ -40,6 +41,7 @@ REDESIGN_RATIO = 0.5       # 表示中リンクの半分以上が未知ならリ
 SEEN_MAX = 1500            # サイトごとに覚えておくリンクの上限
 # 言語を指定しないと英語版を返すサイトがある（東京国立博物館など）ので日本語を明示する
 HEADERS = {"User-Agent": RESOLVE_USER_AGENT, "Accept-Language": "ja,en;q=0.5"}
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 SKIP_EXT = (".jpg", ".jpeg", ".png", ".gif", ".zip", ".mp4")
 SKIP_WORDS = ("採用", "求人", "プライバシー", "サイトマップ", "お問い合わせ", "アクセス",
               "English", "Instagram", "Facebook", "YouTube", "ログイン", "会員")
@@ -56,9 +58,19 @@ def page_links(url: str) -> list[tuple[str, str]] | None:
     """ページ本文中のリンク (URL, 文字列) を返す。取得失敗時は None。"""
     try:
         r = requests.get(url, headers=HEADERS, timeout=15)
-        r.raise_for_status()
+    except requests.exceptions.SSLError:
+        # 中間証明書を送らない設定のサイト（興福寺・法隆寺など）は、厳格な環境で検証に失敗する。
+        # 公開ページを読むだけで認証情報は送らないため、検証なしで読み直す
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=15, verify=False)
+        except Exception as e:
+            print(f"  取得失敗: {e}", file=sys.stderr)
+            return None
     except Exception as e:
         print(f"  取得失敗: {e}", file=sys.stderr)
+        return None
+    if r.status_code != 200:
+        print(f"  取得失敗: HTTP {r.status_code}", file=sys.stderr)
         return None
     soup = BeautifulSoup(r.content, "html.parser")
     for tag in soup(["script", "style", "nav", "header", "footer", "form"]):

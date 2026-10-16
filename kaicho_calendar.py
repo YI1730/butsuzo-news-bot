@@ -61,9 +61,39 @@ def load_calendar() -> dict:
     return {"events": []}
 
 
+def event_key(pkey: str, start: str, end: str) -> tuple[str, str]:
+    """同じ出来事を判定するキー。記事によって終了日の有無が分かれるので、
+    開始日が分かれば（場所, 開始日）、分からなければ（場所, 終了日）で比べる。"""
+    return (pkey, "s" + start) if start else (pkey, "e" + end)
+
+
+def merge_into(e: dict, start: str, end: str) -> None:
+    """既存の出来事に、別の記事で分かった開始日・終了日を補う。"""
+    if start and not e.get("start"):
+        e["start"] = start
+    if end and not e.get("end"):
+        e["end"] = end
+
+
+def dedupe_events(cal: dict) -> int:
+    """キーが同じ出来事を1つにまとめる（旧仕様で別扱いになっていた分の整理）。"""
+    merged, out = 0, {}
+    for e in cal["events"]:
+        k = event_key(e["place_key"], e.get("start", ""), e.get("end", ""))
+        if k in out:
+            keep = out[k]
+            merge_into(keep, e.get("start", ""), e.get("end", ""))
+            keep["reminded"] = sorted(set(keep.get("reminded", [])) | set(e.get("reminded", [])))
+            merged += 1
+        else:
+            out[k] = e
+    cal["events"] = list(out.values())
+    return merged
+
+
 def collect_events(cal: dict, items: list[dict]) -> int:
     """採点済みの記事から出来事を集めてカレンダーに足す。新しく足した件数を返す。"""
-    by_key = {(e["place_key"], e.get("start", ""), e.get("end", "")): e for e in cal["events"]}
+    by_key = {event_key(e["place_key"], e.get("start", ""), e.get("end", "")): e for e in cal["events"]}
     added = 0
     for it in items:
         ai = it.get("ai") or {}
@@ -77,9 +107,12 @@ def collect_events(cal: dict, items: list[dict]) -> int:
             continue
         if start and end and end < start:
             start, end = end, start
-        key = (place_key(ev["place"]), start.isoformat() if start else "", end.isoformat() if end else "")
+        s_iso, e_iso = (start.isoformat() if start else ""), (end.isoformat() if end else "")
+        pkey = place_key(ev["place"])
+        key = event_key(pkey, s_iso, e_iso)
         if key in by_key:
             e = by_key[key]
+            merge_into(e, s_iso, e_iso)
             # より点数の高い記事を情報源にする（投稿のリンク先・本文の材料になる）
             if ai.get("score", 0) > e.get("source_score", 0):
                 e.update(source_url=it["url"], source_title=it["title"], source_score=ai["score"])
@@ -88,9 +121,9 @@ def collect_events(cal: dict, items: list[dict]) -> int:
             "id": hashlib.md5("|".join(key).encode()).hexdigest()[:12],
             "event_name": ev.get("event_name", ""),
             "place": ev["place"],
-            "place_key": key[0],
-            "start": key[1],
-            "end": key[2],
+            "place_key": pkey,
+            "start": s_iso,
+            "end": e_iso,
             "category": ai.get("category", ""),
             "source_url": it["url"],
             "source_title": it["title"],
@@ -141,6 +174,7 @@ def main() -> int:
     data = load_news_data()
     cal = load_calendar()
 
+    dedupe_events(cal)
     added = collect_events(cal, data["items"])
     # 終わってしばらくたった出来事は捨てる
     cutoff = today - timedelta(days=KEEP_DAYS_AFTER_END)
