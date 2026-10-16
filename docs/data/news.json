@@ -1,6 +1,87 @@
 {
-  "last_updated": "2026-10-16T21:26:34.508156+09:00",
+  "last_updated": "2026-10-16T21:31:03.291676+09:00",
   "items": [
+    {
+      "id": "5500eeb5a3fe",
+      "title": "ドジャース、４連敗で敗退 大リーグ - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1774620/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-16T21:31:03.288154+09:00",
+      "published_at": "2026-10-16T14:02:25+09:00",
+      "image_url": "https://images.keizai.biz/img/gp/m0093652706.jpg",
+      "description": "広域周南圏のビジネス＆カルチャーニュース",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "野球の記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
+      }
+    },
+    {
+      "id": "6386d5ecf724",
+      "title": "「胸いっぱいの気持ち」 井波彫刻の粋「瑞泉寺」が国の重要文化財に 県内20件目で寺社としては38年ぶり 希少な「両堂形式」の伽藍 富山・南砺市 （チューリップテレビ） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/7932ca4a056fcb7bee71382e3a72a5c614f766ff",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-16T21:31:01.313223+09:00",
+      "published_at": "2026-10-16T19:40:25+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261016-23018784-tuliptv-000-1-thumb.jpg?exp=10800",
+      "description": "富山県南砺市井波にある「瑞泉寺」の本堂など4つの建物が国の重要文化財に指定されます。寺社としては38年ぶりの指定で、県内の国の重要文化財はこれで20件となります。【写真を見る】「胸いっぱいの気持ち」",
+      "ai": {
+        "score": 60,
+        "category": "発見・研究・新指定",
+        "duplicate": true,
+        "reason": "瑞泉寺の重文指定は配信済みで重複。1時間前の続報",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
+      }
+    },
+    {
+      "id": "4cd6c237321a",
+      "title": "「優しいお顔を」33年ぶりに観世音菩薩が姿現す 若狭町・三方石観世音 弘法大師が一夜で彫ったとされる 手足にご利益があると伝わる - TVer",
+      "url": "https://tver.jp/episodes/epaxbrpa1e",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-16T21:30:59.017358+09:00",
+      "published_at": "2026-10-16T20:27:42+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 55,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "三方石観世音の御開帳は配信済みで重複。開帳は始まった後の続報",
+        "event": {
+          "event_name": "三方石観世音 本尊御開帳",
+          "place": "三方石観世音（福井県若狭町）",
+          "start_date": "2026-10-17",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
+      }
+    },
     {
       "id": "3e762757a619",
       "title": "柏、５ゴールで初勝利 ＡＣＬサッカー - 烏丸経済新聞",
@@ -215,8 +296,8 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-16T21:28:38+09:00",
         "score_version": 5,
-        "post_text": "33年ぶりの御開帳。若狭町の観音堂、三方石観世音の本尊・観世音菩薩が16日から20日までの5日間、姿を現す。前回は1993年。公開は明日からだ。次は33年後と思うと、期間の短さが少し気になる。",
-        "post_format": 4,
+        "post_text": "33年ぶりの御開帳。若狭町の三方石観世音で、本尊の観世音菩薩が20日まで公開中だ。次にお会いできるのは33年後という、なかなかの間隔。今回を逃せないと思う人も多いはず。",
+        "post_format": 5,
         "notified": true
       }
     },
@@ -2961,7 +3042,7 @@
         "scored_at": "2026-10-16T21:12:00+09:00",
         "score_version": 5,
         "post_text": "",
-        "post_format": 4,
+        "post_format": 5,
         "notified": true
       }
     },
@@ -3970,8 +4051,8 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-16T21:17:30+09:00",
         "score_version": 5,
-        "post_text": "",
-        "post_format": 4,
+        "post_text": "大阪城天守閣が重要文化財に指定される見通しに。1931年に市民の寄付で建てられた3代目で、秀吉の城の再現を目指した建物だそうだ。仏像ではないが、これは素直にめでたい！",
+        "post_format": 5,
         "notified": true
       }
     },
@@ -4028,7 +4109,7 @@
         "scored_at": "2026-10-16T21:17:41+09:00",
         "score_version": 5,
         "post_text": "",
-        "post_format": 4,
+        "post_format": 5,
         "notified": true
       }
     },
@@ -4138,8 +4219,8 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-16T21:17:41+09:00",
         "score_version": 5,
-        "post_text": "約20年ぶりの三井寺展が、来年4月20日から東博で開かれるとのこと。国宝8件を含む約80件が並び、秘仏も集結するらしい。巡回はなし。",
-        "post_format": 4,
+        "post_text": "三井寺の国宝8件を含む約80件が上野に集結。会期は来年4月20日〜6月13日で、およそ20年ぶりの大規模展だ。秘仏も出るらしい！",
+        "post_format": 5,
         "notified": true
       }
     },
@@ -4847,8 +4928,8 @@
       "image_url": "https://www.museum.or.jp/storage/article_objects/2026/10/16/267f17240012.jpg",
       "description": "アイエム［インターネットミュージアム］による 秋の特別展「足利樺崎寺と運慶 ―二体の大日如来像―」 の情報ページ。秋の特別展「足利樺崎寺と運慶 ―二体の大日如来像―」 の見どころ、会期、料金、休館日などを紹介しています。読者によるクチコミも。秋の特別展「足利樺崎寺と運慶 ―二体の大日如来像―」のことならアイエムで！",
       "ai": {
-        "post_text": "運慶作と伝わる大日如来像が二体並ぶ、秋の特別展「足利樺崎寺と運慶」の案内が出ていた。会期や料金は記事先で確認できる。二体を見比べられるのは貴重で、並んだ表情の違いが気になる。",
-        "post_format": 4,
+        "post_text": "足利樺崎寺と運慶。副題は「二体の大日如来像」という特別展の情報が出ていた。運慶ゆかりの大日如来が並ぶ構成のようで、どんな対面になるのか気になる。会期や会場は情報ページで確認したい。",
+        "post_format": 5,
         "notified": true,
         "score": 72,
         "category": "展覧会",
@@ -5757,8 +5838,8 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-16T21:29:11+09:00",
         "score_version": 5,
-        "post_text": "都城市の願心寺本堂が、国の重要文化財に指定される見通しとなった。お祝いのニュースだ！記事本文が読み込めず、評価された点や建立年代までは確認できていない。仏像との関わりも、続報を待ちたい。",
-        "post_format": 4,
+        "post_text": "宮崎県都城市の願心寺本堂が、国の重要文化財に指定される見通しになった。お寺の建物そのものが評価されるニュースで、素直にめでたい！仏像好きとしては、どんな堂内なのか気になってしまう。",
+        "post_format": 5,
         "notified": true
       }
     },
@@ -5990,10 +6071,10 @@
       "image_url": "https://images.keizai.biz/img/gp/m0093653694.jpg",
       "description": "広域松本圏のビジネス＆カルチャーニュース",
       "ai": {
-        "score": 3,
+        "score": 10,
         "category": "無関係",
         "duplicate": true,
-        "reason": "大阪城の重複記事で無関係",
+        "reason": "大阪城は寺院と無関係で配信済みの重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -6001,8 +6082,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:12+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6017,10 +6098,10 @@
       "image_url": "https://images.keizai.biz/img/gp/m0093653694.jpg",
       "description": "広域佐賀圏のビジネス＆カルチャーニュース",
       "ai": {
-        "score": 3,
+        "score": 10,
         "category": "無関係",
         "duplicate": true,
-        "reason": "大阪城の重複記事で無関係",
+        "reason": "大阪城は寺院と無関係で配信済みの重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -6028,8 +6109,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:12+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6044,10 +6125,10 @@
       "image_url": "https://images.keizai.biz/img/gp/m0093653694.jpg",
       "description": "広域盛岡圏のビジネス＆カルチャーニュース",
       "ai": {
-        "score": 3,
+        "score": 10,
         "category": "無関係",
         "duplicate": true,
-        "reason": "大阪城の重複記事で無関係",
+        "reason": "大阪城は寺院と無関係で配信済みの重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -6055,8 +6136,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:12+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6071,10 +6152,10 @@
       "image_url": "https://images.keizai.biz/img/gp/m0093655961.jpg",
       "description": "広域周南圏のビジネス＆カルチャーニュース",
       "ai": {
-        "score": 2,
+        "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "官房長官の発言で仏像と無関係",
+        "reason": "政治ニュースで仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6082,8 +6163,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:12+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6098,10 +6179,10 @@
       "image_url": "https://images.keizai.biz/img/gp/m0093653694.jpg",
       "description": "広域高田馬場圏のビジネス＆カルチャーニュース",
       "ai": {
-        "score": 3,
+        "score": 10,
         "category": "無関係",
         "duplicate": true,
-        "reason": "大阪城の重複記事で無関係",
+        "reason": "大阪城は寺院と無関係で配信済みの重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -6109,8 +6190,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:12+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6125,10 +6206,10 @@
       "image_url": "https://images.keizai.biz/img/gp/m0093653694.jpg",
       "description": "広域本庄圏のビジネス＆カルチャーニュース",
       "ai": {
-        "score": 3,
+        "score": 10,
         "category": "無関係",
         "duplicate": true,
-        "reason": "大阪城の重複記事で無関係",
+        "reason": "大阪城は寺院と無関係で配信済みの重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -6136,8 +6217,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:12+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6154,8 +6235,8 @@
       "ai": {
         "score": 10,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "大阪城天守閣は仏像と無関係",
+        "duplicate": true,
+        "reason": "大阪城は寺院と無関係で配信済みの重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -6163,8 +6244,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6179,10 +6260,10 @@
       "image_url": "https://images.keizai.biz/img/gp/m0093653694.jpg",
       "description": "広域宇都宮圏のビジネス＆カルチャーニュース",
       "ai": {
-        "score": 5,
+        "score": 10,
         "category": "無関係",
         "duplicate": true,
-        "reason": "仏像無関係かつ重複",
+        "reason": "大阪城は寺院と無関係で配信済みの重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -6190,8 +6271,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6206,10 +6287,10 @@
       "image_url": "https://images.keizai.biz/img/gp/m0093653694.jpg",
       "description": "広域豊田圏のビジネス＆カルチャーニュース",
       "ai": {
-        "score": 5,
+        "score": 10,
         "category": "無関係",
         "duplicate": true,
-        "reason": "仏像無関係かつ重複",
+        "reason": "大阪城は寺院と無関係で配信済みの重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -6217,8 +6298,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6233,19 +6314,19 @@
       "image_url": "",
       "description": "",
       "ai": {
-        "score": 35,
+        "score": 55,
         "category": "発見・研究・新指定",
-        "duplicate": false,
-        "reason": "瑞泉寺本堂の建造物指定で仏像ではない。第一報",
+        "duplicate": true,
+        "reason": "瑞泉寺の重文指定は配信済みで重複",
         "event": {
           "event_name": "",
-          "place": "井波別院瑞泉寺（富山県南砺市）",
+          "place": "",
           "start_date": "",
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6263,7 +6344,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "スポーツ記事で無関係",
+        "reason": "スポーツの記事で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6271,8 +6352,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6287,10 +6368,10 @@
       "image_url": "https://newsdig.ismcdn.jp/mwimgs/0/c/1200w/img_0c0f5e01360b0e15d6c8475f305213b842085.jpg",
       "description": "2027年春に行われる長野市の善光寺御開帳までおよそ半年、15日は回向柱の製材が行われました。クレーンを使い、長野市内の製材所に慎重に運び込まれる回向柱の原木。代々、回向柱を寄進している長野市松代町にある…",
       "ai": {
-        "score": 60,
+        "score": 55,
         "category": "寺院の行事",
         "duplicate": false,
-        "reason": "善光寺御開帳は2027年4月で先の予定。準備の話題",
+        "reason": "善光寺御開帳は半年先で小さな話題。経過7時間",
         "event": {
           "event_name": "善光寺御開帳",
           "place": "善光寺（長野県長野市）",
@@ -6298,8 +6379,8 @@
           "end_date": "2027-06-19"
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6314,10 +6395,10 @@
       "image_url": "https://img.huffingtonpost.com/asset/6ad1b2592700001cfb989c59.png?ops=1200_630",
       "description": "彫った人の手がかりはありませんでした。",
       "ai": {
-        "score": 30,
-        "category": "その他の仏像関連",
+        "score": 15,
+        "category": "無関係",
         "duplicate": false,
-        "reason": "切り株の菩薩像の話題。仏像寄りだが寺院関係なし",
+        "reason": "切り株の彫刻話題で寺院・仏像ではない",
         "event": {
           "event_name": "",
           "place": "",
@@ -6325,8 +6406,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6342,9 +6423,9 @@
       "description": "",
       "ai": {
         "score": 10,
-        "category": "その他の仏像関連",
+        "category": "無関係",
         "duplicate": true,
-        "reason": "切り株の菩薩の重複記事",
+        "reason": "切り株の菩薩は無関係で重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -6352,8 +6433,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6371,7 +6452,7 @@
         "score": 45,
         "category": "寺院の行事",
         "duplicate": false,
-        "reason": "紅葉めぐり告知。仏像への言及は薄い",
+        "reason": "国宝寺院の紅葉めぐり。仏像への言及なく優先度低",
         "event": {
           "event_name": "湖南三山紅葉めぐり",
           "place": "湖南三山（滋賀県湖南市）",
@@ -6379,8 +6460,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6451,13 +6532,13 @@
       "image_url": "https://images.keizai.biz/shunan_keizai/headline/1791953326_photo.jpg",
       "description": "川崎観音堂（周南市川崎1）が10月17日・18日、本尊・十一面観音の「特別中御開帳（ごかいちょう）」を行う。",
       "ai": {
-        "post_text": "高さ6センチ未満という小さな十一面観音が、18年ぶりに姿を現す。周南市の川崎観音堂で10月17日・18日に特別中御開帳。本来は12年に一度の秘仏で、コロナ禍で前回が中止になった経緯がある。",
-        "post_format": 4,
+        "post_text": "明日17日・18日、周南市の川崎観音堂で秘仏の十一面観音が開帳される。12年に一度の子年の御開帳が2020年はコロナ禍で中止になり、18年ぶりの実施だ。高さ6センチ未満という小さな像とのこと！",
+        "post_format": 5,
         "notified": true,
-        "score": 84,
+        "score": 88,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": false,
-        "reason": "あす17日から18年ぶり開帳。51時間経過だが直前",
+        "reason": "あす17日から18年ぶり開帳。数日以内で急ぎ。配信53時間で減点",
         "event": {
           "event_name": "川崎観音堂 特別中御開帳",
           "place": "川崎観音堂（山口県周南市）",
@@ -6465,8 +6546,8 @@
           "end_date": "2026-10-18"
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6484,7 +6565,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "ガチャ商品で無関係",
+        "reason": "ガチャガチャの商品情報で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6492,8 +6573,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:32:50+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6511,7 +6592,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "国際ニュースで無関係",
+        "reason": "仏像と無関係のニュース",
         "event": {
           "event_name": "",
           "place": "",
@@ -6519,8 +6600,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6538,7 +6619,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "株式ニュースで無関係",
+        "reason": "株価ニュースで無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6546,8 +6627,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6562,10 +6643,10 @@
       "image_url": "https://img.huffingtonpost.com/asset/6ad1597d1c0000a22f2656e2.jpg?ops=1200_630",
       "description": "ちょうど顔に見える…！",
       "ai": {
-        "score": 5,
+        "score": 3,
         "category": "無関係",
         "duplicate": false,
-        "reason": "照明が顔に見える話で仏像無関係",
+        "reason": "照明の顔文字話題で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6573,8 +6654,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6589,10 +6670,10 @@
       "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261014-11797497-maidonans-000-1-view.jpg?exp=10800",
       "description": "理不尽なカスタマーハラスメントが横行するこの現世では、『猫の手も借りたい』どころかもはや『仏の手も借りたい』状態なのかもしれません。漫画家・中村七朗さんの作品『接客修行!! 菩薩ちゃん』は、菩薩がコ",
       "ai": {
-        "score": 8,
+        "score": 5,
         "category": "無関係",
         "duplicate": false,
-        "reason": "漫画の菩薩で実際の仏像と無関係",
+        "reason": "菩薩キャラの漫画紹介で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6600,8 +6681,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6619,7 +6700,7 @@
         "score": 3,
         "category": "無関係",
         "duplicate": false,
-        "reason": "ドラマ撮影で仏像無関係",
+        "reason": "ドラマ撮影の話題で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6627,8 +6708,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6646,7 +6727,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "野球記事で無関係",
+        "reason": "野球ニュースで無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6654,8 +6735,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6670,19 +6751,19 @@
       "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261015-90017575-ftb-000-1-thumb.jpg?exp=10800",
       "description": "福井県若狭町にある三方石観世音では、16日から33年ぶりの御開帳を迎えます。弘法大師が岩に彫ったと伝わる「片手の観音像」は、手足の病などにご利益があるとされています。",
       "ai": {
-        "score": 30,
+        "score": 60,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": true,
-        "reason": "三方石観世音の御開帳は配信済みと重複",
+        "reason": "三方石観世音33年ぶり御開帳は配信済みと重複",
         "event": {
           "event_name": "三方石観世音 本尊御開帳",
           "place": "三方石観世音（福井県若狭町）",
           "start_date": "2026-10-16",
-          "end_date": "2026-10-22"
+          "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T19:59:22+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6697,10 +6778,10 @@
       "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/sanyo/m_sanyo-20261016080546.jpg",
       "description": "芸術やグルメを楽しむマルシェ「アートホッピングクラシキ」が１７、１８日、倉敷市阿知の国重要文化財・…",
       "ai": {
-        "score": 3,
+        "score": 2,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "住宅のマルシェで仏像と無関係",
+        "duplicate": true,
+        "reason": "民家のマルシェで無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6708,8 +6789,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:40+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6726,8 +6807,8 @@
       "ai": {
         "score": 2,
         "category": "無関係",
-        "duplicate": true,
-        "reason": "住宅マルシェの重複で仏像と無関係",
+        "duplicate": false,
+        "reason": "民家のマルシェで無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6735,8 +6816,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:40+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6751,10 +6832,10 @@
       "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/huffingtonpost/m_huffingtonpost-6ad15070e4b0bfd256576584.jpg",
       "description": "“顔文字すぎる”竹編みの照明がXで話題です。投稿したのは、なまなさん（@namana_mana）。 【画像】笑ってい…",
       "ai": {
-        "score": 2,
+        "score": 3,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "照明の話題で仏像と無関係",
+        "duplicate": true,
+        "reason": "照明の顔文字話題で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6762,8 +6843,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6778,10 +6859,10 @@
       "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261016-00010007-huffpost-000-3-view.jpg?exp=10800",
       "description": "“顔文字すぎる”竹編みの照明がXで話題です。投稿したのは、なまなさん（@namana_mana）。【画像】笑っているみたいに見える…！「三股ソケットに付けられた電球が見事な(•ᴗ•)を成しておりまし",
       "ai": {
-        "score": 1,
+        "score": 3,
         "category": "無関係",
         "duplicate": true,
-        "reason": "照明の話題で無関係かつ重複",
+        "reason": "照明の顔文字話題で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6789,8 +6870,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6807,17 +6888,17 @@
       "ai": {
         "score": 45,
         "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "善光寺御開帳は半年先で準備段階。速報性低い",
+        "duplicate": true,
+        "reason": "善光寺御開帳は半年先の準備で小さな話題・重複",
         "event": {
-          "event_name": "善光寺御開帳",
-          "place": "善光寺（長野県長野市）",
-          "start_date": "2027-04-01",
+          "event_name": "",
+          "place": "",
+          "start_date": "",
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6832,10 +6913,10 @@
       "image_url": "",
       "description": "",
       "ai": {
-        "score": 1,
+        "score": 3,
         "category": "無関係",
         "duplicate": true,
-        "reason": "照明の話題で無関係かつ重複",
+        "reason": "照明の顔文字話題で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -6843,8 +6924,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -6859,10 +6940,10 @@
       "image_url": "https://www.agara.co.jp/image/article/size1/9/6/1/6/96167acf4f97ba2bacf909329d95a21c_1.jpg",
       "description": "声優の津田健次郎が17日放送のABCテレビ・テレビ朝日系『朝だ！生です旅サラダ』（毎週土曜 前8：00）に出演する。【番組カット】コー...",
       "ai": {
-        "score": 10,
+        "score": 12,
         "category": "無関係",
         "duplicate": false,
-        "reason": "芸能人の旅番組で仏像への言及が薄い",
+        "reason": "旅番組出演の話題で仏像の主題でない",
         "event": {
           "event_name": "",
           "place": "",
@@ -6870,8 +6951,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7102,19 +7183,19 @@
       "image_url": "https://d10tw3woq6mt3i.cloudfront.net/wp-content/uploads/2026/10/kyd_2094441_697233-01.jpg",
       "description": "京都市左京区にある「浄土宗大本山 くろ谷 金戒光明寺(こんかいこうみょうじ)」では、恒例の「秋の特別拝観」を2026年11月13日(金)〜12月6日(日)に開催！ 通常非公開の大方丈で虎の数が変わる不思議な“虎の襖絵”で有名な「虎の間」を拝観し、紅葉が美しい庭園「紫雲の庭」を散策することができます。また、紅葉の名所である「栄摂院」を特別にライトアップにて初公開。水面に映った逆さ紅葉の、リフレクション撮影も楽しめますよ。 “くろ谷さん”の名で親しまれる「金戒光明寺」 「金戒光明寺」は法然上人が初めて草庵を結んだ地で、念仏発祥の地といわれている浄土宗の大本山。地元では「くろ谷さん」の名で親",
       "ai": {
-        "score": 20,
-        "category": "寺院の行事",
+        "score": 45,
+        "category": "秘仏・御開帳・特別公開",
         "duplicate": false,
-        "reason": "庭園・襖絵中心で仏像に触れず、約1か月先",
+        "reason": "1か月先の紅葉特別拝観で仏像中心でなく49時間経過",
         "event": {
           "event_name": "金戒光明寺 秋の特別拝観",
-          "place": "金戒光明寺（京都府京都市）",
+          "place": "金戒光明寺（京都市左京区）",
           "start_date": "2026-11-13",
           "end_date": "2026-12-06"
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7129,19 +7210,19 @@
       "image_url": "https://image.news.livedoor.com/newsimage/stf/f/9/f996d_1822_3bf0dd4b_3efd5abc.jpg",
       "description": "来年4月に始まる善光寺御開帳に向けて15日、本堂の前に立てられる回向柱の製材作業が行われました。樹齢250年以上とみられるスギの大木は10月8日に長野市・松代町の中村神社で伐採されたものです。",
       "ai": {
-        "score": 35,
+        "score": 45,
         "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "善光寺回向柱の件で重複、半年先、26時間経過",
+        "duplicate": false,
+        "reason": "善光寺御開帳の準備で半年先、27時間経過",
         "event": {
-          "event_name": "善光寺御開帳",
-          "place": "善光寺（長野県長野市）",
-          "start_date": "2027-04-01",
+          "event_name": "",
+          "place": "善光寺（長野市）",
+          "start_date": "",
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7156,10 +7237,10 @@
       "image_url": "https://img.cf.47news.jp/public/photo/08c82453cb6b245d00799b737d29faf9/photo.jpg",
       "description": "芸術やグルメを楽しむマルシェ「アートホッピングクラシキ」が１７、１８日、倉敷市阿知の国重要文化財・大橋家住宅で開かれる。邸内は無料公開され、江戸期に新田・塩田開発で財を築いた大橋家にちなみ、「塩」を ...",
       "ai": {
-        "score": 3,
+        "score": 2,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "民家のマルシェで仏像と無関係",
+        "duplicate": true,
+        "reason": "民家のマルシェで無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7167,8 +7248,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7182,10 +7263,10 @@
       "published_at": "2026-10-14T13:49:02+09:00",
       "image_url": "https://images.keizai.biz/shunan_keizai/photonews/1791953187_b.jpg",
       "ai": {
-        "score": 25,
+        "score": 20,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": true,
-        "reason": "川崎観音堂の配信済み案件と重複、情報少",
+        "reason": "川崎観音堂は配信済みと重複、55時間経過",
         "event": {
           "event_name": "",
           "place": "",
@@ -7193,8 +7274,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7208,7 +7289,7 @@
       "published_at": "2026-10-15T14:02:47+09:00",
       "image_url": "https://images.keizai.biz/img/gp/m0093632716.jpg",
       "ai": {
-        "score": 1,
+        "score": 0,
         "category": "無関係",
         "duplicate": false,
         "reason": "訃報で仏像と無関係",
@@ -7219,8 +7300,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7237,19 +7318,19 @@
         "notified": true,
         "post_text": "下野新聞より。\n\n薬師如来像が33年ぶりに開帳されるとのこと。お寺の名前や公開期間は記事で確かめてほしい。前回の開帳は33年前。次を待つより、今回会いに行くほうがずっと確実だ。",
         "post_format": 3,
-        "score": 78,
+        "score": 68,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": false,
-        "reason": "33年ぶり開帳の第一報。日程不明で加点控えめ",
+        "reason": "薬師如来33年ぶり開帳、場所不明で14時間経過",
         "event": {
-          "event_name": "薬師如来像 33年ぶり開帳",
+          "event_name": "薬師如来像 開帳",
           "place": "栃木県",
           "start_date": "",
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:03+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7267,19 +7348,19 @@
         "notified": true,
         "post_text": "唐津市・川上神社。\n\n佐用姫伝説ゆかりの聖観音像（高さ205センチ）が10、11日、50年ぶりに開帳された。（次は50年後か…）",
         "post_format": 3,
-        "score": 35,
+        "score": 45,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": false,
-        "reason": "50年ぶり公開も10・11日で終了済みの事後報告",
+        "reason": "50年ぶり秘仏公開だが10・11日で終了済みの事後報告、57時間経過",
         "event": {
-          "event_name": "佐用姫観音 50年ぶり公開",
+          "event_name": "川上神社 秘仏聖観音像（佐用姫観音）公開",
           "place": "川上神社（佐賀県唐津市）",
           "start_date": "2026-10-10",
           "end_date": "2026-10-11"
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7294,10 +7375,10 @@
       "image_url": "https://jimoharu.net/wp-content/uploads/2026/10/iinuma_kannon_niomon_inside_eye.jpg",
       "description": "飯沼観音（圓福寺、銚子市馬場町）は、飯沼観音も圓福寺も開門が6時、閉門が17時で、納経・御朱印の受付は8時から17時です。公式サイトのよくある質問（2026年10月14日確認）には、無料駐車場が飯沼観音に50台（うち大型バス5台）、圓福寺に",
       "ai": {
-        "score": 15,
-        "category": "その他の仏像関連",
+        "score": 25,
+        "category": "無関係",
         "duplicate": false,
-        "reason": "参拝ガイドで特別な速報性なし",
+        "reason": "参拝ガイドで仏像の話題なし、53時間経過",
         "event": {
           "event_name": "",
           "place": "",
@@ -7305,8 +7386,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7321,10 +7402,10 @@
       "image_url": "https://image.news.livedoor.com/newsimage/stf/e/1/e194c_1717_74927a33_0586e8ea.jpg",
       "description": "理不尽なカスタマーハラスメントが横行するこの現世では、『猫の手も借りたい』どころかもはや『仏の手も借りたい』状態なのかもしれません。漫画家・中村七朗さんの作品『接客修行!! 菩薩ちゃん』は、菩薩がコンビ",
       "ai": {
-        "score": 8,
+        "score": 3,
         "category": "無関係",
         "duplicate": false,
-        "reason": "菩薩を題材にした漫画で仏像と無関係",
+        "reason": "菩薩が題材の漫画で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7332,8 +7413,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7351,7 +7432,7 @@
         "score": 2,
         "category": "無関係",
         "duplicate": false,
-        "reason": "ドラマ撮影で仏像と無関係",
+        "reason": "ドラマ撮影の話題で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7359,8 +7440,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7377,8 +7458,8 @@
       "ai": {
         "score": 2,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "ドラマ撮影で仏像と無関係",
+        "duplicate": true,
+        "reason": "ドラマ撮影で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7386,8 +7467,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7405,7 +7486,7 @@
         "score": 1,
         "category": "無関係",
         "duplicate": true,
-        "reason": "ドラマ撮影で無関係かつ重複",
+        "reason": "ドラマ撮影で無関係・重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -7413,8 +7494,8 @@
           "end_date": ""
         },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T20:59:55+09:00",
-        "score_version": 4
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7429,13 +7510,19 @@
       "image_url": "https://image.news.livedoor.com/newsimage/stf/3/4/3489c_1223_ef7cb4bb26b04e42b05e1def38540cf7.jpg",
       "description": "星野リゾートの星のや奈良監獄がエル・デコ日本版独自の賞を受賞した。重要文化財の保存と高級ホテルへの再生を両立したデザインなどが評価された。2026年開業で、旧奈良監獄は明治五大監獄の1つで1908年に誕生した建築である",
       "ai": {
-        "score": 5,
+        "score": 3,
         "category": "無関係",
         "duplicate": false,
-        "reason": "ホテルの受賞で仏像と無関係",
+        "reason": "ホテルの受賞で寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T18:46:29+09:00",
-        "score_version": 3
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7450,13 +7537,19 @@
       "image_url": "https://static.sanyonews.jp/image/article/size1/0/2/c/a/02caa6ef6e1c722491fdac326a616f71_1.jpg",
       "description": "「岡山県内有数の豪商の歩みを一人でも多くの人に知ってほしい」と話すのは、国重要文化財・旧大國家住宅（岡山県和気町尺所）に伝わる古文書を...",
       "ai": {
-        "score": 4,
+        "score": 3,
         "category": "無関係",
         "duplicate": false,
-        "reason": "古文書の自費出版で仏像と無関係",
+        "reason": "民家の史料で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T18:46:29+09:00",
-        "score_version": 3
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7471,13 +7564,19 @@
       "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10649436.jpg",
       "description": "鳥取県の大型民家を代表する茅葺の旧家 門脇家住宅は明和6年、大庄屋の屋敷として建てられ、寄棟造の主…",
       "ai": {
-        "score": 4,
+        "score": 3,
         "category": "無関係",
         "duplicate": false,
-        "reason": "民家の一般公開で仏像と無関係",
+        "reason": "民家の一般公開で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T18:46:29+09:00",
-        "score_version": 3
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7495,10 +7594,16 @@
         "score": 2,
         "category": "無関係",
         "duplicate": true,
-        "reason": "民家の一般公開で仏像と無関係、重複",
+        "reason": "民家公開で無関係・重複",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T18:46:29+09:00",
-        "score_version": 3
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7517,9 +7622,15 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "仏像と無関係のニュース",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7537,10 +7648,16 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "仏像と無関係のニュース",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "reason": "クルーズ船の話題で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7558,13 +7675,19 @@
         "notified": true,
         "post_text": "周南・川崎観音堂。\n\n子年ごとの秘仏開帳が2020年はコロナで中止に。10月17・18日、本尊十一面観音が18年ぶりに公開される。高さ6センチ未満とのこと。（目を凝らしたい）",
         "post_format": 3,
-        "score": 50,
+        "score": 55,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": true,
-        "reason": "あすから18年ぶり開帳だが配信済みと重複",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "reason": "17日開始の18年ぶり開帳だが配信候補に既出",
+        "event": {
+          "event_name": "川崎観音堂 特別中御開帳 十一面観音",
+          "place": "川崎観音堂（山口県周南市）",
+          "start_date": "2026-10-17",
+          "end_date": "2026-10-18"
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7582,13 +7705,19 @@
         "notified": true,
         "post_text": "滋賀県長浜市。\n\n10月18日、市内26カ所で観音像を拝観できるらしい。ふだん非公開の像にも会えるとのこと。（一日で何カ所回れるか…）",
         "post_format": 3,
-        "score": 50,
+        "score": 78,
         "category": "秘仏・御開帳・特別公開",
-        "duplicate": true,
-        "reason": "18日の観音公開だが配信済みと重複",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "duplicate": false,
+        "reason": "18日開催で直前、非公開観音を拝観できる。54時間経過で減点",
+        "event": {
+          "event_name": "長浜 非公開の観音像拝観（26カ所）",
+          "place": "滋賀県長浜市",
+          "start_date": "2026-10-18",
+          "end_date": "2026-10-18"
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7606,10 +7735,16 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "訃報で仏像と無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "reason": "訃報で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7627,10 +7762,16 @@
         "score": 3,
         "category": "無関係",
         "duplicate": false,
-        "reason": "民家建築の茅葺替えで仏像無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "reason": "民家の茅ぶきで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7648,10 +7789,16 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "訃報で仏像と無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "reason": "訃報で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7666,13 +7813,19 @@
       "image_url": "https://s.eximg.jp/exnews/feed/ksb/93/ksb_1483014516338147527/ksb_1483014516338147527_1.jpg",
       "description": "香川県さぬき市にある、江戸時代中期の農業住宅「細川家住宅」（さぬき市多和額東）の敷地内にある当時の便...",
       "ai": {
-        "score": 0,
+        "score": 2,
         "category": "無関係",
         "duplicate": true,
-        "reason": "細川家住宅記事の重複、仏像無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "reason": "民家の茅ぶきで無関係・重複",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7690,13 +7843,19 @@
         "notified": true,
         "post_text": "富津市・東京湾観音。\n\n高さ56mの救世観音、2027年3月31日で拝観受付を終了するとのこと。理由は「諸般の事情」のみ。木曜定休、受付は16時まで。会えるうちに会っておきたい。",
         "post_format": 3,
-        "score": 30,
+        "score": 50,
         "category": "その他の仏像関連",
-        "duplicate": true,
-        "reason": "配信済みと重複、47時間経過",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "duplicate": false,
+        "reason": "東京湾観音が拝観終了予定の告知。まだ半年先で52時間経過",
+        "event": {
+          "event_name": "東京湾観音 拝観受付終了",
+          "place": "東京湾観音（千葉県富津市）",
+          "start_date": "",
+          "end_date": "2027-03-31"
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7711,13 +7870,19 @@
       "image_url": "https://img.jp.ekkowassets.com/c_limit,w_360,f_auto,q_auto:eco/ch/images/1483027985835099915/origin_1.jpg",
       "description": "音数では日本で一番長い山名の山は、大菩薩連嶺にある牛奥ノ雁ヶ腹摺山（うしおくのがんがはらすりやま）。... （さんたつby散歩の達人）（チバテレ+プラス）",
       "ai": {
-        "score": 0,
+        "score": 1,
         "category": "無関係",
         "duplicate": false,
-        "reason": "地名に菩薩が入るだけの登山記事",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "reason": "山名の話題で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:14+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7732,13 +7897,19 @@
       "image_url": "https://media.image.infoseek.co.jp/isnews/photos/tabizine/tabizine_697233_0-enlarge.jpg",
       "description": "京都市左京区にある「浄土宗大本山くろ谷金戒光明寺(こんかいこうみょうじ)」では、恒例の「秋の特別拝観」を2026年",
       "ai": {
-        "score": 30,
+        "score": 50,
         "category": "寺院の行事",
         "duplicate": false,
-        "reason": "庭園中心の特別拝観で仏像言及薄い、44時間経過",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "reason": "金戒光明寺の秋の特別拝観。庭園中心で仏像への言及が薄く、配信49時間経過",
+        "event": {
+          "event_name": "金戒光明寺 秋の特別拝観",
+          "place": "くろ谷 金戒光明寺（京都府京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7754,13 +7925,19 @@
       "description": "唐津市浜玉町の川上神社境内の観音堂で10、11の両日、50年に一度御開帳される秘仏「聖観音像」の公開が行われた。2日間で県内外各地から多くの人が訪れ、諸願成就を祈った。 前回の開帳は1976年5月。像は室町時代の作と伝えられ、クスノキの一木造で高さ2メートル5センチ。座主地区に残る「佐用姫伝説」にちなみ「佐用姫観音」とも呼ばれ、安産や縁結びなどに御利益があるとされている。 10日は式典が開催されたほか、稚児行列や飲食物の販売、ステージイベントなども行われた。",
       "ai": {
         "notified": true,
-        "score": 25,
+        "score": 40,
         "category": "秘仏・御開帳・特別公開",
-        "duplicate": true,
-        "reason": "公開は終了済みの事後報告、配信済みと重複",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:31+09:00",
-        "score_version": 2
+        "duplicate": false,
+        "reason": "50年ぶり秘仏開帳だが10・11日で終了済みの事後報告、49時間経過",
+        "event": {
+          "event_name": "聖観音像 御開帳",
+          "place": "川上神社（佐賀県唐津市）",
+          "start_date": "2026-10-10",
+          "end_date": "2026-10-11"
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7775,13 +7952,19 @@
       "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/saga_s/m_saga_s-1810324.jpg",
       "description": "50年に一度御開帳される秘仏「聖観音像」をスマートフォンで撮影する来場者＝唐津市浜玉町の川上…",
       "ai": {
-        "score": 40,
+        "score": 15,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": true,
-        "reason": "川上神社50年ぶり開帳は配信済みと重複・44時間経過",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "reason": "佐賀新聞記事と同内容の重複。公開は終了済み",
+        "event": {
+          "event_name": "聖観音像 御開帳",
+          "place": "川上神社（佐賀県唐津市）",
+          "start_date": "2026-10-10",
+          "end_date": "2026-10-11"
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7799,10 +7982,16 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "映画クルーの話題で仏像と無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "reason": "映画撮影の話題で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7821,9 +8010,15 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "内容不明で仏像との関連なし",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7842,9 +8037,15 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "天気情報で無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7865,10 +8066,16 @@
         "score": 45,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": true,
-        "reason": "配信済みと同一、公開中だが重複のため減点",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "reason": "配信済みの三方石観世音御開帳と同じ出来事。16〜20日開催中",
+        "event": {
+          "event_name": "三方石観世音 本尊御開帳",
+          "place": "三方石観世音（福井県若狭町）",
+          "start_date": "2026-10-16",
+          "end_date": "2026-10-20"
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7887,9 +8094,15 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "住宅火災で仏像と無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7904,13 +8117,19 @@
       "image_url": "https://image.news.livedoor.com/newsimage/stf/9/1/91e46_203_a02fa354_34a83d94.jpg",
       "description": "岸井ゆきの主演のWOWOW連ドラが重要文化財の成巽閣で撮影した。ドラマ作品では史上初の撮影で、毒殺事件の謎に迫る本予告が解禁された。完成報告会は11月5日にWOWOW公式Instagramで生配信される予定である",
       "ai": {
-        "score": 3,
+        "score": 2,
         "category": "無関係",
         "duplicate": false,
-        "reason": "ドラマ撮影、仏像以外の文化財",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "reason": "ドラマ撮影で寺院・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7925,13 +8144,19 @@
       "image_url": "https://image.news.livedoor.com/newsimage/stf/5/8/58d8e_760_2486479_20261014_190148_size640wh_71485042.jpg",
       "description": "岸井ゆきの主演のWOWOW「ユージニア」が兼六園・成巽閣で撮影された。同所の群青の間でドラマ撮影を行うのは史上初で、館長がコメントを寄せた。木竜麻生や成海璃子、丸山隆平らの場面写真と予告編も、新たに解禁された",
       "ai": {
-        "score": 2,
+        "score": 0,
         "category": "無関係",
         "duplicate": true,
-        "reason": "同ドラマ記事の重複、無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "reason": "ドラマ撮影の話で無関係かつ重複",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7946,13 +8171,19 @@
       "image_url": "https://newsimg.oricon.co.jp/feed/images/size640wh/20261014_190148_size640wh_71485042.jpg",
       "description": "俳優・岸井ゆきのが主演を務めるWOWOW『連続ドラマW 恩田陸 ユージニア』（11月8日スタート、毎週日曜 後10：00／全6話）の撮影が、石川にある国指定重要文化財の兼六園・成巽閣（せいそんかく）…",
       "ai": {
-        "score": 2,
+        "score": 0,
         "category": "無関係",
         "duplicate": true,
-        "reason": "同ドラマ記事の重複、無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "reason": "ドラマ撮影の話で無関係かつ重複",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7967,13 +8198,19 @@
       "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261015-00000002-eiga-000-1-view.jpg?exp=10800",
       "description": "恩田陸の傑作小説を岸井ゆきの主演でドラマ化した「連続ドラマＷ 恩田陸 ユージニア」より、場面写真と予告編（https://youtu.be/aanzA8oEcIo）が解禁された。 原作は、2020年",
       "ai": {
-        "score": 2,
+        "score": 0,
         "category": "無関係",
         "duplicate": true,
-        "reason": "同ドラマ記事の重複、無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "reason": "ドラマ撮影の話で無関係かつ重複",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -7991,13 +8228,19 @@
         "notified": true,
         "post_text": "長野市・善光寺。\n\n回向柱、樹齢約250年のスギを製材中。御開帳は来年4月4日から。",
         "post_format": 3,
-        "score": 35,
+        "score": 50,
         "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "善光寺回向柱は配信済みと重複・先の予定",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "duplicate": false,
+        "reason": "善光寺御開帳の準備。開催は半年先で小さな話題、33時間経過",
+        "event": {
+          "event_name": "善光寺御開帳",
+          "place": "善光寺（長野県長野市）",
+          "start_date": "2027-04-04",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -8012,13 +8255,19 @@
       "image_url": "https://static.sanyonews.jp/image/article/size1/3/f/b/2/3fb27d2080f6da4a4efa2dd5389e29f0_1.jpg",
       "description": "芸術やグルメを楽しむマルシェ「アートホッピングクラシキ」が１７、１８日、倉敷市阿知の国重要文化財・大橋家住宅で開かれる。邸内は無料公開...",
       "ai": {
-        "score": 5,
+        "score": 3,
         "category": "無関係",
         "duplicate": false,
-        "reason": "住宅文化財でのマルシェ、仏像無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "reason": "民家でのマルシェで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -8033,13 +8282,19 @@
       "image_url": "https://img.jp.ekkowassets.com/c_limit,w_360,f_auto,q_auto:eco/ch/images/1483224453349377361/origin_1.jpg",
       "description": "2026年11月8日からWOWOWで放送・配信される、恩田陸のミステリー小説を全6話でドラマ化した「... （映画スクエア）（チバテレ+プラス）",
       "ai": {
-        "score": 2,
+        "score": 0,
         "category": "無関係",
         "duplicate": true,
-        "reason": "同ドラマ記事の重複、無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T16:48:47+09:00",
-        "score_version": 2
+        "reason": "ドラマ予告で無関係かつ重複",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -8057,9 +8312,16 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "内容不明のSNS投稿",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T08:42:19+09:00"
+        "reason": "内容不明のSNS投稿で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -8074,12 +8336,19 @@
       "image_url": "https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFhNrRI0RUQxg5aFkrX0xDg1_T0wXrbEJjtNGtrf1o9y3xudcUclfbXjZqAvGT8NJnZDUWouSuBkqJzlZR3pG_pGx66g_zxsL2yf--iekhWxGr54nExPWYEaJeqOEcn-7wjaPdBm85rAM-Y2lqb99rjbtn84Rdcl4ESLPgUlQaGDK",
       "description": "岸井ゆきのが主演を務める『連続ドラマＷ 恩田陸 ユージニア』が、国指定重要文化財である成巽閣の「群青の間」で、ドラマ作品として史上初の撮影を行ったことが明らかになった。あわせて、場面写真と本予告映像",
       "ai": {
-        "score": 3,
+        "score": 0,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "ドラマ撮影、成巽閣は仏像と無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T08:42:32+09:00"
+        "duplicate": true,
+        "reason": "ドラマ撮影の話で無関係かつ重複",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
@@ -8097,9 +8366,16 @@
         "score": 0,
         "category": "無関係",
         "duplicate": true,
-        "reason": "同ドラマ撮影の重複、仏像無関係",
-        "model": "claude-opus-5-5",
-        "scored_at": "2026-10-16T08:42:32+09:00"
+        "reason": "ドラマ撮影の話で無関係かつ重複",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-16T21:33:25+09:00",
+        "score_version": 5
       }
     },
     {
