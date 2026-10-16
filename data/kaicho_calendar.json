@@ -1,6 +1,20 @@
 {
  "events": [
   {
+   "id": "118059d49cc8",
+   "event_name": "佐用姫観音 50年ぶり公開",
+   "place": "川上神社（佐賀県唐津市）",
+   "place_key": "川上神社",
+   "start": "2026-10-10",
+   "end": "2026-10-11",
+   "category": "秘仏・御開帳・特別公開",
+   "source_url": "https://news.yahoo.co.jp/articles/a253be33c354edd7c1014c62941202c0ed494c6a",
+   "source_title": "高さ205センチの秘仏が50年ぶりに公開、約1500年前の「姫伝説」ゆかり 佐賀・唐津市の川上神社 (西日本新聞me) - Yahoo!ニュース",
+   "source_score": 35,
+   "first_seen": "2026-10-16T20:59:55+09:00",
+   "reminded": []
+  },
+  {
    "id": "224f2bfeb0d3",
    "event_name": "三方石観世音 本尊御開帳",
    "place": "三方石観世音（福井県若狭町）",
@@ -8,9 +22,9 @@
    "start": "2026-10-16",
    "end": "2026-10-22",
    "category": "秘仏・御開帳・特別公開",
-   "source_url": "https://news.yahoo.co.jp/articles/c03b6661123f544de23317c14a657baed85e46a8",
-   "source_title": "「優しいお顔を」33年ぶりに観世音菩薩が姿現す 若狭町・三方石観世音 弘法大師が一夜で彫ったとされる 手足にご利益があると伝わる（FBC 福井放送） - Yahoo!ニュース",
-   "source_score": 40,
+   "source_url": "https://www.fukui-tv.co.jp/?post_type=fukui_news&p=202981",
+   "source_title": "「にこやかで穏やかな顔」拝めるのは33年に一度 若狭町の三方石観世音でご本尊「聖観世音菩薩」御開帳 22日まで - 福井テレビ",
+   "source_score": 93,
    "first_seen": "2026-10-16T19:59:30+09:00",
    "reminded": [
     "start"
@@ -33,6 +47,34 @@
    ]
   },
   {
+   "id": "a0efd7e13421",
+   "event_name": "特別展「大徳寺 本朝無双之禅苑」",
+   "place": "東京国立博物館（東京都台東区）",
+   "place_key": "東京国立博物館",
+   "start": "",
+   "end": "2026-12-06",
+   "category": "展覧会",
+   "source_url": "https://art.nikkei.com/magazine/7317/",
+   "source_title": "一休、秀吉、利休……禅の至宝「大徳寺展」の絶対に見逃せない作品は - art NIKKEI",
+   "source_score": 50,
+   "first_seen": "2026-10-16T20:59:55+09:00",
+   "reminded": []
+  },
+  {
+   "id": "7e887cb1b5be",
+   "event_name": "善光寺御開帳",
+   "place": "善光寺（長野県長野市）",
+   "place_key": "善光寺",
+   "start": "2027-04-01",
+   "end": "",
+   "category": "寺院の行事",
+   "source_url": "http://www.excite.co.jp/news/article/abn_1483644866097791686/",
+   "source_title": "善光寺御開帳まであと半年 本堂正面に立つ「回向柱」の製材作業 樹齢250年の巨木から削り出す「ご利益の象徴」 【長野市】 - Excite エキサイト",
+   "source_score": 45,
+   "first_seen": "2026-10-16T20:59:55+09:00",
+   "reminded": []
+  },
+  {
    "id": "ac54e7166977",
    "event_name": "善光寺御開帳",
    "place": "善光寺（長野県長野市）",
@@ -45,7 +87,21 @@
    "source_score": 62,
    "first_seen": "2026-10-16T19:59:30+09:00",
    "reminded": []
+  },
+  {
+   "id": "912beab84298",
+   "event_name": "特別展「国宝 三井寺のすべて」",
+   "place": "東京国立博物館平成館（東京都台東区）",
+   "place_key": "東京国立博物館平",
+   "start": "2027-04-20",
+   "end": "2027-06-13",
+   "category": "展覧会",
+   "source_url": "https://artexhibition.jp/topics/news/20261016-AEJ3020566/",
+   "source_title": "【記者発表】特別展「国宝 三井寺のすべて」東京国立博物館で2027年4月20日～6月13日開催 智証大師諡号1100年記念 - 美術展ナビ",
+   "source_score": 66,
+   "first_seen": "2026-10-16T20:59:55+09:00",
+   "reminded": []
   }
  ],
- "last_updated": "2026-10-16T19:59:30+09:00"
+ "last_updated": "2026-10-16T20:59:55+09:00"
 }
