@@ -1,0 +1,235 @@
+{
+ "_comment": "公式サイトの更新監視（watch_sites.py）。ページ内に新しく現れたリンク＝新着のお知らせとして AI 採点に回す。kind: gov=官公庁, museum=博物館・美術館, temple=寺院。追加は name/kind/url を足すだけ。",
+ "sites": [
+  {
+   "name": "文化庁 報道発表",
+   "kind": "gov",
+   "url": "https://www.bunka.go.jp/koho_hodo_oshirase/hodohappyo/"
+  },
+  {
+   "name": "東京国立博物館",
+   "kind": "museum",
+   "url": "https://www.tnm.jp/"
+  },
+  {
+   "name": "京都国立博物館",
+   "kind": "museum",
+   "url": "https://www.kyohaku.go.jp/jp/"
+  },
+  {
+   "name": "奈良国立博物館",
+   "kind": "museum",
+   "url": "https://www.narahaku.go.jp/"
+  },
+  {
+   "name": "九州国立博物館",
+   "kind": "museum",
+   "url": "https://www.kyuhaku.jp/"
+  },
+  {
+   "name": "龍谷ミュージアム",
+   "kind": "museum",
+   "url": "https://museum.ryukoku.ac.jp/"
+  },
+  {
+   "name": "三井記念美術館",
+   "kind": "museum",
+   "url": "https://www.mitsui-museum.jp/"
+  },
+  {
+   "name": "根津美術館",
+   "kind": "museum",
+   "url": "https://www.nezu-muse.or.jp/"
+  },
+  {
+   "name": "大阪市立美術館",
+   "kind": "museum",
+   "url": "https://www.osaka-art-museum.jp/"
+  },
+  {
+   "name": "滋賀県立琵琶湖文化館",
+   "kind": "museum",
+   "url": "https://www.biwakobunkakan.jp/"
+  },
+  {
+   "name": "MIHO MUSEUM",
+   "kind": "museum",
+   "url": "https://www.miho.jp/"
+  },
+  {
+   "name": "静嘉堂文庫美術館",
+   "kind": "museum",
+   "url": "https://www.seikado.or.jp/"
+  },
+  {
+   "name": "鎌倉国宝館",
+   "kind": "museum",
+   "url": "https://www.city.kamakura.kanagawa.jp/kokuhoukan/"
+  },
+  {
+   "name": "東大寺",
+   "kind": "temple",
+   "url": "https://www.todaiji.or.jp/"
+  },
+  {
+   "name": "興福寺",
+   "kind": "temple",
+   "url": "https://www.kohfukuji.com/"
+  },
+  {
+   "name": "法隆寺",
+   "kind": "temple",
+   "url": "https://www.horyuji.or.jp/"
+  },
+  {
+   "name": "薬師寺",
+   "kind": "temple",
+   "url": "https://nara-yakushiji.com/"
+  },
+  {
+   "name": "唐招提寺",
+   "kind": "temple",
+   "url": "https://toshodaiji.jp/"
+  },
+  {
+   "name": "東寺",
+   "kind": "temple",
+   "url": "https://toji.or.jp/"
+  },
+  {
+   "name": "延暦寺",
+   "kind": "temple",
+   "url": "https://www.hieizan.or.jp/"
+  },
+  {
+   "name": "仁和寺",
+   "kind": "temple",
+   "url": "https://ninnaji.jp/"
+  },
+  {
+   "name": "醍醐寺",
+   "kind": "temple",
+   "url": "https://www.daigoji.or.jp/"
+  },
+  {
+   "name": "三十三間堂",
+   "kind": "temple",
+   "url": "https://www.sanjusangendo.jp/"
+  },
+  {
+   "name": "清水寺",
+   "kind": "temple",
+   "url": "https://www.kiyomizudera.or.jp/"
+  },
+  {
+   "name": "長谷寺",
+   "kind": "temple",
+   "url": "https://www.hasedera.or.jp/"
+  },
+  {
+   "name": "室生寺",
+   "kind": "temple",
+   "url": "https://www.murouji.or.jp/"
+  },
+  {
+   "name": "中尊寺",
+   "kind": "temple",
+   "url": "https://www.chusonji.or.jp/"
+  },
+  {
+   "name": "善光寺",
+   "kind": "temple",
+   "url": "https://www.zenkoji.jp/"
+  },
+  {
+   "name": "金剛峯寺",
+   "kind": "temple",
+   "url": "https://www.koyasan.or.jp/"
+  },
+  {
+   "name": "四天王寺",
+   "kind": "temple",
+   "url": "https://www.shitennoji.or.jp/"
+  },
+  {
+   "name": "浅草寺",
+   "kind": "temple",
+   "url": "https://www.senso-ji.jp/"
+  },
+  {
+   "name": "円覚寺",
+   "kind": "temple",
+   "url": "https://www.engakuji.or.jp/"
+  },
+  {
+   "name": "建長寺",
+   "kind": "temple",
+   "url": "https://www.kenchoji.com/"
+  },
+  {
+   "name": "平等院",
+   "kind": "temple",
+   "url": "https://www.byodoin.or.jp/"
+  },
+  {
+   "name": "中宮寺",
+   "kind": "temple",
+   "url": "https://www.chuguji.jp/"
+  },
+  {
+   "name": "観心寺",
+   "kind": "temple",
+   "url": "https://www.kanshinji.com/"
+  },
+  {
+   "name": "道成寺",
+   "kind": "temple",
+   "url": "https://dojoji.com/"
+  },
+  {
+   "name": "石山寺",
+   "kind": "temple",
+   "url": "https://www.ishiyamadera.or.jp/"
+  },
+  {
+   "name": "三井寺",
+   "kind": "temple",
+   "url": "https://miidera1200.jp/"
+  },
+  {
+   "name": "鞍馬寺",
+   "kind": "temple",
+   "url": "https://www.kuramadera.or.jp/"
+  },
+  {
+   "name": "六波羅蜜寺",
+   "kind": "temple",
+   "url": "https://rokuhara.or.jp/"
+  },
+  {
+   "name": "立石寺（山寺）",
+   "kind": "temple",
+   "url": "https://rissyakuji.jp/"
+  },
+  {
+   "name": "深大寺",
+   "kind": "temple",
+   "url": "https://www.jindaiji.or.jp/"
+  },
+  {
+   "name": "高幡不動尊",
+   "kind": "temple",
+   "url": "https://www.takahatafudoson.or.jp/"
+  },
+  {
+   "name": "成田山新勝寺",
+   "kind": "temple",
+   "url": "https://www.naritasan.or.jp/"
+  },
+  {
+   "name": "豊川稲荷",
+   "kind": "temple",
+   "url": "https://www.toyokawainari.jp/"
+  }
+ ]
+}

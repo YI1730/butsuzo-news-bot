@@ -1,6 +1,6 @@
 name: Fetch News Hourly
 
-# Google ニュースを毎時取り込む（速報性のため）。
+# Google ニュースと公式サイトの新着を毎時取り込み、AI 採点・御開帳カレンダー・返信の仕分けを行う。
 # 特別公開・特別展・Amazon は従来どおり auto_post.yml が 1日6回取得する。
 on:
   schedule:
@@ -35,12 +35,25 @@ jobs:
       - name: Fetch news (Google RSS)
         run: python post_news.py
 
+      # 寺院・博物館・文化庁の公式サイトの新着お知らせ（一次情報）を取り込む
+      - name: Watch official sites
+        continue-on-error: true
+        run: python watch_sites.py
+
       # Claude で採点し、配信候補の投稿文を作ってスマホに通知する
       - name: Curate news with Claude
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python curate_news.py
+
+      # 記事の公開期間を御開帳カレンダーに集め、「あすから」等の節目でリマインドを作る
+      - name: Kaicho calendar reminders
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        continue-on-error: true
+        run: python kaicho_calendar.py
 
       # 仏像リンク宛ての返信を取得し、返信すべきものを選んで返信案を作る
       - name: Triage replies
@@ -62,7 +75,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/ data/gnews_url_cache.json data/replies.json
+          git add docs/ data/gnews_url_cache.json data/replies.json data/watch_state.json data/kaicho_calendar.json
           if git diff --staged --quiet; then
             echo "No changes to commit"; exit 0
           fi

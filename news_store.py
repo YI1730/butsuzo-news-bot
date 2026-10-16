@@ -37,6 +37,9 @@ def clean_news_title(title: str) -> str:
     return head.strip() if sep and head.strip() else title.strip()
 
 
-def compose_news_post(comment: str, title: str) -> str:
-    """ニュース投稿の本文。文章 → 【仏像速報】記事タイトル の順（URL は X が末尾に付ける）。"""
-    return f"{comment.strip()}\n\n{NEWS_POST_HEADER}{clean_news_title(title)}"
+def compose_news_post(comment: str, title: str, header: str = NEWS_POST_HEADER) -> str:
+    """ニュース投稿の本文。文章 → 【見出し】記事タイトル の順（URL は X が末尾に付ける）。
+
+    見出しは通常【仏像速報】。御開帳カレンダーのリマインドでは【あすから公開】などに変わる。
+    """
+    return f"{comment.strip()}\n\n{header}{clean_news_title(title)}"

@@ -25,7 +25,7 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 
-from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD, compose_news_post
+from news_store import CANDIDATE_THRESHOLD, NEWS_POST_HEADER, NOISE_THRESHOLD, compose_news_post
 from post_news import JST, RESOLVE_USER_AGENT, load_news_data, save_news_data
 
 # 採点・投稿文・返信の仕分けすべてで使うモデル（2026-10: 費用を抑えるため Opus 5.5 → Sonnet 5.5）
@@ -44,10 +44,11 @@ POST_FORMAT = 3
 # 採点基準の版。SCORE_SYSTEM を変えたら上げると、直近の採点済み記事も採点し直す
 #   2: 速報性を最重要に（終了済みの出来事・古い記事を大きく減点）
 #   3: 2 の再採点で記事が自分自身の重複と判定された不具合を直して採点し直す
-SCORE_VERSION = 3
+#   4: 公式サイトの新着に対応、公開期間（カレンダー用）の抽出を追加
+SCORE_VERSION = 4
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
-TARGET_SOURCES = {"google_news"}
+TARGET_SOURCES = {"google_news", "official_site"}  # official_site は watch_sites.py
 
 CATEGORIES = [
     "秘仏・御開帳・特別公開", "展覧会", "発見・研究・新指定", "修理・保存",
@@ -91,6 +92,19 @@ SCORE_SYSTEM = """あなたは X アカウント「仏像リンク」のニュ�
 
 reason では、点数に速報性がどう効いたかにも触れてください（例:「あすから公開・第一報」「公開は終了済み」）。
 
+# 公式サイトの新着（kind が「公式サイトの新着」の記事）
+- 寺院・博物館・文化庁のサイトに新しく出たお知らせで、新聞より早い一次情報です
+- 仏像の公開・特別開帳・展覧会・文化財の新指定・修理完了なら、速報として高く評価してください
+- 営業案内、ショップ・グッズ、講座の募集、休館日、一般的な行事案内など、仏像の公開と
+  関係が薄いものは低く評価してください
+
+# 公開期間（カレンダー用）
+仏像の公開・開帳・展覧会など期間のある出来事なら、記事から次を抜き出してください。
+分からない項目や、期間のない記事は空文字にしてください。推測で埋めないでください。
+- event_name: 出来事の短い名前（例「三方石観世音 本尊御開帳」）
+- place: 寺院・博物館名と市町村（例「三方石観世音（福井県若狭町）」）
+- start_date / end_date: YYYY-MM-DD。年が書かれていなければ今日の日付から判断する
+
 # 重複
 - 一覧の中に同じ出来事を報じた記事が複数ある場合、最も情報量が多い 1 件だけを通常どおり採点し、
   残りは duplicate を true にして点数を 20 点以上下げてください。
@@ -111,8 +125,13 @@ SCORE_SCHEMA = {
                     "category": {"type": "string", "enum": CATEGORIES},
                     "duplicate": {"type": "boolean"},
                     "reason": {"type": "string"},
+                    "event_name": {"type": "string"},
+                    "place": {"type": "string"},
+                    "start_date": {"type": "string"},
+                    "end_date": {"type": "string"},
                 },
-                "required": ["id", "score", "category", "duplicate", "reason"],
+                "required": ["id", "score", "category", "duplicate", "reason",
+                             "event_name", "place", "start_date", "end_date"],
                 "additionalProperties": False,
             },
         }
@@ -261,6 +280,7 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
                 "title": it.get("title", ""),
                 "description": it.get("description", ""),
                 "source": domain(it.get("url", "")),
+                "kind": "公式サイトの新着" if it.get("source") == "official_site" else "ニュース記事",
                 "published": (it.get("published_at") or "")[:16],
                 "hours_since_published": hours_since(it.get("published_at")),
             }
@@ -290,6 +310,7 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
                 "category": r["category"],
                 "duplicate": bool(r["duplicate"]),
                 "reason": r["reason"],
+                "event": {k: r[k].strip() for k in ("event_name", "place", "start_date", "end_date")},
                 "model": MODEL,
                 "scored_at": now,
                 "score_version": SCORE_VERSION,
@@ -300,16 +321,19 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
     return scored
 
 
-def write_post(client, usage: Usage, item: dict) -> str | None:
+def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
+               extra: str = "") -> str | None:
+    """記事を読んで投稿の文章部分を作る。extra は追加の指示（リマインド時の公開日など）。"""
     body = fetch_article_text(item["url"]) or item.get("description", "")
     user = (
         f"記事タイトル: {item.get('title', '')}\n"
         f"配信元: {domain(item['url'])}\n"
         f"公開日時: {(item.get('published_at') or '')[:16]}\n\n"
         f"記事本文:\n{body or '（本文を取得できませんでした。タイトルの範囲で書いてください）'}"
+        + (f"\n\n## 追加の指示\n{extra}" if extra else "")
     )
     # 後ろに付く「【仏像速報】タイトル」と URL の分を差し引いた残りが文章に使える
-    fixed = x_weighted_length(compose_news_post("", item.get("title", ""))) + 1 + X_URL_WEIGHT
+    fixed = x_weighted_length(compose_news_post("", item.get("title", ""), header)) + 1 + X_URL_WEIGHT
     budget_chars = max(40, (X_LIMIT - fixed) // 2 - 3)
     user += f"\n\n文章は全角 {budget_chars} 字以内（ハッシュタグ込み）で書いてください。"
     for _ in range(2):
@@ -317,7 +341,7 @@ def write_post(client, usage: Usage, item: dict) -> str | None:
         if not data:
             return None
         text = data["post_text"].strip()
-        total = x_weighted_length(compose_news_post(text, item.get("title", ""))) + 1 + X_URL_WEIGHT
+        total = x_weighted_length(compose_news_post(text, item.get("title", ""), header)) + 1 + X_URL_WEIGHT
         if total <= X_LIMIT:
             return text
         budget_chars = max(30, budget_chars - 20)
@@ -336,7 +360,8 @@ def notify(topic: str, item: dict) -> None:
             json={
                 "topic": topic,
                 "title": f"⭐ 配信候補 {ai['score']}点（{ai['category']}）",
-                "message": (compose_news_post(ai["post_text"], item.get("title", ""))
+                "message": (compose_news_post(ai["post_text"], item.get("title", ""),
+                                              ai.get("post_header", NEWS_POST_HEADER))
                             if ai.get("post_text") else item.get("title", "")),
                 "click": PWA_URL,
                 "tags": ["star"],

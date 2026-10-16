@@ -31,6 +31,8 @@ ICON_COLOR = (0, 174, 149)
 
 SOURCE_LABELS: dict[str, str] = {
     "google_news":              "📰 ニュース",
+    "official_site":            "🏛 公式サイト",
+    "reminder":                 "⏰ リマインド",
     "bangumi_tv":               "📺 仏像TV",
     "exhibition":               "🏛 特別展",
     "exhibition_rss":           "🏛 特別展",
@@ -46,7 +48,7 @@ SOURCE_LABELS: dict[str, str] = {
 
 # タブ別ソース定義
 # 「特別展」タブは更新頻度が低いため「特別公開」タブにマージ（other 扱い）。
-NEWS_TAB_SOURCES = {"google_news", "bangumi_tv"}
+NEWS_TAB_SOURCES = {"google_news", "official_site", "reminder", "bangumi_tv"}
 GOODS_TAB_SOURCES = {"amazon_goods"}
 # EXHIBITION 系は OTHER に統合（other は明示的にこの集合の補集合として求める）
 _EXHIBITION_SOURCES_MERGED = {"exhibition", "exhibition_rss"}
@@ -136,8 +138,8 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
     ai = item.get("ai") or {}
     if ai.get("post_text"):
         # AI（curate_news.py）が記事を読んで書いた文章 → 【仏像速報】記事タイトル（→ X が URL を付ける）
-        post_text = compose_news_post(ai["post_text"], item.get("title", ""))
-    if source == "google_news":
+        post_text = compose_news_post(ai["post_text"], item.get("title", ""), ai.get("post_header", "【仏像速報】"))
+    if source in ("google_news", "official_site", "reminder"):
         # ニュースの description は AI 採点用の要約。投稿文には差し込まない
         desc_escaped = ""
     intent_params = urllib.parse.urlencode({"text": post_text, "url": url})
@@ -236,6 +238,49 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
     </div>"""
 
 
+def build_calendar_html(days_ahead: int = 30) -> str:
+    """御開帳カレンダー（kaicho_calendar.py）のうち、公開中と days_ahead 日以内に始まるもの。"""
+    path = Path(__file__).parent / "data" / "kaicho_calendar.json"
+    try:
+        events = json.loads(path.read_text(encoding="utf-8")).get("events", [])
+    except Exception:
+        return ""
+    today = datetime.now(JST).date()
+    horizon = (today + timedelta(days=days_ahead)).isoformat()
+    t = today.isoformat()
+    rows = []
+    for e in events:
+        start, end = e.get("start", ""), e.get("end", "")
+        if (end and end < t) or (start and start > horizon) or (not end and start and start < t):
+            continue
+        rows.append(e)
+    if not rows:
+        return ""
+    rows.sort(key=lambda e: e.get("start") or e.get("end"))
+    esc = lambda x: x.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+    def md(d: str) -> str:
+        return f"{int(d[5:7])}/{int(d[8:10])}" if d else "?"
+    lines = []
+    for e in rows:
+        live = (not e.get("start") or e["start"] <= t)
+        badge = ('<span class="text-[10px] font-bold text-white bg-brand-600 px-1.5 py-0.5 rounded">公開中</span>'
+                 if live else "")
+        lines.append(
+            f'        <a href="{esc(e["source_url"])}" target="_blank" rel="noopener noreferrer" '
+            f'class="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0">\n'
+            f'          <span class="text-xs font-bold text-brand-800 w-24 shrink-0">{md(e.get("start", ""))}〜{md(e.get("end", ""))}</span>\n'
+            f'          <span class="text-xs text-gray-700 leading-snug">{badge} {esc(e.get("event_name") or e["source_title"])}'
+            f'<span class="block text-[11px] text-gray-400">{esc(e.get("place", ""))}</span></span>\n'
+            f'        </a>'
+        )
+    return (
+        '    <details class="bg-white rounded-2xl border border-brand-100 shadow-sm p-3" open>\n'
+        f'      <summary class="text-sm font-bold text-brand-800 cursor-pointer">📅 これからの公開（公開中・{days_ahead}日以内・{len(rows)}件）</summary>\n'
+        '      <p class="text-[11px] text-gray-500 mt-1 mb-1">記事からAIが抜き出した公開期間。「あすから」「終了まであと数日」で自動的に配信候補になります</p>\n'
+        '      <div>\n' + "\n".join(lines) + '\n      </div>\n    </details>'
+    )
+
+
 def build_separator_html(dt: datetime) -> str:
     """取り込み時刻を表す区切り線（カード間に挿入）を生成。"""
     label = dt.strftime("%-m月%-d日 %H:%M")
@@ -327,7 +372,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
             + "\n".join(build_card_html(x) for x in candidates)
             + "\n    </div>"
         )
-    news_cards  = candidates_html + "\n" + build_cards_with_separators(news_items)
+    news_cards  = candidates_html + "\n" + build_calendar_html() + "\n" + build_cards_with_separators(news_items)
     book_cards  = build_cards_with_separators(book_items)
     goods_cards = build_cards_with_separators(other_goods)
     # 特別公開タブ（other）はタイトル横にコピーボタンを表示
