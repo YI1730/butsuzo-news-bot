@@ -42,7 +42,8 @@ ARTICLE_BODY_CHARS = 4000  # 投稿文作成時に渡す本文の上限文字数
 POST_FORMAT = 3
 # 採点基準の版。SCORE_SYSTEM を変えたら上げると、直近の採点済み記事も採点し直す
 #   2: 速報性を最重要に（終了済みの出来事・古い記事を大きく減点）
-SCORE_VERSION = 2
+#   3: 2 の再採点で記事が自分自身の重複と判定された不具合を直して採点し直す
+SCORE_VERSION = 3
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
 TARGET_SOURCES = {"google_news"}
@@ -369,9 +370,13 @@ def main() -> int:
         it for it in news
         if it.get("ai", {}).get("score_version", 1 if "ai" in it else 0) < SCORE_VERSION
     ][:MAX_SCORE_PER_RUN]
+    # 重複判定の材料（配信済み・配信候補）。いまから採点する記事自体は含めない
+    # （含めると、再採点時に記事が「自分自身の重複」と判定されてしまう）
+    scoring_ids = {it["id"] for it in unscored}
     recent_candidates = [
         it for it in news
-        if it.get("ai", {}).get("score", 0) >= CANDIDATE_THRESHOLD and not it["ai"].get("duplicate")
+        if it["id"] not in scoring_ids
+        and it.get("ai", {}).get("score", 0) >= CANDIDATE_THRESHOLD and not it["ai"].get("duplicate")
     ]
     print(f"採点対象: {len(unscored)}件（直近{SCORE_WINDOW_HOURS}時間のニュース {len(news)}件中）")
 
