@@ -40,6 +40,9 @@ ARTICLE_BODY_CHARS = 4000  # 投稿文作成時に渡す本文の上限文字数
 # 投稿文の形式・文体の版。POST_SYSTEM を変えたら上げると、既存の配信候補も作り直される
 #   3: 文章 → 【仏像速報】タイトル の順、運営者の文体（ハッシュタグなし）
 POST_FORMAT = 3
+# 採点基準の版。SCORE_SYSTEM を変えたら上げると、直近の採点済み記事も採点し直す
+#   2: 速報性を最重要に（終了済みの出来事・古い記事を大きく減点）
+SCORE_VERSION = 2
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
 TARGET_SOURCES = {"google_news"}
@@ -67,11 +70,24 @@ SCORE_SYSTEM = """あなたは X アカウント「仏像リンク」のニュ�
 - 寺社の観光・グルメ・行事でも仏像に触れていないもの
 - 商品やサービスの宣伝が主目的のもの
 
+# 速報性（最重要。内容と同じかそれ以上に重く見る）
+仏像リンクは「いち早く伝える」ことを重視しています。各記事の hours_since_published
+（配信からの経過時間）と、記事に書かれた公開期間・開催日を今日の日付と比べて判断してください。
+- 加点: 配信から数時間以内の第一報。公開・開催が「今日〜数日以内」に始まる、または終了間近
+  （「あすから」「今週末まで」など、今知らないと行けなくなる情報）
+- 減点（大きく）: 公開期間や開催日がすでに終わった出来事の報告（「公開された」「開帳された」
+  の事後レポート）は、どれだけ珍しい内容でも 60 点以下。配信から 24 時間以上たった記事は、
+  まだ続報価値がある場合を除き 15 点以上下げる
+- 先の予定（数か月後の御開帳の準備など）は内容が良くても 70 点前後まで
+
 # 点数の目安
-- 90〜100: 速報価値が非常に高い（数十年ぶりの開帳、重大な新発見、重大な事件）
-- 70〜89: 配信すべき
-- 40〜69: 仏像に関係はあるが優先度は低い
+- 90〜100: 速報価値が非常に高い（配信直後の第一報で、数十年ぶりの開帳・重大な新発見・重大な事件、
+  または公開が今日〜数日以内に迫っているもの）
+- 70〜89: 配信すべき（いま伝える意味がある）
+- 40〜69: 仏像に関係はあるが、優先度は低い・タイミングを逃している
 - 0〜39: 無関係・ノイズ
+
+reason では、点数に速報性がどう効いたかにも触れてください（例:「あすから公開・第一報」「公開は終了済み」）。
 
 # 重複
 - 一覧の中に同じ出来事を報じた記事が複数ある場合、最も情報量が多い 1 件だけを通常どおり採点し、
@@ -221,6 +237,14 @@ def fetch_article_text(url: str) -> str:
         return ""
 
 
+def hours_since(iso: str | None) -> int | None:
+    """配信からの経過時間（時間単位、不明なら None）。"""
+    try:
+        return int((datetime.now(JST) - datetime.fromisoformat(iso)).total_seconds() // 3600)
+    except (TypeError, ValueError):
+        return None
+
+
 def score_items(client, usage: Usage, items: list[dict], recent_candidates: list[dict]) -> int:
     """items を SCORE_BATCH_SIZE 件ずつ採点し、各記事の "ai" に書き込む。採点件数を返す。"""
     known = list(recent_candidates)  # 重複判定用。採点が進むたびに新しい候補を足していく
@@ -236,10 +260,13 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
                 "description": it.get("description", ""),
                 "source": domain(it.get("url", "")),
                 "published": (it.get("published_at") or "")[:16],
+                "hours_since_published": hours_since(it.get("published_at")),
             }
             for it in batch
         ]
         user = (
+            f"## 今日\n{datetime.now(JST):%Y年%m月%d日}（{'月火水木金土日'[datetime.now(JST).weekday()]}）"
+            f"{datetime.now(JST):%H}時\n\n"
             "## 配信済み・配信候補の記事（直近）\n" + context
             + "\n\n## 採点する記事\n" + json.dumps(articles, ensure_ascii=False, indent=1)
         )
@@ -252,13 +279,18 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
             it = by_id.get(r.get("id"))
             if not it:
                 continue
+            # 再採点のときも、作成済みの投稿文と通知済みフラグは引き継ぐ（再通知・再作成を防ぐ）
+            kept = {k: v for k, v in it.get("ai", {}).items()
+                    if k in ("post_text", "post_format", "notified")}
             it["ai"] = {
+                **kept,
                 "score": max(0, min(100, int(r["score"]))),
                 "category": r["category"],
                 "duplicate": bool(r["duplicate"]),
                 "reason": r["reason"],
                 "model": MODEL,
                 "scored_at": now,
+                "score_version": SCORE_VERSION,
             }
             scored += 1
             if it["ai"]["score"] >= CANDIDATE_THRESHOLD and not it["ai"]["duplicate"]:
@@ -333,7 +365,10 @@ def main() -> int:
             return False
 
     news = [it for it in data["items"] if it.get("source") in TARGET_SOURCES and recent(it)]
-    unscored = [it for it in news if "ai" not in it][:MAX_SCORE_PER_RUN]
+    unscored = [
+        it for it in news
+        if it.get("ai", {}).get("score_version", 1 if "ai" in it else 0) < SCORE_VERSION
+    ][:MAX_SCORE_PER_RUN]
     recent_candidates = [
         it for it in news
         if it.get("ai", {}).get("score", 0) >= CANDIDATE_THRESHOLD and not it["ai"].get("duplicate")
