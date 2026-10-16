@@ -86,10 +86,17 @@ QUERY_RECENCY = "when:2d"
 
 def build_search_queries(includes: list[str], excludes: list[str]) -> list[str]:
     """キーワードを KEYWORDS_PER_QUERY 個ずつに分けた検索クエリ群を返す。"""
-    queries = []
-    for i in range(0, len(includes), KEYWORDS_PER_QUERY):
-        q = build_search_query(includes[i:i + KEYWORDS_PER_QUERY], excludes)
-        queries.append(f"{q} {QUERY_RECENCY}")
+    # 「国宝 (寺 OR 仏)」のように条件付きのキーワード（空白を含む）は、OR でつなぐと
+    # 意味が変わるので 1 つで 1 検索にする
+    simple = [k for k in includes if " " not in k]
+    compound = [k for k in includes if " " in k]
+    # （外側を括弧で包むと Google が件数を極端に絞るため、括弧なしで組み立てる）
+    queries = [
+        f"{build_search_query(simple[i:i + KEYWORDS_PER_QUERY], excludes)} {QUERY_RECENCY}"
+        for i in range(0, len(simple), KEYWORDS_PER_QUERY)
+    ]
+    exc_part = " ".join(f"-{w}" for w in excludes)
+    queries += [f"{k} {exc_part} {QUERY_RECENCY}".replace("  ", " ") for k in compound]
     return queries
 
 # 配信元ドメインによる除外リスト（仏像と無関係なサイトを排除）。
