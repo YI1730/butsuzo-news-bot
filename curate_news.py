@@ -25,7 +25,7 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 
-from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD
+from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD, compose_news_post
 from post_news import JST, RESOLVE_USER_AGENT, load_news_data, save_news_data
 
 MODEL = "claude-opus-5-5"
@@ -101,17 +101,17 @@ SCORE_SCHEMA = {
 }
 
 POST_SYSTEM = """あなたは X アカウント「仏像リンク」の中の人です。仏像好きのフォロワーに向けて、
-ニュース記事を紹介する X の投稿文を 1 つ書いてください。
+ニュース記事を紹介する X の投稿の「文章部分」を書いてください。
+投稿は「あなたの文章」→「【仏像速報】記事タイトル」→「記事 URL」の順に並ぶので、
+タイトルや URL、【仏像速報】の見出しは書かないでください（システムが後ろに付けます）。
 
 # 書き方
-- 1 行目は【仏像速報】で始め、続けて何が起きたかを一言で
 - 「何が（仏像名）」「どこで（寺・博物館名と都道府県）」「いつ（公開期間・日付）」を、記事に書かれている範囲で必ず入れる
 - 見どころを 1 つだけ具体的に（像の特徴、◯十年ぶり、など）
 - 最後に仏像好きの目線のひとことを短く。押しつけや誇張はしない
 - 末尾にハッシュタグを 2〜3 個（#仏像 と、寺名や仏像名など記事に合うもの）
 - 絵文字は使っても 1〜2 個
-- URL は書かない（システムが末尾に付ける）
-- 本文全体（ハッシュタグ込み）で全角 115 字以内
+- 指定された文字数以内に収める
 
 # 守ること
 - 記事に書かれていない事実（日付、所在地、像の名前、指定区分など）を推測で書かない
@@ -268,17 +268,22 @@ def write_post(client, usage: Usage, item: dict) -> str | None:
         f"公開日時: {(item.get('published_at') or '')[:16]}\n\n"
         f"記事本文:\n{body or '（本文を取得できませんでした。タイトルの範囲で書いてください）'}"
     )
+    # 後ろに付く「【仏像速報】タイトル」と URL の分を差し引いた残りが文章に使える
+    fixed = x_weighted_length(compose_news_post("", item.get("title", ""))) + 1 + X_URL_WEIGHT
+    budget_chars = max(40, (X_LIMIT - fixed) // 2 - 3)
+    user += f"\n\n文章は全角 {budget_chars} 字以内（ハッシュタグ込み）で書いてください。"
     for _ in range(2):
         data = call_json(client, usage, POST_SYSTEM, user, POST_SCHEMA, effort="medium")
         if not data:
             return None
         text = data["post_text"].strip()
-        total = x_weighted_length(text) + 1 + X_URL_WEIGHT  # 改行 + URL
+        total = x_weighted_length(compose_news_post(text, item.get("title", ""))) + 1 + X_URL_WEIGHT
         if total <= X_LIMIT:
             return text
+        budget_chars = max(30, budget_chars - 20)
         user += (
             f"\n\n（前回の案は X の文字数制限を超えました: {total}/{X_LIMIT}。"
-            "もっと短く、全角 100 字以内で書き直してください）"
+            f"全角 {budget_chars} 字以内で書き直してください）"
         )
     return None
 
@@ -291,7 +296,8 @@ def notify(topic: str, item: dict) -> None:
             json={
                 "topic": topic,
                 "title": f"⭐ 配信候補 {ai['score']}点（{ai['category']}）",
-                "message": ai.get("post_text") or item.get("title", ""),
+                "message": (compose_news_post(ai["post_text"], item.get("title", ""))
+                            if ai.get("post_text") else item.get("title", "")),
                 "click": PWA_URL,
                 "tags": ["star"],
                 "priority": 5 if ai["score"] >= 90 else 4,
@@ -342,6 +348,7 @@ def main() -> int:
     for it in candidates:
         text = write_post(client, usage, it)
         it["ai"]["post_text"] = text or ""
+        it["ai"]["post_format"] = 2  # 2: post_text は文章部分のみ（タイトルは表示時に付ける）
         if text:
             written += 1
             print(f"⭐ {it['ai']['score']}点 {it['title'][:40]}\n   {text}")

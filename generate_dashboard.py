@@ -15,7 +15,7 @@ import zlib
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD
+from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD, compose_news_post
 
 DOCS_DIR = Path(__file__).parent / "docs"
 NEWS_JSON_FILE = DOCS_DIR / "data" / "news.json"
@@ -135,8 +135,8 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
     post_text = f"{header}\n{item.get('title', '')}\n{hashtags}"
     ai = item.get("ai") or {}
     if ai.get("post_text"):
-        # AI（curate_news.py）が記事を読んで書いた投稿文を使う
-        post_text = ai["post_text"]
+        # AI（curate_news.py）が記事を読んで書いた文章 → 【仏像速報】記事タイトル（→ X が URL を付ける）
+        post_text = compose_news_post(ai["post_text"], item.get("title", ""))
     if source == "google_news":
         # ニュースの description は AI 採点用の要約。投稿文には差し込まない
         desc_escaped = ""
@@ -198,7 +198,7 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
         if ai.get("post_text"):
             ai_html += (
                 f'      <p class="text-xs text-gray-700 bg-amber-50 border border-amber-100 rounded-lg p-2 mb-3 '
-                f'whitespace-pre-wrap leading-relaxed">{esc(ai["post_text"])}</p>\n'
+                f'whitespace-pre-wrap leading-relaxed">{esc(post_text)}</p>\n'
             )
 
     # タイトル行：show_copy_btn=True のときはコピーボタンを横に並べる

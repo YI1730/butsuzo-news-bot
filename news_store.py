@@ -26,3 +26,17 @@ def trim_per_source(items: list[dict], cap: int = MAX_ITEMS_PER_SOURCE) -> list[
             counts[src] += 1
             kept.append(item)
     return kept
+
+
+NEWS_POST_HEADER = "【仏像速報】"
+
+
+def clean_news_title(title: str) -> str:
+    """Google ニュースのタイトル末尾の「 - 配信元名」を除く。"""
+    head, sep, _ = title.rpartition(" - ")
+    return head.strip() if sep and head.strip() else title.strip()
+
+
+def compose_news_post(comment: str, title: str) -> str:
+    """ニュース投稿の本文。文章 → 【仏像速報】記事タイトル の順（URL は X が末尾に付ける）。"""
+    return f"{comment.strip()}\n\n{NEWS_POST_HEADER}{clean_news_title(title)}"
