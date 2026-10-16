@@ -40,7 +40,8 @@ MAX_POSTS_PER_RUN = 8
 ARTICLE_BODY_CHARS = 4000  # 投稿文作成時に渡す本文の上限文字数
 # 投稿文の形式・文体の版。POST_SYSTEM を変えたら上げると、既存の配信候補も作り直される
 #   3: 文章 → 【仏像速報】タイトル の順、運営者の文体（ハッシュタグなし）
-POST_FORMAT = 3
+#   4: 冒頭の場所名をやめて入り方を毎回変える、「行くならいま」一辺倒をやめる、「！」可
+POST_FORMAT = 4
 # 採点基準の版。SCORE_SYSTEM を変えたら上げると、直近の採点済み記事も採点し直す
 #   2: 速報性を最重要に（終了済みの出来事・古い記事を大きく減点）
 #   3: 2 の再採点で記事が自分自身の重複と判定された不具合を直して採点し直す
@@ -159,14 +160,26 @@ POST_SYSTEM = """あなたは X アカウント「仏像リンク」の中の人
 タイトルや URL、【仏像速報】の見出しは書かないでください（システムが後ろに付けます）。
 
 # 文体（運営者の好みに合わせる）
-- 1 行目に寺や博物館の名前を「若狭町・三方石観世音。」のように置き、1 行空けてから本文を書く
-- 本文は落ち着いた常体（〜だ、〜らしい、〜とのこと）。盛らない・煽らない。でもドライすぎず、体温のある書き方
-- 「感動」「必見」「すごい」のような感情語や宣伝文句で言わず、像の姿や公開の事情など具体的な事実で伝える
+- 落ち着いた常体（〜だ、〜らしい、〜とのこと）が基本。盛らない・煽らないが、淡々としすぎない。
+  うれしい・驚いたニュースでは「！」を使ってよい（1 投稿に 1〜2 個まで。「！！」の連打はしない）
+- 「感動」「必見」のような宣伝文句ではなく、像の姿や公開の事情など具体的な事実で伝える
 - 何が（仏像名）・どこで・いつ（公開期間や日付）を、記事に書かれている範囲で自然に入れる
-- 最後に、仏像好きとしての短い本音や小さなオチをそっと添えてよい（カッコ書きも可）。
-  例:「（次は33年後。さすがに自信がない…）」「会えるうちに会っておきたい。」
+- 最後に、仏像好きとしての短い本音や小さなオチを添えてよい（カッコ書きも可）
 - ハッシュタグは使わない。絵文字も基本は使わない
 - 指定された文字数以内に収める
+
+# 毎回同じ型にしない
+- 冒頭を場所名（「若狭町・三方石観世音。」のような書き出し）で始める型に固定しない。
+  入り方は記事ごとに変える: 数字（「33年ぶり。」）、像の姿、公開に至った事情、発見の中身、
+  素直な驚き・喜び、など。「直近の投稿文」が渡されたら、それと書き出しや締めが似ないようにする
+- 「行くならいま」「会えるうちに」のような来訪を促す締めは、公開の終了が数日以内に迫っている
+  ときだけ使う。それ以外は記事の種類に合った視点で書く:
+  - 新発見・研究: 何が分かったのか、どこが面白いのか
+  - 新指定: どこが評価されたのか、素直なお祝い
+  - 修理完了: 姿がどう変わったか、戻ってきた喜び
+  - 展覧会の発表・開幕: 何が来るのか、楽しみな気持ち
+  - 御開帳・特別公開: 何年ぶりか、どんな像か、公開の事情
+  - 事件・被害: 事実を落ち着いて伝える（「！」は使わない）
 
 # 守ること
 - 記事に書かれていない事実（日付、所在地、像の名前、指定区分など）を推測で書かない
@@ -351,8 +364,9 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
 
 
 def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
-               extra: str = "") -> str | None:
-    """記事を読んで投稿の文章部分を作る。extra は追加の指示（リマインド時の公開日など）。"""
+               extra: str = "", recent_posts: list[str] | None = None) -> str | None:
+    """記事を読んで投稿の文章部分を作る。extra は追加の指示（リマインド時の公開日など）。
+    recent_posts は直近に作った投稿文（書き出し・締めが似ないようにするため）。"""
     body = fetch_article_text(item["url"]) or item.get("description", "")
     user = (
         f"記事タイトル: {item.get('title', '')}\n"
@@ -360,6 +374,9 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
         f"公開日時: {(item.get('published_at') or '')[:16]}\n\n"
         f"記事本文:\n{body or '（本文を取得できませんでした。タイトルの範囲で書いてください）'}"
         + (f"\n\n## 追加の指示\n{extra}" if extra else "")
+        + ("\n\n## 直近の投稿文（これと書き出し・締めが似ないように）\n"
+           + "\n".join(f"- {t.replace(chr(10), ' ')}" for t in recent_posts[:6])
+           if recent_posts else "")
     )
     # 後ろに付く「【仏像速報】タイトル」と URL の分を差し引いた残りが文章に使える
     fixed = x_weighted_length(compose_news_post("", item.get("title", ""), header)) + 1 + X_URL_WEIGHT
@@ -449,11 +466,19 @@ def main() -> int:
     ][:MAX_POSTS_PER_RUN]
     topic = os.environ.get("NTFY_TOPIC", "").strip()
     written = 0
+    # 直近に作った投稿文（新しい順）。書き出し・締めの型が続かないように渡す
+    recent_posts = [
+        x["ai"]["post_text"] for x in sorted(
+            (x for x in data["items"]
+             if x.get("ai", {}).get("post_text") and x["ai"].get("post_format", 0) >= POST_FORMAT),
+            key=lambda x: x.get("fetched_at", ""), reverse=True)
+    ]
     for it in candidates:
-        text = write_post(client, usage, it)
+        text = write_post(client, usage, it, recent_posts=recent_posts)
         it["ai"]["post_text"] = text or ""
         it["ai"]["post_format"] = POST_FORMAT
         if text:
+            recent_posts.insert(0, text)
             written += 1
             print(f"⭐ {it['ai']['score']}点 {it['title'][:40]}\n   {text}")
         if topic and not it["ai"].get("notified"):

@@ -105,7 +105,13 @@ def build_search_queries(includes: list[str], excludes: list[str]) -> list[str]:
 EXCLUDE_DOMAINS = [
     "ppid.semarangkota.go.id",
     "cfecgc-orange.org",
+    # 何年も前の記事の写真ページが、新しい日付で Google News に出直してくる
+    "walkerplus.com",
 ]
+
+# 「＜画像12 / 29＞…」のような写真ページの見出し。古い記事の写真ページが新しい日付で
+# 出直してくることが多く、本文も無いので取り込まない
+GALLERY_TITLE_RE = re.compile(r"^[＜<]?画像\s*\d+\s*/\s*\d+\s*[＞>]")
 
 NEWS_JSON_FILE = Path(__file__).parent / "docs" / "data" / "news.json"
 # Google News の記事 ID → 解決済み URL のキャッシュ。毎時実行しても
@@ -385,6 +391,10 @@ def main() -> int:
 
         if contains_excluded_keyword(title):
             print(f"除外キーワードを含むためスキップ: {title}")
+            continue
+
+        if GALLERY_TITLE_RE.match(title):
+            print(f"写真ページのためスキップ: {title}")
             continue
 
         # 公開日チェック：MAX_ARTICLE_AGE_DAYS より古い記事は除外
