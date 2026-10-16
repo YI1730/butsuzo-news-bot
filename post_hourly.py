@@ -36,7 +36,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import post_visit_tweet as pv
@@ -138,36 +138,36 @@ def _weekday_matches(item: dict, cur_wd: str) -> bool:
 
 
 def _grace_for(slot_hour: int, all_hours: list[int]) -> int:
-    """スロットの猶予時間。次のスロットに食い込まないよう上限を調整する。"""
-    later = [h for h in sorted(all_hours) if h > slot_hour]
-    gap = (later[0] - slot_hour) if later else (24 - slot_hour)
+    """スロットの猶予時間。次のスロット（翌日の最初のスロットを含む）に食い込まないよう上限を調整する。
+    夜のスロット（20時など）は日付をまたいで補完できる（20時なら翌2時まで）。"""
+    hs = sorted(all_hours)
+    later = [h for h in hs if h > slot_hour]
+    gap = (later[0] - slot_hour) if later else (hs[0] + 24 - slot_hour)
     return max(1, min(CATCHUP_GRACE_HOURS, gap))
 
 
 def due_visit_hour(config: dict, now: datetime, history: dict[str, str]) -> int | None:
-    """今日まだ投稿していない訪問記スロットのうち、最も早いものを返す。
+    """まだ投稿していない訪問記スロットのうち、猶予時間内のものを返す（最も早いもの）。
 
     「実行時刻がぴったり一致」ではなく「指定時刻を過ぎたか」で判定するため、
     cron が間引かれても後続の実行が取りこぼしを埋められる。
-    投稿済みかどうかは post_history.json のタイムスタンプから判定するので、
-    追加の状態ファイル（＝ワークフローの変更）は不要。
+    前日のスロットも見るので、20時のスロットを翌0〜1時の実行で補完できる。
+    投稿済みかどうかは post_history.json のタイムスタンプから判定する。
     """
     if not config.get("visit_enabled"):
         return None
     hours = config.get("visit_hours") or []
-    today = now.date()
-    # 今日すでに投稿した時刻の一覧
-    posted_today: list[int] = []
-    for iso in history.values():
-        dt = _parse_jst(iso)
-        if dt is not None and dt.date() == today:
-            posted_today.append(dt.hour)
-    for h in sorted(hours):
-        grace = _grace_for(h, hours)
-        # そのスロットの猶予枠内にすでに投稿があれば消化済みとみなす
-        if any(h <= ph < h + grace for ph in posted_today):
-            continue
-        if h <= now.hour < h + grace:
+    posted = [dt for dt in (_parse_jst(iso) for iso in history.values()) if dt is not None]
+    for day_offset in (-1, 0):
+        day = (now + timedelta(days=day_offset)).replace(minute=0, second=0, microsecond=0)
+        for h in sorted(hours):
+            start = day.replace(hour=h)
+            end = start + timedelta(hours=_grace_for(h, hours))
+            if not (start <= now < end):
+                continue
+            # そのスロットの猶予枠内にすでに投稿があれば消化済みとみなす
+            if any(start <= p < end for p in posted):
+                continue
             return h
     return None
 
@@ -225,7 +225,7 @@ def main() -> int:
     if visit_slot is None:
         print("→ 訪問投稿予定: なし（時間外、または本日分は投稿済み）")
     else:
-        late = cur_hour - visit_slot
+        late = (cur_hour - visit_slot) % 24
         print(f"→ 訪問投稿予定: あり（{visit_slot}時のスロット"
               f"{'・' + str(late) + '時間遅れの取りこぼし補完' if late else ''}）")
     print(f"→ 告知該当: {len(due_promos)}件")

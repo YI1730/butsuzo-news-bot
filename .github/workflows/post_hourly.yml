@@ -2,7 +2,8 @@ name: Auto Post Hourly
 
 on:
   schedule:
-    - cron: "0 * * * *"   # 毎時。JSTの各「時」を評価
+    # 毎時0分は GitHub 全体で混み、実行が間引かれやすいので避け、1時間に2回実行する
+    - cron: "17,47 * * * *"   # JSTの各「時」を評価（投稿済みなら何もしない）
   workflow_dispatch:
     inputs:
       hour:
