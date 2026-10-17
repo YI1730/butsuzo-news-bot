@@ -1,6 +1,33 @@
 {
-  "last_updated": "2026-10-18T07:17:52.424887+09:00",
+  "last_updated": "2026-10-18T07:27:25.761626+09:00",
   "items": [
+    {
+      "id": "830ffa9a1ae4",
+      "title": "重文効果で拝観者２倍、伽藍形式「圧倒される」 富山県南砺市の瑞泉寺 - 47NEWS",
+      "url": "https://www.47news.jp/15098169.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-18T07:27:25.757140+09:00",
+      "published_at": "2026-10-18T07:00:00+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/5eaf47bc866e4cbbd572e9e29ce58ea6/photo.jpg",
+      "description": "富山県南砺市の真宗大谷派井波別院瑞泉寺の本堂など４棟が国重要文化財（重文）に指定されることが決まってから一夜明けた１７日、寺には先週土曜の２倍以上となる約２５０人が訪れた。本堂と太子堂が並立する貴重 ...",
+      "ai": {
+        "score": 55,
+        "category": "発見・研究・新指定",
+        "duplicate": false,
+        "reason": "瑞泉寺の重文指定の後追い報道。建造物で仏像ではなく、指定から一夜明けの続報で速報性は低め",
+        "event": {
+          "event_name": "",
+          "place": "瑞泉寺（富山県南砺市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-18T07:29:21+09:00",
+        "score_version": 5
+      }
+    },
     {
       "id": "rem-126086db3ee1-start",
       "title": "仏教文化多彩に伝え 鎌倉・浄楽寺で１９日、「十夜法要」に合わせ催し - カナロコ",
@@ -9840,33 +9867,6 @@
         },
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-16T21:32:50+09:00",
-        "score_version": 5
-      }
-    },
-    {
-      "id": "3e762757a619",
-      "title": "柏、５ゴールで初勝利 ＡＣＬサッカー - 烏丸経済新聞",
-      "url": "https://karasuma.keizai.biz/gpnews/1773893/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-16T21:26:34.507944+09:00",
-      "published_at": "2026-10-14T22:14:21+09:00",
-      "image_url": "https://images.keizai.biz/karasuma_keizai/globalphoto/",
-      "description": "サッカーのアジア・チャンピオンズリーグ・エリート東地区１次リーグ。柏はポート（タイ）に５―１で大勝し、初勝利を挙げた。写真は先制ゴールを決めた久保（中央）＝１４日、千葉・三協フロンテア柏スタジアム 【時事通信社】",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "サッカー記事で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T21:28:38+09:00",
         "score_version": 5
       }
     },
