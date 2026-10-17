@@ -29,6 +29,9 @@ jobs:
       HAS_PRIVATE: ${{ secrets.PRIVATE_REPO_SSH_KEY != '' }}
     steps:
       - uses: actions/checkout@v4
+        # 予約時点ではなく実行時点の最新 main を取る（待ち中に他の実行が push すると衝突するため）
+        with:
+          ref: main
 
       - uses: actions/setup-python@v5
         with:
