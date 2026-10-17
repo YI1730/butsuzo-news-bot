@@ -3,3 +3,6 @@ __pycache__/
 .venv/
 venv/
 .env
+
+# 非公開リポジトリの checkout 先（news_hourly.yml）。誤って公開側にコミットしない
+private/

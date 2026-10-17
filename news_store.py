@@ -43,3 +43,24 @@ def compose_news_post(comment: str, title: str, header: str = NEWS_POST_HEADER) 
     見出しは通常【仏像速報】。御開帳カレンダーのリマインドでは【あすから公開】などに変わる。
     """
     return f"{comment.strip()}\n\n{header}{clean_news_title(title)}"
+
+
+# ── 書籍の並び順（rank_books.py が採点、generate_dashboard.py が並べる） ──
+BOOK_NEW_RELEASE_DAYS = 60   # 発売後この日数までを「新刊」とする
+BOOK_NEW_MIN_SCORE = 50      # 新刊欄に出す最低点（塗り絵などは新刊でも下段へ）
+BOOK_HIDE_BELOW = 10         # これ未満は仏像と無関係とみなし表示しない
+
+
+def book_release_date(item: dict):
+    """書籍の発売日（date）。scrape_amazon.py が release_date を持たせる前の書籍は、
+    published_at が 0 時ちょうど（＝発売日から作った値）なら発売日とみなす。"""
+    from datetime import datetime as _dt
+    s = item.get("release_date") or ""
+    if not s:
+        p = item.get("published_at") or ""
+        if "T00:00:00" in p:
+            s = p[:10]
+    try:
+        return _dt.strptime(s[:10], "%Y-%m-%d").date()
+    except ValueError:
+        return None

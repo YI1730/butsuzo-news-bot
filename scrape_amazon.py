@@ -287,6 +287,8 @@ def parse_search_results(soup: BeautifulSoup, item_type: str) -> list[dict]:
             "hashtags":     hashtags,
             "image_url":    image_url,
             "published_at": published_at,
+            # 発売日（取れたときだけ）。PWA の書籍一覧の並び順に使う（rank_books.py）
+            "release_date": published_at[:10] if release_date_str else "",
         })
 
     return items

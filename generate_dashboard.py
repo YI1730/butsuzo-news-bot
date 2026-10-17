@@ -12,7 +12,7 @@ import json
 import struct
 import urllib.parse
 import zlib
-from datetime import datetime, timezone, timedelta
+from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 
 from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD, compose_news_post
@@ -203,6 +203,16 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
                 f'whitespace-pre-wrap leading-relaxed">{esc(post_text)}</p>\n'
             )
 
+    # 書籍: 発売日と紹介価値（rank_books.py）のバッジ
+    if item.get("_book_badge"):
+        esc_b = lambda t: t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        ai_html += (
+            f'      <div class="flex items-center gap-1.5 mb-2 flex-wrap">\n'
+            f'        <span class="text-[11px] font-bold border px-2 py-0.5 rounded-full bg-sky-50 text-sky-800 border-sky-200">{esc_b(item["_book_badge"])}</span>\n'
+            f'        <span class="text-[11px] text-gray-500">{esc_b((item.get("book_ai") or {}).get("reason", ""))}</span>\n'
+            f'      </div>\n'
+        )
+
     # タイトル行：show_copy_btn=True のときはコピーボタンを横に並べる
     if show_copy_btn:
         title_block_html = (
@@ -291,6 +301,50 @@ def build_separator_html(dt: datetime) -> str:
     </div>"""
 
 
+def build_book_cards(books: list[dict]) -> str:
+    """書籍を「新刊（発売予定〜発売直後）」→「おすすめ（紹介する価値の高い順）」に並べる。
+    紹介する価値は rank_books.py が Claude で採点した book_ai.score。"""
+    from news_store import (BOOK_HIDE_BELOW as HIDE_BELOW, BOOK_NEW_MIN_SCORE as NEW_MIN_SCORE,
+                            BOOK_NEW_RELEASE_DAYS as NEW_RELEASE_DAYS, book_release_date as release_date)
+
+    today = datetime.now(JST).date()
+
+    def score(b: dict) -> int:
+        return (b.get("book_ai") or {}).get("score", 50)  # 未採点は中くらい扱い
+
+    new, rest = [], []
+    for b in books:
+        if score(b) < HIDE_BELOW:
+            continue
+        rd = release_date(b)
+        b = dict(b)
+        if rd and rd > today:
+            b["_book_badge"] = f"📅 {rd:%Y/%m/%d} 発売予定・予約受付中"
+        elif rd:
+            b["_book_badge"] = f"📅 {rd:%Y/%m/%d} 発売"
+        else:
+            b["_book_badge"] = "📅 発売日不明"
+        if rd and (rd - today).days >= -NEW_RELEASE_DAYS and score(b) >= NEW_MIN_SCORE:
+            new.append((rd, b))
+        else:
+            rest.append(b)
+    new.sort(key=lambda t: t[0], reverse=True)
+    rest.sort(key=lambda b: (score(b), (release_date(b) or date.min)), reverse=True)
+
+    def heading(text: str, sub: str) -> str:
+        return (f'    <p class="text-xs font-bold text-brand-800 px-1 pt-1">{text}'
+                f'<span class="font-normal text-gray-500 ml-1">{sub}</span></p>')
+
+    out = []
+    if new:
+        out.append(heading(f"🆕 新刊（{len(new)}冊）", "発売予定・発売60日以内"))
+        out += [build_card_html(b) for _, b in new]
+    if rest:
+        out.append(heading(f"📖 おすすめ（{len(rest)}冊）", "仏像リンクとして紹介したい順"))
+        out += [build_card_html(b) for b in rest]
+    return "\n".join(out)
+
+
 def build_cards_with_separators(items: list[dict], show_copy_btn: bool = False) -> str:
     """fetched_at が一定以上離れた境界に区切り線を挟みつつカードを並べる。
 
@@ -373,7 +427,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
             + "\n    </div>"
         )
     news_cards  = candidates_html + "\n" + build_calendar_html() + "\n" + build_cards_with_separators(news_items)
-    book_cards  = build_cards_with_separators(book_items)
+    book_cards  = build_book_cards(book_items)
     goods_cards = build_cards_with_separators(other_goods)
     # 特別公開タブ（other）はタイトル横にコピーボタンを表示
     other_cards = build_cards_with_separators(other_items, show_copy_btn=True)
@@ -459,6 +513,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         📰 ニュース<span class="opacity-60 ml-0.5">{news_count}</span>
       </button>
+      <button onclick="setTab('replies')" id="tab-btn-replies"
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
+        💬 返信<span id="replies-count" class="ml-0.5"></span>
+      </button>
       <button onclick="setTab('other')" id="tab-btn-other"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         🛕 特別公開<span class="opacity-60 ml-0.5">{other_count}</span>
@@ -470,10 +528,6 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <button onclick="setTab('archive')" id="tab-btn-archive"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         📜 訪問記
-      </button>
-      <button onclick="setTab('replies')" id="tab-btn-replies"
-        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        💬 返信<span id="replies-count" class="ml-0.5"></span>
       </button>
     </div>
 
@@ -593,6 +647,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
         </p>
       </div>
       <div id="replies-cards" class="space-y-3">
+        <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
+      </div>
+      <!-- 反応したい投稿：X リストの新着から AI が選ぶ（pick_reactions.py）。データは非公開リポジトリにあり、
+           この端末の GitHub トークンで読む。いいね・リポストは自動では押さず、タップで X を開く -->
+      <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm mt-4">
+        <p class="text-sm font-bold text-brand-800">👍 反応したい投稿</p>
+        <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">
+          AIが1日最大3件まで選んでいます。「いいね」「リポスト」を押すとXが開くので、そこで押してください。
+        </p>
+      </div>
+      <div id="reactions-cards" class="space-y-3">
         <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
       </div>
     </div>
@@ -846,6 +911,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       _fetchJson(_RAW_BASE + '/data/replies.json', './data/replies.json')
         .then(function (d) {{ repliesData = (d && Array.isArray(d.items)) ? d.items : []; renderReplies(); }})
         .catch(function () {{ repliesData = []; renderReplies(); }});
+      loadReactions();
     }}
 
     function _replyCardHtml(it, open) {{
@@ -887,8 +953,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
           return (PRIORITY_ORDER[a.ai.priority] - PRIORITY_ORDER[b.ai.priority]) || (b.created_at || '').localeCompare(a.created_at || '');
         }});
       const skip = items.filter(function (it) {{ return !it.ai.needs_reply; }});
-      const badge = document.getElementById('replies-count');
-      if (badge) badge.textContent = need.length ? ' ' + need.length : '';
+      window._replyNeedCount = need.length;
+      _updateRepliesBadge();
       if (!box) return;
       let h = need.length ? need.map(function (it) {{ return _replyCardHtml(it, true); }}).join('')
         : '<p class="text-center text-sm text-gray-400 py-6">返信すべき返信はありません。</p>';
@@ -902,6 +968,94 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }}
       box.innerHTML = h;
       if (currentTab === 'replies') applyFilter();
+    }}
+
+    // 👍 反応したい投稿: 非公開リポジトリ butsuzo-private の reactions.json を、この端末のトークンで読む
+    const PRIVATE_REPO = 'butsuzo-private';
+    const REACTION_SHOW_HOURS = 72;
+    let reactionsData = null;
+    let reactionsError = '';
+
+    function _reactionDone(id) {{
+      try {{ return localStorage.getItem('reaction_done_' + id) === '1'; }} catch (e) {{ return false; }}
+    }}
+
+    function loadReactions() {{
+      const token = getGithubToken();
+      if (!token) {{
+        reactionsData = []; reactionsError = '表示するには、訪問記タブの「⚙️ 自動投稿の設定」で GitHub トークンを保存してください。';
+        renderReactions(); return;
+      }}
+      fetch(GH_API + '/repos/' + GH_OWNER + '/' + PRIVATE_REPO + '/contents/reactions.json?t=' + Date.now(), {{
+        headers: {{ 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' }},
+        cache: 'no-store',
+      }}).then(function (r) {{
+        if (r.status === 404 || r.status === 403) throw new Error('perm');
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      }}).then(function (body) {{
+        const d = JSON.parse(base64ToUtf8(body.content || ''));
+        reactionsData = Array.isArray(d.items) ? d.items : []; reactionsError = '';
+        renderReactions();
+      }}).catch(function (e) {{
+        reactionsData = [];
+        reactionsError = e.message === 'perm'
+          ? '保存済みの GitHub トークンに butsuzo-private の読み取り権限がありません（トークンの設定で追加してください）。'
+          : '読み込みに失敗しました（' + e.message + '）';
+        renderReactions();
+      }});
+    }}
+
+    function _reactionCardHtml(it) {{
+      const dt = new Date(it.created_at || '');
+      const pad = function (n) {{ return String(n).padStart(2, '0'); }};
+      const when = isNaN(dt) ? '' : pad(dt.getMonth() + 1) + '/' + pad(dt.getDate()) + ' ' + pad(dt.getHours()) + ':' + pad(dt.getMinutes());
+      const likeUrl = 'https://x.com/intent/like?tweet_id=' + encodeURIComponent(it.id);
+      const rtUrl = 'https://x.com/intent/retweet?tweet_id=' + encodeURIComponent(it.id);
+      let h = '<div class="bg-white rounded-2xl shadow-sm p-4 border border-brand-100" data-reaction-id="' + escapeHtml(it.id) + '">';
+      h += '<div class="flex items-center gap-2 mb-2">';
+      if (it.icon) h += '<img src="' + escapeHtml(it.icon) + '" alt="" class="w-7 h-7 rounded-full" loading="lazy" onerror="this.style.display=\\'none\\'">';
+      h += '<p class="text-xs text-gray-600 flex-1 min-w-0 truncate"><b>' + escapeHtml(it.name || '') + '</b> @' + escapeHtml(it.username || '') + '・' + escapeHtml(when) + '</p></div>';
+      h += '<p class="text-[11px] text-sky-800 bg-sky-50 border border-sky-100 rounded-full inline-block px-2 py-0.5 mb-2">' +
+        (it.action === 'repost' ? '🔁 リポストも向き' : '♡ いいね向き') + '・' + escapeHtml(it.reason || '') + '</p>';
+      h += '<p class="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap mb-2">' + escapeHtml(it.text || '') + '</p>';
+      if (it.image) h += '<img src="' + escapeHtml(it.image) + '" alt="" loading="lazy" class="w-full h-40 object-cover rounded-xl mb-2" onerror="this.style.display=\\'none\\'">';
+      h += '<div class="flex gap-2 items-center flex-wrap">' +
+        '<a href="' + likeUrl + '" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-pink-600 active:bg-pink-700 text-white text-sm font-bold py-2.5 rounded-full">♡ いいね</a>';
+      if (it.action === 'repost') {{
+        h += '<a href="' + rtUrl + '" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-emerald-600 active:bg-emerald-700 text-white text-sm font-bold py-2.5 rounded-full">🔁 リポスト</a>';
+      }}
+      h += '<a href="' + escapeHtml(it.url || '') + '" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs text-gray-500 underline">Xで開く</a>' +
+        '<button type="button" onclick="markReactionDone(\\'' + escapeHtml(it.id) + '\\')" class="shrink-0 bg-gray-100 active:bg-gray-200 text-gray-600 text-xs font-bold py-2 px-3 rounded-full">対応済み</button>' +
+        '</div></div>';
+      return h;
+    }}
+
+    function renderReactions() {{
+      const box = document.getElementById('reactions-cards');
+      const cutoff = new Date(Date.now() - REACTION_SHOW_HOURS * 3600 * 1000).toISOString();
+      const items = (reactionsData || []).filter(function (it) {{
+        return !_reactionDone(it.id) && (it.created_at || '') >= cutoff;
+      }}).sort(function (a, b) {{
+        return (a.rank - b.rank) || (b.created_at || '').localeCompare(a.created_at || '');
+      }});
+      window._reactionCount = items.length;
+      _updateRepliesBadge();
+      if (!box) return;
+      if (reactionsError) {{ box.innerHTML = '<p class="text-center text-xs text-gray-400 py-4 px-2">' + escapeHtml(reactionsError) + '</p>'; return; }}
+      box.innerHTML = items.length ? items.map(_reactionCardHtml).join('')
+        : '<p class="text-center text-sm text-gray-400 py-6">いまは反応したい投稿はありません。</p>';
+    }}
+
+    function markReactionDone(id) {{
+      try {{ localStorage.setItem('reaction_done_' + id, '1'); }} catch (e) {{}}
+      renderReactions();
+    }}
+
+    function _updateRepliesBadge() {{
+      const badge = document.getElementById('replies-count');
+      const n = (window._replyNeedCount || 0) + (window._reactionCount || 0);
+      if (badge) badge.textContent = n ? ' ' + n : '';
     }}
 
     function promoteReply(id) {{
@@ -1661,7 +1815,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     // ── 横スワイプでタブ切替（モバイル用 / 両端ループ） ─────────
-    const TAB_ORDER = ['news', 'other', 'goods', 'archive', 'replies'];
+    const TAB_ORDER = ['news', 'replies', 'other', 'goods', 'archive'];
     function swipeToNextTab(dir) {{
       // dir: +1 で次のタブ（右→左スワイプ）、-1 で前のタブ（左→右スワイプ）
       const i = TAB_ORDER.indexOf(currentTab);
@@ -1779,7 +1933,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v25';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v26';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 

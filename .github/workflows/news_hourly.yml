@@ -7,6 +7,11 @@ on:
     # 毎時10分（:00 は GitHub Actions が混雑して実行が間引かれやすいので避ける）
     - cron: "10 * * * *"
   workflow_dispatch:
+    inputs:
+      force_reactions:
+        description: "反応したい投稿を時間帯に関係なく今すぐ読む（テスト用）"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -19,6 +24,9 @@ concurrency:
 jobs:
   fetch_news:
     runs-on: ubuntu-latest
+    env:
+      # 非公開リポジトリの鍵があるときだけ「反応したい投稿」を動かす
+      HAS_PRIVATE: ${{ secrets.PRIVATE_REPO_SSH_KEY != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -55,6 +63,13 @@ jobs:
         continue-on-error: true
         run: python kaicho_calendar.py
 
+      # 書籍（Amazon）の紹介する価値を採点し、PWA の書籍一覧の並び順に使う（新しい本のときだけ API を呼ぶ）
+      - name: Rank books
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        continue-on-error: true
+        run: python rank_books.py
+
       # 仏像リンク宛ての返信を取得し、返信すべきものを選んで返信案を作る
       - name: Triage replies
         env:
@@ -67,6 +82,39 @@ jobs:
         # 返信の取得に失敗してもニュースの更新は止めない
         continue-on-error: true
         run: python triage_replies.py
+
+      # 「反応したい投稿」: X リストの新着から、いいね・リポストしたい投稿を選ぶ（1日2回だけ読む）。
+      # 取得した投稿は非公開リポジトリにだけ保存する（このリポジトリと Actions のログは公開のため）
+      - name: Checkout private data
+        if: env.HAS_PRIVATE == 'true'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          repository: YI1730/butsuzo-private
+          ssh-key: ${{ secrets.PRIVATE_REPO_SSH_KEY }}
+          path: private
+
+      - name: Pick posts to react to
+        if: env.HAS_PRIVATE == 'true'
+        env:
+          ANTHROPIC_API_KEY:     ${{ secrets.ANTHROPIC_API_KEY }}
+          NTFY_TOPIC:            ${{ secrets.NTFY_TOPIC }}
+          X_API_KEY:             ${{ secrets.X_API_KEY }}
+          X_API_SECRET:          ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          X_LIST_STARTERS:       ${{ secrets.X_LIST_STARTERS }}
+          X_LIST_FRIENDS:        ${{ secrets.X_LIST_FRIENDS }}
+          FORCE_REACTIONS:       ${{ inputs.force_reactions && '1' || '0' }}
+          PRIVATE_DIR: private
+        continue-on-error: true
+        run: |
+          python pick_reactions.py
+          cd private
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reactions.json
+          git diff --staged --quiet || { git commit -q -m "update reactions" && git push -q; }
 
       - name: Generate dashboard HTML
         run: python generate_dashboard.py
