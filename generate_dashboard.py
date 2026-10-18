@@ -654,8 +654,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm mt-4">
         <p class="text-sm font-bold text-brand-800">👍 反応したい投稿</p>
         <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">
-          AIが1日最大3件まで選び、返信案も付けています。「仏像リンクで返信」は1〜2分で仏像リンクから返信されます。
-          「いいね」「リポスト」はXが開くので、そこで押してください（Xアプリは仏像リンクのアカウントにしておいてください）。
+          AIが1日最大3件まで選び、返信案も付けています。返信は「返信文をコピーしてXで開く」→Xで「返信」を押して貼り付け。
+          「いいね」「リポスト」もXが開くので、そこで押してください（Xアプリは仏像リンクのアカウントにしておいてください）。
         </p>
       </div>
       <div id="reactions-cards" class="space-y-3">
@@ -1027,20 +1027,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
       if (it.image) h += '<img src="' + escapeHtml(it.image) + '" alt="" loading="lazy" class="w-full h-40 object-cover rounded-xl mb-2" onerror="this.style.display=\\'none\\'">';
       h += '<textarea data-role="reaction-reply" rows="2" class="w-full text-sm border border-gray-300 rounded-lg p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="返信する場合は文章を入力">' +
         escapeHtml(it.reply_draft || '') + '</textarea>';
-      if (it.reply_status === 'replied') {{
-        h += '<p class="text-xs text-emerald-700 mb-2">✓ 仏像リンクから返信しました</p>';
-      }} else if (_reactionReplyQueued(it.id) && it.reply_status !== 'failed') {{
-        h += '<p class="text-xs text-gray-500 mb-2">✓ 返信を送信予約しました（1〜2分で仏像リンクから送信されます）</p>';
-      }} else {{
-        if (it.reply_status === 'failed') {{
-          h += '<p class="text-xs text-red-600 mb-1">❌ 返信の送信に失敗しました（' + escapeHtml(it.reply_error || '') + '）。下の「コピーしてXで開く」から手で返信してください</p>';
-        }}
-        h += '<p class="reaction-status text-[11px] text-gray-500 mb-1"></p>';
-        h += '<div class="flex gap-2 mb-2">' +
-          '<button type="button" onclick="queueReactionReply(this, \\'' + escapeHtml(it.id) + '\\')" class="flex-1 bg-black active:bg-gray-700 text-white text-sm font-bold py-2.5 rounded-full">仏像リンクで返信</button>' +
-          '<button type="button" onclick="copyAndOpenReaction(this, \\'' + escapeHtml(it.id) + '\\')" class="shrink-0 bg-gray-100 active:bg-gray-200 text-gray-700 text-xs font-bold py-2.5 px-3 rounded-full">コピーしてXで開く</button>' +
-          '</div>';
-      }}
+      h += '<p class="reaction-status text-[11px] text-gray-500 mb-1"></p>';
+      h += '<a href="' + escapeHtml(it.url || '') + '" target="_blank" rel="noopener noreferrer" onclick="copyReactionReply(this)" ' +
+        'class="block w-full text-center bg-black active:bg-gray-700 text-white text-sm font-bold py-2.5 rounded-full mb-2">📋 返信文をコピーしてXで開く</a>';
       h += '<div class="flex gap-2 items-center flex-wrap">' +
         '<a href="' + likeUrl + '" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-pink-600 active:bg-pink-700 text-white text-sm font-bold py-2.5 rounded-full">♡ いいね</a>';
       if (it.action === 'repost') {{
@@ -1098,48 +1087,23 @@ def build_html(items: list[dict], last_updated: str) -> str:
       box.innerHTML = h;
     }}
 
-    // 返信: 送信予約を非公開リポジトリの reply_queue.json に積み、公開側の data/reaction_kick.json
-    // （中身は時刻だけ）を更新して reaction_reply.yml を動かす。返信先の情報は公開側に書かない
-    function _reactionReplyQueued(id) {{
-      try {{ return localStorage.getItem('reaction_reply_' + id) === '1'; }} catch (e) {{ return false; }}
-    }}
-
-    function queueReactionReply(btn, id) {{
-      const card = btn.closest('[data-reaction-id]');
+    // 返信: 文章をコピーして元の投稿を X で開く。X で「返信」を押して貼り付け、本人が送信する
+    // （X アプリは intent の in_reply_to を無視して新規投稿として開くため、この方式にしている。費用はかからない）
+    function copyReactionReply(link) {{
+      const card = link.closest('[data-reaction-id]');
       const ta = card.querySelector('[data-role="reaction-reply"]');
       const status = card.querySelector('.reaction-status');
       const text = ta ? ta.value.trim() : '';
-      if (!text) {{ status.textContent = '返信文を入力してください'; return; }}
-      if (!confirm('仏像リンクのアカウントから返信します。よろしいですか？\\n\\n' + text)) return;
-      status.textContent = '送信予約中...';
-      ghGetFile('reply_queue.json', PRIVATE_REPO).then(function (f) {{
-        const q = Array.isArray(f.content) ? f.content : [];
-        q.push({{ id: id, text: text, queued_at: new Date().toISOString() }});
-        return ghPutFile('reply_queue.json', q, f.sha, 'queue reaction reply', PRIVATE_REPO);
-      }}).then(function () {{
-        return ghGetFile('data/reaction_kick.json').then(function (f) {{
-          return ghPutFile('data/reaction_kick.json', {{ at: new Date().toISOString() }}, f.sha, 'chore(pwa): send reaction reply');
+      if (!text) return;  // 文章が空なら投稿を開くだけ
+      try {{
+        navigator.clipboard.writeText(text).then(function () {{
+          if (status) status.textContent = '✓ コピーしました。Xで「返信」を押して貼り付けてください';
+        }}, function () {{
+          if (status) status.textContent = 'コピーできませんでした。返信文を長押ししてコピーしてください';
         }});
-      }}).then(function () {{
-        try {{ localStorage.setItem('reaction_reply_' + id, '1'); }} catch (e) {{}}
-        const it = (reactionsData || []).find(function (x) {{ return x.id === id; }});
-        if (it) {{ it.reply_status = ''; }}
-        renderReactions();
-      }}).catch(function (e) {{
-        status.textContent = '❌ 失敗: ' + (e.message || e);
-      }});
-    }}
-
-    // 手で返信する場合: 文章をコピーして元の投稿を開く（X で「返信」を押して貼り付ける）
-    function copyAndOpenReaction(btn, id) {{
-      const card = btn.closest('[data-reaction-id]');
-      const ta = card.querySelector('[data-role="reaction-reply"]');
-      const it = (reactionsData || []).find(function (x) {{ return x.id === id; }});
-      const open = function () {{ if (it && it.url) window.open(it.url, '_blank', 'noopener'); }};
-      const text = ta ? ta.value.trim() : '';
-      if (navigator.clipboard && text) {{
-        navigator.clipboard.writeText(text).then(open, open);
-      }} else {{ open(); }}
+      }} catch (e) {{
+        if (status) status.textContent = 'コピーできませんでした。返信文を長押ししてコピーしてください';
+      }}
     }}
 
     function undoReactionDone(id) {{
@@ -1469,9 +1433,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
       return decodeURIComponent(escape(atob(b64.replace(/\\n/g, ''))));
     }}
 
-    function ghGetFile(path, repo) {{
+    function ghGetFile(path) {{
       const token = getGithubToken();
-      return fetch(GH_API + '/repos/' + GH_OWNER + '/' + (repo || GH_REPO) + '/contents/' + path + '?t=' + Date.now(), {{
+      return fetch(GH_API + '/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + path + '?t=' + Date.now(), {{
         headers: {{
           'Authorization': 'Bearer ' + token,
           'Accept': 'application/vnd.github+json',
@@ -1486,10 +1450,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }});
     }}
 
-    function ghPutFile(path, contentObj, sha, message, repo) {{
+    function ghPutFile(path, contentObj, sha, message) {{
       const token = getGithubToken();
       const bodyStr = JSON.stringify(contentObj, null, 2) + '\\n';
-      return fetch(GH_API + '/repos/' + GH_OWNER + '/' + (repo || GH_REPO) + '/contents/' + path, {{
+      return fetch(GH_API + '/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + path, {{
         method: 'PUT',
         headers: {{
           'Authorization': 'Bearer ' + token,
@@ -2033,7 +1997,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v30';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v31';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
