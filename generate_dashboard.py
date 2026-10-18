@@ -643,7 +643,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
         <p class="text-sm font-bold text-brand-800">💬 返信すべき返信</p>
         <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">
           仏像リンク宛ての返信を毎時取得し、AIが返信すべきものだけを選んで返信案を作っています。
-          文面を直して「仏像リンクで返信」を押すと、1〜2分で仏像リンクのアカウントから送信されます。
+          「返信文をコピーしてXで開く」→Xで「返信」を押して貼り付けて送信→「対応済み」を押してください。
         </p>
       </div>
       <div id="replies-cards" class="space-y-3">
@@ -897,15 +897,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
     // ランダムに 3〜5 件選んでカード表示。各カードに X Web Intent ボタン。
     // ────────────────────────────────────────────────────────
     // ────────────────────────────────────────────────────────
-    // 💬 返信タブ: data/replies.json を表示し、返信／返信不要を data/reply_queue.json に積む
-    // （reply_send.yml が push を検知して仏像リンクのアカウントから送信する）
+    // 💬 返信タブ: data/replies.json を表示する。返信は「返信文をコピーしてXで開く」で、
+    // X 上で本人が「返信」を押して貼り付ける（X API の投稿費用をかけない）。
+    // 「対応済み」の印はこの端末にだけ保存する（以前の送信予約 reply_queued_ も対応済み扱い）
     // ────────────────────────────────────────────────────────
     let repliesData = null;
-    const REPLY_QUEUE_PATH = 'data/reply_queue.json';
     const PRIORITY_ORDER = {{ '高': 0, '中': 1, '低': 2 }};
 
-    function _replyQueued(id) {{
-      try {{ return localStorage.getItem('reply_queued_' + id) === '1'; }} catch (e) {{ return false; }}
+    function _replyDone(id) {{
+      try {{
+        return localStorage.getItem('reply_done_' + id) === '1' || localStorage.getItem('reply_queued_' + id) === '1';
+      }} catch (e) {{ return false; }}
     }}
 
     function loadReplies() {{
@@ -939,16 +941,16 @@ def build_html(items: list[dict], last_updated: str) -> str:
         escapeHtml(ai.reply_draft || '') + '</textarea>';
       h += '<p class="reply-status text-[11px] text-gray-500 mb-2"></p>';
       h += '<div class="flex gap-2 items-center">' +
-        '<button type="button" onclick="queueReply(this, \\'reply\\')" class="flex-1 bg-black active:bg-gray-700 text-white text-sm font-bold py-2.5 rounded-full">仏像リンクで返信</button>' +
-        '<button type="button" onclick="queueReply(this, \\'dismiss\\')" class="shrink-0 bg-gray-100 active:bg-gray-200 text-gray-600 text-xs font-bold py-2.5 px-3 rounded-full">返信不要</button>' +
-        '<a href="' + tweetUrl + '" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs text-gray-400 underline">Xで見る</a>' +
+        '<a href="' + tweetUrl + '" target="_blank" rel="noopener noreferrer" onclick="copyReplyText(this)" class="flex-1 text-center bg-black active:bg-gray-700 text-white text-sm font-bold py-2.5 rounded-full">📋 返信文をコピーしてXで開く</a>' +
+        '<button type="button" onclick="markReplyDone(\\'' + escapeHtml(it.id) + '\\')" class="shrink-0 bg-gray-100 active:bg-gray-200 text-gray-600 text-xs font-bold py-2.5 px-3 rounded-full">対応済み</button>' +
         '</div></div>';
       return h;
     }}
 
     function renderReplies() {{
       const box = document.getElementById('replies-cards');
-      const items = (repliesData || []).filter(function (it) {{ return it.status === 'open' && !_replyQueued(it.id) && it.ai; }});
+      const items = (repliesData || []).filter(function (it) {{ return it.status === 'open' && !_replyDone(it.id) && it.ai; }});
+      const done = (repliesData || []).filter(function (it) {{ return it.status === 'open' && _replyDone(it.id) && it.ai; }}).slice(0, 20);
       const need = items.filter(function (it) {{ return it.ai.needs_reply; }})
         .sort(function (a, b) {{
           return (PRIORITY_ORDER[a.ai.priority] - PRIORITY_ORDER[b.ai.priority]) || (b.created_at || '').localeCompare(a.created_at || '');
@@ -965,6 +967,15 @@ def build_html(items: list[dict], last_updated: str) -> str:
           skip.map(function (it) {{
             return _replyCardHtml(it, false).replace('</div>', '') +
               '<button type="button" onclick="promoteReply(\\'' + escapeHtml(it.id) + '\\')" class="text-xs text-brand-700 underline ml-3">返信する</button></div>';
+          }}).join('') + '</div></details>';
+      }}
+      if (done.length) {{
+        h += '<details class="bg-white rounded-2xl border border-gray-200 p-3"><summary class="text-xs text-gray-500 cursor-pointer">対応済みにした返信（' +
+          done.length + '件）※間違えて押したものは「戻す」で元に戻せます</summary><div class="space-y-2 mt-2">' +
+          done.map(function (it) {{
+            return '<div class="border-t border-gray-100 pt-2 flex items-start gap-2"><p class="text-xs text-gray-600 flex-1 min-w-0">@' +
+              escapeHtml(it.author_username || '') + ': ' + escapeHtml((it.text || '').slice(0, 60)) + '</p>' +
+              '<button type="button" onclick="undoReplyDone(\\'' + escapeHtml(it.id) + '\\')" class="shrink-0 bg-brand-600 active:bg-brand-700 text-white text-xs font-bold py-1.5 px-3 rounded-full">戻す</button></div>';
           }}).join('') + '</div></details>';
       }}
       box.innerHTML = h;
@@ -1128,33 +1139,29 @@ def build_html(items: list[dict], last_updated: str) -> str:
       renderReplies();
     }}
 
-    function queueReply(btn, action) {{
-      const card = btn.closest('[data-reply-id]');
-      const id = card.getAttribute('data-reply-id');
-      const status = card.querySelector('.reply-status');
+    // 返信文をコピーして元の投稿を X で開く（リンクのタップでそのまま開く）
+    function copyReplyText(link) {{
+      const card = link.closest('[data-reply-id]');
       const ta = card.querySelector('[data-role="reply-text"]');
+      const status = card.querySelector('.reply-status');
       const text = ta ? ta.value.trim() : '';
-      if (!getGithubToken()) {{
-        status.textContent = '送信には GitHub トークンが必要です（📜訪問記タブ下の「⚙️ 自動投稿の設定」で保存）';
-        return;
-      }}
-      if (action === 'reply') {{
-        if (!text) {{ status.textContent = '返信文を入力してください'; return; }}
-        if (!confirm('仏像リンクのアカウントから返信します。よろしいですか？\\n\\n' + text)) return;
-      }}
-      status.textContent = '送信予約中...';
-      ghGetFile(REPLY_QUEUE_PATH).then(function (f) {{
-        const q = Array.isArray(f.content) ? f.content : [];
-        q.push({{ id: id, action: action, text: action === 'reply' ? text : '', queued_at: new Date().toISOString() }});
-        return ghPutFile(REPLY_QUEUE_PATH, q, f.sha, 'chore(pwa): ' + action + ' reply ' + id);
-      }}).then(function () {{
-        try {{ localStorage.setItem('reply_queued_' + id, '1'); }} catch (e) {{}}
-        card.innerHTML = '<p class="text-sm text-gray-500 text-center py-2">' +
-          (action === 'reply' ? '✓ 返信を送信予約しました（1〜2分で仏像リンクから送信されます）' : '✓ 返信不要にしました') + '</p>';
-        renderReplies();
-      }}).catch(function (e) {{
-        status.textContent = '❌ 失敗: ' + (e.message || e);
-      }});
+      if (!text) return;
+      const fail = function () {{ if (status) status.textContent = 'コピーできませんでした。返信文を長押ししてコピーしてください'; }};
+      try {{
+        navigator.clipboard.writeText(text).then(function () {{
+          if (status) status.textContent = '✓ コピーしました。Xで「返信」を押して貼り付け、送信後に「対応済み」を押してください';
+        }}, fail);
+      }} catch (e) {{ fail(); }}
+    }}
+
+    function markReplyDone(id) {{
+      try {{ localStorage.setItem('reply_done_' + id, '1'); }} catch (e) {{}}
+      renderReplies();
+    }}
+
+    function undoReplyDone(id) {{
+      try {{ localStorage.removeItem('reply_done_' + id); localStorage.removeItem('reply_queued_' + id); }} catch (e) {{}}
+      renderReplies();
     }}
 
     function escapeHtml(s) {{
@@ -1997,7 +2004,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v31';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v32';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 

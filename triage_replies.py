@@ -7,7 +7,7 @@ news_hourly.yml から毎時実行される。
 3. 返信すべきものを ntfy でスマホに通知（NTFY_TOPIC 設定時のみ）
 
 結果は data/replies.json に保存し、PWA の「💬返信」タブに表示する。
-PWA で返信を確定すると data/reply_queue.json に積まれ、reply_send.py が送信する。
+返信は PWA の「返信文をコピーしてXで開く」から、運営者が X 上で送る（X API の投稿費用をかけない）。
 """
 
 from __future__ import annotations
