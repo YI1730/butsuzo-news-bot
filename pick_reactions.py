@@ -95,15 +95,19 @@ def load_state() -> dict:
             d.setdefault("items", [])
             d.setdefault("seen", [])
             d.setdefault("daily", {})
+            d.setdefault("skipped", [])
             return d
     except Exception:
         pass
-    return {"items": [], "seen": [], "daily": {}}
+    return {"items": [], "seen": [], "daily": {}, "skipped": []}
 
 
 def save_state(state: dict) -> None:
     cutoff = (datetime.now(JST) - timedelta(days=KEEP_DAYS)).isoformat()
     state["items"] = [it for it in state["items"] if it.get("picked_at", "") >= cutoff]
+    # AI が見送った投稿（PWA で確認できるように、直近 3 日・最大 30 件だけ残す）
+    skip_cutoff = (datetime.now(JST) - timedelta(days=3)).isoformat()
+    state["skipped"] = [it for it in state["skipped"] if it.get("judged_at", "") >= skip_cutoff][:30]
     state["seen"] = state["seen"][-SEEN_MAX:]
     today = datetime.now(JST).strftime("%Y-%m-%d")
     state["daily"] = {k: v for k, v in state["daily"].items() if k >= today}  # 今日の分だけ残す
@@ -226,6 +230,15 @@ def main() -> int:
             (r for r in (res or {}).get("results", []) if r.get("rank", 0) > 0 and r.get("id") in by_id),
             key=lambda r: (r["rank"], age_hours(by_id[r["id"]]["created_at"], now)),  # rank 順、同じなら新しい順
         )
+        for r in (res or {}).get("results", []):
+            p = by_id.get(r.get("id"))
+            if p and r.get("rank", 0) == 0:
+                state["skipped"].insert(0, {
+                    "id": p["id"], "url": f"https://x.com/{p['username']}/status/{p['id']}",
+                    "username": p["username"], "name": p["name"], "text": p["text"][:200],
+                    "created_at": p["created_at"], "reason": r.get("reason", ""),
+                    "judged_at": now.isoformat(timespec="seconds"),
+                })
         for r in ranked:
             p = by_id[r["id"]]
             if picked >= room:
@@ -254,6 +267,9 @@ def main() -> int:
                 daily["picks_b"] += 1
             picked += 1
 
+    capped = all(daily["reads"].get(g, 0) >= per_day for g, (_, _, per_day) in GROUPS.items())
+    state["last_run"] = {"at": now.isoformat(timespec="seconds"), "reads": reads,
+                         "fresh": len(fresh), "picked": picked, "capped": capped and reads == 0}
     save_state(state)
     topic = os.environ.get("NTFY_TOPIC", "").strip()
     if topic and picked:

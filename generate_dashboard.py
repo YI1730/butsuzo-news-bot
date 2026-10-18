@@ -974,6 +974,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
     const PRIVATE_REPO = 'butsuzo-private';
     const REACTION_SHOW_HOURS = 72;
     let reactionsData = null;
+    let reactionsSkipped = [];
+    let reactionsLastRun = null;
     let reactionsError = '';
 
     function _reactionDone(id) {{
@@ -996,6 +998,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }}).then(function (body) {{
         const d = JSON.parse(base64ToUtf8(body.content || ''));
         reactionsData = Array.isArray(d.items) ? d.items : []; reactionsError = '';
+        reactionsSkipped = Array.isArray(d.skipped) ? d.skipped : [];
+        reactionsLastRun = d.last_run || null;
         renderReactions();
       }}).catch(function (e) {{
         reactionsData = [];
@@ -1043,8 +1047,25 @@ def build_html(items: list[dict], last_updated: str) -> str:
       _updateRepliesBadge();
       if (!box) return;
       if (reactionsError) {{ box.innerHTML = '<p class="text-center text-xs text-gray-400 py-4 px-2">' + escapeHtml(reactionsError) + '</p>'; return; }}
-      box.innerHTML = items.length ? items.map(_reactionCardHtml).join('')
+      let h = items.length ? items.map(_reactionCardHtml).join('')
         : '<p class="text-center text-sm text-gray-400 py-6">いまは反応したい投稿はありません。</p>';
+      const lr = reactionsLastRun;
+      if (lr) {{
+        const t = new Date(lr.at);
+        const ts = isNaN(t) ? '' : (t.getMonth() + 1) + '/' + t.getDate() + ' ' + String(t.getHours()).padStart(2, '0') + ':' + String(t.getMinutes()).padStart(2, '0');
+        h += '<p class="text-center text-[11px] text-gray-400 -mt-1">最終取得 ' + ts + '・読み取り ' + lr.reads + '件・新しい投稿 ' + lr.fresh + '件・提案 ' + lr.picked + '件' +
+          (lr.capped ? '（今日の読み取り上限に達したため読んでいません）' : '') + '</p>';
+      }}
+      if (reactionsSkipped.length) {{
+        h += '<details class="bg-white rounded-2xl border border-gray-200 p-3"><summary class="text-xs text-gray-500 cursor-pointer">AIが見送った投稿（' +
+          reactionsSkipped.length + '件・直近3日）</summary><div class="space-y-2 mt-2">' +
+          reactionsSkipped.map(function (it) {{
+            return '<div class="border-t border-gray-100 pt-2"><p class="text-[11px] text-gray-500">' + escapeHtml(it.name || '') + ' @' + escapeHtml(it.username || '') +
+              '・見送り理由: ' + escapeHtml(it.reason || '') + '</p><p class="text-xs text-gray-700 whitespace-pre-wrap">' + escapeHtml(it.text || '') +
+              '</p><a href="' + escapeHtml(it.url || '') + '" target="_blank" rel="noopener noreferrer" class="text-[11px] text-gray-400 underline">Xで開く</a></div>';
+          }}).join('') + '</div></details>';
+      }}
+      box.innerHTML = h;
     }}
 
     function markReactionDone(id) {{
@@ -1933,7 +1954,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v26';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v27';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
