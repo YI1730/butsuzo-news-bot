@@ -88,6 +88,57 @@ SCHEMA = {
 }
 
 
+REPLY_SYSTEM = """あなたは仏像好きのコミュニティ「仏像リンク」（X: @butsuzolink）の運営者です。
+知り合いの X の投稿に、仏像リンクのアカウントから短い返信を書きます。
+
+- 投稿の中身（寺・仏像の名前、写真、書かれている体験）に具体的に触れる。「素敵ですね」だけの定型文にしない
+- 丁寧語だが堅すぎない、運営者本人の言葉。全角 80 字以内
+- 盛らない・煽らない。うれしい・驚いた気持ちは「！」で表してよい（1〜2 個まで）
+- ハッシュタグは使わない。絵文字は基本使わない
+- 宣伝（ツアーの案内など）や、相手が書いていない事実の推測はしない
+- ツアー・オフ会の感想には、参加してくれたことへのお礼を自然に添える"""
+
+REPLY_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "results": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {"id": {"type": "string"}, "reply_draft": {"type": "string"}},
+                "required": ["id", "reply_draft"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["results"],
+    "additionalProperties": False,
+}
+
+
+def write_reply_drafts(client, usage: Usage, items: list[dict]) -> None:
+    """提案した投稿に返信案を付ける（PWA で直して X の返信画面に入れる）。"""
+    payload = [{"id": it["id"], "text": it["text"][:600], "reason": it.get("reason", "")} for it in items]
+    res = call_json(client, usage, REPLY_SYSTEM, json.dumps(payload, ensure_ascii=False, indent=1),
+                    REPLY_SCHEMA, effort="medium")
+    by_id = {it["id"]: it for it in items}
+    for r in (res or {}).get("results", []):
+        it = by_id.get(r.get("id"))
+        if it:
+            it["reply_draft"] = r["reply_draft"].strip()
+
+
+def fill_reply_drafts(state: dict, usage: Usage) -> int:
+    """返信案が無い提案（今回の分、または返信案の機能を入れる前の分）に返信案を付ける。"""
+    need = [it for it in state["items"] if "reply_draft" not in it][:MAX_PICKS_PER_DAY * 2]
+    if not need or not os.environ.get("ANTHROPIC_API_KEY"):
+        return 0
+    import anthropic
+
+    write_reply_drafts(anthropic.Anthropic(), usage, need)
+    return len(need)
+
+
 def load_state() -> dict:
     try:
         d = json.loads(OUT_FILE.read_text(encoding="utf-8"))
@@ -188,6 +239,9 @@ def main() -> int:
     today = now.strftime("%Y-%m-%d")
     state = load_state()
     if not should_run(state, now):
+        # 読み取りはしないが、返信案の無い提案があれば作る（X API は使わない）
+        if fill_reply_drafts(state, Usage()):
+            save_state(state)
         print("反応したい投稿: 読み取りの時間ではないためスキップ")
         return 0
 
@@ -266,6 +320,8 @@ def main() -> int:
             if p["group"] == "B":
                 daily["picks_b"] += 1
             picked += 1
+
+    fill_reply_drafts(state, usage)
 
     capped = all(daily["reads"].get(g, 0) >= per_day for g, (_, _, per_day) in GROUPS.items())
     state["last_run"] = {"at": now.isoformat(timespec="seconds"), "reads": reads,

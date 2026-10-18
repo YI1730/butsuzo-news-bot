@@ -654,7 +654,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
       <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm mt-4">
         <p class="text-sm font-bold text-brand-800">👍 反応したい投稿</p>
         <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">
-          AIが1日最大3件まで選んでいます。「いいね」「リポスト」を押すとXが開くので、そこで押してください。
+          AIが1日最大3件まで選び、返信案も付けています。「いいね」「リポスト」「Xで返信する」を押すとXが開くので、
+          そこで押してください（Xアプリは仏像リンクのアカウントにしておいてください）。
         </p>
       </div>
       <div id="reactions-cards" class="space-y-3">
@@ -1024,6 +1025,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
         (it.action === 'repost' ? '🔁 リポストも向き' : '♡ いいね向き') + '・' + escapeHtml(it.reason || '') + '</p>';
       h += '<p class="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap mb-2">' + escapeHtml(it.text || '') + '</p>';
       if (it.image) h += '<img src="' + escapeHtml(it.image) + '" alt="" loading="lazy" class="w-full h-40 object-cover rounded-xl mb-2" onerror="this.style.display=\\'none\\'">';
+      h += '<textarea data-role="reaction-reply" rows="2" class="w-full text-sm border border-gray-300 rounded-lg p-2 mb-2 focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="返信する場合は文章を入力">' +
+        escapeHtml(it.reply_draft || '') + '</textarea>';
+      h += '<button type="button" onclick="openReactionReply(this, \\'' + escapeHtml(it.id) + '\\')" class="w-full bg-black active:bg-gray-700 text-white text-sm font-bold py-2.5 rounded-full mb-2">✍️ Xで返信する（文章入り）</button>';
       h += '<div class="flex gap-2 items-center flex-wrap">' +
         '<a href="' + likeUrl + '" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-pink-600 active:bg-pink-700 text-white text-sm font-bold py-2.5 rounded-full">♡ いいね</a>';
       if (it.action === 'repost') {{
@@ -1066,6 +1070,15 @@ def build_html(items: list[dict], last_updated: str) -> str:
           }}).join('') + '</div></details>';
       }}
       box.innerHTML = h;
+    }}
+
+    // 返信: 文章を入れた状態で X の返信画面を開く（送信は X 上で本人が押す）
+    function openReactionReply(btn, id) {{
+      const card = btn.closest('[data-reaction-id]');
+      const ta = card && card.querySelector('[data-role="reaction-reply"]');
+      const text = ta ? ta.value.trim() : '';
+      const url = 'https://x.com/intent/post?in_reply_to=' + encodeURIComponent(id) + (text ? '&text=' + encodeURIComponent(text) : '');
+      window.open(url, '_blank', 'noopener');
     }}
 
     function markReactionDone(id) {{
@@ -1954,7 +1967,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v27';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v28';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
