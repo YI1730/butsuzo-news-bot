@@ -1,6 +1,190 @@
 {
-  "last_updated": "2026-10-18T08:19:40.467158+09:00",
+  "last_updated": "2026-10-18T10:00:48.732121+09:00",
   "items": [
+    {
+      "id": "rem-54055111a9d0-start",
+      "title": "三十三間堂｜2026.10.18 「仏名会」三十三間堂礼拝行 満員御礼",
+      "url": "https://www.sanjusangendo.jp/news/1709/",
+      "source": "reminder",
+      "header": "【きょうから公開】",
+      "hashtags": "",
+      "fetched_at": "2026-10-18T10:02:57+09:00",
+      "published_at": "2026-10-18T10:02:57+09:00",
+      "image_url": "",
+      "ai": {
+        "score": 90,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "きょうから公開（御開帳カレンダー）",
+        "post_text": "今日10月18日、京都・三十三間堂で「仏名会 三十三間堂礼拝行」が行われる。千体の観音さまが並ぶ堂内での礼拝行だ。すでに満員御礼とのことで、人気のほどがうかがえる。",
+        "post_header": "【きょうから公開】",
+        "post_format": 6,
+        "notified": true
+      }
+    },
+    {
+      "id": "c193b0f24ebe",
+      "title": "三十三間堂｜2026.10.18 「仏名会」三十三間堂礼拝行 満員御礼",
+      "url": "https://www.sanjusangendo.jp/news/1709/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-10-18T10:00:48+09:00",
+      "published_at": "2026-10-18T10:00:48+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 35,
+        "category": "寺院の行事",
+        "duplicate": true,
+        "reason": "配信済みの仏名会と同一行事で、満員御礼の知らせ。重複",
+        "event": {
+          "event_name": "仏名会 三十三間堂礼拝行",
+          "place": "三十三間堂（京都府京都市）",
+          "start_date": "2026-10-18",
+          "end_date": "2026-10-18"
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-18T10:02:57+09:00",
+        "score_version": 5
+      }
+    },
+    {
+      "id": "bed981ebb247",
+      "title": "大阪城天守閣を重要文化財に - T COM（アットティーコム）",
+      "url": "https://cont.t-com.ne.jp/sp/photo/942489_1.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-18T10:00:48.730325+09:00",
+      "published_at": "2026-10-16T17:28:00+09:00",
+      "image_url": "https://cont.t-com.ne.jp/theme/Default/common/img/logo.png",
+      "description": "@T COM(アットティーコム)はADSLインターネット、光接続インターネットを中心にインターネット接続サービスを提供するISP、インターネットサービスプロバイダーです。",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "大阪城は寺院と無関係な文化財。経過40時間でさらに低評価",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-18T10:02:57+09:00",
+        "score_version": 5
+      }
+    },
+    {
+      "id": "4cd6c237321a",
+      "title": "「優しいお顔を」33年ぶりに観世音菩薩が姿現す 若狭町・三方石観世音 弘法大師が一夜で彫ったとされる 手足にご利益があると伝わる - TVer",
+      "url": "https://tver.jp/episodes/epaxbrpa1e",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-18T10:00:46.043415+09:00",
+      "published_at": "2026-10-16T20:27:42+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 50,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "33年ぶり御開帳だが、配信済みの三方石観世音と同件で37時間経過",
+        "event": {
+          "event_name": "三方石観世音 本尊御開帳",
+          "place": "三方石観世音（福井県若狭町）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-18T10:02:57+09:00",
+        "score_version": 5
+      }
+    },
+    {
+      "id": "6ee80d680bf3",
+      "title": "新発田市の「蔵春閣」が重要文化財へ 文化審議会が答申、大倉喜八郎の美意識伝える迎賓施設 – kenoh.com - kenoh.com",
+      "url": "https://www.kenoh.com/news/133166/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-18T10:00:45.660253+09:00",
+      "published_at": "2026-10-16T21:29:49+09:00",
+      "image_url": "https://www.kenoh.com/wp-content/uploads/2026/10/IMG_7399.jpeg",
+      "description": "文化審議会は16日、新潟県新発田市の「蔵春閣（ぞうしゅんかく）」1棟を国の重要文化財（建造物）に指定するよう、文部科学大臣に答申した。実業家・大倉喜八郎が建てた迎賓施設で、絢爛豪華な室内の意匠や建築技術が評価された。今後、官報告示を経て正式に指定される。 由緒ある絵画や彫刻を用…",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "迎賓施設の重文指定で寺院と無関係。36時間経過",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-18T10:02:57+09:00",
+        "score_version": 5
+      }
+    },
+    {
+      "id": "d1cfb2d6d592",
+      "title": "東京国立博物館の特別展「国宝 三井寺のすべて」、狩野光信の障壁画など「奇跡的に残された宝」を展示（読売新聞オンライン） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/f3c9355b5f7bfe9c41d8a2063c70c4288ce99673",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-18T10:00:44.869130+09:00",
+      "published_at": "2026-10-16T22:33:30+09:00",
+      "image_url": "https://s.yimg.jp/images/news-web/versions/20261016-2b239f0/all/images/ogp_default.png",
+      "description": "天台寺門宗総本山・園城（おんじょう）寺（大津市）の寺宝を公開する特別展「国宝 三井寺（みいでら）のすべて」（来年４月２０日～６月１３日、読売新聞社など主催）の報道発表会が１６日、会場となる東京国立博",
+      "ai": {
+        "score": 40,
+        "category": "展覧会",
+        "duplicate": true,
+        "reason": "三井寺展の発表は配信済みの記者発表と同件。35時間経過の後追い",
+        "event": {
+          "event_name": "特別展「国宝 三井寺のすべて」",
+          "place": "東京国立博物館（東京都台東区）",
+          "start_date": "2027-04-20",
+          "end_date": "2027-06-13"
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-18T10:02:57+09:00",
+        "score_version": 5
+      }
+    },
+    {
+      "id": "c27cde5e48b2",
+      "title": "亀田和毅のタイトル戦中止 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1775335/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-18T10:00:43.639248+09:00",
+      "published_at": "2026-10-18T09:58:14+09:00",
+      "image_url": "https://images.keizai.biz/img/gp/m0093690126.jpg",
+      "description": "広域周南圏のビジネス＆カルチャーニュース",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ボクシングのタイトル戦の話題で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-18T10:02:57+09:00",
+        "score_version": 5
+      }
+    },
     {
       "id": "6c51a01d3752",
       "title": "国重要文化財・大橋家住宅（倉敷）でマルシェ １７、１８日、アートホッピングクラシキ - 山陽新聞",
@@ -9729,141 +9913,6 @@
           "place": "",
           "start_date": "",
           "end_date": ""
-        },
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T23:51:34+09:00",
-        "score_version": 5
-      }
-    },
-    {
-      "id": "34ca81d47ba8",
-      "title": "京都・建仁寺法堂が重要文化財に　舞鶴市吉原地区は重要伝統的建造物群保存に指定 - Infoseek",
-      "url": "https://news.infoseek.co.jp/amp/article/sankein__life_arts_BXGYAVJH6VP5XJUNBY2UHXE2FE/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-16T23:49:00.578234+09:00",
-      "published_at": "2026-10-16T21:42:02+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/sankein/sankein__life_arts_BXGYAVJH6VP5XJUNBY2UHXE2FE_0-enlarge.jpg",
-      "description": "16日に行われた国の文化審議会は、臨済宗建仁寺（けんにんじ）派の大本山で知られる建仁寺の法堂（はっとう）（京都市東",
-      "ai": {
-        "score": 55,
-        "category": "発見・研究・新指定",
-        "duplicate": false,
-        "reason": "建仁寺法堂の重文答申。寺院建造物で第一報、仏像ではない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T23:51:34+09:00",
-        "score_version": 5
-      }
-    },
-    {
-      "id": "0cab735659bc",
-      "title": "京都・建仁寺法堂が重要文化財に 舞鶴市吉原地区は重要伝統的建造物群保存に指定（産経新聞） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/7629d21bc47172432201b315c1af931f0ccb2433",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-16T23:48:58.657371+09:00",
-      "published_at": "2026-10-16T21:50:27+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261016-00000231-san-000-1-view.jpg?exp=10800",
-      "description": "16日に行われた国の文化審議会は、臨済宗建仁寺（けんにんじ）派の大本山で知られる建仁寺の法堂（はっとう）（京都市東山区）を重要文化財（建造物）に指定するよう文部科学相に答申した。京都府内の重文指定の",
-      "ai": {
-        "score": 35,
-        "category": "発見・研究・新指定",
-        "duplicate": true,
-        "reason": "建仁寺法堂の重文答申、同一出来事の後追い",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T23:51:34+09:00",
-        "score_version": 5
-      }
-    },
-    {
-      "id": "b53de988fd72",
-      "title": "智証大師諡号1100年記念 特別展「国宝 三井寺のすべて」 - 紡ぐ TSUMUGU",
-      "url": "https://tsumugu.yomiuri.co.jp/miidera2027/goods.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-16T23:48:56.376612+09:00",
-      "published_at": "2026-10-16T21:55:59+09:00",
-      "image_url": "https://tsumugu.yomiuri.co.jp/miidera2027/img/fb.jpg",
-      "description": "かつてない、秘仏集結。／2027年4月20日（火）～6月13日（日）／東京国立博物館 平成館",
-      "ai": {
-        "score": 50,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "三井寺展は配信済みと重複",
-        "event": {
-          "event_name": "特別展「国宝 三井寺のすべて」",
-          "place": "東京国立博物館（東京都台東区）",
-          "start_date": "2027-04-20",
-          "end_date": "2027-06-13"
-        },
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T23:51:34+09:00",
-        "score_version": 5
-      }
-    },
-    {
-      "id": "2db5ada3c0da",
-      "title": "東京国立博物館の特別展「国宝 三井寺のすべて」、狩野光信の障壁画など「奇跡的に残された宝」を展示 - ライブドアニュース",
-      "url": "https://news.livedoor.com/topics/detail/32586271/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-16T23:48:54.424079+09:00",
-      "published_at": "2026-10-16T22:30:00+09:00",
-      "image_url": "https://image.news.livedoor.com/newsimage/stf/e/1/e1514_1231_6801794e_d4589d95.jpg",
-      "description": "天台寺門宗総本山・園城（おんじょう）寺（大津市）の寺宝を公開する特別展「国宝三井寺（みいでら）のすべて」（来年４月２０日～６月１３日、読売新聞社など主催）の報道発表会が１６日、会場となる東京国立博",
-      "ai": {
-        "score": 50,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "三井寺展は配信済みと重複",
-        "event": {
-          "event_name": "特別展「国宝 三井寺のすべて」",
-          "place": "東京国立博物館（東京都台東区）",
-          "start_date": "2027-04-20",
-          "end_date": "2027-06-13"
-        },
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-16T23:51:34+09:00",
-        "score_version": 5
-      }
-    },
-    {
-      "id": "cd9c475f2297",
-      "title": "東京国立博物館の特別展「国宝　三井寺のすべて」、狩野光信の障壁画など「奇跡的に残された宝」を展示 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/yomiuri/entertainment/20261016-567-GYT1T00343",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-16T23:48:52.587480+09:00",
-      "published_at": "2026-10-16T22:30:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/yomiuri/m_20261016-567-GYT1T00343.jpg",
-      "description": "天台寺門宗総本山・園城（おんじょう）寺（大津市）の寺宝を公開する特別展「国宝 三井寺（みいでら）の…",
-      "ai": {
-        "score": 50,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "三井寺展は配信済みと重複",
-        "event": {
-          "event_name": "特別展「国宝 三井寺のすべて」",
-          "place": "東京国立博物館（東京都台東区）",
-          "start_date": "2027-04-20",
-          "end_date": "2027-06-13"
         },
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-16T23:51:34+09:00",
