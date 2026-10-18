@@ -1060,6 +1060,19 @@ def build_html(items: list[dict], last_updated: str) -> str:
         h += '<p class="text-center text-[11px] text-gray-400 -mt-1">最終取得 ' + ts + '・読み取り ' + lr.reads + '件・新しい投稿 ' + lr.fresh + '件・提案 ' + lr.picked + '件' +
           (lr.capped ? '（今日の読み取り上限に達したため読んでいません）' : '') + '</p>';
       }}
+      // 対応済みにした投稿（誤って押したときに戻せるように）
+      const done = (reactionsData || []).filter(function (it) {{
+        return _reactionDone(it.id) && (it.created_at || '') >= cutoff;
+      }});
+      if (done.length) {{
+        h += '<details class="bg-white rounded-2xl border border-gray-200 p-3"><summary class="text-xs text-gray-500 cursor-pointer">対応済みにした投稿（' +
+          done.length + '件）※間違えて押したものは「戻す」で元に戻せます</summary><div class="space-y-2 mt-2">' +
+          done.map(function (it) {{
+            return '<div class="border-t border-gray-100 pt-2 flex items-start gap-2"><p class="text-xs text-gray-600 flex-1 min-w-0">' +
+              escapeHtml(it.name || '') + '・' + escapeHtml(it.reason || '') + '</p>' +
+              '<button type="button" onclick="undoReactionDone(\\'' + escapeHtml(it.id) + '\\')" class="shrink-0 bg-brand-600 active:bg-brand-700 text-white text-xs font-bold py-1.5 px-3 rounded-full">戻す</button></div>';
+          }}).join('') + '</div></details>';
+      }}
       if (reactionsSkipped.length) {{
         h += '<details class="bg-white rounded-2xl border border-gray-200 p-3"><summary class="text-xs text-gray-500 cursor-pointer">AIが見送った投稿（' +
           reactionsSkipped.length + '件・直近3日）</summary><div class="space-y-2 mt-2">' +
@@ -1079,6 +1092,11 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const text = ta ? ta.value.trim() : '';
       const url = 'https://x.com/intent/post?in_reply_to=' + encodeURIComponent(id) + (text ? '&text=' + encodeURIComponent(text) : '');
       window.open(url, '_blank', 'noopener');
+    }}
+
+    function undoReactionDone(id) {{
+      try {{ localStorage.removeItem('reaction_done_' + id); }} catch (e) {{}}
+      renderReactions();
     }}
 
     function markReactionDone(id) {{
@@ -1967,7 +1985,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v28';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v29';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
