@@ -1,8 +1,39 @@
 {
   "user_id": "68814203",
   "username": "butsuzolink",
-  "since_id": "2112762637952139509",
+  "since_id": "2112903329374462404",
   "items": [
+    {
+      "id": "2112903329374462404",
+      "text": "@butsuzolink 准胝観音",
+      "created_at": "2026-10-21T13:46:24.000Z",
+      "conversation_id": "2112711187414622222",
+      "author_username": "seanharu25",
+      "author_name": "Y氏",
+      "parent_text": "【仏ログ】馬に乗った腕が四臂の観音さん。馬頭観音とも如意輪観音とも違うような…この方は一体どなたなんだろう　https://t.co/FFeALCQy0h",
+      "parent_is_ours": true,
+      "status": "open",
+      "fetched_at": "2026-10-22T00:17:53+09:00",
+      "ai": {
+        "needs_reply": true,
+        "priority": "中",
+        "category": "情報提供・訂正",
+        "reason": "仏像の尊名について情報提供。内容の確認が必要",
+        "reply_draft": "尊名のご教示ありがとうございます。准胝観音とは気づきませんでした。四臂の特徴などを改めて確認してみます。"
+      }
+    },
+    {
+      "id": "2112870280590946460",
+      "text": "@butsuzolink 残念ながら、先に予定が入ってしまい、今回も不参加となります。😓",
+      "created_at": "2026-10-21T11:35:04.000Z",
+      "conversation_id": "2112858952920936824",
+      "author_username": "yfa258134",
+      "author_name": "プチトマト",
+      "parent_text": "満席となりましたので、現在はキャンセル待ちとなります！もし増席できた際にはまた改めて告知させていただきます！ https://t.co/z9JSLIO2pc",
+      "parent_is_ours": true,
+      "status": "open",
+      "fetched_at": "2026-10-22T00:17:53+09:00"
+    },
     {
       "id": "2112762637952139509",
       "text": "@butsuzolink 現在は、物価高で更に異常気象で生活が苦しいからよけいに馬鳴大菩薩様を供養する必要があります。自分が裕福になれたら、他の人や生き物達にも施さないといけません。",
@@ -384,5 +415,5 @@
       }
     }
   ],
-  "last_updated": "2026-10-21T19:09:29+09:00"
+  "last_updated": "2026-10-22T00:17:55+09:00"
 }
