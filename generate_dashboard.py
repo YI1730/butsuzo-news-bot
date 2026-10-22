@@ -2027,7 +2027,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v33';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v34';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -2039,6 +2039,8 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = e.request.url;
+  // 他サイトのリソース（Tailwind CDN など）には一切関与しない（取得方法を変えると読み込みに失敗する）
+  if (new URL(url).origin !== self.location.origin) return;
   // index.html / news.json / archives.json / scheduled_posts.json は常に network-first
   if (url.endsWith('/') || url.includes('/index.html')
       || url.includes('/data/news.json')
@@ -2046,7 +2048,7 @@ self.addEventListener('fetch', e => {
       || url.includes('/data/scheduled_posts.json')) {
     // GitHub Pages は max-age=600 を返すので、ブラウザの HTTP キャッシュを使わず毎回取りに行く
     e.respondWith(
-      fetch(url, {cache: 'no-store'}).then(res => {
+      fetch(new Request(e.request, {cache: 'no-store'})).then(res => {
         const clone = res.clone();
         caches.open(CACHE).then(c => c.put(e.request, clone));
         return res;
