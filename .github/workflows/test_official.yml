@@ -17,4 +17,5 @@ jobs:
       - env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TITLE_WORDS: ${{ inputs.title_words }}
+          DEBUG_OFFICIAL: "1"
         run: python tools/test_official.py

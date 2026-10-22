@@ -378,6 +378,8 @@ def search_official_page(client, usage: "Usage", item: dict) -> str:
             continue
         usage.add(resp.usage)
         text = " ".join(b.text for b in resp.content if b.type == "text")
+        if os.environ.get("DEBUG_OFFICIAL"):
+            print(f"   [検索の回答] {text[:300]}")
         m = re.findall(r"https?://[^\s)」）>\]]+", text)
         return m[-1].rstrip(".,。、") if m else ""
     return ""
