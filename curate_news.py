@@ -349,8 +349,10 @@ def article_links(url: str) -> list[tuple[str, str]]:
     return out[:25]
 
 
-SEARCH_OFFICIAL_PROMPT = """次の展覧会の「公式ページ」（主催の博物館・美術館・寺院・自治体の展覧会紹介ページ）を
-Web 検索で探し、その URL だけを 1 行で答えてください。ニュースサイト・チケット販売・SNS・まとめサイトは不可。
+SEARCH_MODEL = "claude-haiku-5-5"   # 公式ページ探しは軽いモデルで十分（検索結果の読み込みが費用の大半）
+SEARCH_OFFICIAL_PROMPT = """次の展覧会の「公式の個別ページ」（主催の博物館・美術館・寺院・自治体が、この展覧会
+だけを紹介しているページ）を Web 検索で探し、その URL だけを 1 行で答えてください。
+サイトのトップページ・催しの一覧ページ・ニュースサイト・チケット販売・SNS・まとめサイトは不可。
 見つからなければ NONE とだけ答えてください。
 
 記事タイトル: {title}
@@ -358,7 +360,7 @@ Web 検索で探し、その URL だけを 1 行で答えてください。ニ�
 
 
 def search_official_page(client, usage: "Usage", item: dict) -> str:
-    """記事にリンクが無いとき、Claude の Web 検索で公式ページを探す（1 件 約$0.01〜0.02）。"""
+    """記事にリンクが無いとき、Claude の Web 検索で公式ページを探す（1 件 数セント）。"""
     import re
 
     ev = (item.get("ai") or {}).get("event") or {}
@@ -367,8 +369,8 @@ def search_official_page(client, usage: "Usage", item: dict) -> str:
     for tool_type in ("web_search_20260209", "web_search_20250305"):
         try:
             resp = client.messages.create(
-                model=MODEL, max_tokens=2000,
-                tools=[{"type": tool_type, "name": "web_search", "max_uses": 2}],
+                model=SEARCH_MODEL, max_tokens=1000,
+                tools=[{"type": tool_type, "name": "web_search", "max_uses": 1}],
                 messages=[{"role": "user", "content": prompt}],
             )
         except Exception as e:
