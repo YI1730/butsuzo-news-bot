@@ -350,10 +350,10 @@ def article_links(url: str) -> list[tuple[str, str]]:
 
 
 SEARCH_MODEL = "claude-haiku-5-5"   # 公式ページ探しは軽いモデルで十分（検索結果の読み込みが費用の大半）
-SEARCH_OFFICIAL_PROMPT = """次の展覧会の「公式の個別ページ」（主催の博物館・美術館・寺院・自治体が、この展覧会
-だけを紹介しているページ）を Web 検索で探し、その URL だけを 1 行で答えてください。
-サイトのトップページ・催しの一覧ページ・ニュースサイト・チケット販売・SNS・まとめサイトは不可。
-見つからなければ NONE とだけ答えてください。
+SEARCH_OFFICIAL_PROMPT = """次の展覧会の公式ページを Web 検索で探し、その URL だけを 1 行で答えてください。
+優先順: ①主催の博物館・美術館・寺院の、この展覧会の紹介ページ ②主催者や自治体の公式発表
+（記者発表・お知らせ）のページ。サイトのトップページ・催しの一覧ページ・ニュースサイト・
+チケット販売・SNS・まとめサイトは不可。見つからなければ NONE とだけ答えてください。
 
 記事タイトル: {title}
 展覧会: {event} / 会場: {place}"""
@@ -370,7 +370,7 @@ def search_official_page(client, usage: "Usage", item: dict) -> str:
         try:
             resp = client.messages.create(
                 model=SEARCH_MODEL, max_tokens=1000,
-                tools=[{"type": tool_type, "name": "web_search", "max_uses": 1}],
+                tools=[{"type": tool_type, "name": "web_search", "max_uses": 2}],
                 messages=[{"role": "user", "content": prompt}],
             )
         except Exception as e:
