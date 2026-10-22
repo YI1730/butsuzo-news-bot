@@ -142,7 +142,9 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
     if source in ("google_news", "official_site", "reminder"):
         # ニュースの description は AI 採点用の要約。投稿文には差し込まない
         desc_escaped = ""
-    intent_params = urllib.parse.urlencode({"text": post_text, "url": url})
+    # 展覧会は公式ページを付けて、X のリンクカードに公式の OG 画像（ポスター等）を出す（curate_news.py）
+    link_url = ai.get("official_url") or url
+    intent_params = urllib.parse.urlencode({"text": post_text, "url": link_url})
     intent_url = f"https://x.com/intent/post?{intent_params}"
 
     # OGP 画像ブロック（image_url がある場合のみ）
@@ -197,6 +199,16 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
             f'        <span class="text-[11px] text-gray-500">{esc(ai.get("category", ""))}・{esc(ai.get("reason", ""))}</span>\n'
             f'      </div>\n'
         )
+        if ai.get("official_url"):
+            off = ai["official_url"].replace('"', "&quot;")
+            off_img = (ai.get("official_image") or "").replace('"', "&quot;")
+            ai_html += (
+                f'      <div class="flex items-center gap-2 mb-2 bg-sky-50 border border-sky-100 rounded-lg p-2">\n'
+                + (f'        <img src="{off_img}" alt="" loading="lazy" class="w-14 h-14 object-cover rounded" onerror="this.style.display=\'none\'">\n' if off_img else '')
+                + f'        <p class="text-[11px] text-sky-800 leading-snug">投稿には公式ページを付けます（Xのカードに公式の画像が出ます）<br>'
+                f'<a href="{off}" target="_blank" rel="noopener noreferrer" class="underline break-all">{esc(ai["official_url"][:60])}</a></p>\n'
+                f'      </div>\n'
+            )
         if ai.get("post_text"):
             ai_html += (
                 f'      <p class="text-xs text-gray-700 bg-amber-50 border border-amber-100 rounded-lg p-2 mb-3 '
@@ -1256,6 +1268,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
     // 失敗時のみ同梱の docs/data/archives.json にフォールバック。
     const _RAW_BASE = 'https://raw.githubusercontent.com/YI1730/butsuzo-news-bot/main';
 
+    // アプリに戻ってきたとき、表示が古ければ読み直す（通知から開いたときに最新のニュースを出すため）。
+    // 返信文などを編集中のときは読み直さない
+    const _PAGE_LOADED_AT = Date.now();
+    document.addEventListener('visibilitychange', function () {{
+      if (document.visibilityState !== 'visible' || Date.now() - _PAGE_LOADED_AT < 3 * 60 * 1000) return;
+      const editing = Array.prototype.some.call(document.querySelectorAll('textarea'), function (t) {{
+        return t.value !== t.defaultValue;
+      }});
+      if (!editing) location.reload();
+    }});
+
     function _fetchJson(remoteUrl, localUrl) {{
       // raw.githubusercontent.com の cache を回避するためタイムスタンプを付ける
       const ts = Date.now();
@@ -2004,7 +2027,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v32';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v33';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -2021,8 +2044,9 @@ self.addEventListener('fetch', e => {
       || url.includes('/data/news.json')
       || url.includes('/data/archives.json')
       || url.includes('/data/scheduled_posts.json')) {
+    // GitHub Pages は max-age=600 を返すので、ブラウザの HTTP キャッシュを使わず毎回取りに行く
     e.respondWith(
-      fetch(e.request).then(res => {
+      fetch(url, {cache: 'no-store'}).then(res => {
         const clone = res.clone();
         caches.open(CACHE).then(c => c.put(e.request, clone));
         return res;

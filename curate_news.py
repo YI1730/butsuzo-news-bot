@@ -20,13 +20,13 @@ import json
 import os
 import sys
 from datetime import datetime, timedelta
-from urllib.parse import urlparse
+from urllib.parse import urldefrag, urlencode, urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
 
 from news_store import CANDIDATE_THRESHOLD, NEWS_POST_HEADER, NOISE_THRESHOLD, compose_news_post
-from post_news import JST, RESOLVE_USER_AGENT, load_news_data, save_news_data
+from post_news import JST, RESOLVE_USER_AGENT, extract_og_image, load_news_data, save_news_data
 
 # 採点・投稿文・返信の仕分けすべてで使うモデル（2026-10: 費用を抑えるため Opus 5.5 → Sonnet 5.5）
 MODEL = "claude-sonnet-5-5"
@@ -48,7 +48,9 @@ POST_FORMAT = 6
 #   2: 速報性を最重要に（終了済みの出来事・古い記事を大きく減点）
 #   3: 2 の再採点で記事が自分自身の重複と判定された不具合を直して採点し直す
 #   4: 公式サイトの新着に対応、公開期間（カレンダー用）の抽出を追加
-SCORE_VERSION = 5
+#   5: 大型特別展の正式発表・寺院建造物/寺宝の新指定を高く、第一報・発表元を優先
+#   6: 市町村指定の仏像を高く、@butsuzolink の実績（像が具体的な記事が強い等）を反映
+SCORE_VERSION = 6
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
 TARGET_SOURCES = {"google_news", "official_site"}  # official_site は watch_sites.py
@@ -63,17 +65,25 @@ SCORE_SYSTEM = """あなたは X アカウント「仏像リンク」のニュ�
 渡されたニュース記事の一覧を、仏像リンクが「いま配信すべきか」で 0〜100 点に採点してください。
 
 # 高く評価する記事
-- 秘仏の御開帳・特別公開（特に「◯十年ぶり」「初公開」、公開期間が近いもの）
-- 仏像が主役の展覧会の開幕・告知。国立博物館などの大型特別展（仏教美術・寺宝展）の
+- 秘仏の御開帳・特別公開（特に「◯十年ぶり」「初公開」、12 年以上の周期の開帳、公開期間が近いもの）
+- 仏像が主役の展覧会の開幕・告知。とくに地域の仏像（平安仏・地方仏など）を集めた展覧会は高く。国立博物館などの大型特別展（仏教美術・寺宝展）の
   正式発表・記者発表は、開催が先でも第一報なら 80〜90 点
 - 仏像の新発見、研究による新事実
 - 国宝・重要文化財の新指定（文化審議会の答申を含む）
-  - 仏像の指定: 85〜95 点
+  - 仏像の指定（国宝・重要文化財）: 85〜95 点
+  - 仏像の都道府県・市町村指定: 75〜85 点（地方仏は仏像リンクの得意分野。市の指定でも低く見ない）
   - 寺院の建造物（本堂・法堂・塔など）や寺宝（経典・聖教・仏画・曼荼羅など）の指定: 70〜85 点
   - 城・近代建築・ホテル・民家など寺院と関係ない文化財の指定: 低く（0〜39 点）
 - 仏像の修理完了・お披露目
 - 仏像の盗難・損傷・被災などの事件（読者が知っておくべき情報）
 - 仏像に関わる寺院の行事
+
+# 仏像リンクの実績から（反応が多い記事の特徴。点数の調整に使う）
+- 加点: 像が具体的に分かる記事（像の名前・大きさ・腕や顔の数・時代・作者・何年ぶり）。
+  抽象的な「仏像を公開」より、「高さ2mの准胝観音、33年ぶり」のような記事が強く反応される
+- 加点: 大河ドラマなど、いま話題の人物・出来事とゆかりがある寺院・仏像の記事
+- 上限: 仏像が出てこない寺院の話題（庭園・夜間拝観・ライトアップ・絵画・書跡・お砂踏み・
+  本堂など建物だけの公開）は、寺院の記事でも 60 点まで（新指定の答申は上の基準による）
 
 # 低く評価する記事
 - 仏像と無関係なもの: 「顔面重要文化財」「菩薩のような美しさ」などの比喩、芸能人・グラビア、
@@ -293,6 +303,112 @@ def fetch_article_text(url: str) -> str:
         return ""
 
 
+# ── 展覧会の公式ページ（投稿の URL を公式ページにして、X のリンクカードに公式の OG 画像を出す） ──
+# 画像そのものは保存・添付しない（主催者の権利があるため）。公式ページの OG 画像を X がカードに出すだけ
+OFFICIAL_CATEGORIES = {"展覧会"}
+LINK_SKIP_DOMAINS = (
+    "x.com", "twitter.com", "facebook.com", "instagram.com", "line.me", "youtube.com", "youtu.be",
+    "google.com", "google.co.jp", "amazon.co.jp", "amazon.com", "rakuten.co.jp", "yahoo.co.jp",
+    "hatena.ne.jp", "note.com", "tiktok.com", "apple.com", "goo.gl", "bit.ly",
+)
+
+OFFICIAL_SYSTEM = """ニュース記事の中にあるリンクの一覧から、記事で紹介している展覧会の「公式ページ」
+（主催の博物館・美術館・寺院・自治体などの展覧会紹介ページ）の URL を 1 つ選んでください。
+展覧会そのもののページが無ければ、主催館の公式サイトのトップでもよい。
+ニュースサイト・チケット販売・SNS・広告・関係ない施設のページは選ばない。該当が無ければ空文字。"""
+
+OFFICIAL_SCHEMA = {
+    "type": "object",
+    "properties": {"url": {"type": "string"}},
+    "required": ["url"],
+    "additionalProperties": False,
+}
+
+
+def article_links(url: str) -> list[tuple[str, str]]:
+    """記事本文中の、外部サイトへのリンク (URL, 文字列)。"""
+    try:
+        resp = requests.get(url, headers={"User-Agent": RESOLVE_USER_AGENT}, timeout=10)
+        soup = BeautifulSoup(resp.content, "html.parser")
+    except Exception:
+        return []
+    own = domain(resp.url)
+    for tag in soup(["script", "style", "nav", "header", "footer", "aside", "form"]):
+        tag.decompose()
+    root = soup.find("article") or soup.find("main") or soup.body or soup
+    out, seen = [], set()
+    for a in root.find_all("a", href=True):
+        href = urldefrag(urljoin(resp.url, a["href"]))[0]
+        d = domain(href)
+        if not href.startswith("http") or not d or d == own or href in seen:
+            continue
+        if any(d == x or d.endswith("." + x) for x in LINK_SKIP_DOMAINS):
+            continue
+        seen.add(href)
+        out.append((href, " ".join(a.get_text(" ", strip=True).split())[:60]))
+    return out[:25]
+
+
+SEARCH_OFFICIAL_PROMPT = """次の展覧会の「公式ページ」（主催の博物館・美術館・寺院・自治体の展覧会紹介ページ）を
+Web 検索で探し、その URL だけを 1 行で答えてください。ニュースサイト・チケット販売・SNS・まとめサイトは不可。
+見つからなければ NONE とだけ答えてください。
+
+記事タイトル: {title}
+展覧会: {event} / 会場: {place}"""
+
+
+def search_official_page(client, usage: "Usage", item: dict) -> str:
+    """記事にリンクが無いとき、Claude の Web 検索で公式ページを探す（1 件 約$0.01〜0.02）。"""
+    import re
+
+    ev = (item.get("ai") or {}).get("event") or {}
+    prompt = SEARCH_OFFICIAL_PROMPT.format(title=item.get("title", ""), event=ev.get("event_name", ""),
+                                           place=ev.get("place", ""))
+    for tool_type in ("web_search_20260209", "web_search_20250305"):
+        try:
+            resp = client.messages.create(
+                model=MODEL, max_tokens=2000,
+                tools=[{"type": tool_type, "name": "web_search", "max_uses": 2}],
+                messages=[{"role": "user", "content": prompt}],
+            )
+        except Exception as e:
+            print(f"::warning::公式ページの検索に失敗（{tool_type}）: {type(e).__name__}", file=sys.stderr)
+            continue
+        usage.add(resp.usage)
+        text = " ".join(b.text for b in resp.content if b.type == "text")
+        m = re.findall(r"https?://[^\s)」）>\]]+", text)
+        return m[-1].rstrip(".,。、") if m else ""
+    return ""
+
+
+def find_official_page(client, usage: "Usage", item: dict) -> tuple[str, str]:
+    """展覧会の公式ページの (URL, OG 画像)。見つからなければ空。
+    まず記事中のリンクから選び、無ければ Web 検索で探す。"""
+    links = article_links(item["url"])
+    url = ""
+    if links:
+        ev = (item.get("ai") or {}).get("event") or {}
+        user = (f"記事タイトル: {item.get('title', '')}\n"
+                f"展覧会: {ev.get('event_name', '')} / 会場: {ev.get('place', '')}\n\n"
+                "リンク一覧:\n" + "\n".join(f"- {u}  （{t}）" for u, t in links))
+        res = call_json(client, usage, OFFICIAL_SYSTEM, user, OFFICIAL_SCHEMA, effort="low")
+        url = ((res or {}).get("url") or "").strip()
+        if url not in {u for u, _ in links}:
+            url = ""
+    if not url:
+        url = search_official_page(client, usage, item)
+    d = domain(url)
+    if not url or any(d == x or d.endswith("." + x) for x in LINK_SKIP_DOMAINS) or d == domain(item["url"]):
+        return "", ""
+    try:
+        r = requests.get(url, headers={"User-Agent": RESOLVE_USER_AGENT}, timeout=10)
+        image = extract_og_image(r.content) if r.status_code == 200 else ""
+    except Exception:
+        image = ""
+    # OG 画像が無いページだとリンクカードに画像が出ず、記事の URL より見劣りするので使わない
+    return (url, image) if image else ("", "")
+
+
 def hours_since(iso: str | None) -> int | None:
     """配信からの経過時間（時間単位、不明なら None）。"""
     try:
@@ -410,16 +526,25 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
 
 def notify(topic: str, item: dict) -> None:
     ai = item["ai"]
+    body = (compose_news_post(ai["post_text"], item.get("title", ""), ai.get("post_header", NEWS_POST_HEADER))
+            if ai.get("post_text") else item.get("title", ""))
+    # 通知の「Xに投稿」から、管理画面を開かずに投稿文入りの X を開けるようにする
+    link = ai.get("official_url") or item.get("url", "")
+    intent = "https://x.com/intent/post?" + urlencode({"text": body, "url": link})
+    hour = datetime.now(JST).hour
+    note = "" if 9 <= hour < 21 else "\n\n（投稿は9時以降がおすすめ。反応が多いのは9〜17時）"
     try:
         requests.post(
             "https://ntfy.sh/",
             json={
                 "topic": topic,
                 "title": f"⭐ 配信候補 {ai['score']}点（{ai['category']}）",
-                "message": (compose_news_post(ai["post_text"], item.get("title", ""),
-                                              ai.get("post_header", NEWS_POST_HEADER))
-                            if ai.get("post_text") else item.get("title", "")),
+                "message": body + note,
                 "click": PWA_URL,
+                "actions": [
+                    {"action": "view", "label": "Xに投稿", "url": intent},
+                    {"action": "view", "label": "管理画面", "url": PWA_URL},
+                ],
                 "tags": ["star"],
                 "priority": 5 if ai["score"] >= 90 else 4,
             },
@@ -484,6 +609,14 @@ def main() -> int:
             key=lambda x: x.get("fetched_at", ""), reverse=True)
     ]
     for it in candidates:
+        if it["ai"].get("category") in OFFICIAL_CATEGORIES and "official_url" not in it["ai"]:
+            if it.get("source") == "official_site":
+                off_url, off_img = it["url"], it.get("image_url", "")
+            else:
+                off_url, off_img = find_official_page(client, usage, it)
+            it["ai"]["official_url"], it["ai"]["official_image"] = off_url, off_img
+            if off_url:
+                print(f"   公式ページ: {off_url}")
         text = write_post(client, usage, it, recent_posts=recent_posts)
         it["ai"]["post_text"] = text or ""
         it["ai"]["post_format"] = POST_FORMAT
