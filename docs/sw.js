@@ -1,4 +1,4 @@
-const CACHE = 'butsuzo-v32';
+const CACHE = 'butsuzo-v33';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -15,8 +15,9 @@ self.addEventListener('fetch', e => {
       || url.includes('/data/news.json')
       || url.includes('/data/archives.json')
       || url.includes('/data/scheduled_posts.json')) {
+    // GitHub Pages は max-age=600 を返すので、ブラウザの HTTP キャッシュを使わず毎回取りに行く
     e.respondWith(
-      fetch(e.request).then(res => {
+      fetch(url, {cache: 'no-store'}).then(res => {
         const clone = res.clone();
         caches.open(CACHE).then(c => c.put(e.request, clone));
         return res;
