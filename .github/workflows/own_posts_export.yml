@@ -1,0 +1,45 @@
+name: Export Own Posts (analysis)
+
+# @butsuzolink の直近の投稿と反応数を非公開リポジトリに書き出す（採点ルールの分析用・手動実行のみ）
+on:
+  workflow_dispatch:
+    inputs:
+      max_posts:
+        description: "読み取る投稿数の上限（1件 約$0.005 以下）"
+        default: "200"
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout private data
+        uses: actions/checkout@v4
+        with:
+          repository: YI1730/butsuzo-private
+          ssh-key: ${{ secrets.PRIVATE_REPO_SSH_KEY }}
+          path: private
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Export
+        env:
+          X_API_KEY:             ${{ secrets.X_API_KEY }}
+          X_API_SECRET:          ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          MAX_POSTS: ${{ inputs.max_posts }}
+          PRIVATE_DIR: private
+        run: python tools/export_own_posts.py
+      - name: Save
+        run: |
+          cd private
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add own_posts.json
+          git diff --staged --quiet || { git commit -q -m "export own posts" && git push -q; }
