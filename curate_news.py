@@ -211,6 +211,8 @@ POST_SYSTEM = """あなたは X アカウント「仏像リンク」の中の人
   - 事件・被害: 事実を落ち着いて伝える（「！」は使わない）
 
 # 守ること
+- 記事本文が短くても、タイトルと本文に書かれた範囲（像の名前・場所・指定や公開の事実）で、
+  必ず 1〜2 文の文章を書く。空にしない
 - 記事に書かれていない事実（日付、所在地、像の名前、指定区分など）を推測で書かない
 - 「記事本文が読めなかった」「詳しくは記事で」「◯◯で確認したい」「続報を待ちたい」のような、
   記事の読み取り状況や記事・情報ページへの誘導は書かない（リンクは後ろに付く）。
@@ -540,6 +542,9 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
         if not data:
             return None
         text = data["post_text"].strip()
+        if not text:
+            user += "\n\n（前回の案は空でした。本文が短くても、タイトルと記事の範囲で必ず 1〜2 文書いてください）"
+            continue
         total = x_weighted_length(compose_news_post(text, item.get("title", ""), header)) + 1 + X_URL_WEIGHT
         if total <= X_LIMIT:
             return text
