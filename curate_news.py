@@ -50,7 +50,11 @@ POST_FORMAT = 6
 #   4: 公式サイトの新着に対応、公開期間（カレンダー用）の抽出を追加
 #   5: 大型特別展の正式発表・寺院建造物/寺宝の新指定を高く、第一報・発表元を優先
 #   6: 市町村指定の仏像を高く、@butsuzolink の実績（像が具体的な記事が強い等）を反映
-SCORE_VERSION = 6
+#   7: 仏像の新指定は等級で差をつけない（48時間以内は 85 点以上）、指定文化財の特別公開は詳細不明でも下げない、
+#      指定・特別公開の告知は 48 時間まで経過時間で減点しない
+SCORE_VERSION = 7
+NEW_DESIGNATION_FLOOR = 85       # 仏像の新指定の下限点（配信から FLOOR_HOURS 時間以内・重複でない場合）
+NEW_DESIGNATION_FLOOR_HOURS = 48
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
 TARGET_SOURCES = {"google_news", "official_site"}  # official_site は watch_sites.py
@@ -70,10 +74,15 @@ SCORE_SYSTEM = """あなたは X アカウント「仏像リンク」のニュ�
   正式発表・記者発表は、開催が先でも第一報なら 80〜90 点
 - 仏像の新発見、研究による新事実
 - 国宝・重要文化財の新指定（文化審議会の答申を含む）
-  - 仏像の指定（国宝・重要文化財）: 85〜95 点
-  - 仏像の都道府県・市町村指定: 75〜85 点（地方仏は仏像リンクの得意分野。市の指定でも低く見ない）
+  - 仏像の新指定: 国宝・重要文化財・都道府県・市町村のどの指定でも同じ枠で 85〜95 点。
+    指定の等級で差をつけない（地方仏は仏像リンクの得意分野。市町村指定でも国宝と同じく扱う）。
+    配信から 48 時間以内なら、この 85〜95 点を下回らせない（重複の減点は別）
   - 寺院の建造物（本堂・法堂・塔など）や寺宝（経典・聖教・仏画・曼荼羅など）の指定: 70〜85 点
   - 城・近代建築・ホテル・民家など寺院と関係ない文化財の指定: 低く（0〜39 点）
+- 寺院や地域の博物館での指定文化財の特別公開の告知: 像の詳細が記事に少なくても、本尊・寺宝など
+  仏像が含まれる見込みがあり、開催日が分かれば 75〜85 点。「仏像の詳細が不明」は減点の理由にしない
+  （ただし見出しや本文で絵画・書跡・庭などが主役になっている公開（「若冲に出会う」のように
+  絵師や絵画が見出しの公開など）は、仏像が含まれるか分からなくても下の上限 60 点のまま）
 - 仏像の修理完了・お披露目
 - 仏像の盗難・損傷・被災などの事件（読者が知っておくべき情報）
 - 仏像に関わる寺院の行事
@@ -104,6 +113,8 @@ SCORE_SYSTEM = """あなたは X アカウント「仏像リンク」のニュ�
   の事後レポート）は、どれだけ珍しい内容でも 60 点以下
 - 経過時間による減点: 配信から 6 時間以上で 5 点、12 時間以上で 10 点、24 時間以上で 20 点以上、
   48 時間以上で 30 点以上下げる（まだ続報価値がある場合を除く）
+- ただし「仏像の新指定」と「これから始まる・開催中の特別公開・御開帳の告知」は、時間がたっても
+  価値が落ちにくいので、配信から 48 時間までは経過時間で減点しない（48 時間を過ぎても 10 点まで）
 - 先の予定（数か月後の御開帳の準備など、小さな話題）は内容が良くても 70 点前後まで。
   ただし大型特別展の正式発表や新指定の答申は「先の予定」として抑えない
 
@@ -113,6 +124,10 @@ SCORE_SYSTEM = """あなたは X アカウント「仏像リンク」のニュ�
 - 70〜89: 配信すべき（いま伝える意味がある）
 - 40〜69: 仏像に関係はあるが、優先度は低い・タイミングを逃している
 - 0〜39: 無関係・ノイズ
+
+is_buddha_designation: 記事の主題が「仏像（仏像・神像・仏教彫刻）そのものの新指定・答申」
+（国宝・重要文化財・都道府県・市町村のどの指定でも）なら true。建物・絵画・書跡・庭だけの指定、
+指定文化財の特別公開、過去に指定された文化財の話は false。
 
 reason では、点数に速報性がどう効いたかにも触れてください（例:「あすから公開・第一報」「公開は終了済み」）。
 
@@ -155,9 +170,10 @@ SCORE_SCHEMA = {
                     "place": {"type": "string"},
                     "start_date": {"type": "string"},
                     "end_date": {"type": "string"},
+                    "is_buddha_designation": {"type": "boolean"},
                 },
                 "required": ["id", "score", "category", "duplicate", "reason",
-                             "event_name", "place", "start_date", "end_date"],
+                             "event_name", "place", "start_date", "end_date", "is_buddha_designation"],
                 "additionalProperties": False,
             },
         }
@@ -475,13 +491,19 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
             # 再採点のときも、作成済みの投稿文と通知済みフラグは引き継ぐ（再通知・再作成を防ぐ）
             kept = {k: v for k, v in it.get("ai", {}).items()
                     if k in ("post_text", "post_format", "notified")}
+            score = max(0, min(100, int(r["score"])))
+            hours = hours_since(it.get("published_at"))
+            if (r.get("is_buddha_designation") and not r["duplicate"] and hours is not None
+                    and hours <= NEW_DESIGNATION_FLOOR_HOURS and score < NEW_DESIGNATION_FLOOR):
+                score = NEW_DESIGNATION_FLOOR  # AI の点数のぶれで、仏像の新指定が下がりすぎないようにする
             it["ai"] = {
                 **kept,
-                "score": max(0, min(100, int(r["score"]))),
+                "score": score,
                 "category": r["category"],
                 "duplicate": bool(r["duplicate"]),
                 "reason": r["reason"],
                 "event": {k: r[k].strip() for k in ("event_name", "place", "start_date", "end_date")},
+                "buddha_designation": bool(r.get("is_buddha_designation")),
                 "model": MODEL,
                 "scored_at": now,
                 "score_version": SCORE_VERSION,
