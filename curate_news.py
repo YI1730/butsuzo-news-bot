@@ -37,6 +37,7 @@ SCORE_WINDOW_HOURS = 48    # これより前に取り込んだ記事は採点し
 SCORE_BATCH_SIZE = 20      # 1 回の API 呼び出しで採点する件数
 MAX_SCORE_PER_RUN = 80
 MAX_POSTS_PER_RUN = 8
+MAX_POST_ATTEMPTS = 3
 ARTICLE_BODY_CHARS = 4000  # 投稿文作成時に渡す本文の上限文字数
 # 投稿文の形式・文体の版。POST_SYSTEM を変えたら上げると、既存の配信候補も作り直される
 #   3: 文章 → 【仏像速報】タイトル の順、運営者の文体（ハッシュタグなし）
@@ -490,7 +491,7 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
                 continue
             # 再採点のときも、作成済みの投稿文と通知済みフラグは引き継ぐ（再通知・再作成を防ぐ）
             kept = {k: v for k, v in it.get("ai", {}).items()
-                    if k in ("post_text", "post_format", "notified")}
+                    if k in ("post_text", "post_format", "notified", "post_attempts")}
             score = max(0, min(100, int(r["score"])))
             hours = hours_since(it.get("published_at"))
             if (r.get("is_buddha_designation") and not r["duplicate"] and hours is not None
@@ -623,7 +624,9 @@ def main() -> int:
         if it.get("ai", {}).get("score", 0) >= CANDIDATE_THRESHOLD
         and not it["ai"].get("duplicate")
         # 投稿文が無いもの、または古い文体（POST_FORMAT 未満）のものを作り直す
-        and it["ai"].get("post_format", 0) < POST_FORMAT
+        and (it["ai"].get("post_format", 0) < POST_FORMAT
+             # 以前に作成に失敗して空のままのものも、最大 MAX_POST_ATTEMPTS 回までやり直す
+             or (not it["ai"].get("post_text") and it["ai"].get("post_attempts", 1) < MAX_POST_ATTEMPTS))
     ][:MAX_POSTS_PER_RUN]
     topic = os.environ.get("NTFY_TOPIC", "").strip()
     written = 0
@@ -645,6 +648,7 @@ def main() -> int:
                 print(f"   公式ページ: {off_url}")
         text = write_post(client, usage, it, recent_posts=recent_posts)
         it["ai"]["post_text"] = text or ""
+        it["ai"]["post_attempts"] = it["ai"].get("post_attempts", 0) + 1
         it["ai"]["post_format"] = POST_FORMAT
         if text:
             recent_posts.insert(0, text)
