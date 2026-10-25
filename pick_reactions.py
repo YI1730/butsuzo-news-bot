@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -90,29 +91,48 @@ SCHEMA = {
 
 # 返信案の書き方の版。REPLY_SYSTEM を変えたら上げると、未返信の提案の返信案を作り直す
 #   2: 投稿の言い換え（オウム返し）をやめ、自分の視点を 1 つ足す
-REPLY_DRAFT_VERSION = 2
+#   3: 反応の型を分け（共感・感想・ツッコミ・質問・お礼）、質問は 2 割まで、お礼はオフ会の話と分かるときだけ
+REPLY_DRAFT_VERSION = 3
+
+# 仏像リンクのオフ会（ツアー）についての投稿と判断してよい手がかり。これが無い投稿にはお礼を書かない
+TOUR_KEYWORDS = ("寺ベル", "ブラ参り", "ぶら参り", "仏像リンク", "リンクツアー", "リンクオフ会", "butsuzolink", "オフ会")
+THANKS_RE = re.compile(r"(参加|ご参加|ツアー|オフ会).{0,12}(ありがとう|感謝)|(ありがとう|感謝).{0,6}(参加|ツアー)")
+BANNED_WORDS = ("仏様", "癒や", "癒さ", "感動", "圧倒", "最高")
+REPLY_TYPES = ["共感", "感想", "ツッコミ", "質問", "お礼"]
+MAX_QUESTION_RATIO = 0.2
 
 REPLY_SYSTEM = """あなたは仏像好きのコミュニティ「仏像リンク」（X: @butsuzolink）の運営者です。
 平安・鎌倉期の彫刻や地方仏に詳しく、各地の寺を実際に巡っています。
 知り合いの X の投稿に、仏像リンクのアカウントから短い返信を書きます。
 
-# いちばん大事なこと: オウム返しにしない
-- 投稿に書かれている内容を言い換えて返すだけ（「◯◯に行かれたんですね」「◯◯が伝わってきます」
-  「◯◯なのですね」）は禁止。相手はもう知っていることなので、会話が広がらない
-- 投稿から 1 点だけを拾い、そこに運営者ならではの視点を 1 つ足す。たとえば:
-  - 写真や記述の中で、ふつうは見落としそうな細部に目を留める（像の表情・衣文・光背・安置の仕方など）
-  - その像・寺・地域について、運営者が確実に知っていることを一言添える（時代・様式・ゆかり・
-    近くで一緒に見たい寺など）。不確かな知識は書かない。迷ったら知識は足さず、問いかけにする
-  - 相手が答えたくなる短い問いかけ（「◯◯は拝観できましたか？」「次はどこを回る予定ですか？」）
-  - 運営者自身の体験や本音を短く（「あの石段、帰りに膝が笑いました」のような）
-- 感想語（素敵・すごい・感動）で済ませない
+# 反応の型（投稿に合うものを 1 つ選び、type に入れる）
+- 共感: 相手の気持ちや体験に「それ、ですよね！」と頷く。例:「あの石段、上りきったあとの本堂は格別ですよね！」
+- 感想: 像・場所・写真の具体を 1 つ拾って、ひと言添える。細部（表情・衣文・光背・安置の仕方）に目を留める。
+  運営者が確実に知っていることを一言足してよい。不確かな知識は書かない
+- ツッコミ: 像や状況への親しみのある軽いツッコミ。像への愛が伝わるもの。ご住職や寺、信仰を
+  からかう表現、像を貶める表現は使わない
+- 質問: 本当に知りたいことがあるときだけ。短く 1 つ
+- お礼: 下の「お礼のルール」に当てはまるときだけ
+
+# 型の割合
+- 質問は、同じ回に渡す投稿のうち 2 割まで（渡された件数が 5 件未満なら 1 件まで）。
+  迷ったら質問ではなく共感か感想にする。「直近の反応の型」が渡されたら、それと同じ型が続かないようにする
+- 同じ書き出し・同じ締めを続けない。冒頭に定型の相づち（「いいですね」「素敵ですね」）を置かない
+
+# お礼のルール（重要）
+- 投稿の本文に「寺ベル」「ブラ参り」「仏像リンク」「リンクツアー」「オフ会」などの言葉があり、
+  仏像リンクのオフ会（ツアー）の話だと確信できるときだけ、参加へのお礼を短く添える
+- 一般の旅行・個人の寺めぐり・展覧会・他の団体のツアーなど、仏像リンクのオフ会と確信できない投稿には、
+  「ツアーへのご参加ありがとう」「参加ありがとうございました」などを絶対に書かない。迷ったら書かない
 
 # 文体
-- 丁寧語だが堅すぎない、運営者本人の言葉。全角 80 字以内。1〜2 文
-- うれしい・驚いた気持ちは「！」で表してよい（1〜2 個まで）
-- ハッシュタグは使わない。絵文字は基本使わない
-- 宣伝（ツアーの案内など）はしない
-- ツアー・オフ会の感想には、参加してくれたことへのお礼を短く添える"""
+- 丁寧語だが堅すぎない、運営者本人の言葉。全角 80 字以内。1〜2 文。短いほどよい
+- 盛らない・煽らない。うれしい・驚いた気持ちは「！」で表してよい（1〜2 個まで）
+- ハッシュタグ・絵文字は使わない
+- 感情を「感動」「圧倒」「最高」「癒やし」の語で言わず、具体で伝える。「仏様」とは書かず「仏さま」か像の名前にする
+- 投稿の内容を言い換えて返すだけ（オウム返し）にしない
+- 投稿に書かれていない像の名前・寺・事実を断定して書かない（運営者が確実に知っていることだけ足してよい）
+- 宣伝（ツアーの案内など）はしない"""
 
 REPLY_SCHEMA = {
     "type": "object",
@@ -121,8 +141,12 @@ REPLY_SCHEMA = {
             "type": "array",
             "items": {
                 "type": "object",
-                "properties": {"id": {"type": "string"}, "reply_draft": {"type": "string"}},
-                "required": ["id", "reply_draft"],
+                "properties": {
+                    "id": {"type": "string"},
+                    "type": {"type": "string", "enum": REPLY_TYPES},
+                    "reply_draft": {"type": "string"},
+                },
+                "required": ["id", "type", "reply_draft"],
                 "additionalProperties": False,
             },
         }
@@ -132,16 +156,57 @@ REPLY_SCHEMA = {
 }
 
 
-def write_reply_drafts(client, usage: Usage, items: list[dict]) -> None:
+def is_tour_post(text: str) -> bool:
+    return any(k in text for k in TOUR_KEYWORDS)
+
+
+def reply_problems(it: dict, draft: str) -> list[str]:
+    """返信案がルールに反していないか。反していれば理由の一覧。"""
+    out = []
+    if THANKS_RE.search(draft) and not is_tour_post(it.get("text", "")):
+        out.append("仏像リンクのオフ会と確信できない投稿に、ツアー参加のお礼を書いている")
+    out += [f"「{w}」は使わない" for w in BANNED_WORDS if w in draft]
+    return out
+
+
+def write_reply_drafts(client, usage: Usage, items: list[dict], recent_types: list[str] | None = None) -> None:
     """提案した投稿に返信案を付ける（PWA で直して X の返信画面に入れる）。"""
-    payload = [{"id": it["id"], "text": it["text"][:600], "reason": it.get("reason", "")} for it in items]
+    max_q = max(1, int(len(items) * MAX_QUESTION_RATIO)) if len(items) >= 5 else 1
+    payload = {
+        "質問にしてよい件数の上限": max_q,
+        "直近の反応の型（新しい順）": (recent_types or [])[:8],
+        "投稿": [{"id": it["id"], "text": it["text"][:600], "reason": it.get("reason", "")} for it in items],
+    }
     res = call_json(client, usage, REPLY_SYSTEM, json.dumps(payload, ensure_ascii=False, indent=1),
                     REPLY_SCHEMA, effort="medium")
     by_id = {it["id"]: it for it in items}
+    retry = []
     for r in (res or {}).get("results", []):
         it = by_id.get(r.get("id"))
-        if it:
-            it["reply_draft"] = r["reply_draft"].strip()
+        if not it:
+            continue
+        draft = r["reply_draft"].strip()
+        probs = reply_problems(it, draft)
+        if probs:
+            retry.append((it, draft, probs))
+            continue
+        it["reply_draft"], it["reply_type"] = draft, r["type"]
+        it["reply_draft_version"] = REPLY_DRAFT_VERSION
+    # ルールに反した案は、理由を伝えて 1 回だけ書き直す。それでも反するなら、反した部分を落とす
+    for it, bad, probs in retry:
+        res2 = call_json(
+            client, usage, REPLY_SYSTEM,
+            json.dumps({"質問にしてよい件数の上限": 0, "直近の反応の型（新しい順）": [],
+                        "投稿": [{"id": it["id"], "text": it["text"][:600], "reason": it.get("reason", "")}],
+                        "前回の案": bad, "直す点": probs}, ensure_ascii=False, indent=1),
+            REPLY_SCHEMA, effort="medium")
+        new = ((res2 or {}).get("results") or [{}])[0]
+        draft = (new.get("reply_draft") or "").strip()
+        if not draft or reply_problems(it, draft):
+            draft = "".join(sn for sn in re.split(r"(?<=[。！？])", draft or bad)
+                            if sn and not reply_problems(it, sn)).strip()
+        if draft:
+            it["reply_draft"], it["reply_type"] = draft, new.get("type", "感想")
             it["reply_draft_version"] = REPLY_DRAFT_VERSION
 
 
@@ -155,7 +220,8 @@ def fill_reply_drafts(state: dict, usage: Usage) -> int:
         return 0
     import anthropic
 
-    write_reply_drafts(anthropic.Anthropic(), usage, need)
+    recent = [it.get("reply_type", "") for it in state["items"] if it.get("reply_type")]
+    write_reply_drafts(anthropic.Anthropic(), usage, need, recent)
     return len(need)
 
 
