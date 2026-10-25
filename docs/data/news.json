@@ -1,6 +1,34 @@
 {
-  "last_updated": "2026-10-25T10:50:14.196572+09:00",
+  "last_updated": "2026-10-25T10:56:54.303628+09:00",
   "items": [
+    {
+      "id": "973c30a33323",
+      "title": "ＥＵ外相、赤根所長らと会談 - 香港経済新聞",
+      "url": "https://hongkong.keizai.biz/gpnews/1777371/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-25T10:56:54.299791+09:00",
+      "published_at": "2026-10-24T12:40:16+09:00",
+      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
+      "description": "欧州連合（ＥＵ）のカラス外交安全保障上級代表（外相＝左）は２３日、オランダ・ハーグの国際刑事裁判所（ＩＣＣ）を訪れ、赤根智子所長（右）らと会談した＝ＩＣＣのＸ（旧ツイッター）より 【時事通信社】",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "EU外相とICC所長の会談で仏像と無関係。速報性があっても対象外",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-25T10:59:31+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "df06e745eba7",
       "title": "いよいよ、始まる72年ぶりの豊川稲荷御開帳。その象徴となる御縁柱が立ち上がる！ - 毎日キレイ",
@@ -250,7 +278,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-25T10:32:40+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-25"
       }
     },
     {
@@ -1006,7 +1036,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-25T07:30:03+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-25"
       }
     },
     {
@@ -1060,10 +1092,10 @@
       "image_url": "",
       "description": "",
       "ai": {
-        "score": 86,
+        "score": 10,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": false,
-        "reason": "国宝本堂の本尊33年ぶり開帳、4日まで開催中。36時間だが開催中は減点なし",
+        "reason": "古い記事の再配信（記事の日付 2024-11-02）",
         "event": {
           "event_name": "明王院 本尊御開帳",
           "place": "明王院（広島県福山市）",
@@ -1077,7 +1109,10 @@
         "post_text": "33年ぶり！福山の明王院で、国宝の本堂に安置された本尊が開帳されている。公開は4日までとのこと。33年に一度の機会なので、会えるうちにぜひ。",
         "post_attempts": 1,
         "post_format": 6,
-        "notified": true
+        "notified": true,
+        "page_checked": true,
+        "page_date": "2024-11-02",
+        "stale": true
       }
     },
     {
@@ -1525,7 +1560,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-25T01:37:24+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -1557,7 +1594,9 @@
         "post_text": "冊子「松田町の仏像」の発行を記念して、11月1日(日)に松田町で歴史散歩がある。町内の仏像や松田亭の跡を巡る催しで、申込は29日まで、先着30人。",
         "post_attempts": 1,
         "post_format": 6,
-        "notified": true
+        "notified": true,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -1949,7 +1988,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T21:42:23+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -2145,7 +2186,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:34:55+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -2173,7 +2216,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:34:55+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -2596,7 +2641,9 @@
         "score_version": 7,
         "post_text": "高さ約10メートルの御縁柱2本が立ち、豊川稲荷は72年ぶりの御開帳へ。稲穂を背負い白い狐にまたがる鎮守のお姿が拝めるらしい。曹洞宗の妙厳寺だと再確認した。",
         "post_format": 6,
-        "notified": true
+        "notified": true,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -2842,7 +2889,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:26:02+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -3234,7 +3283,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:26:17+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -4142,7 +4193,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:26:42+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -4401,7 +4454,9 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:30:36+09:00",
         "score_version": 7,
-        "post_attempts": 2
+        "post_attempts": 2,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -4429,7 +4484,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:26:42+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -4656,7 +4713,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:30:36+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -4687,7 +4746,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:30:36+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -4718,7 +4779,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:30:36+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -4746,7 +4809,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:30:36+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -4802,7 +4867,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:30:36+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-24"
       }
     },
     {
@@ -5057,7 +5124,9 @@
         "scored_at": "2026-10-24T18:30:36+09:00",
         "score_version": 7,
         "post_text": "秦野市の市指定文化財特別公開が、30日(金)から11月3日(火・祝)まで。蓑毛大日堂の五智如来坐像や龍法寺の毘沙門天立像、不動明王立像が並ぶ。公開は無料だ。",
-        "post_format": 6
+        "post_format": 6,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -5197,7 +5266,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:30:47+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -5745,7 +5816,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-15"
       }
     },
     {
@@ -6306,7 +6379,8 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:31:10+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true
       }
     },
     {
@@ -6531,7 +6605,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:31:10+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -6560,7 +6636,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:31:10+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -6983,7 +7061,8 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:34:55+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true
       }
     },
     {
@@ -7291,7 +7370,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:34:55+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -7711,7 +7792,9 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:35:06+09:00",
-        "score_version": 7
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-10-23"
       }
     },
     {
@@ -8969,34 +9052,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "モネと浮世絵で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:35:29+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "d2d0de600825",
-      "title": "私のなかの歴史 日本画家・福井爽人さん＞小さな世界を丁寧に⑪ インドへの旅 混沌、喧騒 仏教美術の源流 - 北海道新聞デジタル",
-      "url": "https://www.hokkaido-np.co.jp/article_photo/list/?article_id=1392927&pid=15871943",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-23T00:16:20.517039+09:00",
-      "published_at": "2026-10-22T15:44:13+09:00",
-      "image_url": "https://static.hokkaido-np.co.jp/image/article/size1/7/9/7/1/79711f81b63e90b18fa2bf0c6555ffe0_1.webp?20261023001619",
-      "description": "仏教はインドから中国・朝鮮を経て伝わってきました。日本の仏像の顔立ちや衣の表現にインドの影響が見てとれます。仏教美術の源流を自分の目で確かめたいというのが、インドへの旅を思い立った動機でした。...",
-      "ai": {
-        "score": 22,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "画家のインド旅の連載。仏教美術に触れるが時事性低く50時間経過",
         "event": {
           "event_name": "",
           "place": "",
