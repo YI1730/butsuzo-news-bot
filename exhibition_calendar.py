@@ -108,10 +108,21 @@ def parse_kanbutsu(title: str, today: date) -> dict | None:
     return {"venue": m["venue"], "name": m["name"].strip(), "start": start.isoformat(), "end": end.isoformat()}
 
 
-def find_match(cal: dict, pkey: str, start: str, end: str) -> dict | None:
+def place_core(place: str) -> str:
+    """会場名の比較用（括弧内と空白を除く）。"""
+    return re.sub(r"\s|[（(].*?[）)]", "", place or "")
+
+
+def same_place(a: str, b: str) -> bool:
+    """同じ会場か。「龍谷ミュージアム」と「龍谷大学龍谷ミュージアム」のような、一方が他方を含む表記ゆれも同じとみなす。"""
+    a, b = place_core(a), place_core(b)
+    return bool(a and b) and (a == b or (min(len(a), len(b)) >= 5 and (a in b or b in a)))
+
+
+def find_match(cal: dict, pkey: str, start: str, end: str, place: str = "") -> dict | None:
     """同じ展覧会とみなせる既存の項目（同じ会場で、開始日が同じ、または終了日が同じで片方に開始日がない）。"""
     for e in cal["events"]:
-        if e.get("place_key") != pkey:
+        if e.get("place_key") != pkey and not same_place(e.get("place", ""), place):
             continue
         es, ee = e.get("start", ""), e.get("end", "")
         if start and es == start:
@@ -124,7 +135,7 @@ def find_match(cal: dict, pkey: str, start: str, end: str) -> dict | None:
 def add_event(cal: dict, place: str, name: str, start: str, end: str, url: str, origin: str) -> str:
     """カレンダーに展覧会を加える。"added" / "merged"（既存を補った）/ "skip" を返す。"""
     pkey = kc.place_key(place)
-    hit = find_match(cal, pkey, start, end)
+    hit = find_match(cal, pkey, start, end, place)
     if hit:
         before = (hit.get("start"), hit.get("end"))
         kc.merge_into(hit, start, end)
@@ -147,6 +158,26 @@ def add_event(cal: dict, place: str, name: str, start: str, end: str, url: str, 
         "remind": False,
     })
     return "added"
+
+
+def merge_similar(cal: dict) -> int:
+    """会場名の表記ゆれで別々になっていた同じ展覧会を 1 つにまとめる（ニュース由来の項目を残す）。"""
+    merged, evs = 0, cal["events"]
+    evs.sort(key=lambda e: 0 if "origin" not in e else 1)  # ニュース由来を先に（残す側）
+    out: list[dict] = []
+    for e in evs:
+        hit = next((o for o in out if same_place(o.get("place", ""), e.get("place", "")) and (
+            (o.get("start") and o.get("start") == e.get("start"))
+            or (o.get("end") and o.get("end") == e.get("end") and (not o.get("start") or not e.get("start")))
+        )), None)
+        if hit is None:
+            out.append(e)
+            continue
+        kc.merge_into(hit, e.get("start", ""), e.get("end", ""))
+        hit["reminded"] = sorted(set(hit.get("reminded", [])) | set(e.get("reminded", [])))
+        merged += 1
+    cal["events"] = out
+    return merged
 
 
 def judge(client, usage, entries: list[dict]) -> dict[str, bool]:
@@ -256,6 +287,7 @@ def main() -> int:
     state.setdefault("judged", {})
     state.setdefault("page_hash", {})
     kc.dedupe_events(cal)
+    merged_before = merge_similar(cal)
 
     client = usage = None
     if os.environ.get("ANTHROPIC_API_KEY"):
@@ -290,6 +322,7 @@ def main() -> int:
     else:
         print("::warning::ANTHROPIC_API_KEY が無いため判定・館の確認をスキップ", file=sys.stderr)
 
+    merged_after = merge_similar(cal)
     cal["last_updated"] = datetime.now(JST).isoformat(timespec="seconds")
     cal["events"].sort(key=lambda e: e.get("start") or e.get("end") or "")
     kc.CALENDAR_FILE.write_text(json.dumps(cal, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -301,7 +334,7 @@ def main() -> int:
     cost = usage.cost() if usage else 0.0
     print(f"::notice::展覧会カレンダー 観仏三昧 候補{len(cands)}件（追加{a_added}・補完{a_merged}）/ "
           f"館 {stats['museums']}館（変更なし{stats['skipped_same']}・取得失敗{stats['failed']}）"
-          f"追加{stats['added']}・補完{stats['merged']} / AI費用 約${cost:.3f}（上限見積り）")
+          f"追加{stats['added']}・補完{stats['merged']} / 表記ゆれで統合 {merged_before + merged_after}件 / AI費用 約${cost:.3f}（上限見積り）")
     return 0
 
 
