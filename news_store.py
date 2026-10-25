@@ -71,7 +71,7 @@ def book_release_date(item: dict):
 # ── 古い記事の再配信の検出 ──
 # 写真ページなどが、何年も前の記事のまま新しい日付で Google ニュースに出直すことがある
 # （山陽新聞の photo/detail など）。記事ページ自身の日付を読んで、配信日より大きく古ければ古い記事とみなす
-STALE_DAYS = 30
+STALE_DAYS = 90
 _DATE_RE = re.compile(r"(20\d\d)\s*[年/.\-]\s*(\d{1,2})\s*[月/.\-]\s*(\d{1,2})")
 _META_DATE_KEYS = ("article:published_time", "og:article:published_time", "datepublished", "pubdate",
                    "publishdate", "date", "dc.date.issued", "dc.date", "sailthru.date")
