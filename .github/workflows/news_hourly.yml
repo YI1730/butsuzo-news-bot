@@ -8,6 +8,10 @@ on:
     - cron: "10 * * * *"
   workflow_dispatch:
     inputs:
+      backfill_older:
+        description: "自分の投稿の記録を、記録済みの最も古い投稿より前（最大60日前まで）にさかのぼる（一度だけ・費用 上限$0.75）"
+        type: boolean
+        default: false
       force_reactions:
         description: "反応したい投稿を時間帯に関係なく今すぐ読む（テスト用）"
         type: boolean
@@ -65,6 +69,18 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         continue-on-error: true
         run: python kaicho_calendar.py
+
+      # 自分（@butsuzolink）の新しい投稿の ID・URL・元記事を data/x_posts.json に記録する
+      # （ブログへの埋め込み用。読むのは新しい投稿だけで、1 件 約 $0.005）
+      - name: Record own X posts
+        env:
+          X_API_KEY:             ${{ secrets.X_API_KEY }}
+          X_API_SECRET:          ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          BACKFILL_OLDER:        ${{ inputs.backfill_older && '1' || '0' }}
+        continue-on-error: true
+        run: python record_x_posts.py
 
       # 書籍（Amazon）の紹介する価値を採点し、PWA の書籍一覧の並び順に使う（新しい本のときだけ API を呼ぶ）
       - name: Rank books
@@ -126,7 +142,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/ data/gnews_url_cache.json data/replies.json data/watch_state.json data/kaicho_calendar.json
+          git add docs/ data/x_posts.json data/gnews_url_cache.json data/replies.json data/watch_state.json data/kaicho_calendar.json
           if git diff --staged --quiet; then
             echo "No changes to commit"; exit 0
           fi
