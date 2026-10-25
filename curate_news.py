@@ -25,7 +25,8 @@ from urllib.parse import urldefrag, urlencode, urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup
 
-from news_store import CANDIDATE_THRESHOLD, NEWS_POST_HEADER, NOISE_THRESHOLD, compose_news_post
+from news_store import (CANDIDATE_THRESHOLD, NEWS_POST_HEADER, NOISE_THRESHOLD, compose_news_post,
+                        detect_page_date, is_stale)
 from post_news import JST, RESOLVE_USER_AGENT, extract_og_image, load_news_data, save_news_data
 
 # 採点・投稿文・返信の仕分けすべてで使うモデル（2026-10: 費用を抑えるため Opus 5.5 → Sonnet 5.5）
@@ -495,12 +496,15 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
                 continue
             # 再採点のときも、作成済みの投稿文と通知済みフラグは引き継ぐ（再通知・再作成を防ぐ）
             kept = {k: v for k, v in it.get("ai", {}).items()
-                    if k in ("post_text", "post_format", "notified", "post_attempts")}
+                    if k in ("post_text", "post_format", "notified", "post_attempts",
+                             "page_checked", "page_date", "stale")}
             score = max(0, min(100, int(r["score"])))
             hours = hours_since(it.get("published_at"))
             if (r.get("is_buddha_designation") and not r["duplicate"] and hours is not None
                     and hours <= NEW_DESIGNATION_FLOOR_HOURS and score < NEW_DESIGNATION_FLOOR):
                 score = NEW_DESIGNATION_FLOOR  # AI の点数のぶれで、仏像の新指定が下がりすぎないようにする
+            if kept.get("stale"):
+                score = min(score, STALE_SCORE_CAP)  # 古い記事の再配信と分かっているものは、再採点でも低いまま
             it["ai"] = {
                 **kept,
                 "score": score,
@@ -517,6 +521,36 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
             if it["ai"]["score"] >= CANDIDATE_THRESHOLD and not it["ai"]["duplicate"]:
                 known.append(it)
     return scored
+
+
+STALE_SCORE_CAP = 10
+MAX_STALE_CHECKS_PER_RUN = 40
+
+
+def check_stale(news: list[dict]) -> int:
+    """配信候補になりうる記事（50 点以上）のページを開き、記事自身の日付が配信日より大きく古ければ
+    「古い記事の再配信」として点数を下げる。一度調べた記事は調べ直さない。下げた件数を返す。"""
+    todo = [it for it in news
+            if (it.get("ai") or {}).get("score", 0) >= 50 and not it["ai"].get("page_checked")
+            and it.get("source") == "google_news"][:MAX_STALE_CHECKS_PER_RUN]
+    hit = 0
+    for it in todo:
+        ai = it["ai"]
+        ai["page_checked"] = True
+        try:
+            resp = requests.get(it["url"], headers={"User-Agent": RESOLVE_USER_AGENT}, timeout=10)
+            page_date = detect_page_date(resp.content)
+        except Exception:
+            continue
+        if page_date:
+            ai["page_date"] = page_date.isoformat()
+        if is_stale(page_date, it.get("published_at")):
+            ai["stale"] = True
+            ai["score"] = min(ai["score"], STALE_SCORE_CAP)
+            ai["reason"] = f"古い記事の再配信（記事の日付 {page_date:%Y-%m-%d}）"
+            hit += 1
+            print(f"古い記事の再配信: {it['title'][:50]}（記事の日付 {page_date}）")
+    return hit
 
 
 def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
@@ -624,6 +658,9 @@ def main() -> int:
     print(f"採点対象: {len(unscored)}件（直近{SCORE_WINDOW_HOURS}時間のニュース {len(news)}件中）")
 
     scored = score_items(client, usage, unscored, recent_candidates) if unscored else 0
+    stale = check_stale(news)
+    if stale:
+        print(f"::notice::古い記事の再配信 {stale}件を除外（点数を下げた）")
 
     # 投稿文が未作成の配信候補（新しい順）
     candidates = [

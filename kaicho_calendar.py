@@ -105,6 +105,8 @@ def collect_events(cal: dict, items: list[dict], posted_ids: set[str] | None = N
         ai = it.get("ai") or {}
         ev = ai.get("event") or {}
         posted = it.get("id") in (posted_ids or set())  # @butsuzolink が投稿した記事は、点数が低くても入れる
+        if ai.get("stale"):
+            continue  # 古い記事の再配信は、公開期間の年が違う（curate_news.check_stale）
         if it.get("source") not in EVENT_SOURCES or (ai.get("category") not in EVENT_CATEGORIES and not posted):
             continue
         if (ai.get("score", 0) < MIN_RELEVANCE and not posted) or not ev.get("place"):
@@ -183,6 +185,13 @@ def main() -> int:
     today = now.date()
     data = load_news_data()
     cal = load_calendar()
+
+    # 古い記事の再配信だったと分かった記事から作った出来事・リマインドは取り除く
+    stale_urls = {it["url"] for it in data["items"] if (it.get("ai") or {}).get("stale")}
+    if stale_urls:
+        cal["events"] = [e for e in cal["events"] if e.get("source_url") not in stale_urls]
+        data["items"] = [it for it in data["items"]
+                         if not (it.get("source") == SOURCE and it.get("url") in stale_urls)]
 
     dedupe_events(cal)
     try:

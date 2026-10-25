@@ -15,7 +15,7 @@ from calendar import timegm
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
-from news_store import trim_per_source
+from news_store import detect_page_date, is_stale, trim_per_source
 
 import feedparser
 import requests
@@ -298,13 +298,14 @@ def extract_og_description(content: bytes) -> str:
     return ""
 
 
-def fetch_page_meta(url: str) -> tuple[str, str]:
-    """記事ページから (OGP画像URL, 要約) を1回のリクエストで取得する。失敗時は空文字。"""
+def fetch_page_meta(url: str) -> tuple[str, str, object]:
+    """記事ページから (OGP画像URL, 要約, 記事ページ自身の日付) を1回のリクエストで取得する。失敗時は空。"""
     try:
         resp = requests.get(url, headers={"User-Agent": RESOLVE_USER_AGENT}, timeout=8)
-        return extract_og_image(resp.content), extract_og_description(resp.content)
+        return (extract_og_image(resp.content), extract_og_description(resp.content),
+                detect_page_date(resp.content))
     except Exception:
-        return "", ""
+        return "", "", None
 
 
 def fetch_og_image(url: str) -> str:
@@ -431,7 +432,12 @@ def main() -> int:
             continue
 
         # 新規アイテムのみ OGP 画像を取得
-        image_url, description = fetch_page_meta(original_url)
+        image_url, description, page_date = fetch_page_meta(original_url)
+        if is_stale(page_date, published.isoformat() if published else None):
+            # 何年も前の記事が新しい日付で出直したもの（写真ページ等）。取り込まず、次回以降も見ないよう記録する
+            print(f"古い記事の再配信のためスキップ（記事の日付 {page_date}）: {title}")
+            existing_ids.add(uid)
+            continue
         if image_url:
             print(f"  画像取得: {image_url[:60]}")
 
