@@ -1,6 +1,34 @@
 {
-  "last_updated": "2026-10-25T10:33:31.765124+09:00",
+  "last_updated": "2026-10-25T10:42:48.014674+09:00",
   "items": [
+    {
+      "id": "ec8a3378b14a",
+      "title": "土井陵輔、種目別ゆかで４位 - 函館経済新聞",
+      "url": "https://hakodate.keizai.biz/gpnews/1777550/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-25T10:42:48.011910+09:00",
+      "published_at": "2026-10-25T01:22:39+09:00",
+      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
+      "description": "体操の世界選手権第８日は２４日、オランダのロッテルダムで種目別決勝が行われ、男子ゆかの土井陵輔は１４．３６６点で４位だった。３位とは０．１点差で表彰台を逃した＝２４日、オランダ・ロッテルダム 【AFP時事】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "体操の世界選手権の記事で仏像とは無関係。速報性は評価対象外",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-25T10:45:00+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "84057c58b3e1",
       "title": "新給付制度、年収53万円下限も 財務相、公明案反映に含み (共同通信) - Yahoo!ニュース",
@@ -8969,34 +8997,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "アニメ店のオープンで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:35:29+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "4bee492e5f78",
-      "title": "哲仁王后〜俺がクイーン！？〜 第17〜18話 - ABEMA",
-      "url": "https://abema.tv/channels/asia-drama/slots/DrfdGkmVJkn4dM",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-23T00:16:13.739568+09:00",
-      "published_at": "2026-10-22T19:34:50+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "ドラマ配信で無関係",
         "event": {
           "event_name": "",
           "place": "",
