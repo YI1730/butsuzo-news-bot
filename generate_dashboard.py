@@ -269,11 +269,15 @@ def build_calendar_html(days_ahead: int = 30) -> str:
         return ""
     today = datetime.now(JST).date()
     horizon = (today + timedelta(days=days_ahead)).isoformat()
+    soon = (today + timedelta(days=14)).isoformat()
     t = today.isoformat()
     rows = []
     for e in events:
         start, end = e.get("start", ""), e.get("end", "")
         if (end and end < t) or (start and start > horizon) or (not end and start and start < t):
+            continue
+        # exhibition_calendar.py が加えた展覧会は数が多いので、これから 14 日以内に始まるものだけ出す
+        if e.get("origin") and not (start and t <= start <= soon):
             continue
         rows.append(e)
     if not rows:
