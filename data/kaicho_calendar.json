@@ -349,6 +349,22 @@
    "remind": false
   },
   {
+   "id": "f4e8463ae951",
+   "event_name": "企画展示 アジアの彫刻",
+   "place": "大阪市立美術館（大阪府大阪市）",
+   "place_key": "大阪市立美術館",
+   "start": "2026-10-09",
+   "end": "2026-12-20",
+   "category": "展覧会",
+   "source_url": "https://www.osaka-art-museum.jp/planned_exhibition/10410",
+   "source_title": "大阪市立美術館（大阪府大阪市） 企画展示 アジアの彫刻",
+   "source_score": 0,
+   "first_seen": "2026-10-26T08:23:14+09:00",
+   "reminded": [],
+   "origin": "museum",
+   "remind": false
+  },
+  {
    "id": "118059d49cc8",
    "event_name": "佐用姫観音 50年ぶり公開",
    "place": "川上神社（佐賀県唐津市）",
@@ -893,20 +909,6 @@
    "remind": false
   },
   {
-   "id": "e35026b9e350",
-   "event_name": "新作仏像彫刻展",
-   "place": "長浜市元浜町 曳山博物館伝承スタジオ（滋賀県長浜市）",
-   "place_key": "長浜市元浜町曳山",
-   "start": "2026-10-23",
-   "end": "2026-10-25",
-   "category": "展覧会",
-   "source_url": "https://www.47news.jp/15130526.html",
-   "source_title": "仏像彫刻の新作32点 長浜市で作家15人が展示 - 47NEWS",
-   "source_score": 40,
-   "first_seen": "2026-10-25T10:45:00+09:00",
-   "reminded": []
-  },
-  {
    "id": "0c32a7827fde",
    "event_name": "秩父 秋の夜巡礼ツアー 午歳総開帳編",
    "place": "秩父（埼玉県秩父市）",
@@ -1049,6 +1051,20 @@
    "reminded": []
   },
   {
+   "id": "62dfb897c1dd",
+   "event_name": "第78回 正倉院展",
+   "place": "奈良国立博物館（奈良県奈良市）",
+   "place_key": "奈良国立博物館",
+   "start": "2026-10-24",
+   "end": "2026-11-09",
+   "category": "展覧会",
+   "source_url": "https://bijutsutecho.com/exhibitions/18867",
+   "source_title": "第78回 正倉院展（奈良国立博物館） - 美術手帖",
+   "source_score": 35,
+   "first_seen": "2026-10-26T04:07:02+09:00",
+   "reminded": []
+  },
+  {
    "id": "65d84decf2ed",
    "event_name": "仏教美術の魅力 ―日本の小金銅仏と仏具―（特別展「舞楽装束」同時開催展）",
    "place": "根津美術館（東京都港区）",
@@ -1063,20 +1079,6 @@
    "reminded": [],
    "origin": "museum",
    "remind": false
-  },
-  {
-   "id": "62dfb897c1dd",
-   "event_name": "第78回 正倉院展",
-   "place": "奈良国立博物館（奈良県奈良市）",
-   "place_key": "奈良国立博物館",
-   "start": "2026-10-24",
-   "end": "2026-11-09",
-   "category": "展覧会",
-   "source_url": "https://bijutsutecho.com/exhibitions/18867",
-   "source_title": "第78回 正倉院展（奈良国立博物館） - 美術手帖",
-   "source_score": 35,
-   "first_seen": "2026-10-26T04:07:02+09:00",
-   "reminded": []
   },
   {
    "id": "418e4f372d9d",
@@ -1209,20 +1211,6 @@
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
-  },
-  {
-   "id": "146d23000ace",
-   "event_name": "百鬼夜行パレード(ZEN NIGHT TOKYO)",
-   "place": "東京国立博物館周辺(東京都)",
-   "place_key": "東京国立博物館周",
-   "start": "2026-10-31",
-   "end": "2026-10-31",
-   "category": "展覧会",
-   "source_url": "https://prtimes.jp/main/html/rd/p/000000094.000067474.html",
-   "source_title": "大徳寺展「百鬼夜行絵巻」にちなむ、秋の特別企画「シタマチ.ハロウィン2026」と連携し、10月31日に百鬼夜行パレードを開催 - PR TIMES",
-   "source_score": 30,
-   "first_seen": "2026-10-25T10:45:00+09:00",
-   "reminded": []
   },
   {
    "id": "ff66cccfc518",
@@ -1364,20 +1352,6 @@
    "source_title": "【山形・飯豊町】未来につなぐ、置賜三十三観音 巡礼ツアー ～観音さまと地域の宝にふれる1日～ - CREA WEB",
    "source_score": 40,
    "first_seen": "2026-10-24T18:35:34+09:00",
-   "reminded": []
-  },
-  {
-   "id": "59217abb70ec",
-   "event_name": "倶利迦羅不動寺 御本尊御開帳・刀の教科書展",
-   "place": "倶利迦羅不動寺（石川県）",
-   "place_key": "倶利迦羅不動寺",
-   "start": "",
-   "end": "2026-11-08",
-   "category": "秘仏・御開帳・特別公開",
-   "source_url": "https://mainichikirei.jp/prtimes/article/20261023prt00m100000835a.html",
-   "source_title": "【石川県・倶利迦羅不動寺】名刀約100点が集結する「目で観る刀の教科書展」を開催！声優・古川慎さん、興津和幸さんによる特別企画も - 毎日キレイ",
-   "source_score": 50,
-   "first_seen": "2026-10-26T06:47:04+09:00",
    "reminded": []
   },
   {
@@ -1641,5 +1615,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-10-26T06:47:04+09:00"
+ "last_updated": "2026-10-26T08:23:20+09:00"
 }
