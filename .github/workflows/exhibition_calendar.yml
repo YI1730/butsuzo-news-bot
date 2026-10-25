@@ -1,0 +1,47 @@
+name: Exhibition Calendar
+
+# 主な博物館・美術館の展覧会ページと観仏三昧の展覧会情報から、仏像が出る展覧会を
+# 御開帳カレンダー（data/kaicho_calendar.json）に加える。週 2 回（月・木の朝）。軽いモデルを使い、
+# ページの内容が前回と同じ館は AI を呼ばない（費用: 月 $1 以下の見込み）
+on:
+  schedule:
+    - cron: "23 21 * * 0,3"   # JST 月・木 06:23
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-json
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Update exhibition calendar
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python exhibition_calendar.py
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/kaicho_calendar.json data/exhibition_state.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"; exit 0
+          fi
+          git commit -m "chore: update exhibition calendar"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "push に失敗、再試行 ($i)"; sleep 10
+          done
+          exit 1

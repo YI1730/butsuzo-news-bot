@@ -1,0 +1,19 @@
+{
+  "_comment": "展覧会カレンダー（exhibition_calendar.py）が週2回見に行く博物館・美術館。url は展覧会情報のあるページ（トップでもよい。ページ内の「開催中」「展覧会」などのリンクも1段だけたどる）",
+  "museums": [
+    {"name": "東京国立博物館", "place": "東京国立博物館（東京都台東区）", "url": "https://www.tnm.jp/"},
+    {"name": "奈良国立博物館", "place": "奈良国立博物館（奈良県奈良市）", "url": "https://www.narahaku.go.jp/exhibition/calendar/"},
+    {"name": "京都国立博物館", "place": "京都国立博物館（京都府京都市）", "url": "https://www.kyohaku.go.jp/jp/"},
+    {"name": "九州国立博物館", "place": "九州国立博物館（福岡県太宰府市）", "url": "https://www.kyuhaku.jp/"},
+    {"name": "半蔵門ミュージアム", "place": "半蔵門ミュージアム（東京都千代田区）", "url": "https://www.hanzomonmuseum.jp/"},
+    {"name": "三井記念美術館", "place": "三井記念美術館（東京都中央区）", "url": "https://www.mitsui-museum.jp/exhibition/schedule.html"},
+    {"name": "根津美術館", "place": "根津美術館（東京都港区）", "url": "https://www.nezu-muse.or.jp/jp/exhibitions/upcoming/"},
+    {"name": "サントリー美術館", "place": "サントリー美術館（東京都港区）", "url": "https://www.suntory.co.jp/sma/"},
+    {"name": "神奈川県立金沢文庫", "place": "神奈川県立金沢文庫（神奈川県横浜市）", "url": "https://www.pen-kanagawa.ed.jp/kanazawabunko/index.html"},
+    {"name": "神奈川県立歴史博物館", "place": "神奈川県立歴史博物館（神奈川県横浜市）", "url": "https://ch.kanagawa-museum.jp/"},
+    {"name": "横浜市歴史博物館", "place": "横浜市歴史博物館（神奈川県横浜市）", "url": "https://rekihaku.yokohama-history.org/event-category/kikaku/"},
+    {"name": "龍谷ミュージアム", "place": "龍谷ミュージアム（京都府京都市）", "url": "https://museum.ryukoku.ac.jp/exhibition/index.html"},
+    {"name": "大阪市立美術館", "place": "大阪市立美術館（大阪府大阪市）", "url": "https://www.osaka-art-museum.jp/"},
+    {"name": "MIHO MUSEUM", "place": "MIHO MUSEUM（滋賀県甲賀市）", "url": "https://www.miho.jp/upcoming_exhibition"}
+  ]
+}

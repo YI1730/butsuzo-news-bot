@@ -80,10 +80,16 @@ def dedupe_events(cal: dict) -> int:
     merged, out = 0, {}
     for e in cal["events"]:
         k = event_key(e["place_key"], e.get("start", ""), e.get("end", ""))
-        if k in out:
-            keep = out[k]
+        keep = out.get(k)
+        if keep is None and not e.get("start") and e.get("end"):
+            # 開始日が分からない項目は、同じ会場で同じ終了日の項目（開始日あり）にまとめる
+            keep = next((o for o in out.values() if o["place_key"] == e["place_key"]
+                         and o.get("end") == e["end"]), None)
+        if keep is not None:
             merge_into(keep, e.get("start", ""), e.get("end", ""))
             keep["reminded"] = sorted(set(keep.get("reminded", [])) | set(e.get("reminded", [])))
+            if e.get("remind") is not False:
+                keep.pop("remind", None)  # ニュース由来の項目と同じなら、リマインドの対象にする
             merged += 1
         else:
             out[k] = e
@@ -91,16 +97,17 @@ def dedupe_events(cal: dict) -> int:
     return merged
 
 
-def collect_events(cal: dict, items: list[dict]) -> int:
+def collect_events(cal: dict, items: list[dict], posted_ids: set[str] | None = None) -> int:
     """採点済みの記事から出来事を集めてカレンダーに足す。新しく足した件数を返す。"""
     by_key = {event_key(e["place_key"], e.get("start", ""), e.get("end", "")): e for e in cal["events"]}
     added = 0
     for it in items:
         ai = it.get("ai") or {}
         ev = ai.get("event") or {}
-        if it.get("source") not in EVENT_SOURCES or ai.get("category") not in EVENT_CATEGORIES:
+        posted = it.get("id") in (posted_ids or set())  # @butsuzolink が投稿した記事は、点数が低くても入れる
+        if it.get("source") not in EVENT_SOURCES or (ai.get("category") not in EVENT_CATEGORIES and not posted):
             continue
-        if ai.get("score", 0) < MIN_RELEVANCE or not ev.get("place"):
+        if (ai.get("score", 0) < MIN_RELEVANCE and not posted) or not ev.get("place"):
             continue
         start, end = parse_date(ev.get("start_date", "")), parse_date(ev.get("end_date", ""))
         if not start and not end:
@@ -141,6 +148,8 @@ def due_reminders(cal: dict, today: date) -> list[tuple[dict, str, str]]:
     """今日出すべきリマインド (出来事, 種類, 見出し) の一覧。"""
     out = []
     for e in cal["events"]:
+        if e.get("remind") is False:
+            continue  # exhibition_calendar.py が加えた展覧会は、リマインドの配信候補を作らない
         start, end = parse_date(e.get("start", "")), parse_date(e.get("end", ""))
         done = set(e.get("reminded", []))
         if start and "start" not in done:
@@ -176,7 +185,12 @@ def main() -> int:
     cal = load_calendar()
 
     dedupe_events(cal)
-    added = collect_events(cal, data["items"])
+    try:
+        posted_ids = {p["news_id"] for p in json.loads(
+            (BASE_DIR / "data" / "x_posts.json").read_text(encoding="utf-8")).get("posts", []) if p.get("news_id")}
+    except Exception:
+        posted_ids = set()
+    added = collect_events(cal, data["items"], posted_ids)
     # 終わってしばらくたった出来事は捨てる
     cutoff = today - timedelta(days=KEEP_DAYS_AFTER_END)
     cal["events"] = [

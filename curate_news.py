@@ -263,13 +263,15 @@ class Usage:
                 + self.cache_read * PRICE_CACHE_READ + self.cache_write * PRICE_CACHE_WRITE) / 1e6
 
 
-def call_json(client, usage: Usage, system: str, user: str, schema: dict, effort: str) -> dict | None:
-    """構造化出力で 1 回呼び出し、JSON を返す。拒否や形式不備のときは None。"""
+def call_json(client, usage: Usage, system: str, user: str, schema: dict, effort: str,
+              model: str | None = None) -> dict | None:
+    """構造化出力で 1 回呼び出し、JSON を返す。拒否や形式不備のときは None。
+    model を指定すると別のモデル（軽いモデルなど）で呼ぶ。"""
     import anthropic
 
     try:
         resp = client.beta.messages.create(
-            model=MODEL,
+            model=model or MODEL,
             max_tokens=16000,
             # 安全分類で拒否されたときに API 側で別モデルに切り替えて続行する
             betas=["server-side-fallback-2026-07-01"],
