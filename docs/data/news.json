@@ -1,6 +1,321 @@
 {
-  "last_updated": "2026-10-26T08:28:13.242763+09:00",
+  "last_updated": "2026-10-26T09:18:45.840997+09:00",
   "items": [
+    {
+      "id": "054ccdc48f02",
+      "title": "東京国立博物館｜予告 智証大師諡号1100年記念 特別展「国宝 三井寺のすべて」 2027年4月20日（火）～2027年6月13日（日）",
+      "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=2777",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-10-26T09:18:46+09:00",
+      "published_at": "2026-10-26T09:18:46+09:00",
+      "image_url": "https://www.tnm.jp/jp/exhibition/images/tmp/ogp/TNM_ogp.jpg",
+      "description": "展示・催し物 展示 平成館（日本の考古・特別展） 智証大師諡号1100年記念 特別展「国宝 三井寺のすべて」",
+      "ai": {
+        "score": 86,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "東博の大型特別展「三井寺のすべて」の公式予告。配信直後の第一報で開催は先",
+        "event": {
+          "event_name": "特別展「国宝 三井寺のすべて」",
+          "place": "東京国立博物館 平成館（東京都台東区）",
+          "start_date": "2027-04-20",
+          "end_date": "2027-06-13"
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7,
+        "official_url": "https://www.tnm.jp/modules/r_free_page/index.php?id=2777",
+        "official_image": "https://www.tnm.jp/jp/exhibition/images/tmp/ogp/TNM_ogp.jpg",
+        "post_text": "",
+        "post_attempts": 1,
+        "post_format": 6,
+        "notified": true
+      }
+    },
+    {
+      "id": "bfd6684df679",
+      "title": "興福寺（奈良）僧侶招いた文化講座 １１月４日 源吉兆庵本社 - 山陽新聞",
+      "url": "https://sandigi-www.webow.jp/article/2008435",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:45.840053+09:00",
+      "published_at": "2026-10-24T15:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 22,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "興福寺僧侶の文化講座で仏像に触れず。42時間経過で減点",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "709db19bdabd",
+      "title": "2時間でまわる東大寺 - NHK ONE",
+      "url": "https://www.web.nhk/tv/pl/schedule-tep-s6-130-20261024/ep/G7YQ518599",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:43.119176+09:00",
+      "published_at": "2026-10-25T19:33:11+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 38,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "東大寺の観光紹介で仏像の具体性が乏しく、13時間経過で減点",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "efe72ffc304c",
+      "title": "伊藤有希が優勝 ＮＨＫ杯ジャンプ - 香港経済新聞",
+      "url": "https://hongkong.keizai.biz/gpnews/1777799/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:41.611116+09:00",
+      "published_at": "2026-10-25T20:15:31+09:00",
+      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
+      "description": "ノルディックスキーのＮＨＫ杯ジャンプ大会は２５日、札幌市大倉山ジャンプ競技場で行われ、女子は今季限りで引退する伊藤有希（中央）が１３７．５メートルと１３９．５メートルを飛び、合計２７２．５点で優勝。 【時事通信社】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "スポーツ記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "3edada4636b6",
+      "title": "野明花菜が女子１５００制す - 香港経済新聞",
+      "url": "https://hongkong.keizai.biz/gpnews/1777798/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:39.776625+09:00",
+      "published_at": "2026-10-25T20:15:31+09:00",
+      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
+      "description": "スピードスケートの全日本距離別選手権最終日は２５日、長野・エムウェーブで行われ、女子１５００メートルはミラノ・コルティナ五輪代表の野明花菜が１分５７秒８４で優勝した。 【時事通信社】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "スポーツ記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "f5c325ebb192",
+      "title": "刺し身の盛り合わせ - 香港経済新聞",
+      "url": "https://hongkong.keizai.biz/photoflash/3448/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:37.876154+09:00",
+      "published_at": "2026-10-26T03:25:37+09:00",
+      "image_url": "https://images.keizai.biz/hongkong_keizai/photonews/1792913450_b.jpg",
+      "description": "東京・六本木発祥の居酒屋ブランド「権八（Gonpachi）」（3／F, Lee Garden Two, 28 Yun Ping Road, Causeway Bay, Hong Kong TEL 2787 3688）が10月23日、香港開業13周年を記念したディナーコースの提供を期間限定で始めた。",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "飲食店の記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "fa34967498dc",
+      "title": "『西遊記』沙悟浄のモデルに出会える！福井県・明通寺 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/radichubu/trend/radichubu-65541",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:36.053033+09:00",
+      "published_at": "2026-10-26T05:59:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/radichubu/m_radichubu-65541.jpg",
+      "description": "毎週木曜日のＣＢＣラジオ『ドラ魂キング』では、仏像巡りが趣味の佐藤楠大アナウンサーが…",
+      "ai": {
+        "score": 45,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "明通寺の仏像紹介（沙悟浄モデル）で関心はあるが、公開告知ではない",
+        "event": {
+          "event_name": "",
+          "place": "明通寺（福井県小浜市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "7aa37f646dea",
+      "title": "奈良県宇陀市で珍しい赤花そば「高嶺ルビー」見頃 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/nara_np/region/nara_np-20261026060003",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:34.611172+09:00",
+      "published_at": "2026-10-26T06:00:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/nara_np/m_nara_np-20261026060003.jpg",
+      "description": "奈良県宇陀市室生滝谷の「花の郷滝谷花しょうぶ園」で、珍しい赤い花のそばが見頃を迎え、秋風に揺れる花…",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "赤花そばの話題で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "df44104059a5",
+      "title": "朝日奈央“穂奈未”、芸能活動を再開 26日放送『妻を引退します』第4話【あらすじ】 - 朝日新聞",
+      "url": "https://www.asahi.com/and/entertainment/16993105",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:32.626062+09:00",
+      "published_at": "2026-10-26T06:05:00+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ドラマ記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "d54e5de820ba",
+      "title": "純烈が公開収録 観音温泉でトーク、ライブ―下田 - 伊豆新聞デジタル",
+      "url": "https://digital.izu-np.co.jp/news/education/114070",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:23.294468+09:00",
+      "published_at": "2026-10-26T06:50:17+09:00",
+      "image_url": "https://digital.izu-np.co.jp/media/2026/10/25/20261025_7ybo49cec1tcmdchyrew.jpg",
+      "description": "「スーパー銭湯アイドル」として活躍する純・・・",
+      "ai": {
+        "score": 4,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "観音温泉は地名のみで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "6ea5b59d7f85",
+      "title": "美ノ海、沖縄初の新三役 - 香港経済新聞",
+      "url": "https://hongkong.keizai.biz/gpnews/1777946/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-10-26T09:18:21.067595+09:00",
+      "published_at": "2026-10-26T08:00:40+09:00",
+      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
+      "description": "日本相撲協会は２６日、大相撲九州場所（１１月８日初日、福岡国際センター）の新番付を発表し、美ノ海が沖縄県出身では初めての新三役として東小結に就いた。 【時事通信社】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "相撲記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-10-26T09:21:31+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "718fc22b1ade",
       "title": "世界最高峰のステージパフォーマンス 「パリ・オペラ座バレエ“ジゼル”」 - NHK ONE",
@@ -9133,288 +9448,6 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "c94f9cf99b91",
-      "title": "国立麗水海洋気象科学館、2024年12月開館の国内初の海洋気象科学館 - www.famtimes.co.kr",
-      "url": "https://www.famtimes.co.kr/ja/news/articleView.html?idxno=703082",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:34.316969+09:00",
-      "published_at": "2026-10-23T14:06:02+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "海洋気象科学館で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "f569b2d2d7be",
-      "title": "《群馬のイベント情報》登山の基礎知識（高崎市） - 上毛新聞電子版",
-      "url": "https://www.jomo-news.co.jp/articles/-/1049149",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:33.117086+09:00",
-      "published_at": "2026-10-23T14:30:00+09:00",
-      "image_url": "https://jomo.ismcdn.jp/mwimgs/5/9/675h/img_598e25df1ab00548342fba6e4f838da360662.jpg",
-      "description": "初心者向け登山教室・全4回（11.12月、10～15時、高崎市・県立観音山ファミリーパーク、TEL090",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "登山教室で観音山は地名のみ",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "2e344aca2e88",
-      "title": "「1時間で13匹捕殺し3900円」桜枯らす外来害虫“クビアカ”急増の異変…1人で200匹の強者や国が32億円投入も - ライブドアニュース",
-      "url": "https://news.livedoor.com/article/detail/32639135/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:30.756523+09:00",
-      "published_at": "2026-10-23T14:45:40+09:00",
-      "image_url": "https://image.news.livedoor.com/newsimage/stf/7/a/7a3db_1212_a9d30ed6_f73702fb.jpg",
-      "description": "「8月中旬に高崎市の桜の名所、観音山に小学生の息子2人を連れて行きました。午前中だったのですが、すでに家族連れの“クビアカハンター”たちが何組もいて、ワイワイ言いながら捕えていましたね。",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "外来害虫の話で観音山は地名のみ",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "29bd8c88d0f3",
-      "title": "「1時間で13匹捕殺し3900円」桜枯らす外来害虫“クビアカ”急増の異変…1人で200匹の強者や国が32億円投入も - 千葉テレビ放送株式会社",
-      "url": "https://www.chiba-tv.com/plus/detail/amp/2026102149269",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:29.413346+09:00",
-      "published_at": "2026-10-23T14:51:35+09:00",
-      "image_url": "https://img.jp.ekkowassets.com/c_limit,w_360,f_auto,q_auto:eco/ch/images/1486263701065794951/origin_1.jpg",
-      "description": "「8月中旬に高崎市の桜の名所、観音山に小学生の息子2人を連れて行きました。午前中だったのですが、すで... （女性自身）（チバテレ+プラス）",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "害虫記事の重複で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "d3d38c0350ae",
-      "title": "中国画風を脱した謙斎・鄭敾の「真景山水」、大邱で4万人魅了 - 조선일보",
-      "url": "https://www.chosun.com/jp/politics-national-jp/2026/10/23/PHUNI26HZNABJC55BFYT46GRAE/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:26.860029+09:00",
-      "published_at": "2026-10-23T15:23:00+09:00",
-      "image_url": "https://www.chosun.com/resizer/v2/BWSTUY4SNNGSJH6BMG26HRJJFY.jpg?auth=324fb577d5c37119b01158e8c799bbfe53de84507e98856c752a1d2cddc7790e&width=1200&height=630&smart=true",
-      "description": "中国画風を脱した謙斎・鄭敾の「真景山水」、大邱で4万人魅了",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "韓国の山水画展で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "4c9877259e82",
-      "title": "順天・上沙湖、総貯水量2億5000万トンの調節池ダム湖 - www.famtimes.co.kr",
-      "url": "https://www.famtimes.co.kr/ja/news/articleView.html?idxno=703096",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:23.618763+09:00",
-      "published_at": "2026-10-23T16:04:48+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "韓国のダム湖で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "86354ce662dd",
-      "title": "【動画】千年先へ漆の美と技をつなぐ、人間国宝・室瀬和美さんが高野山に漆箱「光輪」奉納 - OVO [オーヴォ]",
-      "url": "https://ovo.kyodo.co.jp/movie/a-2095037",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:22.145488+09:00",
-      "published_at": "2026-10-23T16:18:50+09:00",
-      "image_url": "https://d10tw3woq6mt3i.cloudfront.net/wp-content/uploads/2026/10/fe1a45055ed3148a66b763387c6677e4.jpg",
-      "description": "重要無形文化財「蒔絵」の保持者（人間国宝）である漆芸家・室瀬和美さんが10月１日、蒔絵螺鈿丸筥（まきえらでんまるばこ）「光輪」を高野山金剛峯寺に奉納した。日本画家・千住博さんが障壁画の制作に使った顔料などを収め、絵画とともに後世へ伝えるための箱だ。漆の層に光と奥行きを表現した作品には、素材と技術を千年先につなぐという願いが込められている。 記事はこちら！！",
-      "ai": {
-        "score": 25,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "高野山への漆箱奉納で仏像なし。26時間経過",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "4b69a0887520",
-      "title": "千年先へ漆の美と技をつなぐ、人間国宝・室瀬和美さんが高野山に漆箱「光輪」奉納 - OVO [オーヴォ]",
-      "url": "https://ovo.kyodo.co.jp/news/culture/a-2094960",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:20.144402+09:00",
-      "published_at": "2026-10-23T16:25:21+09:00",
-      "image_url": "https://d10tw3woq6mt3i.cloudfront.net/wp-content/uploads/2026/10/b8186a889858adfff8a5165f0d45214c-e1792657838857.jpg",
-      "description": "重要無形文化財「蒔絵」の保持者（人間国宝）である漆芸家・室瀬和美さんが10月１日、蒔絵螺鈿丸筥（まきえらでんまるばこ）「光輪」を高野山金剛峯寺に奉納した。日本画家・千住博さんが障壁画の制作に使った顔料などを収め、絵画とともに後世へ伝えるための箱だ。漆の層に光と奥行きを表現した作品には、素材と技術を千年先につなぐという願いが込められている。 ■千住博さんの依頼で きっかけは、親交のある千住さんからの相談だった。金剛峯寺の障壁画を描くために使った顔料など、大切な材料も寺に納めたい。そのための箱を作れないか、という依頼だった。 「そういうものは今までに作ったことがなかったので、ち",
-      "ai": {
-        "score": 10,
-        "category": "その他の仏像関連",
-        "duplicate": true,
-        "reason": "漆箱奉納記事の重複で仏像なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:30:58+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "93847afd4e0d",
-      "title": "寺宝を特別公開、甲府・法泉寺〈動画〉 - sannichi.co.jp",
-      "url": "https://www.sannichi.co.jp/article/2026/10/23/80729596",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:18.058509+09:00",
-      "published_at": "2026-10-23T17:11:37+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "notified": true,
-        "score": 58,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "法泉寺の寺宝特別公開。仏像か不明、24時間経過で減点",
-        "event": {
-          "event_name": "法泉寺 寺宝特別公開",
-          "place": "法泉寺（山梨県甲府市）",
-          "start_date": "2026-10-23",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:31:10+09:00",
-        "score_version": 7,
-        "page_checked": true
-      }
-    },
-    {
-      "id": "09bb4d3eff67",
-      "title": "滋賀・三井寺の「おとの三井寺」とは？ 異なる音が溶け合う幻想的な音響体験 - marie claire [マリ・クレール]",
-      "url": "https://marieclairejapon.com/culture/282868/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-10-24T00:02:16.351010+09:00",
-      "published_at": "2026-10-23T18:00:33+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 25,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "音響体験の紹介で仏像に触れず、24時間経過",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-10-24T18:31:10+09:00",
         "score_version": 7
       }
     },
