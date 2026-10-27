@@ -68,15 +68,52 @@ SCHEMA = {
 }
 
 
+BOOK_POST_HEADER = "【仏像新刊】"
+MAX_BOOK_POSTS_PER_RUN = 5
+MAX_BOOK_POST_ATTEMPTS = 3
+BOOK_POST_AHEAD_DAYS = 120   # 発売予定がこの日数先までの本も紹介文を作る（予約受付中）
+
+
+def write_book_posts(client, usage: Usage, books: list[dict]) -> int:
+    """直近で発売された（または発売予定の）書籍の、X の紹介投稿文を作る。グッズは作らない。"""
+    from datetime import datetime, timedelta
+
+    from curate_news import write_post
+    from news_store import (BOOK_NEW_MIN_SCORE, BOOK_NEW_RELEASE_DAYS, JST_TZ, book_release_date)
+
+    today = datetime.now(JST_TZ).date()
+    cands = []
+    for b in books:
+        rd = book_release_date(b)
+        score = (b.get("book_ai") or {}).get("score", 0)
+        if (rd and today - timedelta(days=BOOK_NEW_RELEASE_DAYS) <= rd <= today + timedelta(days=BOOK_POST_AHEAD_DAYS)
+                and score >= BOOK_NEW_MIN_SCORE and not b.get("book_post_text")
+                and b.get("book_post_attempts", 0) < MAX_BOOK_POST_ATTEMPTS):
+            cands.append((rd, b))
+    cands.sort(key=lambda t: t[0], reverse=True)
+    made = 0
+    for rd, b in cands[:MAX_BOOK_POSTS_PER_RUN]:
+        when = (f"{rd:%Y年%m月%d日}発売予定（予約受付中）" if rd > today else f"{rd:%Y年%m月%d日}発売")
+        extra = (
+            f"これは書籍（新刊）を紹介する投稿です。{when}。書名: {b.get('title', '')}\n"
+            "本の内容（著者・章立て・書かれていること）は、書名と説明に書かれている範囲だけで書き、分からないことは"
+            "推測で書かない（Amazon の定型文は無視）。発売日と、仏像好きがどんな人に向くかが伝わるように。"
+            "紹介する価値の一言（" + (b.get("book_ai") or {}).get("reason", "") + "）は材料にしてよい。")
+        text = write_post(client, usage, b, header=BOOK_POST_HEADER, extra=extra, fetch_body=False)
+        b["book_post_attempts"] = b.get("book_post_attempts", 0) + 1
+        if text:
+            b["book_post_text"] = text
+            made += 1
+    return made
+
+
 def main() -> int:
     data = load_news_data()
     books = [it for it in data["items"] if it.get("item_type") == "book"]
     todo = [b for b in books if (b.get("book_ai") or {}).get("version", 0) < BOOK_SCORE_VERSION]
-    if not todo:
-        print("書籍の採点: 新しい本なし")
-        return 0
     if not os.environ.get("ANTHROPIC_API_KEY"):
-        print("::warning::ANTHROPIC_API_KEY が無いため書籍を採点できません", file=sys.stderr)
+        if todo:
+            print("::warning::ANTHROPIC_API_KEY が無いため書籍を採点できません", file=sys.stderr)
         return 0
     import anthropic
 
@@ -97,8 +134,10 @@ def main() -> int:
                 b["book_ai"] = {"score": max(0, min(100, int(r["score"]))),
                                 "reason": r["reason"], "version": BOOK_SCORE_VERSION}
                 done += 1
-    save_news_data(data)
-    print(f"::notice::書籍の採点 {done}件・費用 約${usage.cost():.4f}")
+    posts = write_book_posts(client, usage, books)
+    if done or posts:
+        save_news_data(data)
+    print(f"::notice::書籍の採点 {done}件・紹介文 {posts}件・費用 約${usage.cost():.4f}")
     return 0
 
 

@@ -132,3 +132,8 @@ def is_stale(page_date, ref_iso: str | None) -> bool:
     except ValueError:
         ref = _d.today()
     return page_date < ref - _td(days=STALE_DAYS)
+
+
+from datetime import timedelta as _td, timezone as _tz  # noqa: E402
+
+JST_TZ = _tz(_td(hours=9))

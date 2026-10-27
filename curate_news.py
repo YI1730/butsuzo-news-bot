@@ -554,10 +554,10 @@ def check_stale(news: list[dict]) -> int:
 
 
 def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
-               extra: str = "", recent_posts: list[str] | None = None) -> str | None:
+               extra: str = "", recent_posts: list[str] | None = None, fetch_body: bool = True) -> str | None:
     """記事を読んで投稿の文章部分を作る。extra は追加の指示（リマインド時の公開日など）。
     recent_posts は直近に作った投稿文（書き出し・締めが似ないようにするため）。"""
-    body = fetch_article_text(item["url"]) or item.get("description", "")
+    body = (fetch_article_text(item["url"]) if fetch_body else "") or item.get("description", "")
     user = (
         f"今日: {datetime.now(JST):%Y-%m-%d %H時}\n"
         f"記事タイトル: {item.get('title', '')}\n"

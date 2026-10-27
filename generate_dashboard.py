@@ -136,6 +136,9 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
     # X Web Intent URL（description は JS 側で動的挿入するため、ここでは含めない）
     post_text = f"{header}\n{item.get('title', '')}\n{hashtags}"
     ai = item.get("ai") or {}
+    if item.get("book_post_text"):
+        # 新刊の紹介文（rank_books.py）→ 【仏像新刊】書名（→ URL は Amazon のリンク）
+        post_text = compose_news_post(item["book_post_text"], item.get("title", ""), item.get("header", "【仏像新刊】"))
     if ai.get("post_text"):
         # AI（curate_news.py）が記事を読んで書いた文章 → 【仏像速報】記事タイトル（→ X が URL を付ける）
         post_text = compose_news_post(ai["post_text"], item.get("title", ""), ai.get("post_header", "【仏像速報】"))
@@ -223,6 +226,12 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
             f'        <span class="text-[11px] font-bold border px-2 py-0.5 rounded-full bg-sky-50 text-sky-800 border-sky-200">{esc_b(item["_book_badge"])}</span>\n'
             f'        <span class="text-[11px] text-gray-500">{esc_b((item.get("book_ai") or {}).get("reason", ""))}</span>\n'
             f'      </div>\n'
+        )
+
+    if item.get("book_post_text"):
+        ai_html += (
+            f'      <p class="text-xs text-gray-700 bg-amber-50 border border-amber-100 rounded-lg p-2 mb-3 '
+            f'whitespace-pre-wrap leading-relaxed">{post_text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")}</p>\n'
         )
 
     # タイトル行：show_copy_btn=True のときはコピーボタンを横に並べる
@@ -1973,7 +1982,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       loadKeywords();
       setTab(location.hash === '#replies' ? 'replies' : 'news');
       loadReplies();  // タブのバッジ（要返信の件数）表示のため
-      setFilter('all');
+      setFilter('unposted');  // 開いたときは「未投稿」
       attachSwipeHandler();
 
       // Enter キーで適用
@@ -2031,7 +2040,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v34';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v35';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
