@@ -928,9 +928,9 @@
    "start": "2026-10-23",
    "end": "2027-01-03",
    "category": "展覧会",
-   "source_url": "https://www.moaart.or.jp/",
-   "source_title": "MOA美術館 「伊豆の仏像 PART1」",
-   "source_score": 0,
+   "source_url": "https://atami.keizai.biz/photoflash/6469/",
+   "source_title": "国の重要文化財12体を展示 - 熱海経済新聞",
+   "source_score": 72,
    "first_seen": "2026-10-25T10:39:02+09:00",
    "reminded": [],
    "origin": "kanbutsu",
@@ -1153,6 +1153,20 @@
    "reminded": []
   },
   {
+   "id": "c7e0edb69eee",
+   "event_name": "藪不動尊 秋の大祭",
+   "place": "藪不動尊（大分県日田市）",
+   "place_key": "藪不動尊",
+   "start": "2026-10-28",
+   "end": "2026-10-28",
+   "category": "寺院の行事",
+   "source_url": "http://www.excite.co.jp/news/article/nishinippon_1487580253461954761/",
+   "source_title": "藪不動尊で10月28日、秋の大祭 大分・日田市月出町、参拝記念品も - Excite エキサイト",
+   "source_score": 30,
+   "first_seen": "2026-10-28T06:22:46+09:00",
+   "reminded": []
+  },
+  {
    "id": "755107c5ad63",
    "event_name": "浅草寺 名勝 伝法院庭園/絵馬堂 特別拝観",
    "place": "浅草寺（東京都台東区）",
@@ -1209,6 +1223,20 @@
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
+  },
+  {
+   "id": "d5ff70d0c923",
+   "event_name": "第62回京都非公開文化財特別公開",
+   "place": "京都府内（信行寺・光雲寺ほか）",
+   "place_key": "京都府内",
+   "start": "2026-10-30",
+   "end": "",
+   "category": "秘仏・御開帳・特別公開",
+   "source_url": "https://www.kyoto-np.co.jp/articles/-/1815783",
+   "source_title": "京都で普段は非公開の寺や神社に入れるチャンス 伊藤若冲の絵画や貴重な仏像が見られる - 京都新聞デジタル",
+   "source_score": 80,
+   "first_seen": "2026-10-28T06:22:46+09:00",
+   "reminded": []
   },
   {
    "id": "d8513ba18e32",
@@ -1667,6 +1695,20 @@
    "reminded": []
   },
   {
+   "id": "03e6da555bb3",
+   "event_name": "熊本地震から10年 仏像 国宝×肥後仏",
+   "place": "熊本県立美術館（熊本県熊本市）",
+   "place_key": "熊本県立美術館",
+   "start": "",
+   "end": "2026-11-29",
+   "category": "展覧会",
+   "source_url": "https://kumanichi.com/articles/2051047",
+   "source_title": "【寄稿】国宝、肥後仏 復興と心の平穏に 「文化財レスキュー」役割紹介 「熊本地震から10年」仏像展 熊本県立美術館主任学芸員・萬納恵介さん - 熊本日日新聞社",
+   "source_score": 78,
+   "first_seen": "2026-10-28T06:22:46+09:00",
+   "reminded": []
+  },
+  {
    "id": "b05d32bdb117",
    "event_name": "善光寺御開帳セミナー",
    "place": "銀座NAGANO（東京都中央区）",
@@ -1691,7 +1733,7 @@
    "source_url": "https://www.artagenda.jp/feature/news/20261027",
    "source_title": "“本朝無双”の禅寺―京都・大徳寺の歴史と時代を彩る美 - アートアジェンダ",
    "source_score": 62,
-   "first_seen": "2026-10-28T01:39:04+09:00",
+   "first_seen": "2026-10-28T06:22:46+09:00",
    "reminded": []
   },
   {
@@ -1811,5 +1853,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-10-28T01:39:04+09:00"
+ "last_updated": "2026-10-28T06:22:46+09:00"
 }
