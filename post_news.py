@@ -97,7 +97,32 @@ def build_search_queries(includes: list[str], excludes: list[str]) -> list[str]:
     ]
     exc_part = " ".join(f"-{w}" for w in excludes)
     queries += [f"{k} {exc_part} {QUERY_RECENCY}".replace("  ", " ") for k in compound]
+    queries += priority_temple_queries()
     return queries
+
+
+PRIORITY_TEMPLES_FILE = Path(__file__).parent / "config" / "priority_temples.json"
+# 寺院名の検索に添える語。寺名だけだと行事・観光・グルメ記事まで拾うので、仏像の公開・
+# 修理・指定に関わる語に絞る
+PRIORITY_TOPIC_WORDS = "(公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)"
+
+
+def load_priority_temples() -> list[str]:
+    """config/priority_temples.json の寺院名（別名を含む）を返す。"""
+    try:
+        d = json.loads(PRIORITY_TEMPLES_FILE.read_text(encoding="utf-8"))
+        names = []
+        for t in d.get("temples", []):
+            names += [t["name"], *t.get("aliases", [])]
+        return names
+    except Exception as e:
+        print(f"⚠ 優先寺院の設定を読めません: {e}", file=sys.stderr)
+        return []
+
+
+def priority_temple_queries() -> list[str]:
+    """寺院ごとの検索。全キーワード検索の 100 件の枠からこぼれても、ここで拾う。"""
+    return [f'"{n}" {PRIORITY_TOPIC_WORDS} {QUERY_RECENCY}' for n in load_priority_temples()]
 
 # 配信元ドメインによる除外リスト（仏像と無関係なサイトを排除）。
 # Google News はキーワードが本文に含まれるだけの無関係サイトも拾うため、

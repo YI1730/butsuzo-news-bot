@@ -1,0 +1,25 @@
+{
+ "_comment": "反応の高い寺院。名前ごとに専用の Google News 検索（when:2d）を毎時かけ、仏像に関するキーワードと組み合わせて取りこぼしを防ぐ。AI 採点でも、これらの寺院の公開・開帳・修理・指定などは優先して高めに評価する。aliases は別名（検索は name と同じく個別に行う）。",
+ "temples": [
+  {"name": "三十三間堂", "aliases": ["蓮華王院"]},
+  {"name": "興福寺", "aliases": ["東金堂", "北円堂", "南円堂"]},
+  {"name": "東大寺", "aliases": ["二月堂", "法華堂"]},
+  {"name": "唐招提寺", "aliases": []},
+  {"name": "永観堂", "aliases": ["見返り阿弥陀"]},
+  {"name": "清水寺", "aliases": []},
+  {"name": "六波羅蜜寺", "aliases": []},
+  {"name": "薬師寺", "aliases": []},
+  {"name": "浄瑠璃寺", "aliases": []},
+  {"name": "秋篠寺", "aliases": []},
+  {"name": "室生寺", "aliases": []},
+  {"name": "長谷寺", "aliases": []},
+  {"name": "東福寺", "aliases": []},
+  {"name": "伏見稲荷", "aliases": []},
+  {"name": "広隆寺", "aliases": []},
+  {"name": "仁和寺", "aliases": []},
+  {"name": "新薬師寺", "aliases": []},
+  {"name": "法隆寺", "aliases": []},
+  {"name": "中宮寺", "aliases": []},
+  {"name": "南禅寺", "aliases": []}
+ ]
+}
