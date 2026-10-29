@@ -17,6 +17,7 @@ ANTHROPIC_API_KEY が無い場合は何もせず正常終了する（ニュー�
 from __future__ import annotations
 
 import json
+import re
 import os
 import sys
 from datetime import datetime, timedelta
@@ -577,11 +578,13 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
     fixed = x_weighted_length(compose_news_post("", item.get("title", ""), header)) + 1 + X_URL_WEIGHT
     budget_chars = max(40, (X_LIMIT - fixed) // 2 - 3)
     user += f"\n\n文章は全角 {budget_chars} 字以内（ハッシュタグ込み）で書いてください。"
-    for _ in range(2):
+    last = ""
+    for _ in range(3):
         data = call_json(client, usage, POST_SYSTEM, user, POST_SCHEMA, effort="medium")
         if not data:
-            return None
+            break
         text = data["post_text"].strip()
+        last = text or last
         if not text:
             user += "\n\n（前回の案は空でした。本文が短くても、タイトルと記事の範囲で必ず 1〜2 文書いてください）"
             continue
@@ -593,7 +596,28 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
             f"\n\n（前回の案は X の文字数制限を超えました: {total}/{X_LIMIT}。"
             f"全角 {budget_chars} 字以内で書き直してください）"
         )
-    return None
+    # 3 回とも収まらなかったときは、最後の案を文の区切りで（無理なら字数で）削って収める。
+    # 配信候補に投稿文が無いままにならないように
+    return fit_post_text(last, item.get("title", ""), header) if last else None
+
+
+def fit_post_text(text: str, title: str, header: str) -> str | None:
+    """X の文字数制限に収まるよう、文末から文単位で削る。1 文でも長いときは字数で切って「…」。"""
+    def fits(t: str) -> bool:
+        return x_weighted_length(compose_news_post(t, title, header)) + 1 + X_URL_WEIGHT <= X_LIMIT
+
+    sentences = re.findall(r"[^。！？!?]+[。！？!?]?", text)
+    while sentences:
+        t = "".join(sentences).strip()
+        if fits(t):
+            return t
+        if len(sentences) == 1:
+            break
+        sentences.pop()
+    t = text
+    while len(t) > 10 and not fits(t + "…"):
+        t = t[:-1]
+    return (t + "…") if fits(t + "…") else None
 
 
 def notify(topic: str, item: dict) -> None:
