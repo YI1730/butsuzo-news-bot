@@ -596,28 +596,9 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
             f"\n\n（前回の案は X の文字数制限を超えました: {total}/{X_LIMIT}。"
             f"全角 {budget_chars} 字以内で書き直してください）"
         )
-    # 3 回とも収まらなかったときは、最後の案を文の区切りで（無理なら字数で）削って収める。
-    # 配信候補に投稿文が無いままにならないように
-    return fit_post_text(last, item.get("title", ""), header) if last else None
-
-
-def fit_post_text(text: str, title: str, header: str) -> str | None:
-    """X の文字数制限に収まるよう、文末から文単位で削る。1 文でも長いときは字数で切って「…」。"""
-    def fits(t: str) -> bool:
-        return x_weighted_length(compose_news_post(t, title, header)) + 1 + X_URL_WEIGHT <= X_LIMIT
-
-    sentences = re.findall(r"[^。！？!?]+[。！？!?]?", text)
-    while sentences:
-        t = "".join(sentences).strip()
-        if fits(t):
-            return t
-        if len(sentences) == 1:
-            break
-        sentences.pop()
-    t = text
-    while len(t) > 10 and not fits(t + "…"):
-        t = t[:-1]
-    return (t + "…") if fits(t + "…") else None
+    # 3 回とも収まらなかったときは、削らずに最後の案をそのまま返す（運営者が X で最終調整する。
+    # 文字数超過より、紹介文が無くてスキップされるほうが困るため）
+    return last or None
 
 
 def notify(topic: str, item: dict) -> None:
