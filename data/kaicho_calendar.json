@@ -113,6 +113,22 @@
    "remind": false
   },
   {
+   "id": "3f5b04387de0",
+   "event_name": "名品展 珠玉の仏たちセレクション（青銅器館2階・仏像館）",
+   "place": "奈良国立博物館（奈良県奈良市）",
+   "place_key": "奈良国立博物館",
+   "start": "2026-09-15",
+   "end": "",
+   "category": "展覧会",
+   "source_url": "https://www.narahaku.go.jp/exhibition_cat/usual/",
+   "source_title": "奈良国立博物館（奈良県奈良市） 名品展 珠玉の仏たちセレクション（青銅器館2階・仏像館）",
+   "source_score": 0,
+   "first_seen": "2026-10-29T10:05:22+09:00",
+   "reminded": [],
+   "origin": "museum",
+   "remind": false
+  },
+  {
    "id": "93b338091115",
    "event_name": "特別展「国宝でよみとく仏教美術－奇珍異宝の世界－」",
    "place": "神奈川県立金沢文庫",
@@ -453,20 +469,6 @@
    "reminded": []
   },
   {
-   "id": "9d133bdec3c3",
-   "event_name": "大徳寺展",
-   "place": "東京国立博物館 平成館（東京都台東区）",
-   "place_key": "東京国立博物館平",
-   "start": "2026-10-14",
-   "end": "2026-12-06",
-   "category": "展覧会",
-   "source_url": "https://tms-media.jp/posts/99074/",
-   "source_title": "東京国立博で京都・大徳寺展 禅の至宝を一堂に 12月６日まで - ツーリズムメディアサービス",
-   "source_score": 58,
-   "first_seen": "2026-10-27T23:55:34+09:00",
-   "reminded": []
-  },
-  {
    "id": "224f2bfeb0d3",
    "event_name": "三方石観世音 本尊御開帳",
    "place": "三方石観世音（福井県若狭町）",
@@ -638,6 +640,20 @@
    "reminded": []
   },
   {
+   "id": "62e7c60830ac",
+   "event_name": "笠森観音 本尊御開帳",
+   "place": "笠森寺（千葉県長南町）",
+   "place_key": "笠森寺",
+   "start": "2026-10-17",
+   "end": "2026-11-18",
+   "category": "秘仏・御開帳・特別公開",
+   "source_url": "https://jimoharu.net/kasamori-kannon-gokaicho-20261017-1118-mobara-bus-1bin-1103-chukaiko/",
+   "source_title": "笠森観音の御開帳は11/18まで｜茂原駅からのバスは1日1本、駐車場50台は無料 - ジモはる",
+   "source_score": 80,
+   "first_seen": "2026-10-27T04:19:02+09:00",
+   "reminded": []
+  },
+  {
    "id": "d6e4b9c0027d",
    "event_name": "「銀花荘の民藝コレクション－ほっとけない神様・仏様展－」",
    "place": "銀花荘",
@@ -654,18 +670,20 @@
    "remind": false
   },
   {
-   "id": "62e7c60830ac",
-   "event_name": "笠森観音 本尊御開帳",
-   "place": "笠森寺（千葉県長南町）",
-   "place_key": "笠森寺",
+   "id": "eb1dfc763025",
+   "event_name": "企画展「やまえのほとけ展2026　ホトケのいないほとけ展」",
+   "place": "山江村歴史民俗資料館",
+   "place_key": "山江村歴史民俗資",
    "start": "2026-10-17",
-   "end": "2026-11-18",
-   "category": "秘仏・御開帳・特別公開",
-   "source_url": "https://jimoharu.net/kasamori-kannon-gokaicho-20261017-1118-mobara-bus-1bin-1103-chukaiko/",
-   "source_title": "笠森観音の御開帳は11/18まで｜茂原駅からのバスは1日1本、駐車場50台は無料 - ジモはる",
-   "source_score": 80,
-   "first_seen": "2026-10-27T04:19:02+09:00",
-   "reminded": []
+   "end": "2026-12-13",
+   "category": "展覧会",
+   "source_url": "https://www.vill.yamae.lg.jp/kiji003869/index.html",
+   "source_title": "山江村歴史民俗資料館 企画展「やまえのほとけ展2026　ホトケのいないほとけ展」",
+   "source_score": 0,
+   "first_seen": "2026-10-29T10:05:04+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
   },
   {
    "id": "332a366b1202",
@@ -937,20 +955,6 @@
    "remind": false
   },
   {
-   "id": "e35026b9e350",
-   "event_name": "新作仏像彫刻展",
-   "place": "長浜市元浜町 曳山博物館伝承スタジオ（滋賀県長浜市）",
-   "place_key": "長浜市元浜町曳山",
-   "start": "2026-10-23",
-   "end": "2026-10-25",
-   "category": "展覧会",
-   "source_url": "https://www.47news.jp/15130526.html",
-   "source_title": "仏像彫刻の新作32点 長浜市で作家15人が展示 - 47NEWS",
-   "source_score": 40,
-   "first_seen": "2026-10-26T09:21:35+09:00",
-   "reminded": []
-  },
-  {
    "id": "0c32a7827fde",
    "event_name": "秩父 秋の夜巡礼ツアー 午歳総開帳編",
    "place": "秩父（埼玉県秩父市）",
@@ -1217,22 +1221,6 @@
    ]
   },
   {
-   "id": "4821c9abe0e1",
-   "event_name": "「文化財一般公開－相模川流域のほとけ－」",
-   "place": "厚木市教育委員会",
-   "place_key": "厚木市教育委員会",
-   "start": "2026-10-30",
-   "end": "2026-10-31",
-   "category": "展覧会",
-   "source_url": "https://www.city.atsugi.kanagawa.jp/soshiki/bunkazaihogoka/31702.html",
-   "source_title": "厚木市教育委員会 「文化財一般公開－相模川流域のほとけ－」",
-   "source_score": 0,
-   "first_seen": "2026-10-25T10:39:02+09:00",
-   "reminded": [],
-   "origin": "kanbutsu",
-   "remind": false
-  },
-  {
    "id": "d5ff70d0c923",
    "event_name": "第62回京都非公開文化財特別公開",
    "place": "京都府内（信行寺・光雲寺ほか）",
@@ -1247,6 +1235,22 @@
    "reminded": [
     "start"
    ]
+  },
+  {
+   "id": "4821c9abe0e1",
+   "event_name": "「文化財一般公開－相模川流域のほとけ－」",
+   "place": "厚木市教育委員会",
+   "place_key": "厚木市教育委員会",
+   "start": "2026-10-30",
+   "end": "2026-10-31",
+   "category": "展覧会",
+   "source_url": "https://www.city.atsugi.kanagawa.jp/soshiki/bunkazaihogoka/31702.html",
+   "source_title": "厚木市教育委員会 「文化財一般公開－相模川流域のほとけ－」",
+   "source_score": 0,
+   "first_seen": "2026-10-25T10:39:02+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
   },
   {
    "id": "d8513ba18e32",
@@ -1291,22 +1295,6 @@
    "reminded": []
   },
   {
-   "id": "79e549ef3163",
-   "event_name": "特別展「南武蔵の平安仏」",
-   "place": "横浜市歴史博物館",
-   "place_key": "横浜市歴史博物館",
-   "start": "2026-10-31",
-   "end": "2026-12-13",
-   "category": "展覧会",
-   "source_url": "https://rekihaku.yokohama-history.org/",
-   "source_title": "横浜市歴史博物館 特別展「南武蔵の平安仏」",
-   "source_score": 0,
-   "first_seen": "2026-10-25T10:39:02+09:00",
-   "reminded": [],
-   "origin": "kanbutsu",
-   "remind": false
-  },
-  {
    "id": "98d1600ed2c8",
    "event_name": "円覚寺 宝物風入れ・国宝舎利殿特別公開",
    "place": "円覚寺（神奈川県鎌倉市）",
@@ -1333,6 +1321,22 @@
    "source_score": 80,
    "first_seen": "2026-10-27T04:19:02+09:00",
    "reminded": []
+  },
+  {
+   "id": "79e549ef3163",
+   "event_name": "特別展「南武蔵の平安仏」",
+   "place": "横浜市歴史博物館",
+   "place_key": "横浜市歴史博物館",
+   "start": "2026-10-31",
+   "end": "2026-12-13",
+   "category": "展覧会",
+   "source_url": "https://rekihaku.yokohama-history.org/",
+   "source_title": "横浜市歴史博物館 特別展「南武蔵の平安仏」",
+   "source_score": 0,
+   "first_seen": "2026-10-25T10:39:02+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
   },
   {
    "id": "ff66cccfc518",
@@ -1503,6 +1507,22 @@
    "source_score": 35,
    "first_seen": "2026-10-21T08:54:52+09:00",
    "reminded": []
+  },
+  {
+   "id": "6faf146c6458",
+   "event_name": "企画展「よみがえる奥能登の平安仏－震災を乗り越えて－」",
+   "place": "能登町立美術館（羽根万象美術館）",
+   "place_key": "能登町立美術館",
+   "start": "2026-11-07",
+   "end": "2027-02-21",
+   "category": "展覧会",
+   "source_url": "https://www.town.noto.lg.jp/kakuka/1012/gyomu/kyouikufront/gyoumuannai/rekishibunka/4946.html",
+   "source_title": "能登町立美術館（羽根万象美術館） 企画展「よみがえる奥能登の平安仏－震災を乗り越えて－」",
+   "source_score": 0,
+   "first_seen": "2026-10-29T10:05:04+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
   },
   {
    "id": "635a5e78e2ca",
@@ -1775,20 +1795,6 @@
    "reminded": []
   },
   {
-   "id": "a0efd7e13421",
-   "event_name": "特別展 大徳寺 本朝無双之禅苑",
-   "place": "東京国立博物館（東京都台東区）",
-   "place_key": "東京国立博物館",
-   "start": "",
-   "end": "2026-12-06",
-   "category": "展覧会",
-   "source_url": "https://www.artagenda.jp/feature/news/20261027",
-   "source_title": "“本朝無双”の禅寺―京都・大徳寺の歴史と時代を彩る美 - アートアジェンダ",
-   "source_score": 62,
-   "first_seen": "2026-10-29T09:57:29+09:00",
-   "reminded": []
-  },
-  {
    "id": "0f69caddf699",
    "event_name": "特別陳列 春日若宮おん祭の信仰と美術",
    "place": "奈良国立博物館（奈良県奈良市）",
@@ -1889,21 +1895,7 @@
    "source_score": 88,
    "first_seen": "2026-10-16T20:59:55+09:00",
    "reminded": []
-  },
-  {
-   "id": "ec11db7c03ec",
-   "event_name": "特別展「国宝 三井寺のすべて」",
-   "place": "東京国立博物館（東京都台東区）",
-   "place_key": "東京国立博物館",
-   "start": "2027-04-20",
-   "end": "2027-06-13",
-   "category": "展覧会",
-   "source_url": "https://www.museum.or.jp/event/127356",
-   "source_title": "特別展「国宝 三井寺のすべて」 - アイエム［インターネットミュージアム］",
-   "source_score": 30,
-   "first_seen": "2026-10-27T14:01:38+09:00",
-   "reminded": []
   }
  ],
- "last_updated": "2026-10-29T09:57:29+09:00"
+ "last_updated": "2026-10-29T10:06:30+09:00"
 }
