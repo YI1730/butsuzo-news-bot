@@ -39,7 +39,7 @@ SCORE_WINDOW_HOURS = 48    # これより前に取り込んだ記事は採点し
 SCORE_BATCH_SIZE = 20      # 1 回の API 呼び出しで採点する件数
 MAX_SCORE_PER_RUN = 80
 MAX_POSTS_PER_RUN = 8
-MAX_POST_ATTEMPTS = 3
+MAX_POST_ATTEMPTS = 6
 ARTICLE_BODY_CHARS = 4000  # 投稿文作成時に渡す本文の上限文字数
 # 投稿文の形式・文体の版。POST_SYSTEM を変えたら上げると、既存の配信候補も作り直される
 #   3: 文章 → 【仏像速報】タイトル の順、運営者の文体（ハッシュタグなし）
