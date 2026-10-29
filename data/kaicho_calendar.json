@@ -113,22 +113,6 @@
    "remind": false
   },
   {
-   "id": "3f5b04387de0",
-   "event_name": "名品展 珠玉の仏たちセレクション（青銅器館2階・仏像館）",
-   "place": "奈良国立博物館（奈良県奈良市）",
-   "place_key": "奈良国立博物館",
-   "start": "2026-09-15",
-   "end": "",
-   "category": "展覧会",
-   "source_url": "https://www.narahaku.go.jp/exhibition_cat/usual/",
-   "source_title": "奈良国立博物館（奈良県奈良市） 名品展 珠玉の仏たちセレクション（青銅器館2階・仏像館）",
-   "source_score": 0,
-   "first_seen": "2026-10-29T10:05:22+09:00",
-   "reminded": [],
-   "origin": "museum",
-   "remind": false
-  },
-  {
    "id": "93b338091115",
    "event_name": "特別展「国宝でよみとく仏教美術－奇珍異宝の世界－」",
    "place": "神奈川県立金沢文庫",
@@ -441,6 +425,20 @@
    "remind": false
   },
   {
+   "id": "23def208a763",
+   "event_name": "多宝塔落慶法要",
+   "place": "廣徳院（福島県楢葉町）",
+   "place_key": "廣徳院",
+   "start": "2026-10-10",
+   "end": "2026-10-10",
+   "category": "寺院の行事",
+   "source_url": "https://www.chugainippoh.co.jp/article/news/20261028-005.html",
+   "source_title": "［ニュース］震災15年、念ずれば花開く 多宝塔が完成し法要 福島・楢葉町智山派廣徳院 - 中外日報社",
+   "source_score": 35,
+   "first_seen": "2026-10-29T16:06:45+09:00",
+   "reminded": []
+  },
+  {
    "id": "d1a7a8ed5874",
    "event_name": "神宮寺 十一面観音 33年ぶり公開",
    "place": "神宮寺（島根県出雲市）",
@@ -466,6 +464,20 @@
    "source_title": "“東洋美術の最高傑作”と称される牧谿《観音猿鶴図》、長谷川等伯ら巨匠絵師をうならせたその凄みとは？ - JBpress",
    "source_score": 62,
    "first_seen": "2026-10-21T19:09:28+09:00",
+   "reminded": []
+  },
+  {
+   "id": "9d133bdec3c3",
+   "event_name": "大徳寺展",
+   "place": "東京国立博物館 平成館（東京都台東区）",
+   "place_key": "東京国立博物館平",
+   "start": "2026-10-14",
+   "end": "2026-12-06",
+   "category": "展覧会",
+   "source_url": "https://tms-media.jp/posts/99074/",
+   "source_title": "東京国立博で京都・大徳寺展 禅の至宝を一堂に 12月６日まで - ツーリズムメディアサービス",
+   "source_score": 58,
+   "first_seen": "2026-10-29T16:06:45+09:00",
    "reminded": []
   },
   {
@@ -1173,6 +1185,20 @@
    ]
   },
   {
+   "id": "1fafa87fc919",
+   "event_name": "岡寺 晋山式",
+   "place": "岡寺（奈良県明日香村）",
+   "place_key": "岡寺",
+   "start": "2026-10-28",
+   "end": "2026-10-28",
+   "category": "寺院の行事",
+   "source_url": "https://topics.smt.docomo.ne.jp/amp/article/asahi_region/nation/asahi_region-ASVBX3TZXVBXPOMB005M",
+   "source_title": "明日香村の岡寺　新住職の川俣氏、就任披露の晋山式　奈良 - ｄメニューニュース",
+   "source_score": 42,
+   "first_seen": "2026-10-29T16:06:45+09:00",
+   "reminded": []
+  },
+  {
    "id": "755107c5ad63",
    "event_name": "浅草寺 名勝 伝法院庭園/絵馬堂 特別拝観",
    "place": "浅草寺（東京都台東区）",
@@ -1402,9 +1428,9 @@
    "start": "2026-11-01",
    "end": "2026-11-30",
    "category": "秘仏・御開帳・特別公開",
-   "source_url": "https://www.yomiuri.co.jp/stream/article/28204/",
-   "source_title": "興福寺東金堂の後堂を特別公開 国宝・東金堂創建１３００年を記念 - 読売新聞",
-   "source_score": 90,
+   "source_url": "https://artexhibition.jp/topics/news/20261029-AEJ3030613/",
+   "source_title": "奈良・興福寺で国宝「東金堂」の非公開エリア「後堂」が12年ぶりに特別公開 11月1日から…仏像を横や後ろからも拝観 - 美術展ナビ",
+   "source_score": 93,
    "first_seen": "2026-10-27T23:55:34+09:00",
    "reminded": []
   },
@@ -1795,6 +1821,20 @@
    "reminded": []
   },
   {
+   "id": "a0efd7e13421",
+   "event_name": "特別展 大徳寺 本朝無双之禅苑",
+   "place": "東京国立博物館（東京都台東区）",
+   "place_key": "東京国立博物館",
+   "start": "",
+   "end": "2026-12-06",
+   "category": "展覧会",
+   "source_url": "https://artexhibition.jp/topics/news/20261023-AEJ3023538/",
+   "source_title": "【グッズ開封】特別展「大徳寺」 東京国立博物館で12月6日まで 禅の美の渋いグッズを購入してみました - 美術展ナビ",
+   "source_score": 45,
+   "first_seen": "2026-10-29T16:06:45+09:00",
+   "reminded": []
+  },
+  {
    "id": "0f69caddf699",
    "event_name": "特別陳列 春日若宮おん祭の信仰と美術",
    "place": "奈良国立博物館（奈良県奈良市）",
@@ -1897,5 +1937,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-10-29T10:06:30+09:00"
+ "last_updated": "2026-10-29T16:06:45+09:00"
 }
