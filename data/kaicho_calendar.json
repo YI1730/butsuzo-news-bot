@@ -1306,7 +1306,9 @@
    "source_title": "会員の仏像や能面見て ３１日からいわきで「木彫展」 - 47NEWS",
    "source_score": 50,
    "first_seen": "2026-10-22T08:20:36+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "5f4b22a172ac",
@@ -1320,7 +1322,9 @@
    "source_title": "大徳寺展「百鬼夜行絵巻」にちなむ、秋の特別企画「シタマチ.ハロウィン2026」と連携し、10月31日に百鬼夜行パレードを開催 - PR TIMES",
    "source_score": 42,
    "first_seen": "2026-10-23T13:46:18+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "62d49a12acb8",
@@ -1334,7 +1338,9 @@
    "source_title": "31日に「伊勢西国三十三所」巡礼体験 参加呼び掛け - 伊勢新聞",
    "source_score": 45,
    "first_seen": "2026-10-24T10:36:53+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "98d1600ed2c8",
@@ -1348,7 +1354,9 @@
    "source_title": "円覚寺｜10/31(土)～11/2(月) 円覚寺「宝物風入」「国宝舎利殿特別公開」を開催いたします。 国宝舎",
    "source_score": 66,
    "first_seen": "2026-10-26T15:11:40+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "a6dcd044c23d",
@@ -1362,7 +1370,9 @@
    "source_title": "岡山で奈良・長谷寺の僧侶が歌う読経コンサート　10メートルの本尊画軸も - ｄメニューニュース",
    "source_score": 80,
    "first_seen": "2026-10-27T04:19:02+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "79e549ef3163",
@@ -1392,7 +1402,9 @@
    "source_title": "【10月31日（土）開催】国宝「勝興寺」の奥書院・八角輪蔵を特別拝観！七不思議巡りや報恩講料理、写経で高岡の歴史・文化を体感 - 朝日新聞",
    "source_score": 50,
    "first_seen": "2026-10-30T00:35:18+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "ff66cccfc518",
@@ -1581,6 +1593,20 @@
    "remind": false
   },
   {
+   "id": "5d0f29d651f6",
+   "event_name": "仏像彫刻展示会",
+   "place": "長谷寺（神奈川県鎌倉市）",
+   "place_key": "長谷寺",
+   "start": "2026-11-07",
+   "end": "2026-11-08",
+   "category": "展覧会",
+   "source_url": "https://topics.smt.docomo.ne.jp/amp/article/townnews/region/townnews-859693",
+   "source_title": "仏像彫刻80点の展示会　長谷寺で11月７日・８日〈鎌倉市〉 - ｄメニューニュース",
+   "source_score": 62,
+   "first_seen": "2026-10-30T10:00:19+09:00",
+   "reminded": []
+  },
+  {
    "id": "635a5e78e2ca",
    "event_name": "置賜三十三観音 巡礼ツアー",
    "place": "山形県白鷹町",
@@ -1606,6 +1632,34 @@
    "source_title": "京都「東寺」のイケメン仏像に会いに行く 秋の特別公開、国宝や重文並ぶ「密教空間」など見どころ多数 - 京都新聞デジタル",
    "source_score": 84,
    "first_seen": "2026-10-30T05:21:01+09:00",
+   "reminded": []
+  },
+  {
+   "id": "f7e1995d7e37",
+   "event_name": "よみがえる白鳳―金堂復興50周年記念展",
+   "place": "薬師寺（奈良県奈良市）",
+   "place_key": "薬師寺",
+   "start": "",
+   "end": "2026-11-08",
+   "category": "展覧会",
+   "source_url": "https://www.nishinippon.co.jp/item/1554578/",
+   "source_title": "薬師寺、金堂再建50年で記念展 奈良市、秀吉の書状も公開 - 西日本新聞me",
+   "source_score": 60,
+   "first_seen": "2026-10-30T10:00:19+09:00",
+   "reminded": []
+  },
+  {
+   "id": "abe6a7a11bbc",
+   "event_name": "薬師寺 金堂復興50周年記念展",
+   "place": "薬師寺西僧坊（奈良県奈良市）",
+   "place_key": "薬師寺西僧坊",
+   "start": "",
+   "end": "2026-11-08",
+   "category": "展覧会",
+   "source_url": "https://news.infoseek.co.jp/amp/article/sankein__life_history_67YHH4KPGFIZXFKLDWHKBE6LLU/",
+   "source_title": "薬師寺金堂よみがえり50年　国宝「水煙」や天武天皇像を公開し、伽藍復興の歩みをたどる - Infoseek",
+   "source_score": 72,
+   "first_seen": "2026-10-30T10:00:19+09:00",
    "reminded": []
   },
   {
@@ -1875,7 +1929,7 @@
    "source_url": "https://artexhibition.jp/topics/news/20261023-AEJ3023538/",
    "source_title": "【グッズ開封】特別展「大徳寺」 東京国立博物館で12月6日まで 禅の美の渋いグッズを購入してみました - 美術展ナビ",
    "source_score": 45,
-   "first_seen": "2026-10-30T05:21:01+09:00",
+   "first_seen": "2026-10-30T10:00:19+09:00",
    "reminded": []
   },
   {
@@ -1981,5 +2035,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-10-30T05:21:01+09:00"
+ "last_updated": "2026-10-30T10:00:19+09:00"
 }
