@@ -635,7 +635,9 @@
    "source_title": "昨年約32万人が来場！京都を舞台にアートを楽しむ『第2回 京都駅ビル芸術祭』／京都駅ビル 他 - Leaf KYOTO",
    "source_score": 45,
    "first_seen": "2026-10-18T05:35:05+09:00",
-   "reminded": []
+   "reminded": [
+    "ending"
+   ]
   },
   {
    "id": "30e60da57386",
@@ -1211,7 +1213,8 @@
    "source_score": 66,
    "first_seen": "2026-10-18T20:05:26+09:00",
    "reminded": [
-    "start"
+    "start",
+    "ending"
    ]
   },
   {
@@ -1243,7 +1246,8 @@
    "source_score": 76,
    "first_seen": "2026-10-24T04:13:01+09:00",
    "reminded": [
-    "start"
+    "start",
+    "ending"
    ]
   },
   {
@@ -1466,7 +1470,9 @@
    "source_title": "名鉄「豊川稲荷御開帳きっぷ」発売へ 72年ぶりの秘仏公開でにぎわい期待 特設サイトでご当地グルメなどの情報も発信中 - Yahoo!ニュース",
    "source_score": 88,
    "first_seen": "2026-10-19T06:06:11+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "27332ac61476",
@@ -1480,7 +1486,9 @@
    "source_title": "筋骨隆々の力強い造形を間近で拝める３日間！総本山善通寺・金剛力士像の特別拝観 １１月１日から【香川】（OHK岡山放送） - Yahoo!ニュース",
    "source_score": 88,
    "first_seen": "2026-10-22T19:05:49+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "88ee48000546",
@@ -1494,7 +1502,9 @@
    "source_title": "いよいよ、始まる72年ぶりの豊川稲荷御開帳。その象徴となる御縁柱が立ち上がる！ - 時事ドットコム",
    "source_score": 62,
    "first_seen": "2026-10-25T10:48:08+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "cd5c0f3b655d",
@@ -1508,7 +1518,9 @@
    "source_title": "鎌倉時代の仏像や史跡を巡る　11月１日、松田町で歴史散歩〈南足柄市・大井町・松田町・山北町・開成町〉 - ｄメニューニュース",
    "source_score": 72,
    "first_seen": "2026-10-26T04:07:02+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "58298387a57a",
@@ -1522,7 +1534,9 @@
    "source_title": "奈良・興福寺で国宝「東金堂」の非公開エリア「後堂」が12年ぶりに特別公開 11月1日から…仏像を横や後ろからも拝観 - 美術展ナビ",
    "source_score": 93,
    "first_seen": "2026-10-27T23:55:34+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "29e336d869b3",
@@ -1536,7 +1550,9 @@
    "source_title": "鎌倉の報国寺とホテル2社など、2026年11月から夜間特別拝観を定期開催へ - Dellows News",
    "source_score": 35,
    "first_seen": "2026-10-28T10:23:11+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "2952210a9317",
@@ -1550,7 +1566,9 @@
    "source_title": "11月の限定ご朱印、「文殊菩薩」様・「毘伽羅（びから）大将」様のご朱印を頒布開始【一畑山薬師寺】 - Excite エキサイト",
    "source_score": 30,
    "first_seen": "2026-10-31T04:24:43+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "db2eb8c16385",
@@ -1567,6 +1585,20 @@
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
+  },
+  {
+   "id": "9238875b4ed2",
+   "event_name": "生福寺 特別展",
+   "place": "生福寺（栃木県宇都宮市）",
+   "place_key": "生福寺",
+   "start": "2026-11-02",
+   "end": "",
+   "category": "展覧会",
+   "source_url": "https://www.shimotsuke.co.jp/articles/-/1450667",
+   "source_title": "７年ぶり特別展 びょうぶ初公開 宇都宮・生福寺の文化財２０点 来月２日から｜朝刊・夕刊ニュース｜下野新聞デジタル - 下野新聞社",
+   "source_score": 80,
+   "first_seen": "2026-10-31T08:48:21+09:00",
+   "reminded": []
   },
   {
    "id": "bba4dc8a7840",
@@ -1721,7 +1753,7 @@
    "source_url": "https://www.nishinippon.co.jp/item/1554578/",
    "source_title": "薬師寺、金堂再建50年で記念展 奈良市、秀吉の書状も公開 - 西日本新聞me",
    "source_score": 60,
-   "first_seen": "2026-10-31T04:24:43+09:00",
+   "first_seen": "2026-10-31T08:48:21+09:00",
    "reminded": []
   },
   {
@@ -2055,6 +2087,20 @@
    "reminded": []
   },
   {
+   "id": "279425e1a08b",
+   "event_name": "国宝 三井寺のすべて",
+   "place": "東京国立博物館（東京都台東区）",
+   "place_key": "東京国立博物館",
+   "start": "2027-04-01",
+   "end": "2027-06-30",
+   "category": "展覧会",
+   "source_url": "https://www.kyoto-np.co.jp/articles/-/1817570",
+   "source_title": "大津市で千年守られてきた「国宝」や「秘仏」、来年東京で公開へ 「見えない力を感じて」 - 京都新聞デジタル",
+   "source_score": 86,
+   "first_seen": "2026-10-31T08:48:21+09:00",
+   "reminded": []
+  },
+  {
    "id": "ac54e7166977",
    "event_name": "善光寺御開帳",
    "place": "善光寺（長野県長野市）",
@@ -2083,5 +2129,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-10-31T04:24:43+09:00"
+ "last_updated": "2026-10-31T08:48:21+09:00"
 }
