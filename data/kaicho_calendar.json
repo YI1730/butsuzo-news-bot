@@ -125,8 +125,7 @@
    "source_score": 0,
    "first_seen": "2026-10-25T10:39:02+09:00",
    "reminded": [],
-   "origin": "kanbutsu",
-   "remind": false
+   "origin": "kanbutsu"
   },
   {
    "id": "d56c1c1be62f",
@@ -1458,6 +1457,20 @@
    ]
   },
   {
+   "id": "6d913acd6aa2",
+   "event_name": "2026秋 気仙三十三観音霊場徒歩巡礼",
+   "place": "大船渡市・気仙両市の観音堂・寺院",
+   "place_key": "大船渡市・気仙両",
+   "start": "2026-10-31",
+   "end": "",
+   "category": "寺院の行事",
+   "source_url": "https://tohkaishimpo.com/2026/11/01/535054/",
+   "source_title": "祈りの道を歩く 気仙三十三観音巡礼 震災復興願い札所巡る（別写真あり） - 東海新報",
+   "source_score": 50,
+   "first_seen": "2026-11-01T06:32:57+09:00",
+   "reminded": []
+  },
+  {
    "id": "ff66cccfc518",
    "event_name": "豊川稲荷 御開帳",
    "place": "豊川稲荷（愛知県豊川市）",
@@ -1766,7 +1779,7 @@
    "source_url": "https://yokohama-kanazawakanko.com/2026/11/01/202611event101/",
    "source_title": "神奈川県立金沢文庫 柴田コレクション受贈記念特別展 11/8迄 他 - 横浜金沢観光協会",
    "source_score": 45,
-   "first_seen": "2026-11-01T02:46:50+09:00",
+   "first_seen": "2026-11-01T06:32:57+09:00",
    "reminded": []
   },
   {
@@ -1780,7 +1793,7 @@
    "source_url": "https://www.nishinippon.co.jp/item/1554578/",
    "source_title": "薬師寺、金堂再建50年で記念展 奈良市、秀吉の書状も公開 - 西日本新聞me",
    "source_score": 60,
-   "first_seen": "2026-11-01T02:46:50+09:00",
+   "first_seen": "2026-11-01T06:32:57+09:00",
    "reminded": []
   },
   {
@@ -1948,7 +1961,7 @@
    "source_url": "https://newsdig.tbs.co.jp/articles/tbc/3052164",
    "source_title": "「圧倒された」「神秘的」松島の国宝”瑞巌寺”秋の夜間参拝で11月23日まで期間限定ライトアップ 宮城 - TBS NEWS DIG",
    "source_score": 35,
-   "first_seen": "2026-11-01T02:46:50+09:00",
+   "first_seen": "2026-11-01T06:32:57+09:00",
    "reminded": []
   },
   {
@@ -2080,7 +2093,7 @@
    "source_url": "https://kumanichi.com/articles/2049922",
    "source_title": "あれ？仏像は？ 「ホトケのいないほとけ展」山江村で開催 地獄絵図や仏具など紹介 - 熊本日日新聞社",
    "source_score": 55,
-   "first_seen": "2026-11-01T02:46:50+09:00",
+   "first_seen": "2026-11-01T06:32:57+09:00",
    "reminded": []
   },
   {
@@ -2095,6 +2108,20 @@
    "source_title": "スタジオジブリ企画制作 白隠さんの禅京都展が12月17日より開催へ 前売券発売 - Dellows News",
    "source_score": 35,
    "first_seen": "2026-10-20T00:38:35+09:00",
+   "reminded": []
+  },
+  {
+   "id": "78b9771a0dd2",
+   "event_name": "横浜金澤七福神御開帳とスタンプラリー",
+   "place": "横浜市金沢区",
+   "place_key": "横浜市金沢区",
+   "start": "2027-01-01",
+   "end": "2027-01-09",
+   "category": "寺院の行事",
+   "source_url": "https://yokohama-kanazawakanko.com/2026/11/01/202611event999/",
+   "source_title": "横浜金澤七福神御開帳とスタンプラリー 2027/1/1～9 - 横浜金沢観光協会",
+   "source_score": 42,
+   "first_seen": "2026-11-01T06:32:57+09:00",
    "reminded": []
   },
   {
@@ -2184,5 +2211,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-11-01T02:46:50+09:00"
+ "last_updated": "2026-11-01T06:32:57+09:00"
 }
