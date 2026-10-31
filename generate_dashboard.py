@@ -309,7 +309,7 @@ def build_calendar_html(days_ahead: int = 30) -> str:
             f'        </a>'
         )
     return (
-        '    <details class="bg-white rounded-2xl border border-brand-100 shadow-sm p-3" open>\n'
+        '    <details id="calendar-box" class="bg-white rounded-2xl border border-brand-100 shadow-sm p-3" open>\n'
         f'      <summary class="text-sm font-bold text-brand-800 cursor-pointer">📅 これからの公開（公開中・{days_ahead}日以内・{len(rows)}件）</summary>\n'
         '      <p class="text-[11px] text-gray-500 mt-1 mb-1">記事からAIが抜き出した公開期間。「あすから」「終了まであと数日」で自動的に配信候補になります</p>\n'
         '      <div>\n' + "\n".join(lines) + '\n      </div>\n    </details>'
@@ -557,15 +557,15 @@ def build_html(items: list[dict], last_updated: str) -> str:
     </div>
 
     <!-- フィルターバー -->
-    <div class="flex gap-2 py-2 pb-3 max-w-xl mx-auto">
+    <div class="flex flex-nowrap gap-1.5 py-2 pb-3 max-w-xl mx-auto items-center whitespace-nowrap">
       <button onclick="setFilter('unposted')" id="btn-unposted"
-        class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">未投稿</button>
+        class="filter-btn px-2.5 py-1 rounded-full text-xs font-medium transition-colors">未投稿</button>
       <button onclick="setFilter('all')" id="btn-all"
-        class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">すべて</button>
+        class="filter-btn px-2.5 py-1 rounded-full text-xs font-medium transition-colors">すべて</button>
       <button onclick="setFilter('posted')" id="btn-posted"
-        class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">投稿済み</button>
+        class="filter-btn px-2.5 py-1 rounded-full text-xs font-medium transition-colors">投稿済み</button>
       <button onclick="toggleNewsSort()" id="btn-sort"
-        class="ml-auto px-3 py-1 rounded-full text-xs font-medium bg-brand-700 text-brand-200 transition-colors">🕒 取込順</button>
+        class="ml-auto px-2.5 py-1 rounded-full text-xs font-medium bg-brand-700 text-brand-200 transition-colors">🕒 取込順</button>
       <button onclick="resetAll()" class="text-xs text-brand-300 underline">リセット</button>
     </div>
   </header>
@@ -772,6 +772,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const pane = document.getElementById('tab-news');
       const list = document.getElementById('news-time-list');
       const box = document.getElementById('candidates-box');
+      const cal = document.getElementById('calendar-box');
       const btn = document.getElementById('btn-sort');
       if (newsSortByTime) {{
         const cards = Array.from(pane.querySelectorAll('[data-item-id]'));
@@ -784,13 +785,15 @@ def build_html(items: list[dict], last_updated: str) -> str:
         cards.forEach(c => list.appendChild(c));
         pane.querySelectorAll('.separator').forEach(e => e.classList.add('hidden'));
         if (box) box.classList.add('hidden');
+        if (cal) cal.classList.add('hidden');  // 取込順では「これからの公開」を出さない
       }} else {{
         newsPlaceholders.forEach(([c, ph]) => ph.parentNode.replaceChild(c, ph));
         newsPlaceholders = [];
         pane.querySelectorAll('.separator').forEach(e => e.classList.remove('hidden'));
         if (box) box.classList.remove('hidden');
+        if (cal) cal.classList.remove('hidden');
       }}
-      if (btn) btn.className = 'ml-auto px-3 py-1 rounded-full text-xs font-medium transition-colors ' +
+      if (btn) btn.className = 'ml-auto px-2.5 py-1 rounded-full text-xs font-medium transition-colors ' +
         (newsSortByTime ? 'bg-white text-brand-800' : 'bg-brand-700 text-brand-200');
       applyFilter();
     }}
@@ -800,7 +803,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       ['unposted','all','posted'].forEach(m => {{
         const btn = document.getElementById('btn-' + m);
         if (btn) {{
-          btn.className = 'filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors ' +
+          btn.className = 'filter-btn px-2.5 py-1 rounded-full text-xs font-medium transition-colors ' +
             (m === mode ? 'bg-white text-brand-800' : 'bg-brand-700 text-brand-200');
         }}
       }});
@@ -2078,7 +2081,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v36';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v37';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
