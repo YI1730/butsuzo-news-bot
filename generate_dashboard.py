@@ -250,7 +250,7 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
             f'      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">{title}</p>'
         )
 
-    return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}">
+    return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}" data-fetched="{item.get('fetched_at', '')}">
 {image_html}{meta_html}
 {title_block_html}
 {ai_html}
@@ -445,7 +445,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
     candidates_html = ""
     if candidates:
         candidates_html = (
-            '    <div class="rounded-2xl border-2 border-amber-300 bg-amber-50/60 p-3 space-y-3">\n'
+            '    <div id="candidates-box" class="rounded-2xl border-2 border-amber-300 bg-amber-50/60 p-3 space-y-3">\n'
             f'      <p class="text-sm font-bold text-amber-800">⭐ 配信候補（AIが選定・{len(candidates)}件）</p>\n'
             f'      <p class="text-[11px] text-amber-700 -mt-2">記事を読んで配信価値を採点し、投稿文も作成済み。「にポスト」で下書き入りのXが開きます</p>\n'
             + "\n".join(build_card_html(x) for x in candidates)
@@ -564,7 +564,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
         class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">すべて</button>
       <button onclick="setFilter('posted')" id="btn-posted"
         class="filter-btn px-3 py-1 rounded-full text-xs font-medium transition-colors">投稿済み</button>
-      <button onclick="resetAll()" class="ml-auto text-xs text-brand-300 underline">リセット</button>
+      <button onclick="toggleNewsSort()" id="btn-sort"
+        class="ml-auto px-3 py-1 rounded-full text-xs font-medium bg-brand-700 text-brand-200 transition-colors">🕒 取込順</button>
+      <button onclick="resetAll()" class="text-xs text-brand-300 underline">リセット</button>
     </div>
   </header>
 
@@ -572,6 +574,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
   <main class="px-4 py-4 max-w-xl mx-auto">
     <div id="tab-news" class="tab-pane space-y-3">
 {news_cards}
+      <div id="news-time-list" class="space-y-3"></div>
     </div>
     <div id="tab-other" class="tab-pane space-y-3 hidden">
 {other_cards}
@@ -753,8 +756,43 @@ def build_html(items: list[dict], last_updated: str) -> str:
         if (!scheduledData) {{ loadScheduled(); }} else {{ renderScheduled(); }}
       }}
       if (tab === 'replies') {{ loadReplies(); }}
+      const sortBtn = document.getElementById('btn-sort');
+      if (sortBtn) sortBtn.classList.toggle('hidden', tab !== 'news');
       applyFilter();
       window.scrollTo({{top: 0, behavior: 'instant'}});
+    }}
+
+    // ニュースタブの並び順: 既定は「点数順」（⭐配信候補を点数の高い順に上へ、残りは取込の新しい順）。
+    // 「取込順」は、配信候補も含めて全カードを取り込みの新しい順に 1 本に並べる。
+    // カードは移動するだけで複製しないので、投稿済みの記録（data-item-id）はそのまま効く
+    let newsSortByTime = false;
+    let newsPlaceholders = [];
+    function toggleNewsSort() {{
+      newsSortByTime = !newsSortByTime;
+      const pane = document.getElementById('tab-news');
+      const list = document.getElementById('news-time-list');
+      const box = document.getElementById('candidates-box');
+      const btn = document.getElementById('btn-sort');
+      if (newsSortByTime) {{
+        const cards = Array.from(pane.querySelectorAll('[data-item-id]'));
+        newsPlaceholders = cards.map(c => {{
+          const ph = document.createComment('card');
+          c.parentNode.insertBefore(ph, c);
+          return [c, ph];
+        }});
+        cards.sort((a, b) => (b.dataset.fetched || '').localeCompare(a.dataset.fetched || ''));
+        cards.forEach(c => list.appendChild(c));
+        pane.querySelectorAll('.separator').forEach(e => e.classList.add('hidden'));
+        if (box) box.classList.add('hidden');
+      }} else {{
+        newsPlaceholders.forEach(([c, ph]) => ph.parentNode.replaceChild(c, ph));
+        newsPlaceholders = [];
+        pane.querySelectorAll('.separator').forEach(e => e.classList.remove('hidden'));
+        if (box) box.classList.remove('hidden');
+      }}
+      if (btn) btn.className = 'ml-auto px-3 py-1 rounded-full text-xs font-medium transition-colors ' +
+        (newsSortByTime ? 'bg-white text-brand-800' : 'bg-brand-700 text-brand-200');
+      applyFilter();
     }}
 
     function setFilter(mode) {{
@@ -2040,7 +2078,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v35';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v36';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
