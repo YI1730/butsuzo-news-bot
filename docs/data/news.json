@@ -73,7 +73,23 @@
       "fetched_at": "2026-11-01T16:32:12+09:00",
       "published_at": "2026-11-01T16:32:12+09:00",
       "image_url": "https://www.naritasan.or.jp/nswp/wp-content/uploads/2026/10/SWBYE2849-scaled.jpg",
-      "description": "成田山では節分より7日間、「星供祈祷会」を厳修し、願主のお名前と年齢を浄書したお札をおまつりして除災招福・開運成就を祈願しています。 「星供祈祷会」事前申し込みの受付受付期間（事前）：令和8年11月1日〜12月31日(末日必着)初穂料：お札"
+      "description": "成田山では節分より7日間、「星供祈祷会」を厳修し、願主のお名前と年齢を浄書したお札をおまつりして除災招福・開運成就を祈願しています。 「星供祈祷会」事前申し込みの受付受付期間（事前）：令和8年11月1日〜12月31日(末日必着)初穂料：お札",
+      "ai": {
+        "score": 8,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "星供御守の案内。仏像に触れず速報性も低い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "5e80ca7792a8",
@@ -86,7 +102,23 @@
       "fetched_at": "2026-11-01T16:32:12+09:00",
       "published_at": "2026-11-01T16:32:12+09:00",
       "image_url": "https://www.naritasan.or.jp/nswp/wp-content/uploads/2026/10/XSOS1357-scaled.jpeg",
-      "description": "お子さまの成長を祝う七五三は、まことに慶ばしい日本の伝統行事です。成田山の七五三まいりでお不動さまの御加護をご家族皆さまでお受けになり、お子さまの健康と成長をお祈りください。 祈祷時間や詳細につきましては、こちらをご確認ください。"
+      "description": "お子さまの成長を祝う七五三は、まことに慶ばしい日本の伝統行事です。成田山の七五三まいりでお不動さまの御加護をご家族皆さまでお受けになり、お子さまの健康と成長をお祈りください。 祈祷時間や詳細につきましては、こちらをご確認ください。",
+      "ai": {
+        "score": 8,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "七五三祝祷の案内。仏像に触れず一般行事",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "ff911a56282d",
@@ -126,7 +158,23 @@
       "fetched_at": "2026-11-01T16:32:10.490518+09:00",
       "published_at": "2026-10-30T19:38:00+09:00",
       "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/fukushimatv/m_fukushimatv-34417.jpg",
-      "description": "福島市のあづま総合運動公園で、秋の風物詩「イチョウ光のプロムナード」が2年ぶりに開催されています。延長…"
+      "description": "福島市のあづま総合運動公園で、秋の風物詩「イチョウ光のプロムナード」が2年ぶりに開催されています。延長…",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "イチョウ並木のライトアップで無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "1d7cdda4cc89",
@@ -138,7 +186,23 @@
       "fetched_at": "2026-11-01T16:32:08.540389+09:00",
       "published_at": "2026-10-30T19:53:03+09:00",
       "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "日銀の植田和男総裁は３０日の記者会見で、一時的な変動要因を除く基調的な物価上昇率が目標の２％に到達したと判断したことを受け、今後は同水準で「定着するように適宜政策を調整する」と表明した。 【時事通信社】"
+      "description": "日銀の植田和男総裁は３０日の記者会見で、一時的な変動要因を除く基調的な物価上昇率が目標の２％に到達したと判断したことを受け、今後は同水準で「定着するように適宜政策を調整する」と表明した。 【時事通信社】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "日銀の経済ニュースで無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "456e66c58aaf",
@@ -178,7 +242,23 @@
       "fetched_at": "2026-11-01T16:32:04.477470+09:00",
       "published_at": "2026-10-30T19:53:03+09:00",
       "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "３１日のハロウィーンを直前に控えたＪＲ渋谷駅前では、「もうやめよ？迷惑ハロウィーン」などと書かれた看板や、ハチ公像周辺に囲いが設置され、雑踏事故防止に向けた安全対策が取られている＝３０日 【時事通信社】"
+      "description": "３１日のハロウィーンを直前に控えたＪＲ渋谷駅前では、「もうやめよ？迷惑ハロウィーン」などと書かれた看板や、ハチ公像周辺に囲いが設置され、雑踏事故防止に向けた安全対策が取られている＝３０日 【時事通信社】",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ハロウィーン対策でハチ公像のみ。無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "b1c8a4710925",
@@ -190,7 +270,23 @@
       "fetched_at": "2026-11-01T16:32:02.491432+09:00",
       "published_at": "2026-10-30T20:46:16+09:00",
       "image_url": "https://image.news.livedoor.com/newsimage/stf/8/c/8cb20_1793_6806ff7a_47d969bb.jpg",
-      "description": "愛知県の豊川稲荷は、商売繁盛・金運・財運向上の御利益があるとされています。 【写真を見る】愛知･豊川稲荷で72年ぶりに秘仏“御開帳”へ ｢一説には、力が強すぎて普段は扉が閉められている…｣ 地元商店街と一体"
+      "description": "愛知県の豊川稲荷は、商売繁盛・金運・財運向上の御利益があるとされています。 【写真を見る】愛知･豊川稲荷で72年ぶりに秘仏“御開帳”へ ｢一説には、力が強すぎて普段は扉が閉められている…｣ 地元商店街と一体",
+      "ai": {
+        "score": 30,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "豊川稲荷72年ぶり御開帳は配信済みと重複。51時間経過",
+        "event": {
+          "event_name": "豊川稲荷 秘仏御開帳",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "0451678e7b9d",
@@ -202,7 +298,23 @@
       "fetched_at": "2026-11-01T16:32:00.410836+09:00",
       "published_at": "2026-10-30T21:53:05+09:00",
       "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "プロ野球・巨人の松井秀喜新監督が３０日、川崎市のジャイアンツ球場で始まった秋季キャンプで本格的に始動した。写真はキャンプで笑顔を見せる松井監督。 【時事通信社】"
+      "description": "プロ野球・巨人の松井秀喜新監督が３０日、川崎市のジャイアンツ球場で始まった秋季キャンプで本格的に始動した。写真はキャンプで笑顔を見せる松井監督。 【時事通信社】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "プロ野球の話題で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "1616a7d2b3a9",
@@ -214,7 +326,23 @@
       "fetched_at": "2026-11-01T16:31:58.422287+09:00",
       "published_at": "2026-10-31T00:10:00+09:00",
       "image_url": "https://prcdn.freetls.fastly.net/release_image/71311/51/71311-51-47205193066a29f5ecce92a65e2493a1-3365x2250.png?width=536&quality=85%2C75&format=jpeg",
-      "description": "［一畑山薬師寺］一畑山薬師寺は、月替わりの11月限定ご朱印の頒布を開始いたします。「大祭ご朱印」から文殊菩薩様、十二神将ご朱印から毘伽羅（びから）大将様の計2種類です。一畑山薬師寺は、2026年11月1日より、11月限定「箔押しご朱印」の頒布を開始いたします。本ご朱印は、月替わりでお分けしている限定ご朱印です。2026年よりデザインをリニューアル。中央に金の箔押しを施した立体的で華やかな意匠となっております。一畑山薬師寺で行われる季節ごとのお祭りをイメージした大祭のご朱印、そして薬師如来様をお参…"
+      "description": "［一畑山薬師寺］一畑山薬師寺は、月替わりの11月限定ご朱印の頒布を開始いたします。「大祭ご朱印」から文殊菩薩様、十二神将ご朱印から毘伽羅（びから）大将様の計2種類です。一畑山薬師寺は、2026年11月1日より、11月限定「箔押しご朱印」の頒布を開始いたします。本ご朱印は、月替わりでお分けしている限定ご朱印です。2026年よりデザインをリニューアル。中央に金の箔押しを施した立体的で華やかな意匠となっております。一畑山薬師寺で行われる季節ごとのお祭りをイメージした大祭のご朱印、そして薬師如来様をお参…",
+      "ai": {
+        "score": 25,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "限定ご朱印の頒布で宣伝色が強く、48時間経過",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "917440bfb374",
@@ -226,7 +354,23 @@
       "fetched_at": "2026-11-01T16:31:56.677302+09:00",
       "published_at": "2026-10-31T00:36:59+09:00",
       "image_url": "https://i.artagenda.jp/feature/1/images/3d73269c2044d5f71ea4c2018f68fd2f_middle.jpg?1793518316",
-      "description": "萩尾望都、山岸凉子、大和和紀、少女漫画界のレジェンドたちがもたらした「革新性」と「多様性」を探る。国立新美術館にて「少女漫画・インフィニティ 萩尾望都×山岸凉子×大和和紀 三人展」が開催。レジェンドたちの功績を、数々の代表作から振り返る。"
+      "description": "萩尾望都、山岸凉子、大和和紀、少女漫画界のレジェンドたちがもたらした「革新性」と「多様性」を探る。国立新美術館にて「少女漫画・インフィニティ 萩尾望都×山岸凉子×大和和紀 三人展」が開催。レジェンドたちの功績を、数々の代表作から振り返る。",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "少女漫画の展覧会で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "04e8a71203a5",
@@ -238,7 +382,23 @@
       "fetched_at": "2026-11-01T16:31:54.376177+09:00",
       "published_at": "2026-10-31T06:08:47+09:00",
       "image_url": "https://i.artagenda.jp/feature/1/images/85be82f6a9a2572ff7a2f795b87b8851_middle.jpg?1793518314",
-      "description": "19世紀の画家と現代作家がなぜ響き合うのか？「対話」から見える、ターナーが切り拓いたアートの地平。「テート美術館 ターナー展――崇高の絵画、現代美術との対話」が2027年2月21日まで国立西洋美術館で開催中"
+      "description": "19世紀の画家と現代作家がなぜ響き合うのか？「対話」から見える、ターナーが切り拓いたアートの地平。「テート美術館 ターナー展――崇高の絵画、現代美術との対話」が2027年2月21日まで国立西洋美術館で開催中",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ターナー展で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "baab378e2203",
@@ -250,7 +410,23 @@
       "fetched_at": "2026-11-01T16:31:52.075791+09:00",
       "published_at": "2026-10-31T07:00:09+09:00",
       "image_url": "",
-      "description": ""
+      "description": "",
+      "ai": {
+        "score": 22,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "木の根に埋まった仏像だがタレント反応の話題。41時間経過",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "d216a3326e83",
@@ -262,7 +438,23 @@
       "fetched_at": "2026-11-01T16:31:50.736884+09:00",
       "published_at": "2026-10-31T07:57:43+09:00",
       "image_url": "https://www.museum.or.jp/storage/article_objects/2026/10/14/0f99afc44ca8.jpg",
-      "description": "アイエム［インターネットミュージアム］による 特別展「放浪の天才画家 山下清展」 の情報ページ。特別展「放浪の天才画家 山下清展」 の見どころ、会期、料金、休館日などを紹介しています。読者によるクチコミも。特別展「放浪の天才画家 山下清展」のことならアイエムで！"
+      "description": "アイエム［インターネットミュージアム］による 特別展「放浪の天才画家 山下清展」 の情報ページ。特別展「放浪の天才画家 山下清展」 の見どころ、会期、料金、休館日などを紹介しています。読者によるクチコミも。特別展「放浪の天才画家 山下清展」のことならアイエムで！",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "山下清展で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "c1be8f41f27e",
@@ -274,7 +466,23 @@
       "fetched_at": "2026-11-01T16:31:48.687164+09:00",
       "published_at": "2026-10-31T11:21:14+09:00",
       "image_url": "https://www.museum.or.jp/storage/article_objects/2026/10/25/2446b8c938a2.jpg",
-      "description": "荒海も雪崩も、光のなかへ ─ 「テート美術館 ターナー展」（レポート）の取材レポート。荒海も雪崩も、光のなかへ ─ 「テート美術館 ターナー展」（レポート）を実際の会場で取材し、写真と動画で紹介。行ったからこそ分かる荒海も雪崩も、光のなかへ ─ 「テート美術館 ターナー展」（レポート）の見どころとポイントを分かりやすくお伝えします。荒海も雪崩も、光のなかへ ─ 「テート美術館 ターナー展」（レポート）のレビューはアイエムで！"
+      "description": "荒海も雪崩も、光のなかへ ─ 「テート美術館 ターナー展」（レポート）の取材レポート。荒海も雪崩も、光のなかへ ─ 「テート美術館 ターナー展」（レポート）を実際の会場で取材し、写真と動画で紹介。行ったからこそ分かる荒海も雪崩も、光のなかへ ─ 「テート美術館 ターナー展」（レポート）の見どころとポイントを分かりやすくお伝えします。荒海も雪崩も、光のなかへ ─ 「テート美術館 ターナー展」（レポート）のレビューはアイエムで！",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ターナー展レポートで無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "83a88bc431c5",
@@ -286,7 +494,23 @@
       "fetched_at": "2026-11-01T16:31:45.323608+09:00",
       "published_at": "2026-10-31T15:53:53+09:00",
       "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "米大リーグの王者を決めるワールドシリーズで初制覇を遂げたブルワーズが３０日、本拠地のウィスコンシン州ミルウォーキーでパレードを行った。警察当局はパレードと祝賀イベントに７５万人以上が集まったと推計した 【AFP時事】"
+      "description": "米大リーグの王者を決めるワールドシリーズで初制覇を遂げたブルワーズが３０日、本拠地のウィスコンシン州ミルウォーキーでパレードを行った。警察当局はパレードと祝賀イベントに７５万人以上が集まったと推計した 【AFP時事】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "大リーグの話題で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "1b55e413e658",
@@ -298,7 +522,23 @@
       "fetched_at": "2026-11-01T16:31:43.312761+09:00",
       "published_at": "2026-10-31T16:53:57+09:00",
       "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "フィギュアスケートのＧＰシリーズ第２戦、スケートカナダは３０日、カナダ・ケロウナで開幕して男子ＳＰが行われ、世界ジュニア選手権連覇でシニアＧＰデビューの中田璃士が９２．６４点でトップに立った。 【ロイター時事】"
+      "description": "フィギュアスケートのＧＰシリーズ第２戦、スケートカナダは３０日、カナダ・ケロウナで開幕して男子ＳＰが行われ、世界ジュニア選手権連覇でシニアＧＰデビューの中田璃士が９２．６４点でトップに立った。 【ロイター時事】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "フィギュアの話題で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "cd41210a1392",
@@ -310,7 +550,23 @@
       "fetched_at": "2026-11-01T16:31:41.336727+09:00",
       "published_at": "2026-10-31T17:00:01+09:00",
       "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "北朝鮮の朝鮮中央通信は３１日、崔善姫外相（右側手前から５人目）が３０日、平壌でスイスのカシス外相（左側手前から４人目）と会談し、両国外交当局間の対話・協力の強化について意見交換したと伝えた。 【朝鮮通信・時事】"
+      "description": "北朝鮮の朝鮮中央通信は３１日、崔善姫外相（右側手前から５人目）が３０日、平壌でスイスのカシス外相（左側手前から４人目）と会談し、両国外交当局間の対話・協力の強化について意見交換したと伝えた。 【朝鮮通信・時事】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "外交ニュースで無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "f3e2afca1b6b",
@@ -322,7 +578,23 @@
       "fetched_at": "2026-11-01T16:31:39.292408+09:00",
       "published_at": "2026-10-31T17:54:03+09:00",
       "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "フィギュアスケートのアイスダンスで現役復帰してコンビを組む本田真凜、宇野昌磨組が３１日、群馬・ＡＬＳＯＫぐんまアイスアリーナで行われた東日本選手権に出場した。ＲＤで５８．６８点をマークし、４位だった。 【時事通信社】"
+      "description": "フィギュアスケートのアイスダンスで現役復帰してコンビを組む本田真凜、宇野昌磨組が３１日、群馬・ＡＬＳＯＫぐんまアイスアリーナで行われた東日本選手権に出場した。ＲＤで５８．６８点をマークし、４位だった。 【時事通信社】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "フィギュアの話題で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "d50d33e61a5f",
@@ -334,7 +606,23 @@
       "fetched_at": "2026-11-01T16:31:37.299393+09:00",
       "published_at": "2026-10-31T22:54:19+09:00",
       "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "明治安田Ｊ１リーグ。第１３節が行われ、柏は浦和に４―０で大勝。写真は後半、チーム２点目のゴールを決め、ガッツポーズする弓場（右）＝３１日、千葉・三協フロンテア柏スタジアム 【時事通信社】"
+      "description": "明治安田Ｊ１リーグ。第１３節が行われ、柏は浦和に４―０で大勝。写真は後半、チーム２点目のゴールを決め、ガッツポーズする弓場（右）＝３１日、千葉・三協フロンテア柏スタジアム 【時事通信社】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "Jリーグの話題で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-02T00:11:14+09:00",
+        "score_version": 7
+      }
     },
     {
       "id": "6a740d4fdb6a",
