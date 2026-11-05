@@ -1,6 +1,149 @@
 {
-  "last_updated": "2026-11-06T02:11:41.487649+09:00",
+  "last_updated": "2026-11-06T03:11:37.076651+09:00",
   "items": [
+    {
+      "id": "a9263eeabe55",
+      "title": "アピタ高崎「キッチンカーフェスタ」 - 高崎前橋経済新聞",
+      "url": "https://takasaki.keizai.biz/photoflash/9365/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T03:11:37.076175+09:00",
+      "published_at": "2026-11-04T08:37:26+09:00",
+      "image_url": "https://images.keizai.biz/takasaki_keizai/photonews/1793748782_b.jpg",
+      "description": "「アピタ高崎店」（高崎市矢中町、TEL 0570-009-589）は11月7日・8日、「第3回キッチンカーフェスタ」を開催する。",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "スーパーのキッチンカーイベントで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T03:14:52+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "8c600ee95ea8",
+      "title": "豊川稲荷で72年ぶりの「御開帳」 境内や周辺の商店街では様々なイベントも【イマネタ】（メ～テレ（名古屋テレビ）） - Howl.Link",
+      "url": "https://t.co/Pymqx3v7Ue",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T03:11:34.898296+09:00",
+      "published_at": "2026-11-04T14:08:00+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 55,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "配信済みの豊川稲荷72年ぶり御開帳と同じ出来事の重複",
+        "event": {
+          "event_name": "豊川稲荷 秘仏御開帳",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "2026-11-01",
+          "end_date": "2026-11-23"
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T03:14:52+09:00",
+        "score_version": 7,
+        "page_checked": true
+      }
+    },
+    {
+      "id": "fc261d64c432",
+      "title": "豊川稲荷で７２年ぶり御開帳／愛知、２３日まで - AGARA 紀伊民報",
+      "url": "https://www.agara.co.jp/article/708394",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T03:11:33.478009+09:00",
+      "published_at": "2026-11-05T14:30:00+09:00",
+      "image_url": "https://www.agara.co.jp/image/article/size1/4/d/4/0/4d40e03af58788345df54aee7c93882a_1.jpg",
+      "description": "日本三大稲荷の一つとされる愛知県豊川市の豊川稲荷で１日、７２年ぶりとなる秘仏「豊川吒枳尼真天（とよ...",
+      "ai": {
+        "score": 55,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "配信済み候補に同じ豊川稲荷御開帳があり重複。開催中で価値は残る",
+        "event": {
+          "event_name": "豊川稲荷 秘仏豊川吒枳尼真天御開帳",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "2026-11-01",
+          "end_date": "2026-11-23"
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T03:14:52+09:00",
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-11-06"
+      }
+    },
+    {
+      "id": "b90e0995cee0",
+      "title": "岩手の農地集約効率化を表彰 - 函館経済新聞",
+      "url": "https://hakodate.keizai.biz/gpnews/1778778/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T03:11:31.338163+09:00",
+      "published_at": "2026-11-05T21:01:52+09:00",
+      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
+      "description": "地域課題を解決する先進的な活動をたたえる第１４回プラチナ大賞の表彰式が５日、東京都内で開かれた。農地集約の効率化に取り組む岩手県と一般社団法人Ｔａｎｎｂｏ、岩手銀行が大賞・総務大臣賞を受賞した。 【時事通信社】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "農地集約の表彰で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T03:14:52+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "4cb7108e3145",
+      "title": "万富東大寺瓦窯の紙芝居制作 環太平洋大生 史実伝える教材に - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2010781/?c=39546741839462401",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T03:11:29.213920+09:00",
+      "published_at": "2026-11-06T01:46:15+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/0/7/0/5/07052bdd24da0899e33a2334e1b2595e_2.jpg",
+      "description": "環太平洋大（岡山市東区瀬戸町観音寺）の学生が、鎌倉時代の東大寺再建で瓦を供給した国史跡・万富東大寺瓦窯跡（同町万富）をテーマにした紙芝...",
+      "ai": {
+        "score": 22,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "瓦窯跡の紙芝居で仏像に触れず。第一報だが関連薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T03:14:52+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "ad47814125ed",
       "title": "アピタ高崎「キッチンカーフェスタ」 - 高崎前橋経済新聞",
@@ -9881,146 +10024,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "カキ水揚げで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T00:09:20+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "1369ace9ff8c",
-      "title": "茂木外相、米中間選挙を「注視」 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778673/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T00:06:14.691284+09:00",
-      "published_at": "2026-11-02T16:54:54+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "記者会見する茂木敏充外相。３日投開票の米中間選挙について「関心を持って注視している」と述べた＝２日午後、外務省 【時事通信社】",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "政治ニュースで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T00:09:20+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "a37b4ec66b2b",
-      "title": "中間選挙、３日投開票 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778675/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T00:06:12.586699+09:00",
-      "published_at": "2026-11-02T16:54:54+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "トランプ米大統領の「信任投票」となる中間選挙は３日、投開票される。写真は１日、米中西部アイオワ州で演説するトランプ氏。 【AFP時事】",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "米中間選挙で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T00:09:20+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "275c99ef85fa",
-      "title": "ARTnews JAPANのVIPラウンジも。トークや特別展など「Art Collaboration Kyoto 2026」7つの見どころ - ARTnews JAPAN",
-      "url": "https://artnewsjapan.com/article/91000",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T00:06:10.506122+09:00",
-      "published_at": "2026-11-02T17:00:00+09:00",
-      "image_url": "https://media.artnewsjapan.com/wp-content/uploads/2026/10/27153437/ACK-2025_Venue-Image-07-1.jpg",
-      "description": "現代美術の国際アートフェア「Art Collaboration Kyoto」が、11月7日から9日まで国立京都国際会館で開催される。今年は新運営体制のもとで18の国・地域から63ギャラリーが集結。特別展やトーク、そしてCase Valextraに開設されるARTnews JAPANのVIPラウンジなど、7つの見どころを紹介する。",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "現代美術フェアで仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T00:09:20+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "b2b91c26088a",
-      "title": "井口ジャパン、３日始動 野球 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778677/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T00:06:08.981297+09:00",
-      "published_at": "2026-11-02T17:51:32+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "アジアプロ野球チャンピオンシップに臨む日本代表「侍ジャパン」の井口資仁監督が２日、キャンプが行われる宮崎に到着した。２０２８年ロサンゼルス五輪で金メダルを目指す「井口ジャパン」は３日に始動する。 【時事通信社】",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "野球ニュースで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T00:09:20+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "7b6f49507c6d",
-      "title": "豊川信金とJAひまわり、72年ぶり御開帳応援 記念シャツ着用し営業 - ニッキンONLINE",
-      "url": "https://www.nikkinonline.com/article/436605",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T00:06:06.874278+09:00",
-      "published_at": "2026-11-02T17:52:00+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 30,
-        "category": "その他の仏像関連",
-        "duplicate": true,
-        "reason": "豊川稲荷御開帳の金融機関応援話で重複・仏像に薄い",
         "event": {
           "event_name": "",
           "place": "",
