@@ -113,6 +113,22 @@
    "remind": false
   },
   {
+   "id": "3f5b04387de0",
+   "event_name": "名品展 青銅器館2階「珠玉の仏たちセレクション」",
+   "place": "奈良国立博物館（奈良県奈良市）",
+   "place_key": "奈良国立博物館",
+   "start": "2026-09-15",
+   "end": "",
+   "category": "展覧会",
+   "source_url": "https://www.narahaku.go.jp/exhibition_cat/usual/",
+   "source_title": "奈良国立博物館（奈良県奈良市） 名品展 青銅器館2階「珠玉の仏たちセレクション」",
+   "source_score": 0,
+   "first_seen": "2026-11-05T10:32:46+09:00",
+   "reminded": [],
+   "origin": "museum",
+   "remind": false
+  },
+  {
    "id": "93b338091115",
    "event_name": "特別展「国宝でよみとく仏教美術－奇珍異宝の世界－」",
    "place": "神奈川県立金沢文庫",
@@ -320,6 +336,20 @@
    "remind": false
   },
   {
+   "id": "158f6f4311ae",
+   "event_name": "熊本地震から10年 仏像 国宝×肥後仏展",
+   "place": "熊本県立美術館本館（熊本市）",
+   "place_key": "熊本県立美術館本",
+   "start": "2026-10-09",
+   "end": "",
+   "category": "展覧会",
+   "source_url": "https://kumanichi.com/articles/2053782",
+   "source_title": "【熊本地震から10年 仏像 国宝×肥後仏展⑥】「2メートル超え」 圧倒的な存在感 - 熊本日日新聞社",
+   "source_score": 72,
+   "first_seen": "2026-11-05T08:42:40+09:00",
+   "reminded": []
+  },
+  {
    "id": "a6ee4ddfda11",
    "event_name": "（芦屋歴史の里）特別展「芦屋の空也上人－時宗安長寺の世界－」",
    "place": "芦屋町歴史民俗資料館",
@@ -366,20 +396,6 @@
    "reminded": [],
    "origin": "museum",
    "remind": false
-  },
-  {
-   "id": "158f6f4311ae",
-   "event_name": "熊本地震から10年 仏像 国宝×肥後仏展",
-   "place": "熊本県立美術館本館（熊本市）",
-   "place_key": "熊本県立美術館本",
-   "start": "2026-10-09",
-   "end": "",
-   "category": "展覧会",
-   "source_url": "https://kumanichi.com/articles/2053782",
-   "source_title": "【熊本地震から10年 仏像 国宝×肥後仏展⑥】「2メートル超え」 圧倒的な存在感 - 熊本日日新聞社",
-   "source_score": 72,
-   "first_seen": "2026-11-05T08:42:40+09:00",
-   "reminded": []
   },
   {
    "id": "118059d49cc8",
@@ -1095,8 +1111,8 @@
    "source_score": 80,
    "first_seen": "2026-10-24T07:16:56+09:00",
    "reminded": [
-    "start",
-    "ending"
+    "ending",
+    "start"
    ]
   },
   {
@@ -1474,6 +1490,20 @@
    "reminded": []
   },
   {
+   "id": "1550f4fd1f07",
+   "event_name": "気仙三十三観音霊場徒歩巡礼",
+   "place": "岩手県大船渡市ほか",
+   "place_key": "岩手県大船渡市ほ",
+   "start": "2026-10-31",
+   "end": "",
+   "category": "寺院の行事",
+   "source_url": "https://tohkaishimpo.com/2026/11/01/535054/",
+   "source_title": "祈りの道を歩く 気仙三十三観音巡礼 震災復興願い札所巡る（別写真あり） - 東海新報",
+   "source_score": 35,
+   "first_seen": "2026-11-04T06:02:57+09:00",
+   "reminded": []
+  },
+  {
    "id": "79e549ef3163",
    "event_name": "特別展「南武蔵の平安仏」",
    "place": "横浜市歴史博物館",
@@ -1488,20 +1518,6 @@
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
-  },
-  {
-   "id": "1550f4fd1f07",
-   "event_name": "気仙三十三観音霊場徒歩巡礼",
-   "place": "岩手県大船渡市ほか",
-   "place_key": "岩手県大船渡市ほ",
-   "start": "2026-10-31",
-   "end": "",
-   "category": "寺院の行事",
-   "source_url": "https://tohkaishimpo.com/2026/11/01/535054/",
-   "source_title": "祈りの道を歩く 気仙三十三観音巡礼 震災復興願い札所巡る（別写真あり） - 東海新報",
-   "source_score": 35,
-   "first_seen": "2026-11-04T06:02:57+09:00",
-   "reminded": []
   },
   {
    "id": "ff66cccfc518",
@@ -1674,6 +1690,22 @@
    "reminded": []
   },
   {
+   "id": "982637328b65",
+   "event_name": "「聖林寺秘宝マンダラ展」",
+   "place": "聖林寺",
+   "place_key": "聖林寺",
+   "start": "2026-11-01",
+   "end": "2026-11-30",
+   "category": "展覧会",
+   "source_url": "https://www.shorinji-temple.jp/",
+   "source_title": "聖林寺 「聖林寺秘宝マンダラ展」",
+   "source_score": 0,
+   "first_seen": "2026-11-05T10:32:27+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
+  },
+  {
    "id": "9238875b4ed2",
    "event_name": "生福寺 特別展",
    "place": "生福寺（栃木県宇都宮市）",
@@ -1688,22 +1720,6 @@
    "reminded": [
     "start"
    ]
-  },
-  {
-   "id": "db2eb8c16385",
-   "event_name": "「国指定重文聖如意輪観世音菩薩　秘仏開帳」",
-   "place": "大門寺",
-   "place_key": "大門寺",
-   "start": "2026-11-02",
-   "end": "2026-11-19",
-   "category": "展覧会",
-   "source_url": "https://kabusan-daimonji.org/",
-   "source_title": "大門寺 「国指定重文聖如意輪観世音菩薩　秘仏開帳」",
-   "source_score": 0,
-   "first_seen": "2026-10-25T10:39:02+09:00",
-   "reminded": [],
-   "origin": "kanbutsu",
-   "remind": false
   },
   {
    "id": "4984960119ff",
@@ -1732,6 +1748,22 @@
    "source_score": 84,
    "first_seen": "2026-11-04T06:02:57+09:00",
    "reminded": []
+  },
+  {
+   "id": "db2eb8c16385",
+   "event_name": "「国指定重文聖如意輪観世音菩薩　秘仏開帳」",
+   "place": "大門寺",
+   "place_key": "大門寺",
+   "start": "2026-11-02",
+   "end": "2026-11-19",
+   "category": "展覧会",
+   "source_url": "https://kabusan-daimonji.org/",
+   "source_title": "大門寺 「国指定重文聖如意輪観世音菩薩　秘仏開帳」",
+   "source_score": 0,
+   "first_seen": "2026-10-25T10:39:02+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
   },
   {
    "id": "bba4dc8a7840",
@@ -1968,22 +2000,6 @@
    ]
   },
   {
-   "id": "f7e1995d7e37",
-   "event_name": "よみがえる白鳳―金堂復興50周年記念展―",
-   "place": "薬師寺（奈良県奈良市）",
-   "place_key": "薬師寺",
-   "start": "",
-   "end": "2026-11-08",
-   "category": "展覧会",
-   "source_url": "https://www.saga-s.co.jp/articles/gallery/1819828",
-   "source_title": "【写真・画像】薬師寺、金堂再建５０年で記念展 奈良市、秀吉の書状も公開 | | 全国のニュース - 佐賀新聞",
-   "source_score": 55,
-   "first_seen": "2026-11-05T08:42:40+09:00",
-   "reminded": [
-    "ending"
-   ]
-  },
-  {
    "id": "64648a60eb15",
    "event_name": "比叡山延暦寺 根本中堂大改修現場見学と特別拝観",
    "place": "比叡山延暦寺（滋賀県大津市）",
@@ -2152,20 +2168,6 @@
    "reminded": []
   },
   {
-   "id": "a541f91fa81d",
-   "event_name": "豊川稲荷 御開帳",
-   "place": "豊川稲荷（愛知県豊川市）",
-   "place_key": "豊川稲荷",
-   "start": "",
-   "end": "2026-11-23",
-   "category": "秘仏・御開帳・特別公開",
-   "source_url": "https://news.yahoo.co.jp/articles/0c6230a7e0ac4515b05ed7570ae338eec80e9e55",
-   "source_title": "72年ぶり御開帳の豊川稲荷でさまざまな動き（東愛知新聞） - Yahoo!ニュース",
-   "source_score": 42,
-   "first_seen": "2026-11-05T08:42:40+09:00",
-   "reminded": []
-  },
-  {
    "id": "63bf47cb8e8f",
    "event_name": "特別展「西福寺の神と仏　御流神道と密教美術」",
    "place": "西福寺",
@@ -2282,20 +2284,6 @@
    "reminded": []
   },
   {
-   "id": "a0efd7e13421",
-   "event_name": "開創700年記念 特別展「大徳寺 本朝無双之禅苑」",
-   "place": "東京国立博物館（東京都台東区）",
-   "place_key": "東京国立博物館",
-   "start": "",
-   "end": "2026-12-06",
-   "category": "展覧会",
-   "source_url": "https://artexhibition.jp/topics/news/20261104-AEJ3030847/",
-   "source_title": "【レポート】開創700年記念 特別展「大徳寺 本朝無双之禅苑」東京国立博物館で12月6日まで 東京で初！ 孤高の禅寺の至宝を堪能 - 美術展ナビ",
-   "source_score": 40,
-   "first_seen": "2026-11-05T08:42:40+09:00",
-   "reminded": []
-  },
-  {
    "id": "0f69caddf699",
    "event_name": "特別陳列 春日若宮おん祭の信仰と美術",
    "place": "奈良国立博物館（奈良県奈良市）",
@@ -2324,6 +2312,22 @@
    "source_score": 35,
    "first_seen": "2026-10-20T00:38:35+09:00",
    "reminded": []
+  },
+  {
+   "id": "c2e9a1a633a7",
+   "event_name": "開館記念特別展「仏に籠める。－像内納入文書之世界－」前期12/19～1/17・後期1/23～3/22",
+   "place": "長岡京市まちなかミュージアムれきしる長岡京",
+   "place_key": "長岡京市まちなか",
+   "start": "2026-12-19",
+   "end": "2027-03-22",
+   "category": "展覧会",
+   "source_url": "https://www.city.nagaokakyo.lg.jp/category/19-0-0-0-0-0-0-0-0-0.html",
+   "source_title": "長岡京市まちなかミュージアムれきしる長岡京 開館記念特別展「仏に籠める。－像内納入文書之世界－」前期12/19～1/17・後期1/23～3/22",
+   "source_score": 0,
+   "first_seen": "2026-11-05T10:32:27+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
   },
   {
    "id": "78b9771a0dd2",
@@ -2440,5 +2444,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-11-05T08:42:40+09:00"
+ "last_updated": "2026-11-05T10:33:37+09:00"
 }
