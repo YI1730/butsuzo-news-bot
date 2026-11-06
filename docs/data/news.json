@@ -1,6 +1,174 @@
 {
-  "last_updated": "2026-11-06T22:11:41.869011+09:00",
+  "last_updated": "2026-11-06T23:11:43.657681+09:00",
   "items": [
+    {
+      "id": "39e662cceb07",
+      "title": "「京都紅葉情報2026」更新スタート！ 気になるモミジの色づき状況は･･･？｜そうだ 京都、行こう。 - Howl.Link",
+      "url": "https://t.co/TrpKIR5037",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T23:11:43.655952+09:00",
+      "published_at": "2026-11-05T17:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "紅葉情報で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T23:14:09+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "2af884690b80",
+      "title": "東京駅の重要文化財に宿泊 開業111周年で特別ツアー (FINDERS) - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/0fdcd46903b5e8ca67b9223042e8f218e98afd4e",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T23:11:42.374951+09:00",
+      "published_at": "2026-11-06T07:03:50+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261106-00010001-finders-000-1-view.jpg?exp=10800",
+      "description": "東京駅丸の内駅舎の中にある東京ステーションホテルが、2026年11月2日(月)に開業111周年を迎えた。1915年、東京駅の開業から1年後に誕生したこのホテルは、以来一世紀以上にわたり駅舎とともに時",
+      "ai": {
+        "score": 4,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "東京駅ホテルの宿泊ツアーで寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T23:14:09+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "36a6750ca088",
+      "title": "鎌田大地が同点ゴール 欧州サッカー - 函館経済新聞",
+      "url": "https://hakodate.keizai.biz/gpnews/1778789/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T23:11:40.446843+09:00",
+      "published_at": "2026-11-06T11:03:07+09:00",
+      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
+      "description": "サッカーの欧州リーグ、１次リーグ第４戦。ホッフェンハイム戦で、試合終了間際に同点ゴールを決めたクリスタルパレスの鎌田（右端）。１―１で引き分けた＝５日、ロンドン 【EPA時事】",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "サッカー記事で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T23:14:09+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "fd3d8e3e311f",
+      "title": "皇室が守り伝えた日本の美──皇居三の丸尚蔵館がグランドオープン、正倉院宝物から国宝まで187件を公開 - fashion headline",
+      "url": "https://www.fashion-headline.com/ja/article/488159",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T23:11:38.533472+09:00",
+      "published_at": "2026-11-06T19:02:04+09:00",
+      "image_url": "https://www.fashion-headline.com/images/upload/2026/11/98520c55a95cc9d2f464750d264d6fcc.jpg",
+      "description": "皇居三の丸尚蔵館がグランドオープン。記念特別展「皇室の至宝―美いづるところ」では、皇居内初公開の正倉院宝物をはじめ、皇室ゆかりの至宝全187件を3期に分けて紹介します。",
+      "ai": {
+        "score": 35,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "皇室の至宝展で仏像が主役ではない。4時間前の報道",
+        "event": {
+          "event_name": "皇室の至宝―美いづるところ",
+          "place": "皇居三の丸尚蔵館（東京都千代田区）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T23:14:09+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "7305ac8e2515",
+      "title": "映画「男はつらいよ」第30作のロケ地となった城下町を歩くと→鶏と豚の黄金比 キラキラ輝く「すましラーメン」に「髪が伸びる仏像」・大分（FNNプライムオンライン） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/1d51d7c37c2f24dfaad2bb16b16a9a3066e30e99",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T23:11:35.634658+09:00",
+      "published_at": "2026-11-06T19:21:26+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261106-01247662-fnnprimev-000-2-view.jpg?exp=10800",
+      "description": "歴史ある町並みが残る大分県臼杵市。映画「男はつらいよ」第30作のロケ地となった城下町を歩くと様々な出会いが。【画像】「男はつらいよ」第30作のロケ地となった城下町→鶏と豚の黄金比 キラキラ輝く「すま",
+      "ai": {
+        "score": 42,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "臼杵の髪が伸びる仏像に触れる観光記事。告知性は低い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T23:14:09+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "988888101067",
+      "title": "江の島弁財天が世界へ 　特別展図録の英訳本完成〈藤沢市〉 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/townnews/region/townnews-860891",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T23:11:33.714376+09:00",
+      "published_at": "2026-11-06T22:00:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/townnews/m_townnews-860891.jpg",
+      "description": "江の島弁財天が世界へ 特別展図録の英訳本完成〈藤沢市〉（タウンニュース）",
+      "ai": {
+        "score": 45,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "江の島弁財天の図録英訳本完成。仏像寄りだが速報性は低い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T23:14:09+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "0162d70ebc69",
       "title": "【周南】新山口・防府駅発着で鹿野へ 21日・特別拝観バスツアー - 新周南新聞社",
@@ -11778,174 +11946,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "瑞龍寺門前のいなり店開業。仏像に触れず宣伝",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T18:10:02+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "b2f1b59f68f1",
-      "title": "ハンドル操作を誤り出口の分離帯部分に乗り上げたか 阪神高速環状線でトラック横転 運転手の男性１人がけが - 朝日放送",
-      "url": "https://www.asahi.co.jp/webnews/pages/abc_63389.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T18:06:50.267274+09:00",
-      "published_at": "2026-11-03T12:32:25+09:00",
-      "image_url": "https://www.asahi.co.jp/webnews/pages/img/data_file/20261103/63389/0/01a1a0e0-1780-729a-9aaa-20c17b0dbba1.jpg",
-      "description": "トラックが横転し、運転手がけがをしました。カメラマンリポート「トラックが横転しています。前の部分が大破しています」 午前１０時前、阪神高速環状線の本町出口付近…",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "トラック事故で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T18:10:02+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "0cb19d64e93c",
-      "title": "ハイパーリキッドのHYPE、85ドル割れ－ICE提携への懐疑とトークン放出が重荷 - BigGo ファイナンス",
-      "url": "https://finance.biggo.jp/news/0ea60056-3480-4bcb-a6f5-44c9c9223c1e",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T18:06:48.687688+09:00",
-      "published_at": "2026-11-03T18:06:00+09:00",
-      "image_url": "https://img.biggo.com/07PIP2V6BJW0fPhknQTBXYLHm-Rtg9fIIOLwc4GxYRI/fit/1200/0/sm/0/aHR0cHM6Ly9pbWcuYmdvLm9uZS9uZXdzLWltYWdlL2FpX2dlbmVyYXRlZC8yMDI2LTExLzBlYTYwMDU2LTM0ODAtNGJjYi1hNmY1LTQ0YzljOTIyM2MxZV8xNzkzNjk3MzE0X2RlZmF1bHQuanBn.jpg",
-      "description": "ハイパーリキッドのHYPEトークンは11月3日、2.37%下落して約84ドルとなり、85.19ドルのサポートラインを下抜けた。市場では、規制当局の承認が依然得られていな…",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "暗号資産の話題で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T18:10:02+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "f4fc4770e974",
-      "title": "囲碁イベントで熊本地震の復興支援、公開対局では初手からセオリーとは違う手…プレミアム指導碁・棋士との撮影会も - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/ec146713b61d049b4ff1a8af979bda2ffec6e17e",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T18:06:46.354133+09:00",
-      "published_at": "2026-11-03T20:05:00+09:00",
-      "image_url": "https://s.yimg.jp/images/news-web/versions/20261104-a66538f/all/images/ogp_default.png",
-      "description": "福岡航太朗本因坊や上野愛咲美女流名人らが参加し、熊本地震からの復興支援を目的とした囲碁のチャリティーイベントが２５日、東京都千代田区の日本棋院で行われ、約８０人の囲碁ファンが集った。",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "囲碁イベントで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T18:10:02+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "cec7beb73706",
-      "title": "セットメニューも展開 - 香港経済新聞",
-      "url": "https://hongkong.keizai.biz/photoflash/3504/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T18:06:44.112554+09:00",
-      "published_at": "2026-11-03T21:15:24+09:00",
-      "image_url": "https://images.keizai.biz/hongkong_keizai/photonews/1793707219_b.jpg",
-      "description": "尖沙咀のショッピングモール「K11 Art Mall」内にある洋食レストラン「喫茶ちょうぼ（Choubo Kissaten）」（Shop 117-118, 1／F, K11 Art Mall, Hanoi Road, Tsim Sha Tsui）が10月26日、サンリオの人気キャラクター「ハローキティ」とコラボレーションした期間限定イベント「Hello Kitty・喫茶ちょうぼ 昭和浪漫の慶典」を始めた。",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "香港のカフェコラボで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T18:10:02+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "486d0eba9cea",
-      "title": "明大が勝ち点４ 東京六大学野球 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778710/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T18:06:41.944518+09:00",
-      "published_at": "2026-11-03T22:03:39+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "東京六大学野球秋季リーグ戦第８週第３日は３日、神宮球場で３回戦１試合が行われ、明大が立大を７―０で下し、２勝１敗で勝ち点を４に伸ばした。７日からの早慶戦で慶大が勝ち点を落とすと、明大の優勝が決まる。 【時事通信社】",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "野球の試合結果で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T18:10:02+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "0843de0a6c69",
-      "title": "「約4.2億円の相続税を…」上皇ご夫妻も避けては通れない“相続問題”と、皇室の在り方への「ご懸念」 - 文春オンライン",
-      "url": "https://bunshun.jp/articles/photo/93372",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T18:06:37.379733+09:00",
-      "published_at": "2026-11-04T06:00:00+09:00",
-      "image_url": "https://bunshun.jp/mwimgs/2/4/1200wm/img_24c3fc296e103724a1a517210f631bfb761145.jpg",
-      "description": "[写真] 上皇のご意向を受け、宮内庁が葬儀を大幅縮小する方向で検討していることが明らかになった。お互いに90歳を超えられた上皇ご夫妻。お墓、住居、相続、そして――お二人は様々な形で“終活”を進めておられるよう…",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "上皇ご夫妻の相続の話で仏像無関係",
         "event": {
           "event_name": "",
           "place": "",
