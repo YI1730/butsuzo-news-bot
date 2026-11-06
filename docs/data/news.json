@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-11-06T15:31:30.426827+09:00",
+  "last_updated": "2026-11-06T16:11:29.595269+09:00",
   "items": [
+    {
+      "id": "20429ab59240",
+      "title": "仁王像楽しむきっかけに 新見・哲西で愛好家渡辺さん写真展 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1983612",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T16:11:29.591796+09:00",
+      "published_at": "2026-11-06T11:01:58+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/a/b/0/0/ab00120d5a5f70ac7570bbd04b7fd19e_1.jpg",
+      "description": "新見市哲西町上神代出身の写真愛好家渡辺洋さん（８２）＝広島市＝が国内各地を訪ねて撮りためた金剛力士像の写真展「仁王像探訪」が、哲西公民...",
+      "ai": {
+        "score": 55,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "仁王像の写真展で仏像関連だが主役は写真。地方の小規模展で配信5時間、優先度は中程度以下",
+        "event": {
+          "event_name": "仁王像探訪 写真展",
+          "place": "哲西公民館（岡山県新見市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T16:13:51+09:00",
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-09-05"
+      }
+    },
     {
       "title": "仏像 化粧ポーチ 大容量 化粧ぽーち かわいい 可愛い 軽量 防水 化粧道具 洗面用具ポーチ 便携式化粧ポーチ 男女兼用",
       "url": "https://www.amazon.co.jp/dp/B0CJC3KPFG?tag=butsuzo03-22",
@@ -89,7 +119,12 @@
       "release_date": "2025-10-24",
       "id": "2fa27d4f7bf6",
       "fetched_at": "2026-11-06T15:31:26.882117+09:00",
-      "description": "Amazonで武光 誠の一冊でわかる 仏教とお寺: 「仏さまの教え」「寺院という場所」を読み解く――。アマゾンならポイント還元本が多数。武光 誠作品ほか、お急ぎ便対象商品は当日お届けも可能。また一冊で"
+      "description": "Amazonで武光 誠の一冊でわかる 仏教とお寺: 「仏さまの教え」「寺院という場所」を読み解く――。アマゾンならポイント還元本が多数。武光 誠作品ほか、お急ぎ便対象商品は当日お届けも可能。また一冊で",
+      "book_ai": {
+        "score": 38,
+        "reason": "仏教と寺の一般入門で仏像中心ではない",
+        "version": 1
+      }
     },
     {
       "title": "みんなが知りたい! 日本の仏さまとお寺 仏像の見かたと癒しの聖地のひみつがわかる (まなぶっく)",
@@ -104,7 +139,12 @@
       "release_date": "2026-04-15",
       "id": "c13e1c1c37d9",
       "fetched_at": "2026-11-06T15:31:23.255716+09:00",
-      "description": "Amazon.co.jp: みんなが知りたい! 日本の仏さまとお寺 仏像の見かたと癒しの聖地のひみつがわかる (まなぶっく) : 「日本の仏さまとお寺」編集室: 本"
+      "description": "Amazon.co.jp: みんなが知りたい! 日本の仏さまとお寺 仏像の見かたと癒しの聖地のひみつがわかる (まなぶっく) : 「日本の仏さまとお寺」編集室: 本",
+      "book_ai": {
+        "score": 52,
+        "reason": "仏像の見かたを扱う入門書。まなぶっくで手軽",
+        "version": 1
+      }
     },
     {
       "title": "ときめく仏像めぐり 東海版 (ぴあMOOK中部)",
@@ -119,7 +159,12 @@
       "release_date": "2026-06-12",
       "id": "ada75713d2c4",
       "fetched_at": "2026-11-06T15:31:19.678176+09:00",
-      "description": "Amazonでぴあのときめく仏像めぐり 東海版 (ぴあMOOK中部)。アマゾンならポイント還元本が多数。ぴあ作品ほか、お急ぎ便対象商品は当日お届けも可能。またときめく仏像めぐり 東海版 (ぴあMOOK"
+      "description": "Amazonでぴあのときめく仏像めぐり 東海版 (ぴあMOOK中部)。アマゾンならポイント還元本が多数。ぴあ作品ほか、お急ぎ便対象商品は当日お届けも可能。またときめく仏像めぐり 東海版 (ぴあMOOK",
+      "book_ai": {
+        "score": 68,
+        "reason": "東海地域の仏像めぐりガイド。実地向けムック",
+        "version": 1
+      }
     },
     {
       "title": "飛鳥資料館 特別展「世界遺産「飛鳥・藤原の宮都」と奈文研」（10月9日~12月13日）",
@@ -11906,34 +11951,6 @@
         "event": {
           "event_name": "",
           "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T10:23:14+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "8f8eae4cfa08",
-      "title": "2年ぶり、2回目の開催！四国八十八ヶ所第81番札所・白峯寺「夜間特別拝観ライトアップ2026」 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2001778?rct=prtimes_chushikoku",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T10:20:19.914121+09:00",
-      "published_at": "2026-11-03T10:27:37+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1https://prtimes.jp/img/151251/5/resize/d151251-5-27a45fa2c04ca768734e-0.jpg",
-      "description": "一般社団法人 坂出市観光協会～紅葉のライトアップと宝物館の特別公開、新たに「願いと祈り」の体験も～秋の白峯寺を夜間特別開放四国八十八ヶ...",
-      "ai": {
-        "score": 45,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "夜間ライトアップ中心で宝物館公開は仏像が不明、上限内。",
-        "event": {
-          "event_name": "白峯寺 夜間特別拝観ライトアップ2026",
-          "place": "白峯寺（香川県坂出市）",
           "start_date": "",
           "end_date": ""
         },
