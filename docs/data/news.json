@@ -1,6 +1,62 @@
 {
-  "last_updated": "2026-11-06T21:35:35.941335+09:00",
+  "last_updated": "2026-11-06T22:11:41.869011+09:00",
   "items": [
+    {
+      "id": "0162d70ebc69",
+      "title": "【周南】新山口・防府駅発着で鹿野へ 21日・特別拝観バスツアー - 新周南新聞社",
+      "url": "https://www.shinshunan.co.jp/news/local/shunan/202611/050637.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T22:11:41.864810+09:00",
+      "published_at": "2026-11-06T09:20:33+09:00",
+      "image_url": "https://www.shinshunan.co.jp/img/ogp.jpg",
+      "description": "新周南新聞社が収集した地域の最新ニュースをご紹介します。",
+      "ai": {
+        "score": 40,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "特別拝観バスツアー告知だが仏像の言及が不明。12時間経過で減点",
+        "event": {
+          "event_name": "鹿野 特別拝観バスツアー",
+          "place": "山口県周南市鹿野",
+          "start_date": "2026-11-21",
+          "end_date": "2026-11-21"
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T22:14:21+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "fe63c08420bf",
+      "title": "令和8年度 史跡めぐり（秋編） - 流山市",
+      "url": "https://www.city.nagareyama.chiba.jp/1000009/1056139.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T22:11:38.355151+09:00",
+      "published_at": "2026-11-06T19:13:27+09:00",
+      "image_url": "https://www.city.nagareyama.chiba.jp/_template_/_site_/_default_/_res/images/sns/ogimage.png",
+      "description": "令和8年10月24日、中央公民館主催事業「令和8年度 史跡めぐり（秋編）」が開催されました。",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "10月24日開催済みの史跡めぐり事後報告で仏像の言及なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T22:14:21+09:00",
+        "score_version": 7
+      }
+    },
     {
       "title": "銀花荘 「銀花荘の民藝コレクション－ほっとけない神様・仏様展－」（10月17日~1月18日）",
       "url": "https://www.city.gero.lg.jp/site/kanko/1230.html",
@@ -11890,62 +11946,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "上皇ご夫妻の相続の話で仏像無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T18:10:02+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "d4ce2f4cfe95",
-      "title": "筋トレ歴8年のマッチョな絵描き、“自分”を描いたらこうなる⇨可愛すぎるイラストに「ギャップ萌えの極致」の声 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/huffingtonpost/life/huffingtonpost-6ae3b8f3e4b03a6ff48fe11c",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T18:06:33.847989+09:00",
-      "published_at": "2026-11-04T08:57:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/huffingtonpost/m_huffingtonpost-6ae3b8f3e4b03a6ff48fe11c.png",
-      "description": "筋トレ歴8年のたくましい体と、ふわふわのかわいいイラスト。一見、結びつかない2つが並んだ自己紹介が、Xで…",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "イラストの話題で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T18:10:02+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "63104c721032",
-      "title": "【京都紅葉】お勧め紅葉名所 嵐山嵯峨野編 京都観光 京都名所 風景写真/ Autumn Leaves In Kyoto Japan#嵐山 #嵯峨野 #常寂光寺 Great White Shark (1CPTYHqTka) - Unisba Media",
-      "url": "https://media.unisba.ac.id/17111b1a/e5f5faceqjCbMgnCNNE",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T18:06:31.447065+09:00",
-      "published_at": "2026-11-04T09:14:48+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "紅葉の動画で仏像に触れていない",
         "event": {
           "event_name": "",
           "place": "",
