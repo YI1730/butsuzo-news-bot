@@ -1,6 +1,34 @@
 {
-  "last_updated": "2026-11-06T14:11:38.820574+09:00",
+  "last_updated": "2026-11-06T15:11:30.539816+09:00",
   "items": [
+    {
+      "id": "bbf5e3824afc",
+      "title": "小林古径／田辺市立美術館開館３０周年記念特別展／（３）／「清姫（下図）」（部分） - AGARA 紀伊民報",
+      "url": "https://www.agara.co.jp/article/708975?rct=culture",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-06T15:11:30.537472+09:00",
+      "published_at": "2026-11-06T14:30:00+09:00",
+      "image_url": "https://www.agara.co.jp/image/article/size1/5/0/3/0/5030fbc434143fbdf7aa112c698d0932_1.jpg",
+      "description": "１８９８（明治３１）年に岡倉天心が中心となって結成された日本美術院に所属する画家の中で、次世代を担...",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "日本画家の美術館展で仏像と無関係。速報性も関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-06T15:14:00+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "ae9ff032c97a",
       "title": "奈良国立博物館｜2026年11月6日 調達等情報 NEW 一般競争入札「奈良国立博物館監視カメラ及び外構照明LED 化改修工事」",
@@ -11768,34 +11796,6 @@
           "place": "白峯寺（香川県坂出市）",
           "start_date": "",
           "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-04T10:23:14+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "a4957d1a02fd",
-      "title": "薬師寺が境内で金堂復興50年「記念展」開催　天武天皇像など公開 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/asahi_region/nation/asahi_region-ASVC241FBVC2POMB015M",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-04T10:20:18.528879+09:00",
-      "published_at": "2026-11-03T10:45:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/asahi_region/m_asahi_region-ASVC241FBVC2POMB015M.jpg",
-      "description": "奈良市の世界遺産・薬師寺で、本尊の薬師三尊（国宝）をまつる金堂が1976年に奈良時代の姿で再建され、「…",
-      "ai": {
-        "score": 30,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "薬師寺記念展は配信済みと重複。23時間経過。",
-        "event": {
-          "event_name": "よみがえる白鳳―金堂復興50周年記念展―",
-          "place": "薬師寺（奈良県奈良市）",
-          "start_date": "",
-          "end_date": "2026-11-08"
         },
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
