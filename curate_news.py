@@ -26,7 +26,7 @@ from urllib.parse import urldefrag, urlencode, urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup
 
-from news_store import (CANDIDATE_THRESHOLD, NEWS_POST_HEADER, NOISE_THRESHOLD, compose_news_post,
+from news_store import (CANDIDATE_THRESHOLD, NEWS_POST_HEADER, NOISE_THRESHOLD, compose_news_post, load_skipped,
                         detect_page_date, is_stale)
 from post_news import JST, RESOLVE_USER_AGENT, extract_og_image, load_news_data, save_news_data
 
@@ -691,10 +691,12 @@ def main() -> int:
     if stale:
         print(f"::notice::古い記事の再配信 {stale}件を除外（点数を下げた）")
 
-    # 投稿文が未作成の配信候補（新しい順）
+    # 投稿文が未作成の配信候補（新しい順）。PWA でスキップした記事は作らない・通知しない
+    skipped_ids, skipped_urls = load_skipped()
     candidates = [
         it for it in news
-        if it.get("ai", {}).get("score", 0) >= CANDIDATE_THRESHOLD
+        if it["id"] not in skipped_ids and it.get("url") not in skipped_urls
+        and it.get("ai", {}).get("score", 0) >= CANDIDATE_THRESHOLD
         and not it["ai"].get("duplicate") and it.get("source") not in CALENDAR_ONLY_SOURCES
         # 投稿文が無いもの、または古い文体（POST_FORMAT 未満）のものを作り直す
         and (it["ai"].get("post_format", 0) < POST_FORMAT

@@ -24,7 +24,7 @@ import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
 
-from news_store import CANDIDATE_THRESHOLD
+from news_store import CANDIDATE_THRESHOLD, load_skipped
 from post_news import JST, load_news_data, save_news_data
 
 BASE_DIR = Path(__file__).parent
@@ -110,10 +110,13 @@ def dedupe_events(cal: dict) -> int:
 def collect_events(cal: dict, items: list[dict], posted_ids: set[str] | None = None) -> int:
     """採点済みの記事から出来事を集めてカレンダーに足す。新しく足した件数を返す。"""
     by_key = {event_key(e["place_key"], e.get("start", ""), e.get("end", "")): e for e in cal["events"]}
+    skipped_ids, skipped_urls = load_skipped()
     added = 0
     for it in items:
         ai = it.get("ai") or {}
         ev = ai.get("event") or {}
+        if it.get("id") in skipped_ids or it.get("url") in skipped_urls:
+            continue  # PWA でスキップした記事からは出来事を作らない（リマインドを出さない）
         posted = it.get("id") in (posted_ids or set())  # @butsuzolink が投稿した記事は、点数が低くても入れる
         news_candidate = (it.get("source") in NEWS_SOURCES and not ai.get("duplicate")
                           and (ai.get("score", 0) >= CANDIDATE_THRESHOLD or posted))
@@ -167,7 +170,10 @@ def collect_events(cal: dict, items: list[dict], posted_ids: set[str] | None = N
 def due_reminders(cal: dict, today: date) -> list[tuple[dict, str, str]]:
     """今日出すべきリマインド (出来事, 種類, 見出し) の一覧。"""
     out = []
+    _, skipped_urls = load_skipped()
     for e in cal["events"]:
+        if e.get("source_url") in skipped_urls:
+            continue  # PWA でスキップした記事・配信候補の出来事は、以後のリマインドも出さない
         start, end = parse_date(e.get("start", "")), parse_date(e.get("end", ""))
         done = set(e.get("reminded", []))
         if e.get("remind") is False:

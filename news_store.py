@@ -32,6 +32,20 @@ def trim_per_source(items: list[dict], cap: int = MAX_ITEMS_PER_SOURCE) -> list[
 
 NEWS_POST_HEADER = "【仏像速報】"
 
+# PWA の「スキップ」で投稿済みとして扱う記事（記事の id と URL だけ。PWA が GitHub に直接書く）
+from pathlib import Path as _Path  # noqa: E402
+SKIPPED_FILE = _Path(__file__).parent / "docs" / "data" / "skipped_news.json"
+
+
+def load_skipped() -> tuple[set[str], set[str]]:
+    """スキップした記事の (id の集合, URL の集合)。ファイルが無ければ空。"""
+    import json as _json
+    try:
+        items = _json.loads(SKIPPED_FILE.read_text(encoding="utf-8")).get("items", [])
+    except Exception:
+        return set(), set()
+    return ({x["id"] for x in items if x.get("id")}, {x["url"] for x in items if x.get("url")})
+
 
 def clean_news_title(title: str) -> str:
     """Google ニュースのタイトル末尾の「 - 配信元名」を除く。"""

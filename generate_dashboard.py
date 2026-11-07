@@ -15,7 +15,7 @@ import zlib
 from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 
-from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD, compose_news_post
+from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD, compose_news_post, load_skipped
 
 DOCS_DIR = Path(__file__).parent / "docs"
 NEWS_JSON_FILE = DOCS_DIR / "data" / "news.json"
@@ -105,6 +105,9 @@ def format_published_at(iso: str) -> str:
         return dt.strftime("%-m月%-d日")
     except Exception:
         return ""
+
+
+_SKIPPED_IDS: set[str] = set()
 
 
 def build_card_html(item: dict) -> str:
@@ -232,7 +235,14 @@ def build_card_html(item: dict) -> str:
         f'      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">{title}</p>'
     )
 
-    return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}" data-fetched="{item.get('fetched_at', '')}">
+    # ニュースタブのカードには「スキップ」（投稿済みとして扱う。PWA から docs/data/skipped_news.json に記録）
+    skip_html = ""
+    skip_attr = ""
+    if source in NEWS_TAB_SOURCES:
+        skip_html = (f'\n        <button type="button" onclick="toggleSkip(\'{uid}\')" '
+                     f'class="skip-btn text-xs text-gray-500 border border-gray-300 rounded-full px-2.5 py-1 shrink-0">スキップ</button>')
+        skip_attr = f' data-url="{url}"' + (' data-skipped="1"' if uid in _SKIPPED_IDS else "")
+    return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}" data-fetched="{item.get('fetched_at', '')}"{skip_attr}>
 {image_html}{meta_html}
 {title_block_html}
 {ai_html}
@@ -246,7 +256,7 @@ def build_card_html(item: dict) -> str:
         </a>
         <a href="{url}" target="_blank" rel="noopener noreferrer"
            data-external-url="{url}"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>{skip_html}
       </div>
     </div>"""
 
@@ -384,6 +394,8 @@ def build_cards_with_separators(items: list[dict]) -> str:
 
 
 def build_html(items: list[dict], last_updated: str) -> str:
+    _SKIPPED_IDS.clear()
+    _SKIPPED_IDS.update(load_skipped()[0])
     lu_display = format_fetched_at(last_updated) if last_updated else "—"
 
     # fetched_at の降順でソート（最新が先頭）
@@ -1650,12 +1662,12 @@ def build_html(items: list[dict], last_updated: str) -> str:
           'Accept': 'application/vnd.github+json',
           'Content-Type': 'application/json',
         }},
-        body: JSON.stringify({{
+        // sha が無いときはファイルの新規作成
+        body: JSON.stringify(Object.assign({{
           message: message,
           content: utf8ToBase64(bodyStr),
-          sha: sha,
           branch: 'main',
-        }}),
+        }}, sha ? {{ sha: sha }} : {{}})),
       }}).then(function (r) {{
         if (!r.ok) {{
           return r.json().catch(function () {{ return {{}}; }}).then(function (e) {{
@@ -1996,6 +2008,102 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }}
     }}
 
+    // ── スキップ（投稿せずに「投稿済み」として扱う） ──
+    // 記事の id と URL を docs/data/skipped_news.json に記録する（GitHub に直接コミット）。
+    // ほかの端末の表示と、配信候補の投稿文・通知・リマインドの作成からも外れる。
+    // トークンが無い端末では、その端末の localStorage にだけ記録する
+    const SKIP_PATH = 'docs/data/skipped_news.json';
+    let _skipToastTimer = null;
+
+    function skipCards(id) {{
+      return document.querySelectorAll('[data-item-id="' + id + '"]');
+    }}
+
+    function applySkipState(card, skipped) {{
+      card.dataset.skipped = skipped ? '1' : '';
+      const b = card.querySelector('.skip-btn');
+      if (b) b.textContent = skipped ? '↩ スキップを取消' : 'スキップ';
+      if (skipped) card.classList.add('is-posted');
+      else if (localStorage.getItem('posted_' + card.dataset.itemId) !== '1') card.classList.remove('is-posted');
+    }}
+
+    function showSkipToast(msg, undoId) {{
+      let t = document.getElementById('skip-toast');
+      if (!t) {{
+        t = document.createElement('div');
+        t.id = 'skip-toast';
+        t.className = 'fixed left-1/2 -translate-x-1/2 bottom-6 z-50 bg-gray-900 text-white text-xs rounded-full px-4 py-2 shadow-lg flex items-center gap-3 max-w-[90vw]';
+        document.body.appendChild(t);
+      }}
+      t.innerHTML = '<span>' + escapeHtml(msg) + '</span>'
+        + (undoId ? '<button type="button" class="font-bold text-amber-300 underline shrink-0" onclick="toggleSkip(\\'' + undoId + '\\')">元に戻す</button>' : '');
+      t.style.display = 'flex';
+      clearTimeout(_skipToastTimer);
+      _skipToastTimer = setTimeout(function () {{ t.style.display = 'none'; }}, undoId ? 8000 : 5000);
+    }}
+
+    function syncSkip(id, url, skipped) {{
+      const attempt = function (n) {{
+        return ghGetFile(SKIP_PATH).catch(function (e) {{
+          if (/HTTP 404/.test(String(e.message))) return {{ content: {{ items: [] }}, sha: null }};
+          throw e;
+        }}).then(function (f) {{
+          const items = ((f.content && f.content.items) || []).filter(function (x) {{ return x.id !== id; }});
+          if (skipped) items.push({{ id: id, url: url, at: new Date().toISOString().slice(0, 10) }});
+          return ghPutFile(SKIP_PATH, {{ items: items }}, f.sha, (skipped ? 'skip: ' : 'unskip: ') + id);
+        }}).catch(function (e) {{
+          // ほかの端末・自動処理と同時に書いたときは読み直してやり直す
+          if (n < 2 && /HTTP (409|422)/.test(String(e.message))) return attempt(n + 1);
+          throw e;
+        }});
+      }};
+      return attempt(0);
+    }}
+
+    function toggleSkip(id) {{
+      const cards = skipCards(id);
+      if (!cards.length) return;
+      const skipped = cards[0].dataset.skipped !== '1';
+      cards.forEach(function (c) {{ applySkipState(c, skipped); }});
+      try {{
+        if (skipped) localStorage.setItem('skip_' + id, '1'); else localStorage.removeItem('skip_' + id);
+      }} catch (e) {{}}
+      if (!getGithubToken()) {{
+        showSkipToast((skipped ? 'スキップしました' : '取り消しました') + '（この端末だけ。⚙️でトークンを保存すると他の端末・候補作成にも反映）', skipped ? id : null);
+      }} else {{
+        showSkipToast(skipped ? 'スキップしました' : 'スキップを取り消しました', skipped ? id : null);
+        syncSkip(id, cards[0].dataset.url || '', skipped).catch(function (e) {{
+          showSkipToast('記録に失敗しました（この端末には記録済み）: ' + String(e.message || e), null);
+        }});
+      }}
+      setTimeout(applyFilter, skipped && currentFilter === 'unposted' ? 800 : 0);
+    }}
+
+    function loadSkipState() {{
+      const token = getGithubToken();
+      const local = function (id) {{
+        try {{ return localStorage.getItem('skip_' + id) === '1'; }} catch (e) {{ return false; }}
+      }};
+      document.querySelectorAll('[data-item-id]').forEach(function (c) {{
+        if (c.querySelector('.skip-btn')) applySkipState(c, c.dataset.skipped === '1' || local(c.dataset.itemId));
+      }});
+      // 最新の記録を読む（トークンがあれば GitHub から、無ければ公開中のファイル）
+      const p = token
+        ? ghGetFile(SKIP_PATH).then(function (f) {{ return f.content; }})
+        : fetch('data/skipped_news.json?t=' + Date.now(), {{ cache: 'no-store' }}).then(function (r) {{
+            if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }});
+      p.then(function (data) {{
+        const ids = new Set(((data && data.items) || []).map(function (x) {{ return x.id; }}));
+        document.querySelectorAll('[data-item-id]').forEach(function (c) {{
+          if (!c.querySelector('.skip-btn')) return;
+          const id = c.dataset.itemId;
+          // トークンのある端末は GitHub の記録に合わせる（ほかの端末での取り消しも反映）
+          applySkipState(c, ids.has(id) || (!token && local(id)));
+        }});
+        applyFilter();
+      }}).catch(function () {{ /* 記録がまだ無い・読めないときは、表示時の状態のまま */ }});
+    }}
+
     function resetAll() {{
       if (!confirm('投稿済みの記録をすべてリセットしますか？')) return;
       document.querySelectorAll('[data-item-id]').forEach(card => {{
@@ -2090,6 +2198,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
           if (btn) btn.innerHTML = '✓ 再投稿';
         }}
       }});
+      loadSkipState();
       loadKeywords();
       setTab(location.hash === '#replies' ? 'replies' : 'news');
       loadReplies();  // タブのバッジ（要返信の件数）表示のため
@@ -2151,7 +2260,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v39';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v40';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
