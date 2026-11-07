@@ -410,9 +410,9 @@ KAICHO_OUTBOX_MAX_AGE_HOURS = 72
 
 
 def merge_kaicho_outbox(data: dict, existing_ids: set[str]) -> int:
-    """公開ゲートを通った開帳情報（docs/data/kaicho_outbox.json）を news.json に取り込む。
-    そちらのファイルは週次のタスクだけが書く。72 時間より前に置かれたものは取り込まない
-    （news.json から古い記事が消えたあとに、また取り込まないため）。"""
+    """開帳情報の受け渡しファイル（docs/data/kaicho_outbox.json）を news.json に取り込む。
+    72 時間より前に置かれたものは取り込まない（news.json から古い記事が消えたあとに、
+    また取り込まないため）。"""
     try:
         outbox = json.loads(KAICHO_OUTBOX_FILE.read_text(encoding="utf-8")).get("items", [])
     except Exception:
