@@ -48,10 +48,10 @@ SOURCE_LABELS: dict[str, str] = {
 }
 
 # タブ別ソース定義
-# 「特別展」タブは更新頻度が低いため「特別公開」タブにマージ（other 扱い）。
+# ニュースタブと書籍・グッズタブに出す取得元（それ以外の特別公開・特別展・観仏三昧は画面に出さない）
 NEWS_TAB_SOURCES = {"google_news", "official_site", "reminder", "bangumi_tv", "kaicho_info"}
 GOODS_TAB_SOURCES = {"amazon_goods"}
-# EXHIBITION 系は OTHER に統合（other は明示的にこの集合の補集合として求める）
+# 特別展の取得元（カードに出すことはないが、採点バッジの扱いを分けるために残す）
 _EXHIBITION_SOURCES_MERGED = {"exhibition", "exhibition_rss"}
 
 # 取り込みセッション区切りの閾値（秒）— これ以上 fetched_at が離れると新セッション扱い
@@ -107,17 +107,10 @@ def format_published_at(iso: str) -> str:
         return ""
 
 
-def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
+def build_card_html(item: dict) -> str:
     uid = item.get("id", "")
     raw_title = item.get("title", "")
     title = raw_title.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-    # コピーボタン用に属性値として安全な形式（"を&quot;にエスケープ）
-    title_for_attr = (
-        raw_title.replace("&", "&amp;")
-                 .replace('"', "&quot;")
-                 .replace("<", "&lt;")
-                 .replace(">", "&gt;")
-    )
     url = item.get("url", "")
     source = item.get("source", "")
     header = item.get("header", "【仏像速報】")
@@ -235,21 +228,9 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
             f'whitespace-pre-wrap leading-relaxed">{post_text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")}</p>\n'
         )
 
-    # タイトル行：show_copy_btn=True のときはコピーボタンを横に並べる
-    if show_copy_btn:
-        title_block_html = (
-            f'      <div class="flex items-start gap-2 mb-3">\n'
-            f'        <p class="text-sm font-semibold text-gray-800 leading-relaxed flex-1">{title}</p>\n'
-            f'        <button type="button" class="copy-title-btn shrink-0 text-gray-400 hover:text-brand-700 active:text-brand-800 transition-colors p-1 -m-1" '
-            f'data-copy-text="{title_for_attr}" onclick="copyText(this)" title="タイトルをコピー" aria-label="タイトルをコピー">\n'
-            f'          <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>\n'
-            f'        </button>\n'
-            f'      </div>'
-        )
-    else:
-        title_block_html = (
-            f'      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">{title}</p>'
-        )
+    title_block_html = (
+        f'      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">{title}</p>'
+    )
 
     return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}" data-fetched="{item.get('fetched_at', '')}">
 {image_html}{meta_html}
@@ -371,14 +352,11 @@ def build_book_cards(books: list[dict]) -> str:
     return "\n".join(out)
 
 
-def build_cards_with_separators(items: list[dict], show_copy_btn: bool = False) -> str:
+def build_cards_with_separators(items: list[dict]) -> str:
     """fetched_at が一定以上離れた境界に区切り線を挟みつつカードを並べる。
 
     items は fetched_at の降順でソート済みである前提。
     各セッション（同じ取り込み実行で追加されたグループ）の頭に区切り線を挿入する。
-
-    show_copy_btn=True のときは、カードのタイトル横にコピーボタンを表示する
-    （特別公開タブで使用）。
     """
     output: list[str] = []
     prev_fetched: datetime | None = None
@@ -400,7 +378,7 @@ def build_cards_with_separators(items: list[dict], show_copy_btn: bool = False) 
                     output.append(build_separator_html(fetched))
             prev_fetched = fetched
 
-        output.append(build_card_html(item, show_copy_btn=show_copy_btn))
+        output.append(build_card_html(item))
 
     return "\n".join(output)
 
@@ -415,12 +393,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
         reverse=True,
     )
 
-    # 4タブに分割: ニュース / 特別公開 / 書籍・グッズ / 訪問記
-    # （旧「特別展」は更新頻度が低いため、特別公開タブ＝other にマージ済み）
+    # タブ: ニュース / 返信 / 書籍・グッズ / 訪問記 / 声
+    # （特別公開・特別展・観仏三昧の項目は画面に出さない。データは御開帳カレンダーと採点が使う）
     news_items  = [x for x in items_sorted if x.get("source") in NEWS_TAB_SOURCES]
     goods_items = [x for x in items_sorted if x.get("source") in GOODS_TAB_SOURCES]
-    classified  = NEWS_TAB_SOURCES | GOODS_TAB_SOURCES
-    other_items = [x for x in items_sorted if x.get("source") not in classified]
 
     # 書籍・グッズタブは item_type で 書籍 / グッズ に分割（書籍を上に表示）
     book_items  = [x for x in goods_items if x.get("item_type") == "book"]
@@ -455,13 +431,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
     news_cards  = candidates_html + "\n" + build_calendar_html() + "\n" + build_cards_with_separators(news_items)
     book_cards  = build_book_cards(book_items)
     goods_cards = build_cards_with_separators(other_goods)
-    # 特別公開タブ（other）はタイトル横にコピーボタンを表示
-    other_cards = build_cards_with_separators(other_items, show_copy_btn=True)
     news_count  = len(news_items) + len(candidates)
     goods_count = len(goods_items)
     book_count  = len(book_items)
     other_goods_count = len(other_goods)
-    other_count = len(other_items)
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -543,10 +516,6 @@ def build_html(items: list[dict], last_updated: str) -> str:
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         💬 返信<span id="replies-count" class="ml-0.5"></span>
       </button>
-      <button onclick="setTab('other')" id="tab-btn-other"
-        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        🛕 特別公開<span class="opacity-60 ml-0.5">{other_count}</span>
-      </button>
       <button onclick="setTab('goods')" id="tab-btn-goods"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         🛒 書籍・グッズ<span class="opacity-60 ml-0.5">{goods_count}</span>
@@ -580,9 +549,6 @@ def build_html(items: list[dict], last_updated: str) -> str:
     <div id="tab-news" class="tab-pane space-y-3">
 {news_cards}
       <div id="news-time-list" class="space-y-3"></div>
-    </div>
-    <div id="tab-other" class="tab-pane space-y-3 hidden">
-{other_cards}
     </div>
     <div id="tab-goods" class="tab-pane space-y-3 hidden">
       <!-- 書籍（上段） -->
@@ -765,7 +731,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
 
     function setTab(tab) {{
       currentTab = tab;
-      ['news','other','goods','archive','replies','voices'].forEach(t => {{
+      ['news','goods','archive','replies','voices'].forEach(t => {{
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {{
           btn.className = 'tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight ' +
@@ -2030,42 +1996,6 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }}
     }}
 
-    // 特別公開タブのタイトル横コピーボタン用
-    function copyText(btn) {{
-      if (!btn) return;
-      const text = btn.getAttribute('data-copy-text') || '';
-      if (!text) return;
-      const showDone = () => {{
-        const orig = btn.innerHTML;
-        btn.innerHTML = '<span class="text-[11px] font-bold text-brand-700">✓ コピー</span>';
-        setTimeout(() => {{ btn.innerHTML = orig; }}, 1200);
-      }};
-      if (navigator.clipboard && window.isSecureContext) {{
-        navigator.clipboard.writeText(text).then(showDone).catch(() => {{
-          // 失敗時は textarea フォールバック
-          fallbackCopy(text, showDone);
-        }});
-      }} else {{
-        fallbackCopy(text, showDone);
-      }}
-    }}
-
-    function fallbackCopy(text, onDone) {{
-      try {{
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.position = 'fixed';
-        ta.style.left = '-9999px';
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        if (onDone) onDone();
-      }} catch(e) {{
-        // 何もしない（ユーザーへの過剰な通知は避ける）
-      }}
-    }}
-
     function resetAll() {{
       if (!confirm('投稿済みの記録をすべてリセットしますか？')) return;
       document.querySelectorAll('[data-item-id]').forEach(card => {{
@@ -2103,7 +2033,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     // ── 横スワイプでタブ切替（モバイル用 / 両端ループ） ─────────
-    const TAB_ORDER = ['news', 'replies', 'other', 'goods', 'archive', 'voices'];
+    const TAB_ORDER = ['news', 'replies', 'goods', 'archive', 'voices'];
     function swipeToNextTab(dir) {{
       // dir: +1 で次のタブ（右→左スワイプ）、-1 で前のタブ（左→右スワイプ）
       const i = TAB_ORDER.indexOf(currentTab);
@@ -2221,7 +2151,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v38';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v39';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
