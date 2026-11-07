@@ -120,9 +120,9 @@
    "start": "2026-09-18",
    "end": "2026-11-08",
    "category": "展覧会",
-   "source_url": "https://www.pen-kanagawa.ed.jp/kanazawabunko/",
-   "source_title": "神奈川県立金沢文庫 特別展「国宝でよみとく仏教美術－奇珍異宝の世界－」",
-   "source_score": 0,
+   "source_url": "https://www.museum.or.jp/event/126734",
+   "source_title": "柴田コレクション受贈記念特別展 国宝でたのしむ仏教美術 神奈川県立金沢文庫 | 神奈川県（2026年9月18日〜11月8日）",
+   "source_score": 68,
    "first_seen": "2026-10-25T10:39:02+09:00",
    "reminded": [
     "ending"
@@ -608,7 +608,8 @@
    "first_seen": "2026-10-17T09:29:23+09:00",
    "reminded": [
     "start"
-   ]
+   ],
+   "news_candidate": true
   },
   {
    "id": "ac024b5da3d6",
@@ -1381,7 +1382,8 @@
    "first_seen": "2026-10-26T15:11:40+09:00",
    "reminded": [
     "start"
-   ]
+   ],
+   "news_candidate": true
   },
   {
    "id": "a6dcd044c23d",
@@ -1519,7 +1521,8 @@
    "first_seen": "2026-10-19T06:06:11+09:00",
    "reminded": [
     "start"
-   ]
+   ],
+   "news_candidate": true
   },
   {
    "id": "27332ac61476",
@@ -1923,7 +1926,8 @@
    "first_seen": "2026-11-06T06:14:18+09:00",
    "reminded": [
     "start"
-   ]
+   ],
+   "news_candidate": true
   },
   {
    "id": "241f310142f5",
@@ -1987,7 +1991,8 @@
    "first_seen": "2026-11-06T10:14:29+09:00",
    "reminded": [
     "start"
-   ]
+   ],
+   "news_candidate": true
   },
   {
    "id": "307de05f6e58",
@@ -2019,7 +2024,8 @@
    "first_seen": "2026-11-06T19:14:46+09:00",
    "reminded": [
     "start"
-   ]
+   ],
+   "news_candidate": true
   },
   {
    "id": "635a5e78e2ca",
@@ -2165,7 +2171,8 @@
    "source_title": "京都府亀岡市の寺になぜ平安時代の古い仏像があるのか 創建は江戸時代だが…秘められた歴史とは - 京都新聞デジタル",
    "source_score": 84,
    "first_seen": "2026-11-06T05:14:29+09:00",
-   "reminded": []
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "6a6ea4208ede",
@@ -2193,7 +2200,8 @@
    "source_title": "特別展「大徳寺展」が入場者10万人を突破 国宝の「曜変天目」は11月15日まで1週間展示延長 - 日本経済新聞",
    "source_score": 72,
    "first_seen": "2026-11-06T19:50:49+09:00",
-   "reminded": []
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "4f228acd4e29",
@@ -2291,7 +2299,8 @@
    "source_title": "長福寺（掛川）開創１３００年大祭 ２１日まで ４０年ぶり本尊御開帳 - 静岡新聞DIGITAL",
    "source_score": 88,
    "first_seen": "2026-11-06T07:01:37+09:00",
-   "reminded": []
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "da2ea12db2cb",
@@ -2319,7 +2328,8 @@
    "source_title": "狸面、3尊像 大津の歴史を物語る「たから」たち 市歴史博物館（朝日新聞） - Yahoo!ニュース",
    "source_score": 72,
    "first_seen": "2026-11-07T11:49:39+09:00",
-   "reminded": []
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "a541f91fa81d",
@@ -2332,7 +2342,7 @@
    "source_url": "https://higashiaichi.jp/news/detail.php?id=28187",
    "source_title": "【豊川】御開帳を開催中の豊川稲荷で砥鹿神社の宮司参拝と神楽奉納 寺と神社が協力して盛り上げる - 東愛知新聞",
    "source_score": 40,
-   "first_seen": "2026-11-07T13:14:45+09:00",
+   "first_seen": "2026-11-07T13:40:45+09:00",
    "reminded": []
   },
   {
@@ -2363,7 +2373,9 @@
    "first_seen": "2026-10-25T10:39:02+09:00",
    "reminded": [],
    "origin": "kanbutsu",
-   "remind": false
+   "remind": false,
+   "exhibit_score": 68,
+   "exhibit_reason": "西福寺の密教美術特別展。20日後開催で先の予定、仏像の詳細不明のため70点未満"
   },
   {
    "id": "bab636de1f0b",
@@ -2377,9 +2389,13 @@
    "source_title": "能満寺（主催川崎市教育委員会） 「令和8年度指定文化財等現地特別公開　能満寺の文化財－保存修理完了記念－」",
    "source_score": 0,
    "first_seen": "2026-10-25T10:39:02+09:00",
-   "reminded": [],
+   "reminded": [
+    "preview"
+   ],
    "origin": "kanbutsu",
-   "remind": false
+   "remind": false,
+   "exhibit_score": 72,
+   "exhibit_reason": "指定文化財の現地特別公開、修理完了記念。20日後で先だが本尊等を含む見込み"
   },
   {
    "id": "e570e77bcffd",
@@ -2504,7 +2520,7 @@
    "source_url": "https://artexhibition.jp/topics/news/20261106-AEJ3035776/",
    "source_title": "【動画】特別展「大徳寺」（東京国立博物館）の「大徳寺の障壁画」コーナーは必見の展示空間 会期は12月6日まで - 美術展ナビ",
    "source_score": 50,
-   "first_seen": "2026-11-07T13:14:45+09:00",
+   "first_seen": "2026-11-07T13:40:45+09:00",
    "reminded": []
   },
   {
@@ -2518,7 +2534,7 @@
    "source_url": "https://news.yahoo.co.jp/articles/9ddd19023da5e66dcf6817082def1078b700f973",
    "source_title": "紅葉と光楽しんで 4寺巡る「大和観音もみじ回廊」 12月6日まで (奈良新聞デジタル) - Yahoo!ニュース",
    "source_score": 50,
-   "first_seen": "2026-11-07T13:14:45+09:00",
+   "first_seen": "2026-11-07T13:40:45+09:00",
    "reminded": []
   },
   {
@@ -2593,7 +2609,8 @@
    "source_title": "東大寺｜(R9/1/17～)四月堂の拝観再開のお知らせ",
    "source_score": 45,
    "first_seen": "2026-10-26T15:11:40+09:00",
-   "reminded": []
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "f3554bb42a99",
@@ -2693,8 +2710,25 @@
    "source_title": "【記者発表】特別展「国宝 三井寺のすべて」東京国立博物館で2027年4月20日～6月13日開催 智証大師諡号1100年記念 - 美術展ナビ",
    "source_score": 88,
    "first_seen": "2026-10-16T20:59:55+09:00",
-   "reminded": []
+   "reminded": [],
+   "news_candidate": true
+  },
+  {
+   "id": "ec11db7c03ec",
+   "event_name": "国宝 三井寺のすべて",
+   "place": "東京国立博物館（東京都）",
+   "place_key": "東京国立博物館",
+   "start": "2027-04-20",
+   "end": "2027-06-13",
+   "category": "展覧会",
+   "source_url": "https://www.museum.or.jp/event/127356",
+   "source_title": "特別展「国宝 三井寺のすべて」 東京国立博物館 | 東京都（2027年4月20日〜6月13日）",
+   "source_score": 30,
+   "first_seen": "2026-11-07T13:40:45+09:00",
+   "reminded": [],
+   "origin": "exhibition",
+   "remind": false
   }
  ],
- "last_updated": "2026-11-07T13:14:45+09:00"
+ "last_updated": "2026-11-07T13:40:45+09:00"
 }
