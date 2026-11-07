@@ -555,10 +555,14 @@ def build_html(items: list[dict], last_updated: str) -> str:
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
         📜 訪問記
       </button>
+      <button onclick="setTab('voices')" id="tab-btn-voices"
+        class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
+        🗣 声<span id="voices-count" class="opacity-60 ml-0.5"></span>
+      </button>
     </div>
 
     <!-- フィルターバー -->
-    <div class="flex flex-nowrap gap-1.5 py-2 pb-3 max-w-xl mx-auto items-center whitespace-nowrap">
+    <div id="filter-bar" class="flex flex-nowrap gap-1.5 py-2 pb-3 max-w-xl mx-auto items-center whitespace-nowrap">
       <button onclick="setFilter('unposted')" id="btn-unposted"
         class="filter-btn px-2.5 py-1 rounded-full text-xs font-medium transition-colors">未投稿</button>
       <button onclick="setFilter('all')" id="btn-all"
@@ -667,6 +671,25 @@ def build_html(items: list[dict], last_updated: str) -> str:
       </details>
     </div>
     <!-- 返信タブ：仏像リンク宛ての返信を AI が仕分け（triage_replies.py） -->
+    <!-- 参加者の声：ツアー・オフ会の参加者の公開ポストのストック（voices.py）。参加者のハンドルの一覧なので
+         データは非公開リポジトリにあり、この端末の GitHub トークンで読む。RT は自動ではせず、Xを開いて代表が手で行う -->
+    <div id="tab-voices" class="tab-pane space-y-3 hidden">
+      <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
+        <p class="text-sm font-bold text-brand-800">🗣 参加者の声</p>
+        <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">
+          ツアー・オフ会の参加者のポストです。「Xで開く」→ Xでリポスト →「RTした」を押すと使用済みになり、3か月たつと未使用に戻ります（使用済みの記録はこの端末だけに残ります）。
+        </p>
+        <div id="voices-kinds" class="flex flex-wrap gap-1.5 mt-2"></div>
+      </div>
+      <div id="voices-cards" class="space-y-3">
+        <p class="text-center text-sm text-gray-400 py-6">読み込み中...</p>
+      </div>
+      <details id="voices-used-box" class="hidden">
+        <summary class="text-xs text-gray-500 cursor-pointer px-1 py-1">使用済み <span id="voices-used-count"></span></summary>
+        <div id="voices-used-cards" class="space-y-3 mt-2"></div>
+      </details>
+    </div>
+
     <div id="tab-replies" class="tab-pane space-y-3 hidden">
       <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
         <p class="text-sm font-bold text-brand-800">💬 返信すべき返信</p>
@@ -742,7 +765,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
 
     function setTab(tab) {{
       currentTab = tab;
-      ['news','other','goods','archive','replies'].forEach(t => {{
+      ['news','other','goods','archive','replies','voices'].forEach(t => {{
         const btn = document.getElementById('tab-btn-' + t);
         if (btn) {{
           btn.className = 'tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight ' +
@@ -757,8 +780,11 @@ def build_html(items: list[dict], last_updated: str) -> str:
         if (!scheduledData) {{ loadScheduled(); }} else {{ renderScheduled(); }}
       }}
       if (tab === 'replies') {{ loadReplies(); }}
+      if (tab === 'voices') {{ loadVoices(); }}
       const sortBtn = document.getElementById('btn-sort');
       if (sortBtn) sortBtn.classList.toggle('hidden', tab !== 'news');
+      const fbar = document.getElementById('filter-bar');
+      if (fbar) fbar.classList.toggle('hidden', tab === 'voices');  // 参加者の声は未投稿/投稿済みの絞り込みを使わない
       applyFilter();
       window.scrollTo({{top: 0, behavior: 'instant'}});
     }}
@@ -850,6 +876,10 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const activePane = document.getElementById('tab-' + currentTab);
       if (!activePane) return;
 
+      if (currentTab === 'voices') {{
+        document.getElementById('count').textContent = document.querySelectorAll('#voices-cards [data-voice-id]').length + '件';
+        return;
+      }}
       if (currentTab === 'replies') {{
         const n = document.querySelectorAll('#replies-cards [data-reply-id]').length;
         document.getElementById('count').textContent = n + '件';
@@ -1059,6 +1089,115 @@ def build_html(items: list[dict], last_updated: str) -> str:
 
     function _reactionDone(id) {{
       try {{ return localStorage.getItem('reaction_done_' + id) === '1'; }} catch (e) {{ return false; }}
+    }}
+
+    // ── 参加者の声 ──
+    // 使用済みは端末の localStorage に {{id: 使用日}}。3か月たったものは未使用に戻す
+    const VOICES_USED_KEY = 'butsuzo_voices_used';
+    const VOICES_REUSE_DAYS = 90;
+    const VOICE_KINDS = ['高評価', '初参加', '当日の様子', '仏像の感想'];
+    let voicesData = null, voicesError = '', voicesKind = '';
+
+    function voicesUsed() {{
+      let m = {{}};
+      try {{ m = JSON.parse(localStorage.getItem(VOICES_USED_KEY) || '{{}}') || {{}}; }} catch (e) {{ m = {{}}; }}
+      const limit = Date.now() - VOICES_REUSE_DAYS * 86400000;
+      let changed = false;
+      Object.keys(m).forEach(function (id) {{
+        if (new Date(m[id]).getTime() < limit) {{ delete m[id]; changed = true; }}
+      }});
+      if (changed) {{ try {{ localStorage.setItem(VOICES_USED_KEY, JSON.stringify(m)); }} catch (e) {{}} }}
+      return m;
+    }}
+
+    function markVoiceUsed(id, used) {{
+      const m = voicesUsed();
+      if (used) m[id] = new Date().toISOString(); else delete m[id];
+      try {{ localStorage.setItem(VOICES_USED_KEY, JSON.stringify(m)); }} catch (e) {{}}
+      renderVoices();
+    }}
+
+    function loadVoices() {{
+      const token = getGithubToken();
+      if (!token) {{
+        voicesData = []; voicesError = '表示するには、訪問記タブの「⚙️ 自動投稿の設定」で GitHub トークンを保存してください。';
+        renderVoices(); return;
+      }}
+      fetch(GH_API + '/repos/' + GH_OWNER + '/' + PRIVATE_REPO + '/contents/voices.json?t=' + Date.now(), {{
+        headers: {{ 'Authorization': 'Bearer ' + token, 'Accept': 'application/vnd.github+json' }},
+        cache: 'no-store',
+      }}).then(function (r) {{
+        if (r.status === 404 || r.status === 403) throw new Error('perm');
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      }}).then(function (body) {{
+        const d = JSON.parse(base64ToUtf8(body.content || ''));
+        voicesData = Array.isArray(d.items) ? d.items : []; voicesError = '';
+        renderVoices();
+      }}).catch(function (e) {{
+        voicesData = [];
+        voicesError = e.message === 'perm'
+          ? '参加者の声のデータが見つからないか、保存済みの GitHub トークンに butsuzo-private の読み取り権限がありません。'
+          : '読み込みに失敗しました（' + e.message + '）';
+        renderVoices();
+      }});
+    }}
+
+    function setVoicesKind(k) {{ voicesKind = (voicesKind === k ? '' : k); renderVoices(); }}
+
+    function _voiceCardHtml(v, usedAt) {{
+      const url = v.status_id
+        ? 'https://x.com/i/status/' + encodeURIComponent(v.status_id)
+        : 'https://x.com/search?f=live&q=' + encodeURIComponent(v.search || ('from:' + (v.handle || '')));
+      let h = '<div class="bg-white rounded-2xl shadow-sm p-4 border border-brand-100' + (usedAt ? ' opacity-60 grayscale' : '') +
+        '" data-voice-id="' + escapeHtml(v.id) + '">';
+      h += '<div class="flex flex-wrap items-center gap-1.5 mb-2">';
+      h += '<span class="text-[11px] font-bold text-brand-800 bg-brand-50 border border-brand-200 rounded-full px-2 py-0.5">' + escapeHtml(v.kind || '') + '</span>';
+      if (v.tour) h += '<span class="text-[11px] text-gray-600 bg-gray-50 border border-gray-200 rounded-full px-2 py-0.5">' + escapeHtml(v.tour) + '</span>';
+      if (v.needs_check) h += '<span class="text-[11px] font-bold text-amber-800 bg-amber-50 border border-amber-300 rounded-full px-2 py-0.5">要確認</span>';
+      h += '</div>';
+      h += '<p class="text-sm text-gray-800 leading-relaxed mb-1">' + (v.summary ? escapeHtml(v.summary) : '<span class="text-gray-400">（要旨は未作成）</span>') + '</p>';
+      h += '<p class="text-xs text-gray-500 mb-3"><b>' + escapeHtml(v.name || '') + '</b> @' + escapeHtml(v.handle || '') + '・' + escapeHtml(v.date || '') + '</p>';
+      h += '<div class="flex gap-2">';
+      h += '<a href="' + url + '" target="_blank" rel="noopener" class="flex-1 text-center text-xs font-bold bg-gray-900 text-white rounded-lg py-2">' +
+        (v.status_id ? 'Xで開く' : 'Xで探す') + '</a>';
+      if (usedAt) {{
+        const d = new Date(usedAt);
+        h += '<button onclick="markVoiceUsed(\\'' + escapeHtml(v.id) + '\\', false)" class="flex-1 text-xs text-gray-600 border border-gray-300 rounded-lg py-2">' +
+          (d.getMonth() + 1) + '/' + d.getDate() + 'に使用・戻す</button>';
+      }} else {{
+        h += '<button onclick="markVoiceUsed(\\'' + escapeHtml(v.id) + '\\', true)" class="flex-1 text-xs font-bold text-brand-800 border border-brand-300 rounded-lg py-2">RTした</button>';
+      }}
+      h += '</div></div>';
+      return h;
+    }}
+
+    function renderVoices() {{
+      const box = document.getElementById('voices-cards');
+      const usedBox = document.getElementById('voices-used-box');
+      if (!box) return;
+      const kinds = document.getElementById('voices-kinds');
+      if (kinds) kinds.innerHTML = VOICE_KINDS.map(function (k) {{
+        return '<button onclick="setVoicesKind(\\'' + k + '\\')" class="text-[11px] rounded-full px-2.5 py-0.5 border ' +
+          (voicesKind === k ? 'bg-brand-700 text-white border-brand-700' : 'bg-white text-brand-800 border-brand-200') + '">' + k + '</button>';
+      }}).join('');
+      if (voicesError) {{
+        box.innerHTML = '<p class="text-center text-sm text-gray-500 py-6">' + escapeHtml(voicesError) + '</p>';
+        usedBox.classList.add('hidden'); return;
+      }}
+      if (!voicesData) return;
+      const used = voicesUsed();
+      const list = voicesData.filter(function (v) {{ return !voicesKind || v.kind === voicesKind; }});
+      const fresh = list.filter(function (v) {{ return !used[v.id]; }});
+      const done = list.filter(function (v) {{ return used[v.id]; }});
+      box.innerHTML = fresh.length ? fresh.map(function (v) {{ return _voiceCardHtml(v, null); }}).join('')
+        : '<p class="text-center text-sm text-gray-400 py-6">未使用の声はありません</p>';
+      document.getElementById('voices-used-cards').innerHTML = done.map(function (v) {{ return _voiceCardHtml(v, used[v.id]); }}).join('');
+      document.getElementById('voices-used-count').textContent = done.length + '件';
+      usedBox.classList.toggle('hidden', done.length === 0);
+      const cnt = document.getElementById('voices-count');
+      if (cnt) cnt.textContent = voicesData.filter(function (v) {{ return !used[v.id]; }}).length;
+      if (currentTab === 'voices') applyFilter();
     }}
 
     function loadReactions() {{
@@ -1964,7 +2103,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     // ── 横スワイプでタブ切替（モバイル用 / 両端ループ） ─────────
-    const TAB_ORDER = ['news', 'replies', 'other', 'goods', 'archive'];
+    const TAB_ORDER = ['news', 'replies', 'other', 'goods', 'archive', 'voices'];
     function swipeToNextTab(dir) {{
       // dir: +1 で次のタブ（右→左スワイプ）、-1 で前のタブ（左→右スワイプ）
       const i = TAB_ORDER.indexOf(currentTab);
@@ -2082,7 +2221,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v37';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v38';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 

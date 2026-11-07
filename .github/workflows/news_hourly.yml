@@ -135,6 +135,28 @@ jobs:
           git add reactions.json
           git diff --staged --quiet || { git commit -q -m "update reactions" && git push -q; }
 
+      # 「参加者の声」: 自分の投稿の記録（Record own X posts）で一緒に読んだリツイートのうち、
+      # 寺ベル・オフ会などの語を含む参加者のポストを、非公開リポジトリの voices.json に加える
+      # 2026-11-07: リツイートからの取り込みは見送り（声の供給は週次の収集だけ）。リポジトリ変数
+      # VOICES_RT_ENABLED=true にしたときだけ動く。動かすときは record_x_posts.py でリツイートも読むようにすること
+      - name: Collect participant voices
+        if: env.HAS_PRIVATE == 'true' && vars.VOICES_RT_ENABLED == 'true'
+        env:
+          ANTHROPIC_API_KEY:     ${{ secrets.ANTHROPIC_API_KEY }}
+          X_API_KEY:             ${{ secrets.X_API_KEY }}
+          X_API_SECRET:          ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          VOICES_BACKFILL:       '0'
+          PRIVATE_DIR: private
+        continue-on-error: true
+        run: |
+          python voices.py merge
+          python voices.py backfill
+          cd private
+          git add voices.json 2>/dev/null || true
+          git diff --staged --quiet || { git commit -q -m "update voices" && git pull -q --rebase && git push -q; }
+
       - name: Generate dashboard HTML
         run: python generate_dashboard.py
 
