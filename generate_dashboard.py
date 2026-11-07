@@ -32,6 +32,7 @@ ICON_COLOR = (0, 174, 149)
 SOURCE_LABELS: dict[str, str] = {
     "google_news":              "📰 ニュース",
     "official_site":            "🏛 公式サイト",
+    "kaicho_info":              "🛕 開帳情報",
     "reminder":                 "⏰ リマインド",
     "bangumi_tv":               "📺 仏像TV",
     "exhibition":               "🏛 特別展",
@@ -48,7 +49,7 @@ SOURCE_LABELS: dict[str, str] = {
 
 # タブ別ソース定義
 # 「特別展」タブは更新頻度が低いため「特別公開」タブにマージ（other 扱い）。
-NEWS_TAB_SOURCES = {"google_news", "official_site", "reminder", "bangumi_tv"}
+NEWS_TAB_SOURCES = {"google_news", "official_site", "reminder", "bangumi_tv", "kaicho_info"}
 GOODS_TAB_SOURCES = {"amazon_goods"}
 # EXHIBITION 系は OTHER に統合（other は明示的にこの集合の補集合として求める）
 _EXHIBITION_SOURCES_MERGED = {"exhibition", "exhibition_rss"}

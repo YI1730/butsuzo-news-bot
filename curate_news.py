@@ -60,7 +60,7 @@ NEW_DESIGNATION_FLOOR = 85       # 仏像の新指定の下限点（配信から
 NEW_DESIGNATION_FLOOR_HOURS = 48
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
-TARGET_SOURCES = {"google_news", "official_site"}  # official_site は watch_sites.py
+TARGET_SOURCES = {"google_news", "official_site", "kaicho_info"}  # official_site は watch_sites.py
 
 CATEGORIES = [
     "秘仏・御開帳・特別公開", "展覧会", "発見・研究・新指定", "修理・保存",

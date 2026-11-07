@@ -98,7 +98,19 @@ def build_search_queries(includes: list[str], excludes: list[str]) -> list[str]:
     exc_part = " ".join(f"-{w}" for w in excludes)
     queries += [f"{k} {exc_part} {QUERY_RECENCY}".replace("  ", " ") for k in compound]
     queries += priority_temple_queries()
+    queries += regional_queries(excludes)
     return queries
+
+
+def regional_queries(excludes: list[str]) -> list[str]:
+    """地方の仏像公開・マニアックな展覧会向けの語（config/news_keywords.json の regional）。
+    件数が少ない語なので、記事を取り込む上限（MAX_ARTICLE_AGE_DAYS）いっぱいの期間で検索する。"""
+    try:
+        words = json.loads(KEYWORDS_CONFIG_FILE.read_text(encoding="utf-8")).get("regional", [])
+    except Exception:
+        return []
+    exc_part = " ".join(f"-{w}" for w in excludes)
+    return [f"{w} {exc_part} when:{MAX_ARTICLE_AGE_DAYS}d".replace("  ", " ") for w in words if w.strip()]
 
 
 PRIORITY_TEMPLES_FILE = Path(__file__).parent / "config" / "priority_temples.json"
@@ -180,6 +192,11 @@ def save_url_cache(cache: dict[str, str]) -> None:
         json.dump(dict(items), f, ensure_ascii=False, indent=0)
 
 
+def query_label(q: str) -> str:
+    """検索クエリから、除外語と期間指定を外した部分（記事の search_query に残す）。"""
+    return " ".join(w for w in q.split() if not w.startswith("-") and not w.startswith("when:"))
+
+
 def fetch_entries(queries: list[str]) -> list:
     """全クエリの RSS を取得し、記事 ID で重複を除いて新しい順に並べる。"""
     seen: set[str] = set()
@@ -193,6 +210,7 @@ def fetch_entries(queries: list[str]) -> list:
             key = getattr(e, "id", "") or getattr(e, "link", "")
             if key and key not in seen:
                 seen.add(key)
+                e["bz_query"] = query_label(q)  # どの検索で拾ったか（語の効き目の点検用）
                 entries.append(e)
         time_module.sleep(1)  # 連続リクエストを避ける
     entries.sort(
@@ -387,6 +405,30 @@ def resolve_original_url(google_news_url: str) -> str:
 # ---------------------------------------------------------------------------
 
 
+KAICHO_OUTBOX_FILE = NEWS_JSON_FILE.parent / "kaicho_outbox.json"
+KAICHO_OUTBOX_MAX_AGE_HOURS = 72
+
+
+def merge_kaicho_outbox(data: dict, existing_ids: set[str]) -> int:
+    """公開ゲートを通った開帳情報（docs/data/kaicho_outbox.json）を news.json に取り込む。
+    そちらのファイルは週次のタスクだけが書く。72 時間より前に置かれたものは取り込まない
+    （news.json から古い記事が消えたあとに、また取り込まないため）。"""
+    try:
+        outbox = json.loads(KAICHO_OUTBOX_FILE.read_text(encoding="utf-8")).get("items", [])
+    except Exception:
+        return 0
+    cutoff = (datetime.now(JST) - timedelta(hours=KAICHO_OUTBOX_MAX_AGE_HOURS)).isoformat()
+    added = 0
+    for it in outbox:
+        if it.get("id") in existing_ids or it.get("fetched_at", "") < cutoff:
+            continue
+        data["items"].insert(0, dict(it, fetched_at=datetime.now(JST).isoformat()))
+        existing_ids.add(it["id"])
+        added += 1
+        print(f"開帳情報を追加: {it.get('title', '')}")
+    return added
+
+
 def main() -> int:
     print(f"含むキーワード ({len(INCLUDE_KEYWORDS)}): {', '.join(INCLUDE_KEYWORDS)}")
     print(f"除外キーワード ({len(EXCLUDE_KEYWORDS)}): {', '.join(EXCLUDE_KEYWORDS)}")
@@ -480,10 +522,13 @@ def main() -> int:
             "image_url": image_url,
             # AI 採点（curate_news.py）の判断材料。ダッシュボードの投稿文にも使われる
             "description": description,
+            "search_query": entry.get("bz_query", ""),
         })
         existing_ids.add(uid)
         added_count += 1
         print(f"追加: {title}")
+
+    added_count += merge_kaicho_outbox(data, existing_ids)
 
     # 古いアイテムを削除して上限を守る
     data["items"] = trim_per_source(data["items"])
