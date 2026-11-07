@@ -16,7 +16,7 @@ from __future__ import annotations
 import json
 import sys
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from urllib.parse import urldefrag, urljoin, urlparse
 
@@ -42,6 +42,13 @@ SEEN_MAX = 1500            # サイトごとに覚えておくリンクの上限
 # 言語を指定しないと英語版を返すサイトがある（東京国立博物館など）ので日本語を明示する
 HEADERS = {"User-Agent": RESOLVE_USER_AGENT, "Accept-Language": "ja,en;q=0.5"}
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+# group "local"（自治体・地方の博物館・観光協会）: 新着の大半が入札・採用・給付金などなので、
+# 見出しにこれらの語があるリンクだけを AI 採点に回す。毎時ではなく LOCAL_INTERVAL_HOURS ごとに、
+# 1 回の実行で LOCAL_MAX_PER_RUN か所まで（最後に見た時刻が古い順に）見る
+LOCAL_TITLE_WORDS = ("仏像", "観音", "如来", "菩薩", "明王", "秘仏", "開帳", "開扉", "文化財", "特別公開",
+                     "仏教", "寺", "堂", "展示", "企画展", "特別展", "天王", "地蔵", "仏", "宝物", "国宝")
+LOCAL_INTERVAL_HOURS = 12
+LOCAL_MAX_PER_RUN = 35
 SKIP_EXT = (".jpg", ".jpeg", ".png", ".gif", ".zip", ".mp4")
 SKIP_WORDS = ("採用", "求人", "プライバシー", "サイトマップ", "お問い合わせ", "アクセス",
               "English", "Instagram", "Facebook", "YouTube", "ログイン", "会員")
@@ -109,14 +116,27 @@ def main() -> int:
     data = load_news_data()
     existing = {it["id"] for it in data["items"]}
     now = datetime.now(JST).isoformat(timespec="seconds")
-    added = baseline = failed = 0
+    added = baseline = failed = filtered = 0
+    failed_names = []
+
+    # group "local" は前回から LOCAL_INTERVAL_HOURS 以上たったものを、古い順に LOCAL_MAX_PER_RUN か所まで
+    due_before = (datetime.now(JST) - timedelta(hours=LOCAL_INTERVAL_HOURS)).isoformat(timespec="seconds")
+    local = sorted((x for x in sites if x.get("group") == "local"
+                    and state.get(x["url"], {}).get("checked_at", "") < due_before),
+                   key=lambda x: state.get(x["url"], {}).get("checked_at", ""))[:LOCAL_MAX_PER_RUN]
+    sites = [x for x in sites if x.get("group") != "local"] + local
 
     for site in sites:
         url, name = site["url"], site["name"]
+        is_local = site.get("group") == "local"
         links = page_links(url)
         time.sleep(1)
         if links is None:
             failed += 1
+            failed_names.append(name)
+            # 取得できなくても checked_at を進め、同じサイトばかり試し続けないようにする
+            if is_local:
+                state.setdefault(url, {"seen": []})["checked_at"] = now
             continue
         seen = state.get(url, {}).get("seen", [])
         seen_set = set(seen)
@@ -131,6 +151,10 @@ def main() -> int:
             print(f"[記録] {name}: リンク {len(links)}件（{'初回' if first else 'リニューアル疑い'}）")
             continue
 
+        if is_local:
+            kept = [(h, t) for h, t in unknown if any(w in t for w in LOCAL_TITLE_WORDS)]
+            filtered += len(unknown) - len(kept)
+            unknown = kept
         new = unknown[:MAX_NEW_PER_SITE]
         for href, text in new:
             uid = item_id(href)
@@ -159,7 +183,10 @@ def main() -> int:
     save_news_data(data)
     STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=0) + "\n", encoding="utf-8")
-    print(f"::notice::公式サイト監視 {len(sites)}件: 新着 {added}件 / 初回記録 {baseline}件 / 取得失敗 {failed}件")
+    if failed_names:
+        print("取得失敗: " + "、".join(failed_names))
+    print(f"::notice::公式サイト監視 {len(sites)}件（うち自治体・地方 {len(local)}件）: 新着 {added}件 / "
+          f"初回記録 {baseline}件 / 見出しで除外 {filtered}件 / 取得失敗 {failed}件")
     return 0
 
 

@@ -1,5 +1,5 @@
 {
- "_comment": "公式サイトの更新監視（watch_sites.py）。ページ内に新しく現れたリンク＝新着のお知らせとして AI 採点に回す。kind: gov=官公庁, museum=博物館・美術館, temple=寺院。追加は name/kind/url を足すだけ。",
+ "_comment": "公式サイトの更新監視（watch_sites.py）。ページ内に新しく現れたリンク＝新着のお知らせとして AI 採点に回す。kind: gov=官公庁, museum=博物館・美術館, temple=寺院。追加は name/kind/url を足すだけ。 group: local は自治体・地方の博物館など（1日2回まで・見出しの語で先に絞る。watch_sites.py の LOCAL_*）。",
  "sites": [
   {
    "name": "文化庁 報道発表",
@@ -255,6 +255,606 @@
    "name": "南禅寺",
    "kind": "temple",
    "url": "https://www.nanzenji.or.jp/"
+  },
+  {
+   "name": "小浜市 お知らせ",
+   "kind": "gov",
+   "url": "https://www1.city.obama.fukui.jp/news/index.html",
+   "group": "local"
+  },
+  {
+   "name": "高浜町 お知らせ",
+   "kind": "gov",
+   "url": "http://www.town.takahama.fukui.jp/",
+   "group": "local"
+  },
+  {
+   "name": "おおい町 お知らせ",
+   "kind": "gov",
+   "url": "https://www.town.ohi.fukui.jp/news.html",
+   "group": "local"
+  },
+  {
+   "name": "長浜市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.nagahama.lg.jp/news/0001.html",
+   "group": "local"
+  },
+  {
+   "name": "京田辺市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kyotanabe.lg.jp/news/0001.html",
+   "group": "local"
+  },
+  {
+   "name": "木津川市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kizugawa.lg.jp/news/0001.html",
+   "group": "local"
+  },
+  {
+   "name": "米原市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.maibara.lg.jp/",
+   "group": "local"
+  },
+  {
+   "name": "甲賀市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.koka.lg.jp/dd.aspx?moduleid=24918&_PickUp_para=15",
+   "group": "local"
+  },
+  {
+   "name": "大津市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.otsu.lg.jp/news.html",
+   "group": "local"
+  },
+  {
+   "name": "奈良市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.nara.lg.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "宇治市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.uji.kyoto.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "大津市歴史博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://www.rekihaku.otsu.shiga.jp/news/index.html",
+   "group": "local"
+  },
+  {
+   "name": "秩父市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.chichibu.lg.jp/dd.aspx?moduleid=1070&_PickUp_para=14",
+   "group": "local"
+  },
+  {
+   "name": "川越市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kawagoe.saitama.jp/newslist.html",
+   "group": "local"
+  },
+  {
+   "name": "香取市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.katori.lg.jp/allNewsList.html",
+   "group": "local"
+  },
+  {
+   "name": "南房総市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.minamiboso.chiba.jp/news/0001.html",
+   "group": "local"
+  },
+  {
+   "name": "桜川市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.sakuragawa.lg.jp/news.php?type=0",
+   "group": "local"
+  },
+  {
+   "name": "笠間市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kasama.lg.jp/news.php?type=0",
+   "group": "local"
+  },
+  {
+   "name": "常陸太田市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.hitachiota.ibaraki.jp/news.php?type=0",
+   "group": "local"
+  },
+  {
+   "name": "茨城県立歴史館 お知らせ",
+   "kind": "museum",
+   "url": "https://rekishikan-ibk.jp/topics/",
+   "group": "local"
+  },
+  {
+   "name": "足利市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.ashikaga.tochigi.jp/viewer/list-notice.html?id=1",
+   "group": "local"
+  },
+  {
+   "name": "栃木市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.tochigi.lg.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "栃木県立博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://www.muse.pref.tochigi.lg.jp/news/",
+   "group": "local"
+  },
+  {
+   "name": "群馬県立歴史博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://grekisi.pref.gunma.jp/news/info/",
+   "group": "local"
+  },
+  {
+   "name": "高崎市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.takasaki.gunma.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "東松山市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.higashimatsuyama.lg.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "寄居町 お知らせ",
+   "kind": "gov",
+   "url": "https://www.town.yorii.saitama.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "熊谷市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kumagaya.lg.jp/allNewsList.html",
+   "group": "local"
+  },
+  {
+   "name": "山武市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.sammu.lg.jp/",
+   "group": "local"
+  },
+  {
+   "name": "館山市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.tateyama.chiba.jp/news.html",
+   "group": "local"
+  },
+  {
+   "name": "国立歴史民俗博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://www.rekihaku.ac.jp/news/?category=all",
+   "group": "local"
+  },
+  {
+   "name": "石岡市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.ishioka.lg.jp/news.php?type=0",
+   "group": "local"
+  },
+  {
+   "name": "常陸大宮市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.hitachiomiya.lg.jp/news.php?mode=news&type=0",
+   "group": "local"
+  },
+  {
+   "name": "太田市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.ota.gunma.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "渋川市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.shibukawa.lg.jp/viewer/list-notice.html?id=1",
+   "group": "local"
+  },
+  {
+   "name": "富岡市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.tomioka.lg.jp/www/news.html",
+   "group": "local"
+  },
+  {
+   "name": "小田原市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.odawara.kanagawa.jp/topix/",
+   "group": "local"
+  },
+  {
+   "name": "会津若松市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.aizuwakamatsu.fukushima.jp/new-info-list-shimin/",
+   "group": "local"
+  },
+  {
+   "name": "湯川村 お知らせ",
+   "kind": "gov",
+   "url": "https://www.vill.yugawa.fukushima.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "喜多方市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kitakata.fukushima.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "柳津町 お知らせ",
+   "kind": "gov",
+   "url": "https://www.town.yanaizu.fukushima.jp/docs/",
+   "group": "local"
+  },
+  {
+   "name": "会津坂下町 お知らせ",
+   "kind": "gov",
+   "url": "https://www.town.aizubange.fukushima.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "福島県立博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://general-museum.fcs.ed.jp/",
+   "group": "local"
+  },
+  {
+   "name": "白河市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.shirakawa.fukushima.jp/news.php?type=1",
+   "group": "local"
+  },
+  {
+   "name": "鶴岡市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.tsuruoka.lg.jp/allNewsList.html",
+   "group": "local"
+  },
+  {
+   "name": "寒河江市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.sagae.yamagata.jp/allNewsList.html",
+   "group": "local"
+  },
+  {
+   "name": "山形県立博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://www.yamagata-museum.jp/news",
+   "group": "local"
+  },
+  {
+   "name": "東北歴史博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://www.thm.pref.miyagi.jp/information/",
+   "group": "local"
+  },
+  {
+   "name": "一関市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.ichinoseki.iwate.jp/latest",
+   "group": "local"
+  },
+  {
+   "name": "越前市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.echizen.lg.jp/oshirase/news.html",
+   "group": "local"
+  },
+  {
+   "name": "敦賀市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.tsuruga.lg.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "鯖江市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.sabae.fukui.jp/allNewsList.html",
+   "group": "local"
+  },
+  {
+   "name": "福井市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.fukui.lg.jp/news.html",
+   "group": "local"
+  },
+  {
+   "name": "福井県立若狭歴史博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://wakahaku.pref.fukui.lg.jp/news",
+   "group": "local"
+  },
+  {
+   "name": "七尾市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.nanao.lg.jp/oshirase/index.html",
+   "group": "local"
+  },
+  {
+   "name": "岡崎市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.okazaki.lg.jp/newslist.html",
+   "group": "local"
+  },
+  {
+   "name": "蒲郡市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.gamagori.lg.jp/unit/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "高山市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.takayama.lg.jp/arrival.html",
+   "group": "local"
+  },
+  {
+   "name": "揖斐川町 お知らせ",
+   "kind": "gov",
+   "url": "https://www.town.ibigawa.lg.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "磐田市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.iwata.shizuoka.jp/newslist.html",
+   "group": "local"
+  },
+  {
+   "name": "掛川市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kakegawa.shizuoka.jp/rss-list/",
+   "group": "local"
+  },
+  {
+   "name": "伊賀市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.iga.lg.jp/news/0001.html",
+   "group": "local"
+  },
+  {
+   "name": "松阪市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.matsusaka.mie.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "長浜米原観光協会 イベント",
+   "kind": "gov",
+   "url": "https://kitabiwako.jp/event",
+   "group": "local"
+  },
+  {
+   "name": "奈良市観光協会 イベント",
+   "kind": "gov",
+   "url": "https://narashikanko.or.jp/event/index.html",
+   "group": "local"
+  },
+  {
+   "name": "秩父観光協会 イベント",
+   "kind": "gov",
+   "url": "https://www.chichibuji.gr.jp/event-list",
+   "group": "local"
+  },
+  {
+   "name": "紀の川市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kinokawa.lg.jp/whatsnew.html",
+   "group": "local"
+  },
+  {
+   "name": "河内長野市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kawachinagano.lg.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "加西市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kasai.hyogo.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "勝山市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.katsuyama.fukui.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "明日香村 お知らせ",
+   "kind": "gov",
+   "url": "https://www.asukamura.jp/",
+   "group": "local"
+  },
+  {
+   "name": "福島県観光物産交流協会（ふくしま観光情報） イベント",
+   "kind": "gov",
+   "url": "https://www.tif.ne.jp/jp/entry/?type=event",
+   "group": "local"
+  },
+  {
+   "name": "和歌山県観光連盟 イベント",
+   "kind": "gov",
+   "url": "https://www.wakayama-kanko.or.jp/events/index.html",
+   "group": "local"
+  },
+  {
+   "name": "岩手県観光協会（いわて旅ネット） イベント",
+   "kind": "gov",
+   "url": "https://iwatetabi.jp/events/",
+   "group": "local"
+  },
+  {
+   "name": "長野県立歴史館 お知らせ",
+   "kind": "museum",
+   "url": "https://www.npmh.net/news/",
+   "group": "local"
+  },
+  {
+   "name": "新潟県立歴史博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://nbz.or.jp/?cat=3",
+   "group": "local"
+  },
+  {
+   "name": "大阪府立近つ飛鳥博物館 お知らせ",
+   "kind": "museum",
+   "url": "https://chikatsu-asuka.jp/news/",
+   "group": "local"
+  },
+  {
+   "name": "長野市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.nagano.nagano.jp/mynews/index.html",
+   "group": "local"
+  },
+  {
+   "name": "松本市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.matsumoto.nagano.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "上田市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.ueda.nagano.jp/soshiki/list8-1.html",
+   "group": "local"
+  },
+  {
+   "name": "甲州市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.koshu.yamanashi.jp/category/kubun/news/",
+   "group": "local"
+  },
+  {
+   "name": "仙台市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.sendai.jp/shinchaku/index.html",
+   "group": "local"
+  },
+  {
+   "name": "いわき市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.iwaki.lg.jp/www/news.html",
+   "group": "local"
+  },
+  {
+   "name": "伊豆の国市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.izunokuni.shizuoka.jp/shinchaku/index.html",
+   "group": "local"
+  },
+  {
+   "name": "西尾市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.nishio.aichi.jp/newslist.html",
+   "group": "local"
+  },
+  {
+   "name": "亀山市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kameyama.mie.jp/categories/toplist/news/more.html",
+   "group": "local"
+  },
+  {
+   "name": "大垣市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.ogaki.lg.jp/news/0001.html",
+   "group": "local"
+  },
+  {
+   "name": "美浜町 お知らせ",
+   "kind": "gov",
+   "url": "https://www.town.fukui-mihama.lg.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "笠置町 お知らせ",
+   "kind": "gov",
+   "url": "https://www.town.kasagi.lg.jp/new_list.php",
+   "group": "local"
+  },
+  {
+   "name": "青梅市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.ome.tokyo.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "成田市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.narita.chiba.jp/news.html",
+   "group": "local"
+  },
+  {
+   "name": "土浦市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.tsuchiura.lg.jp/news.php?type=5",
+   "group": "local"
+  },
+  {
+   "name": "鎌倉市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kamakura.kanagawa.jp/oshirase/index.html",
+   "group": "local"
+  },
+  {
+   "name": "綾部市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.ayabe.lg.jp/news/0001.html",
+   "group": "local"
+  },
+  {
+   "name": "高野町 お知らせ",
+   "kind": "gov",
+   "url": "https://www.town.koya.wakayama.jp/update.html",
+   "group": "local"
+  },
+  {
+   "name": "平塚市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.hiratsuka.kanagawa.jp/news_all.html",
+   "group": "local"
+  },
+  {
+   "name": "鹿沼市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.kanuma.tochigi.jp/viewer/list-notice-radio.html?id=1",
+   "group": "local"
+  },
+  {
+   "name": "安中市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.annaka.lg.jp/soshiki/list1-1.html",
+   "group": "local"
+  },
+  {
+   "name": "結城市 お知らせ",
+   "kind": "gov",
+   "url": "https://www.city.yuki.lg.jp/news.php?type=0",
+   "group": "local"
+  },
+  {
+   "name": "南山城村 お知らせ",
+   "kind": "gov",
+   "url": "https://www.vill.minamiyamashiro.lg.jp/news/0001.html",
+   "group": "local"
   }
  ]
 }
