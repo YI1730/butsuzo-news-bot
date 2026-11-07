@@ -1,6 +1,35 @@
 {
-  "last_updated": "2026-11-07T18:34:44.923255+09:00",
+  "last_updated": "2026-11-07T18:43:01.303932+09:00",
   "items": [
+    {
+      "id": "faf30f8b78aa",
+      "title": "米アトランタでパンダ公開 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1778826/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-07T18:43:00.114824+09:00",
+      "published_at": "2026-11-07T16:44:09+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "米南部ジョージア州のアトランタ動物園で６日、中国が貸与したジャイアントパンダ２頭の一般公開が始まった。竹を食べたりくつろいだりする姿を見せ、来場者をなごませた。写真は雄の「平平（ピンピン）」 【AFP時事】",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "パンダ公開の話題で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-07T18:47:41+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "2cef7e1212d0",
       "title": "井波彫刻の原点 技術の粋が詰まった瑞泉寺 南砺市で国の重要文化財指定を祝うセレモニー（富山テレビ） - Yahoo!ニュース",
@@ -12668,34 +12697,6 @@
         "category": "寺院の行事",
         "duplicate": false,
         "reason": "興福寺での合唱奉納の事後報告。仏像に触れず、終了済み",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-05T15:43:29+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "4e02d3396755",
-      "title": "Hitoshi Naitou (@hina21no3) on X - Howl.Link",
-      "url": "https://t.co/xULeIPQSTI",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-05T15:39:48.746248+09:00",
-      "published_at": "2026-11-05T06:33:16+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "SNSプロフィールページでノイズ",
         "event": {
           "event_name": "",
           "place": "",
