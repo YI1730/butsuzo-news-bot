@@ -2342,7 +2342,7 @@
    "source_url": "https://higashiaichi.jp/news/detail.php?id=28187",
    "source_title": "【豊川】御開帳を開催中の豊川稲荷で砥鹿神社の宮司参拝と神楽奉納 寺と神社が協力して盛り上げる - 東愛知新聞",
    "source_score": 40,
-   "first_seen": "2026-11-07T14:14:13+09:00",
+   "first_seen": "2026-11-07T14:28:49+09:00",
    "reminded": []
   },
   {
@@ -2373,7 +2373,9 @@
    "first_seen": "2026-10-25T10:39:02+09:00",
    "reminded": [],
    "origin": "kanbutsu",
-   "remind": false
+   "remind": false,
+   "exhibit_score": 68,
+   "exhibit_reason": "密教美術の特別展。開幕20日先だが仏像が含まれる見込み。像の詳細は不明"
   },
   {
    "id": "bab636de1f0b",
@@ -2518,7 +2520,7 @@
    "source_url": "https://artexhibition.jp/topics/news/20261106-AEJ3035776/",
    "source_title": "【動画】特別展「大徳寺」（東京国立博物館）の「大徳寺の障壁画」コーナーは必見の展示空間 会期は12月6日まで - 美術展ナビ",
    "source_score": 50,
-   "first_seen": "2026-11-07T14:14:13+09:00",
+   "first_seen": "2026-11-07T14:28:49+09:00",
    "reminded": []
   },
   {
@@ -2532,7 +2534,7 @@
    "source_url": "https://news.yahoo.co.jp/articles/9ddd19023da5e66dcf6817082def1078b700f973",
    "source_title": "紅葉と光楽しんで 4寺巡る「大和観音もみじ回廊」 12月6日まで (奈良新聞デジタル) - Yahoo!ニュース",
    "source_score": 50,
-   "first_seen": "2026-11-07T14:14:13+09:00",
+   "first_seen": "2026-11-07T14:28:49+09:00",
    "reminded": []
   },
   {
@@ -2549,7 +2551,9 @@
    "first_seen": "2026-10-25T10:39:24+09:00",
    "reminded": [],
    "origin": "museum",
-   "remind": false
+   "remind": false,
+   "exhibit_score": 66,
+   "exhibit_reason": "おん祭の信仰と美術。仏像が主役か不明、奈良博だが先の予定"
   },
   {
    "id": "e94551e1b2e8",
@@ -2577,9 +2581,13 @@
    "source_title": "長岡京市まちなかミュージアムれきしる長岡京 開館記念特別展「仏に籠める。－像内納入文書之世界－」前期12/19～1/17・後期1/23～3/22",
    "source_score": 0,
    "first_seen": "2026-11-05T10:32:27+09:00",
-   "reminded": [],
+   "reminded": [
+    "found"
+   ],
    "origin": "kanbutsu",
-   "remind": false
+   "remind": false,
+   "exhibit_score": 78,
+   "exhibit_reason": "像内納入文書で仏像が主役の開館記念展。地域の仏像で関心高い"
   },
   {
    "id": "78b9771a0dd2",
@@ -2622,9 +2630,13 @@
    "source_title": "根津美術館（東京都港区） 根津美術館の仏像コレクション（企画展）",
    "source_score": 0,
    "first_seen": "2026-10-25T10:39:54+09:00",
-   "reminded": [],
+   "reminded": [
+    "found"
+   ],
    "origin": "museum",
-   "remind": false
+   "remind": false,
+   "exhibit_score": 76,
+   "exhibit_reason": "仏像コレクションが主役の企画展。開幕は先だが減点なし"
   },
   {
    "id": "b6caf733e08a",
@@ -2725,8 +2737,10 @@
    "first_seen": "2026-11-07T13:40:45+09:00",
    "reminded": [],
    "origin": "exhibition",
-   "remind": false
+   "remind": false,
+   "exhibit_score": 30,
+   "exhibit_reason": "配信済みの三井寺展と同じ出来事の重複。大型特別展だが重複で減点・重複"
   }
  ],
- "last_updated": "2026-11-07T14:14:13+09:00"
+ "last_updated": "2026-11-07T14:28:49+09:00"
 }
