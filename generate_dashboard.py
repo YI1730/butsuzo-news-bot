@@ -190,7 +190,7 @@ def build_card_html(item: dict, show_copy_btn: bool = False) -> str:
     ai_html = ""
     if "score" in ai:
         score = ai["score"]
-        if score >= CANDIDATE_THRESHOLD and not ai.get("duplicate"):
+        if score >= CANDIDATE_THRESHOLD and not ai.get("duplicate") and source not in _EXHIBITION_SOURCES_MERGED:
             badge_cls = "bg-amber-100 text-amber-800 border-amber-300"
             label = f"⭐ {score}点"
         else:

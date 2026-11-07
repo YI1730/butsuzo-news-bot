@@ -7,7 +7,8 @@ A. 観仏三昧の展覧会情報（news.json の source "kanbutsu"。会場・�
 B. config/exhibition_sources.json の主な博物館・美術館の展覧会ページを見に行き、軽いモデルで
    「仏像が出る展覧会」の名前・会期・公式ページを抜き出す。ページの内容が前回と同じなら AI は呼ばない
 
-追加した項目は "remind": false（「あすから公開」のリマインド配信候補は作らない）。
+追加した項目は "remind": false（展覧会の扱い）。御開帳のリマインドは作らず、開幕の 2〜3 週間前に
+ニュースと同じ基準で採点して、70 点以上なら開幕前の 2 回だけ配信候補にする（kaicho_calendar.py）。
 すでにニュース由来の同じ展覧会（同じ会場・同じ開始日、または終了日）があれば、新しい項目は作らず
 足りない開始日・終了日だけを補う。
 """
@@ -175,6 +176,8 @@ def merge_similar(cal: dict) -> int:
             continue
         kc.merge_into(hit, e.get("start", ""), e.get("end", ""))
         hit["reminded"] = sorted(set(hit.get("reminded", [])) | set(e.get("reminded", [])))
+        if e.get("news_candidate"):
+            hit["news_candidate"] = True
         merged += 1
     cal["events"] = out
     return merged

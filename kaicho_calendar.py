@@ -8,6 +8,10 @@ news_hourly.yml から curate_news.py の後に毎時実行される。
    - 公開の前日: 【あすから公開】 / 当日（前日に出せなかった場合）: 【きょうから公開】
    - 終了の3日前〜前日（4日以上の公開のみ）: 【公開はあと◯日】
    リマインドは news.json に source "reminder" として追加され、⭐配信候補欄と通知に出る
+3. 展覧会（"remind": false の項目。exhibition_calendar.py と特別展の取得 scrape_exhibition.py 由来）は、
+   開催前の 2 回だけ配信候補にする: 開幕の 2〜3 週間前【まもなく開幕】と前日【あすから開幕】。
+   開幕 3 週間前に入ったところでニュースと同じ基準（curate_news.SCORE_SYSTEM）で採点し、
+   70 点以上のときだけ出す。同じ展覧会のニュース記事がすでに配信候補になっていれば【まもなく開幕】は出さない
 """
 
 from __future__ import annotations
@@ -27,7 +31,8 @@ BASE_DIR = Path(__file__).parent
 CALENDAR_FILE = BASE_DIR / "data" / "kaicho_calendar.json"
 SOURCE = "reminder"
 
-EVENT_SOURCES = {"google_news", "official_site"}
+EVENT_SOURCES = {"google_news", "official_site", "exhibition"}
+NEWS_SOURCES = {"google_news", "official_site"}
 EVENT_CATEGORIES = {"秘仏・御開帳・特別公開", "展覧会", "寺院の行事", "発見・研究・新指定", "修理・保存"}
 MIN_RELEVANCE = 30         # これ未満（無関係・ノイズ）の記事の期間は使わない
 REMIND_FROM_HOUR = 7       # この時刻（JST）以降の実行でリマインドを出す
@@ -35,6 +40,8 @@ ENDING_DAYS = 3            # 終了の何日前からリマインドするか
 MIN_DAYS_FOR_ENDING = 4    # 公開期間がこれより短い出来事には「あと◯日」を出さない
 KEEP_DAYS_AFTER_END = 30   # 終了後もこの日数はカレンダーに残す
 REMINDER_SCORE = 90        # リマインドは配信候補として扱う
+EXHIBIT_PREVIEW_DAYS = (2, 21)   # 展覧会の【まもなく開幕】を出す、開幕までの日数の範囲
+EXHIBIT_HEADERS = {"preview": "【まもなく開幕】", "start": "【あすから開幕】"}
 
 
 def parse_date(s: str) -> date | None:
@@ -88,6 +95,8 @@ def dedupe_events(cal: dict) -> int:
         if keep is not None:
             merge_into(keep, e.get("start", ""), e.get("end", ""))
             keep["reminded"] = sorted(set(keep.get("reminded", [])) | set(e.get("reminded", [])))
+            if e.get("news_candidate"):
+                keep["news_candidate"] = True
             if e.get("remind") is not False:
                 keep.pop("remind", None)  # ニュース由来の項目と同じなら、リマインドの対象にする
             merged += 1
@@ -105,6 +114,8 @@ def collect_events(cal: dict, items: list[dict], posted_ids: set[str] | None = N
         ai = it.get("ai") or {}
         ev = ai.get("event") or {}
         posted = it.get("id") in (posted_ids or set())  # @butsuzolink が投稿した記事は、点数が低くても入れる
+        news_candidate = (it.get("source") in NEWS_SOURCES and not ai.get("duplicate")
+                          and (ai.get("score", 0) >= CANDIDATE_THRESHOLD or posted))
         if ai.get("stale"):
             continue  # 古い記事の再配信は、公開期間の年が違う（curate_news.check_stale）
         if it.get("source") not in EVENT_SOURCES or (ai.get("category") not in EVENT_CATEGORIES and not posted):
@@ -122,6 +133,8 @@ def collect_events(cal: dict, items: list[dict], posted_ids: set[str] | None = N
         if key in by_key:
             e = by_key[key]
             merge_into(e, s_iso, e_iso)
+            if news_candidate:
+                e["news_candidate"] = True  # 展覧会の【まもなく開幕】は出さない（ニュースとして流れるため）
             # より点数の高い記事を情報源にする（投稿のリンク先・本文の材料になる）
             if ai.get("score", 0) > e.get("source_score", 0):
                 e.update(source_url=it["url"], source_title=it["title"], source_score=ai["score"])
@@ -140,6 +153,10 @@ def collect_events(cal: dict, items: list[dict], posted_ids: set[str] | None = N
             "first_seen": datetime.now(JST).isoformat(timespec="seconds"),
             "reminded": [],
         }
+        if it.get("source") not in NEWS_SOURCES:
+            e.update(origin=it["source"], remind=False)  # 特別展の取得由来は展覧会の扱い
+        elif news_candidate:
+            e["news_candidate"] = True
         cal["events"].append(e)
         by_key[key] = e
         added += 1
@@ -150,10 +167,19 @@ def due_reminders(cal: dict, today: date) -> list[tuple[dict, str, str]]:
     """今日出すべきリマインド (出来事, 種類, 見出し) の一覧。"""
     out = []
     for e in cal["events"]:
-        if e.get("remind") is False:
-            continue  # exhibition_calendar.py が加えた展覧会は、リマインドの配信候補を作らない
         start, end = parse_date(e.get("start", "")), parse_date(e.get("end", ""))
         done = set(e.get("reminded", []))
+        if e.get("remind") is False:
+            # 展覧会: 開催前の 2 回だけ、開幕前の採点が 70 点以上のとき
+            if not start or start <= today or e.get("exhibit_score", 0) < CANDIDATE_THRESHOLD:
+                continue
+            days = (start - today).days
+            if days == 1 and "start" not in done:
+                out.append((e, "start", EXHIBIT_HEADERS["start"]))
+            elif (EXHIBIT_PREVIEW_DAYS[0] <= days <= EXHIBIT_PREVIEW_DAYS[1] and not done
+                  and not e.get("news_candidate")):
+                out.append((e, "preview", EXHIBIT_HEADERS["preview"]))
+            continue
         if start and "start" not in done:
             if start == today + timedelta(days=1):
                 out.append((e, "start", "【あすから公開】"))
@@ -169,9 +195,56 @@ def due_reminders(cal: dict, today: date) -> list[tuple[dict, str, str]]:
     return out
 
 
+def exhibits_to_score(cal: dict, today: date) -> list[dict]:
+    """開幕 3 週間前に入った、まだ採点していない展覧会。"""
+    out = []
+    for e in cal["events"]:
+        start = parse_date(e.get("start", ""))
+        if e.get("remind") is False and "exhibit_score" not in e and start \
+                and 1 <= (start - today).days <= EXHIBIT_PREVIEW_DAYS[1]:
+            out.append(e)
+    return out
+
+
+def score_exhibits(client, usage, events: list[dict], data: dict, today: date) -> None:
+    """展覧会を、ニュースと同じ基準で採点する（会期の情報を 1 件の記事として渡す）。"""
+    from curate_news import score_items
+
+    now = datetime.now(JST)
+    week_ago = (now - timedelta(days=7)).isoformat()
+    # 重複判定の材料: 直近の配信候補のニュースと、展覧会の配信候補
+    known = [it for it in data["items"] if it.get("fetched_at", "") >= week_ago
+             and (it.get("ai") or {}).get("score", 0) >= CANDIDATE_THRESHOLD and not it["ai"].get("duplicate")
+             and (it.get("source") in NEWS_SOURCES
+                  or (it.get("source") == SOURCE and it["ai"].get("post_header") in EXHIBIT_HEADERS.values()))]
+    items = []
+    for e in events:
+        days = (parse_date(e["start"]) - today).days
+        items.append({
+            "id": e["id"],
+            "title": f"{e.get('event_name', '')}（{e.get('place', '')}、{e.get('start')}〜{e.get('end') or '?'}）",
+            "description": f"展覧会の会期情報（開幕まであと{days}日）。情報源: {e.get('source_title', '')}",
+            "url": e.get("source_url", ""),
+            "published_at": now.isoformat(timespec="seconds"),
+        })
+    score_items(client, usage, items, known)
+    for e, it in zip(events, items):
+        ai = it.get("ai")
+        if not ai:
+            continue  # 採点に失敗したものは次の実行でやり直す
+        e["exhibit_score"] = ai["score"] if not ai["duplicate"] else min(ai["score"], CANDIDATE_THRESHOLD - 1)
+        e["exhibit_reason"] = ai["reason"] + ("・重複" if ai["duplicate"] else "")
+        print(f"🏛 展覧会の採点 {e['exhibit_score']}点 {e.get('event_name')}（{e.get('place')}）{ai['reason']}")
+
+
 def reminder_extra(e: dict, kind: str, today: date) -> str:
     period = f"{e.get('start') or '?'}〜{e.get('end') or '?'}"
-    when = {"start": "公開がまもなく始まる", "ending": "公開がまもなく終わる"}[kind]
+    start = parse_date(e.get("start", ""))
+    left = (start - today).days if start else 0
+    when = {"start": "公開がまもなく始まる", "ending": "公開がまもなく終わる",
+            "preview": f"展覧会の開幕まであと{left}日になった"}[kind]
+    if e.get("remind") is False and kind == "start":
+        when = "展覧会があす開幕する"
     return (
         f"これは記事の紹介ではなく、{when}ことを知らせるリマインドの投稿です（今日は {today:%Y-%m-%d}）。\n"
         f"出来事: {e.get('event_name', '')} / 場所: {e.get('place', '')} / 公開期間: {period}\n"
@@ -208,14 +281,23 @@ def main() -> int:
     ]
     cal["events"].sort(key=lambda e: e.get("start") or e.get("end") or "")
 
-    reminders = due_reminders(cal, today) if now.hour >= REMIND_FROM_HOUR else []
-    made = 0
-    if reminders and os.environ.get("ANTHROPIC_API_KEY"):
+    has_key = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    client = usage = None
+    if has_key:
         import anthropic
 
-        from curate_news import POST_FORMAT, Usage, notify, write_post
+        from curate_news import Usage
 
         client, usage = anthropic.Anthropic(), Usage()
+    to_score = exhibits_to_score(cal, today)
+    if to_score and client:
+        score_exhibits(client, usage, to_score, data, today)
+
+    reminders = due_reminders(cal, today) if now.hour >= REMIND_FROM_HOUR else []
+    made = 0
+    if reminders and client:
+        from curate_news import POST_FORMAT, notify, write_post
+
         topic = os.environ.get("NTFY_TOPIC", "").strip()
         existing = {it["id"] for it in data["items"]}
         for e, kind, header in reminders:
@@ -239,10 +321,11 @@ def main() -> int:
                 "image_url": next((it.get("image_url", "") for it in data["items"]
                                    if it.get("url") == e["source_url"]), ""),
                 "ai": {
-                    "score": REMINDER_SCORE,
+                    "score": e.get("exhibit_score", REMINDER_SCORE) if e.get("remind") is False else REMINDER_SCORE,
                     "category": e.get("category", ""),
                     "duplicate": False,
-                    "reason": f"{header.strip('【】')}（御開帳カレンダー）",
+                    "reason": f"{header.strip('【】')}（御開帳カレンダー）"
+                              + (f"・{e.get('exhibit_reason', '')}" if e.get("remind") is False else ""),
                     "post_text": text,
                     "post_header": header,
                     "post_format": POST_FORMAT,
@@ -254,10 +337,11 @@ def main() -> int:
             if topic:
                 notify(topic, rem)
                 rem["ai"]["notified"] = True
-        print(f"リマインド費用 約${usage.cost():.4f}")
     elif reminders:
         print("::warning::ANTHROPIC_API_KEY が無いためリマインドを作れません", file=sys.stderr)
 
+    if usage:
+        print(f"リマインド・展覧会の採点の費用 約${usage.cost():.4f}")
     save_news_data(data)
     cal["last_updated"] = now.isoformat(timespec="seconds")
     CALENDAR_FILE.write_text(json.dumps(cal, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

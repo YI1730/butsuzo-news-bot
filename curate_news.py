@@ -60,7 +60,11 @@ NEW_DESIGNATION_FLOOR = 85       # 仏像の新指定の下限点（配信から
 NEW_DESIGNATION_FLOOR_HOURS = 48
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
-TARGET_SOURCES = {"google_news", "official_site", "kaicho_info"}  # official_site は watch_sites.py
+TARGET_SOURCES = {"google_news", "official_site", "kaicho_info", "exhibition"}  # official_site は watch_sites.py
+# 特別展の取得（scrape_exhibition.py）は、採点して会期を御開帳カレンダーに入れるだけ。投稿文は作らず、
+# 開幕の 2〜3 週間前と前日に kaicho_calendar.py が配信候補を作る（同じ展覧会を何度も流さないため）
+CALENDAR_ONLY_SOURCES = {"exhibition"}
+CALENDAR_ONLY_WINDOW_DAYS = 30  # 特別展は更新が少ないので、取り込みから 30 日まで採点する
 
 CATEGORIES = [
     "秘仏・御開帳・特別公開", "展覧会", "発見・研究・新指定", "修理・保存",
@@ -644,8 +648,9 @@ def main() -> int:
     window = now - timedelta(hours=SCORE_WINDOW_HOURS)
 
     def recent(it: dict) -> bool:
+        w = now - timedelta(days=CALENDAR_ONLY_WINDOW_DAYS) if it.get("source") in CALENDAR_ONLY_SOURCES else window
         try:
-            return datetime.fromisoformat(it.get("fetched_at", "")) >= window
+            return datetime.fromisoformat(it.get("fetched_at", "")) >= w
         except ValueError:
             return False
 
@@ -661,8 +666,13 @@ def main() -> int:
     scoring_ids = {it["id"] for it in unscored}
     recent_candidates = [
         it for it in news
-        if it["id"] not in scoring_ids
+        if it["id"] not in scoring_ids and it.get("source") not in CALENDAR_ONLY_SOURCES
         and it.get("ai", {}).get("score", 0) >= CANDIDATE_THRESHOLD and not it["ai"].get("duplicate")
+    ] + [
+        # 配信候補にした展覧会（kaicho_calendar.py）。同じ展覧会のニュースを重複として扱う
+        it for it in data["items"]
+        if it.get("source") == "reminder" and recent(it)
+        and it.get("ai", {}).get("post_header") in ("【まもなく開幕】", "【あすから開幕】")
     ]
     print(f"採点対象: {len(unscored)}件（直近{SCORE_WINDOW_HOURS}時間のニュース {len(news)}件中）")
 
@@ -675,7 +685,7 @@ def main() -> int:
     candidates = [
         it for it in news
         if it.get("ai", {}).get("score", 0) >= CANDIDATE_THRESHOLD
-        and not it["ai"].get("duplicate")
+        and not it["ai"].get("duplicate") and it.get("source") not in CALENDAR_ONLY_SOURCES
         # 投稿文が無いもの、または古い文体（POST_FORMAT 未満）のものを作り直す
         and (it["ai"].get("post_format", 0) < POST_FORMAT
              # 以前に作成に失敗して空のままのものも、最大 MAX_POST_ATTEMPTS 回までやり直す
