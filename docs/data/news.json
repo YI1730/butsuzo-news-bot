@@ -1,6 +1,64 @@
 {
-  "last_updated": "2026-11-08T00:01:09.774335+09:00",
+  "last_updated": "2026-11-08T00:11:44.199595+09:00",
   "items": [
+    {
+      "id": "bb2bb6b5a740",
+      "title": "大阪府立近つ飛鳥博物館 お知らせ｜2026.11.7 特別展 11月14日(土)展示解説～秋季特別展の見どころを解説～",
+      "url": "https://chikatsu-asuka.jp/news/8162/",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-08T00:11:44+09:00",
+      "published_at": "2026-11-08T00:11:44+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 25,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "展示解説イベントの告知。仏像かどうか不明で展覧会本体の情報でもないため低め",
+        "event": {
+          "event_name": "",
+          "place": "大阪府立近つ飛鳥博物館（大阪府河南町）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-08T00:15:25+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "ad97fe0a6b66",
+      "title": "大阪府立近つ飛鳥博物館 お知らせ｜2026.11.7 特別展 11月23日(月･祝)展示解説～秋季特別展の見どころを解説～",
+      "url": "https://chikatsu-asuka.jp/news/8163/",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-08T00:11:44+09:00",
+      "published_at": "2026-11-08T00:11:44+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 20,
+        "category": "その他の仏像関連",
+        "duplicate": true,
+        "reason": "同博物館の展示解説告知で重複。仏像との関係が不明で低評価",
+        "event": {
+          "event_name": "",
+          "place": "大阪府立近つ飛鳥博物館（大阪府河南町）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-08T00:15:25+09:00",
+        "score_version": 7
+      }
+    },
     {
       "title": "神奈川県立金沢文庫",
       "url": "https://www.pen-kanagawa.ed.jp/kanazawabunko/index.html",
