@@ -1,6 +1,35 @@
 {
-  "last_updated": "2026-11-08T00:11:44.199595+09:00",
+  "last_updated": "2026-11-08T01:11:43.136862+09:00",
   "items": [
+    {
+      "id": "63fec11e373a",
+      "title": "『明日はご開帳☆』 - Howl.Link",
+      "url": "https://t.co/8M1pzsY1e0",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-08T01:11:43.133845+09:00",
+      "published_at": "2026-11-07T19:57:41+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 35,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "「明日はご開帳」だが寺院・仏像が不明。詳細不足で評価しづらい。配信5時間",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-08T01:14:05+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "bb2bb6b5a740",
       "title": "大阪府立近つ飛鳥博物館 お知らせ｜2026.11.7 特別展 11月14日(土)展示解説～秋季特別展の見どころを解説～",
@@ -12779,40 +12808,6 @@
         "score_version": 7,
         "page_checked": true,
         "page_date": "2026-11-03"
-      }
-    },
-    {
-      "id": "7a6a80731080",
-      "title": "百済寺の秘仏、この機会にどうぞ　甲賀市「MIHO MUSEUM」で秋季特別展 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/chuplus/region/chuplus-1334715",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-05T15:40:24.854578+09:00",
-      "published_at": "2026-11-04T05:05:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/chuplus/m_chuplus-1334715.jpg",
-      "description": "「湖東三山」の一つで紅葉の名所として知られ、聖徳太子創建とされる百済寺（東近江市）の所蔵品などを紹…",
-      "ai": {
-        "score": 78,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": false,
-        "reason": "百済寺の秘仏を含む特別展。開催中の告知で34時間経過も減点なし",
-        "event": {
-          "event_name": "百済寺 秋季特別展",
-          "place": "MIHO MUSEUM（滋賀県甲賀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-05T15:43:18+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-11-04",
-        "post_text": "普段は見られない百済寺の本尊・十一面観音立像（国重文、像高約2.5m）が、寺の外で初めて公開されている。本堂の保存修理がきっかけで、場所は甲賀市のMIHO MUSEUM。12月6日まで。",
-        "post_attempts": 1,
-        "post_format": 6,
-        "notified": true
       }
     },
     {
