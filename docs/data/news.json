@@ -1,6 +1,64 @@
 {
-  "last_updated": "2026-11-07T10:03:14.527666+09:00",
+  "last_updated": "2026-11-07T10:11:42.151779+09:00",
   "items": [
+    {
+      "id": "07a9d0cc01c2",
+      "title": "「VIVANT」で脚光を浴びる東京・調布　「別班」も訪れた神社や深大寺、そば店を巡る　現着しました！ - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/sankein__life_trend_MOFC557AWJOK3MLOFW256XDYAI/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-07T10:11:42.147693+09:00",
+      "published_at": "2026-11-07T10:00:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/sankein/sankein__life_trend_MOFC557AWJOK3MLOFW256XDYAI_0-enlarge.jpg",
+      "description": "TBS系のテレビドラマ「VIVANT（ヴィヴァン）」が人気を博す中、東京都調布市が脚光を浴びている。劇中で登場する",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 22,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ドラマ聖地巡りで深大寺は登場するが仏像に触れず。観光中心",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-07T10:15:23+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "c7b5f4b898bb",
+      "title": "池上大坊本行寺　暮秋ランタン祈願祭 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/eventbank/region/eventbank-10653291",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-07T10:11:40.362587+09:00",
+      "published_at": "2026-11-07T10:00:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10653291.jpg",
+      "description": "池上大坊本行寺 暮秋ランタン祈願祭 東京都大田区の池上大坊本行寺で、11月26日・27日の2日間「暮秋ラン…",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "ランタン祈願祭で仏像への言及なし。開催は先で優先度低い",
+        "event": {
+          "event_name": "暮秋ランタン祈願祭",
+          "place": "池上大坊本行寺（東京都大田区）",
+          "start_date": "2026-11-26",
+          "end_date": "2026-11-27"
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-07T10:15:23+09:00",
+        "score_version": 7
+      }
+    },
     {
       "title": "福井市立歴史博物館 特別展「新収品から見えてくる福井の歴史（5月14日~7月5日）",
       "url": "https://history-museum.city.fukui.lg.jp/index.html#gsc.tab=0",
@@ -12913,64 +12971,6 @@
           "event_name": "醍醐寺 仏に見守られる夜",
           "place": "醍醐寺（京都府京都市）",
           "start_date": "2026-11-21",
-          "end_date": "2026-11-23"
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-05T02:16:08+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "058ed80b73ed",
-      "title": "薬師寺、金堂再建５０年で記念展 奈良市、秀吉の書状も公開 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/photo/detail?article_id=2012618",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-05T02:13:10.087314+09:00",
-      "published_at": "2026-11-03T16:32:32+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 62,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "薬師寺の金堂再建50年記念展。詳細不明で33時間経過",
-        "event": {
-          "event_name": "薬師寺 金堂再建50年記念展",
-          "place": "薬師寺（奈良県奈良市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-05T02:16:08+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-10-29"
-      }
-    },
-    {
-      "id": "c4a6601048c9",
-      "title": "豊川稲荷で７２年ぶり御開帳 愛知、２３日まで - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2014266",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-05T02:13:09.051699+09:00",
-      "published_at": "2026-11-03T17:00:00+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/e/6/4/d/e64d12766dabe2ed594dae4f07bfca93_1.jpg",
-      "description": "日本三大稲荷の一つとされる愛知県豊川市の豊川稲荷で１日、７２年ぶりとなる秘仏の御開帳が始まった。秘仏を直接は見られないものの、事前に申...",
-      "ai": {
-        "score": 40,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": true,
-        "reason": "豊川稲荷72年ぶり御開帳は配信済みと重複",
-        "event": {
-          "event_name": "豊川稲荷 秘仏御開帳",
-          "place": "豊川稲荷（愛知県豊川市）",
-          "start_date": "2026-11-01",
           "end_date": "2026-11-23"
         },
         "buddha_designation": false,
