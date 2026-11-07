@@ -9,9 +9,9 @@ news_hourly.yml から curate_news.py の後に毎時実行される。
    - 終了の3日前〜前日（4日以上の公開のみ）: 【公開はあと◯日】
    リマインドは news.json に source "reminder" として追加され、⭐配信候補欄と通知に出る
 3. 展覧会（"remind": false の項目。exhibition_calendar.py と特別展の取得 scrape_exhibition.py 由来）は、
-   開催前の 2 回だけ配信候補にする: 開幕の 2〜3 週間前【まもなく開幕】と前日【あすから開幕】。
-   開幕 3 週間前に入ったところでニュースと同じ基準（curate_news.SCORE_SYSTEM）で採点し、
-   70 点以上のときだけ出す。同じ展覧会のニュース記事がすでに配信候補になっていれば【まもなく開幕】は出さない
+   カレンダーに入った直後にニュースと同じ基準（curate_news.SCORE_SYSTEM。開幕が先でも減点しない）で採点し、
+   開幕前で 70 点以上なら配信候補にする（【仏像速報】）。ほかに開幕の前日【あすから開幕】を 1 回だけ出す。
+   同じ展覧会のニュース記事がすでに配信候補になっていれば、取得時の候補は出さない（前日の 1 回だけ）
 """
 
 from __future__ import annotations
@@ -40,8 +40,9 @@ ENDING_DAYS = 3            # 終了の何日前からリマインドするか
 MIN_DAYS_FOR_ENDING = 4    # 公開期間がこれより短い出来事には「あと◯日」を出さない
 KEEP_DAYS_AFTER_END = 30   # 終了後もこの日数はカレンダーに残す
 REMINDER_SCORE = 90        # リマインドは配信候補として扱う
-EXHIBIT_PREVIEW_DAYS = (2, 21)   # 展覧会の【まもなく開幕】を出す、開幕までの日数の範囲
-EXHIBIT_HEADERS = {"preview": "【まもなく開幕】", "start": "【あすから開幕】"}
+EXHIBIT_HEADERS = {"found": "【仏像速報】", "start": "【あすから開幕】"}
+EXHIBIT_HEADERS_ALL = set(EXHIBIT_HEADERS.values()) | {"【まもなく開幕】"}  # 重複判定用（旧仕様の見出しを含む）
+MAX_EXHIBIT_SCORE_PER_RUN = 30
 
 
 def parse_date(s: str) -> date | None:
@@ -170,15 +171,14 @@ def due_reminders(cal: dict, today: date) -> list[tuple[dict, str, str]]:
         start, end = parse_date(e.get("start", "")), parse_date(e.get("end", ""))
         done = set(e.get("reminded", []))
         if e.get("remind") is False:
-            # 展覧会: 開催前の 2 回だけ、開幕前の採点が 70 点以上のとき
+            # 展覧会: 開幕前だけ、採点が 70 点以上のとき。取得時に 1 回と前日に 1 回
             if not start or start <= today or e.get("exhibit_score", 0) < CANDIDATE_THRESHOLD:
                 continue
-            days = (start - today).days
-            if days == 1 and "start" not in done:
-                out.append((e, "start", EXHIBIT_HEADERS["start"]))
-            elif (EXHIBIT_PREVIEW_DAYS[0] <= days <= EXHIBIT_PREVIEW_DAYS[1] and not done
-                  and not e.get("news_candidate")):
-                out.append((e, "preview", EXHIBIT_HEADERS["preview"]))
+            if (start - today).days == 1:
+                if "start" not in done:
+                    out.append((e, "start", EXHIBIT_HEADERS["start"]))
+            elif not done and not e.get("news_candidate"):
+                out.append((e, "found", EXHIBIT_HEADERS["found"]))
             continue
         if start and "start" not in done:
             if start == today + timedelta(days=1):
@@ -196,14 +196,13 @@ def due_reminders(cal: dict, today: date) -> list[tuple[dict, str, str]]:
 
 
 def exhibits_to_score(cal: dict, today: date) -> list[dict]:
-    """開幕 3 週間前に入った、まだ採点していない展覧会。"""
+    """カレンダーに入った、まだ採点していない開幕前の展覧会（開幕日が分からないものは除く）。"""
     out = []
     for e in cal["events"]:
         start = parse_date(e.get("start", ""))
-        if e.get("remind") is False and "exhibit_score" not in e and start \
-                and 1 <= (start - today).days <= EXHIBIT_PREVIEW_DAYS[1]:
+        if e.get("remind") is False and "exhibit_score" not in e and start and start > today:
             out.append(e)
-    return out
+    return out[:MAX_EXHIBIT_SCORE_PER_RUN]
 
 
 def score_exhibits(client, usage, events: list[dict], data: dict, today: date) -> None:
@@ -216,7 +215,7 @@ def score_exhibits(client, usage, events: list[dict], data: dict, today: date) -
     known = [it for it in data["items"] if it.get("fetched_at", "") >= week_ago
              and (it.get("ai") or {}).get("score", 0) >= CANDIDATE_THRESHOLD and not it["ai"].get("duplicate")
              and (it.get("source") in NEWS_SOURCES
-                  or (it.get("source") == SOURCE and it["ai"].get("post_header") in EXHIBIT_HEADERS.values()))]
+                  or (it.get("source") == SOURCE and it["ai"].get("post_header") in EXHIBIT_HEADERS_ALL))]
     items = []
     for e in events:
         days = (parse_date(e["start"]) - today).days
@@ -225,6 +224,7 @@ def score_exhibits(client, usage, events: list[dict], data: dict, today: date) -
             "title": f"{e.get('event_name', '')}（{e.get('place', '')}、{e.get('start')}〜{e.get('end') or '?'}）",
             "description": f"展覧会の会期情報（開幕まであと{days}日）。情報源: {e.get('source_title', '')}",
             "url": e.get("source_url", ""),
+            "source": "exhibit_calendar",
             "published_at": now.isoformat(timespec="seconds"),
         })
     score_items(client, usage, items, known)
@@ -241,6 +241,13 @@ def reminder_extra(e: dict, kind: str, today: date) -> str:
     period = f"{e.get('start') or '?'}〜{e.get('end') or '?'}"
     start = parse_date(e.get("start", ""))
     left = (start - today).days if start else 0
+    if kind == "found":
+        return (
+            f"これは展覧会の開催情報を紹介する投稿です（今日は {today:%Y-%m-%d}、開幕まであと{left}日）。\n"
+            f"展覧会: {e.get('event_name', '')} / 会場: {e.get('place', '')} / 会期: {period}\n"
+            "会期・会場を必ず入れる。何が来るのか（仏像の名前・寺院など、情報源に書かれた範囲）と、"
+            "楽しみな気持ちで書く。来訪を促す決まり文句は使わない。"
+        )
     when = {"start": "公開がまもなく始まる", "ending": "公開がまもなく終わる",
             "preview": f"展覧会の開幕まであと{left}日になった"}[kind]
     if e.get("remind") is False and kind == "start":
@@ -324,7 +331,7 @@ def main() -> int:
                     "score": e.get("exhibit_score", REMINDER_SCORE) if e.get("remind") is False else REMINDER_SCORE,
                     "category": e.get("category", ""),
                     "duplicate": False,
-                    "reason": f"{header.strip('【】')}（御開帳カレンダー）"
+                    "reason": ("展覧会の情報" if kind == "found" else f"{header.strip('【】')}（御開帳カレンダー）")
                               + (f"・{e.get('exhibit_reason', '')}" if e.get("remind") is False else ""),
                     "post_text": text,
                     "post_header": header,

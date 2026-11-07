@@ -61,8 +61,8 @@ NEW_DESIGNATION_FLOOR_HOURS = 48
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
 TARGET_SOURCES = {"google_news", "official_site", "kaicho_info", "exhibition"}  # official_site は watch_sites.py
-# 特別展の取得（scrape_exhibition.py）は、採点して会期を御開帳カレンダーに入れるだけ。投稿文は作らず、
-# 開幕の 2〜3 週間前と前日に kaicho_calendar.py が配信候補を作る（同じ展覧会を何度も流さないため）
+# 特別展の取得（scrape_exhibition.py）は、採点して会期を御開帳カレンダーに入れるだけ。投稿文はここでは作らず、
+# kaicho_calendar.py がカレンダーの展覧会として採点し直して配信候補を作る（同じ展覧会を何度も流さないため）
 CALENDAR_ONLY_SOURCES = {"exhibition"}
 CALENDAR_ONLY_WINDOW_DAYS = 30  # 特別展は更新が少ないので、取り込みから 30 日まで採点する
 
@@ -147,6 +147,14 @@ reason では、点数に速報性がどう効いたかにも触れてくださ�
 - 仏像の公開・特別開帳・展覧会・文化財の新指定・修理完了なら、速報として高く評価してください
 - 営業案内、ショップ・グッズ、講座の募集、休館日、一般的な行事案内など、仏像の公開と
   関係が薄いものは低く評価してください
+
+# 展覧会の情報（kind が「展覧会の情報」の記事）
+- 博物館・美術館・寺院の展覧会の開催情報（展覧会情報サイト・プレスリリース・館の展覧会ページ）です
+- 仏像が展示の主役・重要な展示か、どれだけ注目される展覧会か（国宝・重要文化財の仏像、優先寺院、
+  地域の仏像を集めた展覧会、大型特別展など）で採点してください。基準は上の「仏像が主役の展覧会」と同じ
+- 開幕が数週間〜数か月先でも「先の予定」として減点しない。配信からの経過時間でも減点しない
+- 仏像が出てこない展覧会（絵画・茶道具・書跡・建築・現代美術などだけのもの）は 0〜39 点
+- 展覧会の関連講演会・グッズ・コラボ商品の告知は、展覧会そのものの情報ではないので 40 点まで
 
 # 公開期間（カレンダー用）
 仏像の公開・開帳・展覧会など期間のある出来事なら、記事から次を抜き出してください。
@@ -462,6 +470,8 @@ PRIMARY_DOMAINS = (
 def article_kind(it: dict) -> str:
     if it.get("source") == "official_site":
         return "公式サイトの新着"
+    if it.get("source") in ("exhibition", "exhibit_calendar"):
+        return "展覧会の情報"
     d = domain(it.get("url", ""))
     if any(d == p or d.endswith("." + p) for p in PRIMARY_DOMAINS) or "記者発表" in it.get("title", ""):
         return "発表元・一次情報"
@@ -672,7 +682,7 @@ def main() -> int:
         # 配信候補にした展覧会（kaicho_calendar.py）。同じ展覧会のニュースを重複として扱う
         it for it in data["items"]
         if it.get("source") == "reminder" and recent(it)
-        and it.get("ai", {}).get("post_header") in ("【まもなく開幕】", "【あすから開幕】")
+        and it.get("ai", {}).get("post_header") in ("【仏像速報】", "【まもなく開幕】", "【あすから開幕】")
     ]
     print(f"採点対象: {len(unscored)}件（直近{SCORE_WINDOW_HOURS}時間のニュース {len(news)}件中）")
 
