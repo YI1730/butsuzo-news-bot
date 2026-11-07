@@ -1,6 +1,35 @@
 {
-  "last_updated": "2026-11-07T18:43:01.303932+09:00",
+  "last_updated": "2026-11-07T18:59:54.122770+09:00",
   "items": [
+    {
+      "id": "f7189f7f6ddd",
+      "title": "因島で瀬戸内少年野球大会、五日市観音クラブが初優勝 - 47NEWS",
+      "url": "https://www.47news.jp/15198000.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-07T18:59:54.117161+09:00",
+      "published_at": "2026-11-07T18:32:00+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/d35fe9594d9d8ac2180db290a8b88a6d/photo.jpg",
+      "description": "第47回瀬戸内少年野球大会・第1回ボナプール楽生苑杯大会（因島軟式野球連盟、中国新聞備後本社主催）の準決勝と決勝が7日、広島県尾道市因島重井町の因島運動公園であった。五日市観音少年野球クラブ（佐伯支 ...",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "少年野球大会の記事。チーム名に「観音」が入るだけで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-07T19:02:27+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "faf30f8b78aa",
       "title": "米アトランタでパンダ公開 - 周南経済新聞",
@@ -12678,34 +12707,6 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-05T15:43:18+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "084f56ab1ad0",
-      "title": "米農家に歌で感謝を 歌手・荒井敦子さん 奈良市の興福寺で合唱奉納 - 奈良新聞",
-      "url": "https://www.nara-np.co.jp/news/20261105212704.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-05T15:39:51.923778+09:00",
-      "published_at": "2026-11-05T06:00:00+09:00",
-      "image_url": "https://www.nara-np.co.jp/dbimage/article/3d/3d94f26ab18567bf9330def4dca3e005.jpg",
-      "description": "「農家への感謝の気持ちや仏教と稲作の歴史的なつながりを伝え残したい」と、歌手の荒井敦子さん(72)が代表を務める「まつぼっくりファミリー合唱団」が10月29日、奈良市登大路町の興福寺で「お米と歌の奉納」を行った。同寺への奉納は2011年から続けており今年で16回目。",
-      "ai": {
-        "score": 25,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "興福寺での合唱奉納の事後報告。仏像に触れず、終了済み",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-05T15:43:29+09:00",
         "score_version": 7
       }
     },
