@@ -1,6 +1,100 @@
 {
-  "last_updated": "2026-11-07T19:11:42.068786+09:00",
+  "last_updated": "2026-11-07T20:11:46.056867+09:00",
   "items": [
+    {
+      "id": "baea01b0a42f",
+      "title": "国重要文化財指定の瑞泉寺（南砺市井波地域） 記念式典で地域の住民らが祝う 富山 - ライブドアニュース",
+      "url": "https://news.livedoor.com/article/detail/32741373/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-07T20:11:46.056410+09:00",
+      "published_at": "2026-11-05T21:50:34+09:00",
+      "image_url": "https://image.news.livedoor.com/newsimage/stf/6/1/6195d_1835_8fc66c15_bcfcce86.jpg",
+      "description": "南砺市井波の瑞泉寺が先月、国の重要文化財に指定されたことを受けて、きょう、記念の式典が開かれました。きょうは関係者や地元住民らが集まり、重要文化財指定を祝いました。",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 40,
+        "category": "寺院の行事",
+        "duplicate": true,
+        "reason": "瑞泉寺の重文指定祝賀は配信済みと同件。配信46時間で続報性も低く減点",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-07T20:14:22+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "a4e01b83f5f7",
+      "title": "横浜市歴史博物館 特別展「南武蔵の平安仏」 - 横浜市",
+      "url": "https://www.welcome.city.yokohama.jp/eventinfo/ev_detail.php?bid=yw13425",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-07T20:11:44.105073+09:00",
+      "published_at": "2026-11-07T15:02:46+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 80,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "地域の平安仏を集めた特別展の告知。公式一次情報で5時間前の配信、開催日は不明",
+        "event": {
+          "event_name": "特別展「南武蔵の平安仏」",
+          "place": "横浜市歴史博物館（神奈川県横浜市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-07T20:14:22+09:00",
+        "score_version": 7,
+        "page_checked": true,
+        "official_url": "",
+        "official_image": "",
+        "post_text": "横浜市歴史博物館で、特別展「南武蔵の平安仏」が開かれる。南武蔵、いまの横浜・川崎あたりに残る平安時代の仏像に焦点を当てた展覧会のようだ。地元の古い仏さまが並ぶのが楽しみ！",
+        "post_attempts": 1,
+        "post_format": 6,
+        "notified": true
+      }
+    },
+    {
+      "id": "fd729a4b2fb4",
+      "title": "ヴィンチャン寺院 ― 築200年近い古代寺院。 - Vietnam.vn",
+      "url": "https://www.vietnam.vn/ja/vinh-trang-ngoi-co-tu-gan-2-the-ky",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-07T20:11:43.804778+09:00",
+      "published_at": "2026-11-07T19:41:34+09:00",
+      "image_url": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/07/1794040679995_1794037884.webp",
+      "description": "（CTO）- ドンタップ省ミーフォン区にあるヴィンチャン寺院は、美しく古風な建築様式を持つ荘厳な古代寺院で、国内外から多くの観光客を惹きつけています。",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ベトナムの寺院建築の観光紹介で仏像の話題ではなく無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-07T20:14:22+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "a0a8cfe6d8d5",
       "title": "中日の福永は２０００万円増 プロ野球 - 函館経済新聞",
@@ -12623,92 +12717,6 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-05T15:43:18+09:00",
         "score_version": 7
-      }
-    },
-    {
-      "id": "9e6655808b22",
-      "title": "マイクロン株価見通し：1カ月で25%急落し800ドルの大台割れ、さらに30%超の下落余地に直面 - TradingKey",
-      "url": "https://www.tradingkey.com/jp/analysis/stocks/us-stocks/262279294-stock-micron-mu-price-prediction-nand-hbm-tradingkey",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-05T15:39:59.192462+09:00",
-      "published_at": "2026-11-04T22:11:00+09:00",
-      "image_url": "https://resource.tradingkey.com/uploads/20260608/Micron-98572b9fe3894abab71913abd5864c14.jpg",
-      "description": "マイクロンは単月で25%急落して800ドルの大台を割り込み、テクニカル指標はさらに30%下落する可能性を警告している。",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "株価の記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-05T15:43:18+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "c1ffecca0ef9",
-      "title": "ポーションは薬局で買える！？市販薬ODと救急医の本音 - 日経メディカル",
-      "url": "https://medical.nikkeibp.co.jp/leaf/mem/pub/series/yakushiji/202611/595151.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-05T15:39:57.385417+09:00",
-      "published_at": "2026-11-04T23:45:08+09:00",
-      "image_url": "https://medical.nikkeibp.co.jp/all/thumb_l/595151_ls.png?202611042345",
-      "description": "ロールプレイングゲーム（RPG）の世界では、回復薬は必須のアイテムです。ポーションもエリクサーも薬草も、何個使っても、使いすぎでHPが減ることはありません。HP満タンで使っても害はありません。むしろ店でまとめ買いしてたくさん持っているほど冒険は安定します。",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "医療記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-05T15:43:18+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "6f49ec04c906",
-      "title": "明治のハイカラな洋風意匠が光る建築「願心寺（がんしんじ）」本堂が国の重要文化財に指定へ 和洋折衷の斬新なデザインが魅力 - FNNプライムオンライン",
-      "url": "https://www.fnn.jp/articles/-/1145942",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-05T15:39:55.360106+09:00",
-      "published_at": "2026-11-05T05:00:00+09:00",
-      "image_url": "https://fnn.ismcdn.jp/mwimgs/b/1/600/img_b138aa6b6bf648f3d02c083e24db12a7100578.jpg",
-      "description": "明治39年に完成した和洋折衷の斬新なデザインが魅力の宮崎県都城市「願心寺」の本堂。建築史における高い価値が認められ、国の重要文化財に指定される見通しとなった。禁制（きんせい）や廃仏毀釈（はいぶつきしゃく）といった過酷な歴史を乗り越え、門徒たちの思いがつむいだ120年の歩みに迫る。明治時代、社会が大きく変化していく中で建てられた浄土真宗本願寺派「願心寺」。地方での浄土真宗の歴史を知る上でとても価値が高いと、文化庁の文化審議会から評価を受けた 。本堂は斬新な形態や細部にこだわった彫刻などが特徴だ。…",
-      "ai": {
-        "score": 68,
-        "category": "発見・研究・新指定",
-        "duplicate": false,
-        "reason": "寺院本堂の重文指定の見通し。建造物で仏像ではない。10時間経過",
-        "event": {
-          "event_name": "",
-          "place": "願心寺（宮崎県都城市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-05T15:43:18+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-11-05"
       }
     },
     {
