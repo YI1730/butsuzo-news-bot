@@ -1,6 +1,95 @@
 {
-  "last_updated": "2026-11-08T18:11:53.076859+09:00",
+  "last_updated": "2026-11-08T19:11:46.261212+09:00",
   "items": [
+    {
+      "id": "aa83b9cf2e30",
+      "title": "防火ポスター展　最優秀賞は旭町小、岡さん〈川崎市川崎区・川崎市幸区〉 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/townnews/region/townnews-861024",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-08T19:11:46.257496+09:00",
+      "published_at": "2026-11-08T17:00:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/-/20261028100531/img/dmenu_service-brand-logo_200x200.png",
+      "description": "防火ポスター展 最優秀賞は旭町小、岡さん〈川崎市川崎区・川崎市幸区〉（タウンニュース）",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "防火ポスター展で仏像と無関係。速報性も関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-08T19:14:19+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "eba3ea27c3c2",
+      "title": "岐阜・揖斐川町の横蔵寺で１５日「もみじまつり」 本堂の寺宝、舎利堂へ移動（岐阜新聞デジタル） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/4e633bd74a864ea6b38c4deca862167d8200eb3e",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-08T19:11:43.723503+09:00",
+      "published_at": "2026-11-08T18:29:12+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261108-00896212-gifuweb-000-1-view.jpg?exp=10800",
+      "description": "紅葉の名所として知られる両界山横蔵寺（岐阜県揖斐川町谷汲神原）で15日に「もみじまつり」が開かれるのを前に、実行委員会のメンバーたちは、寺宝「定祐法印（じょうゆうほういん）坐像」をより多くの人に見て",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 58,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "15日もみじまつりで定祐法印坐像を移動。肖像彫刻で仏像ではなく上限内。第一報",
+        "event": {
+          "event_name": "横蔵寺 もみじまつり(定祐法印坐像の公開)",
+          "place": "両界山横蔵寺(岐阜県揖斐川町)",
+          "start_date": "2026-11-15",
+          "end_date": "2026-11-15"
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-08T19:14:19+09:00",
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-11-08"
+      }
+    },
+    {
+      "id": "d8080ba3f941",
+      "title": "岐阜・揖斐川町の横蔵寺で１５日「もみじまつり」 本堂の寺宝、舎利堂へ移動 - 47NEWS",
+      "url": "https://www.47news.jp/15201967.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-08T19:11:41.040456+09:00",
+      "published_at": "2026-11-08T18:50:25+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/6ec4be978910d791337a7535824490bb/photo.jpg",
+      "description": "紅葉の名所として知られる両界山横蔵寺（岐阜県揖斐川町谷汲神原）で１５日に「もみじまつり」が開かれるのを前に、実行委員会のメンバーたちは、寺宝「定祐法印（じょうゆうほういん）坐像」をより多くの人に見て ...",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 35,
+        "category": "寺院の行事",
+        "duplicate": true,
+        "reason": "岐阜新聞と同じ内容の重複記事。後発のため減点",
+        "event": {
+          "event_name": "横蔵寺 もみじまつり(定祐法印坐像の公開)",
+          "place": "両界山横蔵寺(岐阜県揖斐川町)",
+          "start_date": "2026-11-15",
+          "end_date": "2026-11-15"
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-08T19:14:19+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "1741da195a21",
       "title": "知名度生かし普及尽力 中山律子さん 女子プロツアー新設 - 岐阜新聞デジタル",
@@ -12621,92 +12710,6 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-06T06:14:16+09:00",
         "score_version": 7
-      }
-    },
-    {
-      "id": "ea0cb55e2d40",
-      "title": "万富東大寺瓦窯の紙芝居制作 環太平洋大生 史実伝える教材に - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2010781?rct=hirudigi",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T06:11:37.120955+09:00",
-      "published_at": "2026-11-06T02:52:38+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/0/7/0/5/07052bdd24da0899e33a2334e1b2595e_2.jpg",
-      "description": "環太平洋大（岡山市東区瀬戸町観音寺）の学生が、鎌倉時代の東大寺再建で瓦を供給した国史跡・万富東大寺瓦窯跡（同町万富）をテーマにした紙芝...",
-      "ai": {
-        "score": 22,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "瓦窯跡の紙芝居で仏像は出ない。話題性低い",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T06:14:16+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "32244cbe3b83",
-      "title": "XRPが5%下落、バイナンスの希少性指数が4年ぶり高水準に - BigGo ファイナンス",
-      "url": "https://finance.biggo.jp/news/106b43d1-4ad6-466e-9371-361c98af1a38",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T06:11:34.701403+09:00",
-      "published_at": "2026-11-06T05:25:00+09:00",
-      "image_url": "https://img.biggo.com/iISeQ99mf6sEr0pRs9ILfFHwKOtOXdcE1EbTsWzXtGM/fit/1200/0/sm/0/aHR0cHM6Ly9pbWcuYmdvLm9uZS9uZXdzLWltYWdlL2FpX2dlbmVyYXRlZC8yMDI2LTExLzEwNmI0M2QxLTRhZDYtNDY2ZS05MzcxLTM2MWM5OGFmMWEzOF8xNzkzOTEwNTIwX2RlZmF1bHQuanBn.jpg",
-      "description": "XRPは木曜日に5%下落した。約4億1850万トークン（5.4億ドル相当、約850億円）がバイナンスから流出し、9カ月ぶりの大規模な1日流出となった。CryptoQuantのXRPに…",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "暗号資産の記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T06:14:16+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "1198e8ed919f",
-      "title": "紅葉と光楽しんで 4寺巡る「大和観音もみじ回廊」 12月6日まで - 奈良新聞",
-      "url": "https://www.nara-np.co.jp/news/20261106210406.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T06:11:32.474952+09:00",
-      "published_at": "2026-11-06T06:00:00+09:00",
-      "image_url": "https://www.nara-np.co.jp/dbimage/article/09/09f4e03f3ca1fb8c6d9769a84c89e136.jpg",
-      "description": "日本最古の巡礼道とされる西国三十三所観音霊場の岡寺(奈良県明日香村)、長谷寺(桜井市)、壷阪寺(高取町)の3カ寺と、室生寺を巡る「大和観音もみじ回廊」が始まった。秋が深まるにつれて色づく各寺の紅葉やライトアップが楽しめる。12月6日まで。",
-      "ai": {
-        "score": 55,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "紅葉とライトアップ中心で仏像に触れず上限60点。開始直後",
-        "event": {
-          "event_name": "大和観音もみじ回廊",
-          "place": "岡寺・長谷寺・壷阪寺・室生寺（奈良県）",
-          "start_date": "2026-11-06",
-          "end_date": "2026-12-06"
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T06:14:16+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-11-06"
       }
     },
     {
