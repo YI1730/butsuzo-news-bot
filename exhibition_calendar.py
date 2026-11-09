@@ -244,11 +244,16 @@ def collect_museum_pages(m: dict) -> tuple[str, list[tuple[str, str]]]:
     return "\n\n".join(pages), links
 
 
-def scan_museums(client, usage, cal: dict, state: dict, today: date) -> dict:
+def scan_museums(client, usage, cal: dict, state: dict, today: date, watch: dict | None = None) -> dict:
+    """館の展覧会ページを見て、カレンダーに展覧会を加える。
+    MAX_AHEAD_DAYS より先に始まる展覧会は、カレンダーには入れず、watch（展覧会ウォッチ）に回す。"""
     from curate_news import call_json
+    import exhibit_watch as ew
 
-    stats = {"museums": 0, "skipped_same": 0, "failed": 0, "added": 0, "merged": 0}
+    stats = {"museums": 0, "skipped_same": 0, "failed": 0, "added": 0, "merged": 0, "watched": 0}
     sources = load_json(SOURCES_FILE, {}).get("museums", [])
+    # 展覧会ウォッチの導入後、最初の 1 回は、前回と同じページでも読み直す（これまで捨てていた先の展覧会を拾うため）
+    force = watch is not None and not state.get("watch_scan_done")
     for m in sources:
         body, links = collect_museum_pages(m)
         if not body:
@@ -257,7 +262,7 @@ def scan_museums(client, usage, cal: dict, state: dict, today: date) -> dict:
             continue
         stats["museums"] += 1
         digest = hashlib.md5(body.encode()).hexdigest()
-        if state["page_hash"].get(m["name"]) == digest:
+        if state["page_hash"].get(m["name"]) == digest and not force:
             stats["skipped_same"] += 1
             continue
         link_list = "\n".join(f"- {t} {h}" for t, h in links[:80])
@@ -270,9 +275,17 @@ def scan_museums(client, usage, cal: dict, state: dict, today: date) -> dict:
         valid = {h for _, h in links}
         for ev in res.get("events", []):
             start, end = kc.parse_date(ev["start_date"]), kc.parse_date(ev["end_date"])
-            if not (start or end) or (end and end < today) or (start and (start - today).days > MAX_AHEAD_DAYS):
+            if not (start or end) or (end and end < today):
                 continue
             url = ev["url"] if ev["url"] in valid else m["url"]
+            if start and (start - today).days > MAX_AHEAD_DAYS:
+                if watch is not None and (start - today).days <= ew.WATCH_AHEAD_DAYS:
+                    r = ew.add_to_watch(watch, m["place"], ev["event_name"].strip(), start.isoformat(),
+                                        end.isoformat() if end else "", url, sources, official=True)
+                    if r == "added":
+                        stats["watched"] += 1
+                        print(f"  ◎ウォッチ{m['name']}: {ev['event_name']} {ev['start_date']}〜{ev['end_date']}")
+                continue
             r = add_event(cal, m["place"], ev["event_name"].strip(),
                           start.isoformat() if start else "", end.isoformat() if end else "", url, "museum")
             if r == "added":
@@ -319,9 +332,15 @@ def main() -> int:
             a_merged += r == "merged"
 
     # B. 主な博物館・美術館の展覧会ページ
-    stats = {"museums": 0, "skipped_same": 0, "failed": 0, "added": 0, "merged": 0}
+    stats = {"museums": 0, "skipped_same": 0, "failed": 0, "added": 0, "merged": 0, "watched": 0}
+    import exhibit_watch as ew
+
+    watch = ew.load_watch()
     if client:
-        stats = scan_museums(client, usage, cal, state, today)
+        stats = scan_museums(client, usage, cal, state, today, watch)
+        state["watch_scan_done"] = True
+        if stats["watched"]:
+            ew.save_watch(watch)
     else:
         print("::warning::ANTHROPIC_API_KEY が無いため判定・館の確認をスキップ", file=sys.stderr)
 
@@ -337,7 +356,7 @@ def main() -> int:
     cost = usage.cost() if usage else 0.0
     print(f"::notice::展覧会カレンダー 観仏三昧 候補{len(cands)}件（追加{a_added}・補完{a_merged}）/ "
           f"館 {stats['museums']}館（変更なし{stats['skipped_same']}・取得失敗{stats['failed']}）"
-          f"追加{stats['added']}・補完{stats['merged']} / 表記ゆれで統合 {merged_before + merged_after}件 / AI費用 約${cost:.3f}（上限見積り）")
+          f"追加{stats['added']}・補完{stats['merged']}・先の展覧会をウォッチへ{stats['watched']} / 表記ゆれで統合 {merged_before + merged_after}件 / AI費用 約${cost:.3f}（上限見積り）")
     return 0
 
 

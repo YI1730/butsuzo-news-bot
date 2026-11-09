@@ -1,0 +1,47 @@
+name: Exhibit Watch
+
+# 発表済みで開幕前の展覧会が、専用ページ・ポスター/チラシ・出品作品を公開したら、配信候補にする
+# （exhibit_watch.py）。毎日 1 回（朝 6:50）。詳細ページの内容が前回と同じなら AI は呼ばない（軽いモデルのみ）
+on:
+  schedule:
+    - cron: "50 21 * * *"   # JST 毎日 06:50
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-json
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Watch upcoming exhibitions
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python exhibit_watch.py
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/exhibit_watch.json docs/data/news.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"; exit 0
+          fi
+          git commit -m "chore: update exhibit watch"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "push に失敗、再試行 ($i)"; sleep 10
+          done
+          exit 1

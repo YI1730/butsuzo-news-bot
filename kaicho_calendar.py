@@ -41,7 +41,10 @@ MIN_DAYS_FOR_ENDING = 4    # 公開期間がこれより短い出来事には「
 KEEP_DAYS_AFTER_END = 30   # 終了後もこの日数はカレンダーに残す
 REMINDER_SCORE = 90        # リマインドは配信候補として扱う
 EXHIBIT_HEADERS = {"found": "【仏像速報】", "start": "【あすから開幕】"}
-EXHIBIT_HEADERS_ALL = set(EXHIBIT_HEADERS.values()) | {"【まもなく開幕】"}  # 重複判定用（旧仕様の見出しを含む）
+# 開幕前の展覧会が追加情報を出したときの続報（exhibit_watch.py）。重要度は 出品作品 > ビジュアル > ページ公開
+WATCH_HEADERS = {"page": "【展覧会続報】", "visual": "【展覧会続報・ビジュアル公開】", "lineup": "【出品作品公開】"}
+EXHIBIT_HEADERS_ALL = (set(EXHIBIT_HEADERS.values()) | {"【まもなく開幕】"}
+                       | set(WATCH_HEADERS.values()))  # 重複判定用（旧仕様の見出しと続報を含む）
 MAX_EXHIBIT_SCORE_PER_RUN = 30
 
 

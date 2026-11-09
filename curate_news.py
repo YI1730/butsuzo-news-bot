@@ -651,6 +651,8 @@ def main() -> int:
         return 0
     import anthropic
 
+    from kaicho_calendar import EXHIBIT_HEADERS_ALL
+
     client = anthropic.Anthropic()
     usage = Usage()
     data = load_news_data()
@@ -682,7 +684,7 @@ def main() -> int:
         # 配信候補にした展覧会（kaicho_calendar.py）。同じ展覧会のニュースを重複として扱う
         it for it in data["items"]
         if it.get("source") == "reminder" and recent(it)
-        and it.get("ai", {}).get("post_header") in ("【仏像速報】", "【まもなく開幕】", "【あすから開幕】")
+        and it.get("ai", {}).get("post_header") in EXHIBIT_HEADERS_ALL
     ]
     print(f"採点対象: {len(unscored)}件（直近{SCORE_WINDOW_HOURS}時間のニュース {len(news)}件中）")
 
