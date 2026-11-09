@@ -16,7 +16,7 @@ from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 
 from news_store import (CANDIDATE_THRESHOLD, NOISE_THRESHOLD, X_LIMIT, book_header, book_hashtags, book_link,
-                        book_post_tail, is_affiliate_url, j_available_at, with_pr, compose_news_post, fit_headline_post,
+                        book_post_tail, j_available_at, with_pr, compose_news_post, fit_headline_post,
                         fit_x_post, intent_weighted_length, load_skipped)
 
 DOCS_DIR = Path(__file__).parent / "docs"
@@ -114,7 +114,7 @@ _SKIPPED_IDS: set[str] = set()
 
 def book_post_for(item: dict, account: str) -> str:
     """書籍・雑誌の投稿文（account="main" は仏像リンク側、"j" は2つめのアカウント側）。
-    リンク込みで X の 280 字に収める。ハッシュタグの先頭には（アフィリエイトのリンクなら）#PR が付く。"""
+    リンク込みで X の 280 字に収める。#PR は付けない（代表の判断）。"""
     link = book_link(item, account)
     comment = (item.get("j_post_text") if account == "j" else item.get("book_post_text")) or ""
     hdr, tags = book_header(item, account), book_hashtags(item, account)
@@ -172,8 +172,8 @@ def build_card_html(item: dict) -> str:
     # 展覧会は公式ページを付けて、X のリンクカードに公式の OG 画像（ポスター等）を出す（curate_news.py）
     link_url = ai.get("official_url") or url
     if is_book:
-        # 書籍・雑誌: 紹介文（rank_books.py）があれば「紹介文 → 【仏像新刊】書名 → #PR #タグ」。無ければ見出し・書名・タグだけ
-        # （Amazon の説明文は入れない）。見出しは書籍の種類で決まる（【仏像新刊】／【仏像特集】）。#PR は Amazon のアフィリエイト時
+        # 書籍・雑誌: 紹介文（rank_books.py）があれば「紹介文 → 【仏像新刊】書名 → #タグ」。無ければ見出し・書名・タグだけ
+        # （Amazon の説明文は入れない）。見出しは書籍の種類で決まる（【仏像新刊】／【仏像特集】）
         post_text = book_post_for(item, "main")
     elif ai.get("post_text"):
         # AI（curate_news.py）が記事を読んで書いた文章 → 【仏像速報】記事タイトル（→ X が URL を付ける）
@@ -187,7 +187,7 @@ def build_card_html(item: dict) -> str:
     if intent_weighted_length(post_text, link_url) > X_LIMIT:
         # 題名だけで超える長いタイトルの最後の手段（ハッシュタグを外し、題名を縮める）
         post_text = fit_headline_post(ai.get("post_header", header) if ai.get("post_text") else header,
-                                      item.get("title", ""), "#PR" if is_affiliate_url(link_url) else "", link_url)
+                                      item.get("title", ""), "", link_url)
     desc_escaped = ""
     intent_params = urllib.parse.urlencode({"text": post_text, "url": link_url})
     intent_url = f"https://x.com/intent/post?{intent_params}"

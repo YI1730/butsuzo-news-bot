@@ -102,12 +102,9 @@ def is_affiliate_url(url: str) -> bool:
     return "amazon.co.jp" in url and "tag=" in url
 
 
-def with_pr(hashtags: str, url: str) -> str:
-    """アフィリエイトのリンクが付く投稿のハッシュタグの先頭に #PR を付ける（リンクが無ければ付けない）。"""
-    tags = hashtags.replace("#PR", "").split()
-    if is_affiliate_url(url):
-        tags = ["#PR"] + tags
-    return " ".join(tags)
+def with_pr(hashtags: str, url: str = "") -> str:
+    """ハッシュタグをそのまま返す（#PR は付けない。2026-11-10 代表の判断で取り消し）。残っていれば外す。"""
+    return " ".join(hashtags.replace("#PR", "").split())
 
 
 def book_link(item: dict, account: str = "main") -> str:
