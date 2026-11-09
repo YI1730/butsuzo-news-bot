@@ -6268,8 +6268,10 @@
      "first_seen": "2026-11-10",
      "notified": {
       "appear@2026-12-22": {
-       "at": "2026-11-10T06:15:54+09:00",
-       "candidate": ""
+       "at": "2026-11-10T06:22:38+09:00",
+       "candidate": "",
+       "featureless": true,
+       "rescored": true
       }
      },
      "last_seen": "2026-11-10",
@@ -6281,7 +6283,8 @@
       "designation": "重要文化財",
       "note": "",
       "source_url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/",
-      "enriched_at": "2026-11-10T06:18:21+09:00"
+      "searched": true,
+      "enriched_at": "2026-11-10T06:25:29+09:00"
      }
     },
     "cd40c7051603": {
@@ -6322,7 +6325,8 @@
       "designation": "重要文化財",
       "note": "",
       "source_url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/",
-      "enriched_at": "2026-11-10T06:18:25+09:00"
+      "searched": false,
+      "enriched_at": "2026-11-10T06:25:39+09:00"
      }
     },
     "a10b1247a641": {
@@ -6363,7 +6367,8 @@
       "designation": "重要文化財",
       "note": "",
       "source_url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/",
-      "enriched_at": "2026-11-10T06:18:26+09:00"
+      "searched": false,
+      "enriched_at": "2026-11-10T06:25:40+09:00"
      }
     },
     "8dbe801cd7be": {
@@ -6423,8 +6428,10 @@
      "first_seen": "2026-11-10",
      "notified": {
       "appear@2026-12-22": {
-       "at": "2026-11-10T06:15:54+09:00",
-       "candidate": ""
+       "at": "2026-11-10T06:22:38+09:00",
+       "candidate": "",
+       "featureless": true,
+       "rescored": true
       }
      },
      "last_seen": "2026-11-10",
@@ -6436,7 +6443,8 @@
       "designation": "重要文化財",
       "note": "",
       "source_url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/",
-      "enriched_at": "2026-11-10T06:18:19+09:00"
+      "searched": true,
+      "enriched_at": "2026-11-10T06:25:12+09:00"
      }
     },
     "f91fd742566b": {
@@ -6464,8 +6472,10 @@
      "first_seen": "2026-11-10",
      "notified": {
       "appear@2026-12-22": {
-       "at": "2026-11-10T06:15:54+09:00",
-       "candidate": ""
+       "at": "2026-11-10T06:22:38+09:00",
+       "candidate": "",
+       "featureless": true,
+       "rescored": true
       }
      },
      "last_seen": "2026-11-10",
@@ -6477,7 +6487,8 @@
       "designation": "重要文化財",
       "note": "",
       "source_url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/",
-      "enriched_at": "2026-11-10T06:18:17+09:00"
+      "searched": true,
+      "enriched_at": "2026-11-10T06:25:03+09:00"
      }
     },
     "6f64f8e5e2a5": {
@@ -6550,7 +6561,8 @@
       "designation": "重要文化財",
       "note": "",
       "source_url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/",
-      "enriched_at": "2026-11-10T06:18:24+09:00"
+      "searched": false,
+      "enriched_at": "2026-11-10T06:25:38+09:00"
      }
     },
     "b66f4651856b": {
@@ -6578,8 +6590,10 @@
      "first_seen": "2026-11-10",
      "notified": {
       "appear@2026-12-22": {
-       "at": "2026-11-10T06:15:54+09:00",
-       "candidate": ""
+       "at": "2026-11-10T06:22:38+09:00",
+       "candidate": "",
+       "featureless": true,
+       "rescored": true
       }
      },
      "last_seen": "2026-11-10",
@@ -6591,7 +6605,8 @@
       "designation": "重要文化財",
       "note": "",
       "source_url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/",
-      "enriched_at": "2026-11-10T06:18:23+09:00"
+      "searched": true,
+      "enriched_at": "2026-11-10T06:25:37+09:00"
      }
     },
     "ddb6bf591c5d": {
@@ -6683,8 +6698,10 @@
      "first_seen": "2026-11-10",
      "notified": {
       "appear@2026-12-22": {
-       "at": "2026-11-10T06:15:54+09:00",
-       "candidate": ""
+       "at": "2026-11-10T06:22:38+09:00",
+       "candidate": "",
+       "featureless": true,
+       "rescored": true
       }
      },
      "last_seen": "2026-11-10",
@@ -6696,7 +6713,8 @@
       "designation": "重要文化財",
       "note": "",
       "source_url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/",
-      "enriched_at": "2026-11-10T06:18:20+09:00"
+      "searched": true,
+      "enriched_at": "2026-11-10T06:25:19+09:00"
      }
     },
     "ad0a85bb7891": {
@@ -7393,39 +7411,6 @@
      },
      "last_seen": "2026-11-10",
      "rank": 5
-    },
-    "18b6d333eea3": {
-     "id": "18b6d333eea3",
-     "museum": "narahaku",
-     "name": "伎楽面 崑崙",
-     "owner": "奈良・東大寺",
-     "designation": "重要文化財",
-     "room": "青銅器館 ２階",
-     "origin": "",
-     "era": "永師作 1面 奈良時代（8世紀）",
-     "code": "",
-     "link": "",
-     "page_url": "https://www.narahaku.go.jp/exhibition/usual/202609_butsuzo_selection/",
-     "image_url": "",
-     "notable": false,
-     "reason": "",
-     "periods": [
-      {
-       "start": "2026-09-15",
-       "end": "",
-       "room": "青銅器館 ２階"
-      }
-     ],
-     "first_seen": "2026-11-10",
-     "notified": {
-      "appear@2026-09-15": {
-       "at": "2026-11-10T06:18:07+09:00",
-       "candidate": "",
-       "seed": true
-      }
-     },
-     "last_seen": "2026-11-10",
-     "rank": 1
     },
     "4af43512b427": {
      "id": "4af43512b427",
@@ -8666,8 +8651,10 @@
        "continued": true
       },
       "appear@2026-12-01": {
-       "at": "2026-11-10T06:15:54+09:00",
-       "candidate": ""
+       "at": "2026-11-10T06:22:38+09:00",
+       "candidate": "",
+       "featureless": false,
+       "rescored": true
       }
      },
      "last_seen": "2026-11-10",
@@ -8677,9 +8664,10 @@
       "material": "",
       "height": "",
       "designation": "重要文化財",
-      "note": "",
+      "note": "一覧の「出土地・作者」欄には「中国 徳化窯」と記載されている。所蔵者は東京国立博物館で、基本展示室に展示される。",
       "source_url": "https://collection.kyuhaku.jp/exhibition/",
-      "enriched_at": "2026-11-10T06:18:40+09:00"
+      "searched": false,
+      "enriched_at": "2026-11-10T06:25:43+09:00"
      }
     },
     "2186e0991f38": {
@@ -8707,8 +8695,10 @@
      "first_seen": "2026-11-10",
      "notified": {
       "appear@2027-01-01": {
-       "at": "2026-11-10T06:15:54+09:00",
-       "candidate": ""
+       "at": "2026-11-10T06:22:38+09:00",
+       "candidate": "",
+       "featureless": false,
+       "rescored": true
       }
      },
      "last_seen": "2026-11-10",
@@ -8761,7 +8751,8 @@
       "designation": "重要美術品",
       "note": "",
       "source_url": "https://collection.kyuhaku.jp/exhibition/",
-      "enriched_at": "2026-11-10T06:18:43+09:00"
+      "searched": false,
+      "enriched_at": "2026-11-10T06:25:45+09:00"
      }
     },
     "d37a51c30b62": {
@@ -9032,5 +9023,5 @@
    "queued": "2026-11-10"
   }
  ],
- "last_updated": "2026-11-10T06:18:53+09:00"
+ "last_updated": "2026-11-10T06:25:55+09:00"
 }
