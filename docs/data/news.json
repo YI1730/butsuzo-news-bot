@@ -1,6 +1,93 @@
 {
-  "last_updated": "2026-11-09T10:50:22.254323+09:00",
+  "last_updated": "2026-11-09T11:11:48.540551+09:00",
   "items": [
+    {
+      "id": "cdfb66feedd9",
+      "title": "興福寺｜2026.10.11 東金堂 夜間特別拝観のご案内",
+      "url": "https://www.kohfukuji.com/news/1914/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-09T11:11:48+09:00",
+      "published_at": "2026-11-09T11:11:48+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 45,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "興福寺東金堂の夜間拝観案内だが日付が10/11と過去で、開催済みの可能性が高く詳細不明",
+        "event": {
+          "event_name": "東金堂 夜間特別拝観",
+          "place": "興福寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T11:15:29+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "8be63d27b1bd",
+      "title": "京都府綾部市の法隆寺東光院で夜間イベント光幻の世界を開催へ 竹あかりと映像融合 - Dellows News",
+      "url": "https://news.dellows.jp/760300/?from=related-reading-list",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T11:11:47.403021+09:00",
+      "published_at": "2026-11-09T06:10:17+09:00",
+      "image_url": "https://news.dellows.jp/wp-content/uploads/2026/10/760300_1.jpg",
+      "description": "京都府綾部市上延町の法隆寺東光院で、10月30日(金)から11月3日(火)までの5日間、竹あかりとプロジェクションマッピングを融合した夜間特別イベント「光幻(こうげん)の世界」が開催されます。飛鳥時代",
+      "search_query": "\"法隆寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "竹あかりとプロジェクションマッピングの夜間イベントで仏像に触れず、11/3で終了済み",
+        "event": {
+          "event_name": "光幻の世界",
+          "place": "法隆寺東光院（京都府綾部市）",
+          "start_date": "2026-10-30",
+          "end_date": "2026-11-03"
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T11:15:29+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "0df63ba9d8e2",
+      "title": "【光明寺】11/14「花と音楽の饗宴vol.5」開催♪紅葉の特別入山も始まります - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/tokkhankyu/trend/tokkhankyu-298238",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T11:11:43.277110+09:00",
+      "published_at": "2026-11-09T10:04:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/tokkhankyu/m_tokkhankyu-298238.jpg",
+      "description": "秋も深まり、紅葉の季節がやってきました。長岡京市の光明寺では2026年11月14日（土）から「紅葉の…",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 35,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "光明寺の音楽イベントと紅葉の特別入山で仏像の話はなく、上限内。11/14開催で近いが優先度低",
+        "event": {
+          "event_name": "花と音楽の饗宴vol.5・紅葉の特別入山",
+          "place": "光明寺（京都府長岡京市）",
+          "start_date": "2026-11-14",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T11:15:29+09:00",
+        "score_version": 7
+      }
+    },
     {
       "title": "仏像 聖観音菩薩 36cm（金メッキ/24金） 仏師：牧田秀雲 原型＿『天台宗・真言宗・臨済宗』 高岡銅器 (しょうかんのんぼさつ/XXL)",
       "url": "https://www.amazon.co.jp/dp/B087LT4KF8?tag=butsuzo03-22",
@@ -344,7 +431,12 @@
       "release_date": "2026-05-15",
       "id": "996ffd6a8ac5",
       "fetched_at": "2026-11-09T10:50:18.677567+09:00",
-      "description": "Amazon.co.jp: 仏教の思想と歴史: 日本美術をもっと理解するために eBook : 多湖　広: Kindleストア"
+      "description": "Amazon.co.jp: 仏教の思想と歴史: 日本美術をもっと理解するために eBook : 多湖　広: Kindleストア",
+      "book_ai": {
+        "score": 42,
+        "reason": "仏教美術理解の入門書だが仏像専門ではない",
+        "version": 1
+      }
     },
     {
       "title": "大津市歴史博物館 企画展「未来へつなぐ　大津のたから－大津の文化財保護60年のあゆみ－」（10月10日~11月23日）",
@@ -12125,62 +12217,6 @@
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-06T14:14:11+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "9408e349a681",
-      "title": "【きんちゃん日記vol.9】書道、ユネスコ無形文化遺産へ - 選挙ドットコム",
-      "url": "https://go2senkyo.com/seijika/199952/posts/1571143",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T14:11:35.081342+09:00",
-      "published_at": "2026-11-06T12:36:41+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "書道の無形文化遺産の話題で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T14:14:11+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "71faf4a98f91",
-      "title": "旅行予約サービス『NEWT（ニュート）』、混雑を避けて静かに参拝したい「穴場の神社」ランキング ベスト30（PR TIMES） - 毎日新聞",
-      "url": "https://mainichi.jp/articles/20261105/pr2/00m/020/985000c",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T13:11:35.050083+09:00",
-      "published_at": "2026-11-05T16:53:07+09:00",
-      "image_url": "https://cdn.mainichi.jp/vol1/2026/11/05/20261105pr200m020985000p/0c10.jpg?2",
-      "description": "株式会社令和トラベル（本社：東京都渋谷区、代表取締役：篠塚 孝哉）が運営する、かしこい、おトク、旅行予約サービス『NEWT（ニュート）』は、紅葉や秋詣など、神社を訪れる機会が増える秋の行楽シーズンを受け、独自調査による「混雑を避けて静かに参拝したい「穴場の神社」ランキング」ベスト30を発表しまし",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "神社ランキングの宣伝記事で仏像に無関係。20時間経過",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T13:14:14+09:00",
         "score_version": 7
       }
     },
