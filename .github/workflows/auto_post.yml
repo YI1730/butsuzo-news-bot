@@ -50,6 +50,13 @@ jobs:
           AMAZON_STORE_ID:      ${{ secrets.AMAZON_STORE_ID }}
         run: python scrape_amazon.py
 
+      # 雑誌の仏像特集号（サライなど、号の題名に「仏像」が入らないもの）を Fujisan とニュースから探して書籍欄に加える
+      - name: Find magazine Buddhist-statue specials
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        continue-on-error: true
+        run: python scrape_magazines.py
+
       - name: Generate dashboard HTML
         run: python generate_dashboard.py
 

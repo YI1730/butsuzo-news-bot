@@ -4,10 +4,10 @@ news_hourly.yml から curate_news.py の後に実行される。未採点（ま
 採点するので、新しい本が入ったとき以外は API を呼ばない。
 
 結果は各書籍の "book_ai" に {score, reason, version} として保存する。
-並び順（generate_dashboard.py）:
-  1. 新刊: 発売予定〜発売後 BOOK_NEW_RELEASE_DAYS 日で、score >= BOOK_NEW_MIN_SCORE の本を発売日の新しい順
-  2. おすすめ: 残りの本を score の高い順
+並び順（generate_dashboard.py）: 取り込み日（fetched_at）の新しい順。発売日はバッジで見せる。
   score < BOOK_HIDE_BELOW の本（仏像と無関係）は表示しない
+紹介文（book_post_text）: 表示する本・雑誌すべてに作る（1 回の実行で最大 MAX_BOOK_POSTS_PER_RUN 件、
+  取り込みの新しいものから）。X の文字数に収まるよう、コメントは全角 BOOK_COMMENT_CHARS 字以内で書かせる
 """
 
 from __future__ import annotations
@@ -36,6 +36,10 @@ SYSTEM = """あなたは仏像好きのコミュニティ「仏像リンク」�
 # 中くらい（40〜69）
 - 入門書、ムック、仏像を題材にした漫画・エッセイ
 - 仏教美術全般や寺院建築の本で、仏像の話も多いもの
+
+# 雑誌（book_kind が magazine のもの。仏像特集号だけが入っている）
+- 仏像・寺院・仏教美術が特集の中心の号は 70 点以上（仏像が主役なら 80 点以上）
+- 特集の一部（第 2 特集・連載）が仏像なら 40〜60 点
 
 # 低い（10〜39）
 - 塗り絵、カレンダー、写経・なぞり書き、瞑想・スピリチュアル・開運が主の本
@@ -68,38 +72,48 @@ SCHEMA = {
 }
 
 
-BOOK_POST_HEADER = "【仏像新刊】"
-MAX_BOOK_POSTS_PER_RUN = 5
+MAX_BOOK_POSTS_PER_RUN = 15   # 費用を抑えるため 1 回の実行で作る上限。残りは次の実行で
 MAX_BOOK_POST_ATTEMPTS = 3
-BOOK_POST_AHEAD_DAYS = 120   # 発売予定がこの日数先までの本も紹介文を作る（予約受付中）
+BOOK_COMMENT_CHARS = 100      # 書名・見出し・リンクと合わせて X の 280 字に収めるための、コメントの目安
 
 
 def write_book_posts(client, usage: Usage, books: list[dict]) -> int:
-    """直近で発売された（または発売予定の）書籍の、X の紹介投稿文を作る。グッズは作らない。"""
-    from datetime import datetime, timedelta
+    """表示する書籍・雑誌（score が BOOK_HIDE_BELOW 以上）のうち紹介文が無いものに、X の紹介投稿文を作る。
+    取り込みの新しいものから最大 MAX_BOOK_POSTS_PER_RUN 件。グッズは作らない。"""
+    from datetime import datetime
 
     from curate_news import write_post
-    from news_store import (BOOK_NEW_MIN_SCORE, BOOK_NEW_RELEASE_DAYS, JST_TZ, book_release_date)
+    from news_store import BOOK_HIDE_BELOW, JST_TZ, book_fetched_key, book_header, book_release_date
 
     today = datetime.now(JST_TZ).date()
-    cands = []
-    for b in books:
-        rd = book_release_date(b)
-        score = (b.get("book_ai") or {}).get("score", 0)
-        if (rd and today - timedelta(days=BOOK_NEW_RELEASE_DAYS) <= rd <= today + timedelta(days=BOOK_POST_AHEAD_DAYS)
-                and score >= BOOK_NEW_MIN_SCORE and not b.get("book_post_text")
-                and b.get("book_post_attempts", 0) < MAX_BOOK_POST_ATTEMPTS):
-            cands.append((rd, b))
-    cands.sort(key=lambda t: t[0], reverse=True)
+    cands = [b for b in books
+             if (b.get("book_ai") or {}).get("score", 50) >= BOOK_HIDE_BELOW
+             and not b.get("book_post_text")
+             and b.get("book_post_attempts", 0) < MAX_BOOK_POST_ATTEMPTS]
+    cands.sort(key=book_fetched_key, reverse=True)
     made = 0
-    for rd, b in cands[:MAX_BOOK_POSTS_PER_RUN]:
-        when = (f"{rd:%Y年%m月%d日}発売予定（予約受付中）" if rd > today else f"{rd:%Y年%m月%d日}発売")
-        extra = (
-            f"これは書籍（新刊）を紹介する投稿です。{when}。書名: {b.get('title', '')}\n"
-            "本の内容（著者・章立て・書かれていること）は、書名と説明に書かれている範囲だけで書き、分からないことは"
-            "推測で書かない（Amazon の定型文は無視）。発売日と、仏像好きがどんな人に向くかが伝わるように。"
-            "紹介する価値の一言（" + (b.get("book_ai") or {}).get("reason", "") + "）は材料にしてよい。")
-        text = write_post(client, usage, b, header=BOOK_POST_HEADER, extra=extra, fetch_body=False)
+    for b in cands[:MAX_BOOK_POSTS_PER_RUN]:
+        rd = book_release_date(b)
+        if not rd:
+            when = "発売日は不明"
+        elif rd > today:
+            when = f"{rd:%Y年%m月%d日}発売予定（予約受付中）"
+        else:
+            when = f"{rd:%Y年%m月%d日}発売"
+        if b.get("book_kind") == "magazine":
+            kind = (f"これは雑誌の仏像特集号を紹介する投稿です。{when}。誌名と号: {b.get('title', '')}。\n"
+                    f"特集の内容: {b.get('description', '')}\n"
+                    "書かれている特集の範囲だけで書き、載っていない寺や仏像を推測で足さない。")
+        else:
+            kind = (f"これは書籍を紹介する投稿です。{when}。書名: {b.get('title', '')}\n"
+                    "本の内容（著者・章立て・書かれていること）は、書名と説明に書かれている範囲だけで書き、分からないことは"
+                    "推測で書かない（Amazon の定型文は無視）。")
+        extra = (kind + "仏像好きがどんな人に向くかが伝わるように。"
+                 "紹介する価値の一言（" + (b.get("book_ai") or {}).get("reason", "") + "）は材料にしてよい。\n"
+                 f"書名と見出しはシステムが後ろに付けるので、コメントは全角 {BOOK_COMMENT_CHARS} 字以内、1〜2 文で書く。"
+                 "説明文の丸写しや、長い引用はしない。")
+        text = write_post(client, usage, b, header=book_header(b), extra=extra, fetch_body=False,
+                          max_chars=BOOK_COMMENT_CHARS)
         b["book_post_attempts"] = b.get("book_post_attempts", 0) + 1
         if text:
             b["book_post_text"] = text

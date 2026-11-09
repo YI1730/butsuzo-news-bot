@@ -26,8 +26,9 @@ from urllib.parse import urldefrag, urlencode, urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup
 
-from news_store import (CANDIDATE_THRESHOLD, NEWS_POST_HEADER, NOISE_THRESHOLD, compose_news_post, load_skipped,
-                        detect_page_date, is_stale)
+from news_store import (BANNED_POST_WORDS, CANDIDATE_THRESHOLD, NEWS_POST_HEADER, NOISE_THRESHOLD, X_LIMIT,
+                        X_URL_WEIGHT, compose_news_post, detect_page_date, find_banned_words, fit_x_post, is_stale,
+                        load_skipped, x_weighted_length)
 from post_news import JST, RESOLVE_USER_AGENT, extract_og_image, load_news_data, save_news_data
 
 # 採点・投稿文・返信の仕分けすべてで使うモデル（2026-10: 費用を抑えるため Opus 5.5 → Sonnet 5.5）
@@ -210,6 +211,9 @@ POST_SYSTEM = """あなたは X アカウント「仏像リンク」の中の人
 - 落ち着いた常体（〜だ、〜らしい、〜とのこと）が基本。盛らない・煽らないが、淡々としすぎない。
   うれしい・驚いたニュースでは「！」を使ってよい（1 投稿に 1〜2 個まで。「！！」の連打はしない）
 - 「感動」「必見」のような宣伝文句ではなく、像の姿や公開の事情など具体的な事実で伝える
+- 次の語は使わない: 仏様・仏さま・仏さん（像は「◯◯像」「◯◯さん」と書く。例: 薬師如来さん、千手観音立像）、
+  癒やし・癒し（仏像への感想に使わない）、感動・圧倒・驚き・最高・興奮（抽象語。光の入り方・素材の質感・
+  温度・音など具体で伝える）
 - 何が（仏像名）・どこで・いつ（公開期間や日付）を、記事に書かれている範囲で自然に入れる
 - 最後に、仏像好きとしての短い本音や小さなオチを添えてよい（カッコ書きも可）
 - ハッシュタグは使わない。絵文字も基本は使わない
@@ -248,23 +252,6 @@ POST_SCHEMA = {
     "required": ["post_text"],
     "additionalProperties": False,
 }
-
-# X の文字数制限（重み付きで 280）。URL は長さにかかわらず 23 として数える。
-X_LIMIT = 280
-X_URL_WEIGHT = 23
-
-
-def x_weighted_length(text: str) -> int:
-    """X（twitter-text v3）の重み付き文字数。ASCII 等は 1、日本語や絵文字は 2。"""
-    n = 0
-    for ch in text:
-        cp = ord(ch)
-        if cp <= 4351 or 8192 <= cp <= 8205 or 8208 <= cp <= 8223 or 8242 <= cp <= 8247:
-            n += 1
-        else:
-            n += 2
-    return n
-
 
 class Usage:
     def __init__(self) -> None:
@@ -573,7 +560,8 @@ def check_stale(news: list[dict]) -> int:
 
 
 def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
-               extra: str = "", recent_posts: list[str] | None = None, fetch_body: bool = True) -> str | None:
+               extra: str = "", recent_posts: list[str] | None = None, fetch_body: bool = True,
+               max_chars: int | None = None) -> str | None:
     """記事を読んで投稿の文章部分を作る。extra は追加の指示（リマインド時の公開日など）。
     recent_posts は直近に作った投稿文（書き出し・締めが似ないようにするため）。"""
     body = (fetch_article_text(item["url"]) if fetch_body else "") or item.get("description", "")
@@ -591,6 +579,8 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
     # 後ろに付く「【仏像速報】タイトル」と URL の分を差し引いた残りが文章に使える
     fixed = x_weighted_length(compose_news_post("", item.get("title", ""), header)) + 1 + X_URL_WEIGHT
     budget_chars = max(40, (X_LIMIT - fixed) // 2 - 3)
+    if max_chars:
+        budget_chars = min(budget_chars, max_chars)   # 書籍など、短めに書かせたいとき
     user += f"\n\n文章は全角 {budget_chars} 字以内（ハッシュタグ込み）で書いてください。"
     last = ""
     for _ in range(3):
@@ -598,6 +588,13 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
         if not data:
             break
         text = data["post_text"].strip()
+        banned = find_banned_words(text)
+        if banned:
+            # 禁止語（仏様・癒やし・感動 など）を含む案は採用しない。言い換えて書き直させる
+            print(f"::warning::投稿文に禁止語 {banned} → 書き直し: {item.get('title', '')[:30]}", file=sys.stderr)
+            user += (f"\n\n（前回の案に使えない語 {'・'.join(banned)} が入っていました。"
+                     "「◯◯像」「◯◯さん」と書く、抽象語を使わず具体で書く、のルールで書き直してください）")
+            continue
         last = text or last
         if not text:
             user += "\n\n（前回の案は空でした。本文が短くても、タイトルと記事の範囲で必ず 1〜2 文書いてください）"
@@ -610,6 +607,7 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
             f"\n\n（前回の案は X の文字数制限を超えました: {total}/{X_LIMIT}。"
             f"全角 {budget_chars} 字以内で書き直してください）"
         )
+    # 禁止語が 3 回とも消えなかったときは last が空のままなので、None（投稿文なし）を返す。
     # 3 回とも収まらなかったときは、削らずに最後の案をそのまま返す（運営者が X で最終調整する。
     # 文字数超過より、紹介文が無くてスキップされるほうが困るため）
     return last or None
@@ -617,10 +615,14 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
 
 def notify(topic: str, item: dict) -> None:
     ai = item["ai"]
+    link = ai.get("official_url") or item.get("url", "")
     body = (compose_news_post(ai["post_text"], item.get("title", ""), ai.get("post_header", NEWS_POST_HEADER))
             if ai.get("post_text") else item.get("title", ""))
+    if ai.get("post_text"):
+        # 文字数超過で投稿画面が開けなくならないよう、文章部分だけを縮める
+        tail = body[len(ai["post_text"].strip()):]
+        body = fit_x_post("", ai["post_text"].strip(), tail, link)
     # 通知の「Xに投稿」から、管理画面を開かずに投稿文入りの X を開けるようにする
-    link = ai.get("official_url") or item.get("url", "")
     intent = "https://x.com/intent/post?" + urlencode({"text": body, "url": link})
     hour = datetime.now(JST).hour
     note = "" if 9 <= hour < 21 else "\n\n（投稿は9時以降がおすすめ。反応が多いのは9〜17時）"

@@ -15,7 +15,8 @@ import zlib
 from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 
-from news_store import CANDIDATE_THRESHOLD, NOISE_THRESHOLD, compose_news_post, load_skipped
+from news_store import (CANDIDATE_THRESHOLD, NOISE_THRESHOLD, X_LIMIT, book_header, compose_news_post, fit_headline_post,
+                        fit_x_post, intent_weighted_length, load_skipped)
 
 DOCS_DIR = Path(__file__).parent / "docs"
 NEWS_JSON_FILE = DOCS_DIR / "data" / "news.json"
@@ -123,27 +124,37 @@ def build_card_html(item: dict) -> str:
     source_label = SOURCE_LABELS.get(source, f"📌 {source}")
     image_url = item.get("image_url", "")
     desc = item.get("description", "")
-    desc_escaped = (
-        desc.replace("&", "&amp;")
-            .replace('"', "&quot;")
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-    )
 
-    # X Web Intent URL（description は JS 側で動的挿入するため、ここでは含めない）
-    post_text = f"{header}\n{item.get('title', '')}\n{hashtags}"
+    # X Web Intent URL。どの投稿文も fit_x_post() で重み付き 280 字（URL 込み）に収める。
+    # 縮めるのは文章・紹介文の部分だけで、見出し・書名・リンクは切らない。
+    # 以前は JS（handlePostClick）が説明文を後から差し込んでいて、書籍などで必ず超過していた。
+    # 説明文は Python 側で収まる分だけ入れるので、data-description は空にする。
     ai = item.get("ai") or {}
-    if item.get("book_post_text"):
-        # 新刊の紹介文（rank_books.py）→ 【仏像新刊】書名（→ URL は Amazon のリンク）
-        post_text = compose_news_post(item["book_post_text"], item.get("title", ""), item.get("header", "【仏像新刊】"))
-    if ai.get("post_text"):
-        # AI（curate_news.py）が記事を読んで書いた文章 → 【仏像速報】記事タイトル（→ X が URL を付ける）
-        post_text = compose_news_post(ai["post_text"], item.get("title", ""), ai.get("post_header", "【仏像速報】"))
-    if source in ("google_news", "official_site", "reminder"):
-        # ニュースの description は AI 採点用の要約。投稿文には差し込まない
-        desc_escaped = ""
+    is_book = item.get("item_type") == "book"
     # 展覧会は公式ページを付けて、X のリンクカードに公式の OG 画像（ポスター等）を出す（curate_news.py）
     link_url = ai.get("official_url") or url
+    if is_book:
+        # 書籍・雑誌: 紹介文（rank_books.py）があれば「紹介文 → 【仏像新刊】書名」。無ければ見出し・書名・タグだけ
+        # （Amazon の説明文は入れない）。見出しは書籍の種類で決まる（【仏像新刊】／【仏像特集】）
+        hdr = book_header(item)
+        if item.get("book_post_text"):
+            post_text = fit_x_post("", item["book_post_text"].strip(), compose_news_post("", item.get("title", ""), hdr), link_url)
+        else:
+            post_text = fit_headline_post(hdr, item.get("title", ""), hashtags, link_url)
+    elif ai.get("post_text"):
+        # AI（curate_news.py）が記事を読んで書いた文章 → 【仏像速報】記事タイトル（→ X が URL を付ける）
+        post_text = fit_x_post("", ai["post_text"].strip(),
+                               compose_news_post("", item.get("title", ""), ai.get("post_header", "【仏像速報】")), link_url)
+    elif desc and source not in ("google_news", "official_site", "reminder"):
+        # 特別公開・特別展などの説明文は、収まる分だけ見出しとハッシュタグの間に入れる
+        post_text = fit_x_post(f"{header}\n{item.get('title', '')}\n", desc, f"\n{hashtags}", link_url)
+    else:
+        post_text = fit_headline_post(header, item.get("title", ""), hashtags, link_url)
+    if intent_weighted_length(post_text, link_url) > X_LIMIT:
+        # 題名だけで超える長いタイトルの最後の手段（ハッシュタグを外し、題名を縮める）
+        post_text = fit_headline_post(ai.get("post_header", header) if ai.get("post_text") else header,
+                                      item.get("title", ""), "", link_url)
+    desc_escaped = ""
     intent_params = urllib.parse.urlencode({"text": post_text, "url": link_url})
     intent_url = f"https://x.com/intent/post?{intent_params}"
 
@@ -319,19 +330,14 @@ def build_separator_html(dt: datetime) -> str:
 
 
 def build_book_cards(books: list[dict]) -> str:
-    """書籍を「新刊（発売予定〜発売直後）」→「おすすめ（紹介する価値の高い順）」に並べる。
-    紹介する価値は rank_books.py が Claude で採点した book_ai.score。"""
-    from news_store import (BOOK_HIDE_BELOW as HIDE_BELOW, BOOK_NEW_MIN_SCORE as NEW_MIN_SCORE,
-                            BOOK_NEW_RELEASE_DAYS as NEW_RELEASE_DAYS, book_release_date as release_date)
+    """書籍・雑誌を取り込み日（fetched_at）の新しい順に並べる。発売日はバッジで見せる。
+    紹介する価値（book_ai.score）が BOOK_HIDE_BELOW 未満の本（仏像と無関係）は表示しない。"""
+    from news_store import BOOK_HIDE_BELOW as HIDE_BELOW, book_fetched_key, book_release_date as release_date
 
     today = datetime.now(JST).date()
-
-    def score(b: dict) -> int:
-        return (b.get("book_ai") or {}).get("score", 50)  # 未採点は中くらい扱い
-
-    new, rest = [], []
+    shown = []
     for b in books:
-        if score(b) < HIDE_BELOW:
+        if (b.get("book_ai") or {}).get("score", 50) < HIDE_BELOW:  # 未採点は中くらい扱い
             continue
         rd = release_date(b)
         b = dict(b)
@@ -341,25 +347,11 @@ def build_book_cards(books: list[dict]) -> str:
             b["_book_badge"] = f"📅 {rd:%Y/%m/%d} 発売"
         else:
             b["_book_badge"] = "📅 発売日不明"
-        if rd and (rd - today).days >= -NEW_RELEASE_DAYS and score(b) >= NEW_MIN_SCORE:
-            new.append((rd, b))
-        else:
-            rest.append(b)
-    new.sort(key=lambda t: t[0], reverse=True)
-    rest.sort(key=lambda b: (score(b), (release_date(b) or date.min)), reverse=True)
-
-    def heading(text: str, sub: str) -> str:
-        return (f'    <p class="text-xs font-bold text-brand-800 px-1 pt-1">{text}'
-                f'<span class="font-normal text-gray-500 ml-1">{sub}</span></p>')
-
-    out = []
-    if new:
-        out.append(heading(f"🆕 新刊（{len(new)}冊）", "発売予定・発売60日以内"))
-        out += [build_card_html(b) for _, b in new]
-    if rest:
-        out.append(heading(f"📖 おすすめ（{len(rest)}冊）", "仏像リンクとして紹介したい順"))
-        out += [build_card_html(b) for b in rest]
-    return "\n".join(out)
+        if b.get("book_kind") == "magazine":
+            b["_book_badge"] = "📰 雑誌の仏像特集・" + b["_book_badge"][2:]
+        shown.append(b)
+    shown.sort(key=book_fetched_key, reverse=True)
+    return "\n".join(build_card_html(b) for b in shown)
 
 
 def build_cards_with_separators(items: list[dict]) -> str:
