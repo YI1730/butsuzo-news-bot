@@ -262,7 +262,7 @@ def build_magazine_item(magazine: str, issue_label: str, release_date: str, spec
     }
 
 
-MAX_AMAZON_TRIES = 3
+MAX_AMAZON_TRIES = 10   # GitHub Actions からの Amazon 検索は弾かれる回が多いので、多めに再試行する
 
 
 def upgrade_missing_asin(session: requests.Session, items: list[dict], have_asin: set[str]) -> int:
