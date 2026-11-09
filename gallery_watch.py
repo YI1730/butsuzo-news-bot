@@ -55,11 +55,12 @@ REQUEST_INTERVAL = 3.0          # リクエストの間隔（秒）
 ENDING_DAYS = 7                 # 展示の終了まで何日以内で「終了まぢか」にするか
 CONTINUE_GAP_DAYS = 7           # 前の展示期間の終了から次の開始までがこの日数以内なら、続けて展示されているものとみなす
 MAX_ENRICH_PER_RUN = 30         # 1 回の実行で AI に渡す特徴の抽出の上限（費用の歯止め）
-SEARCH_VERSION = 2              # 検索の方式を変えたら上げる（空振りに終わった像を、もう一度だけ調べ直す）
+SEARCH_VERSION = 3              # 検索の方式を変えたら上げる（空振りに終わった像を、もう一度だけ調べ直す）
 MAX_SEARCHES_PER_RUN = 10       # 公式サイトの web 検索（Claude の web_search ツール）の上限（1 回の実行）
 SEARCH_COST = 0.01              # web 検索 1 回あたりの費用の見積り（$）
 SEARCH_DOMAINS = ["kyohaku.go.jp", "narahaku.go.jp", "tnm.jp", "kyuhaku.jp", "collection.kyuhaku.jp",
                   "online.bunka.go.jp", "bunka.nii.ac.jp", "colbase.nich.go.jp"]   # 公式な情報源だけ（寺院のサイトは使わない）
+MAX_FETCH_PER_ITEM = 4          # 検索結果のページ（許可ドメインのみ）を、像ごとに自分で開く最大数
 MAX_JUDGE_CALLS = 3             # 作品名で判断がつかないものを軽いモデルで判定する呼び出しの上限
 JUDGE_BATCH = 40
 MAX_LISTED = 8                  # 配信候補の材料に入れる像の数（重要な順）
@@ -896,15 +897,17 @@ def search_features(client, usage, item: dict, budget: list) -> tuple[str, str] 
     budget[0] -= max(used, 1)
     budget[1] += used
     name_core = nospace(item["name"])[:5]
+    full_core = nospace(re.sub(r"[（(].*?[）)]", "", item["name"]))   # ページを開く照合は像名の全体で（同名の別の像を避ける）
     owner_core_ = owner_core(item.get("owner", ""))
     snippets, urls, raw = [], [], 0
-    seen_urls, errors, said = [], [], ""
+    seen_urls, errors, said, results = [], [], "", []
     for block in resp.content:
         btype = getattr(block, "type", "")
         if btype == "web_search_tool_result":
             content = getattr(block, "content", None)
             if isinstance(content, list):
                 seen_urls += [getattr(r, "url", "") for r in content]
+                results += [(getattr(r, "url", ""), getattr(r, "title", "") or "") for r in content]
             else:
                 errors.append(str(getattr(content, "error_code", content))[:60])
         if btype != "text":
@@ -923,8 +926,28 @@ def search_features(client, usage, item: dict, budget: list) -> tuple[str, str] 
             snippets.append(text)
             urls.append(url)
     print(f"  web 検索の結果: 検索結果URL{len(seen_urls)}件 {[u[:60] for u in seen_urls[:3]]} / 引用{raw}件 / エラー{errors or 'なし'} / 回答「{clean(said)}」")
+    # 検索結果のページ（許可ドメインのみ）は、引用がなくても自分で開いて本文を読む。題名に像名があり、本文に所蔵者がある 1〜4 ページ
+    opened = 0
+    for url, title in results:
+        if opened >= MAX_FETCH_PER_ITEM or url in urls:
+            continue
+        host = urlsplit(url).hostname or ""
+        if not any(host == d or host.endswith("." + d) for d in SEARCH_DOMAINS) or (full_core and full_core not in nospace(title)):
+            continue
+        opened += 1
+        page = fetch_soup(url)
+        if page is None:
+            continue
+        for t in page(["script", "style", "noscript", "header", "footer", "nav", "aside"]):
+            t.decompose()
+        text = clean((page.find("main") or page.body or page).get_text(" ", strip=True))
+        n = nospace(text)
+        if full_core not in n or (len(owner_core_) >= 2 and owner_core_ not in n):
+            continue
+        snippets.append(text[:1500])
+        urls.append(url)
     out = "\n".join(f"[{u}] {t}" for u, t in zip(urls, snippets))
-    print(f"  web 検索: {query} → 引用{len(snippets)}件（検索{used}回）")
+    print(f"  web 検索: {query} → 資料{len(snippets)}件（引用{raw}件・開いたページ{opened}件・検索{used}回）")
     return out, (urls[0] if urls else "")
 
 
