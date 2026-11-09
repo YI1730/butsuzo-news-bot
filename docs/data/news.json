@@ -1,6 +1,251 @@
 {
-  "last_updated": "2026-11-09T10:08:39.347462+09:00",
+  "last_updated": "2026-11-09T10:12:04.918413+09:00",
   "items": [
+    {
+      "id": "rem-acfc82911400-found",
+      "title": "龍谷ミュージアム（京都府京都市） 春季特別展 「湯の街のほとけとかみ ―温泉と薬師信仰の美術―（仮称）」",
+      "url": "https://museum.ryukoku.ac.jp/exhibition/index.html",
+      "source": "reminder",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-09T10:14:38+09:00",
+      "published_at": "2026-11-09T10:14:38+09:00",
+      "image_url": "",
+      "ai": {
+        "score": 72,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "展覧会の情報・薬師信仰の仏像・美術展。仮称で詳細は少なく、開幕は先だが先の予定として減点せず",
+        "post_text": "龍谷ミュージアムで2027年4月24日〜6月20日、温泉と薬師信仰の仏像展。温泉寺の像など100件余り。楽しみ！",
+        "post_header": "【仏像速報】",
+        "post_format": 6,
+        "notified": true
+      }
+    },
+    {
+      "id": "rem-ec11db7c03ec-found",
+      "title": "特別展「国宝 三井寺のすべて」 東京国立博物館 | 東京都（2027年4月20日〜6月13日）",
+      "url": "https://www.museum.or.jp/event/127356",
+      "source": "reminder",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-09T10:14:38+09:00",
+      "published_at": "2026-11-09T10:14:38+09:00",
+      "image_url": "",
+      "ai": {
+        "score": 88,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "展覧会の情報・東博の大型特別展の告知。三井寺の仏教美術で第一報、先の予定でも減点なし",
+        "post_text": "三井寺の寺宝が東京国立博物館にやって来る。会期は2027年4月20日から6月13日まで。国宝が並ぶ「三井寺のすべて」、いまから楽しみだ。",
+        "post_header": "【仏像速報】",
+        "post_format": 6,
+        "notified": true
+      }
+    },
+    {
+      "id": "06e42dc667a8",
+      "title": "善光寺｜2026.11.9 お知らせ ウェブサイトメンテナンスのお知らせ",
+      "url": "https://www.zenkoji.jp/2026/11/09/23489/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-09T10:12:05+09:00",
+      "published_at": "2026-11-09T10:12:05+09:00",
+      "image_url": "https://www.zenkoji.jp/wp-content/uploads/ogp.png",
+      "description": "身は茲に心は信濃の善光寺 導き給へ弥陀の浄土へ。信州善光寺は、一光三尊阿弥陀如来様を御本尊として創建以来約千四百年の長きに亘り、阿弥陀如来様との結縁の場として民衆の心の拠り所として深く広い信仰を得ております。",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ウェブサイトのメンテナンス告知で仏像の公開と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T10:14:37+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "35686b7e3003",
+      "title": "水町クリニック開院４５周年祝う 都内 - 岐阜新聞デジタル",
+      "url": "https://www.gifu-np.co.jp/articles/-/796207",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T10:12:04.916903+09:00",
+      "published_at": "2026-11-08T05:00:00+09:00",
+      "image_url": "https://gifu-np.ismcdn.jp/mwimgs/0/f/-/img_0fbb01ea6647f1e312797379e2935bd238160.jpg",
+      "description": "",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "クリニックの開院周年記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T10:14:37+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "0541d8892746",
+      "title": "松たか子、グルメロケ“禁断企画”挑戦 隣には復帰したサンドウィッチマン伊達みきお - 朝日新聞",
+      "url": "https://www.asahi.com/and/entertainment/17033717",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T10:11:57.332219+09:00",
+      "published_at": "2026-11-09T07:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "芸能・グルメ番組の記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T10:14:37+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "4fd282631f73",
+      "title": "知られざる舞楽の世界　染織の粋が集結　根津美術館「舞楽装束―受け継がれる染織の美―」 - Infoseek",
+      "url": "https://news.infoseek.co.jp/amp/article/sankein__life_arts_KSQVPEFCPRNLTG3Z2ZOXQ6CFKQ/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T10:11:48.057254+09:00",
+      "published_at": "2026-11-09T08:00:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/sankein/sankein__life_arts_KSQVPEFCPRNLTG3Z2ZOXQ6CFKQ_0-enlarge.jpg",
+      "description": "古典芸能の舞楽で使用された装束の歴史をたどる展覧会「舞楽装束－受け継がれる染織の美－」が、東京・南青山の根津美術館",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "舞楽装束の展覧会で仏像が出てこない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T10:14:37+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "8a5529eb47af",
+      "title": "国宝釘無堂・1300年大祭を想う。 祭りも、子どもの安全も、貝塚の未来も「人」が守る❗️ - 選挙ドットコム",
+      "url": "https://go2senkyo.com/seijika/175592/posts/1575163",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T10:11:46.332077+09:00",
+      "published_at": "2026-11-09T09:44:55+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "選挙関連の投稿で国宝建造物の名が出るだけ",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T10:14:37+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "b2862570b487",
+      "title": "“監獄”を再生した注目ホテル。【星のや奈良監獄】で、時を旅する - marie claire [マリ・クレール]",
+      "url": "https://marieclairejapon.com/lifestyle/282890/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T10:11:44.484190+09:00",
+      "published_at": "2026-11-09T10:01:35+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ホテルの宣伝記事で寺院・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T10:14:37+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "f09f0400eddd",
+      "title": "‐箕面市‐ 「明治の森箕面国定公園 もみじまつり2026」が開催 - City Life NEWS",
+      "url": "https://citylife-new.com/newspost/48648/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T10:11:43.093870+09:00",
+      "published_at": "2026-11-09T10:04:42+09:00",
+      "image_url": "",
+      "description": "箕面市で、この時期だけの色めく秋の絶景やイベントを堪能できる「明治の森箕面国定公園 もみじまつり2026」が、",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "紅葉まつりの観光記事で仏像に触れていない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T10:14:37+09:00",
+        "score_version": 7
+      }
+    },
     {
       "title": "備長炭で出来た仏像の置物 阿弥陀如来(小) 6.8cm",
       "url": "https://www.amazon.co.jp/dp/B00OBLO3P2?tag=butsuzo03-22",
@@ -74,7 +319,14 @@
       "release_date": "2026-10-19",
       "id": "4ca344081d7a",
       "fetched_at": "2026-11-09T10:08:35.836553+09:00",
-      "description": "Amazonで青山 孝太郎の仏像入門 日本の宗教 (Aoyama Books)。アマゾンならポイント還元本が多数。一度購入いただいた電子書籍は、KindleおよびFire端末、スマートフォンやタブレッ"
+      "description": "Amazonで青山 孝太郎の仏像入門 日本の宗教 (Aoyama Books)。アマゾンならポイント還元本が多数。一度購入いただいた電子書籍は、KindleおよびFire端末、スマートフォンやタブレッ",
+      "book_ai": {
+        "score": 50,
+        "reason": "仏像の入門書で一般向け。専門性は不明で中程度",
+        "version": 1
+      },
+      "book_post_attempts": 1,
+      "book_post_text": "10月19日に出た、青山孝太郎さんの『仏像入門 日本の宗教』。書名のとおり、仏像を入口に日本の宗教へ触れられる一冊らしい。これから仏像を見始める人の手引きによさそうだ。"
     },
     {
       "title": "広島県立歴史博物館 （ふくやま草戸千軒ミュージアム）企画展「大本山佛通寺展」（10月9日~11月29日）",
@@ -11578,90 +11830,6 @@
       }
     },
     {
-      "id": "6fe930a6b6a9",
-      "title": "重要文化財 杉本家住宅一般公開「京商家の正月準備」 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/eventbank/region/eventbank-10653456",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T13:11:32.771991+09:00",
-      "published_at": "2026-11-06T10:00:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10653456.jpg",
-      "description": "杉本家住宅一般公開「京商家の正月準備」 京都市中最大級、築156年の京町家「重要文化財 杉本家住宅」の…",
-      "ai": {
-        "score": 10,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "京町家の住宅公開で寺院・仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T13:14:14+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "a3ab84ce0c08",
-      "title": "企画展「横浜の領主ーおらが村の殿様を探るー」及び関連イベント開催のお知らせ【横浜市歴史博物館】 - PR TIMES",
-      "url": "https://prtimes.jp/main/html/rd/p/000000302.000064384.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T13:11:30.699975+09:00",
-      "published_at": "2026-11-06T10:00:03+09:00",
-      "image_url": "https://prcdn.freetls.fastly.net/release_image/64384/302/64384-302-b0e7cf134268427181b6bf9a3329555c-1243x1769.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
-      "description": "公益財団法人横浜市ふるさと歴史財団のプレスリリース（2026年11月6日 10時00分）企画展「横浜の領主ーおらが村の殿様を探るー」及び関連イベント開催のお知らせ【横浜市歴史博物館】",
-      "ai": {
-        "score": 12,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "領主を扱う歴史企画展で仏像が主題ではない。一次情報だが対象外",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T13:14:14+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "5d96008a76e6",
-      "title": "一旗プロデュース「ASAKUSA CULTURE & LIGHTS 2026」の公式記録写真を公開。浅草寺本堂・宝蔵門に1400年の歴史文化をテーマとするプロジェクションマッピングを投影。 - 時事ドットコム",
-      "url": "https://www.jiji.com/jc/article?k=000000526.000046440&g=prt",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T13:11:29.136570+09:00",
-      "published_at": "2026-11-06T11:16:00+09:00",
-      "image_url": "https://prcdn.freetls.fastly.net/release_image/46440/526/46440-526-1b2c97fd3c3978426e7a97b7addb9d8c-3000x2000.jpg",
-      "description": "［株式会社一旗 HITOHATA,INC.］浅草寺本堂でのプロジェクションマッピングは史上初。浅草寺境内の名勝 伝法院庭園を雲海で彩り、歌川国芳、長谷川雪旦など歴史的な絵師たちが描いた大絵馬を特別に鑑賞できる特別拝観も同時開催。株式会社一旗（代表取締役：東山武明）がプロデュースする「ASAKUSA CULTURE & LIGHTS 2026（浅草カルチャー&ライツ 2026）」（2026年10月30日（金）～11月3日（火・祝）まで浅草寺（東京都台東区）で開催）の公式記録写真を公…",
-      "ai": {
-        "score": 12,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "プロジェクションマッピングの記録写真で、イベントは11/3に終了済み、仏像の話なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T13:14:14+09:00",
-        "score_version": 7
-      }
-    },
-    {
       "id": "aec83eb29cd5",
       "title": "平等院｜【重要】2026年11月13日(金)～12月6日(日) 秋の紅葉シーズンの拝観について",
       "url": "https://www.byodoin.or.jp/news/cat23/2022-1/",
@@ -11683,97 +11851,6 @@
           "place": "平等院（京都府宇治市）",
           "start_date": "2026-11-13",
           "end_date": "2026-12-06"
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T12:14:07+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "74281213d8ae",
-      "title": "竹田市愛染堂の掛け軸修復へ、御朱印とバッグ販売　費用捻出「次の時代に残したい」 - 大分合同新聞",
-      "url": "https://www.oita-press.co.jp/1010000000/2026/11/06/JDC2026101603794",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T12:11:37.370639+09:00",
-      "published_at": "2026-11-06T03:00:00+09:00",
-      "image_url": "https://www.oita-press.co.jp/-/media/Images/oita-press/2026/11/06/JDC2026101603794_01_65343.ashx",
-      "description": "大分合同新聞プレミアムオンライン「Gate」では、大分県内ニュースを中心に速報、イベント情報や世界の主要報道などを掲載しています。",
-      "ai": {
-        "score": 38,
-        "category": "修理・保存",
-        "duplicate": false,
-        "reason": "愛染堂の掛け軸修復の資金集めで仏像ではない。9時間経過で減点",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T12:14:07+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "677e0ee3ccb8",
-      "title": "「国宝 三井寺のすべて」展 - 滋賀報知新聞",
-      "url": "https://www.shigahochi.co.jp/articles/A989126YPH5",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T12:11:35.453092+09:00",
-      "published_at": "2026-11-06T07:00:00+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 72,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "三井寺の仏教美術展の告知。詳細不明で開催日も不明。5時間経過",
-        "event": {
-          "event_name": "国宝 三井寺のすべて展",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T12:14:07+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "official_url": "",
-        "official_image": "",
-        "post_text": "「国宝 三井寺のすべて」展が話題に。三井寺（園城寺）の寺宝を一堂に紹介する大規模な展覧会のようだ！仏像や寺宝がどう並ぶのか、楽しみにしたい。",
-        "post_attempts": 1,
-        "post_format": 6,
-        "notified": true
-      }
-    },
-    {
-      "id": "d2b430ab1d6f",
-      "title": "プレスリリース PRTIMES記事詳細 | さんにちEye 山梨日日新聞デジタル - sannichi.co.jp",
-      "url": "https://www.sannichi.co.jp/prtimes/others/c46440_r526",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T12:11:33.844441+09:00",
-      "published_at": "2026-11-06T10:00:00+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 10,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "内容不明のプレスリリース。仏像との関連が確認できない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
         },
         "buddha_designation": false,
         "model": "claude-sonnet-5-5",
