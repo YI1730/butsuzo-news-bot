@@ -1,6 +1,122 @@
 {
-  "last_updated": "2026-11-10T01:11:47.144944+09:00",
+  "last_updated": "2026-11-10T02:11:57.944013+09:00",
   "items": [
+    {
+      "id": "023a3173b0d4",
+      "title": "高野町 お知らせ｜南海電鉄の車両が初めて京都に！京都鉄道博物館にて展示",
+      "url": "https://www.town.koya.wakayama.jp/sangyo/information/40090.html",
+      "source": "official_site",
+      "site_kind": "gov",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-10T02:11:58+09:00",
+      "published_at": "2026-11-10T02:11:58+09:00",
+      "image_url": "",
+      "description": "日本仏教における聖地「高野山」を有する高野町は、宗教と環境と道徳の町をコンセプトに町づくりを進めています。",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "鉄道博物館での車両展示の話で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T02:15:46+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "2a315b363548",
+      "title": "河東・国師庵 真鑑禅師が開いた双磎寺の庵と千年の楡の木 - www.famtimes.co.kr",
+      "url": "https://www.famtimes.co.kr/ja/news/articleView.html?idxno=704424",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T02:11:57.942128+09:00",
+      "published_at": "2026-11-09T13:02:11+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "韓国の寺の庵と木の話で仏像に触れず、13時間経過",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T02:15:46+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "8320902f4811",
+      "title": "ベトナム首脳が国会演説 - 高崎前橋経済新聞",
+      "url": "https://takasaki.keizai.biz/gpnews/1778884/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T02:11:53.915828+09:00",
+      "published_at": "2026-11-09T19:53:18+09:00",
+      "image_url": "https://images.keizai.biz/takasaki_keizai/globalphoto/",
+      "description": "来日中のベトナムの最高指導者トー・ラム共産党書記長兼国家主席は９日、衆院本会議場で演説した。人工知能（ＡＩ）や半導体などの分野で日本との協力を深める方針を表明＝国会内 【時事通信社】",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "政治ニュースで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T02:15:46+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "cb53693385b6",
+      "title": "大の里の寄り切り - 函館経済新聞",
+      "url": "https://hakodate.keizai.biz/gpnews/1778886/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T02:11:51.573763+09:00",
+      "published_at": "2026-11-10T00:53:58+09:00",
+      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
+      "description": "大相撲九州場所２日目。大の里（右）は藤凌駕に辛勝して連敗を免れた＝９日、福岡国際センター 【時事通信社】",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "大相撲の記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T02:15:46+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "17f0e0fb64f8",
       "title": "福井市 お知らせ｜【市美術館】展示室等_施設貸出しについて",
@@ -11654,91 +11770,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "企業の情報流出で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T08:08:30+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "38c3a53c13f7",
-      "title": "聖徳太子一族の盛衰 奈良県の斑鳩文化財センターで特別展 11月29日まで - 47NEWS",
-      "url": "https://www.47news.jp/15195229.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T08:05:40.283249+09:00",
-      "published_at": "2026-11-07T06:00:00+09:00",
-      "image_url": "https://img.cf.47news.jp/public/photo/4d1ea6a52005573a3e05d9f53622eaac/photo.jpg",
-      "description": "ゆかりの遺跡・出土品紹介 聖徳太子と太子の一族、上宮王家を取り上げた秋季特別展「華麗なる王族―上 ...",
-      "ai": {
-        "score": 30,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "聖徳太子一族の遺跡・出土品展で仏像が主役でない。第一報だが低め",
-        "event": {
-          "event_name": "秋季特別展「華麗なる王族」",
-          "place": "斑鳩文化財センター（奈良県斑鳩町）",
-          "start_date": "",
-          "end_date": "2026-11-29"
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T08:08:30+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "c6102f0c91ef",
-      "title": "寺宝公開 金属造形作品も展示 初山宝林寺 秋の特別展 浜名区－浜松 - 静岡新聞DIGITAL",
-      "url": "https://news.at-s.com/article/2093302",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T08:05:37.359325+09:00",
-      "published_at": "2026-11-07T06:00:00+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 62,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": false,
-        "reason": "寺宝公開の秋の特別展の第一報。仏像の有無が不明で上限内",
-        "event": {
-          "event_name": "初山宝林寺 秋の特別展 寺宝公開",
-          "place": "初山宝林寺（静岡県浜松市浜名区）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T08:08:30+09:00",
-        "score_version": 7,
-        "page_checked": true
-      }
-    },
-    {
-      "id": "a6f9e668cbdd",
-      "title": "祝・世界遺産！QuizKnockコラボ「飛鳥トラベル」で奈良・明日香村のキトラ・高松塚古墳を巡る歴史旅 - ニコニコニュース",
-      "url": "https://news.nicovideo.jp/watch/nw19966491?news_ref=watch_20_nw19856202",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T08:05:35.931318+09:00",
-      "published_at": "2026-11-07T06:12:18+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "古墳巡りの観光企画で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
