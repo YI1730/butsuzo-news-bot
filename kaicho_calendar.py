@@ -43,8 +43,11 @@ REMINDER_SCORE = 90        # リマインドは配信候補として扱う
 EXHIBIT_HEADERS = {"found": "【仏像速報】", "start": "【あすから開幕】"}
 # 開幕前の展覧会が追加情報を出したときの続報（exhibit_watch.py）。重要度は 出品作品 > ビジュアル > ページ公開
 WATCH_HEADERS = {"page": "【展覧会続報】", "visual": "【展覧会続報・ビジュアル公開】", "lineup": "【出品作品公開】"}
+# 国立博物館の名品ギャラリー（平常展示）で仏像の展示が替わる・終わるときの配信候補（gallery_watch.py）
+GALLERY_HEADERS = {"swap": "【展示替え】", "ending": "【展示終了まぢか】", "digest": "【今週の展示替え】"}
 EXHIBIT_HEADERS_ALL = (set(EXHIBIT_HEADERS.values()) | {"【まもなく開幕】"}
-                       | set(WATCH_HEADERS.values()))  # 重複判定用（旧仕様の見出しと続報を含む）
+                       | set(WATCH_HEADERS.values())
+                       | set(GALLERY_HEADERS.values()))  # 重複判定用（旧仕様の見出し・続報・展示替えを含む）
 MAX_EXHIBIT_SCORE_PER_RUN = 30
 
 
