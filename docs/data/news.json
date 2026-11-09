@@ -1,6 +1,35 @@
 {
-  "last_updated": "2026-11-10T02:11:57.944013+09:00",
+  "last_updated": "2026-11-10T02:27:45.392989+09:00",
   "items": [
+    {
+      "id": "a094b0906f13",
+      "title": "映画で『ちいかわ』にハマった横山ルリカ、母と京都旅で“ちい活”満喫 プライベートショット公開「ハマってますね〜」 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2017261",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T02:27:45.390644+09:00",
+      "published_at": "2026-11-10T01:00:38+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/1/6/0/4/160470f3419b4618eb2aea612b5bb68e_1.jpg",
+      "description": "元アイドリング!!!のメンバーでタレントの横山ルリカ（35）が5日、自身のインスタグラムを更新。 “ちい活”を満喫する近況を報告し、プ...",
+      "search_query": "\"伏見稲荷\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "タレントのちいかわ京都旅の話題で仏像と無関係。速報性も関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T02:30:11+09:00",
+        "score_version": 7
+      }
+    },
     {
       "id": "023a3173b0d4",
       "title": "高野町 お知らせ｜南海電鉄の車両が初めて京都に！京都鉄道博物館にて展示",
@@ -11742,34 +11771,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "プロ野球の契約更改で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T08:08:30+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "eb29e8dc3916",
-      "title": "ＮＴＴドコモ、情報流出３０万件 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778813/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T08:05:42.391960+09:00",
-      "published_at": "2026-11-06T21:04:13+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "ＮＴＴドコモの前田義晃社長は６日、東京都内で記者会見し、不正アクセスにより、最大で約３０万件の氏名や住所、本人確認書類の番号が流出したと明らかにした。一部に口座番号、口座名義なども含まれる。 【時事通信社】",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "企業の情報流出で無関係",
         "event": {
           "event_name": "",
           "place": "",
