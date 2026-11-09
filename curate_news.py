@@ -56,9 +56,11 @@ POST_FORMAT = 6
 #   6: 市町村指定の仏像を高く、@butsuzolink の実績（像が具体的な記事が強い等）を反映
 #   7: 仏像の新指定は等級で差をつけない（48時間以内は 85 点以上）、指定文化財の特別公開は詳細不明でも下げない、
 #      指定・特別公開の告知は 48 時間まで経過時間で減点しない
-SCORE_VERSION = 7
+#   8: 経過時間の減点を AI からシステム（time_penalty）に移し、速報（breaking）は 12h −5・24h −10・48h −20、
+#      日もちする情報（durable: 雑誌特集・展覧会告知・調査修理成果・新指定・特別公開告知）は 72h まで減点なし・以後最大 −10
+SCORE_VERSION = 8
 NEW_DESIGNATION_FLOOR = 85       # 仏像の新指定の下限点（配信から FLOOR_HOURS 時間以内・重複でない場合）
-NEW_DESIGNATION_FLOOR_HOURS = 48
+NEW_DESIGNATION_FLOOR_HOURS = 72
 
 PWA_URL = "https://yi1730.github.io/butsuzo-news-bot/"
 TARGET_SOURCES = {"google_news", "official_site", "kaicho_info", "exhibition"}  # official_site は watch_sites.py
@@ -84,7 +86,7 @@ SCORE_SYSTEM = """あなたは X アカウント「仏像リンク」のニュ�
 - 国宝・重要文化財の新指定（文化審議会の答申を含む）
   - 仏像の新指定: 国宝・重要文化財・都道府県・市町村のどの指定でも同じ枠で 85〜95 点。
     指定の等級で差をつけない（地方仏は仏像リンクの得意分野。市町村指定でも国宝と同じく扱う）。
-    配信から 48 時間以内なら、この 85〜95 点を下回らせない（重複の減点は別）
+    配信から 72 時間以内なら、この 85〜95 点を下回らせない（重複の減点は別）
   - 寺院の建造物（本堂・法堂・塔など）や寺宝（経典・聖教・仏画・曼荼羅など）の指定: 70〜85 点
   - 城・近代建築・ホテル・民家など寺院と関係ない文化財の指定: 低く（0〜39 点）
 - 寺院や地域の博物館での指定文化財の特別公開の告知: 像の詳細が記事に少なくても、本尊・寺宝など
@@ -123,10 +125,13 @@ SCORE_SYSTEM = """あなたは X アカウント「仏像リンク」のニュ�
   寺院・博物館・文化庁の発表）は、新聞の後追い記事より早いので高く評価する
 - 減点（大きく）: 公開期間や開催日がすでに終わった出来事の報告（「公開された」「開帳された」
   の事後レポート）は、どれだけ珍しい内容でも 60 点以下
-- 経過時間による減点: 配信から 6 時間以上で 5 点、12 時間以上で 10 点、24 時間以上で 20 点以上、
-  48 時間以上で 30 点以上下げる（まだ続報価値がある場合を除く）
-- ただし「仏像の新指定」と「これから始まる・開催中の特別公開・御開帳の告知」は、時間がたっても
-  価値が落ちにくいので、配信から 48 時間までは経過時間で減点しない（48 時間を過ぎても 10 点まで）
+- 経過時間による減点は、点数（score）には**含めず**、freshness で記事の種類を答える。システムが経過時間から
+  自動で引く（score は「経過時間の減点を除いた点」。終了済みの出来事・古い記事の再配信の大きな減点は score に含める）
+  - freshness = "breaking"（鮮度が命の速報。新発見・盗難・災害・事件・当日始まる開帳など、他の発信者と先を争うもの）:
+    システムが 12 時間で −5、24 時間で −10、48 時間で −20 引く
+  - freshness = "durable"（日もちする情報。雑誌・書籍の仏像特集、展覧会の告知、調査・修理の成果、
+    仏像の新指定、これから始まる・開催中の特別公開・御開帳の告知）: 配信から 72 時間までは減点せず、
+    それ以降も最大 −10
 - 先の予定（数か月後の御開帳の準備など、小さな話題）は内容が良くても 70 点前後まで。
   ただし大型特別展の正式発表や新指定の答申は「先の予定」として抑えない
 
@@ -191,9 +196,10 @@ SCORE_SCHEMA = {
                     "start_date": {"type": "string"},
                     "end_date": {"type": "string"},
                     "is_buddha_designation": {"type": "boolean"},
+                    "freshness": {"type": "string", "enum": ["breaking", "durable"]},
                 },
                 "required": ["id", "score", "category", "duplicate", "reason",
-                             "event_name", "place", "start_date", "end_date", "is_buddha_designation"],
+                             "event_name", "place", "start_date", "end_date", "is_buddha_designation", "freshness"],
                 "additionalProperties": False,
             },
         }
@@ -439,6 +445,22 @@ def find_official_page(client, usage: "Usage", item: dict) -> tuple[str, str]:
     return (url, image) if image else ("", "")
 
 
+def time_penalty(freshness: str, hours: int | None) -> int:
+    """経過時間による減点。速報（breaking）は 12h −5・24h −10・48h −20。
+    日もちする情報（durable）は 72 時間まで減点せず、それ以降も最大 −10。"""
+    if hours is None:
+        return 0
+    if freshness == "durable":
+        return 10 if hours > 72 else 0
+    if hours >= 48:
+        return 20
+    if hours >= 24:
+        return 10
+    if hours >= 12:
+        return 5
+    return 0
+
+
 def hours_since(iso: str | None) -> int | None:
     """配信からの経過時間（時間単位、不明なら None）。"""
     try:
@@ -506,6 +528,9 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
                              "page_checked", "page_date", "stale")}
             score = max(0, min(100, int(r["score"])))
             hours = hours_since(it.get("published_at"))
+            freshness = r.get("freshness", "breaking")
+            if r["duplicate"] is False:   # 重複の減点は AI が済ませているので、時間の減点は重複でないものだけ
+                score = max(0, score - time_penalty(freshness, hours))
             if (r.get("is_buddha_designation") and not r["duplicate"] and hours is not None
                     and hours <= NEW_DESIGNATION_FLOOR_HOURS and score < NEW_DESIGNATION_FLOOR):
                 score = NEW_DESIGNATION_FLOOR  # AI の点数のぶれで、仏像の新指定が下がりすぎないようにする
@@ -519,6 +544,7 @@ def score_items(client, usage: Usage, items: list[dict], recent_candidates: list
                 "reason": r["reason"],
                 "event": {k: r[k].strip() for k in ("event_name", "place", "start_date", "end_date")},
                 "buddha_designation": bool(r.get("is_buddha_designation")),
+                "freshness": freshness,
                 "model": MODEL,
                 "scored_at": now,
                 "score_version": SCORE_VERSION,
@@ -561,8 +587,11 @@ def check_stale(news: list[dict]) -> int:
 
 def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
                extra: str = "", recent_posts: list[str] | None = None, fetch_body: bool = True,
-               max_chars: int | None = None) -> str | None:
-    """記事を読んで投稿の文章部分を作る。extra は追加の指示（リマインド時の公開日など）。
+               max_chars: int | None = None, system: str | None = None, tail_extra: str = "",
+               reject=None) -> str | None:
+    """記事を読んで投稿の文章部分を作る。system は別の指示文（既定は POST_SYSTEM）、tail_extra は
+    題名の後ろに付く行（ハッシュタグ）で文字数の計算に入れる、reject(text) は書き直させる理由（文字列）か None を返す関数。
+    記事を読んで投稿の文章部分を作る。extra は追加の指示（リマインド時の公開日など）。
     recent_posts は直近に作った投稿文（書き出し・締めが似ないようにするため）。"""
     body = (fetch_article_text(item["url"]) if fetch_body else "") or item.get("description", "")
     user = (
@@ -577,14 +606,14 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
            if recent_posts else "")
     )
     # 後ろに付く「【仏像速報】タイトル」と URL の分を差し引いた残りが文章に使える
-    fixed = x_weighted_length(compose_news_post("", item.get("title", ""), header)) + 1 + X_URL_WEIGHT
+    fixed = x_weighted_length(compose_news_post("", item.get("title", ""), header) + tail_extra) + 1 + X_URL_WEIGHT
     budget_chars = max(40, (X_LIMIT - fixed) // 2 - 3)
     if max_chars:
         budget_chars = min(budget_chars, max_chars)   # 書籍など、短めに書かせたいとき
     user += f"\n\n文章は全角 {budget_chars} 字以内（ハッシュタグ込み）で書いてください。"
     last = ""
     for _ in range(3):
-        data = call_json(client, usage, POST_SYSTEM, user, POST_SCHEMA, effort="medium")
+        data = call_json(client, usage, system or POST_SYSTEM, user, POST_SCHEMA, effort="medium")
         if not data:
             break
         text = data["post_text"].strip()
@@ -595,11 +624,16 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
             user += (f"\n\n（前回の案に使えない語 {'・'.join(banned)} が入っていました。"
                      "「◯◯像」「◯◯さん」と書く、抽象語を使わず具体で書く、のルールで書き直してください）")
             continue
+        why = reject(text) if (reject and text) else None
+        if why:
+            print(f"::warning::投稿文を書き直し（{why}）: {item.get('title', '')[:30]}", file=sys.stderr)
+            user += f"\n\n（前回の案は書き直しが必要です: {why}）"
+            continue
         last = text or last
         if not text:
             user += "\n\n（前回の案は空でした。本文が短くても、タイトルと記事の範囲で必ず 1〜2 文書いてください）"
             continue
-        total = x_weighted_length(compose_news_post(text, item.get("title", ""), header)) + 1 + X_URL_WEIGHT
+        total = x_weighted_length(compose_news_post(text, item.get("title", ""), header) + tail_extra) + 1 + X_URL_WEIGHT
         if total <= X_LIMIT:
             return text
         budget_chars = max(30, budget_chars - 20)

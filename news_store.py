@@ -69,9 +69,103 @@ BOOK_HEADER_BOOK = "【仏像新刊】"
 BOOK_HEADER_MAGAZINE = "【仏像特集】"
 
 
-def book_header(item: dict) -> str:
-    """書籍の投稿の見出し。雑誌は【仏像特集】、それ以外は【仏像新刊】（item の header には左右されない）。"""
-    return BOOK_HEADER_MAGAZINE if item.get("book_kind") == BOOK_KIND_MAGAZINE else BOOK_HEADER_BOOK
+BOOK_HEADER_J_BOOK = "【仏像の本】"           # 2つめのアカウント（美しい日本の仏像）側の見出し
+BOOK_HEADER_J_MAGAZINE = "【仏像特集号】"
+BOOK_J_HASHTAGS = "#仏像 #仏像好きと繋がりたい"   # 仏像リンク側（item["hashtags"]）とは組み合わせを変える
+BOOK_MAIN_TAG = "butsuzo03-22"
+BOOK_J_TAG = "j_butsuzo-22"
+BOOK_J_DELAY_DAYS = 3                           # 取り込みからこの日数たつまで、2つめのアカウントのボタンは押せない
+
+
+def book_header(item: dict, account: str = "main") -> str:
+    """書籍の投稿の見出し。account="main" は【仏像新刊】／雑誌は【仏像特集】、account="j" は【仏像の本】／【仏像特集号】。
+    item の header には左右されない。"""
+    mag = item.get("book_kind") == BOOK_KIND_MAGAZINE
+    if account == "j":
+        return BOOK_HEADER_J_MAGAZINE if mag else BOOK_HEADER_J_BOOK
+    return BOOK_HEADER_MAGAZINE if mag else BOOK_HEADER_BOOK
+
+
+def set_amazon_tag(url: str, tag: str) -> str:
+    """Amazon の URL のアソシエイトタグを tag にする（Amazon 以外の URL はそのまま）。"""
+    from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
+
+    if "amazon.co.jp" not in url:
+        return url
+    parsed = urlparse(url)
+    qs = {k: v[0] for k, v in parse_qs(parsed.query, keep_blank_values=True).items()}
+    qs["tag"] = tag
+    return urlunparse(parsed._replace(query=urlencode(qs)))
+
+
+def is_affiliate_url(url: str) -> bool:
+    return "amazon.co.jp" in url and "tag=" in url
+
+
+def with_pr(hashtags: str, url: str) -> str:
+    """アフィリエイトのリンクが付く投稿のハッシュタグの先頭に #PR を付ける（リンクが無ければ付けない）。"""
+    tags = hashtags.replace("#PR", "").split()
+    if is_affiliate_url(url):
+        tags = ["#PR"] + tags
+    return " ".join(tags)
+
+
+def book_link(item: dict, account: str = "main") -> str:
+    """投稿に付けるリンク。account="j" は2つめのアカウントのタグ。"""
+    url = item.get("url", "")
+    return set_amazon_tag(url, BOOK_J_TAG) if account == "j" else url
+
+
+def book_hashtags(item: dict, account: str = "main") -> str:
+    base = BOOK_J_HASHTAGS if account == "j" else item.get("hashtags", "#仏像")
+    return with_pr(base, book_link(item, account))
+
+
+def book_post_tail(item: dict, account: str = "main") -> str:
+    """紹介文の後ろに付く部分: 「\n\n【見出し】書名\n#PR #タグ…」。"""
+    tags = book_hashtags(item, account)
+    return compose_news_post("", item.get("title", ""), book_header(item, account)) + (f"\n{tags}" if tags else "")
+
+
+def j_available_at(item: dict):
+    """2つめのアカウントのボタンが押せるようになる日時（取り込みの BOOK_J_DELAY_DAYS 日後）。不明なら None。"""
+    from datetime import datetime as _dt, timedelta as _d
+    try:
+        return _dt.fromisoformat(item.get("fetched_at", "")) + _d(days=BOOK_J_DELAY_DAYS)
+    except ValueError:
+        return None
+
+
+def longest_common_run(a: str, b: str) -> int:
+    """a と b に共通して現れる、最も長い連続した文字列の長さ。"""
+    best = 0
+    prev = [0] * (len(b) + 1)
+    for i in range(1, len(a) + 1):
+        cur = [0] * (len(b) + 1)
+        for j in range(1, len(b) + 1):
+            if a[i - 1] == b[j - 1]:
+                cur[j] = prev[j - 1] + 1
+                best = max(best, cur[j])
+        prev = cur
+    return best
+
+
+def bigram_similarity(a: str, b: str) -> float:
+    """文字のバイグラム（2 文字ずつ）の集合の Jaccard 類似度。0〜1。"""
+    def grams(t: str) -> set[str]:
+        t = re.sub(r"\s+", "", t)
+        return {t[i:i + 2] for i in range(len(t) - 1)}
+    ga, gb = grams(a), grams(b)
+    return len(ga & gb) / len(ga | gb) if ga and gb else 0.0
+
+
+SIMILAR_RUN_CHARS = 15
+SIMILAR_BIGRAM = 0.4
+
+
+def too_similar(a: str, b: str) -> bool:
+    """2 つの投稿文が似すぎか。15 字以上の同じ並びがある、またはバイグラムの類似度が高すぎる。"""
+    return longest_common_run(a, b) >= SIMILAR_RUN_CHARS or bigram_similarity(a, b) >= SIMILAR_BIGRAM
 
 
 def book_fetched_key(item: dict) -> str:
@@ -255,15 +349,16 @@ def fit_x_post(head: str, middle: str, tail: str, url: str = "", limit: int = X_
 
 def fit_headline_post(header: str, title: str, hashtags: str, url: str = "", limit: int = X_LIMIT) -> str:
     """文章の無い投稿（見出し・題名・ハッシュタグ）を重み付き limit 以内にする。
-    収まらなければ、まずハッシュタグを外し、それでも超えるときだけ題名を「…」で縮める（最後の手段）。"""
+    収まらなければ、まずハッシュタグを外し（#PR だけは残す）、それでも超えるときだけ題名を「…」で縮める（最後の手段）。"""
     text = f"{header}\n{title}\n{hashtags}".rstrip("\n")
     if intent_weighted_length(text, url) <= limit:
         return text
-    text = f"{header}\n{title}"
+    keep = "#PR" if hashtags.split()[:1] == ["#PR"] else ""
+    text = f"{header}\n{title}" + (f"\n{keep}" if keep else "")
     if intent_weighted_length(text, url) <= limit:
         return text
-    room = limit - intent_weighted_length(f"{header}\n", url)
-    return f"{header}\n{shorten_to_weight(title, room)}"
+    room = limit - intent_weighted_length(f"{header}\n" + (f"\n{keep}" if keep else ""), url)
+    return f"{header}\n{shorten_to_weight(title, room)}" + (f"\n{keep}" if keep else "")
 
 
 # ── 投稿文に使ってはいけない語（生成した文の自動チェックと、プロンプトの規則の両方で使う） ──

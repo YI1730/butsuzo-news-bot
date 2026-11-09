@@ -72,52 +72,96 @@ SCHEMA = {
 }
 
 
-MAX_BOOK_POSTS_PER_RUN = 15   # 費用を抑えるため 1 回の実行で作る上限。残りは次の実行で
+MAX_BOOK_POSTS_PER_RUN = 15   # 費用を抑えるため 1 回の実行で作る上限（仏像リンク側と j 側の紹介文の合計）。残りは次の実行で
 MAX_BOOK_POST_ATTEMPTS = 3
-BOOK_COMMENT_CHARS = 100      # 書名・見出し・リンクと合わせて X の 280 字に収めるための、コメントの目安
+BOOK_COMMENT_CHARS = 100      # 書名・見出し・タグ・リンクと合わせて X の 280 字に収めるための、コメントの目安
+
+# 2つめのアカウント（美しい日本の仏像）の紹介文。仏像リンク側とは視点も言葉も変える
+J_POST_SYSTEM = """あなたは X アカウント「美しい日本の仏像」の中の人です。仏像の写真と見どころを静かに紹介するアカウントで、
+書籍・雑誌を紹介する投稿の「文章部分」を書いてください。
+投稿は「あなたの文章」→「【仏像の本】書名」→「ハッシュタグ」→「リンク」の順に並ぶので、
+書名・見出し・ハッシュタグ・URL は書かないでください（システムが後ろに付けます）。
+
+# 視点
+- 本に載っている像や寺を 1 つ取り上げ、その見どころ（姿・素材・時代・安置されている場所）から入る。
+  取り上げられるのは、説明文や書名に書かれている範囲の像・寺だけ。載っていない像や寺を足さない
+- 「この本は〜な人に向く」「入門にちょうどよい」のような、読者に本を勧める書き方はしない
+- 一人称（私・わたし・僕）、コミュニティ・ツアー・フォロワー・「仏像リンク」への言及はしない
+- 説明文に書かれていないこと（著者の意図、本の章立て、像の細部）は書かない。像や寺が 1 つも分からないときは、
+  書名が示す主題（地域・時代・テーマ）の見どころから入る
+
+# 文体
+- 落ち着いた常体。盛らない・煽らない。「！」は使わない。ハッシュタグ・絵文字は使わない
+- 仏像は「仏様」「仏さま」「仏さん」と呼ばず、「◯◯像」「◯◯さん」と書く。「癒やし」「癒し」「感動」「圧倒」
+  「驚き」「最高」「興奮」は使わない。光の入り方・素材の質感など具体で伝える
+- 運慶・快慶など作者の帰属は、説明文に書かれているとおりに。「伝運慶」と「運慶作」を取り違えない
+- 全角 100 字以内、1〜2 文"""
+
+
+def _book_extra(b: dict, today, own: bool) -> str:
+    from news_store import book_release_date
+
+    rd = book_release_date(b)
+    if not rd:
+        when = "発売日は不明"
+    elif rd > today:
+        when = f"{rd:%Y年%m月%d日}発売予定（予約受付中）"
+    else:
+        when = f"{rd:%Y年%m月%d日}発売"
+    mag = b.get("book_kind") == "magazine"
+    if not own:   # j 側: 材料だけ渡す（視点は J_POST_SYSTEM）
+        return (f"{'雑誌' if mag else '書籍'}: {b.get('title', '')}（{when}）\n"
+                f"説明: {b.get('description', '')}\n"
+                f"コメントは全角 {BOOK_COMMENT_CHARS} 字以内、1〜2 文で書く。")
+    if mag:
+        kind = (f"これは雑誌の仏像特集号を紹介する投稿です。{when}。誌名と号: {b.get('title', '')}。\n"
+                f"特集の内容: {b.get('description', '')}\n"
+                "書かれている特集の範囲だけで書き、載っていない寺や仏像を推測で足さない。")
+    else:
+        kind = (f"これは書籍を紹介する投稿です。{when}。書名: {b.get('title', '')}\n"
+                "本の内容（著者・章立て・書かれていること）は、書名と説明に書かれている範囲だけで書き、分からないことは"
+                "推測で書かない（Amazon の定型文は無視）。")
+    return (kind + "仏像好きがどんな人に向くかが伝わるように。"
+            "紹介する価値の一言（" + (b.get("book_ai") or {}).get("reason", "") + "）は材料にしてよい。\n"
+            f"書名と見出しはシステムが後ろに付けるので、コメントは全角 {BOOK_COMMENT_CHARS} 字以内、1〜2 文で書く。"
+            "説明文の丸写しや、長い引用はしない。")
 
 
 def write_book_posts(client, usage: Usage, books: list[dict]) -> int:
-    """表示する書籍・雑誌（score が BOOK_HIDE_BELOW 以上）のうち紹介文が無いものに、X の紹介投稿文を作る。
-    取り込みの新しいものから最大 MAX_BOOK_POSTS_PER_RUN 件。グッズは作らない。"""
+    """表示する書籍・雑誌（score が BOOK_HIDE_BELOW 以上）に、X の紹介投稿文を作る。
+    仏像リンク側（book_post_text）と、2つめのアカウント側（j_post_text）を、取り込みの新しいものから 1 冊ずつ順に。
+    両方の合計が MAX_BOOK_POSTS_PER_RUN 件に達したら止める。グッズは作らない。
+    2 つの文章が似すぎたとき（15 字以上の同じ並び、バイグラム類似度が高い）は作り直させる。"""
     from datetime import datetime
 
     from curate_news import write_post
-    from news_store import BOOK_HIDE_BELOW, JST_TZ, book_fetched_key, book_header, book_release_date
+    from news_store import (BOOK_HIDE_BELOW, JST_TZ, book_fetched_key, book_hashtags, book_header,
+                            too_similar)
 
     today = datetime.now(JST_TZ).date()
-    cands = [b for b in books
-             if (b.get("book_ai") or {}).get("score", 50) >= BOOK_HIDE_BELOW
-             and not b.get("book_post_text")
-             and b.get("book_post_attempts", 0) < MAX_BOOK_POST_ATTEMPTS]
-    cands.sort(key=book_fetched_key, reverse=True)
-    made = 0
-    for b in cands[:MAX_BOOK_POSTS_PER_RUN]:
-        rd = book_release_date(b)
-        if not rd:
-            when = "発売日は不明"
-        elif rd > today:
-            when = f"{rd:%Y年%m月%d日}発売予定（予約受付中）"
-        else:
-            when = f"{rd:%Y年%m月%d日}発売"
-        if b.get("book_kind") == "magazine":
-            kind = (f"これは雑誌の仏像特集号を紹介する投稿です。{when}。誌名と号: {b.get('title', '')}。\n"
-                    f"特集の内容: {b.get('description', '')}\n"
-                    "書かれている特集の範囲だけで書き、載っていない寺や仏像を推測で足さない。")
-        else:
-            kind = (f"これは書籍を紹介する投稿です。{when}。書名: {b.get('title', '')}\n"
-                    "本の内容（著者・章立て・書かれていること）は、書名と説明に書かれている範囲だけで書き、分からないことは"
-                    "推測で書かない（Amazon の定型文は無視）。")
-        extra = (kind + "仏像好きがどんな人に向くかが伝わるように。"
-                 "紹介する価値の一言（" + (b.get("book_ai") or {}).get("reason", "") + "）は材料にしてよい。\n"
-                 f"書名と見出しはシステムが後ろに付けるので、コメントは全角 {BOOK_COMMENT_CHARS} 字以内、1〜2 文で書く。"
-                 "説明文の丸写しや、長い引用はしない。")
-        text = write_post(client, usage, b, header=book_header(b), extra=extra, fetch_body=False,
-                          max_chars=BOOK_COMMENT_CHARS)
-        b["book_post_attempts"] = b.get("book_post_attempts", 0) + 1
-        if text:
-            b["book_post_text"] = text
-            made += 1
+    shown = [b for b in books if (b.get("book_ai") or {}).get("score", 50) >= BOOK_HIDE_BELOW]
+    shown.sort(key=book_fetched_key, reverse=True)
+    made = calls = 0
+    for b in shown:
+        for own in (True, False):
+            field, tries = ("book_post_text", "book_post_attempts") if own else ("j_post_text", "j_post_attempts")
+            if b.get(field) or b.get(tries, 0) >= MAX_BOOK_POST_ATTEMPTS:
+                continue
+            if calls >= MAX_BOOK_POSTS_PER_RUN:
+                return made
+            calls += 1
+            account = "main" if own else "j"
+            other = b.get("j_post_text" if own else "book_post_text", "")
+            reject = (lambda t, o=other: "もう一方のアカウントの文章と似すぎています。視点・言葉・書き出しを変える"
+                      if o and too_similar(t, o) else None)
+            text = write_post(client, usage, b, header=book_header(b, account),
+                              extra=_book_extra(b, today, own), fetch_body=False, max_chars=BOOK_COMMENT_CHARS,
+                              system=None if own else J_POST_SYSTEM,
+                              tail_extra="\n" + book_hashtags(b, account), reject=reject)
+            b[tries] = b.get(tries, 0) + 1
+            if text:
+                b[field] = text
+                made += 1
     return made
 
 

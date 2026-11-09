@@ -15,7 +15,8 @@ import zlib
 from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 
-from news_store import (CANDIDATE_THRESHOLD, NOISE_THRESHOLD, X_LIMIT, book_header, compose_news_post, fit_headline_post,
+from news_store import (CANDIDATE_THRESHOLD, NOISE_THRESHOLD, X_LIMIT, book_header, book_hashtags, book_link,
+                        book_post_tail, is_affiliate_url, j_available_at, with_pr, compose_news_post, fit_headline_post,
                         fit_x_post, intent_weighted_length, load_skipped)
 
 DOCS_DIR = Path(__file__).parent / "docs"
@@ -111,6 +112,43 @@ def format_published_at(iso: str) -> str:
 _SKIPPED_IDS: set[str] = set()
 
 
+def book_post_for(item: dict, account: str) -> str:
+    """書籍・雑誌の投稿文（account="main" は仏像リンク側、"j" は2つめのアカウント側）。
+    リンク込みで X の 280 字に収める。ハッシュタグの先頭には（アフィリエイトのリンクなら）#PR が付く。"""
+    link = book_link(item, account)
+    comment = (item.get("j_post_text") if account == "j" else item.get("book_post_text")) or ""
+    hdr, tags = book_header(item, account), book_hashtags(item, account)
+    text = (fit_x_post("", comment.strip(), book_post_tail(item, account), link) if comment.strip()
+            else fit_headline_post(hdr, item.get("title", ""), tags, link))
+    if intent_weighted_length(text, link) > X_LIMIT:
+        text = fit_headline_post(hdr, item.get("title", ""), tags, link)
+    return text
+
+
+def build_j_button(item: dict, now: datetime) -> str:
+    """2つめのアカウント（美しい日本の仏像）の投稿ボタン。取り込みから BOOK_J_DELAY_DAYS 日たつまでは灰色で押せない。
+    押せるかどうかは表示時に JS（refreshJButtons）でも判定する。"""
+    if item.get("item_type") != "book" or not (item.get("j_post_text") or "").strip():
+        return ""
+    link = book_link(item, "j")
+    text = book_post_for(item, "j")
+    href = "https://x.com/intent/post?" + urllib.parse.urlencode({"text": text, "url": link})
+    avail = j_available_at(item)
+    label = "美しい日本の仏像でポスト"
+    locked_label = f"{label}（{avail.month}月{avail.day}日から）" if avail else label
+    locked = bool(avail and now < avail)
+    esc = lambda t: t.replace("&", "&amp;").replace('"', "&quot;")
+    return (
+        f'      <a href="{esc(href)}" target="_blank" rel="noopener noreferrer"\n'
+        f'         onclick="handleJPostClick(event,\'{item.get("id", "")}\')"\n'
+        f'         data-avail="{avail.isoformat() if avail else ""}" data-locked-label="{esc(locked_label)}"\n'
+        f'         aria-disabled="{"true" if locked else "false"}"\n'
+        f'         class="jpost-btn mt-2 flex items-center justify-center bg-white text-gray-800 border border-gray-400 '
+        f'text-xs font-bold py-2 px-4 rounded-full{" jpost-locked" if locked else ""}">'
+        f'<span class="jpost-label">{esc(locked_label if locked else label)}</span></a>\n'
+    )
+
+
 def build_card_html(item: dict) -> str:
     uid = item.get("id", "")
     raw_title = item.get("title", "")
@@ -134,26 +172,22 @@ def build_card_html(item: dict) -> str:
     # 展覧会は公式ページを付けて、X のリンクカードに公式の OG 画像（ポスター等）を出す（curate_news.py）
     link_url = ai.get("official_url") or url
     if is_book:
-        # 書籍・雑誌: 紹介文（rank_books.py）があれば「紹介文 → 【仏像新刊】書名」。無ければ見出し・書名・タグだけ
-        # （Amazon の説明文は入れない）。見出しは書籍の種類で決まる（【仏像新刊】／【仏像特集】）
-        hdr = book_header(item)
-        if item.get("book_post_text"):
-            post_text = fit_x_post("", item["book_post_text"].strip(), compose_news_post("", item.get("title", ""), hdr), link_url)
-        else:
-            post_text = fit_headline_post(hdr, item.get("title", ""), hashtags, link_url)
+        # 書籍・雑誌: 紹介文（rank_books.py）があれば「紹介文 → 【仏像新刊】書名 → #PR #タグ」。無ければ見出し・書名・タグだけ
+        # （Amazon の説明文は入れない）。見出しは書籍の種類で決まる（【仏像新刊】／【仏像特集】）。#PR は Amazon のアフィリエイト時
+        post_text = book_post_for(item, "main")
     elif ai.get("post_text"):
         # AI（curate_news.py）が記事を読んで書いた文章 → 【仏像速報】記事タイトル（→ X が URL を付ける）
         post_text = fit_x_post("", ai["post_text"].strip(),
                                compose_news_post("", item.get("title", ""), ai.get("post_header", "【仏像速報】")), link_url)
     elif desc and source not in ("google_news", "official_site", "reminder"):
         # 特別公開・特別展などの説明文は、収まる分だけ見出しとハッシュタグの間に入れる
-        post_text = fit_x_post(f"{header}\n{item.get('title', '')}\n", desc, f"\n{hashtags}", link_url)
+        post_text = fit_x_post(f"{header}\n{item.get('title', '')}\n", desc, f"\n{with_pr(hashtags, link_url)}", link_url)
     else:
-        post_text = fit_headline_post(header, item.get("title", ""), hashtags, link_url)
+        post_text = fit_headline_post(header, item.get("title", ""), with_pr(hashtags, link_url), link_url)
     if intent_weighted_length(post_text, link_url) > X_LIMIT:
         # 題名だけで超える長いタイトルの最後の手段（ハッシュタグを外し、題名を縮める）
         post_text = fit_headline_post(ai.get("post_header", header) if ai.get("post_text") else header,
-                                      item.get("title", ""), "", link_url)
+                                      item.get("title", ""), "#PR" if is_affiliate_url(link_url) else "", link_url)
     desc_escaped = ""
     intent_params = urllib.parse.urlencode({"text": post_text, "url": link_url})
     intent_url = f"https://x.com/intent/post?{intent_params}"
@@ -269,7 +303,7 @@ def build_card_html(item: dict) -> str:
            data-external-url="{url}"
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>{skip_html}
       </div>
-    </div>"""
+{build_j_button(item, datetime.now(JST))}    </div>"""
 
 
 def build_calendar_html(days_ahead: int = 30) -> str:
@@ -496,6 +530,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
       /* pointer-events: none を外して再投稿可能にする */
     }}
     .card.is-posted .post-btn:active {{ background: #9ca3af !important; }}
+    .jpost-locked {{ background: #e5e7eb !important; color: #9ca3af !important; border-color: #d1d5db !important; pointer-events: none; }}
   </style>
 </head>
 <body class="bg-brand-50 min-h-screen pb-8">
@@ -1962,6 +1997,26 @@ def build_html(items: list[dict], last_updated: str) -> str:
         .catch(function (e) {{
           if (statusEl) statusEl.textContent = '❌ 削除失敗: ' + (e.message || e);
         }});
+    }}
+
+    // 書籍カードの2つめのボタン: 取り込みから所定の日数がたつまで灰色で押せない（ページを開いたときと 5 分ごとに判定）
+    function refreshJButtons() {{
+      document.querySelectorAll('.jpost-btn').forEach(function (a) {{
+        const t = Date.parse(a.getAttribute('data-avail') || '');
+        const locked = !isNaN(t) && Date.now() < t;
+        a.classList.toggle('jpost-locked', locked);
+        a.setAttribute('aria-disabled', locked ? 'true' : 'false');
+        const l = a.querySelector('.jpost-label');
+        if (l) l.textContent = locked ? a.getAttribute('data-locked-label') : '美しい日本の仏像でポスト';
+      }});
+    }}
+    document.addEventListener('DOMContentLoaded', refreshJButtons);
+    setInterval(refreshJButtons, 300000);
+
+    function handleJPostClick(event, itemId) {{
+      const a = event.currentTarget;
+      if (a.getAttribute('aria-disabled') === 'true') {{ event.preventDefault(); return; }}
+      localStorage.setItem('jposted_' + itemId, '1');
     }}
 
     function handlePostClick(event, itemId) {{
