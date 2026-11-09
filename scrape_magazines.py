@@ -215,7 +215,15 @@ def parse_amazon_cards(soup: BeautifulSoup) -> list[dict]:
 def search_amazon_issue(session: requests.Session, magazine: str, issue_label: str) -> dict | None:
     url = f"https://www.amazon.co.jp/s?k={quote(magazine + ' ' + issue_label)}&i=stripbooks"
     soup = fetch_page(session, url)
-    return find_amazon_match(parse_amazon_cards(soup), magazine, issue_label) if soup else None
+    if not soup:
+        print(f"  Amazon 検索: ページを取得できませんでした（{magazine} {issue_label}）", file=sys.stderr)
+        return None
+    cards = parse_amazon_cards(soup)
+    hit = find_amazon_match(cards, magazine, issue_label)
+    if not hit:
+        print(f"  Amazon 検索: 一致なし（{magazine} {issue_label}）カード {len(cards)} 件・上位: "
+              + " / ".join(c["title"][:25] for c in cards[:3]), file=sys.stderr)
+    return hit
 
 
 # ── 書籍欄に加える項目を作る ──
@@ -252,6 +260,29 @@ def build_magazine_item(magazine: str, issue_label: str, release_date: str, spec
         "fetched_at": now.isoformat(),
         "description": desc[:300],
     }
+
+
+MAX_AMAZON_TRIES = 3
+
+
+def upgrade_missing_asin(session: requests.Session, items: list[dict], have_asin: set[str]) -> int:
+    """Amazon の商品ページが見つからず出版社・Fujisan のリンクのままの雑誌を、再度 Amazon で探して差し替える
+    （発売直後は Amazon の検索に載らないことがある）。1 冊につき MAX_AMAZON_TRIES 回まで。"""
+    n = 0
+    for it in items:
+        if it.get("book_kind") != BOOK_KIND_MAGAZINE or it.get("asin") or it.get("mag_amazon_tries", 0) >= MAX_AMAZON_TRIES:
+            continue
+        magazine, _, label = (it.get("title", "")).partition(" ")
+        it["mag_amazon_tries"] = it.get("mag_amazon_tries", 0) + 1
+        time.sleep(SLEEP_AMAZON)
+        hit = search_amazon_issue(session, magazine, label)
+        if hit and hit["asin"] not in have_asin:
+            it["asin"], it["url"] = hit["asin"], build_product_url(hit["asin"])
+            it["image_url"] = it.get("image_url") or hit.get("image_url", "")
+            have_asin.add(hit["asin"])
+            n += 1
+            print(f"Amazon の商品ページに差し替え: {it['title']} → {hit['asin']}")
+    return n
 
 
 # ── AI で判定 ──
@@ -321,6 +352,11 @@ def main() -> int:
     have_asin = {it.get("asin") for it in items if it.get("source") == SOURCE_AMAZON and it.get("asin")}
 
     session = requests.Session()
+    try:   # Amazon の検索はクッキーが無いと弾かれやすいので、先にトップページを訪ねる（scrape_amazon.py と同じ）
+        session.get("https://www.amazon.co.jp/", headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT)
+    except requests.RequestException as e:
+        print(f"  Amazon トップページ訪問失敗（続行）: {e}", file=sys.stderr)
+    upgraded = upgrade_missing_asin(session, items, have_asin)
     entries = collect_fujisan(session, today)
     # 判定に渡すもの: Fujisan の号（すでに加えた号は除く）と、ニュースの記事
     # 一度判定した号（仏像特集でなかった号も）は data["mag_judged"] に覚えて、毎回 AI に出さない
@@ -333,6 +369,7 @@ def main() -> int:
                         "page": it.get("url", ""), "text": f"{it.get('title', '')} {it.get('description', '')}"})
     if not entries:
         print("仏像の言葉を含む雑誌の候補はありませんでした")
+        save_news_data(data)   # ASIN の差し替えがあったときのため
         return 0
     print(f"判定に出す候補: Fujisan {len(entries) - len(news)} 件・ニュース {len(news)} 件")
     judged = judge(client, usage, [{"id": e["id"], "magazine": e["magazine"], "issue_label": e["issue_label"],
