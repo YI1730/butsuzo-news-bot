@@ -60,6 +60,9 @@ MAX_SEARCHES_PER_RUN = 10       # 公式サイトの web 検索（Claude の web
 SEARCH_COST = 0.01              # web 検索 1 回あたりの費用の見積り（$）
 SEARCH_DOMAINS = ["kyohaku.go.jp", "narahaku.go.jp", "tnm.jp", "kyuhaku.jp", "collection.kyuhaku.jp",
                   "online.bunka.go.jp", "bunka.nii.ac.jp", "colbase.nich.go.jp"]   # 公式な情報源だけ（寺院のサイトは使わない）
+PRIORITY_FORCE = 70             # 注目度がこれ以上の像が 1 体でもあれば、AI の採点が低くても候補にする（代表の方針）
+PRIORITY_TOP3_FORCE = 150       # 注目度の上位 3 体の合計がこれ以上でも同じ
+RESCORE_VERSION = 4             # 判定の基準を変えたとき上げる（記録のみだった節目を新しい基準で 1 回だけ見直す）
 MAX_FETCH_PER_ITEM = 4          # 検索結果のページ（許可ドメインのみ）を、像ごとに自分で開く最大数
 MAX_JUDGE_CALLS = 3             # 作品名で判断がつかないものを軽いモデルで判定する呼び出しの上限
 JUDGE_BATCH = 40
@@ -608,6 +611,7 @@ def save_state(state: dict) -> None:
     for m in state["museums"].values():   # 解説文は特徴の抽出にだけ使う（毎回の取得で作り直す）。ファイルには残さない
         for it in m.get("items", {}).values():
             it.pop("context", None)
+            it["priority"] = statue_priority(it)   # 注目度（年代 > 大きさ > 指定）。確認用
     state["last_updated"] = datetime.now(JST).isoformat(timespec="seconds")
     STATE_FILE.write_text(json.dumps(state, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
@@ -646,6 +650,121 @@ def rank(item: dict) -> int:
     if is_deposit_temple(item.get("owner", ""), item.get("museum", "")):
         return 4
     return 5
+
+
+# ---------------------------------------------------------------- 注目度（代表の方針: 年代 > 大きさ > 指定）
+
+_KANJI_DIGITS = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
+_NUM = r"[0-9０-９一二三四五六七八九十]+"
+_CENTURY_RE = re.compile(rf"({_NUM})(?:\s*[～~〜\-・]\s*({_NUM}))?\s*世紀")
+_PERIOD_WORDS = [  # (正規表現, 点)。上から順に当てる
+    (re.compile(r"飛鳥|白鳳|奈良時代|天平"), 60),
+    (re.compile(r"平安.{0,4}(?:前期|初期)|貞観|弘仁"), 58),
+    (re.compile(r"平安.{0,4}(?:後期|末期)|院政|藤原時代"), 52),
+    (re.compile(r"平安"), 55),
+    (re.compile(r"鎌倉"), 45),
+    (re.compile(r"南北朝|室町"), 25),
+    (re.compile(r"桃山|江戸|明治|大正|昭和|近代|現代"), 10),
+]
+FOREIGN_RE = re.compile(r"中国|朝鮮|新羅|百済|高麗|ガンダーラ|パキスタン|インド|ミャンマー|タイ$|タイ\s|ネパール|チベット|クシャーン|"
+                        r"[唐宋元明清]時代|[唐宋]\s*[（(]|五胡")
+
+
+def num_to_int(s: str) -> int | None:
+    s = s.translate(str.maketrans("０１２３４５６７８９", "0123456789"))
+    if s.isdigit():
+        return int(s)
+    if "十" in s:
+        a, _, b = s.partition("十")
+        return (_KANJI_DIGITS.get(a, 1) if a else 1) * 10 + (_KANJI_DIGITS.get(b, 0) if b else 0)
+    return _KANJI_DIGITS.get(s)
+
+
+def era_points(text: str) -> int | None:
+    """年代の文字列から年代の点（最大 60）。幅があるときは古いほうの端。読めなければ None。"""
+    best = None
+    for m in _CENTURY_RE.finditer(text):
+        nums = [n for n in (num_to_int(m.group(1)), num_to_int(m.group(2) or "")) if n]
+        if not nums:
+            continue
+        c = min(nums)
+        after = text[m.end():m.end() + 3]
+        if c <= 8:
+            pts = 60
+        elif c <= 10:
+            pts = 58
+        elif c <= 12:
+            pts = 52
+        elif c == 13:
+            pts = 45
+        elif c == 14:
+            pts = 45 if ("前半" in after or "鎌倉" in text) else 25
+        elif c <= 16:
+            pts = 25
+        else:
+            pts = 10
+        best = pts if best is None else max(best, pts)
+        break   # 最初に出てきた世紀の表記を使う
+    if best is not None:
+        return best
+    y = re.search(r"[（(]\s*(\d{3,4})\s*[）)]", text) or re.search(r"(\d{3,4})\s*年", text)   # 「建長8年（1256）」
+    if y:
+        return era_points(f"{(int(y.group(1)) - 1) // 100 + 1}世紀")
+    for rx, pts in _PERIOD_WORDS:
+        if rx.search(text):
+            return pts
+    return None
+
+
+def size_points(text: str) -> int:
+    """像高・丈六・等身から大きさの点（最大 25）。読めなければ 8。"""
+    if re.search(r"半?丈六", text):
+        return 25
+    if "等身" in text:
+        return 18
+    cm = None
+    t = re.search(r"([\d.]+)\s*尺", text)
+    m = re.search(r"像高\s*([\d.]+)|高さ?\s*([\d.]+)\s*(?:cm|㎝|センチ)?|([\d.]+)\s*(?:cm|㎝)", text)
+    if t:
+        cm = float(t.group(1)) * 30.3
+    elif m:
+        cm = float(next(g for g in m.groups() if g))
+    if cm is None or cm <= 0:
+        return 8
+    return 25 if cm >= 150 else 18 if cm >= 100 else 10 if cm >= 50 else 4
+
+
+def priority_parts(item: dict) -> tuple[int, int, int]:
+    """(年代, 大きさ, 指定) の点。"""
+    f = item.get("feature") or {}
+    era_srcs = [x for x in (f.get("era"), item.get("era")) if x]
+    pts = next((p for p in (era_points(x) for x in era_srcs) if p is not None), None)
+    if pts is None:   # 解説文に「◯◯時代」とあるとき
+        m = re.search(r"(?:飛鳥|白鳳|奈良|平安|鎌倉|南北朝|室町|桃山|江戸)時代[^。]{0,12}", f.get("note", ""))
+        pts = era_points(m.group(0)) if m else None
+    foreign = bool(FOREIGN_RE.search(" ".join(x for x in (f.get("era"), item.get("era"), item.get("origin")) if x)))
+    era = 20 if pts is None else max(0, pts - (10 if foreign else 0))
+    size = size_points(" ".join(x for x in (f.get("height"), f.get("note")) if x))
+    d = item.get("designation", "")
+    desig = {"国宝": 15, "重要文化財": 10, "重要美術品": 6}.get(d, 0)
+    if "新指定" in (item.get("reason") or ""):
+        desig = min(15, desig + 5)
+    return era, size, desig
+
+
+def statue_priority(item: dict) -> int:
+    """像の注目度（0〜100）。年代（最大 60）> 大きさ（最大 25）> 指定（最大 15）。"""
+    return sum(priority_parts(item))
+
+
+def notable_enough(events: list[dict]) -> bool:
+    """注目度 70 以上の像が 1 体以上、または上位 3 体の合計が 150 以上。"""
+    ps = sorted((statue_priority(e["item"]) for e in events), reverse=True)
+    return bool(ps) and (ps[0] >= PRIORITY_FORCE or sum(ps[:3]) >= PRIORITY_TOP3_FORCE)
+
+
+def event_sort_key(e: dict) -> tuple:
+    return (-statue_priority(e["item"]), e["item"].get("rank", 5), e["item"]["name"])
 
 
 def new_designation_titles(data: dict, today: date, days: int = 21) -> list[str]:
@@ -738,7 +857,7 @@ def merge_museum(mstate: dict, rows: list[dict], museum: str, today: date, title
             if end and not continued:
                 left = (end - today).days
                 ekey = f"ending@{p['end']}"
-                if 0 <= left <= ENDING_DAYS and ekey not in cur["notified"] and cur["rank"] <= 2:
+                if 0 <= left <= ENDING_DAYS and ekey not in cur["notified"] and statue_priority(cur) >= PRIORITY_FORCE:
                     if seeding:
                         cur["notified"][ekey] = {"at": now_iso, "candidate": "", "seed": True}
                     else:
@@ -1051,12 +1170,14 @@ def swap_extra(museum: str, events: list[dict], today: date, kind: str) -> str:
     if kind == "swap":
         lead = (f"これは、{MUSEUMS[museum]['name']}の平常展示（{MUSEUMS[museum]['gallery']}）で仏像の展示が替わることを知らせる投稿です"
                 f"（今日は {today:%Y-%m-%d}）。展示される像は、次の一覧にあるものだけを使う（資料に書かれた範囲）:\n")
-        tail = ("先頭の像を主役にして、像の名前・会期・館（展示室）を入れ、資料の「特徴」に書かれた見どころを 1 つ具体的に書く。"
+        tail = ("先頭の像（年代と大きさを重視した注目度の順）を主役にして、像の年代（時代・世紀。資料に書かれたもの）を先に書き、"
+                "続けて名前・会期・館（展示室）を入れ、資料の「特徴」に書かれた見どころを 1 つ具体的に書く。年代が資料にないときは書かない。"
                 "展示が替わるのを楽しみに待つ気持ちで書く。特徴の記載がない像は、名前と指定・所蔵だけで触れる。")
     else:
         lead = (f"これは、{MUSEUMS[museum]['name']}の平常展示（{MUSEUMS[museum]['gallery']}）で展示が終わりに近づく像を知らせる投稿です"
                 f"（今日は {today:%Y-%m-%d}）。対象の像は、次の一覧にあるものだけを使う（資料に書かれた範囲）:\n")
-        tail = ("先頭の像を主役にして、像の名前・終了日・館（展示室）を入れ、資料の「特徴」に書かれた見どころを 1 つ具体的に書く。"
+        tail = ("先頭の像（年代と大きさを重視した注目度の順）を主役にして、像の年代（資料に書かれたもの）を先に書き、続けて名前・終了日・館（展示室）を入れ、"
+                "資料の「特徴」に書かれた見どころを 1 つ具体的に書く。"
                 "あと何日かを書いてよい。")
     theme = theme_text(events)
     return (lead + "\n".join(describe_statue(e) for e in events[:MAX_LISTED])
@@ -1091,7 +1212,7 @@ def make_bundle_candidate(client, usage, museum: str, events: list[dict], kind: 
     """館・日ごとの 1 件の配信候補。成功したら item、基準未満や重複なら "recorded"、失敗は None。"""
     import curate_news
 
-    events = sorted(events, key=lambda e: (e["item"]["rank"], e["item"]["name"]))
+    events = sorted(events, key=event_sort_key)
     header = HEADERS_BY_KIND[kind]
     first = events[0]["item"]
     material = bundle_material(museum, events, kind)
@@ -1111,12 +1232,22 @@ def make_bundle_candidate(client, usage, museum: str, events: list[dict], kind: 
     }
     curate_news.score_items(client, usage, [scored], known)
     ai = scored.get("ai")
-    if not ai:
+    force = notable_enough(events)   # 代表の方針: 年代を重視した注目度が高ければ、AI の採点が低くても候補にする
+    if not ai and not force:
         print(f"  採点失敗（翌日にやり直し）: {title} {header}")
         return None
-    if ai["duplicate"] or ai["score"] < CANDIDATE_THRESHOLD:
-        print(f"  配信候補にせず記録のみ: {title} {header} {ai['score']}点{'・重複' if ai['duplicate'] else ''}")
+    ai = ai or {"score": 0, "category": "展覧会", "duplicate": False, "reason": "採点失敗"}
+    forced = False
+    if ai["duplicate"]:
+        print(f"  配信候補にせず記録のみ: {title} {header} {ai['score']}点・重複")
         return "recorded"
+    if ai["score"] < CANDIDATE_THRESHOLD:
+        if not force:
+            print(f"  配信候補にせず記録のみ: {title} {header} {ai['score']}点")
+            return "recorded"
+        forced = True
+        print(f"  注目度で候補化: {title} {header} AI{ai['score']}点・注目度 "
+              + "、".join(f"{e['item']['name']}{statue_priority(e['item'])}" for e in events[:3]))
     extra = swap_extra(museum, events, today, kind)
     item = {"url": first.get("page_url", ""), "title": title, "description": f"{what}仏像: {names}{more}"}
     text = curate_news.write_post(client, usage, item, header=header, extra=extra, fetch_body=False)
@@ -1134,8 +1265,10 @@ def make_bundle_candidate(client, usage, museum: str, events: list[dict], kind: 
         "fetched_at": now.isoformat(timespec="seconds"), "published_at": now.isoformat(timespec="seconds"),
         "image_url": next((e["item"].get("image_url", "") for e in events if e["item"].get("image_url")), ""),
         "ai": {
-            "score": ai["score"], "category": ai.get("category") or "展覧会", "duplicate": False,
-            "reason": f"国立博物館の{'展示替え' if kind == 'swap' else '展示終了まぢか'}（{len(events)}件）・{ai['reason']}",
+            "score": max(ai["score"], CANDIDATE_THRESHOLD) if forced else ai["score"],
+            "category": ai.get("category") or "展覧会", "duplicate": False,
+            "reason": f"国立博物館の{'展示替え' if kind == 'swap' else '展示終了まぢか'}（{len(events)}件）"
+                      + ("・年代を重視した基準で候補化" if forced else "") + f"・{ai['reason']}",
             "post_text": text, "post_header": header, "post_format": curate_news.POST_FORMAT,
         },
     }
@@ -1161,9 +1294,10 @@ def make_digest_candidate(client, usage, pending: list[dict], data: dict, today:
     """月曜に、指定のない・注目でもない展示替えを全館分 1 件にまとめる。採点はせず固定点。"""
     import curate_news
 
-    pending = sorted(pending, key=lambda p: (p["museum"], p["start"] or "", p["name"]))[:DIGEST_MAX_ITEMS]
+    pending = sorted(pending, key=lambda p: (-p.get("priority", 0), p["museum"], p["start"] or "", p["name"]))[:DIGEST_MAX_ITEMS]
     lines = []
-    for m in MUSEUM_ORDER:
+    top = {m: max((p.get("priority", 0) for p in pending if p["museum"] == m), default=-1) for m in MUSEUM_ORDER}
+    for m in sorted(MUSEUM_ORDER, key=lambda m: -top[m]):   # 注目度の高い像がある館から
         mine = [p for p in pending if p["museum"] == m]
         if mine:
             lines.append(f"## {MUSEUMS[m]['name']}（{MUSEUMS[m]['gallery']}）")
@@ -1210,7 +1344,7 @@ def mark(events: list[dict], candidate_id: str, now_iso: str) -> None:
         if not candidate_id:
             entry["featureless"] = not has_feature(e["item"])   # 特徴が空のまま記録のみにした（補えたら 1 回だけ採点し直す）
         if e.get("rescore"):
-            entry["rescored"] = SEARCH_VERSION   # 特徴を補ったあとの採点し直しは 1 回だけ（方式を変えたときは版を上げてやり直す）
+            entry["rescored"] = RESCORE_VERSION   # 記録のみだった節目の見直しは 1 回だけ（基準を変えたときは版を上げてやり直す）
         e["item"]["notified"][e["key"]] = entry
 
 
@@ -1220,12 +1354,12 @@ def has_feature(item: dict) -> bool:
 
 
 def rescore_events(mstate: dict, museum: str, today: date) -> list[dict]:
-    """特徴が空のまま基準未満で「記録のみ」にした節目（候補にならなかったもの）を、補ったあとの採点し直しの対象として拾う。
-    シード・続けて展示・まとめ待ちのものや、すでに採点し直したものは除く。展示がまだ終わっていないものだけ。"""
+    """「記録のみ」にした節目（候補にならなかったもの）を、特徴を補ったあと・判定の基準を変えたあとの見直しの対象として拾う（1 回だけ）。
+    シード・続けて展示・まとめ待ちのものや、すでに見直したもの（候補になったものも）は除く。展示がまだ終わっていないものだけ。"""
     out = []
     for iid, it in mstate.get("items", {}).items():
         for key, entry in it.get("notified", {}).items():
-            if entry.get("candidate") or (entry.get("rescored") or 0) >= SEARCH_VERSION or not entry.get("featureless", True) \
+            if entry.get("candidate") or (entry.get("rescored") or 0) >= RESCORE_VERSION \
                     or entry.get("seed") or entry.get("continued") or entry.get("digest"):
                 continue
             kind, _, d = key.partition("@")
@@ -1274,11 +1408,13 @@ def run(state: dict, data: dict, today: date, client, usage, fetchers: dict, *, 
     # 低優先（指定なし・注目でもない）は個別にせず、月曜のまとめ待ちにする
     pending = state["digest_pending"]
     for museum, events in all_events.items():
-        low = [e for e in events if e["kind"] == "appear" and e["item"]["rank"] == 5]
+        low = [e for e in events if e["kind"] == "appear" and not e.get("rescore") and e["item"]["rank"] == 5
+               and statue_priority(e["item"]) < PRIORITY_FORCE]
         for e in low:
             it, p = e["item"], e["period"]
             pending.append({"id": it["id"], "museum": museum, "name": it["name"], "owner": it["owner"], "room": p.get("room") or it["room"],
-                            "start": p["start"], "end": p["end"], "url": it.get("page_url", ""), "queued": today.isoformat()})
+                            "start": p["start"], "end": p["end"], "url": it.get("page_url", ""), "queued": today.isoformat(),
+                            "priority": statue_priority(it)})
             mark([e], "", now_iso)
             it["notified"][e["key"]]["digest"] = True
             stats["queued"] += 1
@@ -1294,7 +1430,7 @@ def run(state: dict, data: dict, today: date, client, usage, fetchers: dict, *, 
         for kind, evs in (("swap", appear), ("ending", ending)):
             if not evs:
                 continue
-            evs.sort(key=lambda e: (e["item"]["rank"], e["item"]["name"]))
+            evs.sort(key=event_sort_key)
             if client:   # 重要な像から、特徴の抽出（1 回の実行で上限まで）。作品ページがない像は公式サイトを検索して補う
                 for e in evs[:MAX_LISTED]:
                     it = e["item"]
@@ -1303,13 +1439,6 @@ def run(state: dict, data: dict, today: date, client, usage, fetchers: dict, *, 
                     enriched += 1
                     if enrich(client, usage, it, fetch_page, search=lambda i: search_features(client, usage, i, sbudget)):
                         stats["enriched"] += 1
-                for e in list(evs):   # 採点し直しは、特徴を補えたものだけ。検索したのに補えなかったものは諦める
-                    if e.get("rescore") and not has_feature(e["item"]):
-                        evs.remove(e)
-                        if ((e["item"].get("feature") or {}).get("searched") or 0) >= SEARCH_VERSION:
-                            mark([e], "", now_iso)
-                if not evs:
-                    continue
                 stats["rescored"] += sum(1 for e in evs if e.get("rescore"))
             if not client:
                 print(f"  変化あり（AI なし）: {MUSEUMS[museum]['name']} {HEADERS_BY_KIND[kind]} {len(evs)}件 "
@@ -1416,9 +1545,11 @@ def main() -> int:
         items = state["museums"].get(m, {}).get("items", {})
         if m in stats["fetched"]:
             print(f"{MUSEUMS[m]['name']}: 行{stats['fetched'][m]}件 → 仏像{stats['sculptures'][m]}件")
-            for it in sorted(items.values(), key=lambda i: (i["rank"], i["name"]))[:3]:
+            for it in sorted(items.values(), key=lambda i: (-statue_priority(i), i["name"]))[:5]:
                 per = " / ".join(f"{p['start'] or '?'}〜{p['end'] or '?'}" for p in it["periods"])
-                print(f"    例: {it['name']}（{it.get('designation') or '指定なし'}・{it['owner'] or '所蔵者なし'}）{it['room']} {per}")
+                e, z, d = priority_parts(it)
+                print(f"    注目度{e + z + d}（年代{e}・大きさ{z}・指定{d}）: {it['name']}（{it.get('designation') or '指定なし'}・{it['owner'] or '所蔵者なし'}・"
+                      f"{(it.get('feature') or {}).get('era') or it.get('era') or '年代不明'}）{it['room']} {per}")
     designation = ""
     if not args.museum:
         designation = register_new_designation_exhibit(today, args.dry_run)
