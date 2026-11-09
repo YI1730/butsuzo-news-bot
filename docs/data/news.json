@@ -1,6 +1,242 @@
 {
-  "last_updated": "2026-11-09T17:27:18.399882+09:00",
+  "last_updated": "2026-11-09T18:12:01.256703+09:00",
   "items": [
+    {
+      "id": "60f1d8b89dfa",
+      "title": "ツーリングスポットの投稿 - GooBike",
+      "url": "https://www.goobike.com/motocle/detail/255990",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T18:12:01.255888+09:00",
+      "published_at": "2026-11-07T23:08:39+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "仏像と無関係なバイク情報",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T18:14:24+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "cc2adeacb1e0",
+      "title": "イチローさん、高校生を指導 野球 - 高崎前橋経済新聞",
+      "url": "https://takasaki.keizai.biz/gpnews/1778862/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T18:11:51.936815+09:00",
+      "published_at": "2026-11-08T22:10:37+09:00",
+      "image_url": "https://images.keizai.biz/takasaki_keizai/globalphoto/",
+      "description": "米大リーグのマリナーズなどで活躍したイチローさん（５３）が７、８の両日、大分市にある大分舞鶴高の野球部で選手を指導した＝８日（代表撮影） 【時事通信社】",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "野球の話題で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T18:14:24+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "bf3893cf9bb5",
+      "title": "《世界遺産・飛鳥現地ルポ》キトラ古墳で初めて発見された「Q」のような姿の壁画の正体は？ クイズを旅のお供に歩く“日本はじまりの地” - NEWSポストセブン",
+      "url": "https://www.news-postseven.com/archives/20261109_2140074.html?IMAGE=2&PAGE=1-5&AUTOLOAD",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T18:11:49.999428+09:00",
+      "published_at": "2026-11-09T11:00:00+09:00",
+      "image_url": "https://media.news-postseven.com/uploads/2026/11/04/asuka05.gif",
+      "description": "有名な史跡を訪れても、目の前にあるのは草に覆われた丘。「ここで何を見ればいいのだろう」と戸惑った経験はないだろうか。かつて存在した建物が失われていたり、大切なものが地中に埋もれ…",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 10,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "キトラ古墳の壁画ルポで仏像ではない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T18:14:24+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "20429ab59240",
+      "title": "仁王像楽しむきっかけに 新見・哲西で愛好家渡辺さん写真展 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1983612",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T18:11:47.763029+09:00",
+      "published_at": "2026-11-09T11:38:09+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/a/b/0/0/ab00120d5a5f70ac7570bbd04b7fd19e_1.jpg",
+      "description": "新見市哲西町上神代出身の写真愛好家渡辺洋さん（８２）＝広島市＝が国内各地を訪ねて撮りためた金剛力士像の写真展「仁王像探訪」が、哲西公民...",
+      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
+      "ai": {
+        "score": 50,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "金剛力士像の写真展。仏像関連だが小規模で6時間経過",
+        "event": {
+          "event_name": "仁王像探訪 写真展",
+          "place": "哲西公民館（岡山県新見市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T18:14:24+09:00",
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-09-05"
+      }
+    },
+    {
+      "id": "3e237131beb3",
+      "title": "月組次期トップに風間柚乃さん - 高崎前橋経済新聞",
+      "url": "https://takasaki.keizai.biz/gpnews/1778877/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T18:11:46.773543+09:00",
+      "published_at": "2026-11-09T16:52:25+09:00",
+      "image_url": "https://images.keizai.biz/takasaki_keizai/globalphoto/",
+      "description": "宝塚歌劇団は９日、月組のトップスターに風間柚乃さん（写真）、トップ娘役に瑠璃花夏さんが来年３月２９日付で就任すると発表した。５月２０日スタートの全国ツアーがお披露目公演となる。 【時事通信社】",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "宝塚の人事で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T18:14:24+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "7f61ce3345c0",
+      "title": "＜しなのＱ＆Ａ＞ 善光寺御開帳の象徴「回向柱」って？ - 47NEWS",
+      "url": "https://www.47news.jp/15205425.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T18:11:44.766376+09:00",
+      "published_at": "2026-11-09T17:15:27+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/f7bb3b8c183146631def7772e1ebfec1/photo.jpg",
+      "description": "長野市の善光寺の御開帳（来年4月4日～6月19日）に向けて、本堂前に建てられる「回向柱（えこうばしら）」の伐採・製材が行われました。回向柱にはどんな歴史、役割があるのでしょうか？ 本紙県版キャラクタ ...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 55,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": false,
+        "reason": "善光寺御開帳は来年4月の先の予定。回向柱の解説で小さな話題",
+        "event": {
+          "event_name": "善光寺御開帳",
+          "place": "善光寺（長野県長野市）",
+          "start_date": "2027-04-04",
+          "end_date": "2027-06-19"
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T18:14:24+09:00",
+        "score_version": 7,
+        "page_checked": true,
+        "page_date": "2026-11-08"
+      }
+    },
+    {
+      "id": "c00ab9416deb",
+      "title": "日本遺産 歴史を紡ぐ女性とともに今に息づく女人高野〜時を超え、時に合わせて見守り続ける癒しの聖地〜 | お知らせ | ニュース - 自由民主党",
+      "url": "https://www.jimin.jp/news/information/214566.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T18:11:41.950372+09:00",
+      "published_at": "2026-11-09T17:21:10+09:00",
+      "image_url": "https://www.jimin.jp/news/information/img/214566_01.png",
+      "description": "大阪府（河内長野市）、奈良県（宇陀市）、和歌山県（九度山町、高野町） 令和2年度日本遺産認定 高野山は、近代まで〝女人結界〟が定められ、山内における女性の参拝はかないませんでした。",
+      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 25,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "日本遺産の紹介で仏像に触れず観光色が強い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T18:14:24+09:00",
+        "score_version": 7
+      }
+    },
+    {
+      "id": "71865fe2908c",
+      "title": "史跡や寺院で出土の瓦一堂に 岡山市埋文センターが企画展 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2018063",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-09T18:11:40.382429+09:00",
+      "published_at": "2026-11-09T17:30:00+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/b/a/3/6/ba36fffb162c58719055bb1c9088c2ea_3.jpg",
+      "description": "鎌倉時代の東大寺（奈良市）再建で瓦を供給した国史跡・万富東大寺瓦窯跡（岡山市東区瀬戸町万富）や岡山城（北区丸の内）、市内の寺院から出土...",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 30,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "出土瓦の企画展で仏像が出てこない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-09T18:14:24+09:00",
+        "score_version": 7
+      }
+    },
     {
       "title": "栗田こだわり仏像 【守り本尊】 鬼子母神 (蓮華形香合仏[懐中仏]) 守り本尊 子育安産 （高さ6.2cm、幅4.5cm）ツゲ製高級木彫り 17575",
       "url": "https://www.amazon.co.jp/dp/B01M0F5W0C?tag=butsuzo03-22",
@@ -794,7 +1030,12 @@
       "release_date": "2025-09-04",
       "id": "db82d22e655d",
       "fetched_at": "2026-11-09T17:27:14.838997+09:00",
-      "description": "Amazonで三栄の時空旅人 別冊 運慶の世界 仏像と祈りの旅路。アマゾンならポイント還元本が多数。一度購入いただいた電子書籍は、KindleおよびFire端末、スマートフォンやタブレットなど、様々な"
+      "description": "Amazonで三栄の時空旅人 別冊 運慶の世界 仏像と祈りの旅路。アマゾンならポイント還元本が多数。一度購入いただいた電子書籍は、KindleおよびFire端末、スマートフォンやタブレットなど、様々な",
+      "book_ai": {
+        "score": 78,
+        "reason": "運慶と仏像を巡る旅のムック、鎌倉彫刻に直結",
+        "version": 1
+      }
     },
     {
       "title": "和歌山県立博物館 企画展「くらひらく－博物館の蔵仕事事例集－」",
@@ -12389,62 +12630,6 @@
       }
     },
     {
-      "id": "0162d70ebc69",
-      "title": "【周南】新山口・防府駅発着で鹿野へ 21日・特別拝観バスツアー - 新周南新聞社",
-      "url": "https://www.shinshunan.co.jp/news/local/shunan/202611/050637.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T22:11:41.864810+09:00",
-      "published_at": "2026-11-06T09:20:33+09:00",
-      "image_url": "https://www.shinshunan.co.jp/img/ogp.jpg",
-      "description": "新周南新聞社が収集した地域の最新ニュースをご紹介します。",
-      "ai": {
-        "score": 40,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "特別拝観バスツアー告知だが仏像の言及が不明。12時間経過で減点",
-        "event": {
-          "event_name": "鹿野 特別拝観バスツアー",
-          "place": "山口県周南市鹿野",
-          "start_date": "2026-11-21",
-          "end_date": "2026-11-21"
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T22:14:21+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "fe63c08420bf",
-      "title": "令和8年度 史跡めぐり（秋編） - 流山市",
-      "url": "https://www.city.nagareyama.chiba.jp/1000009/1056139.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T22:11:38.355151+09:00",
-      "published_at": "2026-11-06T19:13:27+09:00",
-      "image_url": "https://www.city.nagareyama.chiba.jp/_template_/_site_/_default_/_res/images/sns/ogimage.png",
-      "description": "令和8年10月24日、中央公民館主催事業「令和8年度 史跡めぐり（秋編）」が開催されました。",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "10月24日開催済みの史跡めぐり事後報告で仏像の言及なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T22:14:21+09:00",
-        "score_version": 7
-      }
-    },
-    {
       "title": "銀花荘 「銀花荘の民藝コレクション－ほっとけない神様・仏様展－」（10月17日~1月18日）",
       "url": "https://www.city.gero.lg.jp/site/kanko/1230.html",
       "source": "kanbutsu",
@@ -12465,118 +12650,6 @@
       "image_url": "https://www.gotoh-museum.or.jp/wp-content/uploads/2020/06/slide01.jpg"
     },
     {
-      "id": "67c7e1b7249e",
-      "title": "【山口県】新山口・防府駅発着で鹿野へ 21日・特別拝観バスツアー（日刊新周南） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/d4fc1da87bf0c742bf408de2862b445a2b017a83",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T21:11:37.287521+09:00",
-      "published_at": "2026-11-06T16:35:20+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261106-00010003-sshunan-000-1-view.jpg?exp=10800",
-      "description": "周南市の周南観光コンベンション協会は21日（土）に新山口駅と防府駅を発着地に、周南市鹿野地区の漢陽寺の特別拝観と「かの’nこと清流Fes.」を楽しむ日帰りバスツアーを企画した。 通常は非公開の庭園「",
-      "ai": {
-        "score": 40,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "漢陽寺の庭園の特別拝観ツアーで仏像の話はなく上限内。21日開催",
-        "event": {
-          "event_name": "漢陽寺 特別拝観バスツアー",
-          "place": "漢陽寺（山口県周南市）",
-          "start_date": "2026-11-21",
-          "end_date": "2026-11-21"
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T21:13:59+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "ae4440c56f82",
-      "title": "【ホラー】 女・子供の願いを叶える\"さいの神様\"？神像を巡る身の毛もよだつオムニバスホラーが話題（ウォーカープラス） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/9c79566ea38df92837f5a70a8a56b57e3249e127",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T21:11:35.310373+09:00",
-      "published_at": "2026-11-06T17:00:00+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261106-01453878-tkwalk-000-1-view.jpg?exp=10800",
-      "description": "長きにわたり祀られていた「神像」が逃げた。「神像」は、女・子供の願いを叶えるという。その結末が毎回恐ろしい。今回は、さかいめがみ(@shindelmegami)さんが描く創作漫画「さいの神様がいるシ",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "創作ホラー漫画の神像で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T21:13:59+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "bdad530cf5e9",
-      "title": "大月 初狩保育所に着工 - sannichi.co.jp",
-      "url": "https://www.sannichi.co.jp/article/2026/11/06/80732313?g=ca_l_local",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T21:11:33.046821+09:00",
-      "published_at": "2026-11-06T18:10:47+09:00",
-      "image_url": "",
-      "description": "",
-      "ai": {
-        "score": 1,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "保育所の着工で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T21:13:59+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "0f0fca218a87",
-      "title": "第五回講演会 大日如来と謙信公／沖見城跡と謙信公 - 上越妙高タウン情報",
-      "url": "https://joetsu.yukiguni.town/type_event/341455/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T21:11:31.484775+09:00",
-      "published_at": "2026-11-06T20:48:48+09:00",
-      "image_url": "https://joetsu.yukiguni.town/wp/wp-content/uploads/2025/04/default.png",
-      "description": "■日時：11月8日（日）開場13:30、開演14:00 ■会場：五智歴史の里会館（上越市国府1-18-28）",
-      "ai": {
-        "score": 38,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "大日如来と謙信公の講演会。8日開催だが仏像の公開ではなく優先度低め",
-        "event": {
-          "event_name": "第五回講演会 大日如来と謙信公／沖見城跡と謙信公",
-          "place": "五智歴史の里会館（新潟県上越市）",
-          "start_date": "2026-11-08",
-          "end_date": "2026-11-08"
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T21:13:59+09:00",
-        "score_version": 7
-      }
-    },
-    {
       "title": "八代市立博物館未来の森ミュージアム",
       "url": "https://www.city.yatsushiro.kumamoto.jp/museum/index.jsp",
       "source": "kanbutsu",
@@ -12595,64 +12668,6 @@
       "id": "19dba82b5ef0",
       "fetched_at": "2026-11-06T20:25:10.716992+09:00",
       "image_url": ""
-    },
-    {
-      "id": "4637a052a5ac",
-      "title": "明治のハイカラな洋風意匠が光る建築「願心寺（がんしんじ）」本堂が国の重要文化財に指定へ 和洋折衷の斬新なデザインが魅力 - UMKテレビ宮崎",
-      "url": "https://www.umk.co.jp/news/selection/2026/11/post-198.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T20:11:42.177258+09:00",
-      "published_at": "2026-11-05T06:12:01+09:00",
-      "image_url": "https://www.umk.co.jp/news/selection/mediafiles/50a32c6a0429d9f754682b6c81349bcb92bd3be3.jpg",
-      "description": "明治39年に完成した和洋折衷の斬新なデザインが魅力の宮崎県都城市「願心寺」の本堂。建築史における高い価値が認められ、国の重要文化財に指定される見通しとなった。禁制（きんせい）や廃仏毀釈（はいぶつきしゃく）といった過酷な歴史を乗り越え、門徒たちの思いがつむいだ120年の歩みに迫る。",
-      "ai": {
-        "score": 55,
-        "category": "発見・研究・新指定",
-        "duplicate": false,
-        "reason": "寺院本堂の重文指定の見通し。建造物のため仏像ではなく、38時間経過で減点",
-        "event": {
-          "event_name": "",
-          "place": "願心寺（宮崎県都城市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T20:14:14+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-11-05"
-      }
-    },
-    {
-      "id": "e602c7e81504",
-      "title": "国宝 “大浦天主堂”を火災から守る「文化財保護強調週間」九州電力送配電などが文化財の点検実施《長崎》 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/nib/region/nib-2026110502954411",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-06T20:11:38.969014+09:00",
-      "published_at": "2026-11-05T20:30:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/nib/m_nib-2026110502954411.jpg",
-      "description": "「文化財保護強調週間」に合わせて貴重な文化財を火災から守ろうと、長崎市で電力会社による点検が行われま…",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "国宝の教会の火災点検で寺院・仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-06T20:14:14+09:00",
-        "score_version": 7
-      }
     },
     {
       "id": "54089bac58c6",
