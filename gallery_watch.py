@@ -55,6 +55,10 @@ REQUEST_INTERVAL = 3.0          # リクエストの間隔（秒）
 ENDING_DAYS = 7                 # 展示の終了まで何日以内で「終了まぢか」にするか
 CONTINUE_GAP_DAYS = 7           # 前の展示期間の終了から次の開始までがこの日数以内なら、続けて展示されているものとみなす
 MAX_ENRICH_PER_RUN = 30         # 1 回の実行で AI に渡す特徴の抽出の上限（費用の歯止め）
+MAX_SEARCHES_PER_RUN = 10       # 公式サイトの web 検索（Claude の web_search ツール）の上限（1 回の実行）
+SEARCH_COST = 0.01              # web 検索 1 回あたりの費用の見積り（$）
+SEARCH_DOMAINS = ["kyohaku.go.jp", "narahaku.go.jp", "tnm.jp", "kyuhaku.jp", "collection.kyuhaku.jp",
+                  "online.bunka.go.jp", "bunka.nii.ac.jp", "colbase.nich.go.jp"]   # 公式な情報源だけ（寺院のサイトは使わない）
 MAX_JUDGE_CALLS = 3             # 作品名で判断がつかないものを軽いモデルで判定する呼び出しの上限
 JUDGE_BATCH = 40
 MAX_LISTED = 8                  # 配信候補の材料に入れる像の数（重要な順）
@@ -87,6 +91,8 @@ DESIGNATION_RANK = {"国宝": 0, "重要文化財": 1, "重要美術品": 3}
 
 EXCLUDE_RE = re.compile(r"図|絵|画|経|曼荼羅|拓|縁起|版|摺|幅|巻|軸|屏風|書|箱|鏡|硯|鈴|杵|香炉|花瓶|仏具|舎利容器|幡|鐘|断簡|模本")
 REPLICA_RE = re.compile(r"模造|復元|複製|レプリカ")
+# 仏像ではないもの（面・工芸品）。彫刻の部門でも仏像には数えない
+NON_IMAGE_RE = re.compile(r"伎楽|舞楽|仮面|能面|獅子頭|面(?:\s|$)|舎利容器|仏具|香炉|華鬘|五鈷|鈴|杵")
 ARCHAEO_RE = re.compile(r"出土|骨蔵器|蔵骨器|土器|瓦|墓誌|古墳|経筒|経塚")
 STRONG_RE = re.compile(
     r"如来|菩薩|観音|明王|天王|天立像|天坐像|天像|神像|男神|女神|僧形|権現|地蔵|仏頭|仏像|仏龕|塼仏|金銅仏|押出仏|造像|"
@@ -150,7 +156,7 @@ def classify(name: str, hint: bool = False, strict: bool = False) -> bool | None
     hint: 展示室・部門が彫刻と分かっているとき（複製でなければ仏像として扱う）。
     strict: 外国の彫刻が多い展示室（東洋館）。「坐像」「立像」だけでは仏像とみなさず、判断保留にする。
     絵・経・鏡・出土品などを示す語があれば False。仏像らしい語があれば True。名前に「像」だけがあるときは判断保留。"""
-    if REPLICA_RE.search(name):
+    if REPLICA_RE.search(name) or NON_IMAGE_RE.search(name):
         return False
     if hint:
         return True
@@ -742,6 +748,9 @@ def merge_museum(mstate: dict, rows: list[dict], museum: str, today: date, title
 def prune_state(mstate: dict, today: date) -> int:
     drop = []
     for iid, it in mstate.get("items", {}).items():
+        if classify(it["name"], True) is False:   # 面・工芸品などを仏像として記録していた分
+            drop.append(iid)
+            continue
         ends = [to_date(p["end"]) for p in it["periods"]]
         last = max((e for e in ends if e), default=None)
         if all(ends) and last and (today - last).days > PRUNE_DAYS:
@@ -834,7 +843,7 @@ def attribution_ok(text: str, source: str) -> bool:
     return True
 
 
-def item_source_text(item: dict, page_text: str) -> str:
+def item_source_text(item: dict, page_text: str, web_text: str = "") -> str:
     """特徴の抽出に渡す資料: 一覧の記載（作品名・指定・所蔵・時代・展示室・期間）、作品ページの本文、テーマ・展示の解説。"""
     facts = [f"作品名: {item['name']}"]
     for label, k in (("指定", "designation"), ("所蔵者", "owner"), ("時代", "era"), ("出土地・作者", "origin"), ("展示室", "room")):
@@ -847,7 +856,64 @@ def item_source_text(item: dict, page_text: str) -> str:
         parts.append("## 作品ページの本文\n" + page_text[:2500])
     if item.get("context"):
         parts.append("## テーマ・展示の解説\n" + item["context"][:2000])
-    return "\n\n".join(parts)[:SOURCE_CHARS]
+    text = "\n\n".join(parts)[:SOURCE_CHARS]
+    if web_text:   # 公式サイトの検索結果の引用（出典 URL つき）
+        text += "\n\n## 公式サイトの検索結果の引用\n" + web_text[:2500]
+    return text
+
+
+def needs_search(item: dict) -> bool:
+    """作品ごとのページがなく（京博・奈良博など）、国宝・重文・重美・注目・寄託の寺院像で、特徴がまだ空の像。"""
+    f = item.get("feature") or {}
+    empty = not (f.get("note") or f.get("material") or f.get("height"))
+    return bool(empty and not f.get("searched") and not item.get("link") and item.get("rank", 5) <= 4)
+
+
+def search_features(client, usage, item: dict, budget: list) -> tuple[str, str] | None:
+    """Claude の web_search ツール（公式な情報源のドメインだけ）で「所蔵＋像名」を調べ、引用された本文と出典 URL を返す。
+    返すのは検索結果の引用そのもの（モデルの言い換えは使わない）。像名・所蔵者が引用に出てこないものは捨てる。
+    budget: [残りの検索回数, 使った検索回数]。"""
+    if budget[0] <= 0:
+        return None
+    owner = re.sub(r"^(?:" + "|".join(PREFS) + r")[都道府県]?[・\s]*", "", item.get("owner", ""))
+    query = f"{owner} {item['name']}".strip()
+    try:
+        resp = client.messages.create(
+            model=ec.LIGHT_MODEL, max_tokens=1200,
+            tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": min(2, budget[0]),
+                    "allowed_domains": SEARCH_DOMAINS}],
+            messages=[{"role": "user", "content": (
+                f"次の仏像について、公式サイトのページから、時代・素材（技法）・像高・解説を探して、見つけた内容を引用して答えてください。\n"
+                f"所蔵: {item.get('owner') or '（不明）'}\n像名: {item['name']}\n指定: {item.get('designation') or '（なし）'}\n"
+                f"検索語の例: {query}\n見つからなければ、見つからなかったと答える。推測は書かない。")}])
+    except Exception as e:   # API の拒否・ツール非対応・接続エラー。特徴なしのまま進める
+        print(f"::warning::web 検索に失敗: {type(e).__name__}: {str(e)[:150]}", file=sys.stderr)
+        return "", ""
+    usage.add(resp.usage)
+    used = getattr(getattr(resp.usage, "server_tool_use", None), "web_search_requests", None)
+    used = used if isinstance(used, int) else 1
+    budget[0] -= max(used, 1)
+    budget[1] += used
+    name_core = nospace(item["name"])[:5]
+    owner_core_ = owner_core(item.get("owner", ""))
+    snippets, urls = [], []
+    for block in resp.content:
+        if getattr(block, "type", "") != "text":
+            continue
+        for c in getattr(block, "citations", None) or []:
+            text, url = getattr(c, "cited_text", "") or "", getattr(c, "url", "") or ""
+            n = nospace(text)
+            if not url or url in urls and text in snippets:
+                continue
+            if name_core and name_core not in n:
+                continue
+            if len(owner_core_) >= 2 and owner_core_ not in n and not (item["museum"] == "tnm" and not owner):
+                continue
+            snippets.append(text)
+            urls.append(url)
+    out = "\n".join(f"[{u}] {t}" for u, t in zip(urls, snippets))
+    print(f"  web 検索: {query} → 引用{len(snippets)}件（検索{used}回）")
+    return out, (urls[0] if urls else "")
 
 
 def fetch_item_page(item: dict) -> tuple[str, str]:
@@ -868,12 +934,20 @@ def fetch_item_page(item: dict) -> tuple[str, str]:
     return clean(root.get_text(" ", strip=True)), img
 
 
-def enrich(client, usage, item: dict, fetch_page=None) -> bool:
-    """作品の特徴（時代・材質・像高・指定・説明）を、公式ページ・一覧の資料だけを根拠に作って item["feature"] に入れる。"""
+def enrich(client, usage, item: dict, fetch_page=None, search=None) -> bool:
+    """作品の特徴（時代・材質・像高・指定・説明）を、公式ページ・一覧・公式サイトの検索結果の資料だけを根拠に作って item["feature"] に入れる。
+    search: (item) -> (引用の本文, 出典 URL)。作品ページがない国宝・重文などだけ呼ぶ。"""
     import curate_news
 
     page_text, img = (fetch_page or fetch_item_page)(item)
-    source = item_source_text(item, page_text)
+    web_text = web_url = ""
+    searched = False
+    if search and needs_search(item):
+        found = search(item)
+        if found is not None:   # None は検索の上限（翌日以降にやり直す）
+            web_text, web_url = found
+            searched = True
+    source = item_source_text(item, page_text, web_text)
     res = curate_news.call_json(client, usage, ENRICH_SYSTEM, f"## 資料\n{source}", ENRICH_SCHEMA,
                                 effort="low", model=ec.LIGHT_MODEL)
     if res is None:
@@ -881,7 +955,9 @@ def enrich(client, usage, item: dict, fetch_page=None) -> bool:
     feat = verify_enrichment(res, source, item["museum"])
     feat["era"] = feat["era"] or item.get("era", "")
     feat["designation"] = feat["designation"] or item.get("designation", "")
-    feat["source_url"] = item.get("link") or item.get("page_url", "")
+    feat["source_url"] = item.get("link") or (web_url if web_text and (feat["note"] or feat["material"] or feat["height"])
+                                              else item.get("page_url", ""))
+    feat["searched"] = searched or bool((item.get("feature") or {}).get("searched"))
     feat["enriched_at"] = datetime.now(JST).isoformat(timespec="seconds")
     item["feature"] = feat
     if img and not item.get("image_url"):
@@ -947,11 +1023,22 @@ def swap_extra(museum: str, events: list[dict], today: date, kind: str) -> str:
                 f"（今日は {today:%Y-%m-%d}）。対象の像は、次の一覧にあるものだけを使う（資料に書かれた範囲）:\n")
         tail = ("先頭の像を主役にして、像の名前・終了日・館（展示室）を入れ、資料の「特徴」に書かれた見どころを 1 つ具体的に書く。"
                 "あと何日かを書いてよい。")
-    return (lead + "\n".join(describe_statue(e) for e in events[:MAX_LISTED]) + f"\n会場: {venue}\n" + tail + "\n" + STATUE_RULES)
+    theme = theme_text(events)
+    return (lead + "\n".join(describe_statue(e) for e in events[:MAX_LISTED])
+            + (f"\nテーマの解説（館の資料。ここに書かれた範囲で使う）: {theme}" if theme else "")
+            + f"\n会場: {venue}\n" + tail + "\n" + STATUE_RULES)
+
+
+def theme_text(events: list[dict]) -> str:
+    """展示室のテーマの解説（館の資料。京博の「仏像入門」の説明など）。"""
+    ctx = next((e["item"].get("context", "") for e in events if e["item"].get("context")), "")
+    return ctx[:350]
 
 
 def bundle_material(museum: str, events: list[dict], kind: str) -> str:
-    return "\n".join(describe_statue(e) for e in events[:MAX_LISTED])[:1800]
+    text = "\n".join(describe_statue(e) for e in events[:MAX_LISTED])
+    theme = theme_text(events)
+    return (text + (f"\nテーマの解説（館の資料）: {theme}" if theme else ""))[:2200]
 
 
 def post_ok(text: str, material: str) -> str | None:
@@ -1084,7 +1171,36 @@ def make_digest_candidate(client, usage, pending: list[dict], data: dict, today:
 
 def mark(events: list[dict], candidate_id: str, now_iso: str) -> None:
     for e in events:
-        e["item"]["notified"][e["key"]] = {"at": now_iso, "candidate": candidate_id}
+        entry = {"at": now_iso, "candidate": candidate_id}
+        if not candidate_id:
+            entry["featureless"] = not has_feature(e["item"])   # 特徴が空のまま記録のみにした（補えたら 1 回だけ採点し直す）
+        if e.get("rescore"):
+            entry["rescored"] = True   # 特徴を補ったあとの採点し直しは 1 回だけ
+        e["item"]["notified"][e["key"]] = entry
+
+
+def has_feature(item: dict) -> bool:
+    f = item.get("feature") or {}
+    return bool(f.get("note") or f.get("material") or f.get("height"))
+
+
+def rescore_events(mstate: dict, museum: str, today: date) -> list[dict]:
+    """特徴が空のまま基準未満で「記録のみ」にした節目（候補にならなかったもの）を、補ったあとの採点し直しの対象として拾う。
+    シード・続けて展示・まとめ待ちのものや、すでに採点し直したものは除く。展示がまだ終わっていないものだけ。"""
+    out = []
+    for iid, it in mstate.get("items", {}).items():
+        for key, entry in it.get("notified", {}).items():
+            if entry.get("candidate") or entry.get("rescored") or not entry.get("featureless", True) \
+                    or entry.get("seed") or entry.get("continued") or entry.get("digest"):
+                continue
+            kind, _, d = key.partition("@")
+            if kind not in ("appear", "ending"):
+                continue
+            period = next((p for p in it["periods"] if (p["start"] or "open") == d or p["end"] == d), None)
+            if not period or (to_date(period["end"]) and to_date(period["end"]) < today):
+                continue
+            out.append({"museum": museum, "item": it, "key": key, "kind": kind, "period": period, "rescore": True})
+    return out
 
 
 def run(state: dict, data: dict, today: date, client, usage, fetchers: dict, *, dry_run: bool = False, topic: str = "",
@@ -1093,8 +1209,9 @@ def run(state: dict, data: dict, today: date, client, usage, fetchers: dict, *, 
     titles = titles if titles is not None else new_designation_titles(data, today)
     now_iso = datetime.now(JST).isoformat(timespec="seconds")
     stats = {"fetched": {}, "sculptures": {}, "failed": [], "undecided": 0, "seeded": [], "appear": 0, "ending": 0,
-             "queued": 0, "made": 0, "digest": 0, "enriched": 0, "pruned": 0, "judge_calls": 0}
+             "queued": 0, "made": 0, "digest": 0, "enriched": 0, "pruned": 0, "judge_calls": 0, "searches": 0, "rescored": 0}
     budget = [MAX_JUDGE_CALLS]
+    sbudget = [MAX_SEARCHES_PER_RUN, 0]
     all_events: dict[str, list[dict]] = {}
     for museum in MUSEUM_ORDER:
         if museum not in fetchers:
@@ -1115,6 +1232,8 @@ def run(state: dict, data: dict, today: date, client, usage, fetchers: dict, *, 
             stats["seeded"].append(museum)
         all_events[museum] = merge_museum(mstate, keep, museum, today, titles)
         stats["pruned"] += prune_state(mstate, today)
+        if client:
+            all_events[museum] += rescore_events(mstate, museum, today)
     stats["judge_calls"] = MAX_JUDGE_CALLS - budget[0]
 
     # 低優先（指定なし・注目でもない）は個別にせず、月曜のまとめ待ちにする
@@ -1135,20 +1254,28 @@ def run(state: dict, data: dict, today: date, client, usage, fetchers: dict, *, 
     for museum, events in all_events.items():
         appear = [e for e in events if e["kind"] == "appear"]
         ending = [e for e in events if e["kind"] == "ending"]
-        stats["appear"] += len(appear)
-        stats["ending"] += len(ending)
+        stats["appear"] += sum(1 for e in appear if not e.get("rescore"))
+        stats["ending"] += sum(1 for e in ending if not e.get("rescore"))
         for kind, evs in (("swap", appear), ("ending", ending)):
             if not evs:
                 continue
             evs.sort(key=lambda e: (e["item"]["rank"], e["item"]["name"]))
-            if client and kind == "swap":   # 重要な像から、特徴の抽出（1 回の実行で上限まで）
+            if client:   # 重要な像から、特徴の抽出（1 回の実行で上限まで）。作品ページがない像は公式サイトを検索して補う
                 for e in evs[:MAX_LISTED]:
                     it = e["item"]
-                    if "feature" in it or enriched >= MAX_ENRICH_PER_RUN:
+                    if ("feature" in it and not needs_search(it)) or enriched >= MAX_ENRICH_PER_RUN:
                         continue
                     enriched += 1
-                    if enrich(client, usage, it, fetch_page):
+                    if enrich(client, usage, it, fetch_page, search=lambda i: search_features(client, usage, i, sbudget)):
                         stats["enriched"] += 1
+                for e in list(evs):   # 採点し直しは、特徴を補えたものだけ。検索したのに補えなかったものは諦める
+                    if e.get("rescore") and not has_feature(e["item"]):
+                        evs.remove(e)
+                        if (e["item"].get("feature") or {}).get("searched"):
+                            mark([e], "", now_iso)
+                if not evs:
+                    continue
+                stats["rescored"] += sum(1 for e in evs if e.get("rescore"))
             if not client:
                 print(f"  変化あり（AI なし）: {MUSEUMS[museum]['name']} {HEADERS_BY_KIND[kind]} {len(evs)}件 "
                       + "、".join(e["item"]["name"] for e in evs[:3]))
@@ -1160,6 +1287,8 @@ def run(state: dict, data: dict, today: date, client, usage, fetchers: dict, *, 
             if isinstance(res, dict):
                 stats["made"] += 1
                 print(f"  候補を作成: {MUSEUMS[museum]['name']} {HEADERS_BY_KIND[kind]} {len(evs)}件\n    {res['ai']['post_text']}")
+
+    stats["searches"] = sbudget[1]
 
     # 月曜のまとめ
     cutoff = (today - timedelta(days=DIGEST_KEEP_DAYS)).isoformat()
@@ -1261,11 +1390,11 @@ def main() -> int:
     if not args.dry_run:
         save_news_data(data)
         save_state(state)
-    cost = usage.cost() if usage else 0.0
+    cost = (usage.cost() if usage else 0.0) + stats["searches"] * SEARCH_COST
     counts = "・".join(f"{MUSEUMS[m]['name'][:2]}{stats['sculptures'][m]}" for m in stats["sculptures"])
     print(f"::notice::名品ギャラリーウォッチ 仏像 {counts or '取得なし'} / 取得失敗 {','.join(stats['failed']) or 'なし'}・"
           f"初回記録 {','.join(stats['seeded']) or 'なし'}・判断保留{stats['undecided']} / 新規展示{stats['appear']}・終了まぢか{stats['ending']}・"
-          f"まとめ待ち{stats['queued']} / 配信候補{stats['made']}件・週まとめ{stats['digest']}件・特徴抽出{stats['enriched']}件 / "
+          f"まとめ待ち{stats['queued']} / 配信候補{stats['made']}件・週まとめ{stats['digest']}件・特徴抽出{stats['enriched']}件（web検索{stats['searches']}回・採点し直し{stats['rescored']}件） / "
           f"東博の新指定展: {designation or '未確認'} / AI費用 約${cost:.3f}（上限見積り）"
           + ("（dry-run: 書き込みなし）" if args.dry_run else ""))
     return 0
