@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-10T08:16:41.013929+09:00",
+  "last_updated": "2026-11-10T08:22:19.088509+09:00",
   "items": [
     {
       "id": "79c910b2eeea",
@@ -7158,20 +7158,23 @@
       "description": "紅葉の名所として知られる両界山横蔵寺（岐阜県揖斐川町谷汲神原）で１５日に「もみじまつり」が開かれるのを前に、実行委員会のメンバーたちは、寺宝「定祐法印（じょうゆうほういん）坐像」をより多くの人に見て ...",
       "search_query": "(寺宝 OR 仏師)",
       "ai": {
-        "score": 35,
+        "score": 55,
         "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "岐阜新聞と同じ内容の重複記事。後発のため減点",
+        "duplicate": false,
+        "reason": "15日もみじまつり、寺宝坐像を舎利堂へ。像は高僧像で情報少なめ",
         "event": {
-          "event_name": "横蔵寺 もみじまつり(定祐法印坐像の公開)",
-          "place": "両界山横蔵寺(岐阜県揖斐川町)",
+          "event_name": "横蔵寺 もみじまつり",
+          "place": "横蔵寺（岐阜県揖斐川町）",
           "start_date": "2026-11-15",
           "end_date": "2026-11-15"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T19:14:19+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-08"
       }
     },
     {
@@ -7190,7 +7193,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "女子プロボウリングの話題で仏像と無関係",
+        "reason": "女子プロボウリングの話題で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7198,9 +7201,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T18:14:16+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7219,7 +7223,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "ジャズフェスの記事で仏像と無関係",
+        "reason": "ジャズフェスの話題で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7227,9 +7231,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T18:14:16+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7245,10 +7250,10 @@
       "description": "AKB48の伊藤百花が11月6日、自身のInstagramを更新。ミニーマウスをイメージしたコーディネートで、東京...(画像3/13)",
       "search_query": "(明王 OR 神像 OR 重要文化財)",
       "ai": {
-        "score": 1,
+        "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "「顔面重要文化財」は比喩で芸能記事。無関係",
+        "reason": "芸能人の比喩表現で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7256,9 +7261,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T18:14:16+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7277,7 +7283,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "大相撲の記事で仏像と無関係",
+        "reason": "大相撲の話題で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7285,9 +7291,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T18:14:16+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7313,10 +7320,10 @@
       "description": "2026年のNHK大河ドラマ『豊臣兄弟！』は、豊臣秀吉の弟・豊臣秀長にスポットライトが当てられ、そのユニークな視点で話題を呼んでいる。天下人となる秀吉（演：池松壮亮）を、秀長（演：",
       "search_query": "特別展 (寺 OR 仏)",
       "ai": {
-        "score": 12,
+        "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "北野大茶湯と大河の史実解説で仏像と無関係。配信35時間経過",
+        "reason": "大河ドラマ解説で仏像に触れず無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7324,9 +7331,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T17:14:05+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7345,7 +7353,7 @@
         "score": 10,
         "category": "無関係",
         "duplicate": false,
-        "reason": "奈良旅行の観光記事で仏像に触れず。速報性もなし",
+        "reason": "奈良旅の観光記事で仏像に触れず",
         "event": {
           "event_name": "",
           "place": "",
@@ -7353,9 +7361,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T17:14:05+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7373,8 +7382,8 @@
       "ai": {
         "score": 0,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "「顔面重要文化財」は比喩でAKB48の芸能記事。無関係",
+        "duplicate": true,
+        "reason": "芸能人の比喩表現で無関係・重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -7382,9 +7391,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T17:14:05+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7412,8 +7422,8 @@
       "ai": {
         "score": 0,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "「顔面重要文化財」は比喩でアイドル記事。仏像と無関係",
+        "duplicate": true,
+        "reason": "芸能人の比喩表現で無関係・重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -7421,9 +7431,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T16:19:46+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7439,10 +7450,10 @@
       "description": "",
       "search_query": "(開扉 OR 菩薩 OR 秘仏)",
       "ai": {
-        "score": 2,
+        "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "登山の救助で仏像と無関係",
+        "reason": "山名に菩薩の字があるだけで無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7450,9 +7461,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T16:14:25+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7468,10 +7480,10 @@
       "description": "飛鳥・藤原の宮都が新たに世界遺産に登録、話題のNHK『豊臣兄弟！』の大河ドラマ館、重要文化財が新しく生まれ変わった奈良監獄ミュージアムなど、いま、奈良がとにかく盛り上がっています！まだ見ぬ古都を探索してみませんか？（4ページ目）",
       "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
       "ai": {
-        "score": 10,
+        "score": 5,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "奈良旅行の観光記事で仏像に触れず",
+        "duplicate": true,
+        "reason": "奈良旅の観光記事で無関係・重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -7479,9 +7491,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T16:14:25+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7497,10 +7510,10 @@
       "description": "",
       "search_query": "特別展 (寺 OR 仏)",
       "ai": {
-        "score": 15,
+        "score": 10,
         "category": "寺院の行事",
         "duplicate": false,
-        "reason": "信長追悼式で仏像に触れず。7時間経過",
+        "reason": "信長追悼式で仏像に触れず",
         "event": {
           "event_name": "",
           "place": "",
@@ -7508,9 +7521,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T16:14:25+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7528,8 +7542,8 @@
       "ai": {
         "score": 0,
         "category": "無関係",
-        "duplicate": false,
-        "reason": "「顔面重要文化財」は比喩で芸能記事",
+        "duplicate": true,
+        "reason": "芸能人の比喩表現で無関係・重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -7537,9 +7551,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T16:14:25+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7555,10 +7570,12 @@
       "description": "平安時代の南武蔵の地に伝わった仏像を一堂に集めた特別展「南武蔵の平安仏」が、横浜市都筑区の市歴史博…",
       "search_query": "(開扉 OR 菩薩 OR 秘仏)",
       "ai": {
-        "score": 55,
+        "page_checked": true,
+        "page_date": "2026-11-08",
+        "score": 84,
         "category": "展覧会",
-        "duplicate": true,
-        "reason": "横浜市の同展は配信済みで重複。開催中",
+        "duplicate": false,
+        "reason": "地域の平安仏15体、30年ぶり寺外公開薬師像。開催中の告知",
         "event": {
           "event_name": "特別展「南武蔵の平安仏」",
           "place": "横浜市歴史博物館（横浜市都筑区）",
@@ -7566,11 +7583,16 @@
           "end_date": "2026-12-13"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T16:14:25+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-11-08"
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8,
+        "official_url": "",
+        "official_image": "",
+        "post_text": "約30年ぶりに寺外へ。影向寺の薬師三尊像（国重文）が、横浜市歴史博物館の特別展に並ぶ。南武蔵の平安仏15体が一堂に、12月13日まで！",
+        "post_attempts": 1,
+        "post_format": 6,
+        "notified": true
       }
     },
     {
@@ -7589,7 +7611,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": true,
-        "reason": "比喩の芸能記事で重複",
+        "reason": "芸能人の比喩表現で無関係・重複",
         "event": {
           "event_name": "",
           "place": "",
@@ -7597,9 +7619,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T16:14:25+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7615,10 +7638,10 @@
       "description": "８日午前１時４分ごろ、静岡県西部を震源とする地震があり、愛知県知多市で震度５強の揺れを観測した。写真は地震によって窓ガラスが割れた輸入車ディーラーの店舗＝同日午後、愛知県豊橋市 【時事通信社】",
       "search_query": "特別展 (寺 OR 仏)",
       "ai": {
-        "score": 3,
+        "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "地震記事で仏像被害の言及なし",
+        "reason": "地震ニュースで仏像被害の記述なし",
         "event": {
           "event_name": "",
           "place": "",
@@ -7626,9 +7649,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "breaking",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T16:14:25+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7654,20 +7678,21 @@
       "description": "江の島弁財天が世界へ 特別展図録の英訳本完成〈藤沢市〉（タウンニュース）",
       "search_query": "特別展 (寺 OR 仏)",
       "ai": {
-        "score": 35,
+        "score": 40,
         "category": "その他の仏像関連",
         "duplicate": false,
-        "reason": "江の島弁財天の図録英訳本。仏像の公開ではなく41時間経過で減点",
+        "reason": "江の島弁財天の図録英訳本完成。像の詳細少なく優先度低め",
         "event": {
           "event_name": "",
-          "place": "",
+          "place": "江島神社（神奈川県藤沢市）",
           "start_date": "",
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T15:14:06+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7683,10 +7708,10 @@
       "description": "10月16日、大阪のシンボルである「大阪城天守閣」を重要文化財に指定するよう、文化庁の文化審議会が文部科学大臣に答申した。大阪では昨年にも、1970年の大阪万博の象徴である「太陽の塔」が重要文化財に",
       "search_query": "(明王 OR 神像 OR 重要文化財)",
       "ai": {
-        "score": 15,
+        "score": 8,
         "category": "無関係",
         "duplicate": false,
-        "reason": "大阪の近代建築の指定話題で寺院・仏像と無関係",
+        "reason": "近代建築の指定話題で寺院と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7694,9 +7719,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T15:14:06+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7715,7 +7741,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "芸能人への比喩表現で仏像と無関係",
+        "reason": "芸能人の比喩表現で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7723,9 +7749,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T15:14:06+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7741,10 +7768,12 @@
       "description": "平安時代の南武蔵の地に伝わった仏像を一堂に集めた特別展「南武蔵の平安仏」が、横浜市都筑区の市歴史博…",
       "search_query": "(開扉 OR 菩薩 OR 秘仏)",
       "ai": {
-        "score": 55,
+        "page_checked": true,
+        "page_date": "2026-11-08",
+        "score": 60,
         "category": "展覧会",
         "duplicate": true,
-        "reason": "配信済みの横浜市歴史博物館の南武蔵の平安仏展と同一。開催中だが重複で減点",
+        "reason": "南武蔵の平安仏の同一記事で重複",
         "event": {
           "event_name": "特別展「南武蔵の平安仏」",
           "place": "横浜市歴史博物館（横浜市都筑区）",
@@ -7752,11 +7781,10 @@
           "end_date": "2026-12-13"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T15:14:06+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-11-08"
+        "scored_at": "2026-11-10T08:25:02+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7772,10 +7800,10 @@
       "description": "",
       "search_query": "特別公開 (寺 OR 仏)",
       "ai": {
-        "score": 15,
+        "score": 25,
         "category": "無関係",
         "duplicate": false,
-        "reason": "プロジェクションマッピングの催しで仏像に触れず。配信26時間経過で減点",
+        "reason": "寺院のプロジェクションマッピング。仏像に触れず上限以下",
         "event": {
           "event_name": "",
           "place": "",
@@ -7783,9 +7811,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T14:14:06+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7801,10 +7830,10 @@
       "description": "明治41年（1908年）に竣工した旧奈良監獄を再生活用したラグジュアリーホテル【星のや奈良監獄】が2026年6月25日（木）にオープンしました。「明けの重要文化財」をコンセプトにしたホテルに泊まるという体験だけに",
       "search_query": "(明王 OR 神像 OR 重要文化財)",
       "ai": {
-        "score": 3,
+        "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "寺院と無関係な旧監獄のホテル記事。無関係",
+        "reason": "ホテルの話題で寺院と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7812,9 +7841,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T13:14:43+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7830,10 +7860,10 @@
       "description": "奈良県は２３日、奈良市の興福寺と東大寺の境内などで８月下旬～今月上旬、体の一部が欠損した子鹿の死骸が計４体見つかったと発表した。専門機...",
       "search_query": "\"興福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
       "ai": {
-        "score": 8,
-        "category": "無関係",
+        "score": 20,
+        "category": "事件・被害",
         "duplicate": false,
-        "reason": "子鹿の死骸の事件で仏像と無関係。配信25時間で減点",
+        "reason": "子鹿の死骸で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7841,9 +7871,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T13:14:43+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7862,7 +7893,7 @@
         "score": 2,
         "category": "無関係",
         "duplicate": false,
-        "reason": "信長まつりで仏像と無関係",
+        "reason": "信長まつりで無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -7870,9 +7901,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T13:14:43+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7891,7 +7923,7 @@
         "score": 1,
         "category": "無関係",
         "duplicate": false,
-        "reason": "テニス大会名に観音が入っただけ",
+        "reason": "テニス大会名に観音が入るだけ",
         "event": {
           "event_name": "",
           "place": "",
@@ -7899,9 +7931,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T13:14:43+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7917,20 +7950,23 @@
       "description": "板橋区で、地域の文化財を期間限定で特別公開する「いたばし文化財ふれあいウィーク」が令和８年10月17日(土)から11月２８日(土)まで開催される。 今年は「そう、層 これぞ カミイタ～今に息づく時の重",
       "search_query": "文化財 特別公開 仏像 市",
       "ai": {
-        "score": 35,
+        "score": 50,
         "category": "その他の仏像関連",
         "duplicate": false,
-        "reason": "板橋区の文化財公開。仏像の有無が不明で情報薄い。期間中だが長期",
+        "reason": "文化財特別公開、仏像の有無不明、期間は開催中",
         "event": {
-          "event_name": "いたばし文化財ふれあいウィーク（上板橋エリア特別公開）",
-          "place": "東京都板橋区",
+          "event_name": "いたばし文化財ふれあいウィーク",
+          "place": "東京都板橋区上板橋エリア",
           "start_date": "2026-10-17",
           "end_date": "2026-11-28"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T13:14:43+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-10-16"
       }
     },
     {
@@ -7946,10 +7982,10 @@
       "description": "環太平洋大（岡山市東区瀬戸町観音寺）の学生が、鎌倉時代の東大寺再建で瓦を供給した国史跡・万富東大寺瓦窯跡（同町万富）をテーマにした紙芝...",
       "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
       "ai": {
-        "score": 12,
-        "category": "無関係",
+        "score": 25,
+        "category": "その他の仏像関連",
         "duplicate": false,
-        "reason": "瓦窯跡の紙芝居で仏像に触れず。史跡の教材話題",
+        "reason": "瓦窯跡の紙芝居で仏像なし",
         "event": {
           "event_name": "",
           "place": "",
@@ -7957,9 +7993,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T13:14:43+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -7975,22 +8012,23 @@
       "description": "",
       "search_query": "(寺宝 OR 仏師)",
       "ai": {
-        "score": 66,
+        "page_checked": true,
+        "page_date": "2026-11-08",
+        "score": 55,
         "category": "寺院の行事",
         "duplicate": false,
-        "reason": "7日後のもみじまつりで寺宝を移動。仏像かは不明で上限内。第一報",
+        "reason": "15日のもみじまつり、寺宝移動、仏像は不明で上限内",
         "event": {
-          "event_name": "横蔵寺 もみじまつり",
+          "event_name": "横蔵寺もみじまつり",
           "place": "横蔵寺（岐阜県揖斐川町）",
           "start_date": "2026-11-15",
           "end_date": "2026-11-15"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T13:14:43+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-11-08"
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8006,20 +8044,22 @@
       "description": "",
       "search_query": "(仏像 OR 如来 OR 開帳)",
       "ai": {
-        "score": 45,
+        "score": 62,
         "category": "秘仏・御開帳・特別公開",
         "duplicate": false,
-        "reason": "6日後の御開帳のクラファン近況。寺や仏像が不明で詳細不足、14時間経過で減点",
+        "reason": "ご開帳まで6日、寺名・像の詳細不明の支援活動",
         "event": {
-          "event_name": "",
+          "event_name": "ご開帳",
           "place": "",
-          "start_date": "",
+          "start_date": "2026-11-16",
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T12:15:34+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8,
+        "page_checked": true
       }
     },
     {
@@ -8035,10 +8075,10 @@
       "description": "近日、ダナンにある巨大な石仏像の画像が多くのソーシャルメディアで共有され、大きな注目を集めている。長年の建設期間を経て、この建造物は現在どのような姿になっているのだろうか？",
       "search_query": "(仏像 OR 如来 OR 開帳)",
       "ai": {
-        "score": 30,
+        "score": 25,
         "category": "その他の仏像関連",
         "duplicate": false,
-        "reason": "ベトナム・ダナンの巨大石仏の近況。日本の読者向けでなく優先度低い",
+        "reason": "ベトナムの巨大石仏の現況で国内向けでない",
         "event": {
           "event_name": "",
           "place": "",
@@ -8046,9 +8086,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T12:15:34+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8067,7 +8108,7 @@
         "score": 35,
         "category": "その他の仏像関連",
         "duplicate": false,
-        "reason": "奈良の花寺の十三重塔の紹介。仏像に触れず建物中心でテレビ番組の話題",
+        "reason": "テレビ番組の寺の十三重塔紹介で仏像なし",
         "event": {
           "event_name": "",
           "place": "",
@@ -8075,9 +8116,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T12:15:34+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8103,10 +8145,10 @@
       "description": "高さ約１００メートルの巨大観音像がそびえ立っていた兵庫県淡路市の土地（約２万平方メートル）について、所有者の国は民間への売却方針を決めた。",
       "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
       "ai": {
-        "score": 30,
-        "category": "無関係",
+        "score": 25,
+        "category": "その他の仏像関連",
         "duplicate": false,
-        "reason": "巨大観音像跡地の売却方針。仏像ではなく土地の話で配信44時間経過",
+        "reason": "淡路島の大観音解体跡地売却、寺院の仏像ではない",
         "event": {
           "event_name": "",
           "place": "",
@@ -8114,9 +8156,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T11:15:54+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8135,7 +8178,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "仏像と無関係な動画まとめ",
+        "reason": "SNS投稿で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -8143,9 +8186,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T11:15:54+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8164,7 +8208,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "ボウラーの訃報で仏像と無関係",
+        "reason": "訃報で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -8172,9 +8216,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T11:15:54+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8190,10 +8235,10 @@
       "description": "近年はファッションデザイナーとしても活躍する篠原ともえさんが11月1日、公式Instagramを更新。自身がデザインした「御朱印帳」を公開し、話題になっています。【画像】上品で素敵！篠原ともえさんが",
       "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
       "ai": {
-        "score": 22,
+        "score": 25,
         "category": "無関係",
         "duplicate": false,
-        "reason": "芸能人デザインの御朱印帳。商品話題で仏像の内容に乏しい",
+        "reason": "芸能人デザインの御朱印帳で商品寄り",
         "event": {
           "event_name": "",
           "place": "",
@@ -8201,9 +8246,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T11:15:54+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8222,7 +8268,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "戦跡を歩く話題で仏像と無関係",
+        "reason": "戦争関連で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -8230,9 +8276,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T11:15:54+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8288,10 +8335,10 @@
       "description": "",
       "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
       "ai": {
-        "score": 5,
+        "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "古墳の観光旅でコラボ企画。仏像と無関係",
+        "reason": "古墳の旅で仏像なし",
         "event": {
           "event_name": "",
           "place": "",
@@ -8299,9 +8346,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T10:16:09+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8320,7 +8368,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "SNS投稿ページで内容不明。仏像と無関係",
+        "reason": "SNS投稿で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -8328,9 +8376,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T10:16:09+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8346,10 +8395,16 @@
       "description": "奈良市の東大寺ミュージアムで特集展示「東大寺の浄土信仰」が開かれている。浄土信仰は比叡山延暦寺がその始まりとして連想されるが、奈良時代の東大寺の法要にも極楽往生の要素が見られる。また、南都焼き打ちの後、寺の復興に尽力した重源（1121～1206年）は浄土宗の祖、法然と関係が深く、法然が説いた口称念",
       "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
       "ai": {
-        "score": 72,
+        "page_checked": true,
+        "page_date": "2026-11-08",
+        "post_text": "普段は非公開の五劫思惟阿弥陀如来坐像（重文）が、東大寺ミュージアムの特集展に出ている。大きく膨らんだ頭は、長い思索の証。12月23日まで。",
+        "post_attempts": 1,
+        "post_format": 6,
+        "notified": true,
+        "score": 80,
         "category": "展覧会",
         "duplicate": false,
-        "reason": "東大寺の五劫思惟坐像を含む特集展。開催中、5時間経過で小減点",
+        "reason": "東大寺ミュージアム特集展、五劫思惟坐像。開催中で優先寺院",
         "event": {
           "event_name": "特集展示「東大寺の浄土信仰」",
           "place": "東大寺ミュージアム（奈良県奈良市）",
@@ -8357,17 +8412,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T10:16:09+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-11-08",
-        "official_url": "",
-        "official_image": "",
-        "post_text": "普段は非公開の五劫思惟阿弥陀如来坐像（重文）が、東大寺ミュージアムの特集展に出ている。大きく膨らんだ頭は、長い思索の証。12月23日まで。",
-        "post_attempts": 1,
-        "post_format": 6,
-        "notified": true
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8383,20 +8431,22 @@
       "description": "",
       "search_query": "(仏像 OR 如来 OR 開帳)",
       "ai": {
-        "score": 30,
+        "score": 66,
         "category": "秘仏・御開帳・特別公開",
-        "duplicate": true,
-        "reason": "配信済みの聖徳太子二歳像開帳と同一。重複で減点",
+        "duplicate": false,
+        "reason": "聖徳太子二歳像の開帳と法要。日付不明で事後の可能性",
         "event": {
           "event_name": "聖徳太子二歳像開帳と神仏習合法要",
-          "place": "",
+          "place": "滋賀県",
           "start_date": "",
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T10:16:09+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:15+09:00",
+        "score_version": 8,
+        "page_checked": true
       }
     },
     {
@@ -8412,21 +8462,22 @@
       "description": "",
       "search_query": "特別展 (寺 OR 仏)",
       "ai": {
-        "score": 52,
-        "category": "秘仏・御開帳・特別公開",
+        "page_checked": true,
+        "score": 50,
+        "category": "その他の仏像関連",
         "duplicate": false,
-        "reason": "障壁画と茶室が主役で仏像不明。上限内、第一報だが60点以下",
+        "reason": "大徳寺塔頭の障壁画・茶室中心で仏像不明。上限60点内、配信48時間",
         "event": {
-          "event_name": "利休菩提寺 特別公開",
+          "event_name": "大徳寺塔頭 利休菩提寺 特別公開",
           "place": "大徳寺塔頭（京都府京都市）",
           "start_date": "",
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T10:16:09+09:00",
-        "score_version": 7,
-        "page_checked": true
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8442,10 +8493,10 @@
       "description": "秋が深まり、色鮮やかな紅葉が街を彩る11月。晴れ着に身を包んだ子どもたちの、かわいらしい姿を見かける季節になりました。11月15日は「七五三」。三歳、五歳、七歳という人生の節目に、子どもたちの健やかな成長を祝い、これからの幸せを願...",
       "search_query": "(開扉 OR 菩薩 OR 秘仏)",
       "ai": {
-        "score": 22,
+        "score": 12,
         "category": "無関係",
         "duplicate": false,
-        "reason": "七五三と仏の慈しみの一般コラム。仏像に触れず",
+        "reason": "七五三のコラム。仏像に触れず",
         "event": {
           "event_name": "",
           "place": "",
@@ -8453,9 +8504,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T10:16:09+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8481,10 +8533,10 @@
       "description": "TBS系のテレビドラマ「VIVANT（ヴィヴァン）」が人気を博す中、東京都調布市が脚光を浴びている。劇中で登場する神社や飲食店が同市内にあり、連日、聖地巡礼するファンらで盛況だ。実際に足を運んでみる",
       "search_query": "国宝 (寺 OR 仏)",
       "ai": {
-        "score": 15,
+        "score": 20,
         "category": "無関係",
         "duplicate": false,
-        "reason": "ドラマ聖地巡礼の観光記事で仏像に触れず。第一報でも低評価",
+        "reason": "ドラマ聖地巡礼の話題で仏像に触れず",
         "event": {
           "event_name": "",
           "place": "",
@@ -8492,9 +8544,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T09:35:00+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8510,10 +8563,10 @@
       "description": "",
       "search_query": "特別展 (寺 OR 仏)",
       "ai": {
-        "score": 22,
+        "score": 18,
         "category": "寺院の行事",
         "duplicate": false,
-        "reason": "信長追悼式で仏像の話なし。配信直後だが仏像関連薄い",
+        "reason": "信長の追悼式で仏像と無関係、事後報告",
         "event": {
           "event_name": "",
           "place": "",
@@ -8521,9 +8574,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T09:35:00+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8542,7 +8596,7 @@
         "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "仏像と無関係なSNS投稿ページ。ノイズ",
+        "reason": "Binanceの投稿でノイズ",
         "event": {
           "event_name": "",
           "place": "",
@@ -8550,9 +8604,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T09:14:18+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8568,22 +8623,23 @@
       "description": "",
       "search_query": "国宝 (寺 OR 仏)",
       "ai": {
-        "score": 50,
+        "page_checked": true,
+        "page_date": "2026-11-08",
+        "score": 28,
         "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "大徳寺塔頭の障壁画・茶室が主役で仏像不明。第一報だが上限60点内",
+        "duplicate": true,
+        "reason": "同一記事の重複",
         "event": {
-          "event_name": "利休菩提寺 特別公開",
-          "place": "大徳寺塔頭（京都府京都市）",
+          "event_name": "",
+          "place": "",
           "start_date": "",
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T09:14:18+09:00",
-        "score_version": 7,
-        "page_checked": true,
-        "page_date": "2026-11-08"
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8600,9 +8656,9 @@
       "search_query": "国宝 (寺 OR 仏)",
       "ai": {
         "score": 25,
-        "category": "無関係",
+        "category": "修理・保存",
         "duplicate": false,
-        "reason": "五重塔の募金ページで仏像なし。建物のみで宣伝色が強い",
+        "reason": "五重塔の寄付募集で建物のみ、仏像なし",
         "event": {
           "event_name": "",
           "place": "",
@@ -8610,9 +8666,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T09:14:18+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8631,7 +8688,7 @@
         "score": 8,
         "category": "無関係",
         "duplicate": false,
-        "reason": "奈良旅行の観光PR記事。仏像に触れず商品宣伝的",
+        "reason": "奈良観光のタイアップ記事で仏像に触れず",
         "event": {
           "event_name": "",
           "place": "",
@@ -8639,9 +8696,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T09:14:18+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -8928,20 +8986,21 @@
       "fetched_at": "2026-11-08T06:53:13.794841+09:00",
       "published_at": "",
       "ai": {
-        "score": 15,
+        "score": 10,
         "category": "無関係",
         "duplicate": false,
-        "reason": "伊藤若冲の絵画展で仏像が出ない",
+        "reason": "動植綵絵は絵画展で仏像なし",
         "event": {
-          "event_name": "国宝 動植綵絵 いろどりの世界",
-          "place": "皇居三の丸尚蔵館（東京都）",
-          "start_date": "2027-02-04",
-          "end_date": "2027-03-14"
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-08T07:14:31+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -14353,7 +14412,9 @@
         "version": 1
       },
       "book_post_attempts": 1,
-      "book_post_text": "歴史の流れの中に仏像を置き直して巡る一冊。像の造られた背景も一緒に知りたい人に向きそうだ。著者は福本敦勇さんで、2026年4月1日発売とのこと。"
+      "book_post_text": "歴史の流れの中に仏像を置き直して巡る一冊。像の造られた背景も一緒に知りたい人に向きそうだ。著者は福本敦勇さんで、2026年4月1日発売とのこと。",
+      "j_post_attempts": 1,
+      "j_post_text": "仏像は、造られた時代の祈りや政治の動きと切り離せない。飛鳥から続く歴史の流れに置いて眺めると、像の姿や素材の違いがそれぞれの時代の背景として見えてくる。"
     },
     {
       "title": "【新装版】なぞって塗って願いが叶う 人気仏像なぞり塗り",
@@ -14375,7 +14436,9 @@
         "version": 1
       },
       "book_post_attempts": 1,
-      "book_post_text": "仏像をなぞって塗る、手を動かして楽しむタイプの本。著者は松久佳遊さんで、新装版として出ている。眺めるだけでなく、線を追いながら像の姿を味わいたい人に向きそうだ。"
+      "book_post_text": "仏像をなぞって塗る、手を動かして楽しむタイプの本。著者は松久佳遊さんで、新装版として出ている。眺めるだけでなく、線を追いながら像の姿を味わいたい人に向きそうだ。",
+      "j_post_attempts": 1,
+      "j_post_text": "仏像の輪郭を一本ずつ線でたどると、衣のひだや指先の形、手の組み方に目が留まる。なぞって塗る時間は、像の姿を見直すきっかけになる。"
     },
     {
       "title": "法隆寺はシルクロードの終着駅だった: 仏像・建築・祈りがつないだ、日本と世界",
@@ -14397,7 +14460,9 @@
         "version": 1
       },
       "book_post_attempts": 1,
-      "book_post_text": "法隆寺をシルクロードの終着駅として読み解く電子書籍が、10月4日に出ていた。著者は高橋徳さん。仏像・建築・祈りから世界とのつながりを見る一冊で、法隆寺好きに向きそうだ。"
+      "book_post_text": "法隆寺をシルクロードの終着駅として読み解く電子書籍が、10月4日に出ていた。著者は高橋徳さん。仏像・建築・祈りから世界とのつながりを見る一冊で、法隆寺好きに向きそうだ。",
+      "j_post_attempts": 1,
+      "j_post_text": "法隆寺の金堂には、飛鳥時代の釈迦三尊像が安置される。堂内に差す光が、銅造の像の鈍い輝きを静かに浮かび上がらせる。"
     },
     {
       "title": "会社の幽霊: 赤い仏像",
@@ -18142,10 +18207,10 @@
       "image_url": "https://prcdn.freetls.fastly.net/release_image/12109/1891/12109-1891-6c941f3f0727f5d7d1f09feb64d51b15-3000x2094.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
       "published_at": "2026-11-01T08:30:00+09:00",
       "ai": {
-        "score": 1,
+        "score": 0,
         "category": "無関係",
         "duplicate": false,
-        "reason": "書籍の重版案内で仏像と無関係",
+        "reason": "重版書籍の案内で無関係",
         "event": {
           "event_name": "",
           "place": "",
@@ -18153,9 +18218,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -19336,9 +19402,9 @@
       "published_at": "2026-10-30T10:00:00+09:00",
       "ai": {
         "score": 20,
-        "category": "無関係",
+        "category": "展覧会",
         "duplicate": false,
-        "reason": "グッズ宣伝が主目的で配信から8日経過",
+        "reason": "展覧会コラボグッズ告知で上限40点以内",
         "event": {
           "event_name": "",
           "place": "",
@@ -19346,9 +19412,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -20168,20 +20235,21 @@
       "image_url": "https://prcdn.freetls.fastly.net/release_image/64384/299/64384-299-0c114509fc9e7895ec33d8670510bfed-1414x2000.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
       "published_at": "2026-10-28T10:00:00+09:00",
       "ai": {
-        "score": 30,
+        "score": 35,
         "category": "展覧会",
         "duplicate": true,
-        "reason": "南武蔵の平安仏は配信済み、講演会告知で重複",
+        "reason": "南武蔵の平安仏の関連講演会告知で配信済み関連",
         "event": {
-          "event_name": "南武蔵の平安仏 関連講演会",
-          "place": "横浜市歴史博物館（神奈川県横浜市）",
+          "event_name": "",
+          "place": "",
           "start_date": "",
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -20684,20 +20752,21 @@
       "fetched_at": "2026-10-25T06:53:09.008374+09:00",
       "published_at": "",
       "ai": {
-        "score": 78,
+        "score": 82,
         "category": "展覧会",
         "duplicate": false,
-        "reason": "開催中の運慶大日如来展で仏像が主役、12/20まで",
+        "reason": "運慶作の大日如来像二体が主役の特別展、開催中",
         "event": {
           "event_name": "足利樺崎寺と運慶 ―二体の大日如来像―",
-          "place": "半蔵門ミュージアム（東京都）",
+          "place": "半蔵門ミュージアム（東京都千代田区）",
           "start_date": "2026-10-24",
           "end_date": "2026-12-20"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -22382,10 +22451,10 @@
       "fetched_at": "2026-10-18T06:53:11.453611+09:00",
       "published_at": "",
       "ai": {
-        "score": 30,
+        "score": 50,
         "category": "展覧会",
         "duplicate": true,
-        "reason": "三井寺展は配信済みで重複、開催も来年",
+        "reason": "配信済みの三井寺展と同一",
         "event": {
           "event_name": "国宝 三井寺のすべて",
           "place": "東京国立博物館（東京都）",
@@ -22393,9 +22462,10 @@
           "end_date": "2027-06-13"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -22412,7 +22482,7 @@
         "score": 8,
         "category": "無関係",
         "duplicate": false,
-        "reason": "雪松図は絵画展で仏像と無関係",
+        "reason": "雪松図の絵画展で仏像なし",
         "event": {
           "event_name": "",
           "place": "",
@@ -22420,9 +22490,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -23090,10 +23161,10 @@
       "fetched_at": "2026-10-16T06:55:17.837405+09:00",
       "published_at": "",
       "ai": {
-        "score": 35,
+        "score": 60,
         "category": "展覧会",
-        "duplicate": true,
-        "reason": "大徳寺展は配信済みで重複、仏像中心でない",
+        "duplicate": false,
+        "reason": "大徳寺展、寺宝・禅宗中心で仏像主役ではない。開催中",
         "event": {
           "event_name": "特別展「大徳寺 本朝無双之禅苑」",
           "place": "東京国立博物館（東京都）",
@@ -23101,9 +23172,10 @@
           "end_date": "2026-12-06"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -23160,7 +23232,7 @@
         "score": 5,
         "category": "無関係",
         "duplicate": false,
-        "reason": "茶碗展で仏像と無関係",
+        "reason": "茶碗の展覧会で仏像なし",
         "event": {
           "event_name": "",
           "place": "",
@@ -23168,9 +23240,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -23184,10 +23257,10 @@
       "fetched_at": "2026-10-15T09:03:20.802616+09:00",
       "published_at": "",
       "ai": {
-        "score": 6,
+        "score": 5,
         "category": "無関係",
         "duplicate": false,
-        "reason": "ホテル建築の公開で寺院と無関係",
+        "reason": "建築公開で仏像なし",
         "event": {
           "event_name": "",
           "place": "",
@@ -23195,9 +23268,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -23211,10 +23285,10 @@
       "fetched_at": "2026-10-14T20:28:00.680037+09:00",
       "published_at": "",
       "ai": {
-        "score": 68,
+        "score": 20,
         "category": "展覧会",
         "duplicate": false,
-        "reason": "仏教美術展が明日まで、終了間近だが仏像中心か不明",
+        "reason": "国宝の仏教美術展だが11月8日で終了済み",
         "event": {
           "event_name": "国宝でたのしむ仏教美術",
           "place": "神奈川県立金沢文庫（神奈川県横浜市）",
@@ -23222,9 +23296,10 @@
           "end_date": "2026-11-08"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -23308,10 +23383,10 @@
       "fetched_at": "2026-10-14T10:52:03.121964+09:00",
       "published_at": "",
       "ai": {
-        "score": 35,
-        "category": "その他の仏像関連",
+        "score": 38,
+        "category": "展覧会",
         "duplicate": false,
-        "reason": "五百羅漢図は絵画展で仏像ではない、上限内",
+        "reason": "五百羅漢図は仏画展で仏像ではない、開催中",
         "event": {
           "event_name": "護国寺五百羅漢図展",
           "place": "すみだ郷土文化資料館（東京都墨田区）",
@@ -23319,9 +23394,10 @@
           "end_date": "2026-11-29"
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:29+09:00",
+        "score_version": 8
       }
     },
     {
@@ -23338,7 +23414,7 @@
         "score": 25,
         "category": "発見・研究・新指定",
         "duplicate": false,
-        "reason": "モンゴル寺院址の発掘で仏像ではなく、31日前で古い",
+        "reason": "モンゴルの寺院址発掘で仏像は出ず、約34日前の発表。展覧会情報でもない",
         "event": {
           "event_name": "",
           "place": "",
@@ -23346,9 +23422,10 @@
           "end_date": ""
         },
         "buddha_designation": false,
+        "freshness": "durable",
         "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T13:40:44+09:00",
-        "score_version": 7
+        "scored_at": "2026-11-10T08:25:32+09:00",
+        "score_version": 8
       }
     },
     {
