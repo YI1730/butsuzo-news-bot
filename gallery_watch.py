@@ -55,6 +55,7 @@ REQUEST_INTERVAL = 3.0          # リクエストの間隔（秒）
 ENDING_DAYS = 7                 # 展示の終了まで何日以内で「終了まぢか」にするか
 CONTINUE_GAP_DAYS = 7           # 前の展示期間の終了から次の開始までがこの日数以内なら、続けて展示されているものとみなす
 MAX_ENRICH_PER_RUN = 30         # 1 回の実行で AI に渡す特徴の抽出の上限（費用の歯止め）
+SEARCH_VERSION = 2              # 検索の方式を変えたら上げる（空振りに終わった像を、もう一度だけ調べ直す）
 MAX_SEARCHES_PER_RUN = 10       # 公式サイトの web 検索（Claude の web_search ツール）の上限（1 回の実行）
 SEARCH_COST = 0.01              # web 検索 1 回あたりの費用の見積り（$）
 SEARCH_DOMAINS = ["kyohaku.go.jp", "narahaku.go.jp", "tnm.jp", "kyuhaku.jp", "collection.kyuhaku.jp",
@@ -866,7 +867,7 @@ def needs_search(item: dict) -> bool:
     """作品ごとのページがなく（京博・奈良博など）、国宝・重文・重美・注目・寄託の寺院像で、特徴がまだ空の像。"""
     f = item.get("feature") or {}
     empty = not (f.get("note") or f.get("material") or f.get("height"))
-    return bool(empty and not f.get("searched") and not item.get("link") and item.get("rank", 5) <= 4)
+    return bool(empty and (f.get("searched") or 0) < SEARCH_VERSION and not item.get("link") and item.get("rank", 5) <= 4)
 
 
 def search_features(client, usage, item: dict, budget: list) -> tuple[str, str] | None:
@@ -896,21 +897,32 @@ def search_features(client, usage, item: dict, budget: list) -> tuple[str, str] 
     budget[1] += used
     name_core = nospace(item["name"])[:5]
     owner_core_ = owner_core(item.get("owner", ""))
-    snippets, urls = [], []
+    snippets, urls, raw = [], [], 0
+    seen_urls, errors, said = [], [], ""
     for block in resp.content:
-        if getattr(block, "type", "") != "text":
+        btype = getattr(block, "type", "")
+        if btype == "web_search_tool_result":
+            content = getattr(block, "content", None)
+            if isinstance(content, list):
+                seen_urls += [getattr(r, "url", "") for r in content]
+            else:
+                errors.append(str(getattr(content, "error_code", content))[:60])
+        if btype != "text":
             continue
+        said = said or (getattr(block, "text", "") or "")[:100]
         for c in getattr(block, "citations", None) or []:
+            raw += 1
             text, url = getattr(c, "cited_text", "") or "", getattr(c, "url", "") or ""
-            n = nospace(text)
-            if not url or url in urls and text in snippets:
+            n = nospace(text + (getattr(c, "title", "") or ""))   # 出典ページの題名も照合に使う（引用の断片に寺名がないことが多い）
+            if not url or text in snippets:
                 continue
             if name_core and name_core not in n:
                 continue
-            if len(owner_core_) >= 2 and owner_core_ not in n and not (item["museum"] == "tnm" and not owner):
+            if len(owner_core_) >= 2 and owner_core_ not in n:
                 continue
             snippets.append(text)
             urls.append(url)
+    print(f"  web 検索の結果: 検索結果URL{len(seen_urls)}件 {[u[:60] for u in seen_urls[:3]]} / 引用{raw}件 / エラー{errors or 'なし'} / 回答「{clean(said)}」")
     out = "\n".join(f"[{u}] {t}" for u, t in zip(urls, snippets))
     print(f"  web 検索: {query} → 引用{len(snippets)}件（検索{used}回）")
     return out, (urls[0] if urls else "")
@@ -957,7 +969,7 @@ def enrich(client, usage, item: dict, fetch_page=None, search=None) -> bool:
     feat["designation"] = feat["designation"] or item.get("designation", "")
     feat["source_url"] = item.get("link") or (web_url if web_text and (feat["note"] or feat["material"] or feat["height"])
                                               else item.get("page_url", ""))
-    feat["searched"] = searched or bool((item.get("feature") or {}).get("searched"))
+    feat["searched"] = SEARCH_VERSION if searched else (item.get("feature") or {}).get("searched", 0)
     feat["enriched_at"] = datetime.now(JST).isoformat(timespec="seconds")
     item["feature"] = feat
     if img and not item.get("image_url"):
@@ -1175,7 +1187,7 @@ def mark(events: list[dict], candidate_id: str, now_iso: str) -> None:
         if not candidate_id:
             entry["featureless"] = not has_feature(e["item"])   # 特徴が空のまま記録のみにした（補えたら 1 回だけ採点し直す）
         if e.get("rescore"):
-            entry["rescored"] = True   # 特徴を補ったあとの採点し直しは 1 回だけ
+            entry["rescored"] = SEARCH_VERSION   # 特徴を補ったあとの採点し直しは 1 回だけ（方式を変えたときは版を上げてやり直す）
         e["item"]["notified"][e["key"]] = entry
 
 
@@ -1190,7 +1202,7 @@ def rescore_events(mstate: dict, museum: str, today: date) -> list[dict]:
     out = []
     for iid, it in mstate.get("items", {}).items():
         for key, entry in it.get("notified", {}).items():
-            if entry.get("candidate") or entry.get("rescored") or not entry.get("featureless", True) \
+            if entry.get("candidate") or (entry.get("rescored") or 0) >= SEARCH_VERSION or not entry.get("featureless", True) \
                     or entry.get("seed") or entry.get("continued") or entry.get("digest"):
                 continue
             kind, _, d = key.partition("@")
@@ -1271,7 +1283,7 @@ def run(state: dict, data: dict, today: date, client, usage, fetchers: dict, *, 
                 for e in list(evs):   # 採点し直しは、特徴を補えたものだけ。検索したのに補えなかったものは諦める
                     if e.get("rescore") and not has_feature(e["item"]):
                         evs.remove(e)
-                        if (e["item"].get("feature") or {}).get("searched"):
+                        if ((e["item"].get("feature") or {}).get("searched") or 0) >= SEARCH_VERSION:
                             mark([e], "", now_iso)
                 if not evs:
                     continue
