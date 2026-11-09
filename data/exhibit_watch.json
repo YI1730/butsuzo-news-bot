@@ -45,7 +45,7 @@
      "baseline": true
     }
    },
-   "page_hash": "",
+   "page_hash": "264bc1bd6b5a04fd759e82ce8b496973",
    "works": [],
    "works_seen": [],
    "rejected_urls": [],
@@ -88,14 +88,65 @@
    "start": "2027-04-20",
    "end": "2027-06-13",
    "list_url": "https://www.tnm.jp/",
+   "detail_url": "https://www.tnm.jp/modules/r_free_page/index.php?id=2777",
+   "stages": {
+    "lineup": {
+     "at": "2026-11-10T00:27:16+09:00",
+     "candidate": "watch-ec11db7c03ec-lineup"
+    },
+    "visual": {
+     "at": "2026-11-10T00:27:16+09:00",
+     "candidate": "watch-ec11db7c03ec-lineup"
+    },
+    "page": {
+     "at": "2026-11-10T00:27:16+09:00",
+     "candidate": "watch-ec11db7c03ec-lineup"
+    }
+   },
+   "page_hash": "8079d0e68cb6c3c3e35866f3035ab2a5",
+   "works": [
+    "三井寺 如意輪観音菩薩坐像"
+   ],
+   "works_seen": [
+    "三井寺 如意輪観音菩薩坐像"
+   ],
+   "rejected_urls": [],
+   "added_at": "2026-11-10T00:23:59+09:00",
+   "lineup_posts": [
+    "watch-ec11db7c03ec-lineup"
+   ],
+   "last_checked": "2026-11-10T00:27:16+09:00"
+  },
+  "24654c0dadfe": {
+   "id": "24654c0dadfe",
+   "venue": "根津美術館（東京都港区）",
+   "name": "企画展 彫る漆 同時開催展 仏教美術の魅力 ―日本の小金銅仏と仏具―",
+   "start": "2026-12-05",
+   "end": "2027-01-17",
+   "list_url": "https://www.nezu-muse.or.jp/jp/exhibitions/upcoming/",
    "detail_url": "",
    "stages": {},
    "page_hash": "",
    "works": [],
    "works_seen": [],
    "rejected_urls": [],
-   "added_at": "2026-11-10T00:23:59+09:00"
+   "added_at": "2026-11-10T00:27:15+09:00"
+  },
+  "acfc82911400": {
+   "id": "acfc82911400",
+   "venue": "龍谷ミュージアム（京都府京都市）",
+   "name": "春季特別展 「湯の街のほとけとかみ ―温泉と薬師信仰の美術―（仮称）」",
+   "start": "2027-04-24",
+   "end": "2027-06-20",
+   "list_url": "https://museum.ryukoku.ac.jp/exhibition/index.html",
+   "detail_url": "",
+   "stages": {},
+   "page_hash": "",
+   "works": [],
+   "works_seen": [],
+   "rejected_urls": [],
+   "added_at": "2026-11-10T00:27:15+09:00"
   }
  },
- "last_updated": "2026-11-10T00:23:59+09:00"
+ "last_updated": "2026-11-10T00:27:39+09:00"
 }
