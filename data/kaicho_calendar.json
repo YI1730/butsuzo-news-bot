@@ -113,6 +113,22 @@
    "remind": false
   },
   {
+   "id": "3f5b04387de0",
+   "event_name": "名品展 珠玉の仏たちセレクション（仏像館）",
+   "place": "奈良国立博物館（奈良県奈良市）",
+   "place_key": "奈良国立博物館",
+   "start": "2026-09-15",
+   "end": "",
+   "category": "展覧会",
+   "source_url": "https://www.narahaku.go.jp/exhibition_cat/usual/",
+   "source_title": "奈良国立博物館（奈良県奈良市） 名品展 珠玉の仏たちセレクション（仏像館）",
+   "source_score": 0,
+   "first_seen": "2026-11-10T00:25:07+09:00",
+   "reminded": [],
+   "origin": "museum",
+   "remind": false
+  },
+  {
    "id": "93b338091115",
    "event_name": "特別展「国宝でよみとく仏教美術－奇珍異宝の世界－」",
    "place": "神奈川県立金沢文庫",
@@ -1955,7 +1971,7 @@
    "place": "阪神・近鉄沿線",
    "place_key": "阪神・近鉄沿線",
    "start": "2026-11-07",
-   "end": "",
+   "end": "2027-03-31",
    "category": "寺院の行事",
    "source_url": "https://mainichikirei.jp/prtimes/article/20261106prt00m100000688a.html",
    "source_title": "神戸から奈良まで、両沿線の由緒ある社寺をめぐる阪神・近鉄共同企画「沿線神社仏閣 御朱印巡り」を11月7日（土）から実施 ～両沿線の魅力を発信し、盛り上げます - 毎日キレイ",
@@ -1997,20 +2013,6 @@
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
-  },
-  {
-   "id": "52d4c4ee2956",
-   "event_name": "沿線神社仏閣御朱印巡り",
-   "place": "阪神・近鉄沿線の10社寺",
-   "place_key": "阪神・近鉄沿線の",
-   "start": "2026-11-07",
-   "end": "2027-03-31",
-   "category": "寺院の行事",
-   "source_url": "https://trilltrill.jp/articles/5172257",
-   "source_title": "阪神・近鉄沿線で御朱印巡り！10社寺限定の特別御朱印や車両デザインの御朱印帳が登場 - TRILL",
-   "source_score": 30,
-   "first_seen": "2026-11-09T17:14:33+09:00",
-   "reminded": []
   },
   {
    "id": "635a5e78e2ca",
@@ -2552,6 +2554,22 @@
    "reminded": []
   },
   {
+   "id": "24654c0dadfe",
+   "event_name": "企画展 彫る漆 同時開催展 仏教美術の魅力 ―日本の小金銅仏と仏具―",
+   "place": "根津美術館（東京都港区）",
+   "place_key": "根津美術館",
+   "start": "2026-12-05",
+   "end": "2027-01-17",
+   "category": "展覧会",
+   "source_url": "https://www.nezu-muse.or.jp/jp/exhibitions/upcoming/",
+   "source_title": "根津美術館（東京都港区） 企画展 彫る漆 同時開催展 仏教美術の魅力 ―日本の小金銅仏と仏具―",
+   "source_score": 0,
+   "first_seen": "2026-11-10T00:25:41+09:00",
+   "reminded": [],
+   "origin": "museum",
+   "remind": false
+  },
+  {
    "id": "0f69caddf699",
    "event_name": "特別陳列 春日若宮おん祭の信仰と美術",
    "place": "奈良国立博物館（奈良県奈良市）",
@@ -2581,20 +2599,6 @@
    "source_title": "福岡・大野城市で国宝「銅板法華経」特別展 12月13日まで - 西日本新聞me",
    "source_score": 66,
    "first_seen": "2026-11-08T06:14:35+09:00",
-   "reminded": []
-  },
-  {
-   "id": "648382baa592",
-   "event_name": "特別展「南武蔵の平安仏」",
-   "place": "横浜市歴史博物館（横浜市都筑区）",
-   "place_key": "横浜市歴史博物館",
-   "start": "",
-   "end": "2026-12-13",
-   "category": "展覧会",
-   "source_url": "https://topics.smt.docomo.ne.jp/amp/article/tokyo/region/tokyo-526827",
-   "source_title": "南武蔵の平安仏が一堂に　特別展で15体　30年ぶり寺外公開の薬師像も　横浜・都筑の市歴史博物館　12月13日まで - ｄメニューニュース",
-   "source_score": 55,
-   "first_seen": "2026-11-10T00:15:56+09:00",
    "reminded": []
   },
   {
@@ -2777,28 +2781,10 @@
    "source_title": "【記者発表】特別展「国宝 三井寺のすべて」東京国立博物館で2027年4月20日～6月13日開催 智証大師諡号1100年記念 - 美術展ナビ",
    "source_score": 88,
    "first_seen": "2026-10-16T20:59:55+09:00",
-   "reminded": [],
-   "news_candidate": true
-  },
-  {
-   "id": "ec11db7c03ec",
-   "event_name": "国宝 三井寺のすべて",
-   "place": "東京国立博物館（東京都）",
-   "place_key": "東京国立博物館",
-   "start": "2027-04-20",
-   "end": "2027-06-13",
-   "category": "展覧会",
-   "source_url": "https://www.museum.or.jp/event/127356",
-   "source_title": "特別展「国宝 三井寺のすべて」 東京国立博物館 | 東京都（2027年4月20日〜6月13日）",
-   "source_score": 30,
-   "first_seen": "2026-11-09T10:14:38+09:00",
    "reminded": [
     "found"
    ],
-   "origin": "exhibition",
-   "remind": false,
-   "exhibit_score": 88,
-   "exhibit_reason": "東博の大型特別展の告知。三井寺の仏教美術で第一報、先の予定でも減点なし"
+   "news_candidate": true
   },
   {
    "id": "acfc82911400",
@@ -2821,5 +2807,5 @@
    "exhibit_reason": "薬師信仰の仏像・美術展。仮称で詳細は少なく、開幕は先だが先の予定として減点せず"
   }
  ],
- "last_updated": "2026-11-10T00:15:56+09:00"
+ "last_updated": "2026-11-10T00:26:20+09:00"
 }
