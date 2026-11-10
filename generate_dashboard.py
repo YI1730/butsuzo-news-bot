@@ -540,7 +540,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5">更新: {lu_display}</p>
+        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: {lu_display}<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -1467,11 +1467,37 @@ def build_html(items: list[dict], last_updated: str) -> str:
     // 失敗時のみ同梱の docs/data/archives.json にフォールバック。
     const _RAW_BASE = 'https://raw.githubusercontent.com/YI1730/butsuzo-news-bot/main';
 
+    // 表示中のページより新しい版が公開されていれば読み直す（data/version.json と比べる）。
+    // スマホによっては、アプリを開き直しても前の表示のまま残ることがあるため
+    const PAGE_UPDATED = '{last_updated}';
+    function checkFreshness() {{
+      fetch('data/version.json?t=' + Date.now(), {{ cache: 'no-store' }})
+        .then(function (r) {{ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }})
+        .then(function (v) {{
+          if (!v.last_updated || v.last_updated <= PAGE_UPDATED) return;
+          let tried = '';
+          try {{ tried = sessionStorage.getItem('fresh_reload_for') || ''; }} catch (e) {{}}
+          if (tried !== v.last_updated) {{
+            try {{ sessionStorage.setItem('fresh_reload_for', v.last_updated); }} catch (e) {{}}
+            location.replace(location.pathname + '?r=' + Date.now() + location.hash);
+            return;
+          }}
+          // 読み直しても古いまま（通信やキャッシュの問題）
+          const n = document.getElementById('stale-note');
+          if (n) {{ n.textContent = '⚠ 最新ではありません（タップで再読み込み）'; n.classList.remove('hidden'); }}
+        }})
+        .catch(function () {{
+          const n = document.getElementById('stale-note');
+          if (n) {{ n.textContent = '⚠ 更新を確認できません（通信をご確認ください）'; n.classList.remove('hidden'); }}
+        }});
+    }}
+
     // アプリに戻ってきたとき、表示が古ければ読み直す（通知から開いたときに最新のニュースを出すため）。
     // 返信文などを編集中のときは読み直さない
     const _PAGE_LOADED_AT = Date.now();
     document.addEventListener('visibilitychange', function () {{
-      if (document.visibilityState !== 'visible' || Date.now() - _PAGE_LOADED_AT < 3 * 60 * 1000) return;
+      if (document.visibilityState !== 'visible') return;
+      if (Date.now() - _PAGE_LOADED_AT < 3 * 60 * 1000) {{ checkFreshness(); return; }}
       const editing = Array.prototype.some.call(document.querySelectorAll('textarea'), function (t) {{
         return t.value !== t.defaultValue;
       }});
@@ -2246,6 +2272,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
         }}
       }});
       loadSkipState();
+      checkFreshness();
       loadKeywords();
       setTab(location.hash === '#replies' ? 'replies' : 'news');
       loadReplies();  // タブのバッジ（要返信の件数）表示のため
@@ -2272,7 +2299,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     if ('serviceWorker' in navigator) {{
-      navigator.serviceWorker.register('./sw.js').catch(() => {{}});
+      // sw.js はブラウザの HTTP キャッシュを使わずに確認し、開くたびに更新の有無を見る
+      navigator.serviceWorker.register('./sw.js', {{ updateViaCache: 'none' }})
+        .then(function (reg) {{ reg.update(); }}).catch(() => {{}});
     }}
 
     document.addEventListener('DOMContentLoaded', init);
@@ -2307,7 +2336,7 @@ MANIFEST = {
     ],
 }
 
-SERVICE_WORKER = r"""const CACHE = 'butsuzo-v40';
+SERVICE_WORKER = r"""const CACHE = 'butsuzo-v41';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -2321,8 +2350,9 @@ self.addEventListener('fetch', e => {
   const url = e.request.url;
   // 他サイトのリソース（Tailwind CDN など）には一切関与しない（取得方法を変えると読み込みに失敗する）
   if (new URL(url).origin !== self.location.origin) return;
-  // index.html / news.json / archives.json / scheduled_posts.json は常に network-first
-  if (url.endsWith('/') || url.includes('/index.html')
+  // ページの表示（クエリ付きを含む）と index.html / news.json などは常に network-first
+  if (e.request.mode === 'navigate' || new URL(url).pathname.endsWith('/') || url.includes('/index.html')
+      || url.includes('/data/version.json')
       || url.includes('/data/news.json')
       || url.includes('/data/archives.json')
       || url.includes('/data/scheduled_posts.json')) {
@@ -2372,6 +2402,9 @@ def main() -> None:
     print("生成: docs/manifest.json")
 
     (DOCS_DIR / "sw.js").write_text(SERVICE_WORKER, encoding="utf-8")
+    # 公開中の版（PWA が表示中のページと比べ、古ければ読み直す）
+    (DOCS_DIR / "data" / "version.json").write_text(
+        json.dumps({"last_updated": last_updated}, ensure_ascii=False) + "\n", encoding="utf-8")
     print("生成: docs/sw.js")
 
     # data/archives.json / data/scheduled_posts.json を docs/data/ にコピー（PWA から fetch させるため）
