@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-11-11T00:11:46.185847+09:00",
+  "last_updated": "2026-11-11T01:11:48.566622+09:00",
   "items": [
+    {
+      "id": "232a95843e36",
+      "title": "【ハイアット リージェンシー 京都】美食とともに祝う、フェスティブシーズン 2026-2027 - ニコニコニュース",
+      "url": "https://news.nicovideo.jp/watch/nw19976793?news_ref=watch_20_nw19213942",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T01:11:47.366130+09:00",
+      "published_at": "2026-11-10T22:51:29+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "\"三十三間堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ホテルの季節メニュー宣伝で仏像と無関係。速報性も関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T01:14:12+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "875d9611c985",
       "title": "栃木県立博物館 お知らせ｜特別公開！博物館の収蔵資料デジタル化の現場～3D撮影・電子顕微鏡～",
@@ -12509,36 +12539,6 @@
         "category": "修理・保存",
         "duplicate": false,
         "reason": "五重塔の寄付募集で建物のみ、仏像なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:25:29+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f250c0c026d7",
-      "title": "《大人の奈良旅》世界遺産登録の「飛鳥・藤原の宮都」・『豊臣兄弟!』大河ドラマ館・重要文化財の星野リゾートで歴史とグルメを満喫 - 週刊女性PRIME",
-      "url": "https://www.jprime.jp/articles/-/44317",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-08T09:11:47.170824+09:00",
-      "published_at": "2026-11-08T09:00:00+09:00",
-      "image_url": "https://jprime.ismcdn.jp/mwimgs/a/e/-/img_aee2f72359685fe0853b37e63c6195ba308842.jpg",
-      "description": "飛鳥・藤原の宮都が新たに世界遺産に登録、話題のNHK『豊臣兄弟！』の大河ドラマ館、重要文化財が新しく生まれ変わった奈良監獄ミュージアムなど、いま、奈良がとにかく盛り上がっています！まだ見ぬ古都を探索してみませんか？",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "奈良観光のタイアップ記事で仏像に触れず",
         "event": {
           "event_name": "",
           "place": "",
