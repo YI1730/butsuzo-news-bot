@@ -1,6 +1,248 @@
 {
-  "last_updated": "2026-11-10T16:11:52.711930+09:00",
+  "last_updated": "2026-11-10T17:12:06.605778+09:00",
   "items": [
+    {
+      "id": "6f2e7793fb24",
+      "title": "六波羅蜜寺｜2026.11.05 皇服茶奉納式・お茶漬け供養のご案内",
+      "url": "https://rokuhara.or.jp/topics/archives/381",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-10T17:12:06+09:00",
+      "published_at": "2026-11-10T17:12:06+09:00",
+      "image_url": "",
+      "description": "六波羅蜜寺は西国三十三所第17番札所観音霊場、都七福神の一・巳成金弁財天、醍醐天皇第二皇子光勝空也上人により開創されたお寺です。",
+      "ai": {
+        "score": 45,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "六波羅蜜寺の行事案内だが仏像への言及なし。優先寺院で加点",
+        "event": {
+          "event_name": "皇服茶奉納式・お茶漬け供養",
+          "place": "六波羅蜜寺（京都府京都市）",
+          "start_date": "2026-11-05",
+          "end_date": "2026-11-05"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T17:14:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "15e34a5bfaf0",
+      "title": "文化庁 報道発表｜令和8年度（第1回）「食の至宝」顕彰の受賞者を決定しました",
+      "url": "https://www.bunka.go.jp/koho_hodo_oshirase/hodohappyo/94458601.html",
+      "source": "official_site",
+      "site_kind": "gov",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-10T17:12:06+09:00",
+      "published_at": "2026-11-10T17:12:06+09:00",
+      "image_url": "https://www.bunka.go.jp/img/bunka_ogp.png",
+      "description": "令和8年度（第1回）「食の至宝」顕彰の受賞者を決定しました",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "食の顕彰で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T17:14:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "bc6ff21e1cf0",
+      "title": "トランプ氏「中ロ首脳と会談」 - 函館経済新聞",
+      "url": "https://hakodate.keizai.biz/gpnews/1778870/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T17:12:06.604335+09:00",
+      "published_at": "2026-11-09T11:08:33+09:00",
+      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
+      "description": "トランプ米大統領は８日、今月中旬に中国・深センで開催されるアジア太平洋経済協力会議（ＡＰＥＣ）首脳会議に合わせ、習近平国家主席、ロシアのプーチン大統領と会談することになると思うと述べた。 【AFP時事】",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "国際政治ニュースで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T17:14:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "cdf23942b867",
+      "title": "奈良・興福寺の「踊り大将」12年ぶり公開 東金堂創建1300年を記念、11月末まで - 産経ニュース",
+      "url": "https://www.sankei.com/article/20261110-H6DI6JDBDVMUDJ6QDV7XIVTIQU/?outputType=asynd",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T17:12:04.314173+09:00",
+      "published_at": "2026-11-10T13:22:40+09:00",
+      "image_url": "https://www.sankei.com/resizer/v2/23PNTOXQNJPQLIRDV2RS7WASNU.jpg?auth=ec9545d0300df413c110ddff649d879ecdee1d276c0387bfcc9ba1341e9f545b&quality=50&focal=1072%2C1195&width=1200&height=675",
+      "description": "興福寺（奈良市）の東金堂が奈良時代の創建から1300年を迎えた。これを記念し、普段は拝観できない東金堂内の後堂（ごどう）が特別公開されている。安置されているの…",
+      "search_query": "\"興福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 50,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "配信済みの興福寺踊り大将の記事と同じ出来事で重複",
+        "event": {
+          "event_name": "興福寺 東金堂後堂 特別公開（踊り大将）",
+          "place": "興福寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": "2026-11-30"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T17:14:46+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-10"
+      }
+    },
+    {
+      "id": "a1d1f1bab8a1",
+      "title": "女神のかたち 特別講演会【第二回 メソポタミアの神々】 - アットエス",
+      "url": "https://www.at-s.com/event/article/2095220",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T17:12:01.730673+09:00",
+      "published_at": "2026-11-10T14:50:18+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "メソポタミアの神々の講演会で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T17:14:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "153233e0b0b4",
+      "title": "angelaが故郷・岡山で入場無料のアニソンフェス「angela★Fes」を開催！2027年5月22日、金陵山西大寺（観音院）を舞台に「第0回」が始動 - USENの音楽情報サイト",
+      "url": "https://e.usen.com/news/news-event/angelaangelafes20275220.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T17:12:00.380923+09:00",
+      "published_at": "2026-11-10T16:09:33+09:00",
+      "image_url": "https://e.usen.com/image/dac43920bf0d1ed984469abad2a80ef14caf2502.jpg",
+      "description": "岡山出身のangelaが、故郷をアニソンで盛り上げる。将来は西日本最大級のアニソンフェスを目指し、公式サイト公開、クラウドファンディングを11月下旬より開始",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "アニソンフェスの宣伝で仏像に触れず",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T17:14:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "387cd513ca23",
+      "title": "甚目寺観音の南大門屋根裏に棟札奉納 あま市、修復工事関係者 - 47NEWS",
+      "url": "https://www.47news.jp/15210236.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T17:11:58.248964+09:00",
+      "published_at": "2026-11-10T16:15:36+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/4522a0e7e2999e1737582b5785309b30/photo.jpg",
+      "description": "来年3月まで修復工事が続く、あま市の甚目寺観音の南大門（国重要文化財）で10月30日、工事関係者によって屋根裏に棟札が奉納された。 儀式は甚目寺南大門建造物保存修理委員会のメンバーや、施工した「魚津 ...",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 35,
+        "category": "修理・保存",
+        "duplicate": false,
+        "reason": "南大門の建物の修復で仏像は出てこない。上限内",
+        "event": {
+          "event_name": "",
+          "place": "甚目寺観音（愛知県あま市）",
+          "start_date": "",
+          "end_date": "2027-03-31"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T17:14:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "ba79cec4afc5",
+      "title": "鳳来寺山もみじまつり始まる 11月29日には鳳来寺宿坊を特別公開 - 47NEWS",
+      "url": "https://www.47news.jp/15210248.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-10T17:11:54.581622+09:00",
+      "published_at": "2026-11-10T16:15:45+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/95438d96eacffc3d71d67483a30b6f86/photo.jpg",
+      "description": "新城市で9日、恒例の鳳来寺山もみじまつりが開幕した。開幕式で藤本高仝（こうぜん）住職が成功を祈願し、下江洋行市長らがモミジの枝葉をささげた。標高695メートルの鳳来寺山の紅葉が見頃を迎える今月下旬に ...",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 38,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "紅葉まつりと宿坊公開で仏像の記述なし",
+        "event": {
+          "event_name": "鳳来寺宿坊 特別公開",
+          "place": "鳳来寺（愛知県新城市）",
+          "start_date": "2026-11-29",
+          "end_date": "2026-11-29"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-10T17:14:46+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "aaa8098c513b",
       "title": "笠森観音の御開帳は11/18まで｜茂原駅からのバスは1日1本、駐車場50台は無料 - ジモはる",
@@ -12129,180 +12371,6 @@
       "id": "45c24c94650e",
       "fetched_at": "2026-11-08T00:00:31.510019+09:00",
       "image_url": ""
-    },
-    {
-      "id": "cc7fcb734288",
-      "title": "大河ドラマ『豊臣兄弟！』秀吉の「北野大茶湯」がわずか1日で終了した謎、黄金の茶室と千利休を巡る史実と脚色 - JBpress",
-      "url": "https://jbpress.ismedia.jp/articles/gallery/97886?photo=1",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T23:11:47.039471+09:00",
-      "published_at": "2026-11-07T06:07:02+09:00",
-      "image_url": "https://jbpress.ismcdn.jp/mwimgs/d/f/1200mw/img_df89bcaab8618f02d53cfe2d02011e9889473.jpg",
-      "description": "2026年のNHK大河ドラマ『豊臣兄弟！』は、豊臣秀吉の弟・豊臣秀長にスポットライトが当てられ、そのユニークな視点で話題を呼んでいる。天下人となる秀吉（演：池松壮亮）を、秀長（演：",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "大河の茶会の史実解説で仏像と無関係。17時間経過",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T23:15:32+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "41fc84e7ea29",
-      "title": "国重要文化財・大橋家住宅（倉敷）でマルシェ １７、１８日、アートホッピングクラシキ - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2005508?rct=m_syakai",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T23:11:43.890081+09:00",
-      "published_at": "2026-11-07T16:34:36+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/3/f/b/2/3fb27d2080f6da4a4efa2dd5389e29f0_1.jpg",
-      "description": "芸術やグルメを楽しむマルシェ「アートホッピングクラシキ」が１７、１８日、倉敷市阿知の国重要文化財・大橋家住宅で開かれる。邸内は無料公開...",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "民家のマルシェで寺院・仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T23:15:32+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "57b9e2d49ef9",
-      "title": "大菩薩嶺で男性が体調不良 救助 - sannichi.co.jp",
-      "url": "https://www.sannichi.co.jp/article/2026/11/07/80732521",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T23:11:41.430978+09:00",
-      "published_at": "2026-11-07T18:13:09+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 1,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "登山者の救助で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T23:15:32+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "31cd5e7449e1",
-      "title": "大曲の花火 - Howl.Link",
-      "url": "https://t.co/zXOIaNKZfI",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T23:11:39.846803+09:00",
-      "published_at": "2026-11-07T20:49:13+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(寺宝 OR 仏師)",
-      "ai": {
-        "score": 1,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "花火の話題で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T23:15:32+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "2a535c7aa8c3",
-      "title": "「ゴジラ」ゆかりの海底地形、地質遺産に＝海保調査で発見 - Nippon.com",
-      "url": "https://www.nippon.com/ja/articles/-/57067",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T22:11:43.383268+09:00",
-      "published_at": "2026-11-06T23:03:03+09:00",
-      "image_url": "https://nippon.ismcdn.jp/mwimgs/8/5/1200wm/img_8552d5507b4290ee4d70ceb7ad18c67348796.png",
-      "description": "公益財団法人ニッポンドットコムが運営するNippon.comは、文化、社会、旅・暮らし、政治、経済など日本の幅広い「今」を多言語で発信する非営利サイトです。",
-      "search_query": "\"中宮寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "海底地形の地質遺産で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T22:15:22+09:00",
-        "score_version": 7
-      }
-    },
-    {
-      "id": "deac7c31cd3a",
-      "title": "花咲か 豊川稲荷御開帳ＳＰ！ハリセンボン１０年ぶり推し旅！お得工場直売スイーツ！ - hicbc.com",
-      "url": "https://hicbc.com/tv/program/?p=7013&s=0x0C18&e=45820&ed=20261031",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-07T22:11:41.275534+09:00",
-      "published_at": "2026-11-07T22:00:09+09:00",
-      "image_url": "https://api2.bangumi.org/repix/monomedia/pgmst/1/media/onair/20210302/917e7d9c52f84107b2718d7b799fdbc0.jpg",
-      "description": "７２年ぶりの御開帳！豊川稲荷ＳＰ にぎわい中継＆攻略法▼ハリセンボンが１０年ぶりに帰ってきた！！▼お得すぎて大行列！最新工場直売スイーツ 🈀(予定)",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 35,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "豊川稲荷の御開帳だが番組告知で、仏像の詳細なく稲荷中心",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-07T22:15:22+09:00",
-        "score_version": 7
-      }
     },
     {
       "title": "京都市京セラ美術館 スタジオジブリ企画制作「白隠さんの禅　京都展」",
