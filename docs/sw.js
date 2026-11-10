@@ -1,4 +1,4 @@
-const CACHE = 'butsuzo-v40';
+const CACHE = 'butsuzo-v41';
 
 self.addEventListener('install', e => { self.skipWaiting(); });
 
@@ -12,8 +12,9 @@ self.addEventListener('fetch', e => {
   const url = e.request.url;
   // 他サイトのリソース（Tailwind CDN など）には一切関与しない（取得方法を変えると読み込みに失敗する）
   if (new URL(url).origin !== self.location.origin) return;
-  // index.html / news.json / archives.json / scheduled_posts.json は常に network-first
-  if (url.endsWith('/') || url.includes('/index.html')
+  // ページの表示（クエリ付きを含む）と index.html / news.json などは常に network-first
+  if (e.request.mode === 'navigate' || new URL(url).pathname.endsWith('/') || url.includes('/index.html')
+      || url.includes('/data/version.json')
       || url.includes('/data/news.json')
       || url.includes('/data/archives.json')
       || url.includes('/data/scheduled_posts.json')) {

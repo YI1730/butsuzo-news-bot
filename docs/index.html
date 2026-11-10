@@ -64,7 +64,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5">更新: 11月11日 07:11</p>
+        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月11日 07:43<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -73,7 +73,7 @@
     <div class="max-w-xl mx-auto bg-brand-900 p-1 rounded-xl flex gap-1">
       <button onclick="setTab('news')" id="tab-btn-news"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
-        📰 ニュース<span class="opacity-60 ml-0.5">229</span>
+        📰 ニュース<span class="opacity-60 ml-0.5">228</span>
       </button>
       <button onclick="setTab('replies')" id="tab-btn-replies"
         class="tab-btn flex-1 py-1 text-[11px] font-bold rounded-lg transition-colors leading-tight">
@@ -3531,40 +3531,6 @@
            data-external-url="https://www.gifu-np.co.jp/articles/-/796212"
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
         <button type="button" onclick="toggleSkip('88054d0227e4')" class="skip-btn text-xs text-gray-500 border border-gray-300 rounded-full px-2.5 py-1 shrink-0">スキップ</button>
-      </div>
-    </div>
-    <div class="separator flex items-center gap-3 my-2">
-      <div class="flex-1 h-px bg-brand-300"></div>
-      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 11月8日 12:11 取込</span>
-      <div class="flex-1 h-px bg-brand-300"></div>
-    </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="d50a8f8581fb" data-fetched="2026-11-08T12:11:50.346306+09:00" data-url="https://readyfor.jp/projects/odaniji/announcements/451913">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
-        <div class="flex items-center gap-1.5 shrink-0">
-          <span class="text-xs text-gray-500 shrink-0">📅 11月7日</span>
-          <span class="text-gray-300">·</span>
-          <span class="text-xs text-gray-400">取込 11月8日 12:11</span>
-        </div>
-      </div>
-      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">【ご開帳まであと6日】有志の方が動画を作ってくださいました。東京からのお手伝いも - クラウドファンディング - READYFOR</p>
-      <div class="flex items-center gap-1.5 mb-2 flex-wrap">
-        <span class="text-[11px] font-bold border px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 border-gray-200">AI 62点</span>
-        <span class="text-[11px] text-gray-500">秘仏・御開帳・特別公開・ご開帳まで6日、寺名・像の詳細不明の支援活動</span>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E9%80%9F%E5%A0%B1%E3%80%91%0A%E3%80%90%E3%81%94%E9%96%8B%E5%B8%B3%E3%81%BE%E3%81%A7%E3%81%82%E3%81%A86%E6%97%A5%E3%80%91%E6%9C%89%E5%BF%97%E3%81%AE%E6%96%B9%E3%81%8C%E5%8B%95%E7%94%BB%E3%82%92%E4%BD%9C%E3%81%A3%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%81%BE%E3%81%97%E3%81%9F%E3%80%82%E6%9D%B1%E4%BA%AC%E3%81%8B%E3%82%89%E3%81%AE%E3%81%8A%E6%89%8B%E4%BC%9D%E3%81%84%E3%82%82+-+%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%95%E3%82%A1%E3%83%B3%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0+-+READYFOR%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&url=https%3A%2F%2Freadyfor.jp%2Fprojects%2Fodaniji%2Fannouncements%2F451913" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'d50a8f8581fb')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://readyfor.jp/projects/odaniji/announcements/451913" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://readyfor.jp/projects/odaniji/announcements/451913"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-        <button type="button" onclick="toggleSkip('d50a8f8581fb')" class="skip-btn text-xs text-gray-500 border border-gray-300 rounded-full px-2.5 py-1 shrink-0">スキップ</button>
       </div>
     </div>
     <div class="separator flex items-center gap-3 my-2">
@@ -17407,11 +17373,37 @@
     // 失敗時のみ同梱の docs/data/archives.json にフォールバック。
     const _RAW_BASE = 'https://raw.githubusercontent.com/YI1730/butsuzo-news-bot/main';
 
+    // 表示中のページより新しい版が公開されていれば読み直す（data/version.json と比べる）。
+    // スマホによっては、アプリを開き直しても前の表示のまま残ることがあるため
+    const PAGE_UPDATED = '2026-11-11T07:43:41.335901+09:00';
+    function checkFreshness() {
+      fetch('data/version.json?t=' + Date.now(), { cache: 'no-store' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (v) {
+          if (!v.last_updated || v.last_updated <= PAGE_UPDATED) return;
+          let tried = '';
+          try { tried = sessionStorage.getItem('fresh_reload_for') || ''; } catch (e) {}
+          if (tried !== v.last_updated) {
+            try { sessionStorage.setItem('fresh_reload_for', v.last_updated); } catch (e) {}
+            location.replace(location.pathname + '?r=' + Date.now() + location.hash);
+            return;
+          }
+          // 読み直しても古いまま（通信やキャッシュの問題）
+          const n = document.getElementById('stale-note');
+          if (n) { n.textContent = '⚠ 最新ではありません（タップで再読み込み）'; n.classList.remove('hidden'); }
+        })
+        .catch(function () {
+          const n = document.getElementById('stale-note');
+          if (n) { n.textContent = '⚠ 更新を確認できません（通信をご確認ください）'; n.classList.remove('hidden'); }
+        });
+    }
+
     // アプリに戻ってきたとき、表示が古ければ読み直す（通知から開いたときに最新のニュースを出すため）。
     // 返信文などを編集中のときは読み直さない
     const _PAGE_LOADED_AT = Date.now();
     document.addEventListener('visibilitychange', function () {
-      if (document.visibilityState !== 'visible' || Date.now() - _PAGE_LOADED_AT < 3 * 60 * 1000) return;
+      if (document.visibilityState !== 'visible') return;
+      if (Date.now() - _PAGE_LOADED_AT < 3 * 60 * 1000) { checkFreshness(); return; }
       const editing = Array.prototype.some.call(document.querySelectorAll('textarea'), function (t) {
         return t.value !== t.defaultValue;
       });
@@ -18186,6 +18178,7 @@
         }
       });
       loadSkipState();
+      checkFreshness();
       loadKeywords();
       setTab(location.hash === '#replies' ? 'replies' : 'news');
       loadReplies();  // タブのバッジ（要返信の件数）表示のため
@@ -18212,7 +18205,9 @@
     }
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js').catch(() => {});
+      // sw.js はブラウザの HTTP キャッシュを使わずに確認し、開くたびに更新の有無を見る
+      navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
+        .then(function (reg) { reg.update(); }).catch(() => {});
     }
 
     document.addEventListener('DOMContentLoaded', init);
