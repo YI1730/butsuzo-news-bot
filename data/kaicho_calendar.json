@@ -657,7 +657,8 @@
    "source_title": "笠森観音の御開帳は11/18まで｜茂原駅からのバスは1日1本、駐車場50台は無料 - ジモはる",
    "source_score": 80,
    "first_seen": "2026-10-27T04:19:02+09:00",
-   "reminded": []
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "d6e4b9c0027d",
@@ -2395,6 +2396,20 @@
    "reminded": []
   },
   {
+   "id": "63da4e7747ca",
+   "event_name": "足利 中央・北部地区 文化財特別公開",
+   "place": "栃木県足利市",
+   "place_key": "栃木県足利市",
+   "start": "2026-11-21",
+   "end": "2026-11-22",
+   "category": "秘仏・御開帳・特別公開",
+   "source_url": "https://kiryutimes.jp/article/PhDFTPm1/",
+   "source_title": "今年は足利の中央・北部地区 ２１、２２日に文化財特別公開 - 桐生タイムス",
+   "source_score": 62,
+   "first_seen": "2026-11-10T16:14:28+09:00",
+   "reminded": []
+  },
+  {
    "id": "990f5dc738ce",
    "event_name": "未来へつなぐ 大津のたから 大津の文化財保護60年のあゆみ",
    "place": "大津市歴史博物館（滋賀県大津市）",
@@ -2560,6 +2575,20 @@
    "reminded": []
   },
   {
+   "id": "c0f893b6bb02",
+   "event_name": "鳳来寺宿坊 特別公開",
+   "place": "鳳来寺（愛知県新城市）",
+   "place_key": "鳳来寺",
+   "start": "2026-11-29",
+   "end": "2026-11-29",
+   "category": "寺院の行事",
+   "source_url": "https://topics.smt.docomo.ne.jp/article/chuplus/region/chuplus-1337181?fm=latestnews",
+   "source_title": "鳳来寺山もみじまつり始まる　11月29日には鳳来寺宿坊を特別公開 - ｄメニューニュース",
+   "source_score": 35,
+   "first_seen": "2026-11-10T16:14:28+09:00",
+   "reminded": []
+  },
+  {
    "id": "f03b663ba592",
    "event_name": "鳥追観音如法寺 紅葉まつり",
    "place": "鳥追観音如法寺（福島県西会津町）",
@@ -2581,12 +2610,11 @@
    "start": "",
    "end": "2026-11-30",
    "category": "秘仏・御開帳・特別公開",
-   "source_url": "https://news.yahoo.co.jp/articles/7576f33a74650ff17509477e12763459d24acde6",
-   "source_title": "奈良・興福寺の「踊り大将」12年ぶり公開 東金堂創建1300年を記念、11月末まで （産経新聞） - Yahoo!ニュース",
-   "source_score": 90,
-   "first_seen": "2026-11-10T15:14:16+09:00",
-   "reminded": [],
-   "news_candidate": true
+   "source_url": "https://news.infoseek.co.jp/article/sankein__life_history_H6DI6JDBDVMUDJ6QDV7XIVTIQU/",
+   "source_title": "奈良・興福寺の「踊り大将」12年ぶり公開　東金堂創建1300年を記念、11月末まで　 - Infoseek",
+   "source_score": 88,
+   "first_seen": "2026-11-10T16:14:28+09:00",
+   "reminded": []
   },
   {
    "id": "4254e01fb740",
@@ -2677,7 +2705,7 @@
    "source_url": "https://topics.smt.docomo.ne.jp/amp/article/tokyo/region/tokyo-526827",
    "source_title": "南武蔵の平安仏が一堂に　特別展で15体　30年ぶり寺外公開の薬師像も　横浜・都筑の市歴史博物館　12月13日まで - ｄメニューニュース",
    "source_score": 84,
-   "first_seen": "2026-11-10T15:14:16+09:00",
+   "first_seen": "2026-11-10T16:14:28+09:00",
    "reminded": [],
    "news_candidate": true
   },
@@ -2920,5 +2948,5 @@
    "exhibit_reason": "薬師信仰の仏像・美術展。仮称で詳細は少なく、開幕は先だが先の予定として減点せず"
   }
  ],
- "last_updated": "2026-11-10T15:14:16+09:00"
+ "last_updated": "2026-11-10T16:14:28+09:00"
 }
