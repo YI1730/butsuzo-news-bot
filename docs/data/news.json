@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-11-11T23:11:48.928050+09:00",
+  "last_updated": "2026-11-11T23:15:47.786614+09:00",
   "items": [
+    {
+      "id": "6dc54be1e364",
+      "title": "奈良の大仏、夏にすっきり 年１度の「お身拭い」 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1968750?kw=G",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T23:15:47.783903+09:00",
+      "published_at": "2026-11-11T17:36:38+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 40,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "お身拭いは夏の恒例行事で、秋の今は時期外れ。記事の中身も乏しく、日もちする話題として低め",
+        "event": {
+          "event_name": "",
+          "place": "東大寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T23:18:16+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "1361718b9f93",
       "title": "松井監督、二岡氏復帰を歓迎 プロ野球 - 周南経済新聞",
@@ -12225,36 +12255,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "風刺画カレンダーで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:21+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "4712f368a8d0",
-      "title": "コトブキヤの美少女プラモデル『創彩少女庭園』より、チャイナコスチューム姿の「薬師寺 久遠」がエミュレータカラーで登場！ - 電撃ホビーウェブ",
-      "url": "https://hobby.dengeki.com/news/3223244/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T15:11:43.353989+09:00",
-      "published_at": "2026-11-09T14:56:48+09:00",
-      "image_url": "https://hobby.dengeki.com/ss/hobby/2026/11/aha47rh49-2_5g-fZvM6RhhW-uPDcTnlDO2ybZojMsAI_163XOIjVmy6jUW2RVASicJ_eEu2RObno.jpg",
-      "description": "コトブキヤの美少女プラモデル『創彩少女庭園』より、チャイナ衣装を身にまとった「薬師寺 久遠」がエミュレータカラーで登場！コトブキヤショップ限定で2027年5月発売予定「！",
-      "search_query": "\"薬師寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "キャラ名に薬師寺が入るだけの模型商品",
         "event": {
           "event_name": "",
           "place": "",
