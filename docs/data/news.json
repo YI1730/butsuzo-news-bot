@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-11-12T06:53:30.879452+09:00",
+  "last_updated": "2026-11-12T06:55:44.839303+09:00",
   "items": [
+    {
+      "id": "71865fe2908c",
+      "title": "史跡や寺院で出土の瓦一堂に 岡山市埋文センターが企画展 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2018063",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-12T06:55:44.835775+09:00",
+      "published_at": "2026-11-11T12:46:39+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/b/a/3/6/ba36fffb162c58719055bb1c9088c2ea_3.jpg",
+      "description": "鎌倉時代の東大寺（奈良市）再建で瓦を供給した国史跡・万富東大寺瓦窯跡（岡山市東区瀬戸町万富）や岡山城（北区丸の内）、市内の寺院から出土...",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 22,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "出土した瓦の企画展で仏像が主役ではない。配信18時間経過だが内容自体が仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-12T06:58:16+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "慶応義塾ミュージアムコモンズ 「建仁寺両足院蔵書斯道文庫寄託記念　碩学好学、六百年の書樓」（3月8日~5月8日）",
       "url": "https://kemco.keio.ac.jp/",
@@ -11498,36 +11528,6 @@
         "event": {
           "event_name": "仁王像探訪 写真展",
           "place": "哲西公民館（岡山県新見市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:14:34+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "3e237131beb3",
-      "title": "月組次期トップに風間柚乃さん - 高崎前橋経済新聞",
-      "url": "https://takasaki.keizai.biz/gpnews/1778877/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T18:11:46.773543+09:00",
-      "published_at": "2026-11-09T16:52:25+09:00",
-      "image_url": "https://images.keizai.biz/takasaki_keizai/globalphoto/",
-      "description": "宝塚歌劇団は９日、月組のトップスターに風間柚乃さん（写真）、トップ娘役に瑠璃花夏さんが来年３月２９日付で就任すると発表した。５月２０日スタートの全国ツアーがお披露目公演となる。 【時事通信社】",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "宝塚の人事で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
           "start_date": "",
           "end_date": ""
         },
