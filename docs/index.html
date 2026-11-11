@@ -64,7 +64,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月11日 22:12<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
+        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月11日 23:11<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -18124,7 +18124,7 @@
 
     // 表示中のページより新しい版が公開されていれば読み直す（data/version.json と比べる）。
     // スマホによっては、アプリを開き直しても前の表示のまま残ることがあるため
-    const PAGE_UPDATED = '2026-11-11T22:12:04.582722+09:00';
+    const PAGE_UPDATED = '2026-11-11T23:11:48.928050+09:00';
     function checkFreshness() {
       fetch('data/version.json?t=' + Date.now(), { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
