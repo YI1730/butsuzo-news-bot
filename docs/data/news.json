@@ -1,6 +1,320 @@
 {
-  "last_updated": "2026-11-11T15:31:21.214336+09:00",
+  "last_updated": "2026-11-11T16:12:04.324472+09:00",
   "items": [
+    {
+      "id": "025ea64d4c90",
+      "title": "奈良国立博物館｜2026年3月9日 プレスリリース 奈良国立博物館 仏像館休館に関するお知らせ",
+      "url": "https://www.narahaku.go.jp/news/20260309_15166/",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-11T16:12:04+09:00",
+      "published_at": "2026-11-11T16:12:04+09:00",
+      "image_url": "",
+      "description": "この度、奈良国立博物館仏像館は令和８年９月14日（月）より、約１年半の間、休館する運びとなりました。 つきま",
+      "ai": {
+        "score": 50,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "仏像館休館の案内。2026年3月のリリースの再掲で古く、来年9月の休館",
+        "event": {
+          "event_name": "奈良国立博物館 仏像館休館",
+          "place": "奈良国立博物館（奈良県奈良市）",
+          "start_date": "2026-09-14",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "b062cd747339",
+      "title": "京都国立博物館｜2027年1月～3月の土曜講座",
+      "url": "https://www.kyohaku.go.jp/jp/events/sat/sat-lec_202701/",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-11T16:12:04+09:00",
+      "published_at": "2026-11-11T16:12:04+09:00",
+      "image_url": "https://www.kyohaku.go.jp/ogp.png",
+      "description": "京都国立博物館の公式ウェブサイトです。京博の展示・イベント情報やご利用案内、ご自宅で楽しめるコンテンツ等を紹介しています。",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "土曜講座の案内で仏像の公開と関係が薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "d083a824bc69",
+      "title": "大竹市で木彫家三上さんの遺作展 11月14日まで「獅子狛犬像」など40点 - 47NEWS",
+      "url": "https://www.47news.jp/15206170.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T16:12:04.323878+09:00",
+      "published_at": "2026-11-09T19:48:49+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/b5bc88fb4d1cd92de3500c641be7c6c2/photo.jpg",
+      "description": "広島県大竹市元町出身の木彫家で、昨年11月に93歳で亡くなった三上良平さんの初の遺作展が、同市本町のアゼ ...",
+      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
+      "ai": {
+        "score": 22,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "木彫家の遺作展で獅子狛犬像が中心。仏像ではなく関連薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "59ac8520391b",
+      "title": "まるで本物、野鳥の木彫 瀬戸内市立美術館「門永哲郎展」会期中盤 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2016209?rct=area_tobi",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T16:12:01.591006+09:00",
+      "published_at": "2026-11-10T15:16:21+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/3/6/a/b/36ab79405d82069adc1682890c2e2c6e_2.jpg",
+      "description": "瀬戸内市立美術館（同市牛窓町牛窓）で開催中の「門永哲郎展 木鳥（ことり）―鳥絶技巧―」（同美術館主催、山陽新聞社共催）が会期中盤を迎え...",
+      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "野鳥の木彫展で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "b7a3a362899e",
+      "title": "宝哈木彫村は、木彫芸術の本質を保存し、活性化させている。 - Vietnam.vn",
+      "url": "https://www.vietnam.vn/ja/lang-nghe-tac-tuong-bao-ha-luu-giu-va-lam-moi-tinh-hoa-nghe-thuat-dieu-khac-go",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T16:11:59.644893+09:00",
+      "published_at": "2026-11-11T01:15:34+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ベトナムの木彫村の話題で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "5be4f46a2d2e",
+      "title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 (2026年11月11日掲載) - ライブドアニュース",
+      "url": "https://news.livedoor.com/pr_topics/detail/32788167/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T16:11:50.270379+09:00",
+      "published_at": "2026-11-11T11:10:00+09:00",
+      "image_url": "https://image.news.livedoor.com/newsimage/stf/b/9/b9ccf_1886_ed83e1887e349e6f1cd1e95e583dac02.jpg",
+      "description": "大本山室生寺では、秋の奈良観光における夜間参拝の一つとして親しまれる「室生寺紅葉ライトアップ」を11月の土日祝限定で開催中です。連日の冷え込みによって境内を彩るカエデやモミジの紅葉前線が一気に加速し、山",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 52,
+        "category": "寺院の行事",
+        "duplicate": true,
+        "reason": "室生寺ライトアップ。仏像に触れず上限60点内。同件の重複",
+        "event": {
+          "event_name": "室生寺紅葉ライトアップ2026",
+          "place": "室生寺（奈良県宇陀市）",
+          "start_date": "2026-11-01",
+          "end_date": "2026-11-30"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-11"
+      }
+    },
+    {
+      "id": "7335ed8d4d92",
+      "title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。 和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 - アットプレス",
+      "url": "https://www.atpress.ne.jp/news/4800797",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T16:11:48.958725+09:00",
+      "published_at": "2026-11-11T11:10:00+09:00",
+      "image_url": "https://www.atpress.ne.jp/attachments/8vksBOFSSb0canb9LjL5.jpg",
+      "description": "11月の土日祝限定で開催される室生寺紅葉ライトアップ2026。国宝五重塔の素屋根に青龍を投影する特別演出や和傘アート、限定御守ステッカー、紅葉期間限定の御朱印などが楽しめ、夜の古刹の幻想的な紅葉を体験...",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 60,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "室生寺のライトアップ一次情報。仏像なしのため上限60点",
+        "event": {
+          "event_name": "室生寺紅葉ライトアップ2026",
+          "place": "室生寺（奈良県宇陀市）",
+          "start_date": "2026-11-01",
+          "end_date": "2026-11-30"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-11"
+      }
+    },
+    {
+      "id": "c2791281a36a",
+      "title": "［ニュース］名塔、威風新たに五重宝塔が落慶 総本山長谷寺開山1300年記念 - 中外日報社",
+      "url": "https://www.chugainippoh.co.jp/article/news/20261111-002.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T16:11:46.250503+09:00",
+      "published_at": "2026-11-11T13:04:47+09:00",
+      "image_url": "https://www.chugainippoh.co.jp/article/news/img/20261111-002f.jpg",
+      "description": "真言宗豊山派総本山長谷寺（奈良県桜井市）の開山1300年を記念し進められてきた五重宝塔の修復が完了し、7日に落慶法要が営まれた。川俣海淳化主が開眼作法を行い、集議の中川祐聖・萬藏院住職が慶讃文を奉読した。集議、菩提院結衆…",
+      "search_query": "\"長谷寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 58,
+        "category": "修理・保存",
+        "duplicate": false,
+        "reason": "長谷寺五重宝塔の修復落慶。建物のみで仏像なし。優先寺院だが上限内",
+        "event": {
+          "event_name": "長谷寺五重宝塔 落慶",
+          "place": "総本山長谷寺（奈良県桜井市）",
+          "start_date": "2026-11-07",
+          "end_date": "2026-11-07"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-11"
+      }
+    },
+    {
+      "id": "fde192ab5d64",
+      "title": "大津市の三井寺で千年守られてきた「国宝」や「秘仏」、来年東京で公開へ「見えない力を感じて」（京都新聞） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/6cb8bde2e1de42a4bbca01ccccd22b9e14c705a8",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T16:11:43.512833+09:00",
+      "published_at": "2026-11-11T15:30:37+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261111-01917570-kyt-000-1-view.jpg?exp=10800",
+      "description": "三井寺の名で親しまれる園城寺（大津市園城寺町）の国宝や秘仏を一堂に公開する特別展「国宝 三井寺のすべて」が来年4〜6月、東京国立博物館で開催されるのを前に、同寺で発表会見が開かれた。福家俊彦長吏（6",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 86,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "東博「国宝 三井寺のすべて」の発表会見で第一報。秘仏も公開予定。配信直後",
+        "event": {
+          "event_name": "国宝 三井寺のすべて",
+          "place": "東京国立博物館（東京都台東区）",
+          "start_date": "2027-04-01",
+          "end_date": "2027-06-30"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-11",
+        "official_url": "",
+        "official_image": "",
+        "post_text": "国宝8件、重文42件を含む約80件が上野へ。三井寺の秘仏10件も、来年4〜6月の東京国立博物館の特別展に並ぶ。寺での秘仏公開は10〜12月だ。",
+        "post_attempts": 1,
+        "post_format": 6,
+        "notified": true
+      }
+    },
+    {
+      "id": "6b25e1a52dbd",
+      "title": "滋賀県東近江市の百済寺で名物「大わらじ」8年ぶり新調 地元住民が作り直し、さらに大型化 - 京都新聞デジタル",
+      "url": "https://www.kyoto-np.co.jp/articles/-/1824069",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T16:11:41.693738+09:00",
+      "published_at": "2026-11-11T16:00:00+09:00",
+      "image_url": "https://kyoto-np.ismcdn.jp/mwimgs/f/1/1200wm/img_f15dc932df8cecfd7c7a1ee91f2c1ff510199618.jpg",
+      "description": "湖東三山の一つ、百済寺（滋賀県東近江市）の仁王門に飾られた大わらじが、８年ぶりに新調された。地元住民が作り直して奉納した。参拝者が足を止め…",
+      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "百済寺の大わらじ新調。仏像には触れておらず優先度低い",
+        "event": {
+          "event_name": "",
+          "place": "百済寺（滋賀県東近江市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "日本のほとけさま やさしい図鑑: 第2巻 観音さまと、暮らしの守護の尊",
       "url": "https://www.amazon.co.jp/dp/B0HR8DYHBZ?tag=butsuzo03-22",
@@ -14,7 +328,16 @@
       "release_date": "2026-11-11",
       "id": "93faaab10ebe",
       "fetched_at": "2026-11-11T15:31:17.664060+09:00",
-      "description": "Amazonで釈真如の日本のほとけさま やさしい図鑑: 第2巻 観音さまと、暮らしの守護の尊。アマゾンならポイント還元本が多数。一度購入いただいた電子書籍は、KindleおよびFire端末、スマートフ"
+      "description": "Amazonで釈真如の日本のほとけさま やさしい図鑑: 第2巻 観音さまと、暮らしの守護の尊。アマゾンならポイント還元本が多数。一度購入いただいた電子書籍は、KindleおよびFire端末、スマートフ",
+      "book_ai": {
+        "score": 52,
+        "reason": "仏の図鑑形式の入門書。観音など尊像解説だが入門向け",
+        "version": 1
+      },
+      "book_post_attempts": 1,
+      "book_post_text": "今日11日発売、図鑑形式の入門書の第2巻。観音さまをはじめ、暮らしに近い守護の尊を扱う巻らしい。仏像の見分け方を一から知りたい人に向きそうだ。",
+      "j_post_attempts": 1,
+      "j_post_text": "観音さまは、変化観音と呼ばれる姿に分かれて信仰されてきた。十一面、千手、如意輪と、頭上の面や持物の違いを見比べると像の個性が見えてくる。"
     },
     {
       "title": "身延山大学附属図書館",
@@ -11847,246 +12170,6 @@
       "id": "34daf0288368",
       "fetched_at": "2026-11-09T06:52:39.883432+09:00",
       "image_url": "https://sunritz-hattori-museum.or.jp/files/site_config/capture.jpg?1794174761"
-    },
-    {
-      "id": "a36ba167e6c6",
-      "title": "イチローさん、高校生を指導 野球 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778862/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T06:11:52.674296+09:00",
-      "published_at": "2026-11-09T01:11:31+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "米大リーグのマリナーズなどで活躍したイチローさん（５３）が７、８の両日、大分市にある大分舞鶴高の野球部で選手を指導した＝８日（代表撮影） 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "野球の記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:46+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "0444f8c62705",
-      "title": "御堂陽願寺 光格天皇とお茶【秋】 - ふーぽ",
-      "url": "https://fupo.jp/event/tujiri_2026/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T06:11:50.531264+09:00",
-      "published_at": "2026-11-09T03:56:13+09:00",
-      "image_url": "https://fupo.jp/wp-content/uploads/2026/11/a71da57d4ddc199808c182c94223a652_omote.jpg",
-      "description": "",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 20,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "寺の茶と天皇の話で仏像不明",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:46+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5f25e7e9656c",
-      "title": "「寂聴 愛された日々」が本に 没後5年 語られる不倫や出家の理由 - 朝日新聞",
-      "url": "https://www.asahi.com/articles/ASVC61RNLVC6UCVL03DM.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T06:11:48.780111+09:00",
-      "published_at": "2026-11-09T06:00:00+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "\"三十三間堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 12,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "瀬戸内寂聴の書籍で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:46+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e0675ad92b59",
-      "title": "奈良監獄ミュージアムと東大寺大仏殿を巡る旅。あなたの心に触れるふたつの場所 - TRILL",
-      "url": "https://trilltrill.jp/articles/5168204",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T03:11:42.357782+09:00",
-      "published_at": "2026-11-08T18:20:00+09:00",
-      "image_url": "https://media.trilltrill.jp/articles/5168204/featured-image.76ff0875f5838a89216bf817dcdf5f3a?w=1200",
-      "description": "わずか1キロほどの近さに立つ東大寺の大仏殿と、旧奈良監獄に2026年4月27日にオープンした「奈良監獄ミュージアムby星野リゾート」。受刑者が刑にふくし社会復帰を目指したかつての監獄と、世の安寧と救いを願う東大寺の大仏さまを巡る旅。世界を不安が覆う今だからこそ、訪ねてみてはいかがですか…",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 30,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "東大寺大仏の旅行記事。新情報なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:46+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "4853034a233f",
-      "title": "神戸から奈良まで、両沿線の由緒ある社寺をめぐる阪神・近鉄共同企画「沿線神社仏閣 御朱印巡り」を11月7日（土）から実施～両沿線の魅力を発信し、盛り上げます - anemo（アネモ）",
-      "url": "https://www.anemo.co.jp/topics/lifestyle/leisure/442697-20261107/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T02:11:43.873499+09:00",
-      "published_at": "2026-11-07T08:58:07+09:00",
-      "image_url": "https://www.atpress.ne.jp/releases/647512/img_647512_1.jpg",
-      "description": "阪神電気鉄道株式会社（本社：大阪市福島区、社長：久須勇介、以下「阪神」）と近畿日本鉄道株式会社（本社：大阪市天王寺区、社長：原恭、以下「近鉄」）は、株式会社神社仏閣オンラインの協力のもと、2026年11月7日（土）から2027年3月31日（",
-      "search_query": "\"唐招提寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 25,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "御朱印巡りの企画で仏像に触れず。観光企画",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "062bca2df5b0",
-      "title": "菊川観音 西福寺の今日・明日の天気 週末の天気・紫外線情報【お出かけスポット天気】 - tenki.jp",
-      "url": "https://tenki.jp/leisure/5/25/171/187875/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T02:11:40.887228+09:00",
-      "published_at": "2026-11-08T19:34:23+09:00",
-      "image_url": "https://d2goguvysdoarq.cloudfront.net/system/facility_photos/photos/311808/normal.jpeg?1786495411&w=640&h=640&t=r",
-      "description": "菊川観音 西福寺の今日明日の天気。紫外線情報やお出かけ指数などの天気予報の他、施設情報や口コミ、お得なチケット情報を掲載しています。10日間予報や3日先までの1時間予報も閲覧可能。天気予報専門サイトだからどこよりも詳しくお出かけ先の天気をお届けします。",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "天気予報ページでニュース性なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "873644a7ac36",
-      "title": "京都を歩いて感じる不思議感覚歴史の重層、歌人はどう表現？友と別れた気分を地下鉄に…｜THE KYOTO - 京都新聞デジタル",
-      "url": "https://www.kyoto-np.co.jp/articles/thekyoto/1819387",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T01:11:46.000358+09:00",
-      "published_at": "2026-11-08T06:00:00+09:00",
-      "image_url": "https://kyoto-np.ismcdn.jp/mwimgs/7/1/1200wm/img_716135ab0825c8b66a6e53e2938ca0de740061.png",
-      "description": "京都や滋賀にまつわる古今の和歌、短歌を紹介する「京近江 けさとどく歌」。新聞の10月10日～16日掲載分をお届けする。京都の街を歩いて感じる不思議な感覚を歌人が詠むと…。",
-      "search_query": "\"三十三間堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "短歌の紹介で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "48bd623a7acb",
-      "title": "イチローさん、高校生を指導 野球 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/gpnews/1778862/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-09T01:11:41.379014+09:00",
-      "published_at": "2026-11-08T23:07:04+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
-      "description": "米大リーグのマリナーズなどで活躍したイチローさん（５３）が７、８の両日、大分市にある大分舞鶴高の野球部で選手を指導した＝８日（代表撮影） 【時事通信社】",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "野球の記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
     },
     {
       "title": "大本山總持寺宝蔵館 「總持寺の逸品－指定文化財の数々、一堂に集う－」（10月1日~12月9日）",

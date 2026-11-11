@@ -1671,6 +1671,20 @@
    "remind": false
   },
   {
+   "id": "b416424c82d7",
+   "event_name": "室生寺紅葉ライトアップ2026",
+   "place": "室生寺（奈良県宇陀市）",
+   "place_key": "室生寺",
+   "start": "2026-11-01",
+   "end": "2026-11-30",
+   "category": "寺院の行事",
+   "source_url": "https://www.atpress.ne.jp/news/4800797",
+   "source_title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。 和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 - アットプレス",
+   "source_score": 60,
+   "first_seen": "2026-11-11T16:14:50+09:00",
+   "reminded": []
+  },
+  {
    "id": "9238875b4ed2",
    "event_name": "生福寺 特別展",
    "place": "生福寺（栃木県宇都宮市）",
@@ -2029,6 +2043,20 @@
    "source_title": "阪神・近鉄沿線で御朱印巡り！10社寺限定の特別御朱印や車両デザインの御朱印帳が登場 - TRILL",
    "source_score": 30,
    "first_seen": "2026-11-10T01:15:30+09:00",
+   "reminded": []
+  },
+  {
+   "id": "ca211a8b0c51",
+   "event_name": "長谷寺五重宝塔 落慶",
+   "place": "総本山長谷寺（奈良県桜井市）",
+   "place_key": "総本山長谷寺",
+   "start": "2026-11-07",
+   "end": "2026-11-07",
+   "category": "修理・保存",
+   "source_url": "https://www.chugainippoh.co.jp/article/news/20261111-002.html",
+   "source_title": "［ニュース］名塔、威風新たに五重宝塔が落慶 総本山長谷寺開山1300年記念 - 中外日報社",
+   "source_score": 58,
+   "first_seen": "2026-11-11T16:14:50+09:00",
    "reminded": []
   },
   {
@@ -2703,7 +2731,7 @@
    "source_url": "https://news.infoseek.co.jp/article/sankein__life_history_H6DI6JDBDVMUDJ6QDV7XIVTIQU/",
    "source_title": "奈良・興福寺の「踊り大将」12年ぶり公開　東金堂創建1300年を記念、11月末まで　 - Infoseek",
    "source_score": 88,
-   "first_seen": "2026-11-11T15:14:01+09:00",
+   "first_seen": "2026-11-11T16:14:50+09:00",
    "reminded": []
   },
   {
@@ -2979,7 +3007,8 @@
    "source_title": "大津市で千年守られてきた「国宝」や「秘仏」、来年東京で公開へ 「見えない力を感じて」 - 京都新聞デジタル",
    "source_score": 86,
    "first_seen": "2026-10-31T08:48:21+09:00",
-   "reminded": []
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "ac54e7166977",
@@ -3051,5 +3080,5 @@
    "exhibit_reason": "薬師信仰の仏像・美術展。仮称で詳細は少なく、開幕は先だが先の予定として減点せず"
   }
  ],
- "last_updated": "2026-11-11T15:14:01+09:00"
+ "last_updated": "2026-11-11T16:14:50+09:00"
 }
