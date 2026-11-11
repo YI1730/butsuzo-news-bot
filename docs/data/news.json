@@ -1,6 +1,218 @@
 {
-  "last_updated": "2026-11-11T13:12:04.735915+09:00",
+  "last_updated": "2026-11-11T14:11:56.103676+09:00",
   "items": [
+    {
+      "id": "9cc1c42d2822",
+      "title": "会津若松市 お知らせ｜令和8年度 文化財を保存活用するための意見交換会を開催します！（事前申込不要）",
+      "url": "https://www.city.aizuwakamatsu.fukushima.jp/docs/2022102800010/",
+      "source": "official_site",
+      "site_kind": "gov",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-11T14:11:56+09:00",
+      "published_at": "2026-11-11T14:11:56+09:00",
+      "image_url": "",
+      "description": "市民のみなさんと意見交換会を開催します！ 地域で大切にされている歴史や文化を保存・活用し、継承していくために意見交換会を開催します。 事前申込不要です。 どなたでも参加可能ですので、お気軽にご参加ください。途中参加、...",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "文化財一般の意見交換会で仏像の話はなく無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T14:15:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "da27fe604fa6",
+      "title": "地元の愛知・あま市で蜂須賀小六正勝企画展 徳島からゆかりの錫杖も [愛知県] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCB552FVCBOIPE00SM.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T14:11:55.146971+09:00",
+      "published_at": "2026-11-11T11:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 25,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "武将の企画展で錫杖は仏像ではない。関連は薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T14:15:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "380f1a4f8f77",
+      "title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/atpress_648215/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T14:11:45.922121+09:00",
+      "published_at": "2026-11-11T11:10:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "画像:https://newscast.jp/attachments/8vksBOFSSb0canb9LjL5.j",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 50,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "室生寺の紅葉ライトアップで仏像は出ず上限60。優先寺院で加点",
+        "event": {
+          "event_name": "室生寺紅葉ライトアップ2026",
+          "place": "室生寺（奈良県宇陀市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T14:15:35+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-11"
+      }
+    },
+    {
+      "id": "f00c2e60ae29",
+      "title": "万富東大寺瓦窯の紙芝居制作 環太平洋大生 史実伝える教材に - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2010781",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T14:11:44.008104+09:00",
+      "published_at": "2026-11-11T11:36:36+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/0/7/0/5/07052bdd24da0899e33a2334e1b2595e_2.jpg",
+      "description": "環太平洋大（岡山市東区瀬戸町観音寺）の学生が、鎌倉時代の東大寺再建で瓦を供給した国史跡・万富東大寺瓦窯跡（同町万富）をテーマにした紙芝...",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 22,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "瓦窯跡の紙芝居で仏像は出ない。東大寺ゆかりでも低め",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T14:15:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "d44b12f5d7fb",
+      "title": "追悼と復興願う復興観音も 松本明慶工房の仏像彫刻展5年ぶり開催 福島・郡山市（TUFテレビユー福島） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/925a8a99f71e56603fd6f1925b5c1efec32f7f8a",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T14:11:43.069424+09:00",
+      "published_at": "2026-11-11T11:48:18+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261111-23076593-tuf-000-2-thumb.jpg?exp=10800",
+      "description": "福島県郡山市のうすい百貨店で「京都 大佛師 松本明慶工房 仏像彫刻展」が11日から開かれます。松本明慶さんと明観さん、宗観さんは親子三代で石山寺や増上寺から大佛師の称号を贈られTUFで放送する「情熱",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 30,
+        "category": "展覧会",
+        "duplicate": true,
+        "reason": "松本明慶工房展は配信済みと同じ出来事。重複で減点",
+        "event": {
+          "event_name": "京都 大佛師 松本明慶工房 仏像彫刻展",
+          "place": "うすい百貨店（福島県郡山市）",
+          "start_date": "2026-11-11",
+          "end_date": "2026-11-16"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T14:15:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "80d2219da8fe",
+      "title": "第30回「台仏文化奨」、台仏2名の受賞者決まる - Taiwan Today",
+      "url": "https://jp.taiwantoday.tw/151/287095",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T14:11:40.943659+09:00",
+      "published_at": "2026-11-11T12:25:46+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "台仏文化奨の「仏」はフランスで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T14:15:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "34bd8c6257bb",
+      "title": "御開帳の参拝記念に！愛知の豊川稲荷境内で「お土産グランプリ」獲得のAtmos「白狐のしっぽ」が登場 - STRAIGHT PRESS",
+      "url": "https://straightpress.jp/20261111/1758409",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T14:11:39.159899+09:00",
+      "published_at": "2026-11-11T13:22:39+09:00",
+      "image_url": "https://straightpress.jp/wp-content/uploads/2026/11/sato202611060900-300x225.jpg",
+      "description": "豊川青年会議所は、29商品のエントリーから予選審査で選ばれた6商品による「豊川お土産グランプリ2026」を、10月11日(日)に豊川稲荷で開催した。 審査員による審査と来場者投票を経て、Atmos(アトモス)の「白狐のし...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "お土産商品の宣伝が主目的で仏像に触れていない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T14:15:35+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "19755465c0e6",
       "title": "重文「荒川経」の一部、宮城・角田で確認 鳥羽上皇の皇后が高野山に奉納 - 河北新報オンライン",
@@ -11818,186 +12030,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "SNSページで内容なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "87fc2d3f1cc7",
-      "title": "「ストーリーがあって面白い」佳子さまが横浜の伝統工芸展を鑑賞　からくり細工に不思議そうな表情も - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/tokyo/region/tokyo-526847",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-08T22:11:51.117104+09:00",
-      "published_at": "2026-11-08T17:00:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/tokyo/m_tokyo-526847.jpg",
-      "description": "秋篠宮家の次女佳子さまは8日、横浜市西区のパシフィコ横浜で、9日まで開催されている「KOUGEI EXPO in KA…",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "伝統工芸展の鑑賞で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "88e527e59f56",
-      "title": "年間1000個のコスメを試す“奇跡の57歳”女性 一番好きな成分明かす「レチノール」 - Infoseek",
-      "url": "https://news.infoseek.co.jp/amp/article/abematimes_10286318/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-08T22:11:48.508545+09:00",
-      "published_at": "2026-11-08T19:35:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/abematimes/abematimes_10286318_0-enlarge.jpg",
-      "description": "年間1000個以上のコスメを試す美容ライターが、筋金入りの“美容成分オタク”として好きな美容成分を明かす場面があっ",
-      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "コスメの話題で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "868148c8d7b8",
-      "title": "巨人の松井監督、岸田を指導 プロ野球 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/gpnews/1778860/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-08T22:11:45.503193+09:00",
-      "published_at": "2026-11-08T20:44:06+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
-      "description": "巨人の秋季キャンプは８日、川崎市のジャイアンツ球場などで行われ、松井監督が打撃練習中に今季主将を務めた岸田を指導した。写真は、野手の打撃練習を見詰める松井監督。 【時事通信社】",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "野球記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "452a61ccc515",
-      "title": "細川は６０００万円増 プロ野球 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/gpnews/1778859/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-08T22:11:43.420435+09:00",
-      "published_at": "2026-11-08T20:44:06+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
-      "description": "契約更改後に取材に応じる中日の細川。６０００万円増の１億９０００万円で更改した。（金額は推定）＝８日、名古屋市中川区 【時事通信社】",
-      "search_query": "観音 御開帳 町",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "野球記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "066470292fcf",
-      "title": "【2026京都紅葉最新】紅葉グラデーションをパトロール☆南禅寺～永観堂～安楽寺～法然院 - Kyotopi [キョウトピ]",
-      "url": "https://kyotopi.jp/articles/yrX13.amp",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-08T22:11:41.362118+09:00",
-      "published_at": "2026-11-08T21:00:00+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "\"南禅寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 22,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "紅葉パトロール。仏像に触れず。重複",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "394fa277d917",
-      "title": "【2026京都紅葉最新】紅葉グラデーションをパトロール☆南禅寺～永観堂～安楽寺～法然院 - Kyotopi [キョウトピ]",
-      "url": "https://kyotopi.jp/articles/yrX13",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-08T22:11:39.466876+09:00",
-      "published_at": "2026-11-08T21:00:00+09:00",
-      "image_url": "https://cdn.clipkit.co/tenants/7986/articles/images/000/020/687/large/7eae7912-8a23-47d8-8cf9-e4add25760df.jpg?1794121400",
-      "description": "汁物大好きな三杯目 J Soup Brothersです！FU～FU～☆彡前回から2週間経った、洛東エリア紅葉名所の直近の紅葉進行具合をパトロール。11月８日の様子。",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 30,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "紅葉と寺院の話で仏像に触れず上限内",
         "event": {
           "event_name": "",
           "place": "",
