@@ -1,6 +1,96 @@
 {
-  "last_updated": "2026-11-11T14:11:56.103676+09:00",
+  "last_updated": "2026-11-11T15:05:49.677675+09:00",
   "items": [
+    {
+      "id": "ced26342370a",
+      "title": "長野県立歴史館 お知らせ｜2026年11月10日 お知らせ 【重要なお知らせ】常設展示室の休館について",
+      "url": "https://www.npmh.net/news/2026/11/post-213.php",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-11T15:05:49+09:00",
+      "published_at": "2026-11-11T15:05:49+09:00",
+      "image_url": "https://www.npmh.net/common/images/ogp.png",
+      "description": "長野県の歴史に関する調査研究に基礎をおきながら、埋蔵文化財（考古資料）、歴史的価値ある文書等の歴史資料の収集・整理・保存を通じて、県民の歴史遺産を子孫に引き継ぐ活動を市町村と連携して行うとともに、県民が歴史をふりかえり、未来を展望し、また学び、憩い、交流する場としての役割を果たします。",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "常設展示室の休館案内で仏像の公開と関係が薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T15:09:17+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "25bd175c165e",
+      "title": "南会津で「邦楽の秋」 郡役所 県重文指定５５周年 - 47NEWS",
+      "url": "https://www.47news.jp/15212281.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T15:05:49.675429+09:00",
+      "published_at": "2026-11-11T05:12:00+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/6cee6e5e8ad558dc1bbf3fcb60943474/photo.jpg",
+      "description": "南会津町にある旧南会津郡役所の県重要文化財指定５５周年記念の「邦楽の秋」は、郡役所で開かれ、明治の雰囲気を残した会場で古典芸能の魅力を発信した。 ＮＰＯ法人南山匠の会と心［み］宙［そら］珈琲店の ...",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "旧郡役所の県重文記念イベントで寺院・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T15:09:17+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "394fa277d917",
+      "title": "【2026京都紅葉最新】紅葉グラデーションをパトロール☆南禅寺～永観堂～安楽寺～法然院 - Kyotopi [キョウトピ]",
+      "url": "https://kyotopi.jp/articles/yrX13",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-11T15:05:46.997856+09:00",
+      "published_at": "2026-11-11T05:53:33+09:00",
+      "image_url": "https://cdn.clipkit.co/tenants/7986/articles/images/000/020/687/large/7eae7912-8a23-47d8-8cf9-e4add25760df.jpg?1794121400",
+      "description": "汁物大好きな三杯目 J Soup Brothersです！FU～FU～☆彡前回から2週間経った、洛東エリア紅葉名所の直近の紅葉進行具合をパトロール。11月８日の様子。",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 22,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "紅葉進行のパトロール記事で仏像に触れず。上限内で低評価",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-11T15:09:17+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "9cc1c42d2822",
       "title": "会津若松市 お知らせ｜令和8年度 文化財を保存活用するための意見交換会を開催します！（事前申込不要）",
@@ -11970,66 +12060,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "サッカー記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "486a3f2d1826",
-      "title": "全国高校ラグビー岐阜県予選　関商工が王座奪還、花園切符 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/gifu/region/gifu-20261108211434",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-08T23:11:42.741519+09:00",
-      "published_at": "2026-11-08T21:00:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/-/20261028100531/img/dmenu_service-brand-logo_200x200.png",
-      "description": "第１０６回全国高校ラグビー大会岐阜県予選（岐阜新聞社、岐阜放送後援）最終日は８日、新日本ガス球技メ…",
-      "search_query": "(寺宝 OR 仏師)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "高校ラグビー記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T08:19:57+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "0a5d64fc8766",
-      "title": "はるちゃん🐨 (@Harudra_0815) on X - Howl.Link",
-      "url": "https://t.co/iknsj4OlY0",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-08T23:11:40.644345+09:00",
-      "published_at": "2026-11-08T22:00:39+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "SNSページで内容なし",
         "event": {
           "event_name": "",
           "place": "",
