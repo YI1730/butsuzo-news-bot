@@ -1,6 +1,38 @@
 {
-  "last_updated": "2026-11-13T04:11:55.957224+09:00",
+  "last_updated": "2026-11-13T05:11:42.464159+09:00",
   "items": [
+    {
+      "id": "d90ae6bcd13d",
+      "title": "奈良・興福寺の「踊り大将」12年ぶり公開　東金堂創建1300年を記念、11月末まで　 - Infoseek",
+      "url": "https://news.infoseek.co.jp/amp/article/sankein__life_history_H6DI6JDBDVMUDJ6QDV7XIVTIQU/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T05:11:42.463807+09:00",
+      "published_at": "2026-11-10T13:22:40+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_life-1.0.png",
+      "description": "興福寺（奈良市）の東金堂が奈良時代の創建から1300年を迎えた。これを記念し、普段は拝観できない東金堂内の後堂（ご",
+      "search_query": "文化財 特別公開 仏像 市",
+      "ai": {
+        "score": 55,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "毎日新聞の同件が配信済みで重複。興福寺東金堂の12年ぶり公開で内容は強いが、配信63時間で後追い",
+        "event": {
+          "event_name": "興福寺東金堂 後堂「踊り大将」公開",
+          "place": "興福寺東金堂（奈良県奈良市）",
+          "start_date": "",
+          "end_date": "2026-11-30"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T05:14:13+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-10"
+      }
+    },
     {
       "id": "b4c34418ba74",
       "title": "第4回徳願寺参道に竹灯籠を灯す夜 - アットエス",
@@ -12242,36 +12274,6 @@
         "category": "修理・保存",
         "duplicate": false,
         "reason": "南大門の修復工事の棟札奉納で建物の話。仏像は出ない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T16:14:23+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1b197cd5c594",
-      "title": "樋の尻山 嫁いらず観音院（ひのしりざん よめいらずかんのんいん） - 山陽新聞",
-      "url": "https://www.sanyonews.jp/photo/detail?article_id=176013&pid=6121367",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T16:11:45.088781+09:00",
-      "published_at": "2026-11-10T08:36:12+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 25,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "観音院の紹介のみで本文なし。仏像の具体情報がなく速報性もない",
         "event": {
           "event_name": "",
           "place": "",
