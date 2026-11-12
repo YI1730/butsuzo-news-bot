@@ -400,8 +400,13 @@ def collect_amazon(session: requests.Session, today, skip_asins: set[str], seen:
         if not soup:
             print(f"  Amazon 雑誌検索: 取得できませんでした（{name}）", file=sys.stderr)
             continue
+        cards = parse_amazon_cards(soup)
+        if not cards:
+            title = soup.title.get_text(strip=True)[:40] if soup.title else ""
+            print(f"  Amazon 雑誌検索: 商品が 0 件（{name}）ページ: {title}", file=sys.stderr)
+            continue
         picked = 0
-        for c in parse_amazon_cards(soup):
+        for c in cards:
             if picked >= AMAZON_ISSUES_PER_MAGAZINE:
                 break
             if not _starts_with_magazine(c["title"], name):
