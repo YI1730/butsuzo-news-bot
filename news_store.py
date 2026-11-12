@@ -62,7 +62,7 @@ def compose_news_post(comment: str, title: str, header: str = NEWS_POST_HEADER) 
 
 
 # ── 書籍の並び順（generate_dashboard.py が並べる。rank_books.py が採点） ──
-# 並び順は「取り込み日（fetched_at）の新しい順」だけ。発売日はバッジで見せる。
+# 並び順は「発売日の新しい順」（予約受付中の新刊が先頭）。発売日が同じなら取り込み日の新しい順、発売日不明は最後。
 BOOK_HIDE_BELOW = 10         # これ未満は仏像と無関係とみなし表示しない
 BOOK_KIND_MAGAZINE = "magazine"            # 雑誌の仏像特集号（scrape_magazines.py）
 BOOK_HEADER_BOOK = "【仏像新刊】"
@@ -168,6 +168,12 @@ def too_similar(a: str, b: str) -> bool:
 def book_fetched_key(item: dict) -> str:
     """取り込み日時の並び替えキー（ISO 8601 の文字列。無ければ空）。"""
     return item.get("fetched_at") or ""
+
+
+def book_sort_key(item: dict) -> tuple:
+    """書籍の並び替えキー（reverse=True で発売日の新しい順。発売日不明は最後、同じ日は取り込みの新しい順）。"""
+    rd = book_release_date(item)
+    return (rd is not None, rd.isoformat() if rd else "", book_fetched_key(item))
 
 
 def book_release_date(item: dict):

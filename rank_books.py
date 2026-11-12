@@ -4,7 +4,7 @@ news_hourly.yml から curate_news.py の後に実行される。未採点（ま
 採点するので、新しい本が入ったとき以外は API を呼ばない。
 
 結果は各書籍の "book_ai" に {score, reason, version} として保存する。
-並び順（generate_dashboard.py）: 取り込み日（fetched_at）の新しい順。発売日はバッジで見せる。
+並び順（generate_dashboard.py）: 発売日の新しい順（発売日不明は最後）。
   score < BOOK_HIDE_BELOW の本（仏像と無関係）は表示しない
 紹介文（book_post_text）: 表示する本・雑誌すべてに作る（1 回の実行で最大 MAX_BOOK_POSTS_PER_RUN 件、
   取り込みの新しいものから）。X の文字数に収まるよう、コメントは全角 BOOK_COMMENT_CHARS 字以内で書かせる
@@ -129,18 +129,18 @@ def _book_extra(b: dict, today, own: bool) -> str:
 
 def write_book_posts(client, usage: Usage, books: list[dict]) -> int:
     """表示する書籍・雑誌（score が BOOK_HIDE_BELOW 以上）に、X の紹介投稿文を作る。
-    仏像リンク側（book_post_text）と、2つめのアカウント側（j_post_text）を、取り込みの新しいものから 1 冊ずつ順に。
+    仏像リンク側（book_post_text）と、2つめのアカウント側（j_post_text）を、発売日の新しいものから 1 冊ずつ順に。
     両方の合計が MAX_BOOK_POSTS_PER_RUN 件に達したら止める。グッズは作らない。
     2 つの文章が似すぎたとき（15 字以上の同じ並び、バイグラム類似度が高い）は作り直させる。"""
     from datetime import datetime
 
     from curate_news import write_post
-    from news_store import (BOOK_HIDE_BELOW, JST_TZ, book_fetched_key, book_hashtags, book_header,
+    from news_store import (BOOK_HIDE_BELOW, JST_TZ, book_sort_key, book_hashtags, book_header,
                             too_similar)
 
     today = datetime.now(JST_TZ).date()
     shown = [b for b in books if (b.get("book_ai") or {}).get("score", 50) >= BOOK_HIDE_BELOW]
-    shown.sort(key=book_fetched_key, reverse=True)
+    shown.sort(key=book_sort_key, reverse=True)
     made = calls = 0
     for b in shown:
         for own in (True, False):

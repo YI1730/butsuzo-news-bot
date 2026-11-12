@@ -364,9 +364,9 @@ def build_separator_html(dt: datetime) -> str:
 
 
 def build_book_cards(books: list[dict]) -> str:
-    """書籍・雑誌を取り込み日（fetched_at）の新しい順に並べる。発売日はバッジで見せる。
+    """書籍・雑誌を発売日の新しい順（予約受付中が先頭、発売日不明は最後）に並べる。
     紹介する価値（book_ai.score）が BOOK_HIDE_BELOW 未満の本（仏像と無関係）は表示しない。"""
-    from news_store import BOOK_HIDE_BELOW as HIDE_BELOW, book_fetched_key, book_release_date as release_date
+    from news_store import BOOK_HIDE_BELOW as HIDE_BELOW, book_sort_key, book_release_date as release_date
 
     today = datetime.now(JST).date()
     shown = []
@@ -384,7 +384,7 @@ def build_book_cards(books: list[dict]) -> str:
         if b.get("book_kind") == "magazine":
             b["_book_badge"] = "📰 雑誌の仏像特集・" + b["_book_badge"][2:]
         shown.append(b)
-    shown.sort(key=book_fetched_key, reverse=True)
+    shown.sort(key=book_sort_key, reverse=True)
     return "\n".join(build_card_html(b) for b in shown)
 
 
