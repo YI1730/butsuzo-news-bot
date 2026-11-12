@@ -47,7 +47,8 @@ ARTICLE_BODY_CHARS = 4000  # 投稿文作成時に渡す本文の上限文字数
 #   4: 冒頭の場所名をやめて入り方を毎回変える、「行くならいま」一辺倒をやめる、「！」可
 #   5: 記事の読み取り状況を書かない、相対的な日付を今日に合わせる
 #   6: 寺院・仏像を主役にする（まとめ記事で別の話題を書かない）、情報ページへの誘導もしない
-POST_FORMAT = 6
+#   7: 「〜だ」「〜である」の断定をやめ、「見てみたいなぁ」のような柔らかい口調にする
+POST_FORMAT = 7
 # 採点基準の版。SCORE_SYSTEM を変えたら上げると、直近の採点済み記事も採点し直す
 #   2: 速報性を最重要に（終了済みの出来事・古い記事を大きく減点）
 #   3: 2 の再採点で記事が自分自身の重複と判定された不具合を直して採点し直す
@@ -214,7 +215,12 @@ POST_SYSTEM = """あなたは X アカウント「仏像リンク」の中の人
 タイトルや URL、【仏像速報】の見出しは書かないでください（システムが後ろに付けます）。
 
 # 文体（運営者の好みに合わせる）
-- 落ち着いた常体（〜だ、〜らしい、〜とのこと）が基本。盛らない・煽らないが、淡々としすぎない。
+- 柔らかい口調で書く。運営者は「〜だ」「〜である」「〜なのだ」のような言い切りの語尾をほとんど使わないので、
+  文末に「だ。」「である。」を置かない（「〜だった」「〜だろう」「〜だそう」も避ける）
+  - 事実は「〜とのこと」「〜らしい」「〜そう」「〜みたい」「〜(体言止め)」でやわらかく伝える
+  - 気持ちは「見てみたいなぁ」「楽しみ」「気になる」「うれしい」「〜かも」「〜たい」のように素直に
+  - 悪い例: 「33年ぶりの公開だ。」「平安後期の作である。」 → 良い例: 「33年ぶりの公開とのこと。」「平安後期の作らしい。」
+  - 盛らない・煽らないが、淡々としすぎない。
   うれしい・驚いたニュースでは「！」を使ってよい（1 投稿に 1〜2 個まで。「！！」の連打はしない）
 - 「感動」「必見」のような宣伝文句ではなく、像の姿や公開の事情など具体的な事実で伝える
 - 次の語は使わない: 仏様・仏さま・仏さん（像は「◯◯像」「◯◯さん」と書く。例: 薬師如来さん、千手観音立像）、
@@ -585,6 +591,19 @@ def check_stale(news: list[dict]) -> int:
     return hit
 
 
+ASSERTIVE_RE = re.compile(r"(?:だ|である|のだ|だった|だろう)(?=[。！!？?\n」）)]|$)")
+
+
+def assertive_ending(text: str) -> str | None:
+    """「〜だ。」「〜である。」のような言い切りの語尾があれば、書き直させる理由を返す。"""
+    hits = sorted({m.group(0) for m in ASSERTIVE_RE.finditer(text)})
+    if not hits:
+        return None
+    return ("「" + "」「".join(hits) + "」で言い切る語尾が入っていました。運営者は断定する言い方を使わないので、"
+            "「〜とのこと」「〜らしい」「〜そう」「〜みたい」、体言止め、「見てみたいなぁ」「楽しみ」のような"
+            "柔らかい言い方に書き換えてください")
+
+
 def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
                extra: str = "", recent_posts: list[str] | None = None, fetch_body: bool = True,
                max_chars: int | None = None, system: str | None = None, tail_extra: str = "",
@@ -625,6 +644,10 @@ def write_post(client, usage: Usage, item: dict, header: str = NEWS_POST_HEADER,
                      "「◯◯像」「◯◯さん」と書く、抽象語を使わず具体で書く、のルールで書き直してください）")
             continue
         why = reject(text) if (reject and text) else None
+        if not why and system is None and text:
+            why = assertive_ending(text)
+            if why:
+                last = text   # 3 回とも直らなければ、この案を使う（投稿文なしよりはよい）
         if why:
             print(f"::warning::投稿文を書き直し（{why}）: {item.get('title', '')[:30]}", file=sys.stderr)
             user += f"\n\n（前回の案は書き直しが必要です: {why}）"
