@@ -113,22 +113,6 @@
    "remind": false
   },
   {
-   "id": "3f5b04387de0",
-   "event_name": "名品展 仏像館 珠玉の仏たちセレクション",
-   "place": "奈良国立博物館（奈良県奈良市）",
-   "place_key": "奈良国立博物館",
-   "start": "2026-09-15",
-   "end": "",
-   "category": "展覧会",
-   "source_url": "https://www.narahaku.go.jp/exhibition_cat/usual/",
-   "source_title": "奈良国立博物館（奈良県奈良市） 名品展 仏像館 珠玉の仏たちセレクション",
-   "source_score": 0,
-   "first_seen": "2026-11-12T11:20:28+09:00",
-   "reminded": [],
-   "origin": "museum",
-   "remind": false
-  },
-  {
    "id": "93b338091115",
    "event_name": "特別展「国宝でよみとく仏教美術－奇珍異宝の世界－」",
    "place": "神奈川県立金沢文庫",
@@ -2255,7 +2239,8 @@
    "first_seen": "2026-11-12T10:14:22+09:00",
    "reminded": [
     "start"
-   ]
+   ],
+   "news_candidate": true
   },
   {
    "id": "12c0e91552ef",
@@ -2355,6 +2340,20 @@
    "source_title": "【11/14・15】防府市で「第8回 すごいぞ！防府 秋の大イベント」開催！防府市内4大名所で遊んで・食べて・楽しいイベントもりだくさん - ひろしまリード",
    "source_score": 30,
    "first_seen": "2026-11-11T18:14:26+09:00",
+   "reminded": []
+  },
+  {
+   "id": "00e61fc51a3f",
+   "event_name": "円福寺 寺宝展",
+   "place": "飯沼山円福寺（千葉県銚子市）",
+   "place_key": "飯沼山円福寺",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "category": "寺院の行事",
+   "source_url": "https://topics.smt.docomo.ne.jp/article/asahi_region/nation/asahi_region-ASVCC4FLTVCCUDCB00NM",
+   "source_title": "「白眉の存在」貴重な嵯峨本を見る機会　千葉・銚子の円福寺で寺宝展 - ｄメニューニュース",
+   "source_score": 50,
+   "first_seen": "2026-11-12T11:37:50+09:00",
    "reminded": []
   },
   {
@@ -2794,6 +2793,34 @@
    "reminded": []
   },
   {
+   "id": "bd62d42d8109",
+   "event_name": "室生寺紅葉ライトアップ2026",
+   "place": "室生寺（奈良県宇陀市）",
+   "place_key": "室生寺",
+   "start": "",
+   "end": "2026-11-30",
+   "category": "寺院の行事",
+   "source_url": "https://www.anemo.co.jp/topics/lifestyle/event-lifestyle/443014-20261111/",
+   "source_title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 - anemo（アネモ）",
+   "source_score": 45,
+   "first_seen": "2026-11-12T11:37:50+09:00",
+   "reminded": []
+  },
+  {
+   "id": "cb13f2772bb7",
+   "event_name": "興福寺 東金堂後堂 特別公開（踊り大将）",
+   "place": "興福寺（奈良県奈良市）",
+   "place_key": "興福寺",
+   "start": "",
+   "end": "2026-11-30",
+   "category": "秘仏・御開帳・特別公開",
+   "source_url": "https://news.infoseek.co.jp/article/sankein__life_history_H6DI6JDBDVMUDJ6QDV7XIVTIQU/",
+   "source_title": "奈良・興福寺の「踊り大将」12年ぶり公開　東金堂創建1300年を記念、11月末まで　 - Infoseek",
+   "source_score": 88,
+   "first_seen": "2026-11-12T11:37:50+09:00",
+   "reminded": []
+  },
+  {
    "id": "4254e01fb740",
    "event_name": "仁和寺 体験プラン",
    "place": "仁和寺（京都府京都市）",
@@ -2947,7 +2974,9 @@
    "first_seen": "2026-11-12T11:20:28+09:00",
    "reminded": [],
    "origin": "museum",
-   "remind": false
+   "remind": false,
+   "exhibit_score": 50,
+   "exhibit_reason": "繡仏（刺繍阿弥陀三尊来迎図）の修理成果展示。仏像彫刻ではなく仏画系で主役度は中程度。会期は約40日先"
   },
   {
    "id": "78b9771a0dd2",
@@ -3131,6 +3160,24 @@
    "news_candidate": true
   },
   {
+   "id": "ec11db7c03ec",
+   "event_name": "国宝 三井寺のすべて",
+   "place": "東京国立博物館（東京都）",
+   "place_key": "東京国立博物館",
+   "start": "2027-04-20",
+   "end": "2027-06-13",
+   "category": "展覧会",
+   "source_url": "https://www.museum.or.jp/event/127356",
+   "source_title": "特別展「国宝 三井寺のすべて」 東京国立博物館 | 東京都（2027年4月20日〜6月13日）",
+   "source_score": 50,
+   "first_seen": "2026-11-12T11:37:50+09:00",
+   "reminded": [],
+   "origin": "exhibition",
+   "remind": false,
+   "exhibit_score": 50,
+   "exhibit_reason": "三井寺展は配信済みの同じ展覧会情報と重複。開幕は159日先で第一報ではない・重複"
+  },
+  {
    "id": "acfc82911400",
    "event_name": "春季特別展 「湯の街のほとけとかみ ―温泉と薬師信仰の美術―（仮称）」",
    "place": "龍谷ミュージアム（京都府京都市）",
@@ -3151,5 +3198,5 @@
    "exhibit_reason": "薬師信仰の仏像・美術展。仮称で詳細は少なく、開幕は先だが先の予定として減点せず"
   }
  ],
- "last_updated": "2026-11-12T11:21:34+09:00"
+ "last_updated": "2026-11-12T11:37:50+09:00"
 }
