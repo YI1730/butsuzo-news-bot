@@ -113,6 +113,22 @@
    "remind": false
   },
   {
+   "id": "3f5b04387de0",
+   "event_name": "名品展 仏像館 珠玉の仏たちセレクション",
+   "place": "奈良国立博物館（奈良県奈良市）",
+   "place_key": "奈良国立博物館",
+   "start": "2026-09-15",
+   "end": "",
+   "category": "展覧会",
+   "source_url": "https://www.narahaku.go.jp/exhibition_cat/usual/",
+   "source_title": "奈良国立博物館（奈良県奈良市） 名品展 仏像館 珠玉の仏たちセレクション",
+   "source_score": 0,
+   "first_seen": "2026-11-12T11:20:28+09:00",
+   "reminded": [],
+   "origin": "museum",
+   "remind": false
+  },
+  {
    "id": "93b338091115",
    "event_name": "特別展「国宝でよみとく仏教美術－奇珍異宝の世界－」",
    "place": "神奈川県立金沢文庫",
@@ -1642,6 +1658,20 @@
    "reminded": []
   },
   {
+   "id": "b416424c82d7",
+   "event_name": "室生寺紅葉ライトアップ2026",
+   "place": "室生寺（奈良県宇陀市）",
+   "place_key": "室生寺",
+   "start": "2026-11-01",
+   "end": "2026-11-30",
+   "category": "寺院の行事",
+   "source_url": "https://www.atpress.ne.jp/news/4800797",
+   "source_title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。 和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 - アットプレス",
+   "source_score": 60,
+   "first_seen": "2026-11-11T16:14:50+09:00",
+   "reminded": []
+  },
+  {
    "id": "982637328b65",
    "event_name": "「聖林寺秘宝マンダラ展」",
    "place": "聖林寺",
@@ -1656,20 +1686,6 @@
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
-  },
-  {
-   "id": "b416424c82d7",
-   "event_name": "室生寺紅葉ライトアップ2026",
-   "place": "室生寺（奈良県宇陀市）",
-   "place_key": "室生寺",
-   "start": "2026-11-01",
-   "end": "2026-11-30",
-   "category": "寺院の行事",
-   "source_url": "https://www.atpress.ne.jp/news/4800797",
-   "source_title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。 和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 - アットプレス",
-   "source_score": 60,
-   "first_seen": "2026-11-11T16:14:50+09:00",
-   "reminded": []
   },
   {
    "id": "9238875b4ed2",
@@ -2003,6 +2019,20 @@
    "news_candidate": true
   },
   {
+   "id": "ca211a8b0c51",
+   "event_name": "長谷寺五重宝塔 落慶",
+   "place": "総本山長谷寺（奈良県桜井市）",
+   "place_key": "総本山長谷寺",
+   "start": "2026-11-07",
+   "end": "2026-11-07",
+   "category": "修理・保存",
+   "source_url": "https://www.chugainippoh.co.jp/article/news/20261111-002.html",
+   "source_title": "［ニュース］名塔、威風新たに五重宝塔が落慶 総本山長谷寺開山1300年記念 - 中外日報社",
+   "source_score": 58,
+   "first_seen": "2026-11-11T16:14:50+09:00",
+   "reminded": []
+  },
+  {
    "id": "6faf146c6458",
    "event_name": "企画展「よみがえる奥能登の平安仏－震災を乗り越えて－」",
    "place": "能登町立美術館（羽根万象美術館）",
@@ -2017,34 +2047,6 @@
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
-  },
-  {
-   "id": "52d4c4ee2956",
-   "event_name": "沿線神社仏閣御朱印巡り",
-   "place": "阪神・近鉄沿線の10社寺",
-   "place_key": "阪神・近鉄沿線の",
-   "start": "2026-11-07",
-   "end": "2027-03-31",
-   "category": "寺院の行事",
-   "source_url": "https://trilltrill.jp/articles/5172257",
-   "source_title": "阪神・近鉄沿線で御朱印巡り！10社寺限定の特別御朱印や車両デザインの御朱印帳が登場 - TRILL",
-   "source_score": 30,
-   "first_seen": "2026-11-10T01:15:30+09:00",
-   "reminded": []
-  },
-  {
-   "id": "ca211a8b0c51",
-   "event_name": "長谷寺五重宝塔 落慶",
-   "place": "総本山長谷寺（奈良県桜井市）",
-   "place_key": "総本山長谷寺",
-   "start": "2026-11-07",
-   "end": "2026-11-07",
-   "category": "修理・保存",
-   "source_url": "https://www.chugainippoh.co.jp/article/news/20261111-002.html",
-   "source_title": "［ニュース］名塔、威風新たに五重宝塔が落慶 総本山長谷寺開山1300年記念 - 中外日報社",
-   "source_score": 58,
-   "first_seen": "2026-11-11T16:14:50+09:00",
-   "reminded": []
   },
   {
    "id": "635a5e78e2ca",
@@ -2792,34 +2794,6 @@
    "reminded": []
   },
   {
-   "id": "bd62d42d8109",
-   "event_name": "室生寺紅葉ライトアップ2026",
-   "place": "室生寺（奈良県宇陀市）",
-   "place_key": "室生寺",
-   "start": "",
-   "end": "2026-11-30",
-   "category": "寺院の行事",
-   "source_url": "https://www.anemo.co.jp/topics/lifestyle/event-lifestyle/443014-20261111/",
-   "source_title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 - anemo（アネモ）",
-   "source_score": 45,
-   "first_seen": "2026-11-12T11:14:36+09:00",
-   "reminded": []
-  },
-  {
-   "id": "cb13f2772bb7",
-   "event_name": "興福寺 東金堂後堂 特別公開（踊り大将）",
-   "place": "興福寺（奈良県奈良市）",
-   "place_key": "興福寺",
-   "start": "",
-   "end": "2026-11-30",
-   "category": "秘仏・御開帳・特別公開",
-   "source_url": "https://news.infoseek.co.jp/article/sankein__life_history_H6DI6JDBDVMUDJ6QDV7XIVTIQU/",
-   "source_title": "奈良・興福寺の「踊り大将」12年ぶり公開　東金堂創建1300年を記念、11月末まで　 - Infoseek",
-   "source_score": 88,
-   "first_seen": "2026-11-12T11:14:36+09:00",
-   "reminded": []
-  },
-  {
    "id": "4254e01fb740",
    "event_name": "仁和寺 体験プラン",
    "place": "仁和寺（京都府京都市）",
@@ -2958,6 +2932,22 @@
    "remind": false,
    "exhibit_score": 78,
    "exhibit_reason": "像内納入文書で仏像が主役の開館記念展。地域の仏像で関心高い"
+  },
+  {
+   "id": "09fbbeadfec8",
+   "event_name": "特集展示 新たに修理された文化財（繡仏の修理 刺繍阿弥陀三尊来迎図）",
+   "place": "奈良国立博物館（奈良県奈良市）",
+   "place_key": "奈良国立博物館",
+   "start": "2026-12-22",
+   "end": "2027-01-17",
+   "category": "展覧会",
+   "source_url": "https://www.narahaku.go.jp/exhibition_cat/special/",
+   "source_title": "奈良国立博物館（奈良県奈良市） 特集展示 新たに修理された文化財（繡仏の修理 刺繍阿弥陀三尊来迎図）",
+   "source_score": 0,
+   "first_seen": "2026-11-12T11:20:28+09:00",
+   "reminded": [],
+   "origin": "museum",
+   "remind": false
   },
   {
    "id": "78b9771a0dd2",
@@ -3141,24 +3131,6 @@
    "news_candidate": true
   },
   {
-   "id": "ec11db7c03ec",
-   "event_name": "国宝 三井寺のすべて",
-   "place": "東京国立博物館（東京都）",
-   "place_key": "東京国立博物館",
-   "start": "2027-04-20",
-   "end": "2027-06-13",
-   "category": "展覧会",
-   "source_url": "https://www.museum.or.jp/event/127356",
-   "source_title": "特別展「国宝 三井寺のすべて」 東京国立博物館 | 東京都（2027年4月20日〜6月13日）",
-   "source_score": 50,
-   "first_seen": "2026-11-10T01:15:30+09:00",
-   "reminded": [],
-   "origin": "exhibition",
-   "remind": false,
-   "exhibit_score": 35,
-   "exhibit_reason": "配信済みの三井寺展と同一。重複のため大幅減点・重複"
-  },
-  {
    "id": "acfc82911400",
    "event_name": "春季特別展 「湯の街のほとけとかみ ―温泉と薬師信仰の美術―（仮称）」",
    "place": "龍谷ミュージアム（京都府京都市）",
@@ -3179,5 +3151,5 @@
    "exhibit_reason": "薬師信仰の仏像・美術展。仮称で詳細は少なく、開幕は先だが先の予定として減点せず"
   }
  ],
- "last_updated": "2026-11-12T11:14:36+09:00"
+ "last_updated": "2026-11-12T11:21:34+09:00"
 }
