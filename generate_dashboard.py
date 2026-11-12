@@ -17,7 +17,7 @@ from pathlib import Path
 
 from news_store import (CANDIDATE_THRESHOLD, NOISE_THRESHOLD, X_LIMIT, book_header, book_hashtags, book_link,
                         book_post_tail, j_available_at, with_pr, compose_news_post, fit_headline_post,
-                        fit_x_post, intent_weighted_length, load_skipped)
+                        fit_x_post, intent_weighted_length, load_skipped, goods_kind, BOOK_HIDE_BELOW)
 
 DOCS_DIR = Path(__file__).parent / "docs"
 NEWS_JSON_FILE = DOCS_DIR / "data" / "news.json"
@@ -148,7 +148,7 @@ def fit_j_book_post(item: dict, link: str) -> str:
 def build_j_button(item: dict, now: datetime) -> str:
     """2つめのアカウント（美しい日本の仏像）の投稿ボタン。取り込みから BOOK_J_DELAY_DAYS 日たつまでは灰色で押せない。
     押せるかどうかは表示時に JS（refreshJButtons）でも判定する。"""
-    if item.get("item_type") != "book":
+    if item.get("source") not in GOODS_TAB_SOURCES:
         return ""
     link = book_link(item, "j")
     text = book_post_for(item, "j")
@@ -290,10 +290,16 @@ def build_card_html(item: dict) -> str:
             f'      </div>\n'
         )
 
-    if item.get("book_post_text"):
+    if source in GOODS_TAB_SOURCES:
+        esc_p = lambda t: t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        j_text = book_post_for(item, "j")
         ai_html += (
-            f'      <p class="text-xs text-gray-700 bg-amber-50 border border-amber-100 rounded-lg p-2 mb-3 '
-            f'whitespace-pre-wrap leading-relaxed">{post_text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")}</p>\n'
+            f'      <p class="text-[11px] font-bold text-amber-800 mb-1">仏像リンクの投稿文</p>\n'
+            f'      <p class="text-xs text-gray-700 bg-amber-50 border border-amber-100 rounded-lg p-2 mb-2 '
+            f'whitespace-pre-wrap leading-relaxed">{esc_p(post_text)}</p>\n'
+            f'      <p class="text-[11px] font-bold text-gray-600 mb-1">美しい日本の仏像の投稿文</p>\n'
+            f'      <p class="text-xs text-gray-700 bg-gray-50 border border-gray-200 rounded-lg p-2 mb-3 '
+            f'whitespace-pre-wrap leading-relaxed">{esc_p(j_text)}</p>\n'
         )
 
     title_block_html = (
@@ -307,6 +313,8 @@ def build_card_html(item: dict) -> str:
         skip_html = (f'\n        <button type="button" onclick="toggleSkip(\'{uid}\')" '
                      f'class="skip-btn text-xs text-gray-500 border border-gray-300 rounded-full px-2.5 py-1 shrink-0">スキップ</button>')
         skip_attr = f' data-url="{url}"' + (' data-skipped="1"' if uid in _SKIPPED_IDS else "")
+    if source in GOODS_TAB_SOURCES:
+        skip_attr += f' data-gkind="{goods_kind(item)}"'
     return f"""    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="{uid}" data-fetched="{item.get('fetched_at', '')}"{skip_attr}>
 {image_html}{meta_html}
 {title_block_html}
@@ -518,13 +526,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
             + "\n    </div>"
         )
     news_cards  = candidates_html + "\n" + build_calendar_html() + "\n" + build_cards_with_separators(news_items)
-    book_cards  = build_book_cards(book_items)
-    goods_cards = build_cards_with_separators(other_goods)
+    book_cards  = build_book_cards(goods_items)   # 書籍・雑誌・グッズをまとめて発売日順。種類はタブ内で切り替える
     news_count  = len(news_items) + len(candidates)
     prefiltered_html = build_prefiltered_html()
     goods_count = len(goods_items)
     book_count  = len(book_items)
     other_goods_count = len(other_goods)
+    from collections import Counter as _C
+    _gk = _C(goods_kind(x) for x in goods_items
+             if (x.get("book_ai") or {}).get("score", 50) >= BOOK_HIDE_BELOW)
+    gk_book, gk_magazine, gk_goods = _gk["book"], _gk["magazine"], _gk["goods"]
+    goods_count = gk_book + gk_magazine + gk_goods
 
     return f"""<!DOCTYPE html>
 <html lang="ja">
@@ -643,18 +655,18 @@ def build_html(items: list[dict], last_updated: str) -> str:
 {prefiltered_html}
     </div>
     <div id="tab-goods" class="tab-pane space-y-3 hidden">
-      <!-- 書籍（上段） -->
-      <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm">
-        <p class="text-sm font-bold text-brand-800">📚 書籍 <span class="opacity-60 ml-0.5">{book_count}</span></p>
-        <p class="text-xs text-gray-500 mt-0.5">仏像関連の新刊・書籍</p>
+      <!-- 書籍・雑誌・グッズの切り替え（ページ内で絞り込む。選んだものは端末に覚えておく） -->
+      <div class="bg-white rounded-xl px-3 py-2.5 border border-brand-100 shadow-sm">
+        <div class="flex gap-1.5 flex-wrap" id="gkind-bar">
+          <button type="button" data-gk="all" onclick="setGoodsKind('all')" class="gk-btn text-xs font-bold px-3 py-1.5 rounded-full border">すべて {goods_count}</button>
+          <button type="button" data-gk="book" onclick="setGoodsKind('book')" class="gk-btn text-xs font-bold px-3 py-1.5 rounded-full border">📚 書籍 {gk_book}</button>
+          <button type="button" data-gk="magazine" onclick="setGoodsKind('magazine')" class="gk-btn text-xs font-bold px-3 py-1.5 rounded-full border">📰 雑誌 {gk_magazine}</button>
+          <button type="button" data-gk="goods" onclick="setGoodsKind('goods')" class="gk-btn text-xs font-bold px-3 py-1.5 rounded-full border">🛒 グッズ {gk_goods}</button>
+        </div>
+        <p class="text-[11px] text-gray-500 mt-1.5">発売日の新しい順</p>
+        <p id="gk-empty" class="hidden text-xs text-gray-500 mt-2">いまは該当するものがありません</p>
       </div>
 {book_cards}
-      <!-- グッズ（下段） -->
-      <div class="bg-white rounded-xl px-4 py-3 border border-brand-100 shadow-sm mt-4">
-        <p class="text-sm font-bold text-brand-800">🛒 グッズ <span class="opacity-60 ml-0.5">{other_goods_count}</span></p>
-        <p class="text-xs text-gray-500 mt-0.5">仏像関連のグッズ・雑貨</p>
-      </div>
-{goods_cards}
     </div>
     <!-- 訪問記タブ：週次ピック（訪問記14件）＋告知（予約投稿） -->
     <div id="tab-archive" class="tab-pane space-y-3 hidden">
@@ -2079,6 +2091,29 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     // 書籍カードの2つめのボタン: 取り込みから所定の日数がたつまで灰色で押せない（ページを開いたときと 5 分ごとに判定）
+    // 書籍・グッズタブの種類の切り替え
+    function setGoodsKind(k) {{
+      try {{ localStorage.setItem('goods_kind', k); }} catch (e) {{}}
+      let shown = 0;
+      document.querySelectorAll('#tab-goods .card[data-gkind]').forEach(function (c) {{
+        const on = k === 'all' || c.getAttribute('data-gkind') === k;
+        c.classList.toggle('hidden', !on);
+        if (on) shown++;
+      }});
+      document.querySelectorAll('#gkind-bar .gk-btn').forEach(function (b) {{
+        const on = b.getAttribute('data-gk') === k;
+        b.classList.toggle('bg-brand-700', on); b.classList.toggle('text-white', on); b.classList.toggle('border-brand-700', on);
+        b.classList.toggle('bg-white', !on); b.classList.toggle('text-brand-800', !on); b.classList.toggle('border-brand-200', !on);
+      }});
+      const e = document.getElementById('gk-empty');
+      if (e) e.classList.toggle('hidden', shown > 0);
+    }}
+    document.addEventListener('DOMContentLoaded', function () {{
+      let k = 'all';
+      try {{ k = localStorage.getItem('goods_kind') || 'all'; }} catch (e) {{}}
+      setGoodsKind(k);
+    }});
+
     function refreshJButtons() {{
       document.querySelectorAll('.jpost-btn').forEach(function (a) {{
         const t = Date.parse(a.getAttribute('data-avail') || '');

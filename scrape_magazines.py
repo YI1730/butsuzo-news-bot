@@ -120,7 +120,11 @@ def parse_fujisan_page(html: str) -> dict:
     取れなかった項目は空文字（None）。"""
     soup = BeautifulSoup(html, "html.parser")
     text = soup.get_text("\n", strip=True)
-    out = {"latest_label": "", "latest_date": "", "next_label": "", "next_date": "", "mokuji": "", "preview": ""}
+    out = {"latest_label": "", "latest_date": "", "next_label": "", "next_date": "", "mokuji": "", "preview": "",
+           "monthly_day": ""}
+    m = re.search(r"発行間隔\n月刊\n発売日\n毎月(\d{1,2})日", text)
+    if m:
+        out["monthly_day"] = m.group(1)
     seen_latest = seen_next = False
     for m in _ISSUE_RE.finditer(text):
         kind, label, y, mo, d = m.group(1), m.group(2).strip(), m.group(3), m.group(4), m.group(5)
@@ -133,6 +137,8 @@ def parse_fujisan_page(html: str) -> dict:
     flat = " ".join(text.split("\n"))
     # 目次: 「参考価格 … 目次 <本文> 目次配信サービス」
     i = flat.find("参考価格")
+    if i < 0:
+        i = flat.find("発行間隔")   # 参考価格が載っていない雑誌（芸術新潮など）
     j = flat.find("目次", i) if i >= 0 else -1
     k = flat.find("目次配信サービス", j) if j >= 0 else -1
     if j >= 0:
@@ -318,6 +324,15 @@ def collect_fujisan(session: requests.Session, today) -> list[dict]:
             print(f"  Fujisan HTTP {r.status_code} ({name})", file=sys.stderr)
             continue
         info = parse_fujisan_page(r.text)
+        if not info["latest_label"] and info["monthly_day"]:
+            # 芸術新潮のように最新号の号名がページに無い月刊誌: 「毎月◯日発売」から最新号を割り出す
+            # （その日を過ぎていれば今月発売の号。号名は発売月の翌月号とする、月刊誌のふつうの付け方）
+            day = int(info["monthly_day"])
+            y, mo = today.year, today.month
+            if today.day < day:
+                y, mo = (y - 1, 12) if mo == 1 else (y, mo - 1)
+            ny, nmo = (y + 1, 1) if mo == 12 else (y, mo + 1)
+            info["latest_label"], info["latest_date"] = f"{ny}年{nmo}月号", f"{y}-{mo:02d}-{day:02d}"
         if info["latest_label"] and info["mokuji"] and has_butsuzo_words(info["mokuji"]):
             age_ok = True
             try:

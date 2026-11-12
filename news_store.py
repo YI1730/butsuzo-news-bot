@@ -71,6 +71,7 @@ BOOK_HEADER_MAGAZINE = "【仏像特集】"
 
 BOOK_HEADER_J_BOOK = "【仏像の本】"           # 2つめのアカウント（美しい日本の仏像）側の見出し
 BOOK_HEADER_J_MAGAZINE = "【仏像特集号】"
+BOOK_HEADER_J_GOODS = "【仏像のグッズ】"
 BOOK_J_HASHTAGS = "#仏像 #仏像好きと繋がりたい"   # 仏像リンク側（item["hashtags"]）とは組み合わせを変える
 BOOK_MAIN_TAG = "butsuzo03-22"
 BOOK_J_TAG = "j_butsuzo-22"
@@ -82,6 +83,8 @@ def book_header(item: dict, account: str = "main") -> str:
     item の header には左右されない。"""
     mag = item.get("book_kind") == BOOK_KIND_MAGAZINE
     if account == "j":
+        if goods_kind(item) == "goods":
+            return BOOK_HEADER_J_GOODS
         return BOOK_HEADER_J_MAGAZINE if mag else BOOK_HEADER_J_BOOK
     return BOOK_HEADER_MAGAZINE if mag else BOOK_HEADER_BOOK
 
@@ -124,6 +127,21 @@ def book_post_tail(item: dict, account: str = "main") -> str:
     return compose_news_post("", item.get("title", ""), book_header(item, account)) + (f"\n{tags}" if tags else "")
 
 
+GOODS_TITLE_WORDS = ("カレンダー", "フィギュア", "御朱印帳", "手ぬぐい", "手拭", "ポスター", "ストラップ", "キーホルダー",
+                     "ぬいぐるみ", "置物", "Tシャツ", "トートバッグ", "マグカップ", "ステッカー", "シール", "缶バッジ",
+                     "アクリルスタンド", "ガチャ", "カプセルトイ", "パズル", "一筆箋", "ポストカード", "クリアファイル")
+
+
+def goods_kind(item: dict) -> str:
+    """書籍・グッズタブでの種類: "magazine"（雑誌の特集号）/ "goods"（グッズ。カレンダーなど本の検索で
+    見つかったものも題名で判定）/ "book"（書籍）。"""
+    if item.get("book_kind") == BOOK_KIND_MAGAZINE:
+        return "magazine"
+    if item.get("item_type") != "book" or any(w in (item.get("title") or "") for w in GOODS_TITLE_WORDS):
+        return "goods"
+    return "book"
+
+
 def book_author(item: dict) -> str:
     """Amazon の説明文「Amazonで◯◯の書名。…」から著者名を取り出す。分からなければ空。"""
     desc, title = item.get("description") or "", item.get("title") or ""
@@ -148,7 +166,7 @@ def j_book_post(item: dict, content: str = "", title: str | None = None) -> str:
     mag = item.get("book_kind") == BOOK_KIND_MAGAZINE
     rd = book_release_date(item)
     lines = [book_header(item, "j"), f"『{book_plain_title(item) if title is None else title}』"]
-    author = "" if mag else book_author(item)
+    author = "" if mag or goods_kind(item) == "goods" else book_author(item)
     if author:
         lines.append(f"著者：{author}")
     if rd:
