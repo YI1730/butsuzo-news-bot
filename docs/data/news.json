@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-11-12T20:10:36.441747+09:00",
+  "last_updated": "2026-11-12T20:14:46.234265+09:00",
   "items": [
+    {
+      "id": "c6527334274d",
+      "title": "仁和寺で人のタワー 7段、8段…スペイン伝統の技に歓声 [京都府] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCD33WFVCDPQIP00GM.html?iref=reporter-bio-cover_timeline",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-12T20:14:46.231684+09:00",
+      "published_at": "2026-11-12T18:52:10+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "\"仁和寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 25,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "仁和寺での人のタワー披露で仏像に触れず。配信1時間だが仏像の話題ではない",
+        "event": {
+          "event_name": "",
+          "place": "仁和寺（京都府京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-12T20:17:06+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "2a4d2a81dadd",
       "title": "[ネタバレ注意]仁王３[PS5版実況]014 - YouTube",
@@ -12281,36 +12311,6 @@
         "score_version": 8,
         "page_checked": true,
         "page_date": "2026-11-10"
-      }
-    },
-    {
-      "id": "3b03f69a71bd",
-      "title": "日本画の山種美術館が60周年 竹内栖鳳や村上華岳の重要文化財展示 [東京都] - 朝日新聞",
-      "url": "https://www.asahi.com/articles/ASVC93V28VC9UCVL03DM.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T12:11:57.002194+09:00",
-      "published_at": "2026-11-10T11:00:00+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 12,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "日本画の美術館展で仏像なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T12:14:40+09:00",
-        "score_version": 8
       }
     },
     {
