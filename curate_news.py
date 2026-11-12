@@ -21,6 +21,7 @@ import re
 import os
 import sys
 from datetime import datetime, timedelta
+from pathlib import Path
 from urllib.parse import urldefrag, urlencode, urljoin, urlparse
 
 import requests
@@ -35,6 +36,9 @@ from post_news import JST, RESOLVE_USER_AGENT, extract_og_image, load_news_data,
 MODEL = "claude-sonnet-5-5"
 # 価格（USD / 100万トークン）。実行ごとの費用をログに出すために使う
 PRICE_INPUT, PRICE_OUTPUT, PRICE_CACHE_READ, PRICE_CACHE_WRITE = 2.00, 10.00, 0.20, 2.50
+# 軽いモデル（一次判定・公式ページ探し・展覧会カレンダーの判定）。価格は 100K トークン以下の場合
+HAIKU_MODEL = "claude-haiku-5-5"
+HAIKU_PRICE_INPUT, HAIKU_PRICE_OUTPUT, HAIKU_PRICE_CACHE_READ, HAIKU_PRICE_CACHE_WRITE = 0.10, 0.50, 0.01, 0.125
 
 SCORE_WINDOW_HOURS = 48    # これより前に取り込んだ記事は採点しない（速報として扱わない）
 SCORE_BATCH_SIZE = 20      # 1 回の API 呼び出しで採点する件数
@@ -269,16 +273,22 @@ POST_SCHEMA = {
 class Usage:
     def __init__(self) -> None:
         self.input = self.output = self.cache_read = self.cache_write = 0
+        # 軽いモデル（Haiku）の分。価格が違うので Sonnet と分けて数える
+        self.light_input = self.light_output = self.light_cache_read = self.light_cache_write = 0
 
-    def add(self, u) -> None:
-        self.input += u.input_tokens or 0
-        self.output += u.output_tokens or 0
-        self.cache_read += getattr(u, "cache_read_input_tokens", 0) or 0
-        self.cache_write += getattr(u, "cache_creation_input_tokens", 0) or 0
+    def add(self, u, light: bool = False) -> None:
+        prefix = "light_" if light else ""
+        for attr, val in (("input", u.input_tokens or 0), ("output", u.output_tokens or 0),
+                          ("cache_read", getattr(u, "cache_read_input_tokens", 0) or 0),
+                          ("cache_write", getattr(u, "cache_creation_input_tokens", 0) or 0)):
+            setattr(self, prefix + attr, getattr(self, prefix + attr) + val)
 
     def cost(self) -> float:
         return (self.input * PRICE_INPUT + self.output * PRICE_OUTPUT
-                + self.cache_read * PRICE_CACHE_READ + self.cache_write * PRICE_CACHE_WRITE) / 1e6
+                + self.cache_read * PRICE_CACHE_READ + self.cache_write * PRICE_CACHE_WRITE
+                + self.light_input * HAIKU_PRICE_INPUT + self.light_output * HAIKU_PRICE_OUTPUT
+                + self.light_cache_read * HAIKU_PRICE_CACHE_READ
+                + self.light_cache_write * HAIKU_PRICE_CACHE_WRITE) / 1e6
 
 
 def call_json(client, usage: Usage, system: str, user: str, schema: dict, effort: str,
@@ -308,7 +318,7 @@ def call_json(client, usage: Usage, system: str, user: str, schema: dict, effort
         print(f"::warning::Claude API 接続エラー: {e}", file=sys.stderr)
         return None
 
-    usage.add(resp.usage)
+    usage.add(resp.usage, light=(model or MODEL) == HAIKU_MODEL)
     if resp.stop_reason == "refusal":
         print("::warning::Claude が応答を拒否しました", file=sys.stderr)
         return None
@@ -388,7 +398,7 @@ def article_links(url: str) -> list[tuple[str, str]]:
     return out[:25]
 
 
-SEARCH_MODEL = "claude-haiku-5-5"   # 公式ページ探しは軽いモデルで十分（検索結果の読み込みが費用の大半）
+SEARCH_MODEL = HAIKU_MODEL   # 公式ページ探しは軽いモデルで十分（検索結果の読み込みが費用の大半）
 SEARCH_OFFICIAL_PROMPT = """次の展覧会の公式ページを Web 検索で探し、その URL だけを 1 行で答えてください。
 優先順: ①主催の博物館・美術館・寺院の、この展覧会の紹介ページ ②主催者や自治体の公式発表
 （記者発表・お知らせ）のページ。サイトのトップページ・催しの一覧ページ・ニュースサイト・
@@ -415,7 +425,7 @@ def search_official_page(client, usage: "Usage", item: dict) -> str:
         except Exception as e:
             print(f"::warning::公式ページの検索に失敗（{tool_type}）: {type(e).__name__}", file=sys.stderr)
             continue
-        usage.add(resp.usage)
+        usage.add(resp.usage, light=True)
         text = " ".join(b.text for b in resp.content if b.type == "text")
         if os.environ.get("DEBUG_OFFICIAL"):
             print(f"   [検索の回答] {text[:300]}")
@@ -492,6 +502,131 @@ def article_kind(it: dict) -> str:
     if any(d == p or d.endswith("." + p) for p in PRIMARY_DOMAINS) or "記者発表" in it.get("title", ""):
         return "発表元・一次情報"
     return "ニュース記事"
+
+
+# ── 一次判定（Haiku）──────────────────────────────────────────────
+# Google ニュースには「大仏」「寺」の字だけを含む無関係な記事が多い（採点の約 4 割が 0〜9 点）。
+# 採点（Sonnet）の前に軽いモデルで「明らかに無関係」だけを落とし、費用を抑える。迷うものは必ず残す。
+PREFILTER_BATCH_SIZE = 30
+PREFILTER_SOURCES = {"google_news"}   # 一次判定にかけるのは Google ニュースだけ（公式サイト・特別展などは素通し）
+PREFILTER_FILE = Path(__file__).parent / "docs" / "data" / "prefiltered.json"
+PREFILTER_KEEP_DAYS = 14              # 落とした記事の一覧（PWA の確認用）を残す日数
+# 仏像・文化財・展覧会・公開・修復の語を含む記事は、一次判定を通さず必ず採点に回す（Haiku に頼らない）
+PREFILTER_BYPASS_RE = re.compile(
+    r"国宝|重要文化財|重文|文化財|仏像|如来|菩薩|観音|明王|天部|立像|坐像|座像|造像|仏頭|仏教美術"
+    r"|寺宝|宝物|秘宝|展覧会|特別展|企画展|公開|拝観|御開帳|開帳|秘仏|運慶|快慶"
+    r"|修復|修理|落慶|大仏|大佛|五重塔|三重塔|仏画|曼荼羅|曼陀羅|厨子|伽藍"
+)
+
+PREFILTER_SYSTEM = """あなたは X アカウント「仏像リンク」のニュースの一次選別担当です。
+このアカウントは、日本の仏像・寺院・仏教美術の話題を発信します。
+- 仏像、寺院の宝物・建造物、仏教美術の展覧会、御開帳・特別公開、文化財の指定、修理・修復、盗難・被害、研究・発見
+
+渡された記事ごとに、そのどれかに関わる可能性が少しでもあれば relevant を true、
+明らかに無関係なときだけ false にしてください。
+false にしてよい例:
+- 「大仏」「寺」が人名・地名・店名・商品名・比喩にすぎない（「大仏」というあだ名の選手、「○○寺駅」周辺の不動産など）
+- 仏像や寺院と関係のない経済・スポーツ・政治・事件・芸能・グルメ
+- 寺院は会場にすぎず、仏像・寺宝・建造物・仏教美術の話が全く出てこないイベント（フリーマーケット、コンサート、物産展など）
+- 仏像と関係のない一般的な観光・旅行の宣伝
+迷ったら必ず true にしてください（誤って落とすほうが、残すより損失が大きい）。
+reason は、false のときは落とす理由、true のときは残す理由を 30 文字以内で書いてください。"""
+
+PREFILTER_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "results": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "relevant": {"type": "boolean"},
+                    "reason": {"type": "string"},
+                },
+                "required": ["id", "relevant", "reason"],
+                "additionalProperties": False,
+            },
+        }
+    },
+    "required": ["results"],
+    "additionalProperties": False,
+}
+
+
+def prefilter_bypass(it: dict) -> bool:
+    """一次判定を通さず、そのまま採点に回す記事か。
+    Google ニュース以外（公式サイト・特別展など）、以前に採点した記事（採点基準の更新による再採点）、
+    仏像・文化財・展覧会の語を含む記事。"""
+    if it.get("source") not in PREFILTER_SOURCES or it.get("source") in CALENDAR_ONLY_SOURCES:
+        return True
+    if it.get("ai"):
+        return True
+    return bool(PREFILTER_BYPASS_RE.search(f"{it.get('title', '')} {it.get('description', '')}"))
+
+
+def prefilter_items(client, usage: Usage, items: list[dict]) -> tuple[list[dict], list[tuple[dict, str]]]:
+    """採点の前に、明らかに無関係な記事を軽いモデル（Haiku）で落とす。
+    (残す記事, [(落とす記事, 理由), ...]) を返す。応答が無い・形式不備・id の欠けは全部「残す」側に倒す。"""
+    verdict: dict[str, str] = {}   # id → 落とす理由
+    todo = [it for it in items if not prefilter_bypass(it)]
+    for i in range(0, len(todo), PREFILTER_BATCH_SIZE):
+        batch = todo[i:i + PREFILTER_BATCH_SIZE]
+        articles = [
+            {"id": it["id"], "title": it.get("title", ""),
+             "description": (it.get("description") or "")[:200], "source": domain(it.get("url", ""))}
+            for it in batch
+        ]
+        user = "## 選別する記事\n" + json.dumps(articles, ensure_ascii=False, indent=1)
+        data = call_json(client, usage, PREFILTER_SYSTEM, user, PREFILTER_SCHEMA, effort="low", model=HAIKU_MODEL)
+        if not isinstance(data, dict):
+            continue
+        ids = {it["id"] for it in batch}
+        for r in data.get("results") or []:
+            if isinstance(r, dict) and r.get("id") in ids and r.get("relevant") is False:
+                verdict[r["id"]] = " ".join(str(r.get("reason") or "").split())[:60]
+    keep = [it for it in items if it["id"] not in verdict]
+    dropped = [(it, verdict[it["id"]]) for it in items if it["id"] in verdict]
+    return keep, dropped
+
+
+def mark_prefiltered(it: dict, reason: str) -> None:
+    """一次判定で落とした記事の "ai"。ほかの処理からはノイズ（0 点・無関係）として扱われる。"""
+    kept = {k: v for k, v in (it.get("ai") or {}).items()
+            if k in ("post_text", "post_format", "notified", "post_attempts", "page_checked", "page_date", "stale")}
+    it["ai"] = {
+        **kept,
+        "score": 0,
+        "category": "無関係",
+        "duplicate": False,
+        "reason": f"一次判定（Haiku）で対象外: {reason}" if reason else "一次判定（Haiku）で対象外",
+        "event": {"event_name": "", "place": "", "start_date": "", "end_date": ""},
+        "buddha_designation": False,
+        "freshness": "breaking",
+        "model": HAIKU_MODEL,
+        "prefiltered": True,
+        "scored_at": datetime.now(JST).isoformat(timespec="seconds"),
+        "score_version": SCORE_VERSION,
+    }
+
+
+def record_prefiltered(dropped: list[tuple[dict, str]], path: Path | None = None) -> None:
+    """落とした記事を、直近 PREFILTER_KEEP_DAYS 日分の一覧として保存する（PWA で誤って落としていないか確認する用）。"""
+    path = path or PREFILTER_FILE
+    now = datetime.now(JST)
+    try:
+        old = json.loads(path.read_text(encoding="utf-8")).get("items", []) if path.exists() else []
+    except (OSError, ValueError):
+        old = []
+    merged = {x["id"]: x for x in old if isinstance(x, dict) and x.get("id")}
+    for it, reason in dropped:
+        merged[it["id"]] = {"id": it["id"], "title": it.get("title", ""), "url": it.get("url", ""),
+                            "reason": reason, "dropped_at": now.isoformat(timespec="seconds")}
+    cutoff = (now - timedelta(days=PREFILTER_KEEP_DAYS)).isoformat(timespec="seconds")
+    items = sorted((x for x in merged.values() if x.get("dropped_at", "") >= cutoff),
+                   key=lambda x: x["dropped_at"], reverse=True)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({"items": items}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
 
 def score_items(client, usage: Usage, items: list[dict], recent_candidates: list[dict]) -> int:
@@ -746,7 +881,17 @@ def main() -> int:
         if it.get("source") == "reminder" and recent(it)
         and it.get("ai", {}).get("post_header") in EXHIBIT_HEADERS_ALL
     ]
-    print(f"採点対象: {len(unscored)}件（直近{SCORE_WINDOW_HOURS}時間のニュース {len(news)}件中）")
+    # 一次判定: 明らかに無関係な記事を Haiku で落とし、残りだけを Sonnet で採点する（PREFILTER=off で無効）
+    prefiltered = 0
+    if unscored and os.environ.get("PREFILTER", "").strip().lower() != "off":
+        unscored, dropped = prefilter_items(client, usage, unscored)
+        for it, reason in dropped:
+            mark_prefiltered(it, reason)
+            print(f"一次判定で除外: {it.get('title', '')[:60]}（{reason}）")
+        if dropped:
+            record_prefiltered(dropped)
+        prefiltered = len(dropped)
+    print(f"採点対象: {len(unscored)}件・一次判定で除外 {prefiltered}件（直近{SCORE_WINDOW_HOURS}時間のニュース {len(news)}件中）")
 
     scored = score_items(client, usage, unscored, recent_candidates) if unscored else 0
     stale = check_stale(news)
@@ -803,7 +948,7 @@ def main() -> int:
         f"キャッシュ読込 {usage.cache_read:,} / キャッシュ書込 {usage.cache_write:,} "
         f"→ 約 ${usage.cost():.4f}"
     )
-    print(f"::notice::AI採点 {scored}件・投稿文 {written}件・費用 約${usage.cost():.4f}")
+    print(f"::notice::AI採点 {scored}件・一次判定で除外 {prefiltered}件・投稿文 {written}件・費用 約${usage.cost():.4f}")
     return 0
 
 

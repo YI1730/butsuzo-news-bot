@@ -419,6 +419,37 @@ def build_cards_with_separators(items: list[dict]) -> str:
     return "\n".join(output)
 
 
+PREFILTERED_FILE = DOCS_DIR / "data" / "prefiltered.json"
+PREFILTER_SHOW_DAYS = 14
+
+
+def build_prefiltered_html(path=None) -> str:
+    """AI の一次判定（curate_news.py）で落とした記事の一覧。誤って落としていないかをスマホで確認する用。"""
+    path = path or PREFILTERED_FILE
+    try:
+        entries = json.loads(path.read_text(encoding="utf-8")).get("items", []) if path.exists() else []
+    except (OSError, ValueError):
+        entries = []
+    cutoff = (datetime.now(JST) - timedelta(days=PREFILTER_SHOW_DAYS)).isoformat()
+    entries = [e for e in entries if isinstance(e, dict) and e.get("title") and e.get("dropped_at", "") >= cutoff]
+    if not entries:
+        return ""
+    esc = lambda t: str(t).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+    rows = "\n".join(
+        '        <li class="py-1.5 border-t border-gray-100 first:border-t-0">'
+        f'<a href="{esc(e.get("url", ""))}" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">{esc(e["title"])}</a>'
+        f'<span class="block text-[11px] text-gray-400">{esc(e.get("dropped_at", "")[5:10])}・{esc(e.get("reason", ""))}</span></li>'
+        for e in entries
+    )
+    return (
+        '    <details id="prefiltered-box" class="rounded-xl border border-gray-200 bg-white px-3 py-2 mt-6">\n'
+        f'      <summary class="text-xs text-gray-500 cursor-pointer">一次判定で落とした記事（直近{PREFILTER_SHOW_DAYS}日・{len(entries)}件）</summary>\n'
+        '      <p class="text-[11px] text-gray-400 mt-1">仏像と関係ありそうなのに落ちていたら教えてください</p>\n'
+        f'      <ul class="mt-1">\n{rows}\n      </ul>\n'
+        '    </details>'
+    )
+
+
 def build_html(items: list[dict], last_updated: str) -> str:
     _SKIPPED_IDS.clear()
     _SKIPPED_IDS.update(load_skipped()[0])
@@ -470,6 +501,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
     book_cards  = build_book_cards(book_items)
     goods_cards = build_cards_with_separators(other_goods)
     news_count  = len(news_items) + len(candidates)
+    prefiltered_html = build_prefiltered_html()
     goods_count = len(goods_items)
     book_count  = len(book_items)
     other_goods_count = len(other_goods)
@@ -588,6 +620,7 @@ def build_html(items: list[dict], last_updated: str) -> str:
     <div id="tab-news" class="tab-pane space-y-3">
 {news_cards}
       <div id="news-time-list" class="space-y-3"></div>
+{prefiltered_html}
     </div>
     <div id="tab-goods" class="tab-pane space-y-3 hidden">
       <!-- 書籍（上段） -->
