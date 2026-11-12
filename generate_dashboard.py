@@ -116,7 +116,9 @@ def book_post_for(item: dict, account: str) -> str:
     """書籍・雑誌の投稿文（account="main" は仏像リンク側、"j" は2つめのアカウント側）。
     リンク込みで X の 280 字に収める。#PR は付けない（代表の判断）。"""
     link = book_link(item, account)
-    comment = (item.get("j_post_text") if account == "j" else item.get("book_post_text")) or ""
+    if account == "j":
+        return fit_j_book_post(item, link)
+    comment = item.get("book_post_text") or ""
     hdr, tags = book_header(item, account), book_hashtags(item, account)
     text = (fit_x_post("", comment.strip(), book_post_tail(item, account), link) if comment.strip()
             else fit_headline_post(hdr, item.get("title", ""), tags, link))
@@ -125,10 +127,28 @@ def book_post_for(item: dict, account: str) -> str:
     return text
 
 
+def fit_j_book_post(item: dict, link: str) -> str:
+    """2つめのアカウント側の投稿文を X の 280 字に収める。長ければ内容の行を縮め、それでも長ければ書名を縮める。"""
+    from news_store import book_plain_title, j_book_post, shorten_to_weight
+    content = (item.get("j_post_text") or "").strip() if item.get("j_post_format", 1) >= 2 else ""
+    text = j_book_post(item, content)
+    if intent_weighted_length(text, link) <= X_LIMIT:
+        return text
+    if content:
+        room = X_LIMIT - intent_weighted_length(j_book_post(item, ""), link) - 4
+        short = shorten_to_weight(content, room) if room > 0 else ""
+        text = j_book_post(item, short)
+        if intent_weighted_length(text, link) <= X_LIMIT:
+            return text
+    title = book_plain_title(item)
+    room = X_LIMIT - intent_weighted_length(j_book_post(item, "", title=""), link)
+    return j_book_post(item, "", title=shorten_to_weight(title, room))
+
+
 def build_j_button(item: dict, now: datetime) -> str:
     """2つめのアカウント（美しい日本の仏像）の投稿ボタン。取り込みから BOOK_J_DELAY_DAYS 日たつまでは灰色で押せない。
     押せるかどうかは表示時に JS（refreshJButtons）でも判定する。"""
-    if item.get("item_type") != "book" or not (item.get("j_post_text") or "").strip():
+    if item.get("item_type") != "book":
         return ""
     link = book_link(item, "j")
     text = book_post_for(item, "j")

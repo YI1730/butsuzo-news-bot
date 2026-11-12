@@ -76,26 +76,31 @@ MAX_BOOK_POSTS_PER_RUN = 15   # 費用を抑えるため 1 回の実行で作る
 MAX_BOOK_POST_ATTEMPTS = 3
 BOOK_COMMENT_CHARS = 100      # 書名・見出し・タグ・リンクと合わせて X の 280 字に収めるための、コメントの目安
 
-# 2つめのアカウント（美しい日本の仏像）の紹介文。仏像リンク側とは視点も言葉も変える
-J_POST_SYSTEM = """あなたは X アカウント「美しい日本の仏像」の中の人です。仏像の写真と見どころを静かに紹介するアカウントで、
-書籍・雑誌を紹介する投稿の「文章部分」を書いてください。
-投稿は「あなたの文章」→「【仏像の本】書名」→「ハッシュタグ」→「リンク」の順に並ぶので、
-書名・見出し・ハッシュタグ・URL は書かないでください（システムが後ろに付けます）。
+# 2つめのアカウント（美しい日本の仏像）の紹介文。仏像を淡々と紹介するアカウントなので、勧めや感想を入れず、
+# どんな本・グッズかだけを書く。投稿は news_store.j_book_post の目録の形（見出し → 『書名』 → 著者・発売日 → 内容 → タグ）
+J_FEELING_WORDS = ("おすすめ", "オススメ", "楽しみ", "気になる", "向き", "人に", "眺め", "味わ", "ぜひ", "！", "!", "？", "?",
+                   "美しい", "見応え", "魅力", "静かに")
+J_POST_FORMAT = 2   # 上げると、2つめのアカウント側の内容の行を作り直す
+J_POST_SYSTEM = """X アカウント「美しい日本の仏像」で書籍・雑誌・グッズを紹介する投稿の、「内容：」の行だけを書いてください。
+投稿はシステムが次の形に組み立てます。見出し・書名・著者・発売日・ハッシュタグ・URL は書かないでください。
+  【仏像の本】
+  『書名』
+  著者：◯◯
+  発売日：◯年◯月◯日
+  内容：（あなたが書く行）
 
-# 視点
-- 本に載っている像や寺を 1 つ取り上げ、その見どころ（姿・素材・時代・安置されている場所）から入る。
-  取り上げられるのは、説明文や書名に書かれている範囲の像・寺だけ。載っていない像や寺を足さない
-- 「この本は〜な人に向く」「入門にちょうどよい」のような、読者に本を勧める書き方はしない
-- 一人称（私・わたし・僕）、コミュニティ・ツアー・フォロワー・「仏像リンク」への言及はしない
-- 説明文に書かれていないこと（著者の意図、本の章立て、像の細部）は書かない。像や寺が 1 つも分からないときは、
-  書名が示す主題（地域・時代・テーマ）の見どころから入る
+# 書くこと
+- どんな本・グッズかを、事実だけで説明する。扱う主題（時代・地域・寺・像・テーマ）、形式（新書・図録・写真集・
+  カレンダー・特集号など）、載っているもの。書名と説明文に書かれている範囲だけ。分からないことは書かない
+- 体言止めの説明文 1 文（長くても 2 文）。全角 60 字以内。例:「ガンダーラ美術の成り立ちを、ギリシア彫刻との関わりから解説する新書。」
 
-# 文体
-- 落ち着いた常体。盛らない・煽らない。「！」は使わない。ハッシュタグ・絵文字は使わない
-- 仏像は「仏様」「仏さま」「仏さん」と呼ばず、「◯◯像」「◯◯さん」と書く。「癒やし」「癒し」「感動」「圧倒」
-  「驚き」「最高」「興奮」は使わない。光の入り方・素材の質感など具体で伝える
-- 運慶・快慶など作者の帰属は、説明文に書かれているとおりに。「伝運慶」と「運慶作」を取り違えない
-- 全角 100 字以内、1〜2 文"""
+# 書かないこと
+- 勧め・評価・感想・気持ち（「おすすめ」「〜な人に」「楽しみ」「気になる」「美しい」「見応え」「眺めたい」など）
+- 読者への呼びかけ、問いかけ、一人称、「！」、絵文字、ハッシュタグ
+- 像の姿の描写や情景描写（「衣のひだ」「静かに向き合う」のような文学的な書き方）
+- 「仏様」「仏さま」「仏さん」「癒やし」「感動」「圧倒」「驚き」「最高」
+- 書名の言い換えだけの文。Amazon の定型文（「アマゾンならポイント還元本が多数」など）
+- 運慶・快慶などの作者の帰属は、説明文どおりに（「伝」があれば付ける）"""
 
 
 def _book_extra(b: dict, today, own: bool) -> str:
@@ -109,10 +114,10 @@ def _book_extra(b: dict, today, own: bool) -> str:
     else:
         when = f"{rd:%Y年%m月%d日}発売"
     mag = b.get("book_kind") == "magazine"
-    if not own:   # j 側: 材料だけ渡す（視点は J_POST_SYSTEM）
-        return (f"{'雑誌' if mag else '書籍'}: {b.get('title', '')}（{when}）\n"
+    if not own:   # j 側: 材料だけ渡す（書き方は J_POST_SYSTEM）
+        return (f"{'雑誌の特集号' if mag else '書籍・グッズ'}: {b.get('title', '')}（{when}）\n"
                 f"説明: {b.get('description', '')}\n"
-                f"コメントは全角 {BOOK_COMMENT_CHARS} 字以内、1〜2 文で書く。")
+                "「内容：」の行だけを、全角 60 字以内の体言止め 1 文で書く。")
     if mag:
         kind = (f"これは雑誌の仏像特集号を紹介する投稿です。{when}。誌名と号: {b.get('title', '')}。\n"
                 f"特集の内容: {b.get('description', '')}\n"
@@ -145,6 +150,10 @@ def write_book_posts(client, usage: Usage, books: list[dict]) -> int:
     for b in shown:
         for own in (True, False):
             field, tries = ("book_post_text", "book_post_attempts") if own else ("j_post_text", "j_post_attempts")
+            if not own and b.get("j_post_format", 1) < J_POST_FORMAT:
+                # 2つめのアカウント側は形を変えたので、古い文章は作り直す
+                b.pop("j_post_text", None)
+                b[tries] = 0
             if b.get(field) or b.get(tries, 0) >= MAX_BOOK_POST_ATTEMPTS:
                 continue
             if calls >= MAX_BOOK_POSTS_PER_RUN:
@@ -152,13 +161,22 @@ def write_book_posts(client, usage: Usage, books: list[dict]) -> int:
             calls += 1
             account = "main" if own else "j"
             other = b.get("j_post_text" if own else "book_post_text", "")
-            reject = (lambda t, o=other: "もう一方のアカウントの文章と似すぎています。視点・言葉・書き出しを変える"
-                      if o and too_similar(t, o) else None)
+            def reject(t, o=other, own=own):
+                if o and too_similar(t, o):
+                    return "もう一方のアカウントの文章と似すぎています。視点・言葉・書き出しを変える"
+                hits = [] if own else [w for w in J_FEELING_WORDS if w in t]
+                if hits:
+                    return ("「" + "」「".join(hits) + "」は勧めや感想の言い方です。どんな本・グッズかの事実だけを、"
+                            "体言止めの 1 文で書いてください")
+                return None
             text = write_post(client, usage, b, header=book_header(b, account),
-                              extra=_book_extra(b, today, own), fetch_body=False, max_chars=BOOK_COMMENT_CHARS,
+                              extra=_book_extra(b, today, own), fetch_body=False,
+                              max_chars=BOOK_COMMENT_CHARS if own else 60,
                               system=None if own else J_POST_SYSTEM,
                               tail_extra="\n" + book_hashtags(b, account), reject=reject)
             b[tries] = b.get(tries, 0) + 1
+            if not own:
+                b["j_post_format"] = J_POST_FORMAT
             if text:
                 b[field] = text
                 made += 1

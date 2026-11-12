@@ -74,7 +74,7 @@ BOOK_HEADER_J_MAGAZINE = "【仏像特集号】"
 BOOK_J_HASHTAGS = "#仏像 #仏像好きと繋がりたい"   # 仏像リンク側（item["hashtags"]）とは組み合わせを変える
 BOOK_MAIN_TAG = "butsuzo03-22"
 BOOK_J_TAG = "j_butsuzo-22"
-BOOK_J_DELAY_DAYS = 3                           # 取り込みからこの日数たつまで、2つめのアカウントのボタンは押せない
+BOOK_J_DELAY_DAYS = 0                           # 2つめのアカウントも取り込み直後から投稿できる（2026-11-13 代表の判断で日をずらすのをやめた）
 
 
 def book_header(item: dict, account: str = "main") -> str:
@@ -122,6 +122,41 @@ def book_post_tail(item: dict, account: str = "main") -> str:
     """紹介文の後ろに付く部分: 「\n\n【見出し】書名\n#PR #タグ…」。"""
     tags = book_hashtags(item, account)
     return compose_news_post("", item.get("title", ""), book_header(item, account)) + (f"\n{tags}" if tags else "")
+
+
+def book_author(item: dict) -> str:
+    """Amazon の説明文「Amazonで◯◯の書名。…」から著者名を取り出す。分からなければ空。"""
+    desc, title = item.get("description") or "", item.get("title") or ""
+    if not desc.startswith("Amazonで") or not title:
+        return ""
+    i = desc.find("の" + title[:8])
+    name = desc[len("Amazonで"):i].strip() if i > len("Amazonで") else ""
+    return name if 0 < len(name) <= 60 else ""
+
+
+def book_plain_title(item: dict) -> str:
+    """書名から末尾の叢書・シリーズ名（「 (光文社新書 1401)」など）を外す。"""
+    import re as _re
+    t = (item.get("title") or "").strip()
+    return _re.sub(r"\s*[（(][^（）()]*[)）]\s*$", "", t) or t
+
+
+def j_book_post(item: dict, content: str = "", title: str | None = None) -> str:
+    """2つめのアカウント（美しい日本の仏像）側の投稿文。仏像リンク側（感想 → 見出し・書名）とは形を変え、
+    見出し → 『書名』 → 著者・発売日・内容の項目 → ハッシュタグ、の目録のような形にする（感想は入れない）。"""
+    from datetime import date as _date
+    mag = item.get("book_kind") == BOOK_KIND_MAGAZINE
+    rd = book_release_date(item)
+    lines = [book_header(item, "j"), f"『{book_plain_title(item) if title is None else title}』"]
+    author = "" if mag else book_author(item)
+    if author:
+        lines.append(f"著者：{author}")
+    if rd:
+        lines.append(f"発売日：{rd.year}年{rd.month}月{rd.day}日" + ("（予約受付中）" if rd > _date.today() else ""))
+    if content.strip():
+        lines.append(("特集：" if mag else "内容：") + content.strip())
+    tags = book_hashtags(item, "j")
+    return "\n".join(lines) + (f"\n\n{tags}" if tags else "")
 
 
 def j_available_at(item: dict):
