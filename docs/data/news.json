@@ -1,6 +1,188 @@
 {
-  "last_updated": "2026-11-13T07:11:44.036735+09:00",
+  "last_updated": "2026-11-13T08:12:18.146059+09:00",
   "items": [
+    {
+      "id": "289266e555a7",
+      "title": "光秀の「丹波攻略」から守った仏像、京都・亀岡で公開「困難想像を」 [京都府] - 朝日新聞",
+      "url": "https://www.asahi.com/sp/articles/photo/AS20261111003505.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T08:12:18.144328+09:00",
+      "published_at": "2026-11-11T17:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 40,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "配信済みの亀岡の仏像公開と同じ出来事のため重複。経過39時間",
+        "event": {
+          "event_name": "",
+          "place": "京都府亀岡市",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T08:15:01+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "32635c7d9887",
+      "title": "光秀の「丹波攻略」から守った仏像、京都・亀岡で公開「困難想像を」 [京都府] - 朝日新聞",
+      "url": "https://www.asahi.com/sp/articles/photo/AS20261111003493.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T08:12:08.943212+09:00",
+      "published_at": "2026-11-11T17:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 40,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "配信済みと同じ出来事で重複。同一記事も一覧内にある",
+        "event": {
+          "event_name": "",
+          "place": "京都府亀岡市",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T08:15:01+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "46625d700252",
+      "title": "京都府綾部市移住の陶芸家が、与謝野町の重文「旧尾藤家住宅」で「丹の土」彩る陶器展 - 京都新聞デジタル",
+      "url": "https://www.kyoto-np.co.jp/articles/-/1824672",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T08:11:59.716689+09:00",
+      "published_at": "2026-11-12T16:00:00+09:00",
+      "image_url": "https://kyoto-np.ismcdn.jp/mwimgs/7/4/1200wm/img_748824f3c375174a31219378fa6bfe4d3551347.jpg",
+      "description": "京都府綾部市在住の陶芸家秋田アイさん（４３）の展覧会「ここにもそこ丹（に）も」が、与謝野町加悦の国指定重要文化財・旧尾藤家住宅で開かれてい…",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "陶芸家の陶器展で旧民家が会場。仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T08:15:01+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "afff587b06e7",
+      "title": "京都市上京区の「紫式部ゆかりの寺」に参る女性ファンは何を思う 秋の特別公開に浸る - 京都新聞デジタル",
+      "url": "https://www.kyoto-np.co.jp/articles/-/1824861",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T08:11:55.925482+09:00",
+      "published_at": "2026-11-13T04:45:00+09:00",
+      "image_url": "https://kyoto-np.ismcdn.jp/mwimgs/a/e/1200wm/img_ae64acb564ec3b784afbb9ddff9c7c1d773700.jpg",
+      "description": "紫式部ゆかりの地とされる廬山寺（ろさんじ）（京都市上京区）は、京都御苑の東側に位置している。車が行き交う寺町通に面した山門から境内に入ると、「壺中（こちゅう）の天」と表現したくなるような静かな空間が広がっていた。 本堂の南側に「源氏庭」が築かれている。平安朝の様式を想定して造られ、白川砂を「空」、コケの緑を「雲」に見立てているという。１１月上旬の取材時には、浮島のようなコケの領域にキキョウとリンドウが花を咲かせていた。 作庭された１９６０年代後半、源氏物語に登場する朝顔は現在のキキョウに該当する－との説に基づいて植えられたという。源氏物語の植物に詳し",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 35,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "廬山寺の庭と紫式部ゆかりが中心で仏像に触れず。上限内で低評価",
+        "event": {
+          "event_name": "廬山寺 秋の特別公開",
+          "place": "廬山寺（京都府京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T08:15:01+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "55b6a28725e4",
+      "title": "奈良県内で妻が行方不明　捜索続けて12年、山口県の林さん「情報あれば連絡を」 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/nara_np/region/nara_np-20261113060006",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T08:11:53.163855+09:00",
+      "published_at": "2026-11-13T06:00:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/nara_np/m_nara_np-20261113060006.jpg",
+      "description": "12年前に奈良市で観光中に行方不明となった妻、林まゆみさん(当時56)を捜索している山口県周南市の林洋二…",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 奈良での行方不明者捜索で仏像・寺院の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T08:14:57+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c06dfc644158",
+      "title": "京都「瓢亭」、高橋英一のすべて① 料理 【家庭画報創刊70周年記念企画】 - 家庭画報",
+      "url": "https://www.kateigaho.com/70th/specialfeature/183469",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T08:11:51.105585+09:00",
+      "published_at": "2026-11-13T07:24:51+09:00",
+      "image_url": "https://static.www.kateigaho.com/asset/frontend/img/og.png",
+      "description": "選りすぐりのレストラン、手土産、毎日のレシピ、旬のファッション、資産価値のあるジュエリーなど、人生を豊かに彩る情報をお届けします。",
+      "search_query": "\"南禅寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 京都の料理店の記事で仏像・寺院・仏教美術と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T08:14:57+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "rem-58662350e305-ending",
       "title": "追悼と復興願う復興観音も 松本明慶工房の仏像彫刻展5年ぶり開催 福島・郡山市 - Excite エキサイト",
@@ -12291,100 +12473,6 @@
       }
     },
     {
-      "id": "b229eb16c073",
-      "title": "郡山市のうすい百貨店で開催！「京都 大佛師 松本明慶工房 仏像彫刻展」をPR：福テレへようこそ - FTV 福島テレビ",
-      "url": "https://www.fukushima-tv.co.jp/visitor/2026/11/pr-4.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T18:11:48.096987+09:00",
-      "published_at": "2026-11-10T16:24:59+09:00",
-      "image_url": "https://www.fukushima-tv.co.jp/image/ogp.png",
-      "description": "著名人やイベントPRなどで福島テレビに来社されたみなさんをご紹介します。",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 52,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "松本明慶工房の仏像彫刻展のPR。現代仏師の物販寄り展で優先度は中",
-        "event": {
-          "event_name": "京都 大佛師 松本明慶工房 仏像彫刻展",
-          "place": "うすい百貨店（福島県郡山市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T18:14:30+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-10"
-      }
-    },
-    {
-      "id": "ad8370e1142f",
-      "title": "『なんでも鑑定団』1500年以上前の仏像、本人評価額「300万円」→“ド級値”にどよめき「世界の名だたる美術館にも遜色しない…」 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/photo/detail?article_id=1989584",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T18:11:46.256833+09:00",
-      "published_at": "2026-11-10T16:30:15+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 45,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "鑑定団で古い仏像が高評価。テレビ番組の話題で来訪情報なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T18:14:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5900c28e5299",
-      "title": "高台寺、237年ぶり再建の客殿を公開 ふすま絵に金箔や季節の草花 - 日本経済新聞",
-      "url": "https://www.nikkei.com/article/DGXZQOUF105ON0Q6A111C2000000/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T18:11:43.908827+09:00",
-      "published_at": "2026-11-10T17:35:55+09:00",
-      "image_url": "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3855591010112026000000-1.jpg?auto=compress&bg=FFFF&crop=focalpoint&fit=crop&fm=jpg&h=630&w=1200&s=8def77474b940c2b3976a4ca9b41e203",
-      "description": "豊臣秀吉を弔うため正室の北政所ねねが建立した高台寺（京都市）は10日、再建した客殿「小方丈」（こほうじょう）を報道陣に公開した。1789年に焼失してから237年ぶりに建築した。ふすま絵には金箔を施し、春や秋の草花を描いた。小方丈は13日に落慶法要を行う。延べ床面積は約200平方メートルで、創建当時の約半分とした。建物の幅は約18メートル、奥行き約14メートル、高さ約10メートル。1988年に",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 55,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "高台寺の客殿再建公開。建物とふすま絵が主で仏像なし、上限内。13日落慶法要",
-        "event": {
-          "event_name": "高台寺 小方丈 落慶法要",
-          "place": "高台寺（京都府京都市）",
-          "start_date": "2026-11-13",
-          "end_date": "2026-11-13"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T18:14:30+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-10"
-      }
-    },
-    {
       "title": "仏教芸術 (第16号)",
       "url": "https://www.amazon.co.jp/dp/4805520167?tag=butsuzo03-22",
       "asin": "4805520167",
@@ -12553,98 +12641,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "食の顕彰で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T17:14:46+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "bc6ff21e1cf0",
-      "title": "トランプ氏「中ロ首脳と会談」 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778870/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T17:12:06.604335+09:00",
-      "published_at": "2026-11-09T11:08:33+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "トランプ米大統領は８日、今月中旬に中国・深センで開催されるアジア太平洋経済協力会議（ＡＰＥＣ）首脳会議に合わせ、習近平国家主席、ロシアのプーチン大統領と会談することになると思うと述べた。 【AFP時事】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "国際政治ニュースで仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T17:14:46+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "cdf23942b867",
-      "title": "奈良・興福寺の「踊り大将」12年ぶり公開 東金堂創建1300年を記念、11月末まで - 産経ニュース",
-      "url": "https://www.sankei.com/article/20261110-H6DI6JDBDVMUDJ6QDV7XIVTIQU/?outputType=asynd",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T17:12:04.314173+09:00",
-      "published_at": "2026-11-10T13:22:40+09:00",
-      "image_url": "https://www.sankei.com/resizer/v2/23PNTOXQNJPQLIRDV2RS7WASNU.jpg?auth=ec9545d0300df413c110ddff649d879ecdee1d276c0387bfcc9ba1341e9f545b&quality=50&focal=1072%2C1195&width=1200&height=675",
-      "description": "興福寺（奈良市）の東金堂が奈良時代の創建から1300年を迎えた。これを記念し、普段は拝観できない東金堂内の後堂（ごどう）が特別公開されている。安置されているの…",
-      "search_query": "\"興福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 50,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": true,
-        "reason": "配信済みの興福寺踊り大将の記事と同じ出来事で重複",
-        "event": {
-          "event_name": "興福寺 東金堂後堂 特別公開（踊り大将）",
-          "place": "興福寺（奈良県奈良市）",
-          "start_date": "",
-          "end_date": "2026-11-30"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T17:14:46+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-10"
-      }
-    },
-    {
-      "id": "a1d1f1bab8a1",
-      "title": "女神のかたち 特別講演会【第二回 メソポタミアの神々】 - アットエス",
-      "url": "https://www.at-s.com/event/article/2095220",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T17:12:01.730673+09:00",
-      "published_at": "2026-11-10T14:50:18+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 12,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "メソポタミアの神々の講演会で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
