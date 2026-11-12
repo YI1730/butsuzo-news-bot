@@ -1,6 +1,99 @@
 {
-  "last_updated": "2026-11-13T00:31:11.196394+09:00",
+  "last_updated": "2026-11-13T01:11:56.757885+09:00",
   "items": [
+    {
+      "id": "ba961051792e",
+      "title": "奈良・興福寺の「踊り大将」12年ぶり公開 東金堂創建1300年を記念、11月末まで （産経新聞） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/7576f33a74650ff17509477e12763459d24acde6",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T01:11:56.757439+09:00",
+      "published_at": "2026-11-10T13:24:55+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/default.jpg?exp=10800",
+      "description": "興福寺（奈良市）の東金堂が奈良時代の創建から1300年を迎えた。これを記念し、普段は拝観できない東金堂内の後堂（ごどう）が特別公開されている。安置されているのは「踊り大将」とも呼ばれる正了知（しょう",
+      "search_query": "文化財 特別公開 仏像 市",
+      "ai": {
+        "score": 60,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "興福寺東金堂の踊り大将公開は配信済みと同じ出来事。重複で大きく減点",
+        "event": {
+          "event_name": "東金堂創建1300年記念 後堂特別公開(踊り大将)",
+          "place": "興福寺東金堂(奈良県奈良市)",
+          "start_date": "",
+          "end_date": "2026-11-30"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T01:14:20+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-10"
+      }
+    },
+    {
+      "id": "dd2a5f04ef04",
+      "title": "“東洋美術の最高傑作”と称される牧谿《観音猿鶴図》、長谷川等伯ら巨匠絵師をうならせたその凄みとは？ - JBpress",
+      "url": "https://jbpress.ismedia.jp/articles/gallery/97569?photo=2",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T01:11:55.353727+09:00",
+      "published_at": "2026-11-12T07:41:39+09:00",
+      "image_url": "https://jbpress.ismcdn.jp/mwimgs/3/8/1200mw/img_38a556f2ec1422a8f9f0b2d05c5ff528488178.jpg",
+      "description": "東京国立博物館で開幕した特別展「大徳寺 本朝無双之禅苑」で、牧谿《観音猿鶴図》が公開されている（前期展示：10/14～11/8）。この作品には古くから「東洋美術の最高傑作」「水墨芸",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 30,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "大徳寺展の牧谿の絵画が主役で仏像なし。前期展示も11/8に終了済み",
+        "event": {
+          "event_name": "特別展「大徳寺 本朝無双之禅苑」",
+          "place": "東京国立博物館(東京都台東区)",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T01:14:20+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "0d96931c166d",
+      "title": "【ホテルメトロポリタン 羽田】「JAL SKY MUSEUM」見学体験付き宿泊プラン - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/prtimes_000002658_000030117/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T01:11:51.602347+09:00",
+      "published_at": "2026-11-12T10:01:44+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "大好評の特別企画！通算４回目は2027年1月19日（火）より1泊で販売～空の仕事やJALの歴史に触れ、空が広く、近",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 航空博物館の宿泊プランで仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T01:14:16+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "九州国立博物館 特別展「菅原道真」（10月9日~12月5日）",
       "url": "https://www.kyuhaku.jp/",
@@ -12241,96 +12334,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "健康記事で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T14:15:51+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1a80670fffd9",
-      "title": "「1万円札を崩すために12円のガムを1個ずつ…」「何も買わずにポットのお湯を水筒へ」コンビニ店員が困惑した外国人客の迷惑行為 - Infoseek",
-      "url": "https://news.infoseek.co.jp/topics/spa_20261110_02194159/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T14:12:11.440288+09:00",
-      "published_at": "2026-11-10T08:53:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/spa/spa_20261110_02194159_0.jpg",
-      "description": "日本政府観光局（JNTO）によると、2025年の訪日外国人旅行者数は4268万人に達し、過去最高を更新した。訪日外【トピックス】",
-      "search_query": "\"東金堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "外国人客の話題で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T14:15:51+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e93ce2f62689",
-      "title": "折り紙から思いもよらない世界が広がるユーモアたっぷりでかわいい絵本『おりがみねこ』11月16日発売 - Koubo",
-      "url": "https://koubo.jp/press-release/prtimes/c12505_r1310",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T14:12:09.783383+09:00",
-      "published_at": "2026-11-10T10:00:00+09:00",
-      "image_url": "",
-      "description": "公募、コンテスト、コンペ、募集情報を掲載。文芸、文学賞、アート、シンボルマーク、キャラクターデザイン、ロゴ、デザイン、イラスト、コピー、愛称、フォトコン、を年間2万件以上紹介する公募ガイド社運営のWebサイトです。",
-      "search_query": "\"三十三間堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "絵本の発売情報で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T14:15:51+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "8fb84ce7e7d3",
-      "title": "｢不登校は甘え｣は日本だけ…通学を｢根性論｣にすり替える｢悪気のない親､教師｣が後を絶たない構造的な理由 - Infoseek",
-      "url": "https://news.infoseek.co.jp/topics/president_121623/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T14:12:06.873365+09:00",
-      "published_at": "2026-11-10T10:15:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/president/president_121623_0-enlarge.jpg",
-      "description": "不登校の児童・生徒の数が過去最高に達している状況をどう改善していけばいいのか。自身も不登校を経験し、不登校や教育に【トピックス】",
-      "search_query": "\"東金堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "不登校の話題で無関係",
         "event": {
           "event_name": "",
           "place": "",
