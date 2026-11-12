@@ -1,6 +1,67 @@
 {
-  "last_updated": "2026-11-12T19:59:31.586191+09:00",
+  "last_updated": "2026-11-12T20:10:36.441747+09:00",
   "items": [
+    {
+      "id": "2a4d2a81dadd",
+      "title": "[ネタバレ注意]仁王３[PS5版実況]014 - YouTube",
+      "url": "https://youtu.be/BHRJFs3A5JA?si=l2rHYqGxI4RQk4O6",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-12T20:10:36.437265+09:00",
+      "published_at": "2026-11-12T18:13:55+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ゲーム実況で仏像・寺院の話題と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-12T20:13:05+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "6816e18e7ed9",
+      "title": "仁和寺で人のタワー 7段、8段…スペイン伝統の技に歓声 [京都府] - 朝日新聞",
+      "url": "https://www.asahi.com/sp/articles/photo/AS20261112003264.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-12T20:10:34.619982+09:00",
+      "published_at": "2026-11-12T18:52:10+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "\"仁和寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "仁和寺での人のタワー奉納。仏像に触れておらず優先度低。配信1時間の第一報だが内容は仏像と関係薄い",
+        "event": {
+          "event_name": "",
+          "place": "仁和寺（京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-12T20:13:08+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "e052cdcabe94",
       "title": "音の和フェスタのチラシ・裏（写真提供＝周南公立大学吹奏楽部） - 周南経済新聞",
@@ -12247,72 +12308,6 @@
         },
         "buddha_designation": false,
         "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T12:14:40+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "6ce34af9cdd4",
-      "title": "千葉・富津の東京湾観音、来年3月末で拝観終了　「諸般の事情」で - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/asahi_region/nation/asahi_region-ASVC941HKVC9UDCB00DM",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T12:11:47.541195+09:00",
-      "published_at": "2026-11-10T11:15:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/-/20261110100410/img/dmenu_service-brand-logo_200x200.png",
-      "description": "千葉県富津市小久保の大坪山中にそびえ立つ高さ56メートルの「東京湾観音」の拝観受け付けが来年3月末で終…",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 72,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "東京湾観音の拝観終了予告。来春までで今知る意味あり、第一報",
-        "event": {
-          "event_name": "東京湾観音 拝観受付終了",
-          "place": "東京湾観音（千葉県富津市）",
-          "start_date": "",
-          "end_date": "2027-03-31"
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T12:14:40+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-10",
-        "post_text": "高さ56メートルの東京湾観音が、来年3月末で拝観終了とのこと。胎内の322段のらせん階段で頭頂部まで上れるそう。理由は「諸般の事情」。残念。",
-        "post_attempts": 2,
-        "post_format": 7,
-        "notified": true
-      }
-    },
-    {
-      "id": "ba94783728a3",
-      "title": "千葉・富津の東京湾観音、来年3月末で拝観終了 「諸般の事情」で（朝日新聞） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/c6f3c7dff5672d05d09a6acd48438a74ee7ed22b",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T12:11:45.161390+09:00",
-      "published_at": "2026-11-10T11:15:01+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261110-00000068-asahi-000-1-view.jpg?exp=10800",
-      "description": "千葉県富津市小久保の大坪山中にそびえ立つ高さ56メートルの「東京湾観音」の拝観受け付けが来年3月末で終了する。年間3万人弱が訪れる同市の観光スポットだが、「諸般の事情」からだという。突然の終了に「美",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 48,
-        "category": "その他の仏像関連",
-        "duplicate": true,
-        "reason": "同じ東京湾観音の拝観終了記事の重複",
-        "event": {
-          "event_name": "東京湾観音 拝観受付終了",
-          "place": "東京湾観音（千葉県富津市）",
-          "start_date": "",
-          "end_date": "2027-03-31"
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-10T12:14:40+09:00",
         "score_version": 8
