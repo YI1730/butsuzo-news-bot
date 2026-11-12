@@ -50,6 +50,13 @@ MAGAZINES: list[tuple[str, str]] = [
 ]
 MAGAZINE_NAMES = [n for n, _ in MAGAZINES] + ["一個人", "日経おとなのOFF", "週刊朝日", "BRUTUS", "Pen", "美術手帖", "旅の手帖"]
 
+# Amazon 起点で見る雑誌（Fujisan の一覧に加えて）。各誌の新しい号を Amazon の雑誌カテゴリで探し、
+# 題名と商品ページの説明（特集・目次）に仏像らしい語があれば AI に判定させる
+AMAZON_EXTRA_MAGAZINES = ["BRUTUS", "Pen", "一個人", "美術手帖", "旅の手帖", "大人の休日倶楽部"]
+AMAZON_MAGAZINE_NODE = "13384021"   # Amazon.co.jp の「雑誌」
+AMAZON_ISSUES_PER_MAGAZINE = 2      # 1 誌あたり見る号（新しい順）
+AMAZON_ISSUE_WINDOW_DAYS = 45       # 発売からこの日数以内の号と、発売前の号だけ見る
+
 FUJISAN_URL = "https://www.fujisan.co.jp/product/{pid}/"
 SLEEP_FUJISAN = 3
 SLEEP_AMAZON = 4
@@ -348,6 +355,81 @@ def collect_fujisan(session: requests.Session, today) -> list[dict]:
     return entries
 
 
+_ISSUE_IN_TITLE = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月(?:\s*(\d{1,2})\s*日)?\s*号")
+
+
+def issue_label_from_title(title: str) -> str:
+    """「サライ 2026年 12月号 [雑誌]」→「2026年12月号」、「BRUTUS 2026年12月01日号」→「2026年12月1日号」。"""
+    t = unicodedata.normalize("NFKC", title)
+    m = _ISSUE_IN_TITLE.search(t)
+    if not m:
+        return ""
+    y, mo, d = m.group(1), int(m.group(2)), m.group(3)
+    return f"{y}年{mo}月{int(d)}日号" if d else f"{y}年{mo}月号"
+
+
+def _starts_with_magazine(title: str, name: str) -> bool:
+    t, n = _norm(title).lower(), _norm(name).lower()
+    # 「Penguin」のように誌名の後ろに英字が続くものは別の誌名（数字・記号・日本語なら同じ誌）
+    return t.startswith(n) and (len(t) == len(n) or not (t[len(n)].isascii() and t[len(n)].isalpha()))
+
+
+def amazon_description(session: requests.Session, asin: str) -> str:
+    """商品ページの説明（雑誌は特集・目次が書かれていることが多い）。取れなければ空。"""
+    soup = fetch_page(session, f"https://www.amazon.co.jp/dp/{asin}")
+    if not soup:
+        return ""
+    parts = []
+    for sel in ("#bookDescription_feature_div", "#productDescription", "#editorialReviews_feature_div"):
+        el = soup.select_one(sel)
+        if el:
+            parts.append(el.get_text(" ", strip=True).replace("続きを読む", ""))
+    return " ".join(parts)[:1500]
+
+
+def collect_amazon(session: requests.Session, today, skip_asins: set[str], seen: list[str]) -> list[dict]:
+    """各誌の新しい号を Amazon の雑誌カテゴリで探し、仏像らしい語がある号を AI に渡す候補にする。
+    一度見た ASIN（seen。data["mag_az_seen"] に残す）は商品ページを読み直さない。"""
+    names = [n for n, _ in MAGAZINES] + AMAZON_EXTRA_MAGAZINES
+    entries = []
+    for name in names:
+        time.sleep(SLEEP_AMAZON)
+        url = (f"https://www.amazon.co.jp/s?k={quote(name)}&i=stripbooks"
+               f"&rh=n%3A{AMAZON_MAGAZINE_NODE}&s=date-desc-rank")
+        soup = fetch_page(session, url)
+        if not soup:
+            print(f"  Amazon 雑誌検索: 取得できませんでした（{name}）", file=sys.stderr)
+            continue
+        picked = 0
+        for c in parse_amazon_cards(soup):
+            if picked >= AMAZON_ISSUES_PER_MAGAZINE:
+                break
+            if not _starts_with_magazine(c["title"], name):
+                continue
+            label = issue_label_from_title(c["title"])
+            if not label:
+                continue
+            try:
+                age = (today - datetime.strptime(c["release_date"], "%Y-%m-%d").date()).days
+            except ValueError:
+                age = 0
+            if age > AMAZON_ISSUE_WINDOW_DAYS:
+                break   # 新しい順なので、ここから先は古い号
+            picked += 1
+            if c["asin"] in skip_asins or c["asin"] in seen:
+                continue
+            seen.append(c["asin"])
+            text = c["title"]
+            if not has_butsuzo_words(text):
+                time.sleep(SLEEP_AMAZON)
+                text = f"{c['title']} {amazon_description(session, c['asin'])}"
+            if has_butsuzo_words(text):
+                entries.append({"id": f"az-{c['asin']}", "magazine": name, "issue_label": label,
+                                "release_date": c["release_date"], "page": build_product_url(c["asin"]),
+                                "text": text, "amazon": c})
+    return entries
+
+
 def main() -> int:
     import os
 
@@ -378,6 +460,14 @@ def main() -> int:
     judged_keys = set(data.get("mag_judged", []))
     entries = [e for e in entries
                if magazine_key(e["magazine"], e["issue_label"]) not in have | judged_keys]
+    # Amazon 起点: 各誌の新しい号の題名・商品ページの説明から（Fujisan と同じ号は Fujisan 側を使う）
+    fj_keys = {magazine_key(e["magazine"], e["issue_label"]) for e in entries}
+    az_seen = list(data.get("mag_az_seen", []))
+    for e in collect_amazon(session, today, have_asin, az_seen):
+        k = magazine_key(e["magazine"], e["issue_label"])
+        if k not in have and k not in judged_keys and k not in fj_keys:
+            entries.append(e)
+    data["mag_az_seen"] = az_seen[-400:]
     news = news_candidates(items)
     for it in news:
         entries.append({"id": f"news-{it['id']}", "magazine": "", "issue_label": "", "release_date": "",
@@ -386,7 +476,8 @@ def main() -> int:
         print("仏像の言葉を含む雑誌の候補はありませんでした")
         save_news_data(data)   # ASIN の差し替えがあったときのため
         return 0
-    print(f"判定に出す候補: Fujisan {len(entries) - len(news)} 件・ニュース {len(news)} 件")
+    n_az = sum(1 for e in entries if e["id"].startswith("az-"))
+    print(f"判定に出す候補: Fujisan {len(entries) - len(news) - n_az} 件・Amazon {n_az} 件・ニュース {len(news)} 件")
     judged = judge(client, usage, [{"id": e["id"], "magazine": e["magazine"], "issue_label": e["issue_label"],
                                     "release_date": e["release_date"], "text": e["text"][:1200]} for e in entries])
     for it in news:
@@ -409,8 +500,11 @@ def main() -> int:
         if key in have or key in hit_keys:
             continue
         hit_keys.add(key)
-        time.sleep(SLEEP_AMAZON)
-        amazon = search_amazon_issue(session, magazine, label)
+        if e.get("amazon"):
+            amazon = e["amazon"]   # Amazon 起点の候補は、見つけた商品をそのまま使う
+        else:
+            time.sleep(SLEEP_AMAZON)
+            amazon = search_amazon_issue(session, magazine, label)
         if amazon and amazon["asin"] in have_asin:
             continue
         item = build_magazine_item(magazine, label, e["release_date"] or r.get("release_date", ""),
