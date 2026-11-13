@@ -47,12 +47,14 @@ MAGAZINES: list[tuple[str, str]] = [
     ("時空旅人", "1281693070"),
     ("散歩の達人", "1281679558"),
     ("ひととき", "1281695974"),
+    ("BRUTUS", "2332"),
+    ("Pen", "1220627"),
 ]
 MAGAZINE_NAMES = [n for n, _ in MAGAZINES] + ["一個人", "日経おとなのOFF", "週刊朝日", "BRUTUS", "Pen", "美術手帖", "旅の手帖"]
 
 # Amazon 起点で見る雑誌（Fujisan の一覧に加えて）。各誌の新しい号を Amazon の雑誌カテゴリで探し、
 # 題名と商品ページの説明（特集・目次）に仏像らしい語があれば AI に判定させる
-AMAZON_EXTRA_MAGAZINES = ["BRUTUS", "Pen", "一個人", "美術手帖", "旅の手帖", "大人の休日倶楽部"]
+AMAZON_EXTRA_MAGAZINES = ["一個人", "美術手帖", "旅の手帖", "大人の休日倶楽部"]
 AMAZON_MAGAZINE_NODE = "13384021"   # Amazon.co.jp の「雑誌」
 AMAZON_ISSUES_PER_MAGAZINE = 2      # 1 誌あたり見る号（新しい順）
 AMAZON_ISSUE_WINDOW_DAYS = 45       # 発売からこの日数以内の号と、発売前の号だけ見る
