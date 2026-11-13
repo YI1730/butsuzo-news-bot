@@ -1,6 +1,283 @@
 {
-  "last_updated": "2026-11-13T22:11:59.136422+09:00",
+  "last_updated": "2026-11-13T23:12:21.919332+09:00",
   "items": [
+    {
+      "id": "a33ce468f9fb",
+      "title": "JR徳山駅新幹線口近くにオープンした「Caffe Rieta」の外観 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/photoflash/11572/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T23:12:21.918834+09:00",
+      "published_at": "2026-11-11T23:15:54+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/photonews/1794403965_b.jpg",
+      "description": "「Caffe Rieta（カフェ リータ）」（周南市住崎町1）が10月31日、JR徳山駅新幹線口近くの商業ビル「AZURE徳山」1階にオープンした。",
+      "search_query": "観音 御開帳 町",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 駅近くのカフェ開店の話で仏教関連なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T23:14:54+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "02bf4c059311",
+      "title": "テレ東『温泉タオル集め旅』次回放送を告知 村上佳菜子の湯けむり映像公開 2人の“ご開帳”動画も - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2019639?kw=2024",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T23:12:19.772390+09:00",
+      "published_at": "2026-11-12T09:51:00+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/a/1/4/f/a14f3d4ceaa878fff0201c404686ea5b_1.jpg",
+      "description": "テレビ東京の番組『温泉タオル集め旅』の公式Xが12日までに更新され、14日の放送内容を告知した。【写真】2人は“ご開帳”も！村上佳菜子...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "温泉番組の「ご開帳」は仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T23:15:00+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "66e4b4f923e4",
+      "title": "仁和寺で人のタワー 7段、8段…スペイン伝統の技に歓声 [京都府] - 朝日新聞",
+      "url": "https://www.asahi.com/sp/articles/ASVCD33WFVCDPQIP00GM.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T23:12:16.600188+09:00",
+      "published_at": "2026-11-12T18:52:10+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "仁和寺での人間タワー演技で仏像に触れず。終了済み",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T23:15:00+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "231529bdaedc",
+      "title": "仁和寺で人のタワー 7段、8段…スペイン伝統の技に歓声 [京都府] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCD33WFVCDPQIP00GM.html?iref=_area_area_list_n",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T23:12:07.430542+09:00",
+      "published_at": "2026-11-12T18:52:10+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": true,
+        "reason": "同一記事の重複で仏像にも無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T23:15:00+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e72e5b29242b",
+      "title": "企画展 莫高窟世界遺産登録40周年記念「敦煌・シルクロードの風が立つー平山郁夫と江上波夫の足跡(あしあと)」開催のお知らせ【横浜ユーラシア文化館】 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/prtimes_000000304_000064384/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T23:11:55.543261+09:00",
+      "published_at": "2026-11-13T14:00:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "敦煌莫高窟の仏教文化と、そこに魅了された日本人のまなざし、そして、シルクロードの文化を伝える品々をご紹介します。[",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 50,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "莫高窟の仏教文化展だが仏像が主役か不明。告知で減点なし",
+        "event": {
+          "event_name": "敦煌・シルクロードの風が立つ 平山郁夫と江上波夫の足跡",
+          "place": "横浜ユーラシア文化館（神奈川県横浜市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T23:15:00+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-13"
+      }
+    },
+    {
+      "id": "1c3e4e1d9eb9",
+      "title": "秋の終わりに東福寺へ。通天橋から見下ろす紅葉の雲海が圧巻｜＠BAILA（バイラ） - BAILA（バイラ）",
+      "url": "https://baila.hpplus.jp/blogs/yui_chiao/84947",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T23:11:53.610181+09:00",
+      "published_at": "2026-11-13T15:40:00+09:00",
+      "image_url": "https://img-baila.hpplus.jp/ogp/image/bd/bde8eeba-ec90-4682-bce4-fc673795b224-1280x672.jpg",
+      "description": "東福寺の紅葉",
+      "search_query": "\"東福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 30,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "東福寺の紅葉記事で仏像に触れず。上限内",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T23:15:00+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "96cb9c90dbf0",
+      "title": "【ザ・リッツ・カールトン日光】フェスティブプロモーション 2026奥日光・中禅寺湖畔で迎える、心温まるフェスティブシーズン - 足利経済新聞",
+      "url": "https://ashikaga.keizai.biz/release/683810/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T23:11:50.928322+09:00",
+      "published_at": "2026-11-13T16:23:50+09:00",
+      "image_url": "https://prtimes.jp/img/11305/2958/thumb/d11305-2958-aa4e2a0e94f8ecb01b63-1.jpg",
+      "description": "冬限定の「特選海鮮しゃぶしゃぶ」をはじめ、クリスマスディナーやおせち料理、特別なアクティビティをご用意。雪景色に包まれた奥日光で、自然と文化が息づく日光ならではの特別な季節体験をお届け",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ホテルの冬季プロモーションで仏像・寺院の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T23:14:54+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e7d64adaf70b",
+      "title": "サイバー対策で官民連携を - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1779007/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T23:11:48.747001+09:00",
+      "published_at": "2026-11-13T22:14:08+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "サイバー攻撃対策に関する古川俊治デジタル相とＩＴ業界団体との意見交換会。古川氏は、相次ぐサイバー攻撃による情報漏えいに対し官民連携を呼び掛けた＝１３日午後、東京都内 【時事通信社】",
+      "search_query": "観音 御開帳 町",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: サイバー対策と政治の記事で仏教関連なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T23:14:54+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "86ec5e9e32d6",
+      "title": "福山の明王院、国宝の五重塔など公開 11月21日 - 47NEWS",
+      "url": "https://www.47news.jp/15227198.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T23:11:46.604596+09:00",
+      "published_at": "2026-11-13T22:37:25+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/1f0c8f11e3ba6777e196cfd8b9b95b87/photo.jpg",
+      "description": "広島県福山市草戸町の明王院は21日午前10時～午後4 ...",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 62,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": false,
+        "reason": "21日の国宝五重塔公開の第一報。建物中心で仏像不明のため上限",
+        "event": {
+          "event_name": "明王院 国宝五重塔など公開",
+          "place": "明王院（広島県福山市）",
+          "start_date": "2026-11-21",
+          "end_date": "2026-11-21"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T23:15:00+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-13"
+      }
+    },
     {
       "id": "56f101b9707b",
       "title": "地獄の世界に没入体験…最深部へと至る巡礼ルートたどる 大阪で『地獄に堕ちる展』【見どころ・主な展示】 - AGARA 紀伊民報",
@@ -12612,129 +12889,6 @@
       }
     },
     {
-      "id": "7e68e049a1cd",
-      "title": "横浜市歴史博物館、特別展南武蔵の平安仏の講演会を開催へ 各回1,000円 - Dellows News",
-      "url": "https://news.dellows.jp/917967/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T17:11:55.763952+09:00",
-      "published_at": "2026-11-11T12:21:10+09:00",
-      "image_url": "https://news.dellows.jp/wp-content/uploads/2026/10/917967_1.jpg",
-      "description": "横浜市歴史博物館は、2026年10月31日（土）から12月13日（日）まで開催する特別展「南武蔵の平安仏」にあわせ、関連講演会を11月21日（土）、28日（土）、12月5日（土）の3日間にわたり講堂で",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 38,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "展覧会の関連講演会告知のため40点以下。展覧会自体は既出",
-        "event": {
-          "event_name": "特別展「南武蔵の平安仏」関連講演会",
-          "place": "横浜市歴史博物館（神奈川県横浜市）",
-          "start_date": "2026-11-21",
-          "end_date": "2026-12-05"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T17:14:35+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "89e3f28c8eb1",
-      "title": "大津市の三井寺で千年守られてきた「国宝」や「秘仏」、来年東京で公開へ「見えない力を感じて」 - Excite エキサイト",
-      "url": "http://www.excite.co.jp/news/article/kyoto_np_1493138816173572262/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T17:11:48.340088+09:00",
-      "published_at": "2026-11-11T15:40:00+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 50,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "配信済みの三井寺展の記事と同じ出来事で重複",
-        "event": {
-          "event_name": "国宝 三井寺のすべて",
-          "place": "東京国立博物館（東京都）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T17:14:35+09:00",
-        "score_version": 8,
-        "page_checked": true
-      }
-    },
-    {
-      "id": "facfeedaea25",
-      "title": "糖尿病治療を願い青く照らす 「世界糖尿病デー」にちなみ白衣大観音（群馬・高崎市）などをライトアップ - 上毛新聞電子版",
-      "url": "https://www.jomo-news.co.jp/articles/-/1062590",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T17:11:46.960218+09:00",
-      "published_at": "2026-11-11T16:00:00+09:00",
-      "image_url": "https://jomo.ismcdn.jp/mwimgs/b/5/675h/img_b59c9b3b4ef9b0cff44c95def0ae511d105750.jpg",
-      "description": "糖尿病の予防や適切な治療の大切さを呼びかける「世界糖尿病デー」（11月14日）にちなみ、群馬県糖尿病協会は県内4カ所を青い光でライトアップしている。高崎市乗附町の高崎白衣大観音は15日まで連日、...",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 50,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "高崎白衣大観音の青色ライトアップ。15日までで期間が近いが像の話は薄い",
-        "event": {
-          "event_name": "世界糖尿病デー 高崎白衣大観音ブルーライトアップ",
-          "place": "高崎白衣大観音（群馬県高崎市）",
-          "start_date": "",
-          "end_date": "2026-11-15"
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T17:14:35+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-11"
-      }
-    },
-    {
-      "id": "1eb520c51947",
-      "title": "秋季企画展「みんなおいでん！東三河の普門寺さん」１万人来館セレモニーを開催【龍谷ミュージアム】 - www.ryukoku.ac.jp",
-      "url": "https://www.ryukoku.ac.jp/nc/news/entry-19574.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T17:11:44.590953+09:00",
-      "published_at": "2026-11-11T16:11:10+09:00",
-      "image_url": "https://www.ryukoku.ac.jp/nc/archives/001/202611/d5c211ca0bab03cd6632f6ace0976f3cfda22033425db6bd8a64045081e6dc8d.jpg",
-      "description": "龍谷ミュージアムでは、秋季企画展「みんなおいでん！東三河の普門寺さん」を好評開催中です。 本日（11月11日）、本展の開幕以来の来館者が１万人を突破しました。 記念すべき１万人目の来館者は、大分県中津市...",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 42,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "普門寺展の1万人来館セレモニー。展覧会は開催中だが話題は来館者数",
-        "event": {
-          "event_name": "秋季企画展「みんなおいでん！東三河の普門寺さん」",
-          "place": "龍谷ミュージアム（京都府京都市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T17:14:35+09:00",
-        "score_version": 8
-      }
-    },
-    {
       "title": "岩手県立博物館 企画展「すこやかであるために－円環する生・老・病・死－」（6月20日~8月16日）",
       "url": "https://www2.pref.iwate.jp/~hp0910/",
       "source": "kanbutsu",
@@ -12802,160 +12956,6 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-11T16:14:37+09:00",
         "score_version": 8
-      }
-    },
-    {
-      "id": "d083a824bc69",
-      "title": "大竹市で木彫家三上さんの遺作展 11月14日まで「獅子狛犬像」など40点 - 47NEWS",
-      "url": "https://www.47news.jp/15206170.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T16:12:04.323878+09:00",
-      "published_at": "2026-11-09T19:48:49+09:00",
-      "image_url": "https://img.cf.47news.jp/public/photo/b5bc88fb4d1cd92de3500c641be7c6c2/photo.jpg",
-      "description": "広島県大竹市元町出身の木彫家で、昨年11月に93歳で亡くなった三上良平さんの初の遺作展が、同市本町のアゼ ...",
-      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
-      "ai": {
-        "score": 22,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "木彫家の遺作展で獅子狛犬像が中心。仏像ではなく関連薄い",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T16:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "59ac8520391b",
-      "title": "まるで本物、野鳥の木彫 瀬戸内市立美術館「門永哲郎展」会期中盤 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2016209?rct=area_tobi",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T16:12:01.591006+09:00",
-      "published_at": "2026-11-10T15:16:21+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/3/6/a/b/36ab79405d82069adc1682890c2e2c6e_2.jpg",
-      "description": "瀬戸内市立美術館（同市牛窓町牛窓）で開催中の「門永哲郎展 木鳥（ことり）―鳥絶技巧―」（同美術館主催、山陽新聞社共催）が会期中盤を迎え...",
-      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "野鳥の木彫展で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T16:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b7a3a362899e",
-      "title": "宝哈木彫村は、木彫芸術の本質を保存し、活性化させている。 - Vietnam.vn",
-      "url": "https://www.vietnam.vn/ja/lang-nghe-tac-tuong-bao-ha-luu-giu-va-lam-moi-tinh-hoa-nghe-thuat-dieu-khac-go",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T16:11:59.644893+09:00",
-      "published_at": "2026-11-11T01:15:34+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "ベトナムの木彫村の話題で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T16:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5be4f46a2d2e",
-      "title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 (2026年11月11日掲載) - ライブドアニュース",
-      "url": "https://news.livedoor.com/pr_topics/detail/32788167/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T16:11:50.270379+09:00",
-      "published_at": "2026-11-11T11:10:00+09:00",
-      "image_url": "https://image.news.livedoor.com/newsimage/stf/b/9/b9ccf_1886_ed83e1887e349e6f1cd1e95e583dac02.jpg",
-      "description": "大本山室生寺では、秋の奈良観光における夜間参拝の一つとして親しまれる「室生寺紅葉ライトアップ」を11月の土日祝限定で開催中です。連日の冷え込みによって境内を彩るカエデやモミジの紅葉前線が一気に加速し、山",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 52,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "室生寺ライトアップ。仏像に触れず上限60点内。同件の重複",
-        "event": {
-          "event_name": "室生寺紅葉ライトアップ2026",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "2026-11-01",
-          "end_date": "2026-11-30"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T16:14:37+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-11"
-      }
-    },
-    {
-      "id": "7335ed8d4d92",
-      "title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。 和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 - アットプレス",
-      "url": "https://www.atpress.ne.jp/news/4800797",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T16:11:48.958725+09:00",
-      "published_at": "2026-11-11T11:10:00+09:00",
-      "image_url": "https://www.atpress.ne.jp/attachments/8vksBOFSSb0canb9LjL5.jpg",
-      "description": "11月の土日祝限定で開催される室生寺紅葉ライトアップ2026。国宝五重塔の素屋根に青龍を投影する特別演出や和傘アート、限定御守ステッカー、紅葉期間限定の御朱印などが楽しめ、夜の古刹の幻想的な紅葉を体験...",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 60,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "室生寺のライトアップ一次情報。仏像なしのため上限60点",
-        "event": {
-          "event_name": "室生寺紅葉ライトアップ2026",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "2026-11-01",
-          "end_date": "2026-11-30"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T16:14:37+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-11"
       }
     },
     {
