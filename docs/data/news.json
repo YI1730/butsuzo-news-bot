@@ -1,6 +1,193 @@
 {
-  "last_updated": "2026-11-13T21:35:28.696175+09:00",
+  "last_updated": "2026-11-13T22:11:59.136422+09:00",
   "items": [
+    {
+      "id": "56f101b9707b",
+      "title": "地獄の世界に没入体験…最深部へと至る巡礼ルートたどる 大阪で『地獄に堕ちる展』【見どころ・主な展示】 - AGARA 紀伊民報",
+      "url": "https://www.agara.co.jp/article/711681?top=oricon",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T22:11:59.135130+09:00",
+      "published_at": "2026-11-12T13:22:00+09:00",
+      "image_url": "https://www.agara.co.jp/image/article/size1/0/e/1/7/0e1746e64c2d83cc6c13be0f10347daa_1.jpg",
+      "description": "大阪・なんばパークスミュージアムで28日から12月27日まで『地獄に堕ちる展』を開催する。【画像】重要文化財や国宝も…主な展示 地獄の...",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 55,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "地獄展。重文・国宝も出るが仏像が主役か不明。開幕は先で展覧会として中程度",
+        "event": {
+          "event_name": "地獄に堕ちる展",
+          "place": "なんばパークスミュージアム（大阪市）",
+          "start_date": "2026-11-28",
+          "end_date": "2026-12-27"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T22:14:14+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-13"
+      }
+    },
+    {
+      "id": "064deef649c5",
+      "title": "大阪メトロの万博ＥＶバス１３７台 リサイクル業者に毎月約３００万円を支払い富山で保管 - 朝日放送",
+      "url": "https://www.asahi.co.jp/webnews/pages/abc_63567.html?shem=aimgspe,,aimgspe,",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T22:11:56.342528+09:00",
+      "published_at": "2026-11-12T19:39:00+09:00",
+      "image_url": "https://www.asahi.co.jp/webnews/pages/img/data_file/20261112/63567/0/01a1cf46-9623-775b-ad16-d14e4b1d9cc4.jpg",
+      "description": "大阪・関西万博で導入されたＥＶバス。毎月３００万円の保管料を支払っています。 万博会場でトラブルが相次いだ大阪メトロのＥＶバスについて、メトロが富山県高岡市の…",
+      "search_query": "\"法隆寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 大阪メトロのEVバス保管料の話で仏教関連なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T22:14:09+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "dabd14bbafca",
+      "title": "光秀の「丹波攻略」から守った仏像、京都・亀岡で公開「困難想像を」 [京都府] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCC3CMQVCCUCVL04CM.html?iref=reporter-bio-cover_timeline",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T22:11:53.606853+09:00",
+      "published_at": "2026-11-13T06:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 20,
+        "category": "展覧会",
+        "duplicate": true,
+        "reason": "配信済みの亀岡の仏像公開と同じ出来事。重複のため大幅減点",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T22:14:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "283b619e2260",
+      "title": "“ただ者”ではない「シロアリ探知犬」全国で3頭だけ、“数千倍”の臭覚で重要文化財で駆除に活躍 秋田で初の小型犬、嘱託警察犬に挑戦 - FNNプライムオンライン",
+      "url": "https://www.fnn.jp/articles/-/1152123",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T22:11:43.929831+09:00",
+      "published_at": "2026-11-13T19:34:00+09:00",
+      "image_url": "https://fnn.ismcdn.jp/mwimgs/3/f/600/img_3f9a6dff988d843238e2eec75297e960927113.jpg",
+      "description": "たくさん並んだ容器のにおいを嗅ぎ回る犬。ビーグル犬のメス、サラです。実は、サラは日本に3頭しかいない「シロアリ探知犬」。この道7年のベテランです。ビーグル犬の嗅覚は人間の数千倍以上といわれていて、6つの容器のうち、1つに入ったシロアリを嗅ぎ分けることができるのです。これまで国の重要文化財での駆除にも貢献。今後の活躍が期待されています。一方、ある審査に向けて訓練に励むジャック・ラッセル・テリアのキンタ。キンタが目指すのは嘱託警察犬。秋田県では小型犬として初の挑戦です。この日の訓練は「足跡追及」。…",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "シロアリ探知犬の話題で仏像に触れておらず無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T22:14:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "958257187364",
+      "title": "【働き盛りの君たちへ】玉川徹が直撃取材！仏師という伝統的な仕事にも「変化」や「革新」はある？ - @DIME アットダイム",
+      "url": "https://dime.jp/genre/2170373/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T22:11:42.096268+09:00",
+      "published_at": "2026-11-13T21:11:23+09:00",
+      "image_url": "https://dime.jp/wp-content/uploads/2026/11/84-2-770x433.jpg",
+      "description": "お寺の街・京都は仏像発祥の地のひとつ。平安時代中期に定朝（じょうちょう）が和様仏像を作り、七条に工房を作った。1000年先まで残ると言われる仏像彫刻やその修復に携わる宮本我休の仕事について、美術鑑賞を...",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 50,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "仏師の仕事紹介。仏像関連だが速報性は低く、読み物として中程度",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T22:14:14+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-13"
+      }
+    },
+    {
+      "id": "6fc6b502a1fa",
+      "title": "豊川稲荷、72年ぶりの御開帳が大盛況。参拝者100万人を突破！混雑対策として公式アプリをリリース！ - PR TIMES",
+      "url": "https://prtimes.jp/main/html/rd/p/000000019.000153886.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T22:11:40.287267+09:00",
+      "published_at": "2026-11-13T21:20:50+09:00",
+      "image_url": "https://prcdn.freetls.fastly.net/release_image/153886/19/153886-19-27a05991d5ebd9caff6cf536f170c469-3577x2385.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
+      "description": "宗教法人妙厳寺のプレスリリース（2026年11月13日 21時20分）豊川稲荷、72年ぶりの御開帳が大盛況。参拝者100万人を突破！混雑対策として公式アプリをリリース！",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 55,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": false,
+        "reason": "72年ぶり御開帳だが参拝者100万人突破とアプリ宣伝が主で、像の詳細が乏しい",
+        "event": {
+          "event_name": "豊川稲荷 72年ぶりの御開帳",
+          "place": "妙厳寺（愛知県豊川市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T22:14:14+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-13"
+      }
+    },
     {
       "title": "福山市鞆の浦歴史民俗資料館（10月6日~12月20日）",
       "url": "https://tomo-rekimin.org/site/",
@@ -12772,106 +12959,6 @@
       }
     },
     {
-      "id": "c2791281a36a",
-      "title": "［ニュース］名塔、威風新たに五重宝塔が落慶 総本山長谷寺開山1300年記念 - 中外日報社",
-      "url": "https://www.chugainippoh.co.jp/article/news/20261111-002.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T16:11:46.250503+09:00",
-      "published_at": "2026-11-11T13:04:47+09:00",
-      "image_url": "https://www.chugainippoh.co.jp/article/news/img/20261111-002f.jpg",
-      "description": "真言宗豊山派総本山長谷寺（奈良県桜井市）の開山1300年を記念し進められてきた五重宝塔の修復が完了し、7日に落慶法要が営まれた。川俣海淳化主が開眼作法を行い、集議の中川祐聖・萬藏院住職が慶讃文を奉読した。集議、菩提院結衆…",
-      "search_query": "\"長谷寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 58,
-        "category": "修理・保存",
-        "duplicate": false,
-        "reason": "長谷寺五重宝塔の修復落慶。建物のみで仏像なし。優先寺院だが上限内",
-        "event": {
-          "event_name": "長谷寺五重宝塔 落慶",
-          "place": "総本山長谷寺（奈良県桜井市）",
-          "start_date": "2026-11-07",
-          "end_date": "2026-11-07"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T16:14:37+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-11"
-      }
-    },
-    {
-      "id": "fde192ab5d64",
-      "title": "大津市の三井寺で千年守られてきた「国宝」や「秘仏」、来年東京で公開へ「見えない力を感じて」（京都新聞） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/6cb8bde2e1de42a4bbca01ccccd22b9e14c705a8",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T16:11:43.512833+09:00",
-      "published_at": "2026-11-11T15:30:37+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261111-01917570-kyt-000-1-view.jpg?exp=10800",
-      "description": "三井寺の名で親しまれる園城寺（大津市園城寺町）の国宝や秘仏を一堂に公開する特別展「国宝 三井寺のすべて」が来年4〜6月、東京国立博物館で開催されるのを前に、同寺で発表会見が開かれた。福家俊彦長吏（6",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 86,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "東博「国宝 三井寺のすべて」の発表会見で第一報。秘仏も公開予定。配信直後",
-        "event": {
-          "event_name": "国宝 三井寺のすべて",
-          "place": "東京国立博物館（東京都台東区）",
-          "start_date": "2027-04-01",
-          "end_date": "2027-06-30"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T16:14:37+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-11",
-        "official_url": "",
-        "official_image": "",
-        "post_text": "秘仏10件を含む約80件が、来年4〜6月に東京国立博物館へ。三井寺の国宝8件・重文42件も並ぶとのこと。寺での秘仏公開も秋に予定されているみたい。",
-        "post_attempts": 2,
-        "post_format": 7,
-        "notified": true
-      }
-    },
-    {
-      "id": "6b25e1a52dbd",
-      "title": "滋賀県東近江市の百済寺で名物「大わらじ」8年ぶり新調 地元住民が作り直し、さらに大型化 - 京都新聞デジタル",
-      "url": "https://www.kyoto-np.co.jp/articles/-/1824069",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T16:11:41.693738+09:00",
-      "published_at": "2026-11-11T16:00:00+09:00",
-      "image_url": "https://kyoto-np.ismcdn.jp/mwimgs/f/1/1200wm/img_f15dc932df8cecfd7c7a1ee91f2c1ff510199618.jpg",
-      "description": "湖東三山の一つ、百済寺（滋賀県東近江市）の仁王門に飾られた大わらじが、８年ぶりに新調された。地元住民が作り直して奉納した。参拝者が足を止め…",
-      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
-      "ai": {
-        "score": 30,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "百済寺の大わらじ新調。仏像には触れておらず優先度低い",
-        "event": {
-          "event_name": "",
-          "place": "百済寺（滋賀県東近江市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T16:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
       "title": "日本のほとけさま やさしい図鑑: 第2巻 観音さまと、暮らしの守護の尊",
       "url": "https://www.amazon.co.jp/dp/B0HR8DYHBZ?tag=butsuzo03-22",
       "asin": "B0HR8DYHBZ",
@@ -12907,66 +12994,6 @@
       "image_url": "https://images.keizai.biz/kofu_keizai/photonews/1782532074_b.png"
     },
     {
-      "id": "b16d141aeb2f",
-      "title": "奈良監獄ミュージアム、『2026年ヒット商品ベスト30』20位に選出 開館以来チケット完売率99％ - 山陰中央新報デジタル",
-      "url": "https://www.sanin-chuo.co.jp/articles/-/1112547",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T15:11:48.118091+09:00",
-      "published_at": "2026-11-09T16:41:25+09:00",
-      "image_url": "https://sanin-chuo.ismcdn.jp/mwimgs/6/3/1200m/img_633624b155f0c488968cbaa624f30dac89293.jpg",
-      "description": "星野リゾートが運営する「奈良監獄ミュージアム by 星野リゾート」が、日経トレンディの「2026年ヒット商品ベスト30」で第20位にランクインした。2026年4月27日の開館以来、チケット完売率99％を維持。重要文化財を活用した新たな観光モデルや、奈良県全体の宿泊需要への波及効果が評価された。 【画像】荘厳なゲートが宿泊者を迎える「奈良監獄ミュージム」入口 同施設は、1908年に誕生した国の重要文化財「旧奈良監獄」を保存・再生したミュージアム。明治政府が国の威信をかけて建設した歴史的建造物を、単に保存するだけでなく、現代の文化体験を提供する施設として活用している。コンセプトは「美しき監獄からの問いかけ」。建築美や歴史的価値を伝えるとともに、デザインやアートを取り入れ、訪れる人に新たな視点を提供する。 今回のランクインでは、重要文化財の保存と観光活用を両立する仕組みが評価された。施設運営から",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "旧奈良監獄の観光ヒット商品の話題で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T15:14:01+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "11417c795078",
-      "title": "【岐阜県飛騨市】「AIに愛は無い、石棒に愛はある。」11月「石棒強化月間」が好評開催中！年間30日しか開かない考古館の特別開館や重文記念シンポジウムなど「石棒強化月間」後半企画が始動！ - chihososei-journal.jp",
-      "url": "https://chihososei-journal.jp/event/903085/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T15:11:45.566621+09:00",
-      "published_at": "2026-11-10T17:06:13+09:00",
-      "image_url": "https://chihososei-journal.jp/wp-content/uploads/2026/11/prtimes-000120394-000000257-1.jpg",
-      "description": "岐阜県飛騨市の「石棒強化月間」後半企画が始動。11月22日の重文記念シンポジウムや考古館特別開館、26日の石棒づくり講座をオンラインで無料開催します。",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "縄文の石棒の企画で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T15:14:01+09:00",
-        "score_version": 8
-      }
-    },
-    {
       "id": "ced26342370a",
       "title": "長野県立歴史館 お知らせ｜2026年11月10日 お知らせ 【重要なお知らせ】常設展示室の休館について",
       "url": "https://www.npmh.net/news/2026/11/post-213.php",
@@ -12983,36 +13010,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "常設展示室の休館案内で仏像の公開と関係が薄い",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T15:09:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "25bd175c165e",
-      "title": "南会津で「邦楽の秋」 郡役所 県重文指定５５周年 - 47NEWS",
-      "url": "https://www.47news.jp/15212281.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T15:05:49.675429+09:00",
-      "published_at": "2026-11-11T05:12:00+09:00",
-      "image_url": "https://img.cf.47news.jp/public/photo/6cee6e5e8ad558dc1bbf3fcb60943474/photo.jpg",
-      "description": "南会津町にある旧南会津郡役所の県重要文化財指定５５周年記念の「邦楽の秋」は、郡役所で開かれ、明治の雰囲気を残した会場で古典芸能の魅力を発信した。 ＮＰＯ法人南山匠の会と心［み］宙［そら］珈琲店の ...",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "旧郡役所の県重文記念イベントで寺院・仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
