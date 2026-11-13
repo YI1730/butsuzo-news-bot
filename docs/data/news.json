@@ -1,6 +1,102 @@
 {
-  "last_updated": "2026-11-13T15:31:22.223070+09:00",
+  "last_updated": "2026-11-13T16:11:47.405218+09:00",
   "items": [
+    {
+      "id": "d6f3c3637bf6",
+      "title": "奈良国立博物館｜2026年11月13日 トピックス NEW 名品展「ナラハク仏像セレクション」に展示品一覧を掲出しました",
+      "url": "https://www.narahaku.go.jp/news/20261113_16255/",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-13T16:11:47+09:00",
+      "published_at": "2026-11-13T16:11:47+09:00",
+      "image_url": "",
+      "description": "令和8年12月8日（火）～令和9年3月28日（日）の展示品一覧を掲出しました。 名品展「ナラハク仏像セレクショ",
+      "ai": {
+        "score": 72,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "奈良博の仏像名品展の展示品一覧を公式が掲出した第一報。開幕は約3週間先で具体像は未確認",
+        "event": {
+          "event_name": "名品展「ナラハク仏像セレクション」",
+          "place": "奈良国立博物館（奈良県奈良市）",
+          "start_date": "2026-12-08",
+          "end_date": "2027-03-28"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T16:14:12+09:00",
+        "score_version": 8,
+        "official_url": "https://www.narahaku.go.jp/news/20261113_16255/",
+        "official_image": "",
+        "post_text": "奈良博の名品展「ナラハク仏像セレクション」の展示品一覧が公開。会期は12月8日から来年3月28日まで。どの仏像が並ぶのか気になる。",
+        "post_attempts": 1,
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "9029ebca7112",
+      "title": "奈良国立博物館｜開催予定 名品展 西新館 珠玉の仏教美術 特集展示「新指定品」 令和8年（2026）12月12日（土）～令和9年（2027）1月17日（日）",
+      "url": "https://www.narahaku.go.jp/exhibition/usual/bukkyo/",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-13T16:11:47+09:00",
+      "published_at": "2026-11-13T16:11:47+09:00",
+      "image_url": "",
+      "description": "当館の館蔵品・寄託品の中から、珠玉の名品を分野別に紹介します。①令和8年（2026）12月12日（土）～令和",
+      "ai": {
+        "score": 66,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "奈良博の仏教美術特集展示「新指定品」の予告。公式の第一報だが仏像が含まれるか不明で開幕も先",
+        "event": {
+          "event_name": "名品展 珠玉の仏教美術 特集展示「新指定品」",
+          "place": "奈良国立博物館（奈良県奈良市）",
+          "start_date": "2026-12-12",
+          "end_date": "2027-01-17"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T16:14:12+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c034199c1eb8",
+      "title": "イノシシ対策で要望書 観音山地域の区長ら 群馬・高崎市 - 上毛新聞電子版",
+      "url": "https://www.jomo-news.co.jp/articles/-/1064114",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T16:11:45.666843+09:00",
+      "published_at": "2026-11-13T16:00:00+09:00",
+      "image_url": "https://jomo.ismcdn.jp/mwimgs/d/4/675h/img_d400f2427dac633dffe811e93022645133889.jpg",
+      "description": "群馬県高崎市の観音山丘陵でイノシシの出没が相次いでいることを受け、同地域に関係する市議4人と片岡、乗附、寺尾地区の区長会長3人は12日までに、連名の要望書を富岡賢治市長に提出した。 「市民の生活...",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "観音山地域のイノシシ対策の要望書で仏像と無関係。地名に語が入っているだけ",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T16:14:12+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "愛知県美術館（10月30日~12月13日）",
       "url": "https://apmoa.museum/",
@@ -12836,36 +12932,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "高校再編の話題で仏像と無関係。速報性も関係なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-11T08:14:36+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "9dc7dd347316",
-      "title": "タマホーム、火災保険金を不正請求 - 香港経済新聞",
-      "url": "https://hongkong.keizai.biz/gpnews/1778919/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-11T08:11:59.820467+09:00",
-      "published_at": "2026-11-11T02:00:53+09:00",
-      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
-      "description": "住宅メーカーのタマホームの社員が火災保険の保険金を不正請求していたことが１０日、分かった。複数の損害保険会社が詳細を調べるとともに、タマホームに全面的な調査を求めている＝５月撮影、東京都港区 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "住宅メーカーの保険金不正請求で仏像と無関係",
         "event": {
           "event_name": "",
           "place": "",
