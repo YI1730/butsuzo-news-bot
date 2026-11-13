@@ -1,6 +1,274 @@
 {
-  "last_updated": "2026-11-13T12:06:11.835100+09:00",
+  "last_updated": "2026-11-13T12:12:03.019918+09:00",
   "items": [
+    {
+      "id": "rem-3248de463a64-ending",
+      "title": "京都・松本明慶工房の仏像彫刻展 15年かけて制作の復興観音も展示 11月16日まで郡山市で開催 福島：ニュース - FTV 福島テレビ",
+      "url": "https://www.fukushima-tv.co.jp/localnews/2026/11/2026111300000003.html",
+      "source": "reminder",
+      "header": "【公開はあと3日】",
+      "hashtags": "",
+      "fetched_at": "2026-11-13T12:14:40+09:00",
+      "published_at": "2026-11-13T12:14:40+09:00",
+      "image_url": "https://www.fukushima-tv.co.jp/localnews/files/20261113-00000003-FTV-1-00-thumb.jpg",
+      "ai": {
+        "score": 90,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "公開はあと3日（御開帳カレンダー）",
+        "post_text": "高さ1.2mの観音像のまわりに、132体の子どもたち。15年かけた「復興観音と合掌童子」が郡山のうすい百貨店に。16日までとのこと。",
+        "post_header": "【公開はあと3日】",
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "771d5f8ab708",
+      "title": "京都国立博物館｜ミュージアムパートナーについて",
+      "url": "https://www.kyohaku.go.jp/jp/announcements/post_261113.html",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-13T12:12:03+09:00",
+      "published_at": "2026-11-13T12:12:03+09:00",
+      "image_url": "https://www.kyohaku.go.jp/ogp.png",
+      "description": "京都国立博物館の公式ウェブサイトです。京博の展示・イベント情報やご利用案内、ご自宅で楽しめるコンテンツ等を紹介しています。",
+      "ai": {
+        "score": 10,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ミュージアムパートナーの案内で仏像の公開と無関係。速報性なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T12:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "5a10b7cdf532",
+      "title": "イタリアと英国、学校に爆破予告相次ぐ - 香港経済新聞",
+      "url": "https://hongkong.keizai.biz/gpnews/1778945/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T12:12:03.016516+09:00",
+      "published_at": "2026-11-12T09:48:33+09:00",
+      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
+      "description": "イタリアと英国で１１日、多数の学校に爆破予告メールが送り付けられる騒ぎがあった。写真はイタリア北部ベネチアで、爆破予告のあった学校周辺に展開する警察官ら。 【EPA時事】",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 学校への爆破予告の事件で仏教や仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T12:14:32+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "880aade56ad9",
+      "title": "豊川稲荷御開帳SP！ハリセンボンが10年ぶりの推し旅へ - hicbc.com",
+      "url": "https://hicbc.com/magazine/article/gallery/?id=hanasaka-times-movie-26110701&p=1",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T12:12:00.858654+09:00",
+      "published_at": "2026-11-12T10:16:29+09:00",
+      "image_url": "https://hicbc.com/magazine/assets/images/hanasaka-times-movie-26110701/1794213495ig5jb.jpg",
+      "description": "７２年ぶり御開帳の豊川稲荷ＳＰ！参拝方法を伝授＆１０年ぶりに帰ってきたハリセンボンの推し旅も豊川市へ！キャビア稲荷に仰天！お得すぎて大行列の最新工場直売スイーツも必見！権利関係上、配信していない...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 35,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": false,
+        "reason": "72年ぶり開帳のTV番組紹介が中心で、仏像の具体情報が乏しい",
+        "event": {
+          "event_name": "",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T12:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "2ece9015d7c3",
+      "title": "織田信長に焼き払われた越前を代表する寺院「豊原寺」 その歴史や繁栄を伝える石仏 坂井市の龍翔館博物館で12月6日まで展示 - FNNプライムオンライン",
+      "url": "https://www.fnn.jp/articles/-/1150920",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T12:11:58.798641+09:00",
+      "published_at": "2026-11-12T11:45:00+09:00",
+      "image_url": "https://fnn.ismcdn.jp/mwimgs/7/f/600/img_7f42648558157f857e9bccd1cf1df29c26699.jpg",
+      "description": "福井県坂井市にある山岳寺院「豊原寺」跡から出土した石仏を集めた特別展が、坂井市の龍翔博物館で開かれています。整然と並べられた戦国時代の石仏。坂井市丸岡町東部の山中にあった豊原寺の発掘調査で見つかったものです。越前を代表する寺院だった豊原寺には数百人の僧侶がいたとされますが、織田信長によって焼き払われました。勝山市の平泉寺と並び越前を代表する寺院として大きな影響力を持っていて、丸岡のまちのルーツとなったとされています。会場には、豊原寺の歴史や繁栄を伝える資料約40点が並んでいて、このうち石仏は1…",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 55,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "石仏中心の地域特別展、12/6まで開催中。仏像は戦国期石仏で優先度は中",
+        "event": {
+          "event_name": "豊原寺跡出土石仏 特別展",
+          "place": "龍翔館博物館（福井県坂井市）",
+          "start_date": "",
+          "end_date": "2026-12-06"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T12:14:37+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-12"
+      }
+    },
+    {
+      "id": "1b5951a63513",
+      "title": "有馬記念に外国馬2頭ゴリアット、テアオが予備登録　JRA発表 | 競馬ニュース - netkeiba - netkeiba",
+      "url": "https://dir.netkeiba.com/keiba/news/news_preview.html?no=348528",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T12:11:56.484032+09:00",
+      "published_at": "2026-11-12T13:43:00+09:00",
+      "image_url": "https://cdnv2.netkeiba.com/img.news/?pid=news_img&id=1093146",
+      "description": "JRAは12日、有馬記念(12月27日、中山芝2500メートル)に予備登録した外国馬を発表した。 ゴリアット(セン6＝仏F・グラファール、父アドラーフルーク)、テアオ(牡4＝米J・サドラー、父ヤプリモ)の2頭がエントリーした。 ゴリアットは24年キングジョージ6世＆クイーンエリザベスS、25年バーデン大賞、26年オイロパ賞とG1・3勝。テアオは25年チリ2000ギニー、グランクリテリウム、26年チリダービー、ラテンアメリカ大賞とG1を4勝している。 ▽宝塚記念および有馬記念の出走馬決定方法 【順位1】 第2回特別登録(出馬投票)を行った中央馬のうち、ファン投票における上位10頭(ただし、ファン投票順位第50位以内の馬に限る) 【順位2】 …No.1競馬サイト「netkeiba」が、競馬予想・最新競馬ニュースをお届けします。",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 競馬の有馬記念の外国馬登録で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T12:14:32+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "f4471fbd9bfd",
+      "title": "11月13日 噴火で2万人以上死亡 1985（昭和60）年 - 京都新聞デジタル",
+      "url": "https://www.kyoto-np.co.jp/articles/-/1819151",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T12:11:54.534670+09:00",
+      "published_at": "2026-11-13T00:00:00+09:00",
+      "image_url": "https://kyoto-np.ismcdn.jp/mwimgs/6/4/1200wm/img_64a15bac05f5561002bfc68e97caf467264612.png",
+      "description": "南米コロンビアにある標高約５４００メートルのネバドデルルイス山が噴火。噴火の熱で雪が一気に解け泥流が周辺の町アルメロなどを襲い、２万人以上…",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 南米の火山噴火の歴史記事で仏教美術と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-13T12:14:32+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "d3311b5199e3",
+      "title": "大船観音を紫色にライトアップ 女性への暴力をなくす運動 神奈川（朝日新聞） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/c00be43d66bd2064a34f0eebbb209b1d4a99ca1d",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T12:11:50.106644+09:00",
+      "published_at": "2026-11-13T11:15:00+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261113-00000067-asahi-000-1-view.jpg?exp=10800",
+      "description": "【神奈川】鎌倉市岡本の大船観音寺で、大船観音像を紫色に照らすライトアップが12日にあった。配偶者・恋人からの暴力（DV）や性暴力などの根絶と被害者支援を訴える、政府の「女性に対する暴力をなくす運動」",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "紫色ライトアップのみで、12日実施済み。仏像自体の話題でない",
+        "event": {
+          "event_name": "",
+          "place": "大船観音寺（神奈川県鎌倉市）",
+          "start_date": "2026-11-12",
+          "end_date": "2026-11-12"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T12:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "5b0476cca0e5",
+      "title": "京都・松本明慶工房の仏像彫刻展 15年かけて制作の復興観音も展示 11月16日まで郡山市で開催 福島：ニュース - FTV 福島テレビ",
+      "url": "https://www.fukushima-tv.co.jp/localnews/2026/11/2026111300000003.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-13T12:11:47.562053+09:00",
+      "published_at": "2026-11-13T12:00:00+09:00",
+      "image_url": "https://www.fukushima-tv.co.jp/localnews/files/20261113-00000003-FTV-1-00-thumb.jpg",
+      "description": "仏像彫刻の展示会が福島県郡山市で開かれている。郡山市のうすい百貨店で開かれている仏像彫刻展、京都の松本明慶（みょうけい）工房で制作された作品約250点が展示・販売されている。作品「復興観音と合掌童子」...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 50,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "現代仏師の展示販売会で16日まで。終了間近だが商業色あり",
+        "event": {
+          "event_name": "松本明慶工房 仏像彫刻展",
+          "place": "うすい百貨店（福島県郡山市）",
+          "start_date": "",
+          "end_date": "2026-11-16"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-13T12:14:37+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-13"
+      }
+    },
     {
       "title": "元興寺法輪館 （元興寺文化財研究所）「ならまちの神さま－元興寺の鎮守と町の神々－」（10月24日~11月15日）",
       "url": "https://gangoji-tera.or.jp/",
@@ -12598,188 +12866,6 @@
       }
     },
     {
-      "id": "2c72b1371ac8",
-      "title": "史跡や寺院で出土の瓦一堂に　岡山市埋文センターが企画展 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/sanyo/region/sanyo-20261109173000",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T22:11:52.588427+09:00",
-      "published_at": "2026-11-09T17:30:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/sanyo/m_sanyo-20261109173000.jpg",
-      "description": "鎌倉時代の東大寺（奈良市）再建で瓦を供給した国史跡・万富東大寺瓦窯跡（岡山市東区瀬戸町万富）や岡山…",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 45,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "東大寺再建の瓦の企画展。仏像は主役でなく優先度低め",
-        "event": {
-          "event_name": "史跡や寺院出土の瓦展",
-          "place": "岡山市埋蔵文化財センター（岡山市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T22:14:38+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "8871f8e157c0",
-      "title": "鎌倉・覚園寺に北条時宗、源頼朝、義経、信長、秀吉と利休の新作5点 ベルギー王室御用達の花の彫刻家ダニエル・オストが選んだ加納節雄「夢幻武士考」を初公開 | ダニエル・オスト実行委員会 - アットプレス",
-      "url": "https://www.atpress.ne.jp/news/4446389",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T22:11:50.181350+09:00",
-      "published_at": "2026-11-10T08:40:00+09:00",
-      "image_url": "https://www.atpress.ne.jp/attachments/EOtcw93JZdNKBMyMVWjy.jpg",
-      "description": "花の彫刻家ダニエル・オストが自ら選んだ、日本絵師・加納節雄の連作「夢幻武士考」の新作5点（北条時宗、源頼朝、一ノ谷義経、織田信長、秀吉と利休）を、11月12日〜17日、北条氏ゆかりの鎌倉・覚園寺で初公...",
-      "search_query": "\"仁和寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 30,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "武士の絵画の初公開で仏像は出てこない。寺院は会場のみ",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T22:14:38+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "3993a4f756ea",
-      "title": "よみがえる絢爛豪華な空間…秀吉の正室ねねゆかりの高台寺　客殿再建　14日から一般公開 - Infoseek",
-      "url": "https://news.infoseek.co.jp/amp/article/sankein__life_trend_AIIEUCXS7FPMPLZ2YVMGPP4SPY/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T22:11:48.169369+09:00",
-      "published_at": "2026-11-10T21:04:14+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/sankein/sankein__life_trend_AIIEUCXS7FPMPLZ2YVMGPP4SPY_0-enlarge.jpg",
-      "description": "豊臣秀吉の正室、ねね（北政所）ゆかりの寺として知られる高台寺（京都市東山区）は、秀吉が晩年を過ごした伏見城から移築",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 50,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "客殿再建の公開で建物中心、仏像不明のため上限60点内。14日から",
-        "event": {
-          "event_name": "高台寺 客殿再建 一般公開",
-          "place": "高台寺（京都市東山区）",
-          "start_date": "2026-11-14",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T22:14:38+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-10"
-      }
-    },
-    {
-      "id": "4b69e8496063",
-      "title": "よみがえる絢爛豪華な空間…秀吉の正室ねねゆかりの高台寺 客殿再建 14日から一般公開（産経新聞） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/a16f3c540669ae994a27d4dedfc43163fd95a9cd",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T22:11:46.397747+09:00",
-      "published_at": "2026-11-10T21:06:13+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261110-00000184-san-000-1-view.jpg?exp=10800",
-      "description": "豊臣秀吉の正室、ねね（北政所）ゆかりの寺として知られる高台寺（京都市東山区）は、秀吉が晩年を過ごした伏見城から移築され、寛政元（1789）年に焼失した客殿（小方丈）を再建し、10日、報道陣に公開した",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 30,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "高台寺客殿公開の重複記事。建物中心で仏像なし",
-        "event": {
-          "event_name": "高台寺 客殿再建 一般公開",
-          "place": "高台寺（京都市東山区）",
-          "start_date": "2026-11-14",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T22:14:38+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1fea27351567",
-      "title": "宮坂氏らに京都賞授与 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778911/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T22:11:43.942604+09:00",
-      "published_at": "2026-11-10T21:11:49+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "科学や文明の発展への貢献をたたえる京都賞（稲盛財団主催）の第４１回授賞式が１０日、京都市内で開かれた。桐蔭横浜大大学院の宮坂力特任教授（７３）＝左＝ら３人にメダルと賞金１億円がそれぞれ贈られた。 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "京都賞授賞式で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T22:14:38+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "d801966818fb",
-      "title": "工藤監督、精力的に指導 プロ野球 - 香港経済新聞",
-      "url": "https://hongkong.keizai.biz/gpnews/1778918/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T22:11:41.721774+09:00",
-      "published_at": "2026-11-10T22:00:30+09:00",
-      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
-      "description": "中日の工藤公康新監督は１０日、秋季キャンプが行われているナゴヤ球場で指導した。キャンプは高知市と２カ所で実施され、主力が多く参加するナゴヤ球場を訪れたのは初めて。写真は根尾（左）を指導する工藤監督。 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "プロ野球の記事で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T22:14:38+09:00",
-        "score_version": 8
-      }
-    },
-    {
       "title": "木彫りの仏像【薬師如来様】天然の崖柏木製 高さ20cm",
       "url": "https://www.amazon.co.jp/dp/B0HQT92SGB?tag=butsuzo03-22",
       "asin": "B0HQT92SGB",
@@ -12803,36 +12889,6 @@
       "id": "5b5008db0c9e",
       "fetched_at": "2026-11-10T21:34:45.961115+09:00",
       "image_url": ""
-    },
-    {
-      "id": "16fc2e63d1a8",
-      "title": "《世界遺産・飛鳥現地ルポ》キトラ古墳で初めて発見された「Q」のような姿の壁画の正体は？　クイズを旅のお供に歩く“日本はじまりの地” - Infoseek",
-      "url": "https://news.infoseek.co.jp/amp/article/postseven_2140074/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-10T21:11:46.209197+09:00",
-      "published_at": "2026-11-09T11:15:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/postseven/postseven_2140074_0-enlarge.gif",
-      "description": "有名な史跡を訪れても、目の前にあるのは草に覆われた丘。「ここで何を見ればいいのだろう」と戸惑った経験はないだろうか",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "キトラ古墳の壁画・史跡ルポで仏像と無関係。配信33時間経過",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-10T21:14:14+09:00",
-        "score_version": 8
-      }
     },
     {
       "title": "京都市歴史資料館 特別展「真如堂の歴史と信仰」",
