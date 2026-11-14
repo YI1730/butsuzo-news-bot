@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-11-15T01:11:48.803389+09:00",
+  "last_updated": "2026-11-15T02:02:59.843967+09:00",
   "items": [
+    {
+      "id": "a9169faf1950",
+      "title": "日本初 重要文化財の監獄建築→ラグジュアリーホテルに 秘密を紐解く 5日放送『新美の巨人たち』 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1984082?kw=NIB",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-15T02:02:58.735329+09:00",
+      "published_at": "2026-11-15T00:12:41+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/b/8/3/3/b8334b1075406532b378f8af29a5c5b1_1.jpg",
+      "description": "テレビ東京で5日午後10時から、『新美の巨人たち』が放送される。【写真】監獄だったとは思えない…超豪華な内装 日本初となる重要文化財の...",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "監獄建築のホテル化の話題で寺院・仏像と無関係。速報性も関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-15T02:05:31+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "c243d15612ea",
       "title": "全米の航空機、一時離陸停止 - 香港経済新聞",
@@ -12212,38 +12242,6 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-12T20:02:09+09:00",
         "score_version": 8
-      }
-    },
-    {
-      "id": "99127b7237b0",
-      "title": "「善光寺御開帳」開幕まで半年きる 長野市で受け入れ準備着々 築120年の「宿坊」がリニューアル、精進料理も一新 「新たな善光寺土産に」くるみ菓子 1日1組限定！和モダン宿泊施設 2027年4月4日開幕（NBS長野放送） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/485b2d9731ef8038817115fb30a736f371693a8c",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T19:11:44.356236+09:00",
-      "published_at": "2026-11-12T19:00:01+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261112-90030742-nbstv-000-1-view.jpg?exp=10800",
-      "description": "開幕まで半年をきった「善光寺御開帳」についてです。全国から参拝者が集まる一大イベントに向け、善光寺周辺には新たな飲食店も登場。宿坊はおもてなしの態勢を整えるなど、受け入れ準備が進んでいます。",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 60,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": false,
-        "reason": "善光寺御開帳は半年先で準備の話。先の予定として抑制",
-        "event": {
-          "event_name": "善光寺御開帳",
-          "place": "善光寺（長野市）",
-          "start_date": "2027-04-04",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T20:02:09+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-12"
       }
     },
     {
