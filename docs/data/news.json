@@ -1,6 +1,67 @@
 {
-  "last_updated": "2026-11-14T16:11:49.026643+09:00",
+  "last_updated": "2026-11-14T17:11:43.681094+09:00",
   "items": [
+    {
+      "id": "758942430f15",
+      "title": "大阪メトロの万博ＥＶバス１３７台 リサイクル業者に毎月約３００万円を支払い富山で保管 - 朝日放送",
+      "url": "https://www.asahi.co.jp/webnews/pages/abc_63567.html?shem=dsdf,sharefoc,agadiscoversdl,,sh/x/discover/m1/4",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T17:11:42.535495+09:00",
+      "published_at": "2026-11-12T19:39:00+09:00",
+      "image_url": "https://www.asahi.co.jp/webnews/pages/img/data_file/20261112/63567/0/01a1cf46-9623-775b-ad16-d14e4b1d9cc4.jpg",
+      "description": "大阪・関西万博で導入されたＥＶバス。毎月３００万円の保管料を支払っています。 万博会場でトラブルが相次いだ大阪メトロのＥＶバスについて、メトロが富山県高岡市の…",
+      "search_query": "\"法隆寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 大阪メトロのEVバス保管料の話題で仏教関連なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-14T17:14:16+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "7ac4a74cfd78",
+      "title": "岐阜県で今週末どこ行こう【１１月１４、１５日】 - 岐阜新聞デジタル",
+      "url": "https://www.gifu-np.co.jp/articles/-/798627",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T17:11:39.453737+09:00",
+      "published_at": "2026-11-13T14:00:00+09:00",
+      "image_url": "https://gifu-np.ismcdn.jp/mwimgs/1/4/-/img_144d0d85aa9d77a3951b93d11a0fdf52152166.jpg",
+      "description": "週末の予定、決まっていますか？岐阜新聞デジタルに掲載したイベント情報をピックアップ！（予約が必要な場合や問い合わせは主催者へ） &nbsp;■関市本町通りで１４日、マルシェ「セキ日和」関市中心部...",
+      "search_query": "文化財 特別公開 仏像 市",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "岐阜の週末イベントまとめ。仏像への言及が確認できず無関係。速報性の加点なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T17:14:18+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "8e0094883a40",
       "title": "矢吹正道「待ち遠しい」 - 函館経済新聞",
@@ -11474,67 +11535,6 @@
         "freshness": "durable",
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-12T12:00:05+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "4eba029d532f",
-      "title": "追悼と復興願う復興観音も 松本明慶工房の仏像彫刻展5年ぶり開催 福島・郡山市 | TBS NEWS DIG - TBS NEWS DIG",
-      "url": "https://newsdig.tbs.co.jp/articles/embed/3076593",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T11:34:59.379535+09:00",
-      "published_at": "2026-11-11T12:35:01+09:00",
-      "image_url": "https://newsdig.ismcdn.jp/mwimgs/0/c/1200w/img_0c1839331e92f0f0890e0e07055eca09107794.jpg",
-      "description": "福島県郡山市のうすい百貨店で「京都 大佛師 松本明慶工房 仏像彫刻展」が11日から開かれます。松本明慶さんと明観さん、宗観さんは親子三代で石山寺や増上寺から大佛師の称号を贈られTUFで放送する「情熱大陸」で…",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 50,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "松本明慶工房展は福島放送の記事と同じ催しで重複。開催中だが百貨店の展示で優先度は低め",
-        "event": {
-          "event_name": "京都 大佛師 松本明慶工房 仏像彫刻展",
-          "place": "うすい百貨店（福島県郡山市）",
-          "start_date": "2026-11-11",
-          "end_date": "2026-11-16"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T11:37:27+09:00",
-        "score_version": 8,
-        "page_checked": true
-      }
-    },
-    {
-      "id": "8bdf6d628898",
-      "title": "テレ東『温泉タオル集め旅』次回放送を告知 村上佳菜子の湯けむり映像公開 2人の“ご開帳”動画も - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2019639?kw=%E7%A6%8F%",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T11:34:57.050004+09:00",
-      "published_at": "2026-11-12T09:51:00+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/f/0/0/3/f0034e48a257475e25b90ae4e9831466_1.jpg",
-      "description": "テレビ東京の番組『温泉タオル集め旅』の公式Xが12日までに更新され、14日の放送内容を告知した。【写真】2人は“ご開帳”も！村上佳菜子...",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "テレビ番組の告知で『ご開帳』は比喩。仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T11:37:27+09:00",
         "score_version": 8
       }
     },
