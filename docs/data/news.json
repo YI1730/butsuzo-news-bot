@@ -1,6 +1,221 @@
 {
-  "last_updated": "2026-11-14T10:50:28.005672+09:00",
+  "last_updated": "2026-11-14T11:11:52.513080+09:00",
   "items": [
+    {
+      "id": "415a4d4f533e",
+      "title": "松島・仁王丸から、おはようございますなのだ✨ #ずんだもん #varkshorts #shorts - Howl.Link",
+      "url": "https://t.co/Me6fqrCyTk",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T11:11:50.011986+09:00",
+      "published_at": "2026-11-14T09:17:41+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 松島の観光動画で仏像・寺院の話題が不明確",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-14T11:14:23+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "f05ce90b0a95",
+      "title": "国宝・重要文化財を支援する「前田育徳会 エポスカード」誕生 利用額の0.1％相当を寄付 - ポイ探ニュース",
+      "url": "https://www.poitan.jp/archives/195883",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T11:11:48.677406+09:00",
+      "published_at": "2026-11-14T10:23:02+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "クレジットカードの寄付商品で仏像と無関係。宣伝目的",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T11:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e7ec7976d5be",
+      "title": "もみじ寺に吉川英治ゆかり「読人不知」の歌碑 京都・八幡の善法律寺（朝日新聞） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/a34655ee792b65baa09e0eb1394b4a3d33c91d1f",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T11:11:47.229854+09:00",
+      "published_at": "2026-11-14T10:45:00+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261114-00000049-asahi-000-1-view.jpg?exp=10800",
+      "description": "「もみじ寺」とも呼ばれる京都府八幡市の善法律寺（ぜんぽうりつじ）（松浦康昭住職）に、「読人不知（よみひとしらず）の歌碑」が建立された。国民的作家・故吉川英治氏が作品で登場させた歌碑にちなんだもので、",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 20,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "歌碑の建立で仏像に触れていない。寺院の話題のみ",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T11:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "33e327ff111c",
+      "title": "興福寺東金堂で12年ぶり「後堂」公開　正了知大将立像も間近で - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/asahi_region/nation/asahi_region-ASVCF41N6VCFPOMB004M",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T11:11:45.314989+09:00",
+      "published_at": "2026-11-14T10:45:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/asahi_region/m_asahi_region-ASVCF41N6VCFPOMB004M.jpg",
+      "description": "奈良市の世界遺産・興福寺で、東金堂（国宝）の創建1300年を記念し、通常は非公開の「後堂（ごどう）」が1…",
+      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
+      "ai": {
+        "score": 50,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "配信済みの興福寺東金堂12年ぶり公開と同じ出来事",
+        "event": {
+          "event_name": "興福寺東金堂 後堂特別公開",
+          "place": "興福寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T11:14:27+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-14"
+      }
+    },
+    {
+      "id": "fd8ba96e6847",
+      "title": "興福寺東金堂で12年ぶり「後堂」公開 正了知大将立像も間近で（朝日新聞） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/3f67248e732e5ea9e24d71c4f25f532f1551798e",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T11:11:43.038542+09:00",
+      "published_at": "2026-11-14T10:45:01+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261114-00000042-asahi-000-1-view.jpg?exp=10800",
+      "description": "奈良市の世界遺産・興福寺で、東金堂（国宝）の創建1300年を記念し、通常は非公開の「後堂（ごどう）」が12年ぶりに公開されている。本尊の薬師如来坐像（ざぞう）の背後に安置された正了知（しょうりょうち",
+      "search_query": "\"興福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 52,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "配信済みの興福寺東金堂12年ぶり公開と重複",
+        "event": {
+          "event_name": "興福寺東金堂 後堂特別公開",
+          "place": "興福寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T11:14:27+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-14"
+      }
+    },
+    {
+      "id": "f1c23ce37344",
+      "title": "名画に刻まれた権力者の思惑 大徳寺の寺宝をひもとく - テレ朝NEWS",
+      "url": "https://news.tv-asahi.co.jp/news_society/articles/900203327.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T11:11:40.690169+09:00",
+      "published_at": "2026-11-14T11:00:00+09:00",
+      "image_url": "https://news.tv-asahi.co.jp/articles_img/900203327_1200.jpg",
+      "description": "東京国立博物館の主任研究員・三笠景子さんが案内してくれたのは、大徳寺所蔵の国宝「観音猿鶴図」です。牧谿作とされ、中国・南宋時代の13世紀に描かれた作品です。",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 35,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "大徳寺の国宝は絵画「観音猿鶴図」が主役で仏像でない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T11:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "45c5336be4f3",
+      "title": "名画に刻まれた権力者の思惑 大徳寺の寺宝をひもとく - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/tvasahi_900203327/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T11:11:38.717963+09:00",
+      "published_at": "2026-11-14T11:00:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/tvasahi/tvasahi_900203327_0-enlarge.jpg",
+      "description": "東京国立博物館の主任研究員・三笠景子さんが案内してくれたのは、大徳寺所蔵の国宝「観音猿鶴図」です。牧谿作とされ、中",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 14,
+        "category": "展覧会",
+        "duplicate": true,
+        "reason": "テレ朝NEWSと同内容の転載で絵画が主役",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T11:14:27+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "DMtse 手彫り 天然木 仏像 宗教的 仏教徒 座る仏教徒 手のひらサイズ 彫刻像",
       "url": "https://www.amazon.co.jp/dp/B08B3S1JNQ?tag=butsuzo03-22",
@@ -29,7 +244,17 @@
       "release_date": "2026-09-24",
       "id": "6a406d34c35f",
       "fetched_at": "2026-11-14T10:50:24.500299+09:00",
-      "description": "Amazon.co.jp: いま読まないと、たぶん一生知らない マンガ仏像 : 糸貫律, 糸貫律, 栗原茉海: 本"
+      "description": "Amazon.co.jp: いま読まないと、たぶん一生知らない マンガ仏像 : 糸貫律, 糸貫律, 栗原茉海: 本",
+      "book_ai": {
+        "score": 55,
+        "reason": "仏像を題材にした漫画の入門書",
+        "version": 1
+      },
+      "book_post_attempts": 1,
+      "book_post_text": "仏像を題材にしたマンガの入門書が、9月24日に出ていたみたい。仏像巡りを始めたばかりの人や、絵で気軽に知りたい人に合いそう。",
+      "j_post_attempts": 1,
+      "j_post_format": 2,
+      "j_post_text": "仏像をマンガで解説する本。著者は糸貫律、栗原茉海が参加している。"
     },
     {
       "title": "大型鉄仏と鎌倉大仏―鎌倉・武家の文化",
@@ -44,7 +269,17 @@
       "release_date": "2026-11-20",
       "id": "d792477b5674",
       "fetched_at": "2026-11-14T10:50:21.100182+09:00",
-      "description": "Amazon.co.jp: 大型鉄仏と鎌倉大仏―鎌倉・武家の文化 : 春山 匡史: 本"
+      "description": "Amazon.co.jp: 大型鉄仏と鎌倉大仏―鎌倉・武家の文化 : 春山 匡史: 本",
+      "book_ai": {
+        "score": 85,
+        "reason": "鎌倉大仏と鉄仏を扱う鎌倉期彫刻の専門的な本",
+        "version": 1
+      },
+      "book_post_attempts": 1,
+      "book_post_text": "11月20日発売予定の一冊で、いまは予約受付中。鎌倉大仏と大型の鉄仏を、武家の文化という視点で扱う専門的な本みたい。鎌倉期の彫刻をじっくり読みたい人に向きそう。",
+      "j_post_attempts": 1,
+      "j_post_format": 2,
+      "j_post_text": "鎌倉の大型鉄仏と鎌倉大仏を、鎌倉・武家の文化という視点から取り上げる一冊。"
     },
     {
       "title": "大門寺 「国指定重文聖如意輪観世音菩薩　秘仏開帳」（11月2日~11月19日）",
@@ -12143,36 +12378,6 @@
       }
     },
     {
-      "id": "71865fe2908c",
-      "title": "史跡や寺院で出土の瓦一堂に 岡山市埋文センターが企画展 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2018063",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T06:55:44.835775+09:00",
-      "published_at": "2026-11-11T12:46:39+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/b/a/3/6/ba36fffb162c58719055bb1c9088c2ea_3.jpg",
-      "description": "鎌倉時代の東大寺（奈良市）再建で瓦を供給した国史跡・万富東大寺瓦窯跡（岡山市東区瀬戸町万富）や岡山城（北区丸の内）、市内の寺院から出土...",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 22,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "出土した瓦の企画展で仏像が主役ではない。配信18時間経過だが内容自体が仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T06:58:16+09:00",
-        "score_version": 8
-      }
-    },
-    {
       "title": "慶応義塾ミュージアムコモンズ 「建仁寺両足院蔵書斯道文庫寄託記念　碩学好学、六百年の書樓」（3月8日~5月8日）",
       "url": "https://kemco.keio.ac.jp/",
       "source": "kanbutsu",
@@ -12251,188 +12456,6 @@
       "id": "f1b2c18875af",
       "fetched_at": "2026-11-12T06:52:49.293272+09:00",
       "image_url": ""
-    },
-    {
-      "id": "9ef2ed960b79",
-      "title": "「風神雷神図屏風」も間近で 国宝・重要文化財の複製23作品を展示 「綴」展 長崎で開催 - TBS NEWS DIG",
-      "url": "https://newsdig.tbs.co.jp/articles/gallery/2986624",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T06:11:53.394033+09:00",
-      "published_at": "2026-11-11T22:08:41+09:00",
-      "image_url": "https://newsdig.ismcdn.jp/mwimgs/f/a/1200w/img_fadbb4cb9f7bc2ce6d740204cf5ad0a5223052.jpg",
-      "description": "「風神雷神図屏風」も間近で 国宝・重要文化財の複製23作品を展示 「綴」展 長崎で開催 | TBS NEWS DIGのフォトギャラリーです。",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "国宝・重文の複製展示で仏像が主役ではなく、屏風絵などが中心",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T06:14:26+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5749628e6b86",
-      "title": "映画で『ちいかわ』にハマった横山ルリカ、母と京都旅で“ちい活”満喫 プライベートショット公開「ハマってますね〜」 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2017261?rct=oricon_geino",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T06:11:50.075581+09:00",
-      "published_at": "2026-11-12T03:06:36+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/1/6/0/4/160470f3419b4618eb2aea612b5bb68e_1.jpg",
-      "description": "元アイドリング!!!のメンバーでタレントの横山ルリカ（35）が5日、自身のインスタグラムを更新。 “ちい活”を満喫する近況を報告し、プ...",
-      "search_query": "\"伏見稲荷\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "タレントのちいかわ・京都旅行の話題で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T06:14:26+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "9af0b14fc773",
-      "title": "JCを10倍楽しめる!?　特別展「日本競馬の国際化」JRA競馬博物館で開催中 | 競馬ニュース - netkeiba - netkeiba",
-      "url": "https://dir.netkeiba.com/keiba/news/news_preview.html?no=348466",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T06:11:47.767670+09:00",
-      "published_at": "2026-11-12T05:02:00+09:00",
-      "image_url": "https://cdnv2.netkeiba.com/img.news/?pid=news_img&id=1092870",
-      "description": "日々トレセンや競馬場など現場で取材を続ける記者がテーマを考え、自由に書く東西リレーコラム「書く書くしかじか」は美浦取材班の万哲こと小田哲也(58)が担当。東京競馬場内にあるJRA競馬博物館を取り上げる。現在は特別展「馬事文化財団設立50周年記念 日本競馬の国際化」を開催中。同博物館で学芸員の伊丹徳行さんに見どころなどを聞いた。 今年もジャパンCの季節がやってきた。東京競馬場の東門近くにあるJRA競馬博物館ではジャパンCを10倍楽しめる！？特別展「日本競馬の国際化」(来年2月23日まで)が今秋東京開催に合わせて、10月3日から開催されている。 06年、国際セリ名簿基準委員会(ICSC)で日本がパート1国に昇格した記念の年…No.1競馬サイト「netkeiba」が、競馬予想・最新競馬ニュースをお届けします。",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 1,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "競馬博物館の特別展で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T06:14:26+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5bd0511f4cbf",
-      "title": "奈良県葛城市の当麻寺、迫力の大障壁画完成 聖徳太子から弘法大師へ、伝承描いた39面 11月13日から特別公開 - 奈良新聞",
-      "url": "https://www.nara-np.co.jp/news/20261112210948.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T06:11:45.991421+09:00",
-      "published_at": "2026-11-12T06:00:00+09:00",
-      "image_url": "https://www.nara-np.co.jp/dbimage/article/97/974d9ad9d0e6b638bbdcc85a1531ce04.jpg",
-      "description": "奈良県葛城市当麻の当麻寺中之坊で11日、日本画家の村上裕二さん(62)=東京都=が手掛けた太子殿と龍游殿の大障壁画39面の完成を記念する法要が営まれた。13日から30日まで特別公開される。",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 50,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "障壁画の特別公開で仏像が主役でない。13日開始で近いが上限60点内",
-        "event": {
-          "event_name": "当麻寺中之坊 大障壁画39面 特別公開",
-          "place": "当麻寺中之坊（奈良県葛城市）",
-          "start_date": "2026-11-13",
-          "end_date": "2026-11-30"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T06:14:26+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-12"
-      }
-    },
-    {
-      "id": "2a7d2a46e1d9",
-      "title": "「桜塚やっくん」の23歳めい、フィジーク大会初参加に向けたシックス・パックの腹筋披露「木像みたい！」ネット賞賛 - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/ad2ef569641325a699b27076b7f26b34e7845478",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T06:11:42.871102+09:00",
-      "published_at": "2026-11-12T06:05:53+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261112-00000021-chuspo-000-1-view.jpg?exp=10800",
-      "description": "お笑いタレント「桜塚やっくん」のめいでインフルエンサーの凪花（なのか、23）が11日までにインスタグラムを更新。初参戦となるボディーメイクの大会に向け「ここまでの自分を信じて、悔いなく楽しむ！！ 最",
-      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "「木像みたい」は比喩で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T06:14:26+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "421a4e3318de",
-      "title": "室生寺紅葉ライトアップ2026 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/eventbank/region/eventbank-10654216",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T05:11:46.882751+09:00",
-      "published_at": "2026-11-11T10:00:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10654216.jpg",
-      "description": "今年だけの貴重な景色に会いに行こう 室生寺では紅葉が見ごろを迎える11月の土日祝に、ライトアップイベ…",
-      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 45,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "室生寺は優先寺院だがライトアップ主体で仏像に触れず上限60点内。19時間経過で速報性は低い",
-        "event": {
-          "event_name": "室生寺 紅葉ライトアップ",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T05:14:17+09:00",
-        "score_version": 8
-      }
     },
     {
       "title": "明治大学博物館 「新収蔵品展2026」（11月10日~12月22日）",
