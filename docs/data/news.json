@@ -1,6 +1,97 @@
 {
-  "last_updated": "2026-11-14T15:31:10.031768+09:00",
+  "last_updated": "2026-11-14T16:11:49.026643+09:00",
   "items": [
+    {
+      "id": "8e0094883a40",
+      "title": "矢吹正道「待ち遠しい」 - 函館経済新聞",
+      "url": "https://hakodate.keizai.biz/gpnews/1778960/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T16:11:49.026090+09:00",
+      "published_at": "2026-11-12T18:15:54+09:00",
+      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
+      "description": "国際ボクシング連盟（ＩＢＦ）フライ級タイトルマッチ（２６日）で３度目の防衛を目指す王者の矢吹正道が、名古屋市内の所属ジムで練習を公開し「しっかり準備してきたので、試合が待ち遠しい」と意気込んだ＝１２日 【時事通信社】",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ボクシングの練習公開で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T16:16:02+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "671657f17c18",
+      "title": "習主席、台湾独立に反対 - 函館経済新聞",
+      "url": "https://hakodate.keizai.biz/gpnews/1778963/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T16:11:46.869666+09:00",
+      "published_at": "2026-11-12T18:15:54+09:00",
+      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
+      "description": "中国の習近平国家主席は１２日、北京の人民大会堂で開かれた孫文生誕１６０年の記念行事で「いかなる形の台湾独立活動も認めない」と述べ、独立反対の方針を確認した。 【EPA時事】",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 中国政治の記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-14T16:15:59+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "55996bd0aa95",
+      "title": "福岡市で博多織求評会応募作を公開 11月15日まで、博多区の承天寺 - 西日本新聞me",
+      "url": "https://www.nishinippon.co.jp/item/1560049/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T16:11:43.436682+09:00",
+      "published_at": "2026-11-13T16:14:00+09:00",
+      "image_url": "https://www.nishinippon.co.jp/uploads/image/1959335/sns_IP261113JAA000250000-003-144840.jpg",
+      "description": "博多織の新作の出来栄えを競う第124回博多織求評会（博多織工業組合主催）の入賞作が13日に決まり、福岡市博多区の承天寺...｜西日本新聞meは、九州のニュースを中心に最新情報を伝えるニュースサイトです。九州・福岡の社会、政治、経済などのニュースを提供します。",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "承天寺が会場の博多織展で仏像に触れておらず関係が薄い",
+        "event": {
+          "event_name": "第124回博多織求評会",
+          "place": "承天寺（福岡市博多区）",
+          "start_date": "",
+          "end_date": "2026-11-15"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T16:16:02+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "龍谷大学大宮図書館・瀬田図書館・深草図書館 ミニ展示「仏と仏を護る神々の姿」（9月24日~11月20日）",
       "url": "https://www.ryukoku.ac.jp/nc/event/entry-19252.html",
@@ -11448,38 +11539,6 @@
       }
     },
     {
-      "id": "94c070cc56b0",
-      "title": "「白眉の存在」貴重な嵯峨本を見る機会　千葉・銚子の円福寺で寺宝展 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/asahi_region/nation/asahi_region-ASVCC4FLTVCCUDCB00NM",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T11:34:54.712772+09:00",
-      "published_at": "2026-11-12T11:15:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/asahi_region/m_asahi_region-ASVCC4FLTVCCUDCB00NM.jpg",
-      "description": "千葉県銚子市の飯沼山円福寺の寺宝展が14、15の両日、同寺の大師堂で開かれる。22回目を迎える今回のテー…",
-      "search_query": "(寺宝 OR 仏師)",
-      "ai": {
-        "score": 50,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "14日から寺宝展だが主役は嵯峨本（書籍）で仏像が不明。上限内で第一報",
-        "event": {
-          "event_name": "円福寺 寺宝展",
-          "place": "飯沼山円福寺（千葉県銚子市）",
-          "start_date": "2026-11-14",
-          "end_date": "2026-11-15"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T11:37:27+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-12"
-      }
-    },
-    {
       "title": "繁樓藝雕 仏像 千手観音 千手観音菩薩 木彫り",
       "url": "https://www.amazon.co.jp/dp/B0BX63F6QY?tag=butsuzo03-22",
       "asin": "B0BX63F6QY",
@@ -11868,68 +11927,6 @@
       "id": "a30ddc64d62e",
       "fetched_at": "2026-11-12T11:23:41.393420+09:00",
       "image_url": "https://www.city.kamakura.kanagawa.jp/shared/site_rn/images/sns/logo.png"
-    },
-    {
-      "id": "4a365c455f33",
-      "title": "室生寺紅葉ライトアップ2026開催中、五重塔の修復工事を活かした青龍の演出も - wowKorea",
-      "url": "https://www.wowkorea.jp/woman/read/165259.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T11:11:56.013739+09:00",
-      "published_at": "2026-11-11T11:10:00+09:00",
-      "image_url": "https://www.wowkorea.jp/img/topic/33/165259/325815_1280W.jpg",
-      "description": "関連イベントとアクセス情報ライトアップ期間中には、僧侶による声明コンサートが本堂にて開催されるほか、特別青龍御朱印（3,000枚限定、1,500円）の授与も行われます。",
-      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 50,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "室生寺のライトアップ。仏像に触れず建物中心で上限60点内。開催中",
-        "event": {
-          "event_name": "室生寺 紅葉ライトアップ2026",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T11:14:33+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-11"
-      }
-    },
-    {
-      "id": "7499fe050e29",
-      "title": "令和の保存大修復が魅せる今秋限定の絶景！改修中の国宝五重塔に青龍が降臨。和傘アートが本堂周辺へ拡大、「室生寺紅葉ライトアップ2026」が開幕 - Excite エキサイト",
-      "url": "http://www.excite.co.jp/news/article/Atpress_648215/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T11:11:52.813859+09:00",
-      "published_at": "2026-11-11T11:10:00+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 30,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "同じ室生寺ライトアップの記事で重複。仏像は出てこない",
-        "event": {
-          "event_name": "室生寺 紅葉ライトアップ2026",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T11:14:33+09:00",
-        "score_version": 8
-      }
     },
     {
       "title": "幸運を祈る小さな白い笑い仏像、室内装飾用のセラミック幸せな仏像、4.5インチのインゴットポーズを保持",
