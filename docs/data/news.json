@@ -1,6 +1,249 @@
 {
-  "last_updated": "2026-11-14T13:12:08.654722+09:00",
+  "last_updated": "2026-11-14T14:11:57.612996+09:00",
   "items": [
+    {
+      "id": "19f76ca597e3",
+      "title": "成田山新勝寺｜紅葉情報 紅葉まつり開催中 現在、成田山公園では成田市観光協会主催による紅葉まつりが開催されております。 … 2026年11月14日",
+      "url": "https://www.naritasan.or.jp/2026/11/14/14016/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-14T14:11:57+09:00",
+      "published_at": "2026-11-14T14:11:57+09:00",
+      "image_url": "https://www.naritasan.or.jp/nswp/wp-content/uploads/2026/11/IMG_4494①-scaled.jpg",
+      "description": "現在、成田山公園では成田市観光協会主催による紅葉まつりが開催されております。 期間中の土曜・日曜・祝日には、琴や尺八、二胡などの演奏会や書道美術館に隣接する茶室赤松庵で表千家成田市茶道会による茶会が開催されます。（雨天中止）ご参詣の折には、",
+      "ai": {
+        "score": 12,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "紅葉まつりの案内で仏像に触れず。速報性も低い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T14:14:32+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "4beba10d8b36",
+      "title": "第4回徳願寺参道に竹灯籠を灯す夜 - アットエス",
+      "url": "https://www.at-s.com/event/article/2095422",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T14:11:57.612446+09:00",
+      "published_at": "2026-11-12T14:18:32+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "竹灯籠の夜間行事で仏像に触れず。無関係に近い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T14:14:32+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "3a22ee3033ed",
+      "title": "いつもは非公開の仏像修理工房を特別公開【11/28発】東武新鹿沼駅発着の日帰りツアー！街歩きや鹿沼シウマイ＆地ビール・苔玉づくりも - Excite エキサイト",
+      "url": "http://www.excite.co.jp/news/article/TetsudoCh_13044382/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T14:11:56.365257+09:00",
+      "published_at": "2026-11-12T14:24:41+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 62,
+        "category": "修理・保存",
+        "duplicate": false,
+        "reason": "仏像修理工房の特別公開だがツアー広告が主。11/28発で先の予定",
+        "event": {
+          "event_name": "仏像修理工房 特別公開ツアー",
+          "place": "栃木県鹿沼市",
+          "start_date": "2026-11-28",
+          "end_date": "2026-11-28"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T14:14:32+09:00",
+        "score_version": 8,
+        "page_checked": true
+      }
+    },
+    {
+      "id": "d26525bc940f",
+      "title": "ア・リーグＭＶＰはアルバレス - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1778984/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T14:11:53.709026+09:00",
+      "published_at": "2026-11-13T12:23:13+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "米大リーグの今季最優秀選手（ＭＶＰ）が１２日に発表され、ア・リーグは打率３割１分６厘で首位打者になり、４２本塁打、１０６打点をマークしたヨルダン・アルバレス（アストロズ）が満票で初受賞＝９月２６日撮影 【AFP時事】",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 大リーグMVPの記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-14T14:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c01c8fd0d615",
+      "title": "山崎正昭参院議員死去、８４歳 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1778985/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T14:11:51.645413+09:00",
+      "published_at": "2026-11-13T12:23:14+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "参院正副議長を歴任した自民党の山崎正昭（やまざき・まさあき）参院議員＝福井選挙区＝が１３日、死去した。８４歳だった。 【時事通信社】",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 政治家の訃報で仏像・寺院・仏教美術と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-14T14:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "5b2efb9d689c",
+      "title": "【奈良市】キムスージャ作品いよいよ公開！＆作品解説会のお知らせ - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/prtimes_000000494_000036429/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T14:11:49.343039+09:00",
+      "published_at": "2026-11-13T14:00:13+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "「東アジア文化都市2016奈良市」10周年。「古都祝奈良(ことほぐなら)の時空旅行」開催・続報！[画像1:http",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "現代美術作品の公開で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T14:14:32+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "6a1a701ef220",
+      "title": "名画に刻まれた権力者の思惑 大徳寺の寺宝をひもとく（テレビ朝日系（ANN）） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/dc2e336d3dd91820ca62b078f422a4453fc72458?page=2",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T14:11:47.401290+09:00",
+      "published_at": "2026-11-14T11:00:35+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261114-90203327-ann-000-1-view.jpg?exp=10800",
+      "description": "東京国立博物館の主任研究員・三笠景子さんが案内してくれたのは、大徳寺所蔵の国宝「観音猿鶴図」です。牧谿作とされ、中国・南宋時代の13世紀に描かれた作品です。【画像】どこが違う?教科書でよく見る“織田",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 35,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "大徳寺の国宝絵画の解説で仏像でなく絵画が主役。上限内",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T14:14:32+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "826dd4b4bc8b",
+      "title": "山寺、柔光に彩られ 白峯寺、紅葉ライトアップ - COOL KAGAWA",
+      "url": "https://www.coolkagawa.jp/news/entry-6098.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T14:11:44.679129+09:00",
+      "published_at": "2026-11-14T13:17:25+09:00",
+      "image_url": "https://www.coolkagawa.jp/media/001/202611/白峯寺jpg.jpg",
+      "description": "五色台・白峯の中腹にある四国霊場81番札所・白峯寺（香川県坂出市青海町、三好実誠住職）で13日、紅葉シーズンに合わせたライトアップが始まった。「夜間特別拝観 願いの光夜（こうや）」と題して、通常は見ることのできない客殿（書院）なども公開。色づく木々や山寺が柔らかな光に彩られ、幽玄の世界が広がっている。 ライトアップは2年ぶり2回目の実施。29日までの金・土・日曜日と祝日の延べ10日間、午後5時半から同9時までの時間帯で行う。期間中は、18世紀前半に建てられた国重要文化財の客殿や宝物館を特別に開放する。 山門右手にある客殿は約70本の竹明かりに照らし出され、幻想的な雰囲気に。訪れた家族連れらは境内をゆっくりと散策しながら、夜空に浮かび上がる各堂の建築美や晩秋に色づき始めた紅葉を楽しんだ。 同寺...",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 40,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "紅葉ライトアップと客殿公開で仏像の言及なし。開催中で上限内",
+        "event": {
+          "event_name": "白峯寺 夜間特別拝観 願いの光夜",
+          "place": "白峯寺（香川県坂出市）",
+          "start_date": "2026-11-13",
+          "end_date": "2026-11-29"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T14:14:32+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "ccc8793ab53b",
       "title": "坂本花織さんが特別授業 - 香港経済新聞",
@@ -11650,66 +11893,6 @@
       }
     },
     {
-      "id": "3683a445d4df",
-      "title": "イタリアの研究に関心示す 秋田県立大本荘キャンパスの学生 トリノ工科大を訪れ交流 - 秋田魁新報電子版",
-      "url": "https://www.sakigake.jp/news/article/20261112AK0010/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T11:11:43.114838+09:00",
-      "published_at": "2026-11-12T10:45:00+09:00",
-      "image_url": "https://www.sakigake.jp/images/news-entry/AK20261109G00017_l.jpg",
-      "description": "秋田県立大学本荘キャンパスの学生がイタリアのトリノ工科大学を訪れ、現地の学生や教員らと交流を深めた。渡航企画の中心を担った県立大総合科学教育研究センターのマリア・カルロッタ・アヴァンツィ准教授（４６…",
-      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "大学生の海外交流で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T11:14:33+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "d8617fd60840",
-      "title": "北九州のど派手成人式展 英ロンドン - 香港経済新聞",
-      "url": "https://hongkong.keizai.biz/gpnews/1778949/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T11:11:41.014669+09:00",
-      "published_at": "2026-11-12T10:48:38+09:00",
-      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
-      "description": "英ロンドンにある日本政府の文化発信拠点「ジャパン・ハウス」で１１日、北九州市のど派手な成人式文化を伝える企画展「Ｔｒａｄｉｔｉｏｎ／Ｒｅｂｅｌｌｉｏｎ（伝統／反逆） まつろわぬ二十歳」が始まった。 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "成人式文化の企画展で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T11:14:33+09:00",
-        "score_version": 8
-      }
-    },
-    {
       "title": "幸運を祈る小さな白い笑い仏像、室内装飾用のセラミック幸せな仏像、4.5インチのインゴットポーズを保持",
       "url": "https://www.amazon.co.jp/dp/B0FDVFPWDJ?tag=butsuzo03-22",
       "asin": "B0FDVFPWDJ",
@@ -12138,158 +12321,6 @@
         "post_header": "【あすから公開】",
         "post_format": 6,
         "notified": true
-      }
-    },
-    {
-      "id": "510c7f7f597d",
-      "title": "【発売前重版決定！】大人気キャラクター・パペットスンスン初のガイドブック『パペットスンスン ガイドブック』11月11日発売 - Koubo",
-      "url": "https://koubo.jp/press-release/prtimes/c31579_r1330",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T10:11:52.844908+09:00",
-      "published_at": "2026-11-11T12:00:00+09:00",
-      "image_url": "",
-      "description": "公募、コンテスト、コンペ、募集情報を掲載。文芸、文学賞、アート、シンボルマーク、キャラクターデザイン、ロゴ、デザイン、イラスト、コピー、愛称、フォトコン、を年間2万件以上紹介する公募ガイド社運営のWebサイトです。",
-      "search_query": "\"三十三間堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "キャラクター本の宣伝で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T10:14:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5a3234f968c8",
-      "title": "奈良県葛城市の当麻寺、迫力の大障壁画完成 聖徳太子から弘法大師へ、伝承描いた39面 11月13日から特別公開 - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/d6b45437b4fb96586c5ad84791e26712a6b86346",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T10:11:51.458565+09:00",
-      "published_at": "2026-11-12T06:10:54+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261112-00000002-naranp-000-1-view.jpg?exp=10800",
-      "description": "奈良県葛城市当麻の当麻寺中之坊で11日、日本画家の村上裕二さん(62)=東京都=が手掛けた太子殿と龍游殿の大障壁画39面の完成を記念する法要が営まれた。13日から30日まで特別公開される。[写真]当",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 58,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "障壁画の公開で仏像が主役でなく上限60点。明後日から公開の第一報",
-        "event": {
-          "event_name": "当麻寺中之坊 大障壁画特別公開",
-          "place": "当麻寺中之坊（奈良県葛城市）",
-          "start_date": "2026-11-13",
-          "end_date": "2026-11-30"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T10:14:17+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-12"
-      }
-    },
-    {
-      "id": "570e75d092dd",
-      "title": "テレ東『温泉タオル集め旅』次回放送を告知　村上佳菜子の湯けむり映像公開　2人の“ご開帳”動画も - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/oricon/entertainment/oricon-2492307",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T10:11:49.336087+09:00",
-      "published_at": "2026-11-12T09:51:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/oricon/m_oricon-2492307.jpg",
-      "description": "テレビ東京の番組『温泉タオル集め旅』の公式Xが12日までに更新され、14日の放送内容を告知した。 7日…",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "温泉番組の告知で「ご開帳」は比喩、無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T10:14:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e644bc1f545b",
-      "title": "湛睿―国宝を繋いだ称名寺長老― - 美術展ナビ",
-      "url": "https://artexhibition.jp/exhibitions/20261025-AEJ3027006/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T10:11:47.793662+09:00",
-      "published_at": "2026-11-12T10:00:00+09:00",
-      "image_url": "https://artexhibition.jp/wp-content/uploads/2026/10/df1023e6b3673f42e760a4e6c655df2e-854x630.jpg",
-      "description": "昭和5年（1930）に神奈川県立金沢文庫が開館してまもなく、称名寺から大量の中世写本が発見されると、未知の文献に大きな期待を寄せた仏教学者が次々に金沢文庫を訪れた。そこで彼らは、多くの写本に残された「湛睿」の名を目にする",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 30,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "称名寺長老の写本・文献の話題で仏像でなく、主旨も不明確",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T10:14:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "3a3624d6fdbb",
-      "title": "キャラメルや鉄観音烏龍茶の奥深い味わいをスワンを模したシュークリームで／「パティシエ・シマ」のスワン - オズモール",
-      "url": "https://www.ozmall.co.jp/ozmagazine/article/47573/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T10:11:45.746302+09:00",
-      "published_at": "2026-11-12T10:00:00+09:00",
-      "image_url": "https://www.ozmall.co.jp/Content/upload/images/VJVDSIWS36HY6SSNEMD6NHBKBA.jpg",
-      "description": "文筆家・甲斐みのりさんが特別な日にいただきたいおやつをピックアップ。今回は麹町駅にある「パティシエ・シマ」で購入できる、スワンをご紹介します。",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "スイーツ記事で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T10:14:17+09:00",
-        "score_version": 8
       }
     },
     {
