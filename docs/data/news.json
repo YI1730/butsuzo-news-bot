@@ -1,6 +1,157 @@
 {
-  "last_updated": "2026-11-14T12:10:18.540645+09:00",
+  "last_updated": "2026-11-14T12:14:02.594164+09:00",
   "items": [
+    {
+      "id": "2a8abe5d43ea",
+      "title": "寺社初！世界遺産・京都「清水寺」境内にスマートゴミ箱「SmaGO」を設置 観光地のゴミ溢れ抑制と回収業務の効率化へ - 時事ドットコム",
+      "url": "https://www.jiji.com/jc/article?k=000000136.000080115&g=prt",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T12:14:02.591877+09:00",
+      "published_at": "2026-11-13T05:40:00+09:00",
+      "image_url": "https://prcdn.freetls.fastly.net/release_image/80115/136/80115-136-9dbeba2d6ca69bb02060c83e23f74f17-3816x2544.jpg",
+      "description": "［フォーステック］観光庁のオーバーツーリズム対策事業を活用 自動圧縮・IoT機能と飲み残し専用ボックスで参拝環境を整備しリサイクルを推進株式会社フォーステック（本社：東京都千代田区、代表取締役社長：竹村陽平、以下「フォーステック」）は、2026年11月9日（月）、京都市東山区の音羽山 清水寺の境内（仁王門前）に、当社が展開するスマートゴミ箱「SmaGO（スマゴ）」が設置され、運用を開始したことをお知らせします。寺社の境内へのSmaGO設置は、全国で初めてです。清水寺では、参拝者の集中に伴うゴミ箱…",
+      "search_query": "\"清水寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "清水寺のゴミ箱設置の宣伝で仏像に触れず無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T12:16:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "aed8368ac3db",
+      "title": "正伝永源院 秋の庭園特別公開 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/eventbank/region/eventbank-10654513",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T12:13:59.552967+09:00",
+      "published_at": "2026-11-14T10:00:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10654513.jpg",
+      "description": "紅葉が美しい庭園と寺宝をご覧あれ 正伝永源院は、織田信長の弟で大名茶人・織田有楽斎と、熊本藩主・細…",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 35,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "庭園と寺宝の公開で仏像が不明、庭園主体のため上限内",
+        "event": {
+          "event_name": "正伝永源院 秋の庭園特別公開",
+          "place": "正伝永源院（京都府京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T12:16:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "d894a04dcebe",
+      "title": "正伝永源院 秋の庭園特別公開 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/eventbank/region/eventbank-10654513",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T12:13:57.516194+09:00",
+      "published_at": "2026-11-14T10:07:12+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10654513.jpg",
+      "description": "紅葉が美しい庭園と寺宝をご覧あれ 正伝永源院は、織田信長の弟で大名茶人・織田有楽斎と、熊本藩主・細…",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": true,
+        "reason": "同一記事の重複で庭園主体、大きく減点",
+        "event": {
+          "event_name": "正伝永源院 秋の庭園特別公開",
+          "place": "正伝永源院（京都府京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T12:16:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "835cddda1511",
+      "title": "古刹を彩る紅葉シーズン到来！昨年約250作品が集まった『秋の室生寺 Instagramフォトコンテスト2026』開催中 - anemo（アネモ）",
+      "url": "https://www.anemo.co.jp/topics/lifestyle/event-lifestyle/443359-20261114/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T12:13:55.285841+09:00",
+      "published_at": "2026-11-14T11:45:26+09:00",
+      "image_url": "https://newscast.jp/attachments/fB6QetgTAIfE9GfBrhqn.png?w=700&h=500&q=100",
+      "description": "大本山室生寺（奈良県宇陀市）は、境内の紅葉が色づき始める中、参拝者それぞれの目線で捉えた「室生寺の秋」を募る『秋の室生寺 Instagramフォトコンテスト2026』を、2026年12月10日（木）まで開催しています。 昨年も250点近くの",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 25,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "室生寺の写真コンテストで仏像に触れず、上限内",
+        "event": {
+          "event_name": "秋の室生寺 Instagramフォトコンテスト2026",
+          "place": "室生寺（奈良県宇陀市）",
+          "start_date": "",
+          "end_date": "2026-12-10"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T12:16:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e94e4c053ccc",
+      "title": "豊川稲荷、72年ぶりの御開帳が大盛...｜Release No.3086363｜eltha（エルザ） - eltha",
+      "url": "https://beauty.oricon.co.jp/pressrelease/3086363/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-14T12:13:52.380038+09:00",
+      "published_at": "2026-11-14T11:46:00+09:00",
+      "image_url": "https://prtimes.jp/img/153886/19/thumb/d153886-19-71261db9f5e00a50a430-1.jpg",
+      "description": "PRニュース｜Release No.3086363｜連日行列が絶えない特別拝観券の事前予約申込などができる「豊川稲荷公式アプリ」配信開始！豊川稲荷（圓福山妙厳寺／愛知県豊川市豊川町1番地）では、11月1日（日）より72年ぶりの御開帳が開催されています...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 66,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": false,
+        "reason": "72年ぶり御開帳開催中だが公式アプリ配信の宣伝色が強い",
+        "event": {
+          "event_name": "豊川稲荷 72年ぶりの御開帳",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "2026-11-01",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-14T12:16:35+09:00",
+        "score_version": 8,
+        "page_checked": true
+      }
+    },
     {
       "title": "えさし郷土文化館（9月12日~11月29日）",
       "url": "https://www.esashi-iwate.gr.jp/bunka/",
@@ -12139,156 +12290,6 @@
         "score_version": 8,
         "page_checked": true,
         "page_date": "2026-11-12"
-      }
-    },
-    {
-      "id": "2d27485df1b1",
-      "title": "奈良で子鹿死骸４体、人が加害か 一部が欠損、県警に情報提供 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2009358?kw=34",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T09:11:47.674094+09:00",
-      "published_at": "2026-11-12T07:20:41+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/e/2/5/1/e251c733bd16625f9e717df22b6b8b8e_1.jpg",
-      "description": "奈良県は２３日、奈良市の興福寺と東大寺の境内などで８月下旬～今月上旬、体の一部が欠損した子鹿の死骸が計４体見つかったと発表した。専門機...",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 22,
-        "category": "事件・被害",
-        "duplicate": false,
-        "reason": "興福寺・東大寺境内の鹿の事件で仏像と無関係。日付も古い",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T09:14:18+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b4b7b517f9fc",
-      "title": "妖怪書家の軌跡たどる53作品　「書だ!妖怪だ!展」開催　京都 - Infoseek",
-      "url": "https://news.infoseek.co.jp/amp/article/mainichi_20261110k0000m310061000c/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T09:11:45.128521+09:00",
-      "published_at": "2026-11-12T07:45:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/mainichi/mainichi_20261110k0000m310061000c_0-enlarge.jpg",
-      "description": "京都府福知山市大江町仏性寺の「日本の鬼の交流博物館」（鬼博）で、奈良県の妖怪書家、逢香（おうか）さんの作品展「書だ",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 4,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "妖怪書家の作品展。仏性寺は地名で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T09:14:18+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "d81da54e9870",
-      "title": "奈良で子鹿死骸４体、人が加害か 一部が欠損、県警に情報提供 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2009358?rct=global_syakai_c&kw=43343344343",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T08:11:50.950182+09:00",
-      "published_at": "2026-11-12T05:45:47+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/e/2/5/1/e251c733bd16625f9e717df22b6b8b8e_1.jpg",
-      "description": "奈良県は２３日、奈良市の興福寺と東大寺の境内などで８月下旬～今月上旬、体の一部が欠損した子鹿の死骸が計４体見つかったと発表した。専門機...",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 12,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "子鹿の死骸事件で仏像と無関係。興福寺・東大寺は場所として出るだけ",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T08:14:25+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "bf73e5678395",
-      "title": "【京都の紅葉】一度は訪れたい絶景！東福寺の紅葉を楽しむ秋の京都旅｜＠BAILA（バイラ） - BAILA（バイラ）",
-      "url": "https://baila.hpplus.jp/blogs/kawamura_haruka/84808",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T08:11:48.297520+09:00",
-      "published_at": "2026-11-12T07:30:00+09:00",
-      "image_url": "https://img-baila.hpplus.jp/ogp/image/0b/0b35dbfc-ecc0-4e96-8de6-1f5c22ad6b3f-1280x672.jpg",
-      "description": "京都を代表する紅葉の名所・東福寺へ。通天橋から眺める圧巻の紅葉絶景や、実際に訪れて感じた魅力をご紹介します。気になる混雑状況やチケット情報もあわせてお届け。秋の京都旅におすすめのスポットです。",
-      "search_query": "\"東福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 30,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "東福寺の紅葉観光記事で仏像に触れず。庭園系は低評価",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T08:14:25+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e1ae9ccff786",
-      "title": "妖怪書家の軌跡たどる53作品　「書だ!妖怪だ!展」開催　京都 - Infoseek",
-      "url": "https://news.infoseek.co.jp/article/mainichi_20261110k0000m310061000c/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T08:11:45.629805+09:00",
-      "published_at": "2026-11-12T07:45:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/mainichi/mainichi_20261110k0000m310061000c_0-enlarge.jpg",
-      "description": "京都府福知山市大江町仏性寺の「日本の鬼の交流博物館」（鬼博）で、奈良県の妖怪書家、逢香（おうか）さんの作品展「書だ",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "妖怪書家の作品展で仏像無関係。地名の仏性寺のみ",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T08:14:25+09:00",
-        "score_version": 8
       }
     },
     {
