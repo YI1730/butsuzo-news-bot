@@ -61,6 +61,7 @@ AMAZON_ISSUE_WINDOW_DAYS = 45       # 発売からこの日数以内の号と、
 
 SLEEP_AMAZON_MAGAZINE = 8           # 雑誌の検索の間隔（秒）。短いと Amazon に確認ページを返される
 _AMAZON_ORDER: list[str] = []       # 誌を見る順番（data["mag_az_order"] と行き来する）
+_AMAZON_DONE: list[str] = []        # 今回見られた誌
 
 FUJISAN_URL = "https://www.fujisan.co.jp/product/{pid}/"
 SLEEP_FUJISAN = 3
@@ -449,6 +450,7 @@ def collect_amazon(session: requests.Session, today, skip_asins: set[str], seen:
                                 "text": text, "amazon": c})
     # 次回の順番: 見られなかった誌を先に、見た誌を後ろに
     _AMAZON_ORDER[:] = [n for n in names if n not in done] + done
+    _AMAZON_DONE[:] = done
     return entries
 
 
@@ -482,6 +484,8 @@ def collect_amazon_only() -> int:
     print(f"Amazon の雑誌: 判定待ちに追加 {len(found)} 件・ASIN 差し替え {upgraded} 件")
     for e in found:
         print(f"  判定待ち: {e['magazine']} {e['issue_label']} {e['text'][:60]}")
+    if _AMAZON_ORDER and _AMAZON_ORDER[0] not in _AMAZON_DONE:
+        return 3   # 確認ページで途中までしか見られなかった（呼び出し側は翌日にやり直す）
     return 0
 
 

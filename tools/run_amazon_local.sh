@@ -30,16 +30,17 @@ git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 for attempt in 1 2 3; do
   git fetch -q origin main && git reset -q --hard origin/main || { sleep 30; continue; }
   # 雑誌を先に（書籍の検索のあとだと、続けて検索したことで確認ページを返されやすい）。間に休みを入れる
-  $PY scrape_magazines.py --amazon-only || echo "scrape_magazines.py が失敗（続行）"
+  $PY scrape_magazines.py --amazon-only; mag=$?
+  [ $mag -ne 0 ] && echo "雑誌は途中まで（終了コード $mag）。あすもう一度動かす"
   sleep 120
   $PY scrape_amazon.py || echo "scrape_amazon.py が失敗（続行）"
   if git diff --quiet -- docs/data/news.json; then
-    echo "変更なし"; date +%s > "$STAMP"; exit 0
+    echo "変更なし"; [ $mag -eq 0 ] && date +%s > "$STAMP"; exit 0
   fi
   git add docs/data/news.json
   git commit -q -m "chore: Amazon の新刊・雑誌を取り込み（Mac）"
   if git push -q origin HEAD:main; then
-    echo "push しました"; date +%s > "$STAMP"; exit 0
+    echo "push しました"; [ $mag -eq 0 ] && date +%s > "$STAMP"; exit 0
   fi
   echo "push に失敗（ほかの更新と重なった）。取り直します ($attempt)"; sleep 60
 done
