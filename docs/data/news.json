@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-11-16T07:11:46.600245+09:00",
+  "last_updated": "2026-11-16T07:59:10.991788+09:00",
   "items": [
+    {
+      "id": "de545698507c",
+      "title": "松山市長に中野泰誠氏初当選 - 香港経済新聞",
+      "url": "https://hongkong.keizai.biz/gpnews/1779064/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T07:59:08.293265+09:00",
+      "published_at": "2026-11-16T01:17:50+09:00",
+      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
+      "description": "任期満了に伴う松山市長選は１５日投開票され、無所属新人で元愛媛県議の中野泰誠氏＝国民、立民推薦＝が、いずれも無所属新人で元市議の田中エリナ氏、元会社員の木下豪氏を破り、初当選を確実にした。 【時事通信社】",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 松山市長選の政治記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-16T08:01:26+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "6606e030115d",
       "title": "松阪市 お知らせ｜景観絵画展(まつさか景観絵画コンクール作品展示)について",
@@ -12421,37 +12452,6 @@
         "freshness": "durable",
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-13T13:14:56+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5935d13459ea",
-      "title": "防衛力変革で「侵攻拒否」 - 香港経済新聞",
-      "url": "https://hongkong.keizai.biz/gpnews/1778942/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T13:12:16.341986+09:00",
-      "published_at": "2026-11-11T21:47:39+09:00",
-      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
-      "description": "政府は安全保障関連３文書の改定を巡り、侵攻すれば多大な被害を負うと想定させることで、敵に思いとどまらせる「拒否力」の強化を明記する方針を固めた。写真は自民党の国防部会・安全保障調査会合同会議＝１１日 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 防衛政策の記事で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-13T13:14:48+09:00",
         "score_version": 8
       }
     },
