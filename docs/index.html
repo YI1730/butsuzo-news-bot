@@ -64,7 +64,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月15日 22:11<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
+        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月15日 23:11<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -9946,9 +9946,10 @@
     </div>
       <div id="news-time-list" class="space-y-3"></div>
     <details id="prefiltered-box" class="rounded-xl border border-gray-200 bg-white px-3 py-2 mt-6">
-      <summary class="text-xs text-gray-500 cursor-pointer">一次判定で落とした記事（直近14日・89件）</summary>
+      <summary class="text-xs text-gray-500 cursor-pointer">一次判定で落とした記事（直近14日・90件）</summary>
       <p class="text-[11px] text-gray-400 mt-1">仏像と関係ありそうなのに落ちていたら教えてください</p>
       <ul class="mt-1">
+        <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://hongkong.keizai.biz/gpnews/1779061/" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">壁一面のイルミネーション - 香港経済新聞</a><span class="block text-[11px] text-gray-400">11-15・なばなの里のイルミネーション記事で仏像・寺院と無関係</span></li>
         <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://shunan.keizai.biz/gpnews/1779025/" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">一日署長の高城さん - 周南経済新聞</a><span class="block text-[11px] text-gray-400">11-15・アイドルの防災イベント記事で仏像・寺院と無関係</span></li>
         <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://hongkong.keizai.biz/gpnews/1779052/" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">２３００人のサンタがパレード - 香港経済新聞</a><span class="block text-[11px] text-gray-400">11-15・サンタパレードで寺院・仏像と無関係</span></li>
         <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://prtimes.jp/main/html/rd/p/000000043.000086753.html" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">京都府立植物園の夜空に「ありがとう」を灯す。11月21日・22日の2日間限定「サンクスランタン2026」開催！ - PR TIMES</a><span class="block text-[11px] text-gray-400">11-15・植物園のイベントで仏像・寺院・仏教美術と無関係</span></li>
@@ -24415,7 +24416,7 @@ GUOOL タイ風仏像 華やかな装飾 蓮の花座仏像 繊細な彫刻 レ�
 
     // 表示中のページより新しい版が公開されていれば読み直す（data/version.json と比べる）。
     // スマホによっては、アプリを開き直しても前の表示のまま残ることがあるため
-    const PAGE_UPDATED = '2026-11-15T22:11:51.933336+09:00';
+    const PAGE_UPDATED = '2026-11-15T23:11:39.820906+09:00';
     function checkFreshness() {
       fetch('data/version.json?t=' + Date.now(), { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
