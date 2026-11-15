@@ -1,6 +1,103 @@
 {
-  "last_updated": "2026-11-15T23:11:39.820906+09:00",
+  "last_updated": "2026-11-16T00:11:49.042569+09:00",
   "items": [
+    {
+      "id": "363feeb74144",
+      "title": "浅草寺｜入札情報「名勝伝法院庭園 居住部周辺・庭園西側等整備工事」",
+      "url": "https://www.senso-ji.jp/news/20261116_8151.html",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-16T00:11:49+09:00",
+      "published_at": "2026-11-16T00:11:49+09:00",
+      "image_url": "",
+      "description": "詳しくはこちら",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "庭園整備工事の入札情報で仏像と無関係。速報性も関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T00:14:08+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "09d665e90a69",
+      "title": "特別展 弘法大師空海 ―高野山の至宝と信仰のひろがり― - アートアジェンダ",
+      "url": "https://www.artagenda.jp/exhibition/detail/12979",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T00:11:45.696757+09:00",
+      "published_at": "2026-11-15T22:32:02+09:00",
+      "image_url": "https://www.artagenda.jp/img/event/12979/main_1.jpg?1794755505",
+      "description": "特別展 弘法大師空海 ―高野山の至宝と信仰のひろがり―が九州国立博物館で開催。",
+      "search_query": "(釈迦如来 OR 大日如来 OR 聖観音)",
+      "ai": {
+        "score": 70,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "九博の大型特別展。仏像が出る見込みだが開催日が記事に不明",
+        "event": {
+          "event_name": "特別展 弘法大師空海 ―高野山の至宝と信仰のひろがり―",
+          "place": "九州国立博物館（福岡県太宰府市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T00:14:08+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "official_url": "",
+        "official_image": "",
+        "post_text": "九州国立博物館で、空海と高野山の至宝をたどる特別展が開かれるとのこと。信仰がどう広がっていったのかを見られる展覧会みたいで、どんな仏像が並ぶのか楽しみ。",
+        "post_attempts": 1,
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "f7f4035f0ec6",
+      "title": "俳優の松平健さんが御開帳中の豊川稲荷に登場 門前や境内を馬に乗り移動 祈とうも受ける 沿道に大勢のファン詰めかけ - 東愛知新聞",
+      "url": "https://higashiaichi.jp/news/detail.php?id=28229",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T00:11:42.788369+09:00",
+      "published_at": "2026-11-16T00:00:00+09:00",
+      "image_url": "https://admin.higashiaichi.jp/uploads/20261115-182703-2143714691.jpg",
+      "description": "豊橋市出身の俳優、松平健さんが15日、御開帳中の豊川稲荷を訪れた。門前商店街と境内を殿様姿で馬に乗って移動し、祈とうを受けた。御開帳のメイン行事の一つで、豊川市商店街連盟が盛り上げ",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 30,
+        "category": "その他の仏像関連",
+        "duplicate": true,
+        "reason": "豊川稲荷御開帳は配信済み。俳優の来訪で仏像の話に乏しく重複",
+        "event": {
+          "event_name": "",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T00:14:08+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "484adc14d5d7",
       "title": "壁一面のイルミネーション - 香港経済新聞",
@@ -12378,44 +12475,6 @@
       }
     },
     {
-      "id": "87f334a581b0",
-      "title": "戦国武将ゆかりの仏像や肖像画 高月観音の里で企画展、信長の兵火逃れた如来形立像も - 47NEWS",
-      "url": "https://www.47news.jp/15223187.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T11:11:53.376292+09:00",
-      "published_at": "2026-11-13T10:15:37+09:00",
-      "image_url": "https://img.cf.47news.jp/public/photo/33aa1831f08f8961975c79133186bae1/photo.jpg",
-      "description": "NHK大河ドラマ「豊臣兄弟！」に合わせて長浜市内各地で戦国時代をテーマにしたイベントが盛り上がる中、戦国時代や武将に関連した仏像など約30点が並ぶ企画展が、高月観音の里歴史民俗資料館（同市高月町渡岸 ...",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 80,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "大河ゆかりの地域仏像約30点の企画展。信長の兵火逃れた像も。第一報",
-        "event": {
-          "event_name": "戦国武将ゆかりの仏像や肖像画 企画展",
-          "place": "高月観音の里歴史民俗資料館（滋賀県長浜市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T11:14:30+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-12",
-        "official_url": "https://kitabiwako.jp/post_65590",
-        "official_image": "https://kitabiwako.jp/common/images/ogp.png",
-        "post_text": "信長の兵火を逃れた如来形立像も並ぶ企画展が、長浜市の高月観音の里歴史民俗資料館で。戦国武将ゆかりの仏像や肖像画など約30点とのこと。",
-        "post_attempts": 1,
-        "post_format": 7,
-        "notified": true
-      }
-    },
-    {
       "title": "談山神社（9月5日~9月30日）",
       "url": "https://www.tanzan.or.jp/",
       "source": "kanbutsu",
@@ -12563,38 +12622,6 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-13T10:14:29+09:00",
         "score_version": 8
-      }
-    },
-    {
-      "id": "54eff6e11abc",
-      "title": "京都府の3つのお寺で、普段は見られない文化財を特別公開します - やさしい朝日新聞",
-      "url": "https://yasashii.asahi.com/articles/article_0017069.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T10:11:57.765496+09:00",
-      "published_at": "2026-11-10T17:00:26+09:00",
-      "image_url": "https://yasashii.asahi.com/assets/entry-17069-og_image.webp",
-      "description": "後水尾天皇が二条城を訪れてから400年になることを記念して、天皇家や徳川家と関係の深いお寺が文化財を公開します。",
-      "search_query": "文化財 特別公開 仏像 市",
-      "ai": {
-        "score": 55,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "京都3寺の文化財特別公開だが仏像の有無が不明。後追いで65時間経過",
-        "event": {
-          "event_name": "後水尾天皇二条城行幸400年記念 文化財特別公開",
-          "place": "京都府の3寺院",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T10:14:29+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-10"
       }
     },
     {
