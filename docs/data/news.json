@@ -1,6 +1,130 @@
 {
-  "last_updated": "2026-11-15T10:54:47.577284+09:00",
+  "last_updated": "2026-11-15T11:11:58.557435+09:00",
   "items": [
+    {
+      "id": "66e14542649d",
+      "title": "「明」から連想、絵画や工芸作品　歌会始のお題、伊勢・神宮美術館で特別展　三重 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/ise/region/ise-20261114100007",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-15T11:11:57.582775+09:00",
+      "published_at": "2026-11-14T10:00:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/ise/m_ise-20261114100007.jpg",
+      "description": "【伊勢】三重県伊勢市神田久志本町の神宮美術館で、特別展「明―歌会始御題によせて」が開かれている。新春…",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "歌会始御題の絵画・工芸の特別展で仏像と無関係。速報性も関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-15T11:14:22+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "884bd73ae896",
+      "title": "仁王像楽しむきっかけに 新見・哲西で愛好家渡辺さん写真展 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1983612?kw=%E6%97%A5%E7%94%9F",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-15T11:11:55.315417+09:00",
+      "published_at": "2026-11-15T01:32:52+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/a/b/0/0/ab00120d5a5f70ac7570bbd04b7fd19e_1.jpg",
+      "description": "新見市哲西町上神代出身の写真愛好家渡辺洋さん（８２）＝広島市＝が国内各地を訪ねて撮りためた金剛力士像の写真展「仁王像探訪」が、哲西公民...",
+      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
+      "ai": {
+        "score": 52,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "金剛力士像の写真展。仏像は主題だが写真展で小規模。会期不明で開催中の告知",
+        "event": {
+          "event_name": "仁王像探訪 写真展",
+          "place": "哲西公民館（岡山県新見市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-15T11:14:22+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-09-05"
+      }
+    },
+    {
+      "id": "53600ce8f316",
+      "title": "桐朋学園大の小西真璃花さん、４位入賞＝仏バイオリン・コンクール - Nippon.com",
+      "url": "https://www.nippon.com/ja/articles/-/57450",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-15T11:11:53.067502+09:00",
+      "published_at": "2026-11-15T10:00:29+09:00",
+      "image_url": "https://nippon.ismcdn.jp/mwimgs/f/c/1200wm/img_fc71ec5714603d7101275cbfdebb3bc958668.jpg",
+      "description": "公益財団法人ニッポンドットコムが運営するNippon.comは、文化、社会、旅・暮らし、政治、経済など日本の幅広い「今」を多言語で発信する非営利サイトです。",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: バイオリン・コンクールの話題で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-15T11:14:19+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "39445c23b4cf",
+      "title": "芭蕉人気を盛り上げた「顕彰」の歩みを紹介 三重・伊賀の記念館で [三重県] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCG3R0ZVCGONFB00WM.html?iref=reporter-bio-cover_timeline",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-15T11:11:50.928904+09:00",
+      "published_at": "2026-11-15T11:00:01+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 芭蕉の顕彰の話で仏像・寺院・仏教美術とは無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-15T11:14:19+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "b56a5f987827",
       "title": "いつもは非公開の仏像修理工房を特別公開【11/28発】東武新鹿沼駅発着の日帰りツアー！街歩きや鹿沼シウマイ＆地ビール・苔玉づくりも - ｄメニューニュース",
@@ -12116,127 +12240,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "一次判定（Haiku）で対象外: 宗教による洗脳解除の動画で仏像・寺院の話題ではない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-12T23:14:20+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "6f623c257724",
-      "title": "豊川稲荷御開帳SP！ハリセンボンが10年ぶりの推し旅へ - CBCテレビ",
-      "url": "https://hicbc.com/magazine/article/?id=hanasaka-times-movie-26110701",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T23:11:52.339430+09:00",
-      "published_at": "2026-11-12T10:16:29+09:00",
-      "image_url": "https://hicbc.com/magazine/assets/images/hanasaka-times-movie-26110701/1794213495ig5jb.jpg",
-      "description": "７２年ぶり御開帳の豊川稲荷ＳＰ！参拝方法を伝授＆１０年ぶりに帰ってきたハリセンボンの推し旅も豊川市へ！キャビア稲荷に仰天！お得すぎて大行列の最新工場直売スイーツも必見！権利関係上、配信していない...",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 40,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "豊川稲荷72年ぶり御開帳のTV番組告知。仏像の詳細なく番組宣伝寄り",
-        "event": {
-          "event_name": "",
-          "place": "豊川稲荷（愛知県豊川市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T23:14:25+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e1c53e37b488",
-      "title": "特別展「円山応挙」が江戸東京博物館で、“黄金に煌めく”クジャクの障壁画など空間表現を辿る - ファッションプレス",
-      "url": "https://www.fashion-press.net/news/151812",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T23:11:50.000555+09:00",
-      "published_at": "2026-11-12T18:19:11+09:00",
-      "image_url": "https://www.fashion-press.net/img/news/151812/top.jpg?1791363740",
-      "description": "東京都江戸東京博物館で、江戸東京博物館リニューアル記念特別展「円山応挙 リアルの先へ 空間革命」が、2026年11月28日(土)から2027年1月24日(日)まで開催される。円山応挙(1733～179...",
-      "search_query": "\"三十三間堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 15,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "円山応挙の絵画展で仏像が出ない",
-        "event": {
-          "event_name": "円山応挙 リアルの先へ 空間革命",
-          "place": "江戸東京博物館（東京都墨田区）",
-          "start_date": "2026-11-28",
-          "end_date": "2027-01-24"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T23:14:25+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "ec6645fed19d",
-      "title": "南楊州・奉先寺 969年創建の古刹と国宝の銅鐘 - www.famtimes.co.kr",
-      "url": "https://www.famtimes.co.kr/ja/news/articleView.html?idxno=704665",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T23:11:46.740450+09:00",
-      "published_at": "2026-11-12T19:11:43+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 12,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "韓国寺院の紹介で国宝は銅鐘。仏像の話題でない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-12T23:14:25+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f2f27d55b51a",
-      "title": "「地雷グリコ」キャスト陣が登場 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/gpnews/1778975/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-12T23:11:43.589347+09:00",
-      "published_at": "2026-11-12T21:14:37+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
-      "description": "プライムビデオのオリジナルドラマ「地雷グリコ」の配信記念イベントに登壇した前田旺志郎さん、山下美月さん、森七菜さん、蒔田彩珠さん、堀田真由さん、前田拳太郎さん、高橋大翔さん。１３日から配信開始＝１２日 【時事通信フォト】",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: ドラマ配信イベントの芸能ニュースで仏教美術と無関係",
         "event": {
           "event_name": "",
           "place": "",
