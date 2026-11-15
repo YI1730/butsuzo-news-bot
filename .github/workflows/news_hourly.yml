@@ -82,6 +82,16 @@ jobs:
         continue-on-error: true
         run: python record_x_posts.py
 
+      # @butsuzolink のフォロワー数を1日1回 data/x_followers.csv に残す（推移の定点チェック用）
+      - name: Record follower count
+        env:
+          X_API_KEY:             ${{ secrets.X_API_KEY }}
+          X_API_SECRET:          ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+        continue-on-error: true
+        run: python record_x_followers.py
+
       # 書籍（Amazon）の紹介する価値を採点し、PWA の書籍一覧の並び順に使う（新しい本のときだけ API を呼ぶ）
       - name: Rank books
         env:
@@ -164,7 +174,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/ data/x_posts.json data/gnews_url_cache.json data/replies.json data/watch_state.json data/kaicho_calendar.json
+          git add docs/ data/x_posts.json data/x_followers.csv data/gnews_url_cache.json data/replies.json data/watch_state.json data/kaicho_calendar.json
           if git diff --staged --quiet; then
             echo "No changes to commit"; exit 0
           fi
