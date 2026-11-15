@@ -59,6 +59,9 @@ AMAZON_MAGAZINE_NODE = "13384021"   # Amazon.co.jp の「雑誌」
 AMAZON_ISSUES_PER_MAGAZINE = 2      # 1 誌あたり見る号（新しい順）
 AMAZON_ISSUE_WINDOW_DAYS = 45       # 発売からこの日数以内の号と、発売前の号だけ見る
 
+SLEEP_AMAZON_MAGAZINE = 8           # 雑誌の検索の間隔（秒）。短いと Amazon に確認ページを返される
+_AMAZON_ORDER: list[str] = []       # 誌を見る順番（data["mag_az_order"] と行き来する）
+
 FUJISAN_URL = "https://www.fujisan.co.jp/product/{pid}/"
 SLEEP_FUJISAN = 3
 SLEEP_AMAZON = 4
@@ -393,9 +396,13 @@ def collect_amazon(session: requests.Session, today, skip_asins: set[str], seen:
     """各誌の新しい号を Amazon の雑誌カテゴリで探し、仏像らしい語がある号を AI に渡す候補にする。
     一度見た ASIN（seen。data["mag_az_seen"] に残す）は商品ページを読み直さない。"""
     names = [n for n, _ in MAGAZINES] + AMAZON_EXTRA_MAGAZINES
+    # 前回見られなかった誌から順に見る（Amazon に確認ページを返されたら、その回はそこで止めるため）
+    order = list(_AMAZON_ORDER)
+    names = [n for n in order if n in names] + [n for n in names if n not in order]
     entries = []
+    done = []
     for name in names:
-        time.sleep(SLEEP_AMAZON)
+        time.sleep(SLEEP_AMAZON_MAGAZINE)
         url = (f"https://www.amazon.co.jp/s?k={quote(name)}&i=stripbooks"
                f"&rh=n%3A{AMAZON_MAGAZINE_NODE}&s=date-desc-rank")
         soup = fetch_page(session, url)
@@ -404,9 +411,15 @@ def collect_amazon(session: requests.Session, today, skip_asins: set[str], seen:
             continue
         cards = parse_amazon_cards(soup)
         if not cards:
-            title = soup.title.get_text(strip=True)[:40] if soup.title else ""
-            print(f"  Amazon 雑誌検索: 商品が 0 件（{name}）ページ: {title}", file=sys.stderr)
+            if soup.find("meta", attrs={"http-equiv": "refresh"}):
+                # ロボットかどうかの確認ページ。くぐり抜けはせず、この回は止めて次回に残りを見る
+                print(f"  Amazon 雑誌検索: 確認ページが返ったので今回はここまで（残り {len(names) - len(done)} 誌は次回）",
+                      file=sys.stderr)
+                break
+            print(f"  Amazon 雑誌検索: 商品が 0 件（{name}）", file=sys.stderr)
+            done.append(name)
             continue
+        done.append(name)
         picked = 0
         for c in cards:
             if picked >= AMAZON_ISSUES_PER_MAGAZINE:
@@ -428,12 +441,14 @@ def collect_amazon(session: requests.Session, today, skip_asins: set[str], seen:
             seen.append(c["asin"])
             text = c["title"]
             if not has_butsuzo_words(text):
-                time.sleep(SLEEP_AMAZON)
+                time.sleep(SLEEP_AMAZON_MAGAZINE)
                 text = f"{c['title']} {amazon_description(session, c['asin'])}"
             if has_butsuzo_words(text):
                 entries.append({"id": f"az-{c['asin']}", "magazine": name, "issue_label": label,
                                 "release_date": c["release_date"], "page": build_product_url(c["asin"]),
                                 "text": text, "amazon": c})
+    # 次回の順番: 見られなかった誌を先に、見た誌を後ろに
+    _AMAZON_ORDER[:] = [n for n in names if n not in done] + done
     return entries
 
 
@@ -455,7 +470,9 @@ def collect_amazon_only() -> int:
         print(f"  Amazon トップページ訪問失敗（続行）: {e}", file=sys.stderr)
     upgraded = upgrade_missing_asin(session, items, have_asin)
     az_seen = list(data.get("mag_az_seen", []))
+    _AMAZON_ORDER[:] = data.get("mag_az_order", [])
     found = collect_amazon(session, today, have_asin, az_seen)
+    data["mag_az_order"] = list(_AMAZON_ORDER)
     pending = data.get("mag_amazon_pending", [])
     known = {e["id"] for e in pending}
     pending += [e for e in found if e["id"] not in known]

@@ -29,8 +29,10 @@ git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
 for attempt in 1 2 3; do
   git fetch -q origin main && git reset -q --hard origin/main || { sleep 30; continue; }
-  $PY scrape_amazon.py || echo "scrape_amazon.py が失敗（続行）"
+  # 雑誌を先に（書籍の検索のあとだと、続けて検索したことで確認ページを返されやすい）。間に休みを入れる
   $PY scrape_magazines.py --amazon-only || echo "scrape_magazines.py が失敗（続行）"
+  sleep 120
+  $PY scrape_amazon.py || echo "scrape_amazon.py が失敗（続行）"
   if git diff --quiet -- docs/data/news.json; then
     echo "変更なし"; date +%s > "$STAMP"; exit 0
   fi
