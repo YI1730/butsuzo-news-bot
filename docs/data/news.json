@@ -1,6 +1,98 @@
 {
-  "last_updated": "2026-11-16T06:53:07.816193+09:00",
+  "last_updated": "2026-11-16T07:11:46.600245+09:00",
   "items": [
+    {
+      "id": "6606e030115d",
+      "title": "松阪市 お知らせ｜景観絵画展(まつさか景観絵画コンクール作品展示)について",
+      "url": "https://www.city.matsusaka.mie.jp/site/toshikeikaku/keikan-keihatsu-kaigaten.html",
+      "source": "official_site",
+      "site_kind": "gov",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-16T07:11:46+09:00",
+      "published_at": "2026-11-16T07:11:46+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "市の景観絵画展のお知らせで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T07:15:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "bd4656c98391",
+      "title": "montago (@montago116126) on X - Howl.Link",
+      "url": "https://t.co/Jb0KLGypEp",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T07:11:44.374690+09:00",
+      "published_at": "2026-11-15T23:16:37+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "X投稿の転載で内容不明、仏像との関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T07:15:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "2e580b90f8ae",
+      "title": "CBC佐藤楠大アナがレポート。豊川稲荷72年ぶりの御開帳 - CBCテレビ",
+      "url": "https://hicbc.com/magazine/article/?id=radichubu-65821",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T07:11:42.998036+09:00",
+      "published_at": "2026-11-16T05:59:00+09:00",
+      "image_url": "https://radichubu.jp/files/topics/65821_ext_01_0.jpg",
+      "description": "東海地区でのパワースポットの1つとして知られ、商売繁盛の御利益でも有名なのが豊川稲荷（愛知県豊川市）。現在11月23日まで、1954年（昭和29年）以来72年ぶりに秘仏を公開する「御開帳」が行わ...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 55,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "豊川稲荷72年ぶり御開帳は配信済みと重複。11月23日まで開催中",
+        "event": {
+          "event_name": "豊川稲荷 72年ぶりの御開帳",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "",
+          "end_date": "2026-11-23"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T07:15:37+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-16"
+      }
+    },
     {
       "id": "0e73767b2514",
       "title": "目の眼 2026年12月号・2027年1月号",
@@ -16,7 +108,17 @@
       "published_at": "2026-11-16T00:00:00+09:00",
       "release_date": "2026-11-16",
       "fetched_at": "2026-11-16T06:53:59.681282+09:00",
-      "description": "ほっとけない仏たち 滋賀（1）／仏教美術逍遥７。連載で、延暦寺横川中堂の聖観音（大津市）を取り上げる。また仏像残欠の収集と秋篠寺の乾漆仏残欠を扱う。なお主特集は内田鋼一×骨董で仏像特集ではない。"
+      "description": "ほっとけない仏たち 滋賀（1）／仏教美術逍遥７。連載で、延暦寺横川中堂の聖観音（大津市）を取り上げる。また仏像残欠の収集と秋篠寺の乾漆仏残欠を扱う。なお主特集は内田鋼一×骨董で仏像特集ではない。",
+      "book_ai": {
+        "score": 52,
+        "reason": "主特集は別で、仏像は連載・一部記事の扱い",
+        "version": 1
+      },
+      "book_post_attempts": 1,
+      "book_post_text": "今日発売の目の眼は、主特集が内田鋼一×骨董で、仏像は連載での登場。延暦寺横川中堂の聖観音や、秋篠寺の乾漆仏残欠の話があるらしく、残欠好きの人に向きそう。",
+      "j_post_attempts": 1,
+      "j_post_format": 2,
+      "j_post_text": "連載で延暦寺横川中堂の聖観音や、仏像残欠の収集、秋篠寺の乾漆仏残欠を取り上げる号。主特集は内田鋼一×骨董。"
     },
     {
       "title": "熊本県立美術館 特別展「熊本地震から10年　仏像　国宝×肥後仏」（10月3日~12月13日）",
@@ -12350,68 +12452,6 @@
         "model": "claude-haiku-5-5",
         "prefiltered": true,
         "scored_at": "2026-11-13T13:14:48+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1342c25e25e2",
-      "title": "明治から現代、変遷と継承 奈良市で「興福寺今昔写真展」 - 47NEWS",
-      "url": "https://www.47news.jp/15222313.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T13:12:13.075447+09:00",
-      "published_at": "2026-11-13T06:00:00+09:00",
-      "image_url": "https://img.cf.47news.jp/public/photo/c07b10ddc6e8b8c9c315d8aaf01d63b1/photo.jpg",
-      "description": "会期中には僧侶による講話も 興福寺(奈良市)の東金堂創建1300年と五重塔再建600年を記念した「興福寺今昔写真展」(同寺主催)が、同市二条大路南1丁目の商業施設ミ・ナーラ4階特設会場で開かれてい ...",
-      "search_query": "\"興福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 55,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "興福寺の写真展で仏像が主役ではない。優先寺院だが期間も不明で低め",
-        "event": {
-          "event_name": "興福寺今昔写真展",
-          "place": "ミ・ナーラ4階特設会場（奈良県奈良市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T13:14:56+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-13"
-      }
-    },
-    {
-      "id": "9948b30a39b7",
-      "title": "那智勝浦の楞厳寺、国有形文化財の特徴生かし宿坊に改装　和歌山 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/asahi_region/nation/asahi_region-ASVCD3QTBVCDPXLB001M?fm=latestnews",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T13:12:07.759609+09:00",
-      "published_at": "2026-11-13T10:45:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/asahi_region/m_asahi_region-ASVCD3QTBVCDPXLB001M.jpg",
-      "description": "和歌山県那智勝浦町の古刹（こさつ）「楞厳寺（りょうごんじ）」が宗教法人の解散手続きを経て、来年初頭…",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 20,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "寺院の宿坊改装の話で仏像に触れていない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T13:14:56+09:00",
         "score_version": 8
       }
     },
