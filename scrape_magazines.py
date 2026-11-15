@@ -437,9 +437,42 @@ def collect_amazon(session: requests.Session, today, skip_asins: set[str], seen:
     return entries
 
 
+def collect_amazon_only() -> int:
+    """Amazon の部分だけを動かす（運営者の Mac から。tools/run_amazon_local.sh）。
+    GitHub Actions からの Amazon の検索は 503 で断られるため、Mac で各誌の新しい号を探して
+    data["mag_amazon_pending"] に置き、判定（AI）は次の GitHub Actions の実行（main）が行う。
+    ASIN が分からないまま加えた雑誌の、Amazon の商品ページへの差し替えもここで行う。"""
+    from post_news import load_news_data, save_news_data
+
+    data = load_news_data()
+    items = data["items"]
+    today = datetime.now(JST_TZ).date()
+    have_asin = {it.get("asin") for it in items if it.get("source") == SOURCE_AMAZON and it.get("asin")}
+    session = requests.Session()
+    try:
+        session.get("https://www.amazon.co.jp/", headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT)
+    except requests.RequestException as e:
+        print(f"  Amazon トップページ訪問失敗（続行）: {e}", file=sys.stderr)
+    upgraded = upgrade_missing_asin(session, items, have_asin)
+    az_seen = list(data.get("mag_az_seen", []))
+    found = collect_amazon(session, today, have_asin, az_seen)
+    pending = data.get("mag_amazon_pending", [])
+    known = {e["id"] for e in pending}
+    pending += [e for e in found if e["id"] not in known]
+    data["mag_amazon_pending"] = pending[-50:]
+    data["mag_az_seen"] = az_seen[-400:]
+    save_news_data(data)
+    print(f"Amazon の雑誌: 判定待ちに追加 {len(found)} 件・ASIN 差し替え {upgraded} 件")
+    for e in found:
+        print(f"  判定待ち: {e['magazine']} {e['issue_label']} {e['text'][:60]}")
+    return 0
+
+
 def main() -> int:
     import os
 
+    if "--amazon-only" in sys.argv:
+        return collect_amazon_only()
     if not os.environ.get("ANTHROPIC_API_KEY"):
         print("ANTHROPIC_API_KEY が無いため雑誌の仏像特集を探しません")
         return 0
@@ -460,7 +493,8 @@ def main() -> int:
         session.get("https://www.amazon.co.jp/", headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT)
     except requests.RequestException as e:
         print(f"  Amazon トップページ訪問失敗（続行）: {e}", file=sys.stderr)
-    upgraded = upgrade_missing_asin(session, items, have_asin)
+    on_actions = bool(os.environ.get("GITHUB_ACTIONS"))   # Actions からは Amazon に断られる
+    upgraded = 0 if on_actions else upgrade_missing_asin(session, items, have_asin)
     entries = collect_fujisan(session, today)
     # 判定に渡すもの: Fujisan の号（すでに加えた号は除く）と、ニュースの記事
     # 一度判定した号（仏像特集でなかった号も）は data["mag_judged"] に覚えて、毎回 AI に出さない
@@ -470,10 +504,16 @@ def main() -> int:
     # Amazon 起点: 各誌の新しい号の題名・商品ページの説明から（Fujisan と同じ号は Fujisan 側を使う）
     fj_keys = {magazine_key(e["magazine"], e["issue_label"]) for e in entries}
     az_seen = list(data.get("mag_az_seen", []))
-    for e in collect_amazon(session, today, have_asin, az_seen):
+    # Mac（--amazon-only）が見つけて置いていった号と、Actions 以外ならこの場で Amazon を探した号
+    az_found = list(data.get("mag_amazon_pending", []))
+    data["mag_amazon_pending"] = []
+    if not on_actions:
+        az_found += collect_amazon(session, today, have_asin, az_seen)
+    for e in az_found:
         k = magazine_key(e["magazine"], e["issue_label"])
-        if k not in have and k not in judged_keys and k not in fj_keys:
+        if k not in have and k not in judged_keys and k not in fj_keys and e.get("amazon", {}).get("asin") not in have_asin:
             entries.append(e)
+            fj_keys.add(k)
     data["mag_az_seen"] = az_seen[-400:]
     news = news_candidates(items)
     for it in news:
@@ -509,6 +549,8 @@ def main() -> int:
         hit_keys.add(key)
         if e.get("amazon"):
             amazon = e["amazon"]   # Amazon 起点の候補は、見つけた商品をそのまま使う
+        elif on_actions:
+            amazon = None          # Actions からは Amazon を検索できない。Mac の実行で商品ページに差し替える
         else:
             time.sleep(SLEEP_AMAZON)
             amazon = search_amazon_issue(session, magazine, label)

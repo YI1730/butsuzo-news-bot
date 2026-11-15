@@ -43,14 +43,10 @@ jobs:
       - name: Fetch exhibition info
         run: python scrape_exhibition.py
 
-      - name: Fetch Amazon products
-        env:
-          AMAZON_CLIENT_ID:     ${{ secrets.AMAZON_CLIENT_ID }}
-          AMAZON_CLIENT_SECRET: ${{ secrets.AMAZON_CLIENT_SECRET }}
-          AMAZON_STORE_ID:      ${{ secrets.AMAZON_STORE_ID }}
-        run: python scrape_amazon.py
+      # Amazon の検索（書籍・グッズの新刊、雑誌の新しい号）は GitHub Actions からだと 503 で断られるため、
+      # 運営者の Mac で 2 日に 1 回動かしている（tools/run_amazon_local.sh）。ここでは動かさない
 
-      # 雑誌の仏像特集号（サライなど、号の題名に「仏像」が入らないもの）を Fujisan とニュースから探して書籍欄に加える
+      # 雑誌の仏像特集号（サライなど、号の題名に「仏像」が入らないもの）を Fujisan・ニュース・Mac が Amazon で見つけた号から判定して書籍欄に加える
       - name: Find magazine Buddhist-statue specials
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
