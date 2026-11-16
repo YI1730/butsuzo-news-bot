@@ -96,5 +96,50 @@
     "image_url": "https://butsuzolink.com/wp-content/uploads/2026/11/line-hibutsu-banner.jpg",
     "use_media_upload": true,
     "enabled": true
+  },
+  {
+    "label": "【自動】今週見られる仏像展",
+    "weekdays": [
+      "mon"
+    ],
+    "time": "21:00",
+    "reply_text": "会期・見どころつきの一覧（毎朝更新）はこちら\nhttps://butsuzolink.com/exhibition/",
+    "id": "auto-exhibition-week",
+    "auto": "exhibition_week",
+    "text": "🏛 今週見られる仏像展（11/16〜11/22）\n\n⏰ 「国指定重文聖如意輪観世音菩薩 秘仏開帳」（大門寺・11/19まで）\n⏰ 未来へつなぐ 大津のたから 大津の文化財保護6…（大津市歴史博物館・11/23まで）\n🏛 豊原寺跡出土の石仏特別展（坂井市龍翔博物館）\n\n会期と見どころは一覧にまとめています👇",
+    "image_url": "",
+    "use_media_upload": false,
+    "enabled": true,
+    "updated": "2026-11-16"
+  },
+  {
+    "label": "【自動】今月・来月の秘仏",
+    "weekdays": [
+      "wed"
+    ],
+    "time": "21:00",
+    "reply_text": "御開帳・特別公開の一覧（毎朝更新）はこちら\nhttps://butsuzolink.com/hibutsu/",
+    "id": "auto-hibutsu-month",
+    "auto": "hibutsu_month",
+    "text": "🔓 今月・来月に扉が開く秘仏（11/16時点）\n\n🔓 豊川稲荷 御開帳（愛知・72年ぶり・〜11/23）\n🔓 長福寺 開創1300年大祭 本尊御開帳（静岡・40年ぶり・〜11/21）\n🔓 宝林寺 重要文化財の仏像公開（京都・〜11/29）\n\nほかの御開帳・特別公開も一覧にしています👇",
+    "image_url": "",
+    "use_media_upload": false,
+    "enabled": true,
+    "updated": "2026-11-16"
+  },
+  {
+    "label": "【自動】今週末に会える仏像（LINE「秘仏」）",
+    "weekdays": [
+      "fri"
+    ],
+    "time": "21:00",
+    "reply_text": "仏像リンクのLINE（友だち追加）\nhttps://line.me/R/ti/p/%40vdn2047d\n\n解説つきの一覧はブログにも\nhttps://butsuzolink.com/hibutsu/",
+    "id": "auto-weekend",
+    "auto": "weekend",
+    "text": "🗓 今週末 11/21(土)・22(日)に会える仏像\n\n⏰ 長福寺 開創1300年大祭 本尊御開帳（静岡・〜11/21）\n⏰ 豊川稲荷 御開帳（愛知・〜11/23）\n⏰ 宝林寺 重要文化財の仏像公開（京都・〜11/29）\n\nほかの公開も、仏像リンクのLINEで「秘仏」と送ると一覧で届きます📩（リンクは返信に）",
+    "image_url": "",
+    "use_media_upload": false,
+    "enabled": true,
+    "updated": "2026-11-16"
   }
 ]
