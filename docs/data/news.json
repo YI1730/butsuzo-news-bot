@@ -1,6 +1,37 @@
 {
-  "last_updated": "2026-11-17T05:11:36.170238+09:00",
+  "last_updated": "2026-11-17T05:25:04.272419+09:00",
   "items": [
+    {
+      "id": "a576217fdd34",
+      "title": "立民、職員に退職勧奨 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1779077/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T05:25:00.027179+09:00",
+      "published_at": "2026-11-16T20:08:14+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "立憲民主党は職員に対し、退職勧奨を実施すると通知した。党関係者が１６日、明らかにした。写真は、記者会見する立憲民主党の水岡俊一代表＝同日午前、国会内 【時事通信社】",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 政党の職員への退職勧奨で、仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-17T05:27:37+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "d5cba47700f6",
       "title": "日本初 重要文化財の監獄建築→ラグジュアリーホテルに 秘密を紐解く 5日放送『新美の巨人たち』 - 山陽新聞",
@@ -12633,36 +12664,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "紅葉ライトアップの紹介で仏像に触れておらず、上限対象",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T10:14:25+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "816de81a7aea",
-      "title": "京都の「紅葉ライトアップ」3選【2026最新】約1カ月だけの特別拝観から、世界遺産まで - Lmaga.jp",
-      "url": "https://www.lmaga.jp/news/2026/11/1116439/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T10:11:53.070001+09:00",
-      "published_at": "2026-11-14T08:00:18+09:00",
-      "image_url": "https://www.lmaga.jp/wp-content/uploads/2026/10/momiji2026daigoji_kyoto.jpg",
-      "description": "関西のおいしい、楽しい、知りたい…がいっぱい。関西人による、関西が好きな人のための、関西を24時間遊ぶニュースサイトです。",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 10,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "紅葉ライトアップで仏像と無関係。同内容の重複記事",
         "event": {
           "event_name": "",
           "place": "",
