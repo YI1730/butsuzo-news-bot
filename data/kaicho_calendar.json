@@ -2552,6 +2552,20 @@
    ]
   },
   {
+   "id": "3248de463a64",
+   "event_name": "松本明慶工房 仏像彫刻展",
+   "place": "うすい百貨店（福島県郡山市）",
+   "place_key": "うすい百貨店",
+   "start": "",
+   "end": "2026-11-16",
+   "category": "展覧会",
+   "source_url": "https://topics.smt.docomo.ne.jp/amp/article/fukushimatv/region/fukushimatv-34585",
+   "source_title": "京都・松本明慶工房の仏像彫刻展　15年かけて制作の復興観音も展示　11月16日まで郡山市で開催　福島 - ｄメニューニュース",
+   "source_score": 35,
+   "first_seen": "2026-11-16T11:02:33+09:00",
+   "reminded": []
+  },
+  {
    "id": "31d3529a340e",
    "event_name": "（乾蔵）特別公開「猪名川町の木喰」（事前予約制）",
    "place": "猪名川町立静思館文化財収蔵庫",
@@ -2563,9 +2577,13 @@
    "source_title": "猪名川町立静思館文化財収蔵庫 （乾蔵）特別公開「猪名川町の木喰」（事前予約制）",
    "source_score": 0,
    "first_seen": "2026-11-16T10:15:00+09:00",
-   "reminded": [],
+   "reminded": [
+    "found"
+   ],
    "origin": "kanbutsu",
-   "remind": false
+   "remind": false,
+   "exhibit_score": 78,
+   "exhibit_reason": "木喰仏の地域特別公開。開幕3日前の告知。像の詳細は少ないが地域仏で加点"
   },
   {
    "id": "ed13d612ebef",
@@ -2737,6 +2755,20 @@
    "first_seen": "2026-11-07T11:49:39+09:00",
    "reminded": [],
    "news_candidate": true
+  },
+  {
+   "id": "a541f91fa81d",
+   "event_name": "豊川稲荷 72年ぶりの御開帳",
+   "place": "豊川稲荷（愛知県豊川市）",
+   "place_key": "豊川稲荷",
+   "start": "",
+   "end": "2026-11-23",
+   "category": "秘仏・御開帳・特別公開",
+   "source_url": "https://hicbc.com/magazine/article/?id=radichubu-65821",
+   "source_title": "CBC佐藤楠大アナがレポート。豊川稲荷72年ぶりの御開帳 - CBCテレビ",
+   "source_score": 55,
+   "first_seen": "2026-11-16T11:02:33+09:00",
+   "reminded": []
   },
   {
    "id": "1f57e9543070",
@@ -3371,6 +3403,20 @@
    "news_candidate": true
   },
   {
+   "id": "ec11db7c03ec",
+   "event_name": "特別展「国宝 三井寺のすべて」",
+   "place": "東京国立博物館（東京都台東区）",
+   "place_key": "東京国立博物館",
+   "start": "2027-04-20",
+   "end": "2027-06-13",
+   "category": "展覧会",
+   "source_url": "https://www.fashion-press.net/news/gallery/153247/2591446",
+   "source_title": "写真13/17｜東京国立博物館で三井寺の秘仏を公開、現存最古の”パスポート”や国宝の仏像 - ファッションプレス",
+   "source_score": 58,
+   "first_seen": "2026-11-16T11:02:33+09:00",
+   "reminded": []
+  },
+  {
    "id": "acfc82911400",
    "event_name": "春季特別展 「湯の街のほとけとかみ ―温泉と薬師信仰の美術―（仮称）」",
    "place": "龍谷ミュージアム（京都府京都市）",
@@ -3391,5 +3437,5 @@
    "exhibit_reason": "薬師信仰の仏像・美術展。仮称で詳細は少なく、開幕は先だが先の予定として減点せず"
   }
  ],
- "last_updated": "2026-11-16T10:16:14+09:00"
+ "last_updated": "2026-11-16T11:02:33+09:00"
 }
