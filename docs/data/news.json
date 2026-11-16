@@ -1,6 +1,187 @@
 {
-  "last_updated": "2026-11-16T15:31:02.621078+09:00",
+  "last_updated": "2026-11-16T16:11:59.391925+09:00",
   "items": [
+    {
+      "id": "2dfe809fd0c9",
+      "title": "ダブルツリーbyヒルトン京都駅クリスマスアフタヌーンティー｜レッツエンジョイ東京 - レッツエンジョイ東京",
+      "url": "https://www.enjoytokyo.jp/event/2092633/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T16:11:59.391175+09:00",
+      "published_at": "2026-11-14T17:00:00+09:00",
+      "image_url": "https://rstatic.enjoytokyo.jp/assets/images/event_draft/ab/2092633/img_1.jpg?1794795468&p=t&w=1200",
+      "description": "「ダブルツリーbyヒルトン京都駅クリスマスアフタヌーンティー」の開催日時、問い合わせ先等の詳細情報。",
+      "search_query": "\"東福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 京都のホテルのアフタヌーンティー情報で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-16T16:14:31+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "1a0d883aa307",
+      "title": "近大附属小学校が「近小・親子歴史ウォーク」を開催 親子で薬師寺や唐招提寺などの世界遺産を巡る - アットプレス",
+      "url": "https://www.atpress.ne.jp/news/650222",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T16:11:53.772810+09:00",
+      "published_at": "2026-11-16T14:00:00+09:00",
+      "image_url": "https://www.atpress.ne.jp/attachments/ivtGwGtMJ3pxW9NxWtrU.png",
+      "description": "学校法人近畿大学のプレスリリース:近大附属小学校が「近小・親子歴史ウォーク」を開催 親子で薬師寺や唐招提寺などの世界遺産を巡る",
+      "search_query": "\"唐招提寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 42,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "薬師寺・唐招提寺を巡る学校行事。仏像の言及なく、21日開催だが優先度低",
+        "event": {
+          "event_name": "近小・親子歴史ウォーク",
+          "place": "薬師寺・唐招提寺（奈良県奈良市）",
+          "start_date": "2026-11-21",
+          "end_date": "2026-11-21"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "d4c360ac76d1",
+      "title": "清泉女子大学の安斎ゼミが重要文化財・旧島津家本邸で着物ドレスショーを開催 ― 女子大生らが日本の伝統文化・着物を現代の感性で再解釈 - 河北新報オンライン",
+      "url": "https://kahoku.news/release/dpr148539.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T16:11:50.741702+09:00",
+      "published_at": "2026-11-16T14:20:07+09:00",
+      "image_url": "https://digitalpr.jp/release/media/676/148539/202611161420076afa92873bcf9.jpg",
+      "description": "清泉女子大学（東京都品川区、学長：山本達也）地球市民学部・安斎徹教授のゼミでは、2026年6月14日、国の重要文化財に指定されている同大本館（旧島津家本邸）を舞台に、「女子大生による女子大生のための KIMONO …",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "旧島津家本邸の着物ショー。寺院・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "a2c668ddec85",
+      "title": "近大附属小学校が「近小・親子歴史ウォーク」を開催 親子で薬師寺や唐招提寺などの世界遺産を巡る (2026年11月16日掲載) - ライブドアニュース",
+      "url": "https://news.livedoor.com/pr_topics/detail/32829638/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T16:11:48.786474+09:00",
+      "published_at": "2026-11-16T15:50:03+09:00",
+      "image_url": "https://image.news.livedoor.com/newsimage/stf/b/9/b9505_1886_66c2b324106d8270122682d6a6d715d4.jpg",
+      "description": "近畿大学附属小学校（奈良県奈良市）は、令和8年（2026年）11月21日（土）、5・6年生の児童とその保護者を対象とした「第16回近小・親子歴史ウォーク」を開催します。",
+      "search_query": "\"唐招提寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 22,
+        "category": "寺院の行事",
+        "duplicate": true,
+        "reason": "アットプレス一次情報と同じ出来事の後追い。重複で減点",
+        "event": {
+          "event_name": "近小・親子歴史ウォーク",
+          "place": "薬師寺・唐招提寺（奈良県奈良市）",
+          "start_date": "2026-11-21",
+          "end_date": "2026-11-21"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "53aa6e6ca48d",
+      "title": "【土日祝限定】京都「浄住寺」2026年秋の特別公開にて、京菓匠「鶴屋吉信」の和菓子をご提供いたします。 - PR TIMES",
+      "url": "https://prtimes.jp/main/html/rd/p/000000184.000045479.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T16:11:47.316659+09:00",
+      "published_at": "2026-11-16T16:03:30+09:00",
+      "image_url": "https://prcdn.freetls.fastly.net/release_image/45479/184/45479-184-bb2b0e4c0855f148eff2bfd2354c8a5f-3725x2552.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
+      "description": "株式会社 鶴屋吉信のプレスリリース（2026年11月16日 16時03分）【土日祝限定】京都「浄住寺」2026年秋の特別公開にて、京菓匠「鶴屋吉信」の和菓子をご提供いたします。",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 38,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "浄住寺特別公開での和菓子提供が主目的の宣伝。仏像の言及なし",
+        "event": {
+          "event_name": "浄住寺 秋の特別公開",
+          "place": "浄住寺（京都府京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "95180925b3f0",
+      "title": "鎌倉市の大船観音、女性への暴力をなくす運動にあわせて紫色にライトアップされました - やさしい朝日新聞",
+      "url": "https://yasashii.asahi.com/articles/article_0017740.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T16:11:45.857928+09:00",
+      "published_at": "2026-11-16T16:10:00+09:00",
+      "image_url": "https://yasashii.asahi.com/assets/entry-17740-og_image.webp",
+      "description": "政府は、11月12日から11月25日までを「女性に対する暴力をなくす運動」の期間にしています。ライトアップは、この運動に合わせたものです。",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 30,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "大船観音の紫ライトアップ。運動啓発で仏像の価値に触れず低め",
+        "event": {
+          "event_name": "大船観音 紫色ライトアップ",
+          "place": "大船観音寺（神奈川県鎌倉市）",
+          "start_date": "2026-11-12",
+          "end_date": "2026-11-25"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T16:14:37+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "和歌山県立博物館",
       "url": "https://hakubutu.wakayama.jp/",
@@ -12178,187 +12359,6 @@
       "id": "c66c295a6b05",
       "fetched_at": "2026-11-13T21:34:45.487448+09:00",
       "image_url": ""
-    },
-    {
-      "id": "15b4e6234e99",
-      "title": "「何？この完成度」 AKB48伊藤百花、2歳当時にネット騒然「面影ガッツリ」「この頃から顔面重要文化財」 - UQライフ",
-      "url": "https://portal.uqmobile.jp/detail/1/5/9/10316_9_r_20261111_1794403171982649",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T21:12:13.358997+09:00",
-      "published_at": "2026-11-11T22:16:00+09:00",
-      "image_url": "https://www.uqwimax.jp/common2/images/ogp.png",
-      "description": "UQ mobile（モバイル）の公式サイトです。UQ mobileの「UQ LiFE ダウンロードのご案内」のサポートページ。au 5G/4G LTEで快適に、eSIM対応もUQ mobile！",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "「顔面重要文化財」は比喩で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T21:14:39+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "d7110bc7d550",
-      "title": "2026年11月11日 衆議院【文部科学委員会】西岡義高議員 国宝の再評価、養護教諭の複数配置、研究力強化と教育国債 #国民民主党 #西岡義高 - YouTube",
-      "url": "https://youtu.be/lC7loqEufZc?si=_wEAIvrYXxZIkhLh",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T21:12:11.437877+09:00",
-      "published_at": "2026-11-11T23:51:23+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 10,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "国会委員会の国宝再評価の質疑で仏像の話ではない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T21:14:39+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "09dc067f24d6",
-      "title": "【Blu-ray/DVD CM】ミュージカル『テニスの王子様』4thシーズン 全国大会 青学vs立海 前編 - YouTube",
-      "url": "https://youtu.be/OFeM2_CD5II?si=nDvVkfBVKB8ptwW8",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T21:12:05.564695+09:00",
-      "published_at": "2026-11-13T12:00:14+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: テニスミュージカルの映像で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-13T21:14:34+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "a191483ee41c",
-      "title": "『皇室の至宝─美いづるところ』皇居三の丸尚蔵館──皇室ゆかりの名品が一堂に揃う（クロワッサンオンライン） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/27c8fbdf9def8f5cbca134e26f02f93671521b20",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T21:12:02.672812+09:00",
-      "published_at": "2026-11-13T15:05:00+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261110-00005570-crssntv-000-7-view.jpg?exp=10800",
-      "description": "青野尚子のアート散歩。今回は、皇室に代々受け継がれた絵画や書工芸品を収蔵する〈皇居三の丸尚蔵館〉で開催されている「皇室の至宝―美いづるところ」展。前期・中期・後期で展示作品が入れ替わり、皇室ゆかりの",
-      "search_query": "\"法隆寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 15,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "皇室の絵画・工芸の展覧会で仏像が主役ではない",
-        "event": {
-          "event_name": "皇室の至宝―美いづるところ",
-          "place": "皇居三の丸尚蔵館（東京都千代田区）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T21:14:39+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f454d7ff246d",
-      "title": "“ただ者”ではない「シロアリ探知犬」全国で3頭だけ、“数千倍”の臭覚で重要文化財で駆除に活躍 秋田で初の小型犬、嘱託警察犬に挑戦（FNNプライムオンライン（フジテレビ系）） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/866cb092c48083b905b350ad4bcd5e4ccce4b3ec",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T21:12:01.163893+09:00",
-      "published_at": "2026-11-13T19:35:30+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261113-01252123-fnn-000-1-thumb.jpg?exp=10800",
-      "description": "たくさん並んだ容器のにおいを嗅ぎ回る犬。ビーグル犬のメス、サラです。実は、サラは日本に3頭しかいない「シロアリ探知犬」。この道7年のベテランです。ビーグル犬の嗅覚は人間の数千倍以上といわれていて、6",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "シロアリ探知犬の話題で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T21:14:39+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b144fa548d09",
-      "title": "“ただ者”ではない「シロアリ探知犬」全国で3頭だけ、“数千倍”の臭覚で重要文化財で駆除に活躍 秋田で初の小型犬、嘱託警察犬に挑戦 - Excite エキサイト",
-      "url": "http://www.excite.co.jp/news/article/FNN_1493923196657910513/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T21:11:58.789000+09:00",
-      "published_at": "2026-11-13T19:44:36+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "シロアリ探知犬の話題で無関係かつ重複",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T21:14:39+09:00",
-        "score_version": 8
-      }
     },
     {
       "title": "鎌倉歴史文化交流館 「無住がみた鎌倉－宗派に偏らない通世僧のまなざし－」（12月12日~2月27日）",
