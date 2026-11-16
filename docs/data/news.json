@@ -1,6 +1,156 @@
 {
-  "last_updated": "2026-11-17T06:53:26.422888+09:00",
+  "last_updated": "2026-11-17T07:11:43.109927+09:00",
   "items": [
+    {
+      "id": "32229cd49fae",
+      "title": "東京国立博物館｜e국보: 국립문화재기구 소장 국보‧중요문화재",
+      "url": "https://emuseum.nich.go.jp/top?langId=ko",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-17T07:11:43+09:00",
+      "published_at": "2026-11-17T07:11:43+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "国宝検索システムの韓国語ページで、公開情報なし。速報性なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T07:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "d7541b5ab1cc",
+      "title": "東京国立博物館｜국립문화재기구 소장품 통합 검색 시스템",
+      "url": "https://colbase.nich.go.jp/?locale=ko",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-17T07:11:43+09:00",
+      "published_at": "2026-11-17T07:11:43+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "収蔵品検索システムのページで、仏像の公開情報ではない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T07:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "45fb94a7d852",
+      "title": "東京国立博物館｜동양관과 호류지보물관의 레스토랑은 새 단장을 위해 휴업 중입니다. 올해 여름부터 가을에 걸쳐 순차적으로 다시 문을 열 예정입니다.",
+      "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=124&lang=ko",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-17T07:11:43+09:00",
+      "published_at": "2026-11-17T07:11:43+09:00",
+      "image_url": "https://www.tnm.jp/jp/exhibition/images/tmp/ogp/TNM_ogp.jpg",
+      "description": "방문 안내 시설 안내 레스토랑, 카페",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "レストラン休業の案内で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T07:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "b2ea11975b74",
+      "title": "【紅葉・見ごろ】根來寺 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/eventbank/region/eventbank-10645841",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T07:11:40.644626+09:00",
+      "published_at": "2026-11-16T10:00:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10645841.jpg",
+      "description": "紅葉の中で根來寺の歴史と文化を満喫 境内一円がモミジなどの木々の紅葉に彩られる。大塔（国宝）、不動…",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 25,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "紅葉の見ごろ案内で仏像に触れず。大塔は建物のみ",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T07:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "bc19c51bf6c3",
+      "title": "AKB48”顔面重要文化財”22歳センター、どアップの”前髪アレンジ”動画にフォロワーは「ちゃおでしか見たことないパーツ配置」 - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/c1e0169044482f3a427beaacd91d1d57f7e6cac8",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T07:11:36.649909+09:00",
+      "published_at": "2026-11-17T06:18:59+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261117-00000021-chuspo-000-1-view.jpg?exp=10800",
+      "description": "アイドルグループ「AKB48」のセンターで、”顔面重要文化財”とも言われる伊藤百花（22）が16日までにインスタグラムを更新。くしで前髪を整える動画が”破壊力”高めで「あまりにも美少女すぎるるる」「",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "アイドルの比喩表現で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T07:14:27+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "浜松市美術館 館蔵品展示3「はまびのみほとけ－中国・朝鮮の金銅仏から新収蔵の平安仏まで－」（10月10日~12月6日）",
       "url": "https://www.city.hamamatsu.shizuoka.jp/artmuse/",
@@ -12622,36 +12772,6 @@
       }
     },
     {
-      "id": "45c5336be4f3",
-      "title": "名画に刻まれた権力者の思惑 大徳寺の寺宝をひもとく - Infoseek",
-      "url": "https://news.infoseek.co.jp/article/tvasahi_900203327/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T11:11:38.717963+09:00",
-      "published_at": "2026-11-14T11:00:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/tvasahi/tvasahi_900203327_0-enlarge.jpg",
-      "description": "東京国立博物館の主任研究員・三笠景子さんが案内してくれたのは、大徳寺所蔵の国宝「観音猿鶴図」です。牧谿作とされ、中",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 14,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "テレ朝NEWSと同内容の転載で絵画が主役",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T11:14:27+09:00",
-        "score_version": 8
-      }
-    },
-    {
       "title": "DMtse 手彫り 天然木 仏像 宗教的 仏教徒 座る仏教徒 手のひらサイズ 彫刻像",
       "url": "https://www.amazon.co.jp/dp/B08B3S1JNQ?tag=butsuzo03-22",
       "asin": "B08B3S1JNQ",
@@ -12795,38 +12915,6 @@
       "id": "bab4bfffd51f",
       "fetched_at": "2026-11-14T10:35:06.257867+09:00",
       "image_url": ""
-    },
-    {
-      "id": "434d90319c10",
-      "title": "「善光寺御開帳」開幕まで半年きる　長野市で受け入れ準備着々　築120年の「宿坊」がリニューアル、精進料理も一新　「新たな善光寺土産に」くるみ菓子　1日1組限定！和モダン宿泊施設　2027年4月4日開幕 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/nbs/region/nbs-30742?page=2",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T10:12:03.516050+09:00",
-      "published_at": "2026-11-12T19:00:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/nbs/m_nbs-30742.jpg",
-      "description": "宿坊 蓮華院 開幕まで半年をきった「善光寺御開帳」についてです。全国から参拝者が集まる一大イベントに向…",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 50,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "善光寺御開帳は来春で先の予定。宿坊・土産中心で仏像の話は薄い",
-        "event": {
-          "event_name": "善光寺御開帳",
-          "place": "善光寺（長野県長野市）",
-          "start_date": "2027-04-04",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T10:14:25+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-12"
-      }
     },
     {
       "id": "rem-e8841033fdea-start",
