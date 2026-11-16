@@ -2553,16 +2553,16 @@
   },
   {
    "id": "3248de463a64",
-   "event_name": "松本明慶工房 仏像彫刻展",
+   "event_name": "京都 大佛師 松本明慶工房 仏像彫刻展",
    "place": "うすい百貨店（福島県郡山市）",
    "place_key": "うすい百貨店",
    "start": "",
    "end": "2026-11-16",
    "category": "展覧会",
-   "source_url": "https://topics.smt.docomo.ne.jp/amp/article/fukushimatv/region/fukushimatv-34585",
-   "source_title": "京都・松本明慶工房の仏像彫刻展　15年かけて制作の復興観音も展示　11月16日まで郡山市で開催　福島 - ｄメニューニュース",
-   "source_score": 35,
-   "first_seen": "2026-11-16T11:02:33+09:00",
+   "source_url": "https://www.47news.jp/15237345.html",
+   "source_title": "明慶一門の仏像２５０点並ぶ 郡山・うすい １６日まで、彫刻展 - 47NEWS",
+   "source_score": 50,
+   "first_seen": "2026-11-16T11:14:34+09:00",
    "reminded": []
   },
   {
@@ -2767,7 +2767,7 @@
    "source_url": "https://hicbc.com/magazine/article/?id=radichubu-65821",
    "source_title": "CBC佐藤楠大アナがレポート。豊川稲荷72年ぶりの御開帳 - CBCテレビ",
    "source_score": 55,
-   "first_seen": "2026-11-16T11:02:33+09:00",
+   "first_seen": "2026-11-16T11:14:34+09:00",
    "reminded": []
   },
   {
@@ -3300,6 +3300,21 @@
    "exhibit_reason": "仏像コレクションが主役の企画展。開幕は先だが減点なし"
   },
   {
+   "id": "c871ff93f2e5",
+   "event_name": "特別陳列「お水取り」",
+   "place": "奈良国立博物館（奈良県奈良市）",
+   "place_key": "奈良国立博物館",
+   "start": "2027-02-06",
+   "end": "2027-03-14",
+   "category": "展覧会",
+   "source_url": "https://www.narahaku.go.jp/exhibition/special/feature_exhibition/202702_omizutori/",
+   "source_title": "奈良国立博物館｜開催予定 特別陳列 西新館 お水取り 令和9年（2027）2月6日（土）～3月14日（日）",
+   "source_score": 72,
+   "first_seen": "2026-11-16T11:14:34+09:00",
+   "reminded": [],
+   "news_candidate": true
+  },
+  {
    "id": "a400aa6f0100",
    "event_name": "善光寺御開帳 回向柱お披露目",
    "place": "善光寺（長野県長野市）",
@@ -3437,5 +3452,5 @@
    "exhibit_reason": "薬師信仰の仏像・美術展。仮称で詳細は少なく、開幕は先だが先の予定として減点せず"
   }
  ],
- "last_updated": "2026-11-16T11:02:33+09:00"
+ "last_updated": "2026-11-16T11:14:34+09:00"
 }
