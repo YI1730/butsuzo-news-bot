@@ -14,6 +14,14 @@ GitHub Actions の cron は高負荷時に大幅に間引かれる（実測: 1�
           weekdays は複数曜日を指定できる配列（例 ["mon","wed","fri"]）。
           ["*"] または未指定は毎日。旧形式の単一 weekday フィールドにも対応。
           同日の二重投稿は data/scheduled_log.json で防止。
+          任意の項目（PWAから編集）:
+            enabled: false  … 一時停止（消さずに止める）
+            until: "YYYY-MM-DD" … この日を過ぎたら投稿しない（募集の締切など）
+            reply_text: "…" … 投稿のあと、自分のポストへの返信として続けて投稿する
+                              （リンクは本文より返信に置くほうが表示が減りにくいため）
+            auto: "exhibition_week" など … 本文を毎朝 Mac 側（仏像リンク事業全体/web/x_auto_promos.py）が
+                              作り直す項目。updated が AUTO_STALE_DAYS 日より古ければ、
+                              古い情報を出さないよう投稿を見送る
 
 設定ファイル（PWAまたはStreamlitから編集）:
   config/auto_post_config.json
@@ -34,6 +42,7 @@ X_ACCESS_TOKEN / X_ACCESS_TOKEN_SECRET）。
 from __future__ import annotations
 
 import argparse
+import re
 import json
 import sys
 from datetime import datetime, timedelta
@@ -182,8 +191,32 @@ def _parse_jst(iso: str) -> datetime | None:
     return dt.astimezone(JST)
 
 
+AUTO_STALE_DAYS = 3
+
+
+def promo_is_active(item: dict, now: datetime) -> bool:
+    """一時停止・期限切れ・自動更新の止まった項目は False。"""
+    if item.get("enabled") is False:
+        return False
+    today = now.strftime("%Y-%m-%d")
+    until = str(item.get("until") or "").strip()
+    if until and today > until:
+        return False
+    if item.get("auto"):
+        upd = str(item.get("updated") or "")
+        try:
+            age = (now.date() - datetime.strptime(upd[:10], "%Y-%m-%d").date()).days
+        except Exception:
+            return False
+        if age > AUTO_STALE_DAYS:
+            return False
+    return True
+
+
 def promo_is_due(item: dict, now: datetime, cur_wd: str) -> bool:
     """告知が「今日の指定時刻を過ぎ、猶予時間内」であれば True。"""
+    if not promo_is_active(item, now):
+        return False
     if not _weekday_matches(item, cur_wd):
         return False
     h = _hour_of(item.get("time"))
@@ -242,6 +275,8 @@ def main() -> int:
         for s in due_promos:
             upload = "画像アップロードあり" if (s.get("use_media_upload") and s.get("image_url")) else "テキストのみ"
             print(f"[告知]（{upload}）", (s.get("text") or "")[:70])
+            if (s.get("reply_text") or "").strip():
+                print("   └[返信]", s["reply_text"].strip()[:70])
         return 0
 
     # ── 実投稿 ──────────────────────────────────────────────
@@ -296,6 +331,13 @@ def main() -> int:
             sched_log[sid] = today
             save_sched_log(sched_log)
             posted += 1
+            reply = (s.get("reply_text") or "").strip()
+            m = re.search(r"tweet id: (\d+)", msg)
+            if reply and m:
+                rok, rmsg = pv.post_tweet(session, reply, reply_to=m.group(1))
+                print(f"[告知・返信] {rmsg}")
+                if not rok:
+                    failed += 1
         else:
             failed += 1
 

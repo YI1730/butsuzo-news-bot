@@ -1965,8 +1965,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
       }}
       return list.map(function (item, i) {{
         const sid = item.id || ('idx' + i);
+        const AUTO_LABELS = {{ exhibition_week: '今週の仏像展', hibutsu_month: '今月・来月の秘仏', weekend: '今週末に会える仏像' }};
+        const autoNote = item.auto
+          ? '<p class="text-[11px] font-bold text-emerald-700 bg-emerald-50 rounded-lg px-2 py-1 mb-1.5">🤖 自動更新：' +
+              escapeHtml(AUTO_LABELS[item.auto] || item.auto) + '（本文は毎朝作り直されます。最終更新 ' + escapeHtml(item.updated || '—') +
+              '）。曜日・時刻・返信・停止はここで変えられます</p>'
+          : '';
+        const paused = item.enabled === false;
         return (
-          '<div class="border border-gray-200 rounded-xl p-2.5" data-promo-id="' + escapeHtml(sid) + '">' +
+          '<div class="border ' + (paused ? 'border-gray-200 opacity-60' : 'border-gray-200') + ' rounded-xl p-2.5" data-promo-id="' + escapeHtml(sid) + '">' +
+            (item.label ? '<p class="text-[11px] font-bold text-gray-700 mb-1">' + escapeHtml(item.label) + (paused ? '（停止中）' : '') + '</p>' : (paused ? '<p class="text-[11px] font-bold text-gray-500 mb-1">（停止中）</p>' : '')) +
+            autoNote +
             '<textarea data-role="text" rows="3" placeholder="告知本文" ' +
               'class="w-full text-xs border border-gray-300 rounded-lg p-2 mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500">' +
               escapeHtml(item.text || '') +
@@ -1977,6 +1986,17 @@ def build_html(items: list[dict], last_updated: str) -> str:
               'class="w-full text-xs border border-gray-300 rounded-lg px-1.5 py-1.5 mb-1.5">' +
             '<input data-role="image_url" type="text" placeholder="添付画像URL（任意）" value="' + escapeHtml(item.image_url || '') + '" ' +
               'class="w-full text-xs border border-gray-300 rounded-lg px-2 py-1.5 mb-1.5">' +
+            '<textarea data-role="reply_text" rows="2" placeholder="続けて返信で出す文（任意。リンクはここに置くと表示が減りにくい）" ' +
+              'class="w-full text-xs border border-gray-300 rounded-lg p-2 mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-500">' +
+              escapeHtml(item.reply_text || '') +
+            '</textarea>' +
+            '<div class="flex items-center gap-2 mb-1.5">' +
+              '<label class="flex items-center gap-1 text-[11px] text-gray-600">' +
+                '<input type="checkbox" data-role="enabled" ' + (item.enabled === false ? '' : 'checked') + '>投稿する</label>' +
+              '<label class="flex items-center gap-1 text-[11px] text-gray-600 flex-1">終了日' +
+                '<input data-role="until" type="date" value="' + escapeHtml(item.until || '') + '" ' +
+                'class="flex-1 text-xs border border-gray-300 rounded-lg px-1.5 py-1"></label>' +
+            '</div>' +
             '<label class="flex items-start gap-1.5 text-[11px] text-gray-600 mb-1.5">' +
               '<input type="checkbox" data-role="use_media_upload" class="mt-0.5" ' + (item.use_media_upload ? 'checked' : '') + '>' +
               '<span>🖼 画像をアップロードして添付する（自動投稿時）。' +
@@ -2018,6 +2038,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
         time: get('time') || '09:00',
         image_url: (get('image_url') || '').trim(),
         use_media_upload: !!(uploadCheckbox && uploadCheckbox.checked),
+        reply_text: (get('reply_text') || '').trim(),
+        until: (get('until') || '').trim(),
+        enabled: !!(card.querySelector('[data-role="enabled"]') || {{ checked: true }}).checked,
       }};
     }}
 
@@ -2043,11 +2066,13 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const list = _settingsSched || [];
       const isNew = sid.indexOf('_new_') === 0;
       const finalId = isNew ? Math.random().toString(16).slice(2, 14) : sid;
-      const updated = {{
+      const idx = list.findIndex(function (x) {{ return (x.id || '') === sid; }});
+      // auto・label・updated など、画面にない項目は消さずに引き継ぐ
+      const updated = Object.assign({{}}, idx === -1 ? {{}} : list[idx], {{
         id: finalId, text: fields.text, weekdays: fields.weekdays, time: fields.time,
         image_url: fields.image_url, use_media_upload: fields.use_media_upload,
-      }};
-      const idx = list.findIndex(function (x) {{ return (x.id || '') === sid; }});
+        reply_text: fields.reply_text, until: fields.until, enabled: fields.enabled,
+      }});
       if (idx === -1) {{ list.push(updated); }} else {{ list[idx] = updated; }}
       _settingsSched = list;
 

@@ -251,14 +251,18 @@ def upload_media_from_url(session: "OAuth1Session", image_url: str) -> tuple[str
     return media_id, f"アップロード成功 (media_id: {media_id})"
 
 
-def post_tweet(session: "OAuth1Session", text: str, media_id: str | None = None) -> tuple[bool, str]:
+def post_tweet(session: "OAuth1Session", text: str, media_id: str | None = None,
+               reply_to: str | None = None) -> tuple[bool, str]:
     """テキストを X に投稿する。media_id 指定時はネイティブ画像として添付する。
+    reply_to にポストIDを渡すと、そのポストへの返信（自分のスレッドの続き）として投稿する。
 
     戻り値 (成功?, メッセージ)。
     """
     payload: dict = {"text": text}
     if media_id:
         payload["media"] = {"media_ids": [media_id]}
+    if reply_to:
+        payload["reply"] = {"in_reply_to_tweet_id": str(reply_to)}
     try:
         resp = session.post(TWEETS_ENDPOINT, json=payload, timeout=20)
     except Exception as e:
