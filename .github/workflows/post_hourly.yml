@@ -10,6 +10,10 @@ on:
         description: "テスト用: JSTの時(0-23)を上書き。空なら現在時"
         required: false
         default: ""
+      only:
+        description: "試し投稿: 告知IDをカンマ区切りで（曜日・時刻に関係なく今すぐ投稿）"
+        required: false
+        default: ""
       dry_run:
         description: "true で投稿せず予定だけ表示"
         required: false
@@ -47,6 +51,7 @@ jobs:
           ARGS=""
           if [ -n "${{ github.event.inputs.hour }}" ]; then ARGS="$ARGS --hour ${{ github.event.inputs.hour }}"; fi
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ -n "${{ github.event.inputs.only }}" ]; then ARGS="$ARGS --only ${{ github.event.inputs.only }}"; fi
           python post_hourly.py $ARGS
       - name: Commit logs
         run: |

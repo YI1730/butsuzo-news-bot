@@ -231,6 +231,8 @@ def main() -> int:
                         help="投稿せず、現在時刻の予定を表示")
     parser.add_argument("--hour", type=int, default=None,
                         help="テスト用: 現在の『時』をこの値(0-23)に上書き")
+    parser.add_argument("--only", default="",
+                        help="試し投稿: カンマ区切りの告知IDを、曜日・時刻に関係なく今すぐ投稿する（訪問記は出さず、scheduled_log も更新しない）")
     args = parser.parse_args()
 
     now = datetime.now(JST)
@@ -255,6 +257,11 @@ def main() -> int:
         s for s in scheduled
         if promo_is_due(s, now, cur_wd) and sched_log.get(s.get("id", "")) != today
     ]
+    only = [x.strip() for x in args.only.split(",") if x.strip()]
+    if only:
+        visit_slot = None
+        due_promos = [s for s in scheduled if s.get("id") in only]
+        print(f"試し投稿モード: {len(due_promos)}件（{','.join(only)}）")
     if visit_slot is None:
         print("→ 訪問投稿予定: なし（時間外、または本日分は投稿済み）")
     else:
@@ -328,8 +335,9 @@ def main() -> int:
         ok, msg = pv.post_tweet(session, text, media_id=media_id)
         print(f"[告知] {msg}")
         if ok:
-            sched_log[sid] = today
-            save_sched_log(sched_log)
+            if not only:
+                sched_log[sid] = today
+                save_sched_log(sched_log)
             posted += 1
             reply = (s.get("reply_text") or "").strip()
             m = re.search(r"tweet id: (\d+)", msg)
