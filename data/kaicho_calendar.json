@@ -1080,6 +1080,22 @@
    "remind": false
   },
   {
+   "id": "b6112809a3ec",
+   "event_name": "特別展「瑞泉寺七百年」",
+   "place": "鎌倉国宝館",
+   "place_key": "鎌倉国宝館",
+   "start": "2026-10-24",
+   "end": "2026-12-06",
+   "category": "展覧会",
+   "source_url": "https://www.city.kamakura.kanagawa.jp/kokuhoukan/exhibition.html",
+   "source_title": "鎌倉国宝館 特別展「瑞泉寺七百年」",
+   "source_score": 0,
+   "first_seen": "2026-11-16T10:15:00+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
+  },
+  {
    "id": "418e4f372d9d",
    "event_name": "大徳寺 禅の美の頂点（日曜美術館）",
    "place": "東京国立博物館（東京都台東区）",
@@ -1628,6 +1644,21 @@
    "reminded": []
   },
   {
+   "id": "3555efdbd8f0",
+   "event_name": "豊川稲荷 72年ぶりの御開帳",
+   "place": "豊川稲荷 圓福山妙厳寺（愛知県豊川市）",
+   "place_key": "豊川稲荷圓福山妙",
+   "start": "2026-11-01",
+   "end": "",
+   "category": "秘仏・御開帳・特別公開",
+   "source_url": "https://crea.bunshun.jp/ud/pressrelease/6af7d2627079c876fb000003",
+   "source_title": "豊川稲荷、72年ぶりの御開帳が大盛況。参拝者100万人を突破！混雑対策として公式アプリをリリース！ - クレアウェブ",
+   "source_score": 72,
+   "first_seen": "2026-11-15T22:14:31+09:00",
+   "reminded": [],
+   "news_candidate": true
+  },
+  {
    "id": "982637328b65",
    "event_name": "「聖林寺秘宝マンダラ展」",
    "place": "聖林寺",
@@ -1642,21 +1673,6 @@
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
-  },
-  {
-   "id": "3555efdbd8f0",
-   "event_name": "豊川稲荷 72年ぶりの御開帳",
-   "place": "豊川稲荷 圓福山妙厳寺（愛知県豊川市）",
-   "place_key": "豊川稲荷圓福山妙",
-   "start": "2026-11-01",
-   "end": "",
-   "category": "秘仏・御開帳・特別公開",
-   "source_url": "https://crea.bunshun.jp/ud/pressrelease/6af7d2627079c876fb000003",
-   "source_title": "豊川稲荷、72年ぶりの御開帳が大盛況。参拝者100万人を突破！混雑対策として公式アプリをリリース！ - クレアウェブ",
-   "source_score": 72,
-   "first_seen": "2026-11-15T22:14:31+09:00",
-   "reminded": [],
-   "news_candidate": true
   },
   {
    "id": "9238875b4ed2",
@@ -2536,18 +2552,20 @@
    ]
   },
   {
-   "id": "3248de463a64",
-   "event_name": "松本明慶工房 仏像彫刻展",
-   "place": "うすい百貨店（福島県郡山市）",
-   "place_key": "うすい百貨店",
-   "start": "",
-   "end": "2026-11-16",
+   "id": "31d3529a340e",
+   "event_name": "（乾蔵）特別公開「猪名川町の木喰」（事前予約制）",
+   "place": "猪名川町立静思館文化財収蔵庫",
+   "place_key": "猪名川町立静思館",
+   "start": "2026-11-19",
+   "end": "2026-11-29",
    "category": "展覧会",
-   "source_url": "https://topics.smt.docomo.ne.jp/amp/article/fukushimatv/region/fukushimatv-34585",
-   "source_title": "京都・松本明慶工房の仏像彫刻展　15年かけて制作の復興観音も展示　11月16日まで郡山市で開催　福島 - ｄメニューニュース",
-   "source_score": 35,
-   "first_seen": "2026-11-16T10:14:30+09:00",
-   "reminded": []
+   "source_url": "https://www.town.inagawa.lg.jp/soshiki/1036/gyomu/4/10168.html",
+   "source_title": "猪名川町立静思館文化財収蔵庫 （乾蔵）特別公開「猪名川町の木喰」（事前予約制）",
+   "source_score": 0,
+   "first_seen": "2026-11-16T10:15:00+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
   },
   {
    "id": "ed13d612ebef",
@@ -2719,20 +2737,6 @@
    "first_seen": "2026-11-07T11:49:39+09:00",
    "reminded": [],
    "news_candidate": true
-  },
-  {
-   "id": "a541f91fa81d",
-   "event_name": "豊川稲荷 72年ぶりの御開帳",
-   "place": "豊川稲荷（愛知県豊川市）",
-   "place_key": "豊川稲荷",
-   "start": "",
-   "end": "2026-11-23",
-   "category": "秘仏・御開帳・特別公開",
-   "source_url": "https://hicbc.com/magazine/article/?id=radichubu-65821",
-   "source_title": "CBC佐藤楠大アナがレポート。豊川稲荷72年ぶりの御開帳 - CBCテレビ",
-   "source_score": 55,
-   "first_seen": "2026-11-16T10:14:30+09:00",
-   "reminded": []
   },
   {
    "id": "1f57e9543070",
@@ -3027,20 +3031,6 @@
    "source_title": "織田信長に焼き払われた越前を代表する寺院「豊原寺」 その歴史や繁栄を伝える石仏 坂井市の龍翔館博物館で12月6日まで展示 - FNNプライムオンライン",
    "source_score": 55,
    "first_seen": "2026-11-13T12:14:40+09:00",
-   "reminded": []
-  },
-  {
-   "id": "0cd1ac36c112",
-   "event_name": "豊原寺跡出土石仏 特別展",
-   "place": "龍翔博物館（福井県坂井市）",
-   "place_key": "龍翔博物館",
-   "start": "",
-   "end": "2026-12-06",
-   "category": "展覧会",
-   "source_url": "https://www.fukui-tv.co.jp/?fukui_news=%E7%B9%94%E7%94%B0%E4%BF%A1%E9%95%B7%E3%81%AB%E7%84%BC%E3%81%8D%E6%89%95%E3%82%8F%E3%82%8C%E3%81%9F%E8%B6%8A%E5%89%8D%E3%82%92%E4%BB%A3%E8%A1%A8%E3%81%99%E3%82%8B%E5%AF%BA%E9%99%A2%E3%80%8C%E8%B1%8A",
-   "source_title": "織田信長に焼き払われた越前を代表する寺院「豊原寺」 その歴史や繁栄を伝える石仏 坂井市の龍翔館博物館で12月6日まで展示 - 福井テレビ",
-   "source_score": 50,
-   "first_seen": "2026-11-13T15:14:25+09:00",
    "reminded": []
   },
   {
@@ -3381,25 +3371,6 @@
    "news_candidate": true
   },
   {
-   "id": "ec11db7c03ec",
-   "event_name": "国宝 三井寺のすべて",
-   "place": "東京国立博物館（東京都）",
-   "place_key": "東京国立博物館",
-   "start": "2027-04-20",
-   "end": "2027-06-13",
-   "category": "展覧会",
-   "source_url": "https://www.fashion-press.net/news/153247",
-   "source_title": "東京国立博物館で三井寺の秘仏を公開、現存最古の”パスポート”や国宝の仏像 - ファッションプレス",
-   "source_score": 86,
-   "first_seen": "2026-11-12T11:37:50+09:00",
-   "reminded": [],
-   "origin": "exhibition",
-   "remind": false,
-   "exhibit_score": 50,
-   "exhibit_reason": "三井寺展は配信済みの同じ展覧会情報と重複。開幕は159日先で第一報ではない・重複",
-   "news_candidate": true
-  },
-  {
    "id": "acfc82911400",
    "event_name": "春季特別展 「湯の街のほとけとかみ ―温泉と薬師信仰の美術―（仮称）」",
    "place": "龍谷ミュージアム（京都府京都市）",
@@ -3420,5 +3391,5 @@
    "exhibit_reason": "薬師信仰の仏像・美術展。仮称で詳細は少なく、開幕は先だが先の予定として減点せず"
   }
  ],
- "last_updated": "2026-11-16T10:14:30+09:00"
+ "last_updated": "2026-11-16T10:16:14+09:00"
 }
