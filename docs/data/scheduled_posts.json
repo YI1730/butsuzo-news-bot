@@ -3,33 +3,31 @@
     "id": "ef8364a68584",
     "text": "👹💥邪鬼兄弟、降臨💥👹\n＼邪鬼LINEスタンプ、爆誕ッ！！／\n\n仏像の足元で静かに支えてきたあの邪鬼が、ついに主役に！\n\n👹「俺たち踏まれてるだけじゃつまらねぇだろ？」\nそんな邪鬼兄弟が、あなたのトークに乱入！\n\n邪鬼の魅力、LINEで解放せよ！\nhttps://line.me/S/sticker/30108598/\npic.twitter.com/ISHbwsI6sS",
     "weekdays": [
-      "tue",
-      "thu",
       "sat"
     ],
-    "time": "22:49",
-    "image_url": "https://pbs.twimg.com/media/HH389cJXAAIjf9i?format=jpg&name=medium"
+    "time": "21:00",
+    "image_url": "https://pbs.twimg.com/media/HH389cJXAAIjf9i?format=jpg&name=medium",
+    "label": "邪鬼スタンプ"
   },
   {
     "id": "c13a4c58b412",
     "text": "🙏国宝仏マップ🙏\n\n「仏像に興味があるけど、どこをめぐればいいの？！」って初心者の方には、国宝仏像めぐりがおすすめ✨\n\nLINEのトーク画面で「国宝仏」と入力すれば国宝仏マップを無料配布中🌈\n\n以下URLからゲットしてみて～\nhttps://line.me/R/ti/p/%40vdn2047d\npic.twitter.com/zfMCW9xwsy",
     "weekdays": [
-      "mon",
-      "wed",
-      "fri",
       "sun"
     ],
-    "time": "22:53",
-    "image_url": "https://pbs.twimg.com/media/HHzBGnaWQAI3MVT?format=jpg&name=large"
+    "time": "21:00",
+    "image_url": "https://pbs.twimg.com/media/HHzBGnaWQAI3MVT?format=jpg&name=large",
+    "label": "国宝仏マップ（LINE「国宝仏」）"
   },
   {
     "id": "c403d92e6d64",
     "text": "奈良の山あい、円成寺の大日如来坐像。台座の裏に「大仏師康慶実弟子運慶」の墨書があり、運慶の作として残るいちばん古い像とされます。運慶マップに載せています\nLINEで「運慶」と送ると届きます（無料）\nhttps://t.co/iMtlG8cU4K pic.twitter.com/nOVEmkhA6p",
     "weekdays": [
-      "tue"
+      "sun"
     ],
     "time": "12:34",
-    "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg"
+    "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg",
+    "label": "運慶マップ：円成寺"
   },
   {
     "id": "c9b903c46ddc",
@@ -38,16 +36,19 @@
       "thu"
     ],
     "time": "12:34",
-    "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg"
+    "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg",
+    "label": "運慶マップ：東大寺（控え）",
+    "enabled": false
   },
   {
     "id": "a207e3b94b40",
     "text": "「運慶の仏像、関東にもあるの？」と聞かれたら、伊豆・横須賀・横浜・東京。運慶マップを開くと、意外と近くにあることが分かります\nLINEで「運慶」と送ると届きます（無料）\nhttps://t.co/iMtlG8cU4K pic.twitter.com/nOVEmkhA6p",
     "weekdays": [
-      "sat"
+      "thu"
     ],
     "time": "12:34",
-    "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg"
+    "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg",
+    "label": "運慶マップ：関東"
   },
   {
     "id": "3aecc288d141",
@@ -56,7 +57,9 @@
       "sun"
     ],
     "time": "12:34",
-    "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg"
+    "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg",
+    "label": "運慶マップ：八大童子（控え）",
+    "enabled": false
   },
   {
     "id": "2ce50ab9d57a",
@@ -66,7 +69,9 @@
       "thu"
     ],
     "time": "20:00",
-    "image_url": "https://butsuzolink.com/wp-content/uploads/2026/10/26kitamusashi_eyecatch.jpg"
+    "image_url": "https://butsuzolink.com/wp-content/uploads/2026/10/26kitamusashi_eyecatch.jpg",
+    "label": "寺ベルin北武蔵 募集（夜）",
+    "until": "2026-11-21"
   },
   {
     "id": "cba18ca6294e",
@@ -75,6 +80,66 @@
       "sat"
     ],
     "time": "09:00",
-    "image_url": "https://butsuzolink.com/wp-content/uploads/2026/10/26kitamusashi_eyecatch.jpg"
+    "image_url": "https://butsuzolink.com/wp-content/uploads/2026/10/26kitamusashi_eyecatch.jpg",
+    "label": "寺ベルin北武蔵 募集（朝）",
+    "until": "2026-11-21"
+  },
+  {
+    "id": "line-hibutsu",
+    "label": "LINE「秘仏」の案内",
+    "weekdays": [
+      "tue"
+    ],
+    "time": "21:00",
+    "text": "仏像リンクのLINEで「秘仏」と送ると、今週末〜来月に会える仏像の一覧が届きます📩\n\n🔓 ふだんは扉の奥の秘仏さんの御開帳\n🏛 博物館に出張中の仏像の展覧会\n⏰ もうすぐ終わるもの\n\n毎朝更新・無料。週末の行き先を決めるときに、どうぞ👣\n友だち追加は返信のリンクから👇",
+    "reply_text": "仏像リンクのLINE（友だち追加）\nhttps://line.me/R/ti/p/%40vdn2047d",
+    "image_url": "https://butsuzolink.com/wp-content/uploads/2026/11/line-hibutsu-banner.jpg",
+    "use_media_upload": true,
+    "enabled": true
+  },
+  {
+    "label": "【自動】今週見られる仏像展",
+    "weekdays": [
+      "mon"
+    ],
+    "time": "21:00",
+    "reply_text": "会期・見どころつきの一覧（毎朝更新）はこちら\nhttps://butsuzolink.com/exhibition/",
+    "id": "auto-exhibition-week",
+    "auto": "exhibition_week",
+    "text": "🏛 今週見られる仏像展（11/16〜11/22）\n\n⏰ 「国指定重文聖如意輪観世音菩薩 秘仏開帳」（大門寺・11/19まで）\n⏰ 未来へつなぐ 大津のたから 大津の文化財保護6…（大津市歴史博物館・11/23まで）\n🏛 豊原寺跡出土の石仏特別展（坂井市龍翔博物館）\n\n会期と見どころは一覧にまとめています👇",
+    "image_url": "",
+    "use_media_upload": false,
+    "enabled": true,
+    "updated": "2026-11-16"
+  },
+  {
+    "label": "【自動】今月・来月の秘仏",
+    "weekdays": [
+      "wed"
+    ],
+    "time": "21:00",
+    "reply_text": "御開帳・特別公開の一覧（毎朝更新）はこちら\nhttps://butsuzolink.com/hibutsu/",
+    "id": "auto-hibutsu-month",
+    "auto": "hibutsu_month",
+    "text": "🔓 今月・来月に扉が開く秘仏（11/16時点）\n\n🔓 豊川稲荷 御開帳（愛知・72年ぶり・〜11/23）\n🔓 長福寺 開創1300年大祭 本尊御開帳（静岡・40年ぶり・〜11/21）\n🔓 宝林寺 重要文化財の仏像公開（京都・〜11/29）\n\nほかの御開帳・特別公開も一覧にしています👇",
+    "image_url": "",
+    "use_media_upload": false,
+    "enabled": true,
+    "updated": "2026-11-16"
+  },
+  {
+    "label": "【自動】今週末に会える仏像（LINE「秘仏」）",
+    "weekdays": [
+      "fri"
+    ],
+    "time": "21:00",
+    "reply_text": "仏像リンクのLINE（友だち追加）\nhttps://line.me/R/ti/p/%40vdn2047d\n\n解説つきの一覧はブログにも\nhttps://butsuzolink.com/hibutsu/",
+    "id": "auto-weekend",
+    "auto": "weekend",
+    "text": "🗓 今週末 11/21(土)・22(日)に会える仏像\n\n⏰ 長福寺 開創1300年大祭 本尊御開帳（静岡・〜11/21）\n⏰ 豊川稲荷 御開帳（愛知・〜11/23）\n⏰ 宝林寺 重要文化財の仏像公開（京都・〜11/29）\n\nほかの公開も、仏像リンクのLINEで「秘仏」と送ると一覧で届きます📩（リンクは返信に）",
+    "image_url": "",
+    "use_media_upload": false,
+    "enabled": true,
+    "updated": "2026-11-16"
   }
 ]
