@@ -1,6 +1,280 @@
 {
-  "last_updated": "2026-11-16T12:05:47.773478+09:00",
+  "last_updated": "2026-11-16T12:12:06.331218+09:00",
   "items": [
+    {
+      "id": "52d99072619d",
+      "title": "東大寺｜(12/16)良弁忌厳修・秘仏開扉・記念切り絵御朱印授与",
+      "url": "https://www.todaiji.or.jp/news-261116/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-16T12:12:06+09:00",
+      "published_at": "2026-11-16T12:12:06+09:00",
+      "image_url": "https://www.todaiji.or.jp/wp-content/uploads/2022/05/daibutsuden00.jpg",
+      "description": "12月16日(水)「良弁忌」を厳修いたします。 【 秘仏開扉 】 ・法華堂 （法要終了後、9時台後半～16時）",
+      "ai": {
+        "score": 80,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": false,
+        "reason": "東大寺法華堂の秘仏開扉(12/16)。公式一次情報の第一報だが約1か月先",
+        "event": {
+          "event_name": "良弁忌 法華堂 秘仏開扉",
+          "place": "東大寺法華堂（奈良県奈良市）",
+          "start_date": "2026-12-16",
+          "end_date": "2026-12-16"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T12:15:04+09:00",
+        "score_version": 8,
+        "post_text": "12月16日の良弁忌にあわせて、東大寺の法華堂・開山堂・俊乗堂が開扉。執金剛神立像や良弁僧正坐像、重源上人坐像に会えるみたい。切り絵御朱印の授与もあって気になる。",
+        "post_attempts": 1,
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "bcec45013d59",
+      "title": "東大寺｜(12/14)二月堂にて「仏名会(ぶつみょうえ)」厳修",
+      "url": "https://www.todaiji.or.jp/ritual-261116/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-16T12:12:06+09:00",
+      "published_at": "2026-11-16T12:12:06+09:00",
+      "image_url": "https://www.todaiji.or.jp/wp-content/uploads/2022/05/daibutsuden00.jpg",
+      "description": "12月14日（月）二月堂にて「仏名会（ぶつみょうえ）」を厳修いたします。 8：30より千反礼拝（令和８年は「現",
+      "ai": {
+        "score": 55,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "二月堂の仏名会。仏像への言及が薄い行事案内。公式第一報",
+        "event": {
+          "event_name": "二月堂 仏名会",
+          "place": "東大寺二月堂（奈良県奈良市）",
+          "start_date": "2026-12-14",
+          "end_date": "2026-12-14"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T12:15:04+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "fdd7600c43e9",
+      "title": "高島屋が2027年向け福袋を発売へ 仁和寺での宿泊体験や冷凍庫付きなど多彩に展開 - Dellows News",
+      "url": "https://news.dellows.jp/1035478/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T12:12:04.939548+09:00",
+      "published_at": "2026-11-15T23:45:13+09:00",
+      "image_url": "https://news.dellows.jp/wp-content/uploads/2026/11/1035478_1.jpg",
+      "description": "高島屋は、「初売り」の目玉企画として各店舗などで販売する2027年の福袋を発表しました。世界遺産の宿坊に宿泊する体験型企画や、干支にちなんだグルメ企画、冷凍庫と冷凍惣菜がセットになった企画など、多彩な",
+      "search_query": "\"仁和寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 10,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "福袋の商品宣伝が主目的で仏像に触れない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T12:15:04+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "0cf458bc4754",
+      "title": "72年ぶり御開帳の豊川稲荷で松平健さんお成り 参拝者100万超す [愛知県] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCH4H5DVCHOIPE00LM.html?iref=_area_area_list_n",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T12:11:58.159492+09:00",
+      "published_at": "2026-11-16T11:00:01+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 45,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "豊川稲荷72年ぶり開帳は配信済みと同じ出来事。重複で減点",
+        "event": {
+          "event_name": "豊川稲荷 72年ぶり御開帳",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T12:15:04+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "a34c17d484be",
+      "title": "72年ぶり御開帳の豊川稲荷で松平健さんお成り 参拝者100万超す（朝日新聞） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/d4039e487da0ea2d399f834f4019814d02880d2a",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T12:11:48.728615+09:00",
+      "published_at": "2026-11-16T11:00:01+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261116-00000039-asahi-000-1-view.jpg?exp=10800",
+      "description": "愛知県豊川市の豊川稲荷で、秘仏の鎮守「豊川ダ（くちへんに「託」のつくり）枳尼真天（だきにしんてん）」を納めた厨子（ずし）の扉の御開帳が、72年ぶりに行われている。15日には俳優の松平健さんが殿様姿で",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 45,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": true,
+        "reason": "配信済みの豊川稲荷開帳と重複。芸能人話題中心",
+        "event": {
+          "event_name": "豊川稲荷 72年ぶり御開帳",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T12:15:04+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "3eca9a360d81",
+      "title": "なぜ?歯科メーカーが精巧な《金の仏像》制作 歯科技工の精密3D技術を活用、仏師の手作り技術とコラボ YAMAKIN（高知） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/610762641c775e468295733dfb3e56482a521fe0",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T12:11:46.640136+09:00",
+      "published_at": "2026-11-16T11:12:23+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261116-01244762-fnnprimev-000-1-view.jpg?exp=10800",
+      "description": "高知県の歯科材料メーカーがまばゆい輝きを放つ黄金の仏像を作った。金の仏像と歯科材料メーカーという意外な組み合わせだが、実はその造形に、歯科医療の現場を支える技術が生かされている。【画像】歯科材料メー",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 40,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "歯科メーカーの金仏像制作。企業の話題で寺院公開ではない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T12:15:04+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "cd0c4ceeac3b",
+      "title": "なぜ？歯科メーカーが精巧な《金の仏像》制作 歯科技工の精密3D技術を活用、仏師の手作り技術とコラボ YAMAKIN（高知） - Excite エキサイト",
+      "url": "http://www.excite.co.jp/news/article/sunsuntv_1494884269346309068/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T12:11:43.873086+09:00",
+      "published_at": "2026-11-16T11:16:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 20,
+        "category": "その他の仏像関連",
+        "duplicate": true,
+        "reason": "Yahoo記事と同一の金の仏像の話題で重複",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T12:15:04+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "eff8e9327ecd",
+      "title": "秀吉が夢見た幻の紅葉狩り 京都市の世界文化遺産・総本山醍醐寺で「秋期夜間拝観」 - OVO [オーヴォ]",
+      "url": "https://ovo.kyodo.co.jp/news/culture/a-2096472",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T12:11:42.469510+09:00",
+      "published_at": "2026-11-16T11:30:00+09:00",
+      "image_url": "https://d10tw3woq6mt3i.cloudfront.net/wp-content/uploads/2026/11/a018d3ebe72cd13fbde0c1877a7e9eb5.jpg",
+      "description": "陽光を透かし見る昼間の紅葉狩りも楽しいが、静かな秋の夜の紅葉狩りもまた別の趣がある。京都市の世界文化遺産・総本山醍醐寺は11月20日（金）～12月6日（日）まで、「秋期夜間拝観」を開催する。国宝・金堂や国宝・五重塔をはじめ、林泉、無量寿苑が本来持つ美しさをゆったりと鑑賞できる。 歴史ある堂塔のたたずまい、鮮やかな紅葉、そして水面に映り込む光と影。それぞれの美しさが自然に際立つよう光を丁寧に重ね、静寂と調和する空間を演出している。昼間とは異なる風景が広がる秋の醍醐寺は、豊臣秀吉が盛大な「醍醐の花見」を催したことで知られている。秀吉はその後、秋の醍醐寺で「紅葉狩り」を楽しむことを思い描きながら",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 35,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "醍醐寺の夜間拝観・紅葉で仏像に触れず上限内",
+        "event": {
+          "event_name": "醍醐寺 秋期夜間拝観",
+          "place": "醍醐寺（京都府京都市）",
+          "start_date": "2026-11-20",
+          "end_date": "2026-12-06"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T12:15:04+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "292e658a6ac9",
+      "title": "秀吉が夢見た幻の紅葉狩り 京都市の世界文化遺産・総本山醍醐寺で「秋期夜間拝観」 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/ovo_O2096472/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T12:11:40.349118+09:00",
+      "published_at": "2026-11-16T11:30:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/ovo/ovo_O2096472_0-enlarge.jpg",
+      "description": "陽光を透かし見る昼間の紅葉狩りも楽しいが、静かな秋の夜の紅葉狩りもまた別の趣がある。京都市の世界文化遺産・総本山醍",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 10,
+        "category": "寺院の行事",
+        "duplicate": true,
+        "reason": "醍醐寺夜間拝観の重複記事で仏像なし",
+        "event": {
+          "event_name": "醍醐寺 秋期夜間拝観",
+          "place": "醍醐寺（京都府京都市）",
+          "start_date": "2026-11-20",
+          "end_date": "2026-12-06"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T12:15:04+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "高月観音の里歴史民俗資料館 「東京長浜観音堂後継展示 長浜観音堂高月別院 第1期 尊住院蔵 聖観音立像」（7月22日~8月17日）",
       "url": "https://www.city.nagahama.lg.jp/section/takatsukirekimin/",
@@ -12139,220 +12413,6 @@
         "freshness": "durable",
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-13T18:15:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b10f29ec6e76",
-      "title": "「善光寺御開帳」開幕まで半年きる 長野市で受け入れ準備着々 築120年の「宿坊」がリニューアル、精進料理も一新 「新たな善光寺土産に」くるみ菓子 1日1組限定！和モダン宿泊施設 2027年4月4日開幕 - FNNプライムオンライン",
-      "url": "https://www.fnn.jp/articles/-/1151306",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T18:12:01.512062+09:00",
-      "published_at": "2026-11-12T19:00:00+09:00",
-      "image_url": "https://fnn.ismcdn.jp/mwimgs/3/b/600/img_3bc9aada30405336c77b46ca45fc93bb87633.jpg",
-      "description": "開幕まで半年をきった「善光寺御開帳」についてです。全国から参拝者が集まる一大イベントに向け、善光寺周辺には新たな飲食店も登場。宿坊はおもてなしの態勢を整えるなど、受け入れ準備が進んでいます。■7年目に1度「御開帳」準備進む秘仏の阿弥陀如来像の身代わりとされる「前立本尊」。「善光寺御開帳」の時だけ公開され、本堂前の回向柱と善の綱で結ばれます。4年前の前回（2022年）は、88日間で推計636万人が参拝。善光寺最大のイベントです。10月は御開帳のシンボル・回向柱の木が切り出され、製材作業も行われる…",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 62,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": false,
-        "reason": "善光寺御開帳は来年4月で先の予定。準備の話題で宿坊や土産が中心",
-        "event": {
-          "event_name": "善光寺御開帳",
-          "place": "善光寺（長野県長野市）",
-          "start_date": "2027-04-04",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T18:15:50+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-12"
-      }
-    },
-    {
-      "id": "04da7640b7de",
-      "title": "古刹を彩る紅葉シーズン到来！昨年約250作品が集まった『秋の室生寺 Instagramフォトコンテスト2026』開催中 - Infoseek",
-      "url": "https://news.infoseek.co.jp/article/atpress_649040/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T18:11:56.525813+09:00",
-      "published_at": "2026-11-13T13:30:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
-      "description": "画像:https://newscast.jp/attachments/fB6QetgTAIfE9GfBrhqn.p",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 38,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "室生寺の紅葉フォトコン。優先寺院だが仏像に触れず上限内",
-        "event": {
-          "event_name": "秋の室生寺 Instagramフォトコンテスト2026",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T18:15:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "dc86a9226da1",
-      "title": "“父”ニコラス・ケイジと“息子”ビル・スカルスガルドが対立…『ロード・オブ・ウォー』続編、新ティザー予告編公開 - 朝日新聞",
-      "url": "https://www.asahi.com/and/entertainment/17048483",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T18:11:54.563782+09:00",
-      "published_at": "2026-11-13T14:30:04+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "映画の予告編で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T18:15:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "973c1140fffc",
-      "title": "柳谷観音 楊谷寺の駐車場は？【現地調査・画像あり】台数・料金等。紅葉開始 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/tokkhankyu/trend/tokkhankyu-277006",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T18:11:45.298234+09:00",
-      "published_at": "2026-11-13T17:31:20+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/tokkhankyu/m_tokkhankyu-277006.jpg",
-      "description": "1200年の祈りと信仰の聖地「柳谷観音 楊谷寺」 京都西山の山間部に佇む「柳谷観音 楊谷寺（よう…",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 25,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "楊谷寺の駐車場と紅葉の案内で、仏像に触れていない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T18:15:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5b8a9ab1b04e",
-      "title": "古刹を彩る紅葉シーズン到来！昨年約250作品が集まった『秋の室生寺 Instagramフォトコンテスト2026』開催中 - ニコニコニュース",
-      "url": "https://news.nicovideo.jp/watch/nw19989167?news_ref=watch_50_nw19799404",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T18:11:43.284853+09:00",
-      "published_at": "2026-11-13T17:48:57+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 16,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "室生寺フォトコンの重複記事。仏像に触れず",
-        "event": {
-          "event_name": "秋の室生寺 Instagramフォトコンテスト2026",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-13T18:15:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "357030990549",
-      "title": "平塚新夢が首位発進 女子ゴルフ - 香港経済新聞",
-      "url": "https://hongkong.keizai.biz/gpnews/1778994/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T18:11:41.797525+09:00",
-      "published_at": "2026-11-13T17:54:24+09:00",
-      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
-      "description": "女子ゴルフ・伊藤園レディース第１日。ツアー初勝利を目指す２６歳の平塚新夢が６５をマークし、単独首位で発進した＝１３日、千葉・グレートアイランドＣ 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 女子ゴルフの試合結果で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-13T18:15:44+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "fe0b3b673500",
-      "title": "「クアッド」会合、１７日開催へ - 香港経済新聞",
-      "url": "https://hongkong.keizai.biz/gpnews/1778993/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-13T18:11:39.676359+09:00",
-      "published_at": "2026-11-13T17:54:24+09:00",
-      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
-      "description": "日本と米国、オーストラリア、インドは１７日に４カ国の連携枠組み「クアッド」首脳会合をフィリピン・マニラで開く方向で調整に入った。高市早苗首相（写真）やトランプ米大統領らが参加する＝１３日 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: クアッド首脳会合の政治ニュースで仏教関連なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-13T18:15:44+09:00",
         "score_version": 8
       }
     },
