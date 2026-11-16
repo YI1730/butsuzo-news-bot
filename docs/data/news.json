@@ -1,6 +1,219 @@
 {
-  "last_updated": "2026-11-16T18:34:45.838260+09:00",
+  "last_updated": "2026-11-16T19:11:57.988738+09:00",
   "items": [
+    {
+      "id": "31a8c36f5557",
+      "title": "熊谷市 お知らせ｜令和8年度 熊谷市環境ポスター作品展の入賞者を決定しました！22日のエコライフフェアで展示します。",
+      "url": "https://www.city.kumagaya.lg.jp/about/soshiki/kankyo/kankyosuishin/oshirase/e-poster.html",
+      "source": "official_site",
+      "site_kind": "gov",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-16T19:11:58+09:00",
+      "published_at": "2026-11-16T19:11:58+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "環境ポスター展で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T19:16:03+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "b2e6f956bd19",
+      "title": "「圓通寺と小城」の関係紹介、県重文の古文書13点など展示 「佐賀の仏教史知る上で貴重な資料」一堂に 市立歴史資料館で特別展、12月27日まで（Saga Shimbun） - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/saga_s/region/saga_s-1829933?fm=latestnews",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T19:11:57.987392+09:00",
+      "published_at": "2026-11-15T08:41:05+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/saga_s/m_saga_s-1829933.jpg",
+      "description": "県重要文化財に指定された「圓通寺文書」などが展示されている特別展＝小城市立歴史資料館 佐賀…",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 35,
+        "category": "展覧会",
+        "duplicate": true,
+        "reason": "古文書中心で仏像なし。同じ特別展の記事で重複",
+        "event": {
+          "event_name": "特別展「圓通寺と小城」",
+          "place": "小城市立歴史資料館（佐賀県小城市）",
+          "start_date": "",
+          "end_date": "2026-12-27"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T19:16:03+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e1ca5ca92e46",
+      "title": "「岩国カークルージング＆モーターショウ」過去の様子 国産の旧車が並ぶ会場 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/photoflash/11594/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T19:11:54.404252+09:00",
+      "published_at": "2026-11-16T13:04:13+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/photonews/1794797274_b.jpg",
+      "description": "カーイベント「岩国カークルージング＆モーターショウ」が11月22日、ボートレース徳山（周南市栗屋）の駐車場で開かれる。",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 旧車のカーイベントで仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-16T19:15:57+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "9b8aaddf5fa7",
+      "title": "近大附属小学校が「近小・親子歴史ウォーク」を開催 親子で薬師寺や唐招提寺などの世界遺産を巡る - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/atpress_650222/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T19:11:52.372493+09:00",
+      "published_at": "2026-11-16T14:00:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "画像:https://newscast.jp/attachments/ivtGwGtMJ3pxW9NxWtrU.p",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 22,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "小学校の親子ウォーク。仏像の話は薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T19:16:03+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "a2464b019704",
+      "title": "清泉女子大学の安斎ゼミが重要文化財・旧島津家本邸で着物ドレスショーを開催 ― 女子大生らが日本の伝統文化・着物を現代の感性で再解釈 (2026年11月16日掲載) - ライブドアニュース",
+      "url": "https://news.livedoor.com/pr_topics/detail/32829870/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T19:11:49.820640+09:00",
+      "published_at": "2026-11-16T14:20:07+09:00",
+      "image_url": "https://image.news.livedoor.com/newsimage/stf/2/a/2af82_1871_322f09d8_9eabc643.jpg",
+      "description": "清泉女子大の安斎ゼミが6月14日、重要文化財の旧島津家本邸で着物ドレスショーを開催した。着物ドレスブランドと連携し、大学生11チームと高校生2チームの計13組が独自の装いを披露。参加学生からは「昔の文化を時代に応じて活かす大切さを学んだ」などの感想が寄せられた",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "旧島津家本邸の着物ショーで寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T19:16:03+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "400c84da3e47",
+      "title": "特別展「圓通寺（えんつうじ）と小城」｜小城市立歴史資料館｜小城市｜展覧会｜佐賀県の最新イベント・おでかけ情報 - 佐賀新聞",
+      "url": "https://www.saga-s.co.jp/ud/odekake/6afa9c4e905bd4245d000000",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T19:11:47.974882+09:00",
+      "published_at": "2026-11-16T17:54:40+09:00",
+      "image_url": "https://www.saga-s.co.jp/common/saga/images/v1/usr/feature/odekake/ogp-img_aut.png",
+      "description": "佐賀大と小城市による特別展「圓通寺（えんつうじ）と小城」が、小城市立歴史資料館で開かれている。市内最古の寺院・圓通寺（小城町）に伝わる県重要文化財の古文書13点を中心に、佐賀大所蔵の小城鍋島文庫の史料など計29点を並べ、小城と圓通寺、臨済宗との関係や歴史について紹介している。12月27日まで、入場無料。",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 38,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "古文書が中心で仏像不明。開催中の展覧会",
+        "event": {
+          "event_name": "特別展「圓通寺と小城」",
+          "place": "小城市立歴史資料館（佐賀県小城市）",
+          "start_date": "",
+          "end_date": "2026-12-27"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T19:16:03+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "a6ed0eb02259",
+      "title": "足利市内の貴重な文化財を紹介 21、22日に特別公開 元首相ゆかりの品も - 47NEWS",
+      "url": "https://www.47news.jp/15240189.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-16T19:11:45.680317+09:00",
+      "published_at": "2026-11-16T19:00:00+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/fe77d562ae2ec3f54d6e5d99325cfbf0/photo.jpg",
+      "description": "【足利】通常は非公開のものを含む、市内の貴重な文化財を紹介する文化財特別公開（実行委員会主催）が2 ...",
+      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
+      "ai": {
+        "score": 55,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "21日開始の文化財特別公開。仏像の有無は不明で上限内",
+        "event": {
+          "event_name": "足利市 文化財特別公開",
+          "place": "足利市内（栃木県足利市）",
+          "start_date": "2026-11-21",
+          "end_date": "2026-11-22"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-16T19:16:03+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-16"
+      }
+    },
     {
       "id": "a10dd54fc816",
       "title": "コミカル演技で笑いを誘う　「名張子ども狂言の会」35周年の能楽祭 - ｄメニューニュース",
@@ -12116,192 +12329,6 @@
         "freshness": "durable",
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-14T01:14:20+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "391003099d36",
-      "title": "東京・山種美術館が開館60年、特別展で重要文化財を展示しています - やさしい朝日新聞",
-      "url": "https://yasashii.asahi.com/articles/article_0017559.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T01:11:43.731624+09:00",
-      "published_at": "2026-11-13T19:31:04+09:00",
-      "image_url": "https://yasashii.asahi.com/assets/entry-17559-og_image.webp",
-      "description": "今行っている特別展「ザ・ベスト・オブ・山種コレクションⅠ」では、美術館を代表する作品を見ることができます。",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 10,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "山種美術館の絵画中心の特別展で仏像とは無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T01:14:20+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "87ad80fbf627",
-      "title": "千年 能満寺 重要文化財を特別公開 11月27日から３日間 - タウンニュース",
-      "url": "https://www.townnews.co.jp/0202/2026/11/14/862136.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T01:11:42.012878+09:00",
-      "published_at": "2026-11-14T00:00:00+09:00",
-      "image_url": "https://www.townnews.co.jp/0202/images/a001491344_02.jpg",
-      "description": "川崎市教育委員会は11月27日から29日の３日間、高津区千年の能満寺にある秘仏など３点、神奈川県重要文化財｢木造虚空蔵菩薩立像｣＝写真、市重要歴史記念物｢木造増田孝清坐...",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 82,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": false,
-        "reason": "13日後開始の秘仏・県重文虚空蔵菩薩像の特別公開告知。配信1時間の第一報",
-        "event": {
-          "event_name": "能満寺 重要文化財特別公開",
-          "place": "能満寺（神奈川県川崎市高津区）",
-          "start_date": "2026-11-27",
-          "end_date": "2026-11-29"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T01:14:20+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-14",
-        "post_text": "普段は開かない秘仏の虚空蔵菩薩立像が、川崎・高津区の能満寺で11月27日から29日の3日間、特別公開。通常は住職の晋山式のみ開扉とのことで、めったにない機会みたい。見学無料。",
-        "post_attempts": 1,
-        "post_format": 7,
-        "notified": true
-      }
-    },
-    {
-      "id": "6d96cc921bd3",
-      "title": "灰| ̵̲דժ՝ʓ (@o0_o218) on X - Howl.Link",
-      "url": "https://t.co/46WzkghOkc",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T01:11:39.886908+09:00",
-      "published_at": "2026-11-14T00:00:03+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "X投稿ページで内容なし。仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T01:14:20+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "43eb7a4688d9",
-      "title": "仁和寺で人のタワー 7段、8段…スペイン伝統の技に歓声 [京都府] - 朝日新聞",
-      "url": "https://www.asahi.com/articles/photo/AS20261112003261.html?oai=ASVCD33WFVCDPQIP00GM&ref=yahoo_kijinaka",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T00:12:13.000070+09:00",
-      "published_at": "2026-11-12T18:52:10+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "\"仁和寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 12,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "仁和寺のイベントだが仏像に触れず、人のタワーの話題",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T00:14:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5af17a97d6e1",
-      "title": "仁和寺で人のタワー 7段、8段…スペイン伝統の技に歓声 [京都府] - 朝日新聞",
-      "url": "https://www.asahi.com/articles/ASVCD33WFVCDPQIP00GM.html?iref=pc_national_top",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T00:12:03.683422+09:00",
-      "published_at": "2026-11-12T18:52:10+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "同一記事の重複で、仏像にも無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T00:14:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f2900762bff2",
-      "title": "国宝・重要文化財を次の100年へつなぐ！「前田育徳会 エポスカード」が誕生！Web受注限定グッズの同時販売も決定！ - ライブドアニュース",
-      "url": "https://news.livedoor.com/pr_topics/detail/32811341/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T00:11:51.540633+09:00",
-      "published_at": "2026-11-13T13:00:00+09:00",
-      "image_url": "https://image.news.livedoor.com/newsimage/stf/7/3/73d42_1863_19ca2489_56ffa900.jpg",
-      "description": "エポスカードが前田育徳会との共創で「前田育徳会 エポスカード」を発行する。利用額の0.1％相当のポイントが前田育徳会に寄付され、文化財の保存に充てられる。11月13日に申込開始で、年会費は永年無料。券面は前田家ゆかりの刀剣がモチーフ",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "クレジットカードの宣伝で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T00:14:50+09:00",
         "score_version": 8
       }
     },
