@@ -1,8 +1,27 @@
 {
   "user_id": "68814203",
   "username": "butsuzolink",
-  "since_id": "2122326642278498786",
+  "since_id": "2122627400785854799",
   "items": [
+    {
+      "id": "2122627400785854799",
+      "text": "@butsuzolink こんばんわ。さきほどDMしましたので、お手数ですがご確認のほどよろしくお願いいたします。",
+      "created_at": "2026-11-17T09:46:23.000Z",
+      "conversation_id": "2122297670693794060",
+      "author_username": "newstmb120",
+      "author_name": "TMB",
+      "parent_text": "御開帳・特別公開の一覧（毎朝更新）はこちら\nhttps://t.co/8yGs3gkBsK",
+      "parent_is_ours": true,
+      "status": "open",
+      "fetched_at": "2026-11-17T19:15:01+09:00",
+      "ai": {
+        "needs_reply": true,
+        "priority": "高",
+        "category": "その他",
+        "reason": "DM送信の連絡で、確認と対応を待っている可能性が高い",
+        "reply_draft": "こんばんは、ご連絡ありがとうございます。DMを確認してお返事しますね。少しお待ちください。"
+      }
+    },
     {
       "id": "2122326642278498786",
       "text": "@butsuzolink お久しぶりです。リンクツアー魅力的なのですが、別に予定が入ってなかなか参加できずソロツアーをしています。武蔵国分寺にもいらっしゃったんですね。あれもかなりの列でしたね。",
@@ -1220,5 +1239,5 @@
       }
     }
   ],
-  "last_updated": "2026-11-17T18:15:18+09:00"
+  "last_updated": "2026-11-17T19:15:03+09:00"
 }
