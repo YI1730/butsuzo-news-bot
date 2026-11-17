@@ -1043,21 +1043,27 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     function rewriteExternalLinksForAndroidPWA() {{
-      if (!isStandalonePWA()) return;
+      // 押したときに Chrome の URL へ飛ばす（読み込み時の書き換えだと、あとから描かれたリンクや
+      // ホーム画面アプリの判定漏れで効かないことがあったため、クリックを横取りする）
       const ua = navigator.userAgent || '';
       const isAndroid = /Android/i.test(ua);
       const isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
       if (!isAndroid && !isIOS) return;
-      document.querySelectorAll('a.read-btn[data-external-url]').forEach(function (a) {{
+      // すでにふつうの Chrome のタブで見ているなら、そのまま新しいタブで開けばよい
+      const inChromeTab = !isStandalonePWA() && (/CriOS/.test(ua) || (isAndroid && /Chrome\//.test(ua) && !/wv\)/.test(ua)));
+      if (inChromeTab) return;
+      document.addEventListener('click', function (ev) {{
+        const a = ev.target && ev.target.closest ? ev.target.closest('a.read-btn[data-external-url]') : null;
+        if (!a) return;
         const original = a.getAttribute('data-external-url');
         if (!original) return;
         try {{
-          a.setAttribute('href', isAndroid ? buildAndroidChromeUrl(original) : buildIOSChromeUrl(original));
-          // アプリを開く URL なので新しいタブは要らない
-          a.removeAttribute('target');
-          a.removeAttribute('rel');
+          const target = isAndroid ? buildAndroidChromeUrl(original) : buildIOSChromeUrl(original);
+          ev.preventDefault();
+          ev.stopPropagation();
+          window.location.href = target;
         }} catch (e) {{}}
-      }});
+      }}, true);
     }}
 
     // ────────────────────────────────────────────────────────

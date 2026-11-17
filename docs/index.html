@@ -64,7 +64,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月17日 22:17<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
+        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月17日 20:52<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -23710,21 +23710,27 @@ GUOOL タイ風仏像 華やかな装飾 蓮の花座仏像 繊細な彫刻 レ�
     }
 
     function rewriteExternalLinksForAndroidPWA() {
-      if (!isStandalonePWA()) return;
+      // 押したときに Chrome の URL へ飛ばす（読み込み時の書き換えだと、あとから描かれたリンクや
+      // ホーム画面アプリの判定漏れで効かないことがあったため、クリックを横取りする）
       const ua = navigator.userAgent || '';
       const isAndroid = /Android/i.test(ua);
       const isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
       if (!isAndroid && !isIOS) return;
-      document.querySelectorAll('a.read-btn[data-external-url]').forEach(function (a) {
+      // すでにふつうの Chrome のタブで見ているなら、そのまま新しいタブで開けばよい
+      const inChromeTab = !isStandalonePWA() && (/CriOS/.test(ua) || (isAndroid && /Chrome\//.test(ua) && !/wv\)/.test(ua)));
+      if (inChromeTab) return;
+      document.addEventListener('click', function (ev) {
+        const a = ev.target && ev.target.closest ? ev.target.closest('a.read-btn[data-external-url]') : null;
+        if (!a) return;
         const original = a.getAttribute('data-external-url');
         if (!original) return;
         try {
-          a.setAttribute('href', isAndroid ? buildAndroidChromeUrl(original) : buildIOSChromeUrl(original));
-          // アプリを開く URL なので新しいタブは要らない
-          a.removeAttribute('target');
-          a.removeAttribute('rel');
+          const target = isAndroid ? buildAndroidChromeUrl(original) : buildIOSChromeUrl(original);
+          ev.preventDefault();
+          ev.stopPropagation();
+          window.location.href = target;
         } catch (e) {}
-      });
+      }, true);
     }
 
     // ────────────────────────────────────────────────────────
@@ -24202,7 +24208,7 @@ GUOOL タイ風仏像 華やかな装飾 蓮の花座仏像 繊細な彫刻 レ�
 
     // 表示中のページより新しい版が公開されていれば読み直す（data/version.json と比べる）。
     // スマホによっては、アプリを開き直しても前の表示のまま残ることがあるため
-    const PAGE_UPDATED = '2026-11-17T22:17:51.597139+09:00';
+    const PAGE_UPDATED = '2026-11-17T20:52:06.843972+09:00';
     function checkFreshness() {
       fetch('data/version.json?t=' + Date.now(), { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
