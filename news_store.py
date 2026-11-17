@@ -10,6 +10,7 @@ from __future__ import annotations
 import re
 
 from collections import defaultdict
+from datetime import datetime, timedelta, timezone
 
 MAX_ITEMS_PER_SOURCE = 300
 
@@ -130,6 +131,32 @@ def book_post_tail(item: dict, account: str = "main") -> str:
 GOODS_TITLE_WORDS = ("カレンダー", "フィギュア", "御朱印帳", "手ぬぐい", "手拭", "ポスター", "ストラップ", "キーホルダー",
                      "ぬいぐるみ", "置物", "Tシャツ", "トートバッグ", "マグカップ", "ステッカー", "シール", "缶バッジ",
                      "アクリルスタンド", "ガチャ", "カプセルトイ", "パズル", "一筆箋", "ポストカード", "クリアファイル")
+
+
+MAG_AMAZON_WAIT_DAYS = 7     # 雑誌は Amazon の商品ページが見つかるまで出さない。発売日からこの日数たっても無ければ出版社のリンクで出す
+MAG_AMAZON_WAIT_NO_DATE_DAYS = 14   # 発売日が分からない号は、取り込んでからこの日数
+
+
+def magazine_waiting_amazon(item: dict, now: datetime | None = None) -> bool:
+    """Amazon のリンク（アソシエイト）が無い雑誌の号を、PWA に出さずに待たせるか。
+    出版社・Fujisan のリンクでは紹介料にならないため、Amazon に載るまで待つ。
+    待つのは「発売日から MAG_AMAZON_WAIT_DAYS 日」と「取り込んでから MAG_AMAZON_WAIT_DAYS 日」の遅いほうまで
+    （発売日が分からなければ取り込んでから MAG_AMAZON_WAIT_NO_DATE_DAYS 日）。過ぎたら出版社のリンクで出す。"""
+    if item.get("book_kind") != BOOK_KIND_MAGAZINE or item.get("asin"):
+        return False
+    now = now or datetime.now(timezone(timedelta(hours=9)))
+    limits = []
+    try:
+        rd = datetime.strptime(item.get("release_date", ""), "%Y-%m-%d").replace(tzinfo=now.tzinfo)
+        limits.append(rd + timedelta(days=MAG_AMAZON_WAIT_DAYS))
+        wait_after_fetch = MAG_AMAZON_WAIT_DAYS
+    except ValueError:
+        wait_after_fetch = MAG_AMAZON_WAIT_NO_DATE_DAYS
+    try:
+        limits.append(datetime.fromisoformat(item.get("fetched_at", "")) + timedelta(days=wait_after_fetch))
+    except ValueError:
+        pass
+    return bool(limits) and now < max(limits)
 
 
 def goods_kind(item: dict) -> str:

@@ -460,6 +460,30 @@ def collect_amazon(session: requests.Session, today, skip_asins: set[str], seen:
     return entries
 
 
+def upgrade_only() -> int:
+    """Amazon のリンクが無い雑誌だけを、Amazon で探し直す（Mac から毎日。2 日おきの取り込みの合間）。
+    PWA は Amazon のリンクが付くまで雑誌を出さないので（magazine_waiting_amazon）、なるべく早く差し替える。"""
+    from post_news import load_news_data, save_news_data
+
+    data = load_news_data()
+    items = data["items"]
+    have_asin = {it.get("asin") for it in items if it.get("source") == SOURCE_AMAZON and it.get("asin")}
+    session = requests.Session()
+    try:
+        session.get("https://www.amazon.co.jp/", headers=REQUEST_HEADERS, timeout=REQUEST_TIMEOUT)
+    except requests.RequestException as e:
+        print(f"  Amazon トップページ訪問失敗（続行）: {e}", file=sys.stderr)
+    n = upgrade_missing_asin(session, items, have_asin)
+    save_news_data(data)
+    print(f"Amazon の雑誌: ASIN 差し替え {n} 件")
+    return 0
+
+
+def missing_asin_count(items: list[dict]) -> int:
+    return sum(1 for it in items if it.get("book_kind") == BOOK_KIND_MAGAZINE and not it.get("asin")
+               and it.get("mag_amazon_tries", 0) < MAX_AMAZON_TRIES)
+
+
 def collect_amazon_only() -> int:
     """Amazon の部分だけを動かす（運営者の Mac から。tools/run_amazon_local.sh）。
     GitHub Actions からの Amazon の検索は 503 で断られるため、Mac で各誌の新しい号を探して
@@ -500,6 +524,8 @@ def main() -> int:
 
     if "--amazon-only" in sys.argv:
         return collect_amazon_only()
+    if "--upgrade-only" in sys.argv:
+        return upgrade_only()
     if not os.environ.get("ANTHROPIC_API_KEY"):
         print("ANTHROPIC_API_KEY が無いため雑誌の仏像特集を探しません")
         return 0

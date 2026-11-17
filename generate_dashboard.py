@@ -17,7 +17,7 @@ from pathlib import Path
 
 from news_store import (CANDIDATE_THRESHOLD, NOISE_THRESHOLD, X_LIMIT, book_header, book_hashtags, book_link,
                         book_post_tail, j_available_at, with_pr, compose_news_post, fit_headline_post,
-                        fit_x_post, intent_weighted_length, load_skipped, goods_kind, BOOK_HIDE_BELOW)
+                        fit_x_post, intent_weighted_length, load_skipped, goods_kind, magazine_waiting_amazon, BOOK_HIDE_BELOW)
 
 DOCS_DIR = Path(__file__).parent / "docs"
 NEWS_JSON_FILE = DOCS_DIR / "data" / "news.json"
@@ -493,7 +493,8 @@ def build_html(items: list[dict], last_updated: str) -> str:
     # タブ: ニュース / 返信 / 書籍・グッズ / 訪問記 / 声
     # （特別公開・特別展・観仏三昧の項目は画面に出さない。データは御開帳カレンダーと採点が使う）
     news_items  = [x for x in items_sorted if x.get("source") in NEWS_TAB_SOURCES]
-    goods_items = [x for x in items_sorted if x.get("source") in GOODS_TAB_SOURCES]
+    # 雑誌は Amazon の商品ページ（アソシエイトのリンク）が見つかるまで出さない（magazine_waiting_amazon）
+    goods_items = [x for x in items_sorted if x.get("source") in GOODS_TAB_SOURCES and not magazine_waiting_amazon(x)]
 
     # 書籍・グッズタブは item_type で 書籍 / グッズ に分割（書籍を上に表示）
     book_items  = [x for x in goods_items if x.get("item_type") == "book"]
@@ -1007,14 +1008,12 @@ def build_html(items: list[dict], last_updated: str) -> str:
     }}
 
     // ────────────────────────────────────────────────────────
-    // 外部リンクを「OSの規定ブラウザ」で開く（PWA 内蔵ブラウザ回避）
+    // 「記事を読む」を PWA の内蔵ブラウザではなく Chrome で開く（代表の規定ブラウザ）
     //
-    // Android (standalone PWA) では target="_blank" でも Chrome Custom Tabs
-    // にリンクが閉じ込められる。intent:// URI で OS のリンクハンドラに渡すと
-    // 規定のブラウザアプリ（Chrome 等）で開く。
-    //
-    // iOS / 通常ブラウザは preventDefault せず、href の target="_blank" に任せる
-    // （iOS 17+ は standalone PWA から自動で Safari の新規タブで開く）。
+    // iPhone のホーム画面 PWA は target="_blank" を内蔵ブラウザで開いてしまうので、
+    // Chrome の URL スキーム（googlechromes://）に書き換える。
+    // Android の PWA は Custom Tabs に閉じ込められるので、Chrome を指定した intent:// にする。
+    // ふつうのブラウザで開いているときは書き換えない。
     // ────────────────────────────────────────────────────────
     function isStandalonePWA() {{
       try {{
@@ -1024,35 +1023,37 @@ def build_html(items: list[dict], last_updated: str) -> str:
       return false;
     }}
 
-    // Android standalone PWA では target="_blank" が Custom Tabs に閉じ込められる。
-    // 起動時に該当環境を判定し、外部リンクの href 自体を intent:// に書き換える。
-    // これにより Chrome が「intent URI = 外部アプリ起動」として処理し、
-    // ユーザーの規定ブラウザでリンクが開かれる。
-    function buildIntentUrl(url) {{
+    function buildAndroidChromeUrl(url) {{
       const u = new URL(url, location.href);
       const scheme = (u.protocol || 'https:').replace(':', '');
-      const fallback = encodeURIComponent(url);
       return (
         'intent://' + u.host + u.pathname + u.search + u.hash +
         '#Intent;scheme=' + scheme +
         ';action=android.intent.action.VIEW' +
         ';category=android.intent.category.BROWSABLE' +
-        ';S.browser_fallback_url=' + fallback +
+        ';package=com.android.chrome' +
+        ';S.browser_fallback_url=' + encodeURIComponent(url) +
         ';end'
       );
     }}
 
+    function buildIOSChromeUrl(url) {{
+      const u = new URL(url, location.href);
+      return (u.protocol === 'http:' ? 'googlechrome://' : 'googlechromes://') + u.host + u.pathname + u.search + u.hash;
+    }}
+
     function rewriteExternalLinksForAndroidPWA() {{
-      const ua = navigator.userAgent || '';
       if (!isStandalonePWA()) return;
-      if (!/Android/i.test(ua)) return;
+      const ua = navigator.userAgent || '';
+      const isAndroid = /Android/i.test(ua);
+      const isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+      if (!isAndroid && !isIOS) return;
       document.querySelectorAll('a.read-btn[data-external-url]').forEach(function (a) {{
         const original = a.getAttribute('data-external-url');
         if (!original) return;
         try {{
-          const intentUrl = buildIntentUrl(original);
-          a.setAttribute('href', intentUrl);
-          // intent URI は新規タブ不要・noopener 付与で逆に挙動が崩れる場合があるので解除
+          a.setAttribute('href', isAndroid ? buildAndroidChromeUrl(original) : buildIOSChromeUrl(original));
+          // アプリを開く URL なので新しいタブは要らない
           a.removeAttribute('target');
           a.removeAttribute('rel');
         }} catch (e) {{}}
