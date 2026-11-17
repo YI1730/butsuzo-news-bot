@@ -237,11 +237,15 @@ def parse_amazon_cards(soup: BeautifulSoup) -> list[dict]:
     return out
 
 
+_AMAZON_REFUSED = [False]   # Amazon に断られた（503 など）。その回はそれ以上 Amazon を検索しない
+
+
 def search_amazon_issue(session: requests.Session, magazine: str, issue_label: str) -> dict | None:
     url = f"https://www.amazon.co.jp/s?k={quote(magazine + ' ' + issue_label)}&i=stripbooks"
     soup = fetch_page(session, url)
     if not soup:
         print(f"  Amazon 検索: ページを取得できませんでした（{magazine} {issue_label}）", file=sys.stderr)
+        _AMAZON_REFUSED[0] = True
         return None
     cards = parse_amazon_cards(soup)
     hit = find_amazon_match(cards, magazine, issue_label)
@@ -301,6 +305,10 @@ def upgrade_missing_asin(session: requests.Session, items: list[dict], have_asin
         it["mag_amazon_tries"] = it.get("mag_amazon_tries", 0) + 1
         time.sleep(SLEEP_AMAZON)
         hit = search_amazon_issue(session, magazine, label)
+        if _AMAZON_REFUSED[0]:
+            it["mag_amazon_tries"] -= 1   # 断られた回は数えない
+            print("  Amazon に断られたので、差し替えは次回に", file=sys.stderr)
+            break
         if hit and hit["asin"] not in have_asin:
             it["asin"], it["url"] = hit["asin"], build_product_url(hit["asin"])
             it["image_url"] = it.get("image_url") or hit.get("image_url", "")
@@ -409,13 +417,17 @@ def collect_amazon(session: requests.Session, today, skip_asins: set[str], seen:
     entries = []
     done = []
     for name in names:
+        if _AMAZON_REFUSED[0]:
+            print("  Amazon に断られているので、雑誌の検索は次回に", file=sys.stderr)
+            break
         time.sleep(SLEEP_AMAZON_MAGAZINE)
         url = (f"https://www.amazon.co.jp/s?k={quote(name)}&i=stripbooks"
                f"&rh=n%3A{AMAZON_MAGAZINE_NODE}&s=date-desc-rank")
         soup = fetch_page(session, url)
         if not soup:
-            print(f"  Amazon 雑誌検索: 取得できませんでした（{name}）", file=sys.stderr)
-            continue
+            print(f"  Amazon 雑誌検索: 取得できませんでした（{name}）。今回はここまで", file=sys.stderr)
+            _AMAZON_REFUSED[0] = True
+            break
         cards = parse_amazon_cards(soup)
         if not cards:
             if soup.find("meta", attrs={"http-equiv": "refresh"}):

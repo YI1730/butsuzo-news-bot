@@ -40,8 +40,12 @@ for attempt in 1 2 3; do
   # 雑誌を先に（書籍の検索のあとだと、続けて検索したことで確認ページを返されやすい）。間に休みを入れる
   $PY scrape_magazines.py --amazon-only; mag=$?
   [ $mag -ne 0 ] && echo "雑誌は途中まで（終了コード $mag）。あすもう一度動かす"
-  sleep 120
-  $PY scrape_amazon.py || echo "scrape_amazon.py が失敗（続行）"
+  if [ $mag -eq 0 ]; then
+    sleep 120
+    $PY scrape_amazon.py || echo "scrape_amazon.py が失敗（続行）"
+  else
+    echo "Amazon に断られているので、書籍・グッズもあすに回す"
+  fi
   fi
   if git diff --quiet -- docs/data/news.json; then
     echo "変更なし"; [ $mag -eq 0 ] && date +%s > "$STAMP"; exit 0
