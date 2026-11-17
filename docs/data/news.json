@@ -1,6 +1,307 @@
 {
-  "last_updated": "2026-11-17T12:06:10.260514+09:00",
+  "last_updated": "2026-11-17T12:12:08.309536+09:00",
   "items": [
+    {
+      "id": "7241af11c47b",
+      "title": "延暦寺｜2026.11.17 令和9年正月祈祷のご案内",
+      "url": "https://www.hieizan.or.jp/news/post-2300/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-17T12:12:08+09:00",
+      "published_at": "2026-11-17T12:12:08+09:00",
+      "image_url": "https://www.hieizan.or.jp/assets/img/ogp.jpg",
+      "description": "京都市と滋賀県大津市にまたがる天台宗総本山。「日本仏教の母」としての歴史と現在を紹介。",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "正月祈祷の案内で仏像に触れず。速報性も影響なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T12:15:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "dd9bfa6891b0",
+      "title": "興福寺｜2026年12月8日 広島講座 13：00～「法相教主 弥勒如来」 14：00～「仏典のことば（７）」",
+      "url": "https://www.kohfukuji.com/discourse-list/3047/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-17T12:12:08+09:00",
+      "published_at": "2026-11-17T12:12:08+09:00",
+      "image_url": "",
+      "description": "",
+      "ai": {
+        "score": 22,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "広島での講座案内。仏像の公開ではなく低評価",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T12:15:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "20ceddb28d72",
+      "title": "津田健次郎、『旅サラダ』出演 岩手・盛岡＆平泉巡る 国宝の美しさに圧倒 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2005689?kw=%E4%BA%AC",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T12:12:07.649639+09:00",
+      "published_at": "2026-11-16T01:49:53+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/0/e/4/c/0e4c9d2cbeae3f72d2ae4e887849cc2a_1.jpg",
+      "description": "声優の津田健次郎が17日放送のABCテレビ・テレビ朝日系『朝だ！生です旅サラダ』（毎週土曜 前8：00）に出演する。【番組カット】コー...",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "芸能人の旅番組。仏像の具体性なし、放送も当日",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T12:15:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "66bc09afb455",
+      "title": "戦国期の愛荘の歴史を文書やパネルなどで伝える　愛荘町立歴史文化博物館で特別展 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/chuplus/region/chuplus-1340239",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T12:12:01.884678+09:00",
+      "published_at": "2026-11-16T05:05:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/chuplus/m_chuplus-1340239.jpg",
+      "description": "戦国時代を中心に中世の愛荘町を紹介する特別展「愛荘町の中世」が同町松尾寺の町立歴史文化博物館で開か…",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 25,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "中世の古文書中心の郷土史展で仏像の言及なし",
+        "event": {
+          "event_name": "愛荘町の中世",
+          "place": "愛荘町立歴史文化博物館（滋賀県愛荘町）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T12:15:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "cb809d672022",
+      "title": "秀吉が夢見た幻の紅葉狩り 京都市の世界文化遺産・総本山醍醐寺で「秋期夜間拝観」（オーヴォ） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/ee8390717c4afd4b29adba245b6c36619b35ca3c",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T12:11:59.541947+09:00",
+      "published_at": "2026-11-16T11:30:00+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261116-00000003-ovo-000-1-view.jpg?exp=10800",
+      "description": "陽光を透かし見る昼間の紅葉狩りも楽しいが、静かな秋の夜の紅葉狩りもまた別の趣がある。京都市の世界文化遺産・総本山醍醐寺は11月20日（金）～12月6日（日）まで、「秋期夜間拝観」を開催する。国宝・金",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 45,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "夜間拝観は仏像が主題でなく上限内。20日開始だが低め",
+        "event": {
+          "event_name": "醍醐寺 秋期夜間拝観",
+          "place": "醍醐寺（京都市）",
+          "start_date": "2026-11-20",
+          "end_date": "2026-12-06"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T12:15:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "04fbc0118713",
+      "title": "学校法人駒澤大学フェロートークイベント2026 「駒澤大学 150周年に向けて × GREEN×EXPO 2027 『慈悲のまなざし、共生の風景』〜仏像が映す人の心と、地球と生きる未来〜」を11月20日に開催 - 大学プレスセンター",
+      "url": "https://www.u-presscenter.jp/article/135376",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T12:11:56.942633+09:00",
+      "published_at": "2026-11-16T13:12:43+09:00",
+      "image_url": "https://www.u-presscenter.jp/wp-content/uploads/2026/11/ac3a56d6d2ff682614cbe5cb5a4b8640-1-pdf.jpg",
+      "description": "駒澤大学（東京都世田谷区、学長：村松哲文）は11月20日（金）、学校法人駒澤大学フェロートークイベント2026 「駒澤大学 150周年に向けて × GREEN×EXPO 2027 『慈悲のまなざし、共生の風景』〜仏像が映す人の心と、地球と生きる未来〜」を開催する。学校法人駒澤大学はフェローシップ制度を設けており、2026年4月には、ランドスケープアーキテクトとしての多くの実績を持ち、2027年開催の国際園芸博覧会（GREEN×EXPO 2027）「GREEN×EXPOラボ」でチェアパーソンを務める涌井史郎氏がフェローに就任している。今回のイベントでは涌井フェローが、基調講演「GREEN×EXPO 2027が描く、人と自然の新しい関係」を実施。その他、涌井フェローと村松学長による対談や、在学生を交えた「未来問答＆質疑応答」を行う。学生・教職員の他、一般、メディア関係者も参加可。参加費無料、事",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 38,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "仏像テーマのトークだが大学イベントで仏像公開ではない",
+        "event": {
+          "event_name": "駒澤大学フェロートークイベント2026",
+          "place": "駒澤大学（東京都世田谷区）",
+          "start_date": "2026-11-20",
+          "end_date": "2026-11-20"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T12:15:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "55a38acfc78e",
+      "title": "龍岸寺、開祖命日法要で企画 来迎、ドローン仏で表現 編隊飛行で二十五菩薩も - 中部経済新聞",
+      "url": "https://www.chukei-news.co.jp/news/2026/11/17/OK0002611170c01_01/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T12:11:53.497544+09:00",
+      "published_at": "2026-11-17T05:00:00+09:00",
+      "image_url": "https://www.chukei-news.co.jp/images/20261116_165646_19414.jpg",
+      "description": "臨終の際、阿弥陀（あみだ）仏の迎えによって極楽浄土へと導かれる。古来、数多く描かれた来迎図は、浄土",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 40,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "法要でドローンの二十五菩薩演出。仏像そのものではない",
+        "event": {
+          "event_name": "龍岸寺 開祖命日法要 ドローン来迎",
+          "place": "龍岸寺",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T12:15:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "318fa7e87c39",
+      "title": "国重要文化財・大橋家住宅（倉敷）でマルシェ １７、１８日、アートホッピングクラシキ - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2005508?rct=area_content&kw=ADHD",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T12:11:50.553824+09:00",
+      "published_at": "2026-11-17T09:35:21+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/3/f/b/2/3fb27d2080f6da4a4efa2dd5389e29f0_1.jpg",
+      "description": "芸術やグルメを楽しむマルシェ「アートホッピングクラシキ」が１７、１８日、倉敷市阿知の国重要文化財・大橋家住宅で開かれる。邸内は無料公開...",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "民家のマルシェで寺院・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T12:15:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "baa5f659e484",
+      "title": "福山「明王院」を紹介する紙芝居制作 国宝建物の歴史や様式 住民団体 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1987456?rct=area_content&kw=:",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T12:11:45.355156+09:00",
+      "published_at": "2026-11-17T10:25:54+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/6/5/6/8/656826ed60bfdd48672f239bcc96ae65_1.jpg",
+      "description": "福山市草戸町の古刹（こさつ）・明王院の魅力を後世に伝えていこうと、地元住民らでつくる「明王院を愛する会」が、歴史や建築様式を紹介する紙...",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 35,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "明王院の紙芝居は建物中心で仏像の話は薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-17T12:15:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "a075771d445d",
+      "title": "KORAIL Talkの統合機能で巡るイクサンの歴史的名所 - www.famtimes.co.kr",
+      "url": "https://www.famtimes.co.kr/ja/news/articleView.html?idxno=705004",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-17T12:11:39.498746+09:00",
+      "published_at": "2026-11-17T11:07:07+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 韓国の鉄道アプリ紹介で、仏像・寺院・仏教美術の話題が見当たらない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-17T12:15:13+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "石川県七尾美術館",
       "url": "https://nanao-art-museum.jp/",
@@ -12700,160 +13001,6 @@
       }
     },
     {
-      "id": "ebcb4fbd95db",
-      "title": "ハンズ渋谷店、１５日閉店 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778961/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T18:11:45.335002+09:00",
-      "published_at": "2026-11-12T18:15:54+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "東京・渋谷で約半世紀にわたり親しまれてきた雑貨店「ハンズ渋谷店」が１５日、４８年の歴史に幕を下ろす。先月３０日、外壁看板の「ＨＡＮＤＳ」のロゴを「ＴＨＡＮＫＳ」に付け替え、感謝を伝えている＝１２日 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 雑貨店ハンズの閉店で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-14T18:15:52+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "98b4d677acdc",
-      "title": "国宝・重要文化財を次の100年へつなぐ！「前田育徳会 エポスカード」が誕生！Web受注限定グッズの同時販売も決定！ - Infoseek",
-      "url": "https://news.infoseek.co.jp/article/prtimes_000004254_000003860/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T18:11:41.775242+09:00",
-      "published_at": "2026-11-13T16:15:38+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
-      "description": "株式会社エポスカード（本社：東京都中野区、代表取締役社長：相田昭一、以下エポスカード）は、公益財団法人前田育徳会（",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "クレジットカードとグッズの宣伝が主目的で仏像の話題なし。速報性も低い",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T18:15:54+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "0800c3eb6981",
-      "title": "撮影に応じる吉沢ら - 香港経済新聞",
-      "url": "https://hongkong.keizai.biz/gpnews/1779003/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T18:11:39.964140+09:00",
-      "published_at": "2026-11-13T20:54:25+09:00",
-      "image_url": "https://images.keizai.biz/hongkong_keizai/globalphoto/",
-      "description": "スケートボードの世界最高峰プロツアー、ストリートリーグ（ＳＬＳ）東京大会は１４日、東京・有明アリーナで開催される。写真は大会を前に、撮影に応じる吉沢恋（左端）ら＝１３日、東京都江東区 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: スケートボード大会で仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-14T18:15:52+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "855c82883b84",
-      "title": "遊びを取り入れた練習に取り組む子どもたち - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/photoflash/11592/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T18:11:37.737008+09:00",
-      "published_at": "2026-11-14T16:34:44+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/photonews/1794640707_b.jpg",
-      "description": "ジュニアアイスホッケーチーム「山口ライジング」が11月7日、くだまつ健康パークのスケートリンク（下松市平田）で今季の氷上練習を始めた。",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: アイスホッケー練習で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-14T18:15:52+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b90ca9e8448a",
-      "title": "山本、男子ＳＰ２位 スケートアメリカ - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/gpnews/1779022/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T18:11:35.615243+09:00",
-      "published_at": "2026-11-14T16:34:44+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
-      "description": "フィギュアスケートのグランプリ（ＧＰ）シリーズ第４戦、スケートアメリカ。男子ＳＰで拳を握る山本草太。９１．２９点を出して２位発進とした＝１３日、米ワシントン州エバレット 【時事通信社】",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: フィギュアスケート大会で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-14T18:15:52+09:00",
-        "score_version": 8
-      }
-    },
-    {
       "title": "九州国立博物館 特別展「弘法大師 空海－高野山の至宝と信仰のひろがり－」（4月24日~6月20日）",
       "url": "https://www.kyuhaku.jp/",
       "source": "kanbutsu",
@@ -12892,97 +13039,6 @@
       "id": "111b73d72233",
       "fetched_at": "2026-11-14T17:17:24.997469+09:00",
       "image_url": ""
-    },
-    {
-      "id": "758942430f15",
-      "title": "大阪メトロの万博ＥＶバス１３７台 リサイクル業者に毎月約３００万円を支払い富山で保管 - 朝日放送",
-      "url": "https://www.asahi.co.jp/webnews/pages/abc_63567.html?shem=dsdf,sharefoc,agadiscoversdl,,sh/x/discover/m1/4",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T17:11:42.535495+09:00",
-      "published_at": "2026-11-12T19:39:00+09:00",
-      "image_url": "https://www.asahi.co.jp/webnews/pages/img/data_file/20261112/63567/0/01a1cf46-9623-775b-ad16-d14e4b1d9cc4.jpg",
-      "description": "大阪・関西万博で導入されたＥＶバス。毎月３００万円の保管料を支払っています。 万博会場でトラブルが相次いだ大阪メトロのＥＶバスについて、メトロが富山県高岡市の…",
-      "search_query": "\"法隆寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 大阪メトロのEVバス保管料の話題で仏教関連なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-14T17:14:16+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "7ac4a74cfd78",
-      "title": "岐阜県で今週末どこ行こう【１１月１４、１５日】 - 岐阜新聞デジタル",
-      "url": "https://www.gifu-np.co.jp/articles/-/798627",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T17:11:39.453737+09:00",
-      "published_at": "2026-11-13T14:00:00+09:00",
-      "image_url": "https://gifu-np.ismcdn.jp/mwimgs/1/4/-/img_144d0d85aa9d77a3951b93d11a0fdf52152166.jpg",
-      "description": "週末の予定、決まっていますか？岐阜新聞デジタルに掲載したイベント情報をピックアップ！（予約が必要な場合や問い合わせは主催者へ） &nbsp;■関市本町通りで１４日、マルシェ「セキ日和」関市中心部...",
-      "search_query": "文化財 特別公開 仏像 市",
-      "ai": {
-        "score": 15,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "岐阜の週末イベントまとめ。仏像への言及が確認できず無関係。速報性の加点なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T17:14:18+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "8e0094883a40",
-      "title": "矢吹正道「待ち遠しい」 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1778960/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-14T16:11:49.026090+09:00",
-      "published_at": "2026-11-12T18:15:54+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "国際ボクシング連盟（ＩＢＦ）フライ級タイトルマッチ（２６日）で３度目の防衛を目指す王者の矢吹正道が、名古屋市内の所属ジムで練習を公開し「しっかり準備してきたので、試合が待ち遠しい」と意気込んだ＝１２日 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "ボクシングの練習公開で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-14T16:16:02+09:00",
-        "score_version": 8
-      }
     },
     {
       "title": "龍谷大学大宮図書館・瀬田図書館・深草図書館 ミニ展示「仏と仏を護る神々の姿」（9月24日~11月20日）",
