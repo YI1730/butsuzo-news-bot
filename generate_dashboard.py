@@ -1048,7 +1048,9 @@ def build_html(items: list[dict], last_updated: str) -> str:
       const ua = navigator.userAgent || '';
       const isAndroid = /Android/i.test(ua);
       const isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
-      if (!isAndroid && !isIOS) return;
+      // Android のインストール済み PWA から Chrome 本体へは、どの書き方でも渡せなかった（Chrome が自分あての
+      // リンクをアプリ内の画面で開いてしまう）。Android はふつうの target="_blank" に任せる
+      if (!isIOS) return;
       // すでにふつうの Chrome のタブで見ているなら、そのまま新しいタブで開けばよい
       const inChromeTab = !isStandalonePWA() && (/CriOS/.test(ua) || (isAndroid && /Chrome\//.test(ua) && !/wv\)/.test(ua)));
       if (inChromeTab) return;
