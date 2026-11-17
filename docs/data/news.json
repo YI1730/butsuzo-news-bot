@@ -1,6 +1,200 @@
 {
-  "last_updated": "2026-11-18T06:53:33.787954+09:00",
+  "last_updated": "2026-11-18T07:11:46.937954+09:00",
   "items": [
+    {
+      "id": "rem-3c6b76a51519-ending",
+      "title": "長福寺（掛川）開創１３００年大祭 ２１日まで ４０年ぶり本尊御開帳 - 静岡新聞DIGITAL",
+      "url": "https://news.at-s.com/article/2092405",
+      "source": "reminder",
+      "header": "【公開はあと3日】",
+      "hashtags": "",
+      "fetched_at": "2026-11-18T07:14:07+09:00",
+      "published_at": "2026-11-18T07:14:07+09:00",
+      "image_url": "",
+      "ai": {
+        "score": 90,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": false,
+        "reason": "公開はあと3日（御開帳カレンダー）",
+        "post_text": "掛川の長福寺で、開創1300年の大祭にあわせた本尊の御開帳が21日まで。40年ぶりの機会とのことで、残りはあと数日。普段は見られない本尊さんに会える貴重なタイミング。",
+        "post_header": "【公開はあと3日】",
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "rem-31d3529a340e-start",
+      "title": "猪名川町立静思館文化財収蔵庫 （乾蔵）特別公開「猪名川町の木喰」（事前予約制）",
+      "url": "https://www.town.inagawa.lg.jp/soshiki/1036/gyomu/4/10168.html",
+      "source": "reminder",
+      "header": "【あすから開幕】",
+      "hashtags": "",
+      "fetched_at": "2026-11-18T07:14:07+09:00",
+      "published_at": "2026-11-18T07:14:07+09:00",
+      "image_url": "",
+      "ai": {
+        "score": 78,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "あすから開幕（御開帳カレンダー）・木喰仏の地域特別公開。開幕3日前の告知。像の詳細は少ないが地域仏で加点",
+        "post_text": "あすから、猪名川町立静思館で木喰仏の特別公開が始まるみたい。上阿古谷毘沙門堂から預かった県指定文化財で、29日までとのこと。予約制で、空きがあれば当日受付も。",
+        "post_header": "【あすから開幕】",
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "bfd37b824fe4",
+      "title": "飛騨駅伝、思いつなぎ晩秋駆ける 計４６チーム出場 - 岐阜新聞デジタル",
+      "url": "https://www.gifu-np.co.jp/articles/-/799508",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T07:11:46.937576+09:00",
+      "published_at": "2026-11-16T07:12:00+09:00",
+      "image_url": "https://gifu-np.ismcdn.jp/mwimgs/f/8/-/img_f8506a72b2add4795bb0452d3a9a9041548832.jpg",
+      "description": "",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 駅伝の話題で仏像・寺院との関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-18T07:14:03+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "aeb30758468d",
+      "title": "相棒を丹念にメンテナンス 鮎釣りシーズン終わる【女流釣り師のＲ３トラディション】 - 岐阜新聞デジタル",
+      "url": "https://www.gifu-np.co.jp/articles/gallery/799424",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T07:11:45.339871+09:00",
+      "published_at": "2026-11-16T08:10:00+09:00",
+      "image_url": "https://gifu-np.ismcdn.jp/mwimgs/8/d/-/img_8d3dad685e40d4950dc7488a9f84c2ea165411.jpg",
+      "description": "",
+      "search_query": "(寺宝 OR 仏師)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 鮎釣りの道具メンテナンス記事で仏教関連なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-18T07:14:03+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "292e658a6ac9",
+      "title": "秀吉が夢見た幻の紅葉狩り 京都市の世界文化遺産・総本山醍醐寺で「秋期夜間拝観」 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/ovo_O2096472/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T07:11:43.705415+09:00",
+      "published_at": "2026-11-16T11:30:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/ovo/ovo_O2096472_0-enlarge.jpg",
+      "description": "陽光を透かし見る昼間の紅葉狩りも楽しいが、静かな秋の夜の紅葉狩りもまた別の趣がある。京都市の世界文化遺産・総本山醍",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "夜間拝観・紅葉が中心で仏像に触れず上限内。配信43時間経過",
+        "event": {
+          "event_name": "醍醐寺 秋期夜間拝観",
+          "place": "醍醐寺（京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-18T07:14:06+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "091add61192b",
+      "title": "翠月淳二胡演奏会 Echo Of The Forest 森と共存するアート展 野外展 in 三澤寺 - アットエス",
+      "url": "https://www.at-s.com/event/article/2100122",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T07:11:42.202212+09:00",
+      "published_at": "2026-11-17T11:10:50+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "二胡演奏会とアート展で仏像との関係が薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-18T07:14:06+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "8c2ed86e8743",
+      "title": "アンモニア燃料船を公開 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1779107/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T07:11:40.748459+09:00",
+      "published_at": "2026-11-17T22:26:01+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "日本郵船は１７日、熊本県長洲町の造船所で、アンモニアを燃料とするアンモニア用輸送船「いざなみ」のお披露目式を行った。 【時事通信社】",
+      "search_query": "観音 御開帳 町",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "アンモニア燃料船の話題で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-18T07:14:06+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "大谷大学博物館 特別展「摺る・捺す・写す－文字の諸相－」（10月10日~11月28日）",
       "url": "https://www.otani.ac.jp/kyo_kikan/museum/index.html",
@@ -11555,156 +11749,6 @@
           "place": "",
           "start_date": "",
           "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T12:15:04+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "0cf458bc4754",
-      "title": "72年ぶり御開帳の豊川稲荷で松平健さんお成り 参拝者100万超す [愛知県] - 朝日新聞",
-      "url": "https://www.asahi.com/articles/ASVCH4H5DVCHOIPE00LM.html?iref=_area_area_list_n",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T12:11:58.159492+09:00",
-      "published_at": "2026-11-16T11:00:01+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 45,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": true,
-        "reason": "豊川稲荷72年ぶり開帳は配信済みと同じ出来事。重複で減点",
-        "event": {
-          "event_name": "豊川稲荷 72年ぶり御開帳",
-          "place": "豊川稲荷（愛知県豊川市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T12:15:04+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "a34c17d484be",
-      "title": "72年ぶり御開帳の豊川稲荷で松平健さんお成り 参拝者100万超す（朝日新聞） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/d4039e487da0ea2d399f834f4019814d02880d2a",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T12:11:48.728615+09:00",
-      "published_at": "2026-11-16T11:00:01+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261116-00000039-asahi-000-1-view.jpg?exp=10800",
-      "description": "愛知県豊川市の豊川稲荷で、秘仏の鎮守「豊川ダ（くちへんに「託」のつくり）枳尼真天（だきにしんてん）」を納めた厨子（ずし）の扉の御開帳が、72年ぶりに行われている。15日には俳優の松平健さんが殿様姿で",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 45,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": true,
-        "reason": "配信済みの豊川稲荷開帳と重複。芸能人話題中心",
-        "event": {
-          "event_name": "豊川稲荷 72年ぶり御開帳",
-          "place": "豊川稲荷（愛知県豊川市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T12:15:04+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "3eca9a360d81",
-      "title": "なぜ?歯科メーカーが精巧な《金の仏像》制作 歯科技工の精密3D技術を活用、仏師の手作り技術とコラボ YAMAKIN（高知） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/610762641c775e468295733dfb3e56482a521fe0",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T12:11:46.640136+09:00",
-      "published_at": "2026-11-16T11:12:23+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261116-01244762-fnnprimev-000-1-view.jpg?exp=10800",
-      "description": "高知県の歯科材料メーカーがまばゆい輝きを放つ黄金の仏像を作った。金の仏像と歯科材料メーカーという意外な組み合わせだが、実はその造形に、歯科医療の現場を支える技術が生かされている。【画像】歯科材料メー",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 40,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "歯科メーカーの金仏像制作。企業の話題で寺院公開ではない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T12:15:04+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "cd0c4ceeac3b",
-      "title": "なぜ？歯科メーカーが精巧な《金の仏像》制作 歯科技工の精密3D技術を活用、仏師の手作り技術とコラボ YAMAKIN（高知） - Excite エキサイト",
-      "url": "http://www.excite.co.jp/news/article/sunsuntv_1494884269346309068/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T12:11:43.873086+09:00",
-      "published_at": "2026-11-16T11:16:00+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 20,
-        "category": "その他の仏像関連",
-        "duplicate": true,
-        "reason": "Yahoo記事と同一の金の仏像の話題で重複",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T12:15:04+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "eff8e9327ecd",
-      "title": "秀吉が夢見た幻の紅葉狩り 京都市の世界文化遺産・総本山醍醐寺で「秋期夜間拝観」 - OVO [オーヴォ]",
-      "url": "https://ovo.kyodo.co.jp/news/culture/a-2096472",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T12:11:42.469510+09:00",
-      "published_at": "2026-11-16T11:30:00+09:00",
-      "image_url": "https://d10tw3woq6mt3i.cloudfront.net/wp-content/uploads/2026/11/a018d3ebe72cd13fbde0c1877a7e9eb5.jpg",
-      "description": "陽光を透かし見る昼間の紅葉狩りも楽しいが、静かな秋の夜の紅葉狩りもまた別の趣がある。京都市の世界文化遺産・総本山醍醐寺は11月20日（金）～12月6日（日）まで、「秋期夜間拝観」を開催する。国宝・金堂や国宝・五重塔をはじめ、林泉、無量寿苑が本来持つ美しさをゆったりと鑑賞できる。 歴史ある堂塔のたたずまい、鮮やかな紅葉、そして水面に映り込む光と影。それぞれの美しさが自然に際立つよう光を丁寧に重ね、静寂と調和する空間を演出している。昼間とは異なる風景が広がる秋の醍醐寺は、豊臣秀吉が盛大な「醍醐の花見」を催したことで知られている。秀吉はその後、秋の醍醐寺で「紅葉狩り」を楽しむことを思い描きながら",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 35,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "醍醐寺の夜間拝観・紅葉で仏像に触れず上限内",
-        "event": {
-          "event_name": "醍醐寺 秋期夜間拝観",
-          "place": "醍醐寺（京都府京都市）",
-          "start_date": "2026-11-20",
-          "end_date": "2026-12-06"
         },
         "buddha_designation": false,
         "freshness": "durable",
