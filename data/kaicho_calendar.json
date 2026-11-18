@@ -585,7 +585,7 @@
    "first_seen": "2026-10-25T10:39:02+09:00",
    "reminded": [],
    "origin": "kanbutsu",
-   "remind": false
+   "news_candidate": true
   },
   {
    "id": "ab7be84a28f1",
@@ -2741,9 +2741,23 @@
    "source_url": "https://www.fukuishimbun.co.jp/articles/-/2750516",
    "source_title": "仏像で読み解く高浜の宗教文化 町郷土資料館で企画展 - 福井新聞社",
    "source_score": 74,
-   "first_seen": "2026-11-19T06:14:55+09:00",
+   "first_seen": "2026-11-19T06:58:36+09:00",
    "reminded": [],
    "news_candidate": true
+  },
+  {
+   "id": "3e7dee3cbd48",
+   "event_name": "古都鎌倉 秋の緑と歴史探訪",
+   "place": "鎌倉大仏・長谷寺（神奈川県鎌倉市）",
+   "place_key": "鎌倉大仏・長谷寺",
+   "start": "2026-11-25",
+   "end": "2026-11-25",
+   "category": "寺院の行事",
+   "source_url": "https://go2senkyo.com/seijika/180455/posts/1582994",
+   "source_title": "【鎌倉市】鎌倉大仏・長谷寺を巡る秋の歴史散策！11月25日「古都鎌倉 秋の緑と歴史探訪」開催 - 選挙ドットコム",
+   "source_score": 55,
+   "first_seen": "2026-11-19T06:58:36+09:00",
+   "reminded": []
   },
   {
    "id": "1f57e9543070",
@@ -3543,5 +3557,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-11-19T06:14:55+09:00"
+ "last_updated": "2026-11-19T06:58:36+09:00"
 }
