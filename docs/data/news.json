@@ -1,6 +1,403 @@
 {
-  "last_updated": "2026-11-18T10:50:07.128640+09:00",
+  "last_updated": "2026-11-18T11:12:11.329069+09:00",
   "items": [
+    {
+      "id": "5188ec7449c5",
+      "title": "東福寺｜2026年11月18日 日曜坐禅会、常楽説法のご案内",
+      "url": "https://tofukuji.jp/news/%e6%97%a5%e6%9b%9c%e5%9d%90%e7%a6%85%e4%bc%9a%e3%80%81%e5%b8%b8%e6%a5%bd%e8%aa%ac%e6%b3%95%e3%81%ae%e3%81%94%e6%a1%88%e5%86%85-4/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-18T11:12:11+09:00",
+      "published_at": "2026-11-18T11:12:11+09:00",
+      "image_url": "",
+      "description": "【日曜坐禅会】 令和８年 12月 ／13日・ 20日・27日 令和9年 1月 ／ 10日・24日・31日 2月／7日・14日・21日・28日 11月1日～12月6日の間は坐禅 […]",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "坐禅会の案内で仏像に触れていない。速報性も関係なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-18T11:15:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "ea11b679bb14",
+      "title": "（神奈川）横浜市金沢区六浦４丁目で菓子譲渡　１１月１３日 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/fushinsha_joho/region/fushinsha_joho-1495225926071763571",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:12:11.327358+09:00",
+      "published_at": "2026-11-17T09:51:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/region_tmb/16_9/141089.png?fushinsha_joho-1495225926071763571",
+      "description": "神奈川県警によると、１１月１３日午後４時頃、横浜市金沢区六浦４丁目の公園で、女子児童への菓子譲渡が発…",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 菓子譲渡事件で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-18T11:15:41+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "453d9822973d",
+      "title": "（神奈川）横浜市保土ケ谷区権太坂１丁目で下半身露出　１１月１６日 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/fushinsha_joho/region/fushinsha_joho-1495228947827639032",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:12:09.893404+09:00",
+      "published_at": "2026-11-17T10:03:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/region_tmb/16_9/141062.png?fushinsha_joho-1495228947827639032",
+      "description": "神奈川県警によると、１１月１６日午後３時５５分頃、横浜市保土ケ谷区権太坂１丁目の路上で、男子児童が目…",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 下半身露出事件で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-18T11:15:41+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "1c24dfd2172b",
+      "title": "（神奈川）横浜市泉区新橋町で声かけ　１１月１６日 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/fushinsha_joho/region/fushinsha_joho-1495229952473711529",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:12:07.992324+09:00",
+      "published_at": "2026-11-17T10:07:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/region_tmb/16_9/141160.png?fushinsha_joho-1495229952473711529",
+      "description": "神奈川県警によると、１１月１６日午後４時１０分頃、横浜市泉区新橋町の公園で、女子児童への声かけが発生…",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 声かけ事件で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-18T11:15:41+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "cc06b7bd6498",
+      "title": "（神奈川）横浜市瀬谷区相沢１丁目で痴漢　１１月１６日 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/fushinsha_joho/region/fushinsha_joho-1495233979080016891",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:12:06.050817+09:00",
+      "published_at": "2026-11-17T10:23:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/region_tmb/16_9/141143.png?fushinsha_joho-1495233979080016891",
+      "description": "神奈川県警によると、１１月１６日午後８時２０分頃、横浜市瀬谷区相沢１丁目の路上で、女子生徒への痴漢が…",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 痴漢事件で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-18T11:15:41+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "ee5903690a7f",
+      "title": "（神奈川）横浜市都筑区北山田４丁目で下半身露出　１１月１６日 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/fushinsha_joho/region/fushinsha_joho-1495235992542461956",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:12:04.565798+09:00",
+      "published_at": "2026-11-17T10:31:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/region_tmb/16_9/141186.png?fushinsha_joho-1495235992542461956",
+      "description": "神奈川県警によると、１１月１６日午後７時１５分頃、横浜市都筑区北山田４丁目の路上で、女子生徒への下半…",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 下半身露出事件で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-18T11:15:41+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "77aff5dfc0fa",
+      "title": "１９日に日印２プラス２ - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779118/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:12:01.150890+09:00",
+      "published_at": "2026-11-17T22:17:51+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "茂木敏充外相は１７日の記者会見で、インドとの外務・防衛担当閣僚協議（２プラス２）を１９日に東京都内で開催すると発表した。 【時事通信社】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 日印外交協議で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-18T11:15:41+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "7ab47d89f34a",
+      "title": "『なんでも鑑定団』1500年以上前の仏像、本人評価額「300万円」→“ド級値”にどよめき「世界の名だたる美術館にも遜色しない…」 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1989584?kw=2025",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:11:59.011556+09:00",
+      "published_at": "2026-11-18T05:26:15+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/b/e/4/5/be45620fee5a19986386873e3e94c456_1.jpg",
+      "description": "15日放送のテレビ東京『開運！なんでも鑑定団』（毎週火曜 後8：54）にガンダーラの仏像が登場。“ド級値”の鑑定額にスタジオがどよめい...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 25,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "テレビ番組の鑑定話題で寺院や公開情報ではない。放送済み",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-18T11:15:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "d244ef5bd864",
+      "title": "「リゾナーレ下関」宿泊レビュー！絶景の客室やアクティビティに周辺観光も - PrettyOnline",
+      "url": "https://www.pretty-online.jp/news/10062/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:11:56.938885+09:00",
+      "published_at": "2026-11-18T10:00:53+09:00",
+      "image_url": "https://img.pretty-online.jp/wp-content/uploads/2026/10/21140009/odekake_shimonoseki_00_eye.jpg",
+      "description": "「リゾナーレ下関」（山口県下関市あるかぽーと）の宿泊レビューを写真とともにお届け！全室海峡ビューの客室やペット同伴OKルーム、ふぐ料理が楽しめるレストラン、プールやクルーズなどのアクティビティをレポート。周辺の観光情報や「BEB5門司港」の魅力も紹介します。",
+      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ホテル宿泊レビューで仏像・寺院の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-18T11:15:41+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "707c14c0b14f",
+      "title": "奈良にブルーインパルス飛来！ 平城宮跡･法隆寺など飛行ルート・通過時間・奈良基地70周年一般開放スケジュールと近鉄記念入場券まとめ11/21-22 - 旅とおでかけ 鉄道チャンネル",
+      "url": "https://tetsudo-ch.com/13043563.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:11:54.785090+09:00",
+      "published_at": "2026-11-18T10:20:35+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "\"法隆寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ブルーインパルスの飛行情報で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-18T11:15:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e0eb6ee48ae3",
+      "title": "AlterSky、清水寺で500機の乳がん啓発ドローンショーを演出 - ドローンジャーナル",
+      "url": "https://drone-journal.impress.co.jp/docs/news/1189053.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:11:53.354822+09:00",
+      "published_at": "2026-11-18T10:20:46+09:00",
+      "image_url": "https://drone-journal.impress.co.jp/img/drone/list/1189/053/1189053_main.jpg",
+      "description": "AlterSkyは、ELCジャパンが毎年10月に実施する乳がん啓発活動「乳がんのない世界へ 2026」に賛同し、2026年10月20日に京都府京都市の音羽山清水寺で開催されたドローンショーの演出および運営を担当した。",
+      "search_query": "\"清水寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ドローンショーの事後報告で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-18T11:15:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "905c6e4a92d6",
+      "title": "歴史上の偉人らが集う大徳寺 破戒僧一休が守った寺の宝とは【グッド！いちおし】 - HOME広島ホームテレビ",
+      "url": "https://www.home-tv.co.jp/news/content/?news_id=000548644",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:11:51.107099+09:00",
+      "published_at": "2026-11-18T10:49:00+09:00",
+      "image_url": "https://news.tv-asahi.co.jp/articles_img/000548644_640.jpg",
+      "description": "「グッド！いちおし」きょうのテーマは、「歴史の偉人ら集う大徳寺特別展」です。歴史上の偉人たちを引き付けた大徳寺。この寺に深い親交を寄せた2人の天皇とのつながりと、あの一休さんが戦乱から守った国宝をご紹介します。＃Goodいちおし（「グッド！。",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 45,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "大徳寺特別展のテレビ紹介。国宝は絵画中心で仏像主役か不明、会期も不明",
+        "event": {
+          "event_name": "大徳寺特別展",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-18T11:15:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "d4d174fa5e4b",
+      "title": "歴史上の偉人らが集う大徳寺 破戒僧一休が守った寺の宝とは【グッド！いちおし】 - KAB 熊本朝日放送",
+      "url": "https://www.kab.co.jp/news/article/17059693",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-18T11:11:47.742635+09:00",
+      "published_at": "2026-11-18T11:03:02+09:00",
+      "image_url": "https://news.tv-asahi.co.jp/articles_img/000548644_640.jpg",
+      "description": "「グッド！いちおし」きょうのテーマは、「歴史の偉人ら集う大徳寺 特別展」です。歴史上の偉人たちを引き付けた大徳寺。この寺に深い親交を寄せた2人の天皇とのつながりと、あの一休さんが戦乱から守った国宝をご紹介します。＃Goodいちおし（「グッド…",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 25,
+        "category": "展覧会",
+        "duplicate": true,
+        "reason": "同じ大徳寺特別展のテレビ紹介の重複記事のため減点",
+        "event": {
+          "event_name": "大徳寺特別展",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-18T11:15:46+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "神奈川県立金沢文庫 特別展「集まれ！ 金沢文庫の生き物たち（仮）」（3月27日~5月16日）",
       "url": "https://www.pen-kanagawa.ed.jp/kanazawabunko/",
@@ -11637,368 +12034,6 @@
         "freshness": "durable",
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-16T17:14:49+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "c2bf19910543",
-      "title": "72年ぶり御開帳の豊川稲荷で松平健さんお成り 参拝者100万超す [愛知県] - 朝日新聞",
-      "url": "https://www.asahi.com/articles/photo/AS20261115004189.html?oai=ASVCH4H5DVCHOIPE00LM&ref=yahoo_kijinaka",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T17:12:06.191771+09:00",
-      "published_at": "2026-11-16T11:00:01+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 20,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "豊川稲荷の御開帳は配信済みと同じ出来事で、著名人来訪の話題。重複で減点",
-        "event": {
-          "event_name": "",
-          "place": "豊川稲荷（愛知県豊川市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T17:14:49+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b0772631109c",
-      "title": "「岩国カークルージング＆モーターショウ」過去の様子 会場に並ぶアメリカン雑貨 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/photoflash/11597/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T17:11:56.981035+09:00",
-      "published_at": "2026-11-16T13:04:13+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/photonews/1794797420_b.jpg",
-      "description": "カーイベント「岩国カークルージング＆モーターショウ」が11月22日、ボートレース徳山（周南市栗屋）の駐車場で開かれる。",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: カーイベントで仏像・寺院・仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-16T17:14:41+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "8c19ae246e65",
-      "title": "学校法人駒澤大学フェロートークイベント2026 「駒澤大学 150周年に向けて × GREEN×EXPO 2027 『慈悲のまなざし、共生の風景』〜仏像が映す人の心と、地球と生きる未来〜」を11月20日に開催 - AGARA 紀伊民報",
-      "url": "https://www.agara.co.jp/article/713153?rct=pr_platform",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T17:11:55.209326+09:00",
-      "published_at": "2026-11-16T14:20:00+09:00",
-      "image_url": "https://digitalpr.jp/release/media/671/148538/202611161420066afa92869249b.jpg",
-      "description": "駒澤大学（東京都世田谷区、学長：村松哲文）は11月20日（金）、学校法人駒澤大学フェロートークイベント2026 「駒澤大学 150周年...",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 45,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "仏像をテーマにした大学のトークイベント告知。11/20開催で近いが仏像の具体性は乏しい",
-        "event": {
-          "event_name": "駒澤大学フェロートークイベント 慈悲のまなざし、共生の風景",
-          "place": "駒澤大学（東京都世田谷区）",
-          "start_date": "2026-11-20",
-          "end_date": "2026-11-20"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T17:14:49+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "a1e224520272",
-      "title": "清泉女子大学の安斎ゼミが重要文化財・旧島津家本邸で着物ドレスショーを開催 ― 女子大生らが日本の伝統文化・着物を現代の感性で再解釈 - Infoseek",
-      "url": "https://news.infoseek.co.jp/article/digitalprplatform_148539/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T17:11:53.247487+09:00",
-      "published_at": "2026-11-16T14:20:07+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/digitalprplatform/digitalprplatform_148539_0.jpg",
-      "description": "清泉女子大学（東京都品川区、学長：山本達也）地球市民学部・安斎徹教授のゼミでは、2026年6月14日、国の重要文化",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "旧島津家本邸での着物ドレスショーで仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T17:14:49+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "cf0c384ba115",
-      "title": "午後は笠森観音を訪問。12年に2回のみ公開する貴重な本尊・十一面観世音菩薩の御開帳が催されていた（写真提供＝田島幸子） - 外房経済新聞",
-      "url": "https://sotobo.keizai.biz/photoflash/1605/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T17:11:51.496352+09:00",
-      "published_at": "2026-11-16T16:23:56+09:00",
-      "image_url": "https://images.keizai.biz/sotobo_keizai/photonews/1794813726_b.jpg",
-      "description": "長南町に暮らすように滞在し、地域の魅力を発信する「遊ぶ広報」参加者向けアテンドツアーが11月8日に行われた。",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 30,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": false,
-        "reason": "笠森観音の御開帳の事後レポート。11/8の出来事で終了済みのため大きく減点",
-        "event": {
-          "event_name": "笠森観音 十一面観世音菩薩 御開帳",
-          "place": "笠森寺（千葉県長南町）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T17:14:49+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e0c2ca273406",
-      "title": "静岡県内の仏像に誇り感じて 浜松市でみほとけのキセキ展、学芸員が講演 - 47NEWS",
-      "url": "https://www.47news.jp/15239409.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T17:11:49.699970+09:00",
-      "published_at": "2026-11-16T16:46:42+09:00",
-      "image_url": "https://img.cf.47news.jp/public/photo/9fba2166c32b571afc9d869cb01756fb/photo.jpg",
-      "description": "浜松市美術館で開催中の「みほとけのキセキⅢ 三・遠・駿神仏オールスター」（中日新聞東海本社など主催）の会場で15日、上原美術館（下田市）の上席学芸員田島整さんが「静岡県の仏像」をテーマに講演し、愛好 ...",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 30,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "同じ講演記事で49f5cfaec0eより後の配信のため重複として減点",
-        "event": {
-          "event_name": "みほとけのキセキⅢ 三・遠・駿神仏オールスター",
-          "place": "浜松市美術館（静岡県浜松市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T17:14:49+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "2dfe809fd0c9",
-      "title": "ダブルツリーbyヒルトン京都駅クリスマスアフタヌーンティー｜レッツエンジョイ東京 - レッツエンジョイ東京",
-      "url": "https://www.enjoytokyo.jp/event/2092633/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T16:11:59.391175+09:00",
-      "published_at": "2026-11-14T17:00:00+09:00",
-      "image_url": "https://rstatic.enjoytokyo.jp/assets/images/event_draft/ab/2092633/img_1.jpg?1794795468&p=t&w=1200",
-      "description": "「ダブルツリーbyヒルトン京都駅クリスマスアフタヌーンティー」の開催日時、問い合わせ先等の詳細情報。",
-      "search_query": "\"東福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 京都のホテルのアフタヌーンティー情報で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-16T16:14:31+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1a0d883aa307",
-      "title": "近大附属小学校が「近小・親子歴史ウォーク」を開催 親子で薬師寺や唐招提寺などの世界遺産を巡る - アットプレス",
-      "url": "https://www.atpress.ne.jp/news/650222",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T16:11:53.772810+09:00",
-      "published_at": "2026-11-16T14:00:00+09:00",
-      "image_url": "https://www.atpress.ne.jp/attachments/ivtGwGtMJ3pxW9NxWtrU.png",
-      "description": "学校法人近畿大学のプレスリリース:近大附属小学校が「近小・親子歴史ウォーク」を開催 親子で薬師寺や唐招提寺などの世界遺産を巡る",
-      "search_query": "\"唐招提寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 42,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "薬師寺・唐招提寺を巡る学校行事。仏像の言及なく、21日開催だが優先度低",
-        "event": {
-          "event_name": "近小・親子歴史ウォーク",
-          "place": "薬師寺・唐招提寺（奈良県奈良市）",
-          "start_date": "2026-11-21",
-          "end_date": "2026-11-21"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T16:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "d4c360ac76d1",
-      "title": "清泉女子大学の安斎ゼミが重要文化財・旧島津家本邸で着物ドレスショーを開催 ― 女子大生らが日本の伝統文化・着物を現代の感性で再解釈 - 河北新報オンライン",
-      "url": "https://kahoku.news/release/dpr148539.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T16:11:50.741702+09:00",
-      "published_at": "2026-11-16T14:20:07+09:00",
-      "image_url": "https://digitalpr.jp/release/media/676/148539/202611161420076afa92873bcf9.jpg",
-      "description": "清泉女子大学（東京都品川区、学長：山本達也）地球市民学部・安斎徹教授のゼミでは、2026年6月14日、国の重要文化財に指定されている同大本館（旧島津家本邸）を舞台に、「女子大生による女子大生のための KIMONO …",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "旧島津家本邸の着物ショー。寺院・仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T16:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "a2c668ddec85",
-      "title": "近大附属小学校が「近小・親子歴史ウォーク」を開催 親子で薬師寺や唐招提寺などの世界遺産を巡る (2026年11月16日掲載) - ライブドアニュース",
-      "url": "https://news.livedoor.com/pr_topics/detail/32829638/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T16:11:48.786474+09:00",
-      "published_at": "2026-11-16T15:50:03+09:00",
-      "image_url": "https://image.news.livedoor.com/newsimage/stf/b/9/b9505_1886_66c2b324106d8270122682d6a6d715d4.jpg",
-      "description": "近畿大学附属小学校（奈良県奈良市）は、令和8年（2026年）11月21日（土）、5・6年生の児童とその保護者を対象とした「第16回近小・親子歴史ウォーク」を開催します。",
-      "search_query": "\"唐招提寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 22,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "アットプレス一次情報と同じ出来事の後追い。重複で減点",
-        "event": {
-          "event_name": "近小・親子歴史ウォーク",
-          "place": "薬師寺・唐招提寺（奈良県奈良市）",
-          "start_date": "2026-11-21",
-          "end_date": "2026-11-21"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T16:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "53aa6e6ca48d",
-      "title": "【土日祝限定】京都「浄住寺」2026年秋の特別公開にて、京菓匠「鶴屋吉信」の和菓子をご提供いたします。 - PR TIMES",
-      "url": "https://prtimes.jp/main/html/rd/p/000000184.000045479.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T16:11:47.316659+09:00",
-      "published_at": "2026-11-16T16:03:30+09:00",
-      "image_url": "https://prcdn.freetls.fastly.net/release_image/45479/184/45479-184-bb2b0e4c0855f148eff2bfd2354c8a5f-3725x2552.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
-      "description": "株式会社 鶴屋吉信のプレスリリース（2026年11月16日 16時03分）【土日祝限定】京都「浄住寺」2026年秋の特別公開にて、京菓匠「鶴屋吉信」の和菓子をご提供いたします。",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 38,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "浄住寺特別公開での和菓子提供が主目的の宣伝。仏像の言及なし",
-        "event": {
-          "event_name": "浄住寺 秋の特別公開",
-          "place": "浄住寺（京都府京都市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T16:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "95180925b3f0",
-      "title": "鎌倉市の大船観音、女性への暴力をなくす運動にあわせて紫色にライトアップされました - やさしい朝日新聞",
-      "url": "https://yasashii.asahi.com/articles/article_0017740.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-16T16:11:45.857928+09:00",
-      "published_at": "2026-11-16T16:10:00+09:00",
-      "image_url": "https://yasashii.asahi.com/assets/entry-17740-og_image.webp",
-      "description": "政府は、11月12日から11月25日までを「女性に対する暴力をなくす運動」の期間にしています。ライトアップは、この運動に合わせたものです。",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 30,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "大船観音の紫ライトアップ。運動啓発で仏像の価値に触れず低め",
-        "event": {
-          "event_name": "大船観音 紫色ライトアップ",
-          "place": "大船観音寺（神奈川県鎌倉市）",
-          "start_date": "2026-11-12",
-          "end_date": "2026-11-25"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-16T16:14:37+09:00",
         "score_version": 8
       }
     },
