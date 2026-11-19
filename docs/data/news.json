@@ -1,6 +1,219 @@
 {
-  "last_updated": "2026-11-20T01:12:00.805453+09:00",
+  "last_updated": "2026-11-20T03:12:01.970223+09:00",
   "items": [
+    {
+      "id": "6a1c53f06256",
+      "title": "通話、メッセージに特化 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1779140/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T03:12:01.968173+09:00",
+      "published_at": "2026-11-18T18:02:41+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "ＫＤＤＩは１８日、通話やショートメッセージの送受信などに特化した携帯電話端末を来月２５日に発売すると発表。あえてデジタル機器を使わない「アナログ回帰」の価値観も広がる中、機能を絞り込んだ端末を提案する 【時事通信社】",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 携帯電話端末の発売に関する記事で仏教と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-20T03:14:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "70d0a06c9b80",
+      "title": "唐の僧、慈恩大師をたたえ法要　奈良・薬師寺と興福寺の僧侶 - Infoseek",
+      "url": "https://news.infoseek.co.jp/amp/article/sankein__life_history_YNRG4II7P5JDZOLJXPUBY4DLLI/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T03:11:59.777277+09:00",
+      "published_at": "2026-11-18T19:52:15+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/sankein/sankein__life_history_YNRG4II7P5JDZOLJXPUBY4DLLI_0-enlarge.jpg",
+      "description": "中国・唐の僧で法相（ほっそう）宗の宗祖、慈恩（じおん）大師の遺徳をしのぶ「慈恩会」が薬師寺（奈良市）で営まれ、いず",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 42,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "薬師寺の慈恩会の法要。仏像には触れず、事後報告で優先度は低い",
+        "event": {
+          "event_name": "",
+          "place": "薬師寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T03:14:52+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "650a00922994",
+      "title": "人々は40年前に発掘された黄金の宝物を鑑賞するために列をなしている。 - Vietnam.vn",
+      "url": "https://www.vietnam.vn/ja/nguoi-dan-xep-hang-chiem-bai-bao-vat-bang-vang-sau-40-nam-khai-quat",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T03:11:59.136957+09:00",
+      "published_at": "2026-11-18T19:53:13+09:00",
+      "image_url": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/18/1794998266731_nguoi-dan-xep-hang-chiem-bai-bao-vat-bang-vang-sau-40-nam-khai-quat-2346.jpeg",
+      "description": "11月18日の朝、大勢の人々、僧侶、仏教徒がゲアン・ソビエトゲティン博物館に集まり、国宝であるタップニャン寺の仏舎利箱を拝む順番を心待ちにしていた。",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ベトナムの仏舎利箱の展示で、仏像リンクの対象外。国内の話題でもない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T03:14:52+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "a0659df651e5",
+      "title": "京都・永観堂「夜の特別拝観」20日から始まる 紅葉の名所で約3000本のもみじがライトアップ 秋の夜の幻想的な光景 試験点灯が行われ一足早く報道陣に公開 - ktv.jp",
+      "url": "https://www.ktv.jp/news/articles/?id=31078",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T03:11:55.063567+09:00",
+      "published_at": "2026-11-18T20:01:00+09:00",
+      "image_url": "https://www.ktv.jp/news/data/images/31078_00.jpg",
+      "description": "紅葉の名所として知られる京都の「永観堂」では、あさって=20日から始まる「夜の特別拝観」を前に試験点灯が行われました。 闇夜に浮かび上がる赤く色づいた境内のもみじ。 光に照らし出されて、秋の夜の幻想的な光景が広がります。 紅葉の名所として知られる京都市左京区の永観堂は、毎年この時期になるとおよそ3000本のもみじがライトアップされる「夜の特別拝観」が行われます。 特別拝観が20日から始まるのを前に試験点灯が行われ、一足早く、その様子が報道陣に公開されました。 永観堂の「夜の特別拝観」は20日から来月6日まで行われます。 （関西テレビ「newsランナー」2026年11月18日放送）",
+      "search_query": "\"永観堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 50,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "永観堂の夜間拝観は本日開始だがライトアップ中心で仏像に触れず、上限内",
+        "event": {
+          "event_name": "永観堂 夜の特別拝観",
+          "place": "永観堂（京都府京都市）",
+          "start_date": "2026-11-20",
+          "end_date": "2026-12-06"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T03:14:52+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-18"
+      }
+    },
+    {
+      "id": "a5accd8d5b4c",
+      "title": "唐の僧、慈恩大師をたたえ法要 奈良・薬師寺と興福寺の僧侶 (産経新聞) - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/b047de32b0dac63bd9cbccf5496d9953e6637085",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T03:11:54.101507+09:00",
+      "published_at": "2026-11-18T20:06:18+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261118-00000175-san-000-1-view.jpg?exp=10800",
+      "description": "中国・唐の僧で法相（ほっそう）宗の宗祖、慈恩（じおん）大師の遺徳をしのぶ「慈恩会」が薬師寺（奈良市）で営まれ、いずれも同宗大本山の同寺と興福寺の僧侶が出仕した。慈恩大師は法相宗の教えの中心となってい",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 20,
+        "category": "寺院の行事",
+        "duplicate": true,
+        "reason": "慈恩会の同一記事の重複。仏像に触れず事後報告で大きく減点",
+        "event": {
+          "event_name": "",
+          "place": "薬師寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T03:14:52+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "dd77be0dd62d",
+      "title": "津田健次郎、『旅サラダ』出演 岩手・盛岡＆平泉巡る 国宝の美しさに圧倒 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2005689?kw=%E7%A6%8F%E7%A5%89",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T03:11:52.311022+09:00",
+      "published_at": "2026-11-19T00:17:57+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/0/e/4/c/0e4c9d2cbeae3f72d2ae4e887849cc2a_1.jpg",
+      "description": "声優の津田健次郎が17日放送のABCテレビ・テレビ朝日系『朝だ！生です旅サラダ』（毎週土曜 前8：00）に出演する。【番組カット】コー...",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "芸能人の旅番組の話題で、平泉の国宝にも仏像の具体的な内容がない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T03:14:52+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "2cbe2aebc932",
+      "title": "広島市西区発の市民吹奏楽団が結成10年 11月23日に南観音小で記念コンサート - 47NEWS",
+      "url": "https://www.47news.jp/15257470.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T03:11:47.201476+09:00",
+      "published_at": "2026-11-19T22:53:00+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/881a427716dcea053207cd18a5db4ce4/photo.jpg",
+      "description": "広島市西区観音地区の住民やゆかりの人たちでつくる市民吹奏楽団「サウンドシーンブラスファミリー（SSBF）」が結成10年を迎えた。23日には地区内にある南観音小体育館で、記念コンサートを開く。メンバー ...",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "吹奏楽団のコンサート。観音は地名にすぎず無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T03:14:52+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "ab33f23487e0",
       "title": "北関東道東行きの壬生IC出口ランプの通行止め　けさ解除 - ｄメニューニュース",
@@ -10737,217 +10950,6 @@
         "event": {
           "event_name": "",
           "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T21:16:42+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f4be49647db2",
-      "title": "皇室の至宝 国宝や重要文化財も！ 皇居三の丸尚蔵館【グッド！いちおし】 - KSBニュース",
-      "url": "https://news.ksb.co.jp/ann/article/17056859",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T21:12:05.317808+09:00",
-      "published_at": "2026-11-17T12:55:09+09:00",
-      "image_url": "https://news.tv-asahi.co.jp/articles_img/000548341_640.jpg",
-      "description": "「グッド！いちおし」きょうのテーマは、「国宝や重要文化財も！皇室の至宝」です。 およそ1年半の改修を終え、皇居三の丸尚蔵館がグランドオープンしました。皇室に伝わる至宝の数々に秘められた意外な物語をひも解きます！......",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "三の丸尚蔵館の重複記事で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T21:16:42+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "940e5b4a58b2",
-      "title": "東大寺でシカの体の一部見つかる　野生動物の関与「判断できない」と専門機関 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/sankei/nation/sankei-_affairs_crime_LMXWWYRB4ZNGHOPPUKZWBPQL34",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T21:12:01.905869+09:00",
-      "published_at": "2026-11-17T18:26:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/sankei/m_sankei-_affairs_crime_LMXWWYRB4ZNGHOPPUKZWBPQL34.jpg",
-      "description": "奈良県は17日、奈良市の東大寺境内でシカの体の一部が新たに見つかったと発表した。県が専門機関に照会した…",
-      "search_query": "\"薬師寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 10,
-        "category": "事件・被害",
-        "duplicate": false,
-        "reason": "東大寺境内のシカ事案。仏像とは直接無関係",
-        "event": {
-          "event_name": "",
-          "place": "東大寺（奈良県奈良市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T21:16:42+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f4bc886366c4",
-      "title": "そばを供えて五穀豊穣を祈願する「そば守観音供養祭」（過去の様子） - 調布経済新聞",
-      "url": "https://chofu.keizai.biz/photoflash/7149/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T21:11:59.480366+09:00",
-      "published_at": "2026-11-17T21:02:57+09:00",
-      "image_url": "https://images.keizai.biz/chofu_keizai/photonews/1794878325_b.jpg",
-      "description": "新そばの季節に合わせて深大寺周辺で11月21日、「第45回深大寺そばまつり」が始まる。",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 40,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "深大寺そばまつり、そば守観音供養祭。21日開始だが仏像の話は薄い",
-        "event": {
-          "event_name": "第45回深大寺そばまつり",
-          "place": "深大寺（東京都調布市）",
-          "start_date": "2026-11-21",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T21:16:42+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "2a162aa0c417",
-      "title": "期間・数量限定の「そば守観音刺繍（ししゅう）入り特別御朱印」 - 調布経済新聞",
-      "url": "https://chofu.keizai.biz/photoflash/7147/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T21:11:58.567901+09:00",
-      "published_at": "2026-11-17T21:02:57+09:00",
-      "image_url": "https://images.keizai.biz/chofu_keizai/photonews/1794878253_b.jpg",
-      "description": "新そばの季節に合わせて深大寺周辺で11月21日、「第45回深大寺そばまつり」が始まる。",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 25,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "深大寺そばまつり関連で御朱印中心、重複",
-        "event": {
-          "event_name": "",
-          "place": "深大寺（東京都調布市）",
-          "start_date": "2026-11-21",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T21:16:42+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "3c6750cb3479",
-      "title": "周南・新南陽の中華そば「猪虎」 オープン初日に行列ができる様子 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/photoflash/11610/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T21:11:57.573740+09:00",
-      "published_at": "2026-11-18T13:11:40+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/photonews/1794974802_b.jpg",
-      "description": "「中華そば 猪虎（いのこ）周南店」（周南市政所2）が11月18日、フジ新南陽店近くにオープンした。",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: ラーメン店のオープン記事で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-18T21:16:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "675de7e9b5c8",
-      "title": "暴力団関係者であることを隠して静岡市の「清水観音大祭」へ出店か 暴力団員ら男女5人再逮捕＝静岡県警清水署 - TBS NEWS DIG",
-      "url": "https://newsdig.tbs.co.jp/articles/sbs/3095208?display=1",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T21:11:55.475628+09:00",
-      "published_at": "2026-11-18T16:45:00+09:00",
-      "image_url": "https://newsdig.ismcdn.jp/mwimgs/2/f/1200w/img_2f19f1b805c94aef60cc0974b7287462363545.jpg",
-      "description": "2026年7月に静岡市で開催された「清水観音大祭」の主催者から暴力団関係者であることを隠して露店出店権をだまし取ったとして、暴力団組員ら男女5人が、11月18日、再逮捕されました。詐欺の疑いで再逮捕されたのは… (1ページ)",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 10,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "清水観音大祭の露店詐欺事件で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T21:16:42+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f41afcfdd583",
-      "title": "闇夜に鮮やか永観堂の紅葉 - カナロコ",
-      "url": "https://www.kanaloco.jp/news/culture/article-1321721.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T21:11:52.258111+09:00",
-      "published_at": "2026-11-18T19:07:14+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "\"永観堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 30,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "永観堂の紅葉写真で仏像に触れず上限内",
-        "event": {
-          "event_name": "",
-          "place": "永観堂（京都市）",
           "start_date": "",
           "end_date": ""
         },
