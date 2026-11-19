@@ -1,6 +1,491 @@
 {
-  "last_updated": "2026-11-19T13:12:12.159538+09:00",
+  "last_updated": "2026-11-19T14:12:02.740958+09:00",
   "items": [
+    {
+      "id": "rem-ac4f352eeb2d-start",
+      "title": "金剛峯寺｜令和8年11月 報恩高野市・大数珠繰り祈願会ほか 催事のお知らせ（11/20・21）",
+      "url": "https://www.koyasan.or.jp/news/2026/11/19/12420/",
+      "source": "reminder",
+      "header": "【あすから公開】",
+      "hashtags": "",
+      "fetched_at": "2026-11-19T14:15:00+09:00",
+      "published_at": "2026-11-19T14:15:00+09:00",
+      "image_url": "https://www.koyasan.or.jp/images/og_image.jpg",
+      "ai": {
+        "score": 90,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "あすから公開（御開帳カレンダー）",
+        "post_text": "あすから、高野山・金剛峯寺で報恩高野市と大数珠繰り祈願会が21日に開かれるそう。20日は壇上伽藍の西塔で青空瞑想も。お逮夜ナイトウォークは熊対策で中止みたい。",
+        "post_header": "【あすから公開】",
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "650abfd1e3c2",
+      "title": "金剛峯寺｜高野町観光協会ウェブサイト",
+      "url": "https://www.koya.org/experience/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-19T14:12:02+09:00",
+      "published_at": "2026-11-19T14:12:02+09:00",
+      "image_url": "https://www.koya.org/wp-content/uploads/2023/03/top_gazou-1-1024x493.png",
+      "description": "弘法大師空海が開いた祈りの聖地高野山。歴史と伝統とともに、新しい高野山の魅力を発信。「見る・出会う」「願いと祈り」「体験する」「泊まる」「楽しむ」「マメ知識」のカテゴリーから新しい観点で高野山の魅力をご紹介しています。",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "観光協会のトップページで具体的な公開情報なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "bfbe1844f934",
+      "title": "金剛峯寺｜令和8年11月 報恩高野市・大数珠繰り祈願会ほか 催事のお知らせ（11/20・21）",
+      "url": "https://www.koyasan.or.jp/news/2026/11/19/12420/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-19T14:12:02+09:00",
+      "published_at": "2026-11-19T14:12:02+09:00",
+      "image_url": "https://www.koyasan.or.jp/images/og_image.jpg",
+      "description": "高野山真言宗 総本山金剛峯寺の公式ウェブサイトです。令和5年（2023年）は宗祖弘法大師空海御生誕1250年の記念するべき年です",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "高野山の催事案内。仏像への言及なく明日から行事",
+        "event": {
+          "event_name": "報恩高野市・大数珠繰り祈願会",
+          "place": "金剛峯寺（和歌山県高野町）",
+          "start_date": "2026-11-20",
+          "end_date": "2026-11-21"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "7357ee0df8cf",
+      "title": "【福井県坂井市】石仏は語る…不動明王の眼は金色だった⁉ - PR TIMES",
+      "url": "https://prtimes.jp/main/html/rd/p/000000268.000081038.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:12:01.602001+09:00",
+      "published_at": "2026-11-17T17:48:52+09:00",
+      "image_url": "https://prcdn.freetls.fastly.net/release_image/81038/268/81038-268-0c0ab32b5c9fcf70cc07e0bb3ac86b1f-3900x2925.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
+      "description": "坂井市役所のプレスリリース（2026年11月17日 17時48分）【福井県坂井市】石仏は語る…不動明王の眼は金色だった⁉",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 62,
+        "category": "発見・研究・新指定",
+        "duplicate": false,
+        "reason": "石仏の不動明王の眼が金色だった研究成果。発表から44時間で一次情報だが詳細不明",
+        "event": {
+          "event_name": "",
+          "place": "福井県坂井市",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-17"
+      }
+    },
+    {
+      "id": "7cd433a2c4d9",
+      "title": "『開運！なんでも鑑定団』“総額250万円”1500年以上前の仏像、驚きの鑑定結果へ - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1989098?kw=%E7%A6%8F%E7%A5%81",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:12:01.096794+09:00",
+      "published_at": "2026-11-18T05:51:13+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/0/b/0/a/0b0ab190169e712927182f5419dc5c04_1.jpg",
+      "description": "テレビ東京『開運！なんでも鑑定団』（毎週火曜 後8：54）のきょう15日放送回には、ガンダーラの仏像10点が登場する。【動画】スタジオ...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 12,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "テレビ番組の鑑定。放送済みで寺院や公開と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e4caf21c6e9f",
+      "title": "お寺で参拝中、何者かにリュックを押され…… 振り返って目にした“衝撃の光景”に「カツアゲかな？」 - ニコニコニュース",
+      "url": "https://news.nicovideo.jp/watch/nw20003427?news_ref=60_topiclist",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:59.960356+09:00",
+      "published_at": "2026-11-18T07:00:32+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "\"東金堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "お寺での日常のエピソード。仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "49b5a1f4e7ce",
+      "title": "2027年は未年、初詣は「羊神社」へ出かけてみる？　実際に訪ねた「未年の初詣スポット10選」を公開 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/ovo/life/ovo-O2096687",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:59.773297+09:00",
+      "published_at": "2026-11-18T11:30:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/ovo/m_ovo-O2096687.jpg",
+      "description": "2027年の干支は「未（ひつじ）」。新しい年の初詣は、例年と少し趣向を変えて、羊にゆかりのある神社やお…",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 4,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "未年の初詣神社紹介。仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "10a810377abd",
+      "title": "奈良県 なら歴史芸術文化村 ワークショップ「平安時代の蓮弁を彫ってみよう」【2026年12月5日（土曜日）】開催のお知らせ - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/prtimes_000000672_000142065/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:58.304862+09:00",
+      "published_at": "2026-11-19T09:14:08+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "[画像:https://prcdn.freetls.fastly.net/release_image/142065",
+      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
+      "ai": {
+        "score": 45,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "蓮弁を彫るワークショップ。仏像関連だが体験講座で優先度低",
+        "event": {
+          "event_name": "平安時代の蓮弁を彫ってみよう",
+          "place": "なら歴史芸術文化村（奈良県天理市）",
+          "start_date": "2026-12-05",
+          "end_date": "2026-12-05"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "53021a23ef2f",
+      "title": "注目映画『あなたが母親の手料理を食べられる回数は、あとどれくらい残ってますか？』母親役チャン・ヘジン「自分に似ているキャラクター」〈インタビュー前編〉 - ふねぽ",
+      "url": "https://futabanet.jp/kankoku-tvguide/articles/-/88572",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:56.321671+09:00",
+      "published_at": "2026-11-19T11:00:00+09:00",
+      "image_url": "https://futabanet.ismcdn.jp/mwimgs/6/0/-/img_600c2ced5667b650ba1dc7012e5c9f7b4427639.jpg",
+      "description": "母の手料理を食べられる回数が徐々に減っていくことに気づいた息子と、それに気づかず彼の変化に戸惑う母の姿を釜山とソウルを舞台に見せる映画『あなたが母親の手料理を食べられる回数は、あとどれくらい残ってま…",
+      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 韓国映画の紹介で仏像・寺院・仏教美術と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-19T14:14:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "ca51512dc4fb",
+      "title": "《神聖な場所でヨコ揺れタテ揺れ…》“京都・清水寺の境内でダンスバトル”動画に寺側は「弁護士に相談し、対応を検討中」「事前の撮影申請はなかった」 - Infoseek",
+      "url": "https://news.infoseek.co.jp/amp/article/postseven_2142980/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:54.066394+09:00",
+      "published_at": "2026-11-19T11:15:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/postseven/postseven_2142980_0-enlarge.jpg",
+      "description": "「どっちがダンス上手いか！」と宣戦布告し、キレキレのダンスを披露する男性。\"対戦相手\"も負けじとリズムに乗り、周囲",
+      "search_query": "\"清水寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 22,
+        "category": "事件・被害",
+        "duplicate": false,
+        "reason": "清水寺境内のダンス動画問題。仏像ではなくマナー問題",
+        "event": {
+          "event_name": "",
+          "place": "清水寺（京都府京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "78df63577629",
+      "title": "大河ドラマ「豊臣兄弟！」でも話題！世界遺産「興福寺」立ち入り禁止エリアに謎の“踊る”仏像が!? - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/tvtokyo/entertainment/tvtokyo-20501?page=2",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:52.527581+09:00",
+      "published_at": "2026-11-19T11:25:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/tvtokyo/m_tvtokyo-20501.jpg",
+      "description": "せいや（霜降り明星）とジェシー（SixTONES）がMCと務める「せいや＆ジェシーの神知識教えてください」。世…",
+      "search_query": "\"東金堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 42,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "興福寺の仏像をテレビ番組が紹介。大河ゆかりで加点だが公開情報なし",
+        "event": {
+          "event_name": "",
+          "place": "興福寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "3767f61fe038",
+      "title": "大河ドラマ「豊臣兄弟！」でも話題！世界遺産「興福寺」立ち入り禁止エリアに謎の“踊る”仏像が!? - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/tvtokyo/entertainment/tvtokyo-20501",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:49.893615+09:00",
+      "published_at": "2026-11-19T11:25:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/tvtokyo/m_tvtokyo-20501.jpg",
+      "description": "せいや（霜降り明星）とジェシー（SixTONES）がMCと務める「せいや＆ジェシーの神知識教えてください」。世…",
+      "search_query": "\"興福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 20,
+        "category": "その他の仏像関連",
+        "duplicate": true,
+        "reason": "同一記事の重複配信のため減点",
+        "event": {
+          "event_name": "",
+          "place": "興福寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c3a6feb1e048",
+      "title": "ボージョレ・ヌーボー解禁 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1779159/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:46.850357+09:00",
+      "published_at": "2026-11-19T11:42:33+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "フランス・ブルゴーニュ産ワインの新酒「ボージョレ・ヌーボー」の販売が、１９日午前０時に解禁された。今年は「リッチで飲みごたえがある」味わいに仕上がったという＝東京都中央区 【時事通信社】",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ワインの解禁ニュースで仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-19T14:14:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "f994e8b5e4ca",
+      "title": "ゲアン省に国宝の展示スペースが開設された。 - Vietnam.vn",
+      "url": "https://www.vietnam.vn/ja/nghe-an-khai-truong-khong-gian-trung-bay-bao-vat-quoc-gia",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:44.847589+09:00",
+      "published_at": "2026-11-19T12:27:56+09:00",
+      "image_url": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/19/1795043484751_1811-bao-vat3-39366183667580795030542-45818755749709271404636.webp",
+      "description": "vtv8.vtv.vn - 2026年全国文化統一週間の一環として、ゲアン省は国宝である仏舎利箱「ニャン塔」を展示する展示スペースを開設しました。これは、一般市民がこの貴重な遺物に触れ、その独特な歴史的・文化的価値を発見する機会となります。",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 22,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ベトナムの仏舎利箱の展示。国内読者には関心が薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "34b81889b465",
+      "title": "約3千本のモミジ照らす柔らかな光　20日から京都・永観堂で夜間特別拝観 - Infoseek",
+      "url": "https://news.infoseek.co.jp/amp/article/sankein__life_travel_Z3UOA3WVTNPNTPLJPTZQM2A6T4/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:43.124065+09:00",
+      "published_at": "2026-11-19T12:48:09+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/sankein/sankein__life_travel_Z3UOA3WVTNPNTPLJPTZQM2A6T4_0-enlarge.jpg",
+      "description": "「もみじの永観堂」として親しまれてきた京都市左京区の浄土宗西山禅林寺派総本山、永観堂禅林寺で、秋の夜間特別拝観が2",
+      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
+      "ai": {
+        "score": 50,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "永観堂の夜間特別拝観。紅葉中心で仏像言及なく上限内、明日から開始",
+        "event": {
+          "event_name": "永観堂 秋の夜間特別拝観",
+          "place": "永観堂禅林寺（京都府京都市）",
+          "start_date": "2026-11-20",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-19"
+      }
+    },
+    {
+      "id": "a7e12120e62b",
+      "title": "手が8本の珍しい千手観音菩薩像も　横浜市歴史博物館で特別展「南武蔵の平安仏」 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/sankein__life_history_2HU2KPWO5BLXFA3UZOA34342E4/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-19T14:11:41.084572+09:00",
+      "published_at": "2026-11-19T13:29:41+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/sankein/sankein__life_history_2HU2KPWO5BLXFA3UZOA34342E4_0-enlarge.jpg",
+      "description": "横浜市や川崎市の寺院に伝わる平安時代の仏像を集めた特別展「南武蔵の平安仏」が、横浜市歴史博物館で開かれている。川崎",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 84,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "地域の平安仏を集めた特別展で千手観音も。開催中の第一報",
+        "event": {
+          "event_name": "特別展「南武蔵の平安仏」",
+          "place": "横浜市歴史博物館（神奈川県横浜市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-19T14:14:35+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-19",
+        "official_url": "",
+        "official_image": "",
+        "post_text": "手が8本の千手観音として伝わる珍しい菩薩立像が、横浜市歴史博物館の特別展に。影向寺の薬師三尊像も約30年ぶりに寺外へ、12月13日まで。",
+        "post_attempts": 1,
+        "post_format": 7,
+        "notified": true
+      }
+    },
     {
       "id": "aa9bb8260bab",
       "title": "茶人たちが憧れた「唐物」、その美の源流を中国古代の青銅器に求める - アートアジェンダ",
@@ -10387,403 +10872,6 @@
         "model": "claude-haiku-5-5",
         "prefiltered": true,
         "scored_at": "2026-11-18T13:19:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "18266f3c7c75",
-      "title": "歴史上の偉人らが集う大徳寺　破戒僧一休が守った寺の宝とは【グッド！いちおし】 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/tvasahinews/nation/tvasahinews-000548644",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:16:52.386136+09:00",
-      "published_at": "2026-11-18T10:49:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/tvasahinews/m_tvasahinews-000548644.jpg",
-      "description": "「グッド！いちおし」きょうのテーマは、「歴史の偉人ら集う大徳寺 特別展」です。歴史上の偉人たちを引き…",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 45,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "大徳寺特別展の紹介。仏像が主役か不明、画・宝物中心で控えめ",
-        "event": {
-          "event_name": "大徳寺 特別展",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:19:38+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "9033d71c540d",
-      "title": "“日光街道”蒸留所から限定版2種 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/shimotsuke/region/shimotsuke-20261118104623",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:16:50.193475+09:00",
-      "published_at": "2026-11-18T11:30:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/shimotsuke/m_shimotsuke-20261118104623.jpg",
-      "description": "西堀酒造日光街道小山蒸溜所（小山市粟宮）は20日、ジャパニーズウイスキー「哲／TETSU」のシングルモルト…",
-      "search_query": "文化財 特別公開 仏像 市",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: ウイスキー蒸留所の商品記事で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-18T13:19:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "18971cf3d047",
-      "title": "【土日祝限定】京都「浄住寺」2026年秋の特別公開にて、京菓匠「鶴屋吉信」の和菓子をご提供いたします。 - AGARA 紀伊民報",
-      "url": "https://www.agara.co.jp/article/713219",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:12:17.197725+09:00",
-      "published_at": "2026-11-16T16:03:00+09:00",
-      "image_url": "https://prtimes.jp/img/45479/184/resize/d45479-184-df60bdcac02d6ce3f658-17.jpg",
-      "description": "鶴屋吉信創業1803年の京菓子「鶴屋吉信」。５種の羊羹を食べ比べできる「抹茶一服セット」を、秋の彩りに染まる美しい庭園風景とともにお楽...",
-      "search_query": "(寺宝 OR 仏師)",
-      "ai": {
-        "score": 20,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "和菓子提供の告知で仏像に触れず。庭園公開のみで商品宣伝色が強い",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:15:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f5a5b926df01",
-      "title": "静岡県内の仏像に誇り感じて 浜松市でみほとけのキセキ展、学芸員が講演 - 中日新聞Web",
-      "url": "https://www.chunichi.co.jp/article/1340211",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:12:16.254369+09:00",
-      "published_at": "2026-11-16T16:24:31+09:00",
-      "image_url": "https://static.chunichi.co.jp/image/article/size1/f/e/d/1/fed1fdf1ff7af8c3206a88f57845de95_1.jpg",
-      "description": "浜松市美術館で開催中の「みほとけのキセキⅢ 三・遠・駿神仏オールスター」（中日新聞東海本社など主催）の会場で15日、上原美術館（下田市...",
-      "search_query": "\"南禅寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 62,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "開催中の仏像展の関連講演の報告で、展覧会自体は継続中。講演は終了済みで優先度は低め",
-        "event": {
-          "event_name": "みほとけのキセキⅢ 三・遠・駿神仏オールスター",
-          "place": "浜松市美術館（静岡県浜松市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:15:11+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-16"
-      }
-    },
-    {
-      "id": "dee860b87426",
-      "title": "歌舞伎座『鯉つかみ』特別ビジュアル公開 - 歌舞伎美人",
-      "url": "https://www.kabuki-bito.jp/news/10261/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:12:13.872685+09:00",
-      "published_at": "2026-11-16T17:00:00+09:00",
-      "image_url": "https://www.kabuki-bito.jp/uploads/images/news/10261/2609_koitsukami_thrum2_639d50462a869deaa20487fc6da0111e.jpg",
-      "description": "松竹が運営する歌舞伎公式サイト。歌舞伎の公演情報、ニュース、俳優インタビューなどをお届けします。こちらのページは、ニュース「歌舞伎座『鯉つかみ』特別ビジュアル公開」 を配信しています。",
-      "search_query": "\"清水寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "歌舞伎の公演ビジュアルで仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:15:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "907431c901e6",
-      "title": "「ここのホテルに泊まると楽しい！」をかたちに。「たびのホテルlit豊川駅前」11月15日（日）開業 - ニコニコニュース",
-      "url": "https://news.nicovideo.jp/watch/nw19996652?news_ref=20_20",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:12:11.178618+09:00",
-      "published_at": "2026-11-16T17:00:26+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "\"伏見稲荷\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: ホテル開業の告知で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-18T13:15:03+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "02d35a63e26e",
-      "title": "「かわいい」アートの扉 仏出身アデリンさん、若手作家企画展 岡山 [岡山県] - 朝日新聞",
-      "url": "https://www.asahi.com/sp/articles/photo/AS20261116004506.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:12:11.036238+09:00",
-      "published_at": "2026-11-17T10:15:01+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "若手作家のアート企画展で仏像と無関係。「仏出身」はフランス",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:15:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e21ef0f9e9a4",
-      "title": "奈良でシカの体の一部新たに発見 東大寺境内で - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2022436?rct=global_syakai_c&kw=NL",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:12:00.664165+09:00",
-      "published_at": "2026-11-17T15:59:00+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/f/9/b/d/f9bd071b65f1f0850006b38a3131c289_1.jpg",
-      "description": "奈良県は１７日、東大寺（奈良市）の境内でシカの体の一部が新たに見つかったと発表した。県によると、専門機関に照会した結果「野生動物による...",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 13,
-        "category": "事件・被害",
-        "duplicate": false,
-        "reason": "東大寺境内のシカ死骸の件で仏像とは無関係の事件。速報性はあるが関連薄",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:15:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "3e029c0927db",
-      "title": "ＥＡＳに参加した首脳ら - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779117/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:11:58.677964+09:00",
-      "published_at": "2026-11-17T22:17:51+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "東南アジア諸国連合（ＡＳＥＡＮ）と日米中ロなど域外国が参加する東アジアサミット（ＥＡＳ）が１７日、マニラで開かれた。 【AFP時事】",
-      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 東アジアサミットの政治ニュースで仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-18T13:15:03+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "54f73bf7a482",
-      "title": "『開運！なんでも鑑定団』“総額250万円”1500年以上前の仏像、驚きの鑑定結果へ - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/1989098?kw=%E7%A6%8F%",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:11:56.621119+09:00",
-      "published_at": "2026-11-18T00:50:27+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/0/b/0/a/0b0ab190169e712927182f5419dc5c04_1.jpg",
-      "description": "テレビ東京『開運！なんでも鑑定団』（毎週火曜 後8：54）のきょう15日放送回には、ガンダーラの仏像10点が登場する。【動画】スタジオ...",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 35,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "テレビ番組のガンダーラ仏像鑑定で、放送済みの話題。寺院や公開の情報ではない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:15:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "7222a49c873c",
-      "title": "テレ東『温泉タオル集め旅』次回放送を告知 村上佳菜子の湯けむり映像公開 2人の“ご開帳”動画も - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2019639?kw=%E7%A6%8F%E7%A5%88",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:11:54.509218+09:00",
-      "published_at": "2026-11-18T05:20:07+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/a/1/4/f/a14f3d4ceaa878fff0201c404686ea5b_1.jpg",
-      "description": "テレビ東京の番組『温泉タオル集め旅』の公式Xが12日までに更新され、14日の放送内容を告知した。【写真】2人は“ご開帳”も！村上佳菜子...",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "温泉番組の告知で「ご開帳」は比喩。仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:15:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "39101eee35e0",
-      "title": "仁王像楽しむきっかけに 新見・哲西で愛好家渡辺さん写真展 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/1983612?rct=area_content&kw=2%E6%9C%AC",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:11:52.140264+09:00",
-      "published_at": "2026-11-18T10:52:45+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/a/b/0/0/ab00120d5a5f70ac7570bbd04b7fd19e_1.jpg",
-      "description": "新見市哲西町上神代出身の写真愛好家渡辺洋さん（８２）＝広島市＝が国内各地を訪ねて撮りためた金剛力士像の写真展「仁王像探訪」が、哲西公民...",
-      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
-      "ai": {
-        "score": 68,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "金剛力士像の写真展で仏像が主題。写真展のため像の公開ではなく地域イベント扱い",
-        "event": {
-          "event_name": "仁王像探訪 写真展",
-          "place": "哲西公民館（岡山県新見市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:15:11+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-09-05"
-      }
-    },
-    {
-      "id": "87f3e6be0f82",
-      "title": "国宝室の公開：仏舎利箱 - 白鳥塔 - Vietnam.vn",
-      "url": "https://www.vietnam.vn/ja/khai-truong-phong-bao-vat-quoc-gia-hop-xa-li-phat-thap-nhan",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-18T13:11:49.761084+09:00",
-      "published_at": "2026-11-18T11:11:53+09:00",
-      "image_url": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/18/1794966587198_4e6a218b-c59a-4a1d-a061-348bf7a139e9.jpeg",
-      "description": "約1400年間、古代の仏塔に安置されていた国宝、仏舎利箱（ニャン寺）は、厳粛な展示スペースに安置され、一般の人々がゲアン省における仏教の奥深い歴史を物語る貴重な遺産を敬う機会を提供している。",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 28,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "ベトナムの仏舎利箱の展示で国内の読者には行きにくい。仏像ではない",
-        "event": {
-          "event_name": "国宝室の公開：仏舎利箱",
-          "place": "ニャン寺（ベトナム・ゲアン省）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-18T13:15:11+09:00",
         "score_version": 8
       }
     },

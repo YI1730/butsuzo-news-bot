@@ -2606,6 +2606,22 @@
    "news_candidate": true
   },
   {
+   "id": "ac4f352eeb2d",
+   "event_name": "報恩高野市・大数珠繰り祈願会",
+   "place": "金剛峯寺（和歌山県高野町）",
+   "place_key": "金剛峯寺",
+   "start": "2026-11-20",
+   "end": "2026-11-21",
+   "category": "寺院の行事",
+   "source_url": "https://www.koyasan.or.jp/news/2026/11/19/12420/",
+   "source_title": "金剛峯寺｜令和8年11月 報恩高野市・大数珠繰り祈願会ほか 催事のお知らせ（11/20・21）",
+   "source_score": 30,
+   "first_seen": "2026-11-19T14:15:00+09:00",
+   "reminded": [
+    "start"
+   ]
+  },
+  {
    "id": "227125ab5055",
    "event_name": "書写山もみじまつり",
    "place": "書寫山圓教寺（兵庫県姫路市）",
@@ -2819,7 +2835,7 @@
    "source_url": "https://www.fukuishimbun.co.jp/articles/-/2750516",
    "source_title": "仏像で読み解く高浜の宗教文化 町郷土資料館で企画展 - 福井新聞社",
    "source_score": 74,
-   "first_seen": "2026-11-19T13:15:09+09:00",
+   "first_seen": "2026-11-19T14:15:00+09:00",
    "reminded": [],
    "news_candidate": true
   },
@@ -3119,6 +3135,21 @@
    "remind": false,
    "exhibit_score": 62,
    "exhibit_reason": "小金銅仏と仏具の同時開催展。25日先で第一報だが、漆展の同時開催で主役性は弱め"
+  },
+  {
+   "id": "5e31e661984e",
+   "event_name": "平安時代の蓮弁を彫ってみよう",
+   "place": "なら歴史芸術文化村（奈良県天理市）",
+   "place_key": "なら歴史芸術文化",
+   "start": "2026-12-05",
+   "end": "2026-12-05",
+   "category": "その他の仏像関連",
+   "source_url": "https://prtimes.jp/main/html/rd/p/000000672.000142065.html",
+   "source_title": "奈良県 なら歴史芸術文化村 ワークショップ「平安時代の蓮弁を彫ってみよう」【2026年12月5日（土曜日）】開催のお知らせ - PR TIMES",
+   "source_score": 45,
+   "first_seen": "2026-11-19T14:15:00+09:00",
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "0945de052cd6",
@@ -3627,5 +3658,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-11-19T13:15:09+09:00"
+ "last_updated": "2026-11-19T14:15:00+09:00"
 }
