@@ -113,6 +113,22 @@
    "remind": false
   },
   {
+   "id": "3f5b04387de0",
+   "event_name": "名品展 珠玉の仏たちセレクション（青銅器館2階）",
+   "place": "奈良国立博物館（奈良県奈良市）",
+   "place_key": "奈良国立博物館",
+   "start": "2026-09-15",
+   "end": "",
+   "category": "展覧会",
+   "source_url": "https://www.narahaku.go.jp/exhibition_cat/usual/",
+   "source_title": "奈良国立博物館（奈良県奈良市） 名品展 珠玉の仏たちセレクション（青銅器館2階）",
+   "source_score": 0,
+   "first_seen": "2026-11-19T11:41:24+09:00",
+   "reminded": [],
+   "origin": "museum",
+   "remind": false
+  },
+  {
    "id": "93b338091115",
    "event_name": "特別展「国宝でよみとく仏教美術－奇珍異宝の世界－」",
    "place": "神奈川県立金沢文庫",
@@ -142,6 +158,22 @@
    "source_score": 68,
    "first_seen": "2026-10-16T21:29:47+09:00",
    "reminded": []
+  },
+  {
+   "id": "60778636bea4",
+   "event_name": "企画展「鳥海山修験と由利の祈り－失われた社と受け継がれた遺宝－」",
+   "place": "由利本荘市本荘郷土資料館",
+   "place_key": "由利本荘市本荘郷",
+   "start": "2026-09-19",
+   "end": "2027-01-10",
+   "category": "展覧会",
+   "source_url": "https://www.city.yurihonjo.lg.jp/1001503/1002098/1002115/index.html",
+   "source_title": "由利本荘市本荘郷土資料館 企画展「鳥海山修験と由利の祈り－失われた社と受け継がれた遺宝－」",
+   "source_score": 0,
+   "first_seen": "2026-11-19T11:41:04+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
   },
   {
    "id": "9aee96dd7cfe",
@@ -425,6 +457,22 @@
    "source_title": "浜松市美術館 館蔵品展示3「はまびのみほとけ－中国・朝鮮の金銅仏から新収蔵の平安仏まで－」",
    "source_score": 0,
    "first_seen": "2026-10-25T10:39:02+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
+  },
+  {
+   "id": "2e19412603aa",
+   "event_name": "特別展「高龍寺」",
+   "place": "今治市村上海賊ミュージアム",
+   "place_key": "今治市村上海賊ミ",
+   "start": "2026-10-10",
+   "end": "2026-12-13",
+   "category": "展覧会",
+   "source_url": "https://www.city.imabari.ehime.jp/museum/suigun/",
+   "source_title": "今治市村上海賊ミュージアム 特別展「高龍寺」",
+   "source_score": 0,
+   "first_seen": "2026-11-19T11:41:04+09:00",
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
@@ -837,7 +885,8 @@
    "first_seen": "2026-10-24T07:16:56+09:00",
    "reminded": [
     "start"
-   ]
+   ],
+   "news_candidate": true
   },
   {
    "id": "222522f2b86d",
@@ -930,6 +979,22 @@
    "source_title": "鎌倉国宝館 特別展「瑞泉寺七百年」",
    "source_score": 0,
    "first_seen": "2026-11-16T10:15:00+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
+  },
+  {
+   "id": "a6ebdb8ba45d",
+   "event_name": "企画展「乾坤院」",
+   "place": "東浦町郷土資料館（うのはな館）",
+   "place_key": "東浦町郷土資料館",
+   "start": "2026-10-24",
+   "end": "2026-12-20",
+   "category": "展覧会",
+   "source_url": "https://www.town.aichi-higashiura.lg.jp/soshiki/kankokoryu/kyodokanko/ibento/16407.html",
+   "source_title": "東浦町郷土資料館（うのはな館） 企画展「乾坤院」",
+   "source_score": 0,
+   "first_seen": "2026-11-19T11:41:04+09:00",
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
@@ -1509,6 +1574,22 @@
    "source_title": "聖林寺 「聖林寺秘宝マンダラ展」",
    "source_score": 0,
    "first_seen": "2026-11-05T10:32:27+09:00",
+   "reminded": [],
+   "origin": "kanbutsu",
+   "remind": false
+  },
+  {
+   "id": "eff61003add9",
+   "event_name": "「本堂内陣特別拝観」※11/1、11/7、11/14、11/15、11/21､11/22、11/23",
+   "place": "陀羅尼山財賀寺",
+   "place_key": "陀羅尼山財賀寺",
+   "start": "2026-11-01",
+   "end": "2026-11-23",
+   "category": "展覧会",
+   "source_url": "https://www.ccnet-ai.ne.jp/zaikaji/",
+   "source_title": "陀羅尼山財賀寺 「本堂内陣特別拝観」※11/1、11/7、11/14、11/15、11/21､11/22、11/23",
+   "source_score": 0,
+   "first_seen": "2026-11-19T11:41:04+09:00",
    "reminded": [],
    "origin": "kanbutsu",
    "remind": false
@@ -2744,21 +2825,6 @@
    "news_candidate": true
   },
   {
-   "id": "ee1229f4de9d",
-   "event_name": "秋季企画展「祈りをつむぐ仏たち」",
-   "place": "高浜町郷土資料館（福井県高浜町）",
-   "place_key": "高浜町郷土資料館",
-   "start": "",
-   "end": "2026-11-23",
-   "category": "展覧会",
-   "source_url": "https://www.fukuishimbun.co.jp/articles/-/2750516",
-   "source_title": "仏像で読み解く高浜の宗教文化 町郷土資料館で企画展 - 福井新聞社",
-   "source_score": 74,
-   "first_seen": "2026-11-19T11:18:54+09:00",
-   "reminded": [],
-   "news_candidate": true
-  },
-  {
    "id": "3e7dee3cbd48",
    "event_name": "古都鎌倉 秋の緑と歴史探訪",
    "place": "鎌倉大仏・長谷寺（神奈川県鎌倉市）",
@@ -2907,7 +2973,8 @@
    "source_title": "【寄稿】国宝、肥後仏 復興と心の平穏に 「文化財レスキュー」役割紹介 「熊本地震から10年」仏像展 熊本県立美術館主任学芸員・萬納恵介さん - 熊本日日新聞社",
    "source_score": 78,
    "first_seen": "2026-10-28T06:22:46+09:00",
-   "reminded": []
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "72652fa20c46",
@@ -2964,21 +3031,6 @@
    "source_score": 40,
    "first_seen": "2026-11-17T12:50:40+09:00",
    "reminded": []
-  },
-  {
-   "id": "b511e355a0b1",
-   "event_name": "熊本地震から10年 仏像 国宝×肥後仏",
-   "place": "熊本県立美術館本館（熊本県熊本市）",
-   "place_key": "熊本県立美術館本",
-   "start": "",
-   "end": "2026-11-29",
-   "category": "展覧会",
-   "source_url": "https://kumanichi.com/articles/2059168",
-   "source_title": "仏像が織りなす多様な物語 県立美術館本館で特別展 - 熊本日日新聞社",
-   "source_score": 82,
-   "first_seen": "2026-11-19T06:14:55+09:00",
-   "reminded": [],
-   "news_candidate": true
   },
   {
    "id": "f03b663ba592",
@@ -3124,21 +3176,6 @@
    "source_score": 52,
    "first_seen": "2026-11-15T14:14:25+09:00",
    "reminded": []
-  },
-  {
-   "id": "0cd1ac36c112",
-   "event_name": "特別展「豊原寺跡の石仏たち」",
-   "place": "龍翔博物館（福井県坂井市）",
-   "place_key": "龍翔博物館",
-   "start": "",
-   "end": "2026-12-06",
-   "category": "展覧会",
-   "source_url": "https://www.jiji.com/jc/article?k=000000268.000081038&g=prt",
-   "source_title": "【福井県坂井市】石仏は語る…不動明王の眼は金色だった!? - 時事ドットコム",
-   "source_score": 72,
-   "first_seen": "2026-11-17T19:14:58+09:00",
-   "reminded": [],
-   "news_candidate": true
   },
   {
    "id": "972e617f7ab4",
@@ -3508,20 +3545,6 @@
    "news_candidate": true
   },
   {
-   "id": "ec11db7c03ec",
-   "event_name": "特別展「国宝 三井寺のすべて」",
-   "place": "東京国立博物館（東京都台東区）",
-   "place_key": "東京国立博物館",
-   "start": "2027-04-20",
-   "end": "2027-06-13",
-   "category": "展覧会",
-   "source_url": "https://www.fashion-press.net/news/gallery/153247/2591446",
-   "source_title": "写真13/17｜東京国立博物館で三井寺の秘仏を公開、現存最古の”パスポート”や国宝の仏像 - ファッションプレス",
-   "source_score": 58,
-   "first_seen": "2026-11-16T11:02:33+09:00",
-   "reminded": []
-  },
-  {
    "id": "acfc82911400",
    "event_name": "春季特別展 「湯の街のほとけとかみ ―温泉と薬師信仰の美術―（仮称）」",
    "place": "龍谷ミュージアム（京都府京都市）",
@@ -3554,21 +3577,7 @@
    "source_score": 55,
    "first_seen": "2026-11-17T16:14:18+09:00",
    "reminded": []
-  },
-  {
-   "id": "e9a8bdd2201c",
-   "event_name": "特別展「菅原道真」",
-   "place": "東京国立博物館 平成館（東京都台東区）",
-   "place_key": "東京国立博物館平",
-   "start": "2027-07-17",
-   "end": "2027-09-12",
-   "category": "展覧会",
-   "source_url": "https://www.fashion-press.net/news/gallery/152671/2589607",
-   "source_title": "写真1/8｜特別展「菅原道真」東京国立博物館で、国宝・重要文化財でたどる”天神さま”のルーツや人物像 - ファッションプレス",
-   "source_score": 50,
-   "first_seen": "2026-11-19T04:14:27+09:00",
-   "reminded": []
   }
  ],
- "last_updated": "2026-11-19T11:18:54+09:00"
+ "last_updated": "2026-11-19T11:42:20+09:00"
 }
