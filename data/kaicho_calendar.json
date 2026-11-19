@@ -113,22 +113,6 @@
    "remind": false
   },
   {
-   "id": "3f5b04387de0",
-   "event_name": "名品展 珠玉の仏たちセレクション（青銅器館2階）",
-   "place": "奈良国立博物館（奈良県奈良市）",
-   "place_key": "奈良国立博物館",
-   "start": "2026-09-15",
-   "end": "",
-   "category": "展覧会",
-   "source_url": "https://www.narahaku.go.jp/exhibition_cat/usual/",
-   "source_title": "奈良国立博物館（奈良県奈良市） 名品展 珠玉の仏たちセレクション（青銅器館2階）",
-   "source_score": 0,
-   "first_seen": "2026-11-19T11:41:24+09:00",
-   "reminded": [],
-   "origin": "museum",
-   "remind": false
-  },
-  {
    "id": "93b338091115",
    "event_name": "特別展「国宝でよみとく仏教美術－奇珍異宝の世界－」",
    "place": "神奈川県立金沢文庫",
@@ -2825,6 +2809,21 @@
    "news_candidate": true
   },
   {
+   "id": "ee1229f4de9d",
+   "event_name": "秋季企画展「祈りをつむぐ仏たち」",
+   "place": "高浜町郷土資料館（福井県高浜町）",
+   "place_key": "高浜町郷土資料館",
+   "start": "",
+   "end": "2026-11-23",
+   "category": "展覧会",
+   "source_url": "https://www.fukuishimbun.co.jp/articles/-/2750516",
+   "source_title": "仏像で読み解く高浜の宗教文化 町郷土資料館で企画展 - 福井新聞社",
+   "source_score": 74,
+   "first_seen": "2026-11-19T12:16:01+09:00",
+   "reminded": [],
+   "news_candidate": true
+  },
+  {
    "id": "3e7dee3cbd48",
    "event_name": "古都鎌倉 秋の緑と歴史探訪",
    "place": "鎌倉大仏・長谷寺（神奈川県鎌倉市）",
@@ -3176,6 +3175,21 @@
    "source_score": 52,
    "first_seen": "2026-11-15T14:14:25+09:00",
    "reminded": []
+  },
+  {
+   "id": "0cd1ac36c112",
+   "event_name": "特別展「豊原寺跡の石仏たち」",
+   "place": "龍翔博物館（福井県坂井市）",
+   "place_key": "龍翔博物館",
+   "start": "",
+   "end": "2026-12-06",
+   "category": "展覧会",
+   "source_url": "https://www.jiji.com/jc/article?k=000000268.000081038&g=prt",
+   "source_title": "【福井県坂井市】石仏は語る…不動明王の眼は金色だった!? - 時事ドットコム",
+   "source_score": 68,
+   "first_seen": "2026-11-19T12:16:01+09:00",
+   "reminded": [],
+   "news_candidate": true
   },
   {
    "id": "972e617f7ab4",
@@ -3545,6 +3559,26 @@
    "news_candidate": true
   },
   {
+   "id": "ec11db7c03ec",
+   "event_name": "国宝 三井寺のすべて",
+   "place": "東京国立博物館（東京都）",
+   "place_key": "東京国立博物館",
+   "start": "2027-04-20",
+   "end": "2027-06-13",
+   "category": "展覧会",
+   "source_url": "https://www.museum.or.jp/event/127356",
+   "source_title": "特別展「国宝 三井寺のすべて」 東京国立博物館 | 東京都（2027年4月20日〜6月13日）",
+   "source_score": 50,
+   "first_seen": "2026-11-19T12:16:01+09:00",
+   "reminded": [
+    "found"
+   ],
+   "origin": "exhibition",
+   "remind": false,
+   "exhibit_score": 85,
+   "exhibit_reason": "東博の大型特別展、三井寺の寺宝展。先の予定でも減点せず高評価"
+  },
+  {
    "id": "acfc82911400",
    "event_name": "春季特別展 「湯の街のほとけとかみ ―温泉と薬師信仰の美術―（仮称）」",
    "place": "龍谷ミュージアム（京都府京都市）",
@@ -3577,7 +3611,21 @@
    "source_score": 55,
    "first_seen": "2026-11-17T16:14:18+09:00",
    "reminded": []
+  },
+  {
+   "id": "e9a8bdd2201c",
+   "event_name": "特別展「菅原道真」",
+   "place": "東京国立博物館 平成館（東京都台東区）",
+   "place_key": "東京国立博物館平",
+   "start": "2027-07-17",
+   "end": "2027-09-12",
+   "category": "展覧会",
+   "source_url": "https://www.fashion-press.net/news/gallery/152671/2589607",
+   "source_title": "写真1/8｜特別展「菅原道真」東京国立博物館で、国宝・重要文化財でたどる”天神さま”のルーツや人物像 - ファッションプレス",
+   "source_score": 50,
+   "first_seen": "2026-11-19T12:16:01+09:00",
+   "reminded": []
   }
  ],
- "last_updated": "2026-11-19T11:42:20+09:00"
+ "last_updated": "2026-11-19T12:16:01+09:00"
 }
