@@ -2811,6 +2811,22 @@
    "news_candidate": true
   },
   {
+   "id": "5d621ee8f98f",
+   "event_name": "三井寺妖怪ナイト秋の陣",
+   "place": "園城寺（三井寺）（滋賀県大津市）",
+   "place_key": "園城寺",
+   "start": "2026-11-21",
+   "end": "2026-11-23",
+   "category": "寺院の行事",
+   "source_url": "https://news.yahoo.co.jp/articles/5466509adbbc55f636f44bf6a66f625fb233e8e9",
+   "source_title": "三井寺で妖怪ナイト秋の陣 21日から初開催 紅葉の境内でエリアは夏の2倍！妖怪大集合（産経新聞） - Yahoo!ニュース",
+   "source_score": 30,
+   "first_seen": "2026-11-20T09:15:27+09:00",
+   "reminded": [
+    "start"
+   ]
+  },
+  {
    "id": "e1d7feae8537",
    "event_name": "眞野寺 覆面千手観音御開帳 万灯会",
    "place": "眞野寺（千葉県館山市）",
@@ -2871,6 +2887,20 @@
    "reminded": [
     "ending"
    ]
+  },
+  {
+   "id": "66bdd2996e9a",
+   "event_name": "嫁いらず観音院 秋季大祭",
+   "place": "嫁いらず観音院（岡山県井原市）",
+   "place_key": "嫁いらず観音院",
+   "start": "2026-11-23",
+   "end": "2026-11-23",
+   "category": "寺院の行事",
+   "source_url": "https://www.sanyonews.jp/article/1993267?kw=%E5%8F%96%E6%B0%B4",
+   "source_title": "手を合わせ無病息災願う 井原・嫁いらず観音院で秋季大祭 - 山陽新聞",
+   "source_score": 52,
+   "first_seen": "2026-11-20T09:15:27+09:00",
+   "reminded": []
   },
   {
    "id": "3e7dee3cbd48",
@@ -3106,6 +3136,20 @@
    "source_title": "奈良・興福寺の「踊り大将」12年ぶり公開　東金堂創建1300年を記念、11月末まで　 - Infoseek",
    "source_score": 55,
    "first_seen": "2026-11-13T05:14:13+09:00",
+   "reminded": []
+  },
+  {
+   "id": "9aad95ab7ac5",
+   "event_name": "当麻寺中之坊 龍游殿・太子殿障壁画の特別公開",
+   "place": "当麻寺中之坊（奈良県葛城市）",
+   "place_key": "当麻寺中之坊",
+   "start": "",
+   "end": "2026-11-30",
+   "category": "寺院の行事",
+   "source_url": "https://www.nara-np.co.jp/news/20261119205240.html",
+   "source_title": "中将姫の人形を奉納 元中学校美術教諭の永瀬さん制作 ゆかりの当麻寺中之坊に - 奈良新聞",
+   "source_score": 35,
+   "first_seen": "2026-11-20T09:15:27+09:00",
    "reminded": []
   },
   {
@@ -3691,5 +3735,5 @@
    "reminded": []
   }
  ],
- "last_updated": "2026-11-20T08:15:51+09:00"
+ "last_updated": "2026-11-20T09:15:27+09:00"
 }
