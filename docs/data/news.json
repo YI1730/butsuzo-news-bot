@@ -1,6 +1,98 @@
 {
-  "last_updated": "2026-11-21T01:11:57.198949+09:00",
+  "last_updated": "2026-11-21T02:11:46.235581+09:00",
   "items": [
+    {
+      "id": "003521186004",
+      "title": "長野市 お知らせ｜善光寺表参道イルミネーション開催中！",
+      "url": "https://www.city.nagano.nagano.jp/n042000/news/p018802.html",
+      "source": "official_site",
+      "site_kind": "gov",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-21T02:11:46+09:00",
+      "published_at": "2026-11-21T02:11:46+09:00",
+      "image_url": "https://www.city.nagano.nagano.jp/shared/images/sns/logo.jpg",
+      "description": "",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "善光寺表参道のイルミネーション案内で仏像に触れておらず、速報性も加点にならない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-21T02:15:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "89be86c0b6a8",
+      "title": "小祝さくら、荒木優奈ら３人が首位 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779176/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-21T02:11:46.233996+09:00",
+      "published_at": "2026-11-19T20:03:27+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "女子ゴルフ・大王製紙エリエール・レディースオープン第１日。ツアー通算１２勝の小祝さくら（写真）が６５をマークし、荒木優奈、吉本ここねと並んで首位発進した＝１９日、愛媛・エリエールＧＣ松山 【時事通信社】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 女子ゴルフの首位発進記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-21T02:15:23+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "1d932bd7ff72",
+      "title": "Ｈ３打ち上げ、段階的に民間移管 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779210/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-21T02:11:43.047581+09:00",
+      "published_at": "2026-11-20T18:54:45+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "宇宙航空研究開発機構（ＪＡＸＡ）は２０日、基幹ロケット「Ｈ３」の打ち上げ業務を三菱重工業に段階的に移管すると発表した＝２０２４年２月撮影、鹿児島県の種子島宇宙センター 【時事通信社】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ロケットH3の民間移管記事で仏教・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-21T02:15:23+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "f9535db8b4d0",
       "title": "円覚寺｜11/20 本日の円覚寺の様子です。 #円覚寺#北鎌倉#鎌倉#紅葉#もみじ",
@@ -11337,69 +11429,6 @@
         "freshness": "durable",
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-20T05:15:07+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "6139437c71d3",
-      "title": "京都市左京区に江戸初期の「ファッションリーダー」果たしたお后ゆかりの寺宝公開 寛永行幸で注目 - 京都新聞デジタル",
-      "url": "https://www.kyoto-np.co.jp/articles/-/1828239",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-20T05:11:44.759852+09:00",
-      "published_at": "2026-11-20T04:45:00+09:00",
-      "image_url": "https://kyoto-np.ismcdn.jp/mwimgs/8/9/1200wm/img_89051f3239bc818227b9d51a17e45cb21216837.jpg",
-      "description": "丸太町通と白川通が交差する京都市左京区東天王町から、東山の麓へと坂道を上る。鹿ヶ谷通を越えて別荘地に入ると、高い甍（いらか）を鈍く光らせる寺院が目を引く。 江戸時代初期、将軍家から朝廷に嫁いだ東福門院和子（まさこ）の菩提（ぼだい）寺・光雲寺である。威厳と優美さを備えた本堂を含め、肖像画など和子ゆかりの寺宝が２８日から１２月６日まで公開される。 臨済宗大本山南禅寺の境外塔頭（たっちゅう）光雲寺は、摂津国天王寺に１２８０（弘安３）年に開創された。戦乱で荒廃した同寺を",
-      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
-      "ai": {
-        "score": 58,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "光雲寺の寺宝公開。肖像画が主で仏像は不明。上限内",
-        "event": {
-          "event_name": "光雲寺 東福門院ゆかりの寺宝公開",
-          "place": "光雲寺（京都市左京区）",
-          "start_date": "2026-11-28",
-          "end_date": "2026-12-06"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-20T05:15:07+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-20"
-      }
-    },
-    {
-      "id": "5d6dee12255a",
-      "title": "色鮮やかな油絵学びの成果披露 岐阜市で長谷部さん - 岐阜新聞デジタル",
-      "url": "https://www.gifu-np.co.jp/articles/-/800512",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-20T04:12:10.430328+09:00",
-      "published_at": "2026-11-18T05:00:00+09:00",
-      "image_url": "https://gifu-np.ismcdn.jp/mwimgs/b/2/-/img_b29540e7f1512fb6d7459973a41980fe167777.png",
-      "description": "",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 油絵の作品披露で仏教美術との関係が見えない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-20T04:14:35+09:00",
         "score_version": 8
       }
     },
