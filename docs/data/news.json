@@ -1,6 +1,340 @@
 {
-  "last_updated": "2026-11-20T15:31:24.944969+09:00",
+  "last_updated": "2026-11-20T16:12:02.390419+09:00",
   "items": [
+    {
+      "id": "bf4f519be077",
+      "title": "成田山新勝寺｜紅葉情報 成田山の紅葉情報② 11月20日の成田山公園の様子です。 2026年11月20日",
+      "url": "https://www.naritasan.or.jp/2026/11/20/14055/",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-20T16:12:02+09:00",
+      "published_at": "2026-11-20T16:12:02+09:00",
+      "image_url": "https://www.naritasan.or.jp/nswp/wp-content/uploads/2026/11/IMG_4550-scaled.jpg",
+      "description": "11月20日の成田山公園の様子です。",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "成田山公園の紅葉情報で仏像に触れていない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T16:14:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "05f3b39e0b35",
+      "title": "東京国立博物館｜Notice of Temporary Gallery Closures",
+      "url": "https://www.tnm.jp/modules/r_free_page/index.php?id=2781&lang=en",
+      "source": "official_site",
+      "site_kind": "museum",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-20T16:12:02+09:00",
+      "published_at": "2026-11-20T16:12:02+09:00",
+      "image_url": "https://www.tnm.jp/jp/exhibition/images/tmp/ogp/TNM_ogp.jpg",
+      "description": "news Notice of Temporary Gallery Closures",
+      "ai": {
+        "score": 15,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "展示室の一時閉室のお知らせで仏像の公開情報ではない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T16:14:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "9033d71c540d",
+      "title": "“日光街道”蒸留所から限定版2種 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/shimotsuke/region/shimotsuke-20261118104623",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T16:12:01.386745+09:00",
+      "published_at": "2026-11-18T11:30:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/shimotsuke/m_shimotsuke-20261118104623.jpg",
+      "description": "西堀酒造日光街道小山蒸溜所（小山市粟宮）は20日、ジャパニーズウイスキー「哲／TETSU」のシングルモルト…",
+      "search_query": "文化財 特別公開 仏像 市",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ウイスキー蒸留所の限定版の話で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-20T16:14:19+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "86b47cc067bc",
+      "title": "国枝さんが殿堂入り - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1779161/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T16:12:00.343814+09:00",
+      "published_at": "2026-11-19T13:00:25+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "国際テニス殿堂は１８日、車いす部門で四大大会とパラリンピックを全て制する「生涯ゴールデンスラム」を男子で初めて達成した国枝慎吾さん（４２）の殿堂入りが決まったと発表した。日本人で初の快挙。 【時事通信社】",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 車いすテニス選手の殿堂入りで仏教関連の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-20T16:14:19+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "eb649649e261",
+      "title": "約3千本のモミジ照らす柔らかな光 20日から京都・永観堂で夜間特別拝観（産経新聞） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/09d91b972d4f50de2334ca639588e8d3dba83b6e",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T16:11:59.699288+09:00",
+      "published_at": "2026-11-19T13:05:55+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261119-00000089-san-000-1-view.jpg?exp=10800",
+      "description": "「もみじの永観堂」として親しまれてきた京都市左京区の浄土宗西山禅林寺派総本山、永観堂禅林寺で、秋の夜間特別拝観が20日から始まるのを前に境内で試験点灯が行われ、色づき始めた約3千本のモミジが柔らかに",
+      "search_query": "\"永観堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 45,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "永観堂の夜間拝観。仏像に触れず上限内で、すでに開始済み",
+        "event": {
+          "event_name": "永観堂 秋の夜間特別拝観",
+          "place": "永観堂禅林寺（京都府京都市）",
+          "start_date": "2026-11-20",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T16:14:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "48673127efc3",
+      "title": "手が8本の珍しい千手観音菩薩像も 横浜市歴史博物館で特別展「南武蔵の平安仏」（産経新聞） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/351ddd9a2051b7ceecb5be22b18b6cac19649aa7",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T16:11:58.946864+09:00",
+      "published_at": "2026-11-19T13:46:39+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261119-00000100-san-000-1-view.jpg?exp=10800",
+      "description": "横浜市や川崎市の寺院に伝わる平安時代の仏像を集めた特別展「南武蔵の平安仏」が、横浜市歴史博物館で開かれている。川崎市の影向寺（ようごうじ）の薬師三尊像（国指定重要文化財）を約30年ぶりに寺外で公開。",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 40,
+        "category": "展覧会",
+        "duplicate": true,
+        "reason": "配信済みの「南武蔵の平安仏」展と同一の出来事で重複",
+        "event": {
+          "event_name": "特別展「南武蔵の平安仏」",
+          "place": "横浜市歴史博物館（神奈川県横浜市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T16:14:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "cbfbeda3ae59",
+      "title": "歴史ファン必見　東大寺サミット in 岡山 2027年1月24日　歴史学者の磯田道史さん来たる - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/ksb_17062929/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T16:11:57.995583+09:00",
+      "published_at": "2026-11-19T15:07:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/ksb/ksb_17062929_0-enlarge.jpg",
+      "description": "奈良・東大寺に関わりの深い全国の市町村が集い、歴史を生かした地域活性化などについて話し合う「東大寺サミット」が、2",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 30,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "東大寺サミットの告知で仏像は主題でなく、開催も先",
+        "event": {
+          "event_name": "東大寺サミット in 岡山",
+          "place": "岡山県",
+          "start_date": "2027-01-24",
+          "end_date": "2027-01-24"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T16:14:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "edfbd1e29c7c",
+      "title": "『atmosルクア大阪店』2026年11月19日にリニューアルオープン - 繊研新聞",
+      "url": "https://senken.co.jp/prtimes/aHR0cHM6Ly9wcnRpbWVzLmpwL21haW4vaHRtbC9yZC9wLzAwMDAwMDkyNC4wMDAwNjM4MTEuaHRtbA==",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T16:11:57.445658+09:00",
+      "published_at": "2026-11-19T16:54:26+09:00",
+      "image_url": "",
+      "description": "繊研新聞社のニュースサイトです。トレンド情報からアパレル・小売り・素材メーカーの動向までファッション業界の情報を網羅。ニュースに加え、展示会や人材教育、ネットワーク、セミナー情報などファッションビジネスに役立つコンテンツを掲載しています。",
+      "search_query": "(釈迦如来 OR 大日如来 OR 聖観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ファッション店舗のリニューアルで仏教とは無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-20T16:14:19+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "a094b0906f13",
+      "title": "映画で『ちいかわ』にハマった横山ルリカ、母と京都旅で“ちい活”満喫 プライベートショット公開「ハマってますね〜」 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2017261",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T16:11:56.931196+09:00",
+      "published_at": "2026-11-20T04:31:39+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/1/6/0/4/160470f3419b4618eb2aea612b5bb68e_1.jpg",
+      "description": "元アイドリング!!!のメンバーでタレントの横山ルリカ（35）が5日、自身のインスタグラムを更新。 “ちい活”を満喫する近況を報告し、プ...",
+      "search_query": "\"伏見稲荷\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "タレントの京都旅行の話題で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T16:14:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "54ba6eca2ced",
+      "title": "［キラリ］岐阜県・真宗寺院20カ寺 美濃四十八座 - 中外日報社",
+      "url": "https://www.chugainippoh.co.jp/article/rensai/kirari/20261118.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T16:11:55.899562+09:00",
+      "published_at": "2026-11-20T09:30:52+09:00",
+      "image_url": "https://www.chugainippoh.co.jp/article/rensai/kirari/img/20261118f.jpg",
+      "description": "岐阜県の真宗寺院が「美濃四十八座」と題した共同の法座活動を行っている。加盟寺院を会所に年間合計で48回の法座を開く取り組みで、各法座には他寺院の門徒も聴聞に訪れ毎回満堂。盛況の秘訣は、会所の住職自身の「この人の話を聞きた…",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "真宗寺院の法座活動の紹介で仏像と関係が薄い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T16:14:25+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "89e29d0f2595",
+      "title": "現代美術から建築、ファッションまで。 多彩な作品が問いかける、自然と人間の不可分な関係性 - アートアジェンダ",
+      "url": "https://www.artagenda.jp/feature/news/20261120",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T16:11:54.001378+09:00",
+      "published_at": "2026-11-20T10:15:47+09:00",
+      "image_url": "https://i.artagenda.jp/feature/1/images/5623b203a7f41dc032fdeae1b704686e_middle.jpg?1795158713",
+      "description": "現代美術から建築、ファッションまで。多彩な作品が問いかける、自然と人間の不可分な関係性。「種と根っこ―都市の耕し方」が、東京オペラシティ アートギャラリーにて2026年12月20日(日)まで開催",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 現代美術展で仏教美術や寺院の話題は見当たらない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-20T16:14:19+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "日本民藝館 「蓮の意匠－東アジアの絵画と工芸」（6月10日~8月15日）",
       "url": "https://mingeikan.or.jp/",
@@ -10806,282 +11140,6 @@
           "place": "豊川稲荷（愛知県豊川市）",
           "start_date": "",
           "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T17:14:32+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "57df164b02af",
-      "title": "詩人・茨木のり子さん生誕１００周年 紺野美沙子さん作品朗読 瑞浪市 - 岐阜新聞デジタル",
-      "url": "https://www.gifu-np.co.jp/articles/-/800525",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T17:12:02.083249+09:00",
-      "published_at": "2026-11-18T05:00:00+09:00",
-      "image_url": "https://gifu-np.ismcdn.jp/mwimgs/4/2/-/img_42c2871fa85509cb922e921d884194a628960.jpg",
-      "description": "",
-      "search_query": "(寺宝 OR 仏師)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 詩人の作品朗読で仏教美術の話題なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-19T17:14:25+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "0e4bd1ddb786",
-      "title": "歴史上の偉人らが集う大徳寺 破戒僧一休が守った寺の宝とは【グッド！いちおし】 - KFB福島放送",
-      "url": "https://www.kfb.co.jp/news/article/17059697",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T17:12:00.300305+09:00",
-      "published_at": "2026-11-18T10:49:00+09:00",
-      "image_url": "https://news.tv-asahi.co.jp/articles_img/000548644_640.jpg",
-      "description": "「グッド！いちおし」きょうのテーマは、「歴史の偉人ら集う大徳寺 特別展」です。歴史上の偉人たちを引き付けた大徳寺。この寺に深い親交を寄せた2人の天皇とのつながりと、あの一休さんが戦乱から守った国宝をご紹介します。＃Goodいちおし（「グッド…",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 50,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "大徳寺の特別展紹介だが国宝は仏像と限らず、日程不明",
-        "event": {
-          "event_name": "大徳寺 特別展",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T17:14:32+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-18"
-      }
-    },
-    {
-      "id": "be53de6cdc41",
-      "title": "関東高校駅伝が19日号砲　栃木県勢、都大路の北関東枠に挑む《県高校駅伝の写真あり》 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/shimotsuke/region/shimotsuke-20261117165625",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T17:11:59.219774+09:00",
-      "published_at": "2026-11-18T11:30:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/-/20261110160945/img/dmenu_service-brand-logo_200x200.png",
-      "description": "男子第79回・女子第35回関東高校駅伝競走大会は19日、東京都調布市の味の素スタジアムを発着点とする武蔵…",
-      "search_query": "文化財 特別公開 仏像 市",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 高校駅伝の記事で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-19T17:14:25+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "a051077ecbb9",
-      "title": "京都紅葉巡りの穴場スポット＆限定御朱印を紹介！（ウォーカープラス） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/bc1b5c52f13b4c2544b7f68590d86bc0f5d91777",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T17:11:58.395250+09:00",
-      "published_at": "2026-11-18T18:42:00+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261117-01445885-tkwalk-000-4-view.jpg?exp=10800",
-      "description": "嵐山から連なる西山連峰のふもとに広がる長岡京市。京都の中心地から離れていることもあって、混雑する紅葉シーズンでも、ゆっくりと絶景を楽しむことができる穴場スポットが数多く存在する。密を避けながら堪能で",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 20,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "紅葉・御朱印の紹介で仏像に触れない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T17:14:32+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "7beb46e008c7",
-      "title": "闇夜に鮮やか永観堂の紅葉 京都、3千本ライトアップ - NEWSjp",
-      "url": "https://news.jp/i/1495727621542708174",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T17:11:57.478916+09:00",
-      "published_at": "2026-11-18T19:07:14+09:00",
-      "image_url": "https://img.jp.ekkowassets.com/c_fill,w_400,h_210,f_auto,g_faces,q_auto:eco/ch/images/1495732652287853414/origin_1.jpg",
-      "description": "紅葉の名所として知られる永観堂禅林寺（京都市左京区）で18日、夜の特別拝観のライトアップが20日に始...",
-      "search_query": "\"永観堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 50,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "永観堂の夜間ライトアップで仏像の話なし。上限60点内",
-        "event": {
-          "event_name": "永観堂 秋の夜間特別拝観",
-          "place": "永観堂禅林寺（京都市左京区）",
-          "start_date": "2026-11-20",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T17:14:32+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-18"
-      }
-    },
-    {
-      "id": "a1856ed6f285",
-      "title": "木綿花展 -花守り- ｜ POSTS【ユーザー投稿】 - アートアジェンダ",
-      "url": "https://www.artagenda.jp/butuzouworld/artblogs/974",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T17:11:56.018713+09:00",
-      "published_at": "2026-11-19T03:00:58+09:00",
-      "image_url": "https://www.artagenda.jp//img/artblog/974/main_7346afd6862d13f6.jpg",
-      "description": "木綿花展 -花守り-",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 10,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "花の展示で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T17:14:32+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f8f251cb066c",
-      "title": "写真で観る竜王戦 第３９期七番勝負第４局・前夜祭へ - 読売新聞",
-      "url": "https://www.yomiuri.co.jp/slides/s/39ryuousengame4zenyasai/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T17:11:50.786015+09:00",
-      "published_at": "2026-11-19T12:18:57+09:00",
-      "image_url": "https://www.yomiuri.co.jp/images/slides/39ryuousengame4zenyasai/ogpimage__33d01406be69c9db27c5011eb7cb8d0e.jpg?type=slideshow_ogp",
-      "description": "第39期竜王戦七番勝負第4局の前夜祭の写真特集。開催地は宮崎県都城市。藤井聡太竜王と挑戦者・服部慎一郎七段の対局前日の表情を紹介（2026年11月19日公開)",
-      "search_query": "\"仁和寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "将棋の竜王戦で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T17:14:32+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "dee8e72a36ac",
-      "title": "約3千本のモミジ照らす柔らかな光 20日から京都・永観堂で夜間特別拝観 - 産経ニュース",
-      "url": "https://www.sankei.com/article/20261119-Z3UOA3WVTNPNTPLJPTZQM2A6T4/?outputType=asynd",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T17:11:49.206464+09:00",
-      "published_at": "2026-11-19T12:48:09+09:00",
-      "image_url": "https://www.sankei.com/resizer/v2/S263SLBO6NLTTHN65H2SZ4WRII.jpg?auth=a11356863323931803cd500661bbb6ecd0f0f5b2500ffb951ef656ee47aa55c3&quality=50&focal=2374%2C2029&width=1200&height=675",
-      "description": "「もみじの永観堂」として親しまれてきた京都市左京区の浄土宗西山禅林寺派総本山、永観堂禅林寺で、秋の夜間特別拝観が20日から始まるのを前に境内で試験点灯が行われ…",
-      "search_query": "\"永観堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 28,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "永観堂夜間拝観の重複。仏像に触れず",
-        "event": {
-          "event_name": "永観堂 秋の夜間特別拝観",
-          "place": "永観堂禅林寺（京都市左京区）",
-          "start_date": "2026-11-20",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T17:14:32+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "172ada4ec210",
-      "title": "伊藤若冲の十二支版木、250年の時を超えて現存 ― 若冲生誕310年の今年、京都・閑臥庵で11月30日まで一般公開、支援690万円突破 - Infoseek",
-      "url": "https://news.infoseek.co.jp/article/prtimes_000000006_000190939/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T17:11:47.243096+09:00",
-      "published_at": "2026-11-19T14:59:15+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
-      "description": "印刷ではなく、現存する版木から一枚一枚実際に摺る木版画。祈りの神器・仏具として守られてきたお寺の寺宝、若冲の十二支",
-      "search_query": "(寺宝 OR 仏師)",
-      "ai": {
-        "score": 35,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "若冲の版木公開で絵画・版画が主役、仏像なし",
-        "event": {
-          "event_name": "若冲の十二支版木 一般公開",
-          "place": "閑臥庵（京都市）",
-          "start_date": "",
-          "end_date": "2026-11-30"
         },
         "buddha_designation": false,
         "freshness": "durable",
