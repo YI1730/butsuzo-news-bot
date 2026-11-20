@@ -2859,6 +2859,22 @@
    "news_candidate": true
   },
   {
+   "id": "c19a36c6f418",
+   "event_name": "長楽寺 特別拝観",
+   "place": "長楽寺（静岡県浜松市浜名区）",
+   "place_key": "長楽寺",
+   "start": "2026-11-21",
+   "end": "",
+   "category": "寺院の行事",
+   "source_url": "https://news.at-s.com/article/2103216",
+   "source_title": "ドウダンツツジ色づく 浜名区 長楽寺 特別拝観始まる－浜松 - 静岡新聞DIGITAL",
+   "source_score": 30,
+   "first_seen": "2026-11-21T07:14:19+09:00",
+   "reminded": [
+    "start"
+   ]
+  },
+  {
    "id": "e1d7feae8537",
    "event_name": "眞野寺 覆面千手観音御開帳 万灯会",
    "place": "眞野寺（千葉県館山市）",
@@ -2870,7 +2886,9 @@
    "source_title": "真野寺　覆面千手観音御開帳　万灯会 - ｄメニューニュース",
    "source_score": 78,
    "first_seen": "2026-11-12T10:14:22+09:00",
-   "reminded": [],
+   "reminded": [
+    "start"
+   ],
    "news_candidate": true
   },
   {
@@ -2885,7 +2903,9 @@
    "source_title": "滋賀県草津市の国史跡・芦浦観音寺が11月22、23日に一般公開 重文の阿弥陀堂も案内 - 京都新聞デジタル",
    "source_score": 62,
    "first_seen": "2026-11-19T16:14:56+09:00",
-   "reminded": []
+   "reminded": [
+    "start"
+   ]
   },
   {
    "id": "990f5dc738ce",
@@ -3212,7 +3232,7 @@
    "source_url": "https://www.nara-np.co.jp/news/20261119205240.html",
    "source_title": "中将姫の人形を奉納 元中学校美術教諭の永瀬さん制作 ゆかりの当麻寺中之坊に - 奈良新聞",
    "source_score": 35,
-   "first_seen": "2026-11-21T06:14:54+09:00",
+   "first_seen": "2026-11-21T07:14:19+09:00",
    "reminded": []
   },
   {
@@ -3373,7 +3393,7 @@
    "source_url": "https://www.chugainippoh.co.jp/article/news/20261120-001.html",
    "source_title": "［ニュース］大徳寺や塔頭の寺宝、一堂に 東博で特別展 国宝「看読真詮榜」展観 真珠庵・山田住職指導の坐禅会も - 中外日報社",
    "source_score": 55,
-   "first_seen": "2026-11-21T06:14:54+09:00",
+   "first_seen": "2026-11-21T07:14:19+09:00",
    "reminded": []
   },
   {
@@ -3856,5 +3876,5 @@
    "news_candidate": true
   }
  ],
- "last_updated": "2026-11-21T06:14:54+09:00"
+ "last_updated": "2026-11-21T07:14:19+09:00"
 }
