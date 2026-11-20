@@ -64,7 +64,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月20日 20:26<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
+        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月20日 20:30<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -1814,8 +1814,40 @@
     </details>
     <div class="separator flex items-center gap-3 my-2">
       <div class="flex-1 h-px bg-brand-300"></div>
-      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 11月20日 20:11 取込</span>
+      <span class="text-[11px] font-semibold text-brand-700 bg-brand-50 px-3 py-0.5 rounded-full whitespace-nowrap shadow-sm border border-brand-200">📥 11月20日 20:30 取込</span>
       <div class="flex-1 h-px bg-brand-300"></div>
+    </div>
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="57dac88962e9" data-fetched="2026-11-20T20:30:29.742036+09:00" data-url="https://www.city.okayama.jp/kankou/0000086417.html">
+      <img src="https://www.city.okayama.jp/design_img/" alt="" loading="lazy"
+           class="w-full h-40 object-cover rounded-xl mb-3"
+           onerror="this.style.display='none'">
+      <div class="flex items-center justify-between mb-2 gap-2">
+        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
+        <div class="flex items-center gap-1.5 shrink-0">
+          <span class="text-xs text-gray-500 shrink-0">📅 11月19日</span>
+          <span class="text-gray-300">·</span>
+          <span class="text-xs text-gray-400">取込 11月20日 20:30</span>
+        </div>
+      </div>
+      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">「東大寺サミットin岡山」 - 岡山市</p>
+      <div class="flex items-center gap-1.5 mb-2 flex-wrap">
+        <span class="text-[11px] font-bold border px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 border-gray-200">AI 50点・重複</span>
+        <span class="text-[11px] text-gray-500">展覧会・岡山市の重源と栄西展の関連イベントで本編ではない。経過38時間だが durable</span>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E9%80%9F%E5%A0%B1%E3%80%91%0A%E3%80%8C%E6%9D%B1%E5%A4%A7%E5%AF%BA%E3%82%B5%E3%83%9F%E3%83%83%E3%83%88in%E5%B2%A1%E5%B1%B1%E3%80%8D+-+%E5%B2%A1%E5%B1%B1%E5%B8%82%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&url=https%3A%2F%2Fwww.city.okayama.jp%2Fkankou%2F0000086417.html" target="_blank" rel="noopener noreferrer"
+           onclick="handlePostClick(event,'57dac88962e9')"
+           data-description=""
+           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          にポスト
+        </a>
+        <a href="https://www.city.okayama.jp/kankou/0000086417.html" target="_blank" rel="noopener noreferrer"
+           data-external-url="https://www.city.okayama.jp/kankou/0000086417.html"
+           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
+        <button type="button" onclick="toggleSkip('57dac88962e9')" class="skip-btn text-xs text-gray-500 border border-gray-300 rounded-full px-2.5 py-1 shrink-0">スキップ</button>
+      </div>
     </div>
     <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="f3d41a828f5e" data-fetched="2026-11-20T20:11:58.319392+09:00" data-url="https://article.auone.jp/9807c34c-612b-4328-b9cb-d53e923fb5c5">
       <img src="https://portal.auone.jp/media/thumbnails/2026/11/18/https___news_jp_i_1495744409877299355_w640.webp" alt="" loading="lazy"
@@ -4680,38 +4712,6 @@
            data-external-url="https://www.asahi.co.jp/webnews/pages/abc_63655.html"
            class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
         <button type="button" onclick="toggleSkip('94a4b4fcb9a5')" class="skip-btn text-xs text-gray-500 border border-gray-300 rounded-full px-2.5 py-1 shrink-0">スキップ</button>
-      </div>
-    </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="57ce374ae949" data-fetched="2026-11-19T21:58:08.273168+09:00" data-url="https://www.kyoto-np.co.jp/articles/-/1828170">
-      <img src="https://kyoto-np.ismcdn.jp/mwimgs/8/a/1200wm/img_8a46d760727ab87ac7f6990ded0755aa1561615.jpg" alt="" loading="lazy"
-           class="w-full h-40 object-cover rounded-xl mb-3"
-           onerror="this.style.display='none'">
-      <div class="flex items-center justify-between mb-2 gap-2">
-        <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
-        <div class="flex items-center gap-1.5 shrink-0">
-          <span class="text-xs text-gray-500 shrink-0">📅 11月18日</span>
-          <span class="text-gray-300">·</span>
-          <span class="text-xs text-gray-400">取込 11月19日 21:58</span>
-        </div>
-      </div>
-      <p class="text-sm font-semibold text-gray-800 leading-relaxed mb-3">豊臣秀吉の書状、石田三成が保護した寺に伝わる仏像…滋賀県長浜市の資料館で見る戦国武将の寺社資料 - 京都新聞デジタル</p>
-      <div class="flex items-center gap-1.5 mb-2 flex-wrap">
-        <span class="text-[11px] font-bold border px-2 py-0.5 rounded-full bg-gray-100 text-gray-500 border-gray-200">AI 62点</span>
-        <span class="text-[11px] text-gray-500">展覧会・渡岸寺周辺の寺社資料企画展。仏像は一部で開催中の告知、会期不明</span>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <a href="https://x.com/intent/post?text=%E3%80%90%E4%BB%8F%E5%83%8F%E9%80%9F%E5%A0%B1%E3%80%91%0A%E8%B1%8A%E8%87%A3%E7%A7%80%E5%90%89%E3%81%AE%E6%9B%B8%E7%8A%B6%E3%80%81%E7%9F%B3%E7%94%B0%E4%B8%89%E6%88%90%E3%81%8C%E4%BF%9D%E8%AD%B7%E3%81%97%E3%81%9F%E5%AF%BA%E3%81%AB%E4%BC%9D%E3%82%8F%E3%82%8B%E4%BB%8F%E5%83%8F%E2%80%A6%E6%BB%8B%E8%B3%80%E7%9C%8C%E9%95%B7%E6%B5%9C%E5%B8%82%E3%81%AE%E8%B3%87%E6%96%99%E9%A4%A8%E3%81%A7%E8%A6%8B%E3%82%8B%E6%88%A6%E5%9B%BD%E6%AD%A6%E5%B0%86%E3%81%AE%E5%AF%BA%E7%A4%BE%E8%B3%87%E6%96%99+-+%E4%BA%AC%E9%83%BD%E6%96%B0%E8%81%9E%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%0A%23%E4%BB%8F%E5%83%8F+%23%E4%BB%8F%E5%83%8F%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&url=https%3A%2F%2Fwww.kyoto-np.co.jp%2Farticles%2F-%2F1828170" target="_blank" rel="noopener noreferrer"
-           onclick="handlePostClick(event,'57ce374ae949')"
-           data-description=""
-           class="post-btn flex-1 flex items-center justify-center gap-1.5 bg-black text-white text-sm font-bold py-2.5 px-4 rounded-full active:bg-gray-700 transition-colors">
-          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          にポスト
-        </a>
-        <a href="https://www.kyoto-np.co.jp/articles/-/1828170" target="_blank" rel="noopener noreferrer"
-           data-external-url="https://www.kyoto-np.co.jp/articles/-/1828170"
-           class="read-btn text-xs text-gray-400 underline underline-offset-2 shrink-0">記事を読む</a>
-        <button type="button" onclick="toggleSkip('57ce374ae949')" class="skip-btn text-xs text-gray-500 border border-gray-300 rounded-full px-2.5 py-1 shrink-0">スキップ</button>
       </div>
     </div>
     <div class="separator flex items-center gap-3 my-2">
@@ -11187,9 +11187,10 @@
     </div>
       <div id="news-time-list" class="space-y-3"></div>
     <details id="prefiltered-box" class="rounded-xl border border-gray-200 bg-white px-3 py-2 mt-6">
-      <summary class="text-xs text-gray-500 cursor-pointer">一次判定で落とした記事（直近14日・302件）</summary>
+      <summary class="text-xs text-gray-500 cursor-pointer">一次判定で落とした記事（直近14日・303件）</summary>
       <p class="text-[11px] text-gray-400 mt-1">仏像と関係ありそうなのに落ちていたら教えてください</p>
       <ul class="mt-1">
+        <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://www.asahi.co.jp/webnews/pages/abc_63675.html" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">【続報】準強制性交等の罪に問われた大阪地検元検事正の裁判で“懇親会参加”の警察官が証言 - 朝日放送</a><span class="block text-[11px] text-gray-400">11-20・検事正の刑事裁判で仏教・仏像と無関係</span></li>
         <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://www.asahi.co.jp/webnews/pages/abc_63684.html" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">「シャープ」公式通販サイトの委託先に不正アクセス 約３２６万件の顧客情報漏えいか - 朝日放送</a><span class="block text-[11px] text-gray-400">11-20・シャープの通販サイト情報漏えいで仏教と無関係</span></li>
         <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://topics.smt.docomo.ne.jp/amp/article/shimotsuke/region/shimotsuke-20261117165625" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">関東高校駅伝が19日号砲　栃木県勢、都大路の北関東枠に挑む《県高校駅伝の写真あり》 - ｄメニューニュース</a><span class="block text-[11px] text-gray-400">11-20・駅伝記事で仏像・寺院と無関係</span></li>
         <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://www.artagenda.jp/butuzouworld/artblogs/974" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">木綿花展 -花守り- ｜ POSTS【ユーザー投稿】 - アートアジェンダ</a><span class="block text-[11px] text-gray-400">11-20・花の展覧会で仏像・寺院と無関係</span></li>
@@ -25876,7 +25877,7 @@ Houlu 6インチ グリーンセラミック仏像 ホームデコ 小さな瞑�
 
     // 表示中のページより新しい版が公開されていれば読み直す（data/version.json と比べる）。
     // スマホによっては、アプリを開き直しても前の表示のまま残ることがあるため
-    const PAGE_UPDATED = '2026-11-20T20:26:09.593124+09:00';
+    const PAGE_UPDATED = '2026-11-20T20:30:29.742886+09:00';
     function checkFreshness() {
       fetch('data/version.json?t=' + Date.now(), { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })

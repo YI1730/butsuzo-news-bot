@@ -1,6 +1,129 @@
 {
-  "last_updated": "2026-11-20T20:26:09.593124+09:00",
+  "last_updated": "2026-11-20T20:30:29.742886+09:00",
   "items": [
+    {
+      "id": "57dac88962e9",
+      "title": "「東大寺サミットin岡山」 - 岡山市",
+      "url": "https://www.city.okayama.jp/kankou/0000086417.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T20:30:29.742036+09:00",
+      "published_at": "2026-11-19T06:07:51+09:00",
+      "image_url": "https://www.city.okayama.jp/design_img/",
+      "description": "",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 50,
+        "category": "展覧会",
+        "duplicate": true,
+        "reason": "岡山市の重源と栄西展の関連イベントで本編ではない。経過38時間だが durable",
+        "event": {
+          "event_name": "東大寺サミットin岡山",
+          "place": "岡山市",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T20:32:46+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-19"
+      }
+    },
+    {
+      "id": "84d942e998ad",
+      "title": "［ニュース］【特報】智山派定期教区代表会 遠忌向け準備、山容整備も ／本山隣接地取得 2棟分、今後活用探る／一般質問 遠忌事業や教師養成 - 中外日報社",
+      "url": "https://www.chugainippoh.co.jp/article/news/20261118-005.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T20:30:28.386583+09:00",
+      "published_at": "2026-11-19T09:02:31+09:00",
+      "image_url": "https://www.chugainippoh.co.jp/article/news/img/20261118-005f.jpg",
+      "description": "真言宗智山派の第143次定期教区代表会（深澤照生議長）が10月20～22日に総本山智積院（京都市東山区）で開かれた。補正予算や規定改正など19議案を原案通り可決した。三神栄法宗務総長は2034年に迎える宗祖弘法大師の12…",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 10,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "宗派の教区代表会の報告で仏像の話題ではない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T20:32:46+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "76ac15341fe2",
+      "title": "【続報】準強制性交等の罪に問われた大阪地検元検事正の裁判で“懇親会参加”の警察官が証言 - 朝日放送",
+      "url": "https://www.asahi.co.jp/webnews/pages/abc_63675.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T20:30:26.612526+09:00",
+      "published_at": "2026-11-19T12:57:35+09:00",
+      "image_url": "https://www.asahi.co.jp/webnews/pages/img/data_file/20261119/63675/0/01a1f1d8-96e0-77ea-9b96-9fba412c4f1b.jpg",
+      "description": "準強制性交等の罪に問われた大阪地検元検事正の裁判で、19日、事件当日の懇親会に参加した警察官が証言しました。 大阪地検の元検事正北川健太郎被告（６７）は２０１…",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 検事正の刑事裁判で仏教・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-20T20:32:43+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "082297a3d0bb",
+      "title": "【京都洋食】清水界隈の予約至難超人気ビストロ！ハンバーグやグラタンは本格大人味「コリス」 - Kyotopi [キョウトピ]",
+      "url": "https://kyotopi.jp/articles/qlzar",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-20T20:30:25.013967+09:00",
+      "published_at": "2026-11-19T21:00:00+09:00",
+      "image_url": "https://cdn.clipkit.co/tenants/7986/articles/images/000/021/113/large/35028fe5-20f6-4116-981f-a5f29e1e427a.jpg?1795166378",
+      "description": "おおきに～豆はなどす☆今回は東山区五条界隈、六波羅蜜寺にもほど近い松原通沿いにある人気のビストロ洋食店。一度行けば、その美味しさの虜となりリピーター続出。予約至難の名店。",
+      "search_query": "\"六波羅蜜寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "洋食店のグルメ記事で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-20T20:32:46+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "九州国立博物館 特別展「菅原道真」（10月9日~12月5日）",
       "url": "https://www.kyuhaku.jp/",
@@ -10979,129 +11102,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "藤原京の特別展で仏像の話ではない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T22:01:01+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "a3641e416090",
-      "title": "「奈良のシカ」死骸の一部を東大寺の職員が見つけ通報…大仏殿の近く、野生動物によるものか（読売新聞オンライン） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/5b7753d740ec4737f93a5c3fc3127a70f8742f8a",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T21:58:11.697085+09:00",
-      "published_at": "2026-11-18T11:33:34+09:00",
-      "image_url": "https://s.yimg.jp/images/news-web/versions/20261119-6457c3b/all/images/ogp_default.png",
-      "description": "奈良県は１７日、東大寺（奈良市）の大仏殿南側付近で、国の天然記念物「奈良のシカ」とみられる死骸の一部が見つかったと発表した。県によると、１２日午後０時５０分頃、寺の職員が発見。通報を受けた県警が調べ",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 20,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "東大寺のシカ死骸の話で仏像と無関係。同件の重複記事",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T22:01:01+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "90fcc713e5cc",
-      "title": "周南・新南陽の中華そば「猪虎」 看板メニューの「中華そば」とセットで注文できる「チャーシュー丼」 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/photoflash/11608/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T21:58:09.165767+09:00",
-      "published_at": "2026-11-18T13:02:05+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/photonews/1794974928_b.jpg",
-      "description": "「中華そば 猪虎（いのこ）周南店」（周南市政所2）が11月18日、フジ新南陽店近くにオープンした。",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 中華そば店の開店記事で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-19T22:00:49+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "57ce374ae949",
-      "title": "豊臣秀吉の書状、石田三成が保護した寺に伝わる仏像…滋賀県長浜市の資料館で見る戦国武将の寺社資料 - 京都新聞デジタル",
-      "url": "https://www.kyoto-np.co.jp/articles/-/1828170",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T21:58:08.273168+09:00",
-      "published_at": "2026-11-18T17:00:00+09:00",
-      "image_url": "https://kyoto-np.ismcdn.jp/mwimgs/8/a/1200wm/img_8a46d760727ab87ac7f6990ded0755aa1561615.jpg",
-      "description": "滋賀県長浜市高月観音の里歴史民俗資料館（同市高月町渡岸寺）は、地元ゆかりの戦国武将にまつわる寺社資料などを紹介する企画展を開いている。長浜…",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 62,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "渡岸寺周辺の寺社資料企画展。仏像は一部で開催中の告知、会期不明",
-        "event": {
-          "event_name": "戦国武将にまつわる寺社資料の企画展",
-          "place": "高月観音の里歴史民俗資料館（滋賀県長浜市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-19T22:01:01+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-18"
-      }
-    },
-    {
-      "id": "64b4b3613401",
-      "title": "境内や参道の550本が色付き見ごろに 「丹波のもみじ寺」長安寺 - 両丹日日新聞",
-      "url": "https://www.ryoutan.co.jp/articles/2026/11/99308/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-19T21:58:06.966846+09:00",
-      "published_at": "2026-11-18T17:21:48+09:00",
-      "image_url": "",
-      "description": "京都府福知山市の最新ニュースから明るい話題をピックアップ。釣り情報やイベント情報も充実した両丹日日新聞公式サイト",
-      "search_query": "\"南禅寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 12,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "紅葉の見ごろの話題で仏像に触れていない",
         "event": {
           "event_name": "",
           "place": "",
