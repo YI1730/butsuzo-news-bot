@@ -1,6 +1,217 @@
 {
-  "last_updated": "2026-11-21T08:12:26.738124+09:00",
+  "last_updated": "2026-11-21T09:11:51.378297+09:00",
   "items": [
+    {
+      "id": "80f79845388d",
+      "title": "舞鶴市、修理中の重要文化財「赤れんが６号棟」を特別公開 - AGARA 紀伊民報",
+      "url": "https://www.agara.co.jp/article/699182",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-21T09:11:51.377065+09:00",
+      "published_at": "2026-11-19T12:17:41+09:00",
+      "image_url": "https://prtimes.jp/img/49369/273/resize/d49369-273-5d8fa6ca892efec5b6e3-0.jpg",
+      "description": "舞鶴市普段は見ることができない保存修理中の文化財内部を、専門的な解説とともに見学できる貴重な機会を提供舞鶴市は、「舞鶴市文化財保存活用...",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 12,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "赤れんが倉庫の特別公開で寺院・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-21T09:14:11+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "5562ff92cda0",
+      "title": "銀座のイルミ点灯式に見上愛さん - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779182/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-21T09:11:49.201727+09:00",
+      "published_at": "2026-11-19T21:29:46+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "東京・銀座通りのイルミネーション点灯式「ＧＩＮＺＡ ＧＩＬＣ ＮＩＧＨＴ ２０２６」に出席した見上愛さん。黒のドレスに総額約７１００万円のジュエリーをつけて登場＝１９日、都内 【時事通信フォト】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 銀座イルミネーション点灯式と芸能人の記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-21T09:14:06+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "682ae01e51e3",
+      "title": "大阪城、「鉄筋」の天守「本物」の誇り 国の重文へ - 朝日新聞",
+      "url": "https://www.asahi.com/articles/DA3S16591607.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-21T09:11:48.477616+09:00",
+      "published_at": "2026-11-20T05:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "大阪城天守の重文指定で寺院と無関係。本文に寺院の話もなし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-21T09:14:11+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c903bbea2343",
+      "title": "日野の観音さん案内まっぷ原画展 - 滋賀報知新聞",
+      "url": "https://shigahochi.co.jp/articles/A3581848WMJ",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-21T09:11:40.448493+09:00",
+      "published_at": "2026-11-20T07:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 40,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "観音巡りの地図の原画展。仏像の詳細が不明で優先度は低い",
+        "event": {
+          "event_name": "日野の観音さん案内まっぷ原画展",
+          "place": "滋賀県日野町",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-21T09:14:11+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "64af006fd6a2",
+      "title": "氷の城壁＞永瀬アンナ×和泉風花ガールズトーク 大人になったからこそ見えること 桃香を「すごく好きになった」 陽太は「菩薩」 湊は？（MANTANWEB） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/d1187e619a1165ca74f2c90cd054a7ed5395f0cd",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-21T09:11:39.158738+09:00",
+      "published_at": "2026-11-21T08:17:56+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261121-00000010-mantan-000-1-view.jpg?exp=10800",
+      "description": "阿賀沢紅茶さんのマンガが原作のテレビアニメ「氷の城壁」の第2期が、TBS系28局で毎週木曜午後11時56分に全国同時放送されている。同作は、人と接するのが苦手な氷川小雪、元学校のアイドル・安曇美姫、",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "アニメ出演者の対談で「菩薩」は比喩にすぎず無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-21T09:14:11+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "5e0078a35c77",
+      "title": "写真で観る竜王戦 第39期七番勝負第4局・2日目 - 読売新聞",
+      "url": "https://www.yomiuri.co.jp/slides/s/39ryuousengame4secondday/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-21T09:11:37.258013+09:00",
+      "published_at": "2026-11-21T08:22:34+09:00",
+      "image_url": "https://www.yomiuri.co.jp/images/slides/39ryuousengame4secondday/ogpimage__cd0e2c9e1975253f42ead2cbbc5d4a12.jpg?type=slideshow_ogp",
+      "description": "第39期竜王戦七番勝負第4局2日目の写真特集。藤井聡太竜王と挑戦者・服部慎一郎七段の表情や、会場の霧島創業記念館吉助（宮崎県都城市）の風景を紹介する（2026年11月21日公開)",
+      "search_query": "\"仁和寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 1,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "将棋の竜王戦の記事で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-21T09:14:11+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e1c459caf777",
+      "title": "映画『国宝』の音楽家・原摩利彦が京都・御寺 泉涌寺で体感した「間（あわい）」…自然と音楽と祈りが溶け合う夜【OTOBUTAI】 - TBS NEWS DIG",
+      "url": "https://newsdig.tbs.co.jp/articles/mbs/3090511?display=1",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-21T09:11:35.929247+09:00",
+      "published_at": "2026-11-21T09:00:00+09:00",
+      "image_url": "https://newsdig.ismcdn.jp/mwimgs/0/a/1200w/img_0a976bb76c79408f67efde9ceeb37fc2815175.jpg",
+      "description": "10月24日、京都にある皇室ゆかりの御寺 泉涌寺（京都・東山区）で「OTOBUTAI 2026 泉涌寺」が開催された。「OTOBUTAI（音舞台）」は、日本屈指の名刹を舞台に、世界で活躍するアーティストが珠玉のパフォーマンス… (1ページ)",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "泉涌寺の音楽イベントの事後レポート。仏像に触れず終了済み",
+        "event": {
+          "event_name": "",
+          "place": "泉涌寺（京都市東山区）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-21T09:14:11+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "d5f893c41333",
       "title": "伝統の技、とくとご覧あれ　栃木県立博物館で「下野手仕事会展」 23日まで - ｄメニューニュース",
@@ -10838,220 +11049,6 @@
         "event": {
           "event_name": "富貴寺大堂ライトアップ",
           "place": "富貴寺（大分県豊後高田市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-20T08:15:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "0f0950706576",
-      "title": "川崎市消防局 救急車デザイン刷新 視認性高め、隊員安全確保へ - タウンニュース",
-      "url": "https://www.townnews.co.jp/0202/2026/11/20/862746.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-20T08:11:56.165764+09:00",
-      "published_at": "2026-11-20T00:00:00+09:00",
-      "image_url": "https://www.townnews.co.jp/0202/images/a001492283_04.jpg",
-      "description": "川崎市消防局は11月12日、救急車のデザインをリニューアルすると発表した。大幅な刷新は同市として初めて。周囲からの見えやすさを高め、夜間時などでの救急活動の安全確保を図...",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 救急車デザイン刷新の地域ニュースで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-20T08:15:38+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "9502bb99bec9",
-      "title": "米アンソロピックが上場 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/gpnews/1779186/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-20T08:11:53.985704+09:00",
-      "published_at": "2026-11-20T01:16:03+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
-      "description": "米人工知能（ＡＩ）企業アンソロピックが１９日、ハイテク銘柄が中心のナスダック市場に上場した。新規株式公開（ＩＰＯ）での公開価格は１株８３ドルで、調達額は約８１３億ドル（約１３兆円）に上る。 【時事通信社】",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 1,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "AI企業の上場で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-20T08:15:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "9ee1e8b4508c",
-      "title": "映画で『ちいかわ』にハマった横山ルリカ、母と京都旅で“ちい活”満喫 プライベートショット公開「ハマってますね〜」 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2017261?kw=2024",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-20T08:11:51.855023+09:00",
-      "published_at": "2026-11-20T01:53:34+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/1/6/0/4/160470f3419b4618eb2aea612b5bb68e_1.jpg",
-      "description": "元アイドリング!!!のメンバーでタレントの横山ルリカ（35）が5日、自身のインスタグラムを更新。 “ちい活”を満喫する近況を報告し、プ...",
-      "search_query": "\"伏見稲荷\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 4,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "タレントの旅行で仏像無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-20T08:15:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "96c30219a5c0",
-      "title": "松岡茉優×成田凌『男ともだち』と京都を歩く 嵐電、鴨川、ラーメン店…二人の時間をたどる - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2020233",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-20T08:11:50.943139+09:00",
-      "published_at": "2026-11-20T05:33:09+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/8/0/c/2/80c2e86ab0e7c9fa078a2004042e6d32_1.jpg",
-      "description": "電車に揺られ、ラーメンを食べ、他愛のない話をしながら歩く。松岡茉優主演、成田凌共演の映画『男ともだち』（公開中）では、主人公・神名が暮...",
-      "search_query": "\"南禅寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "映画の京都ロケ紹介で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-20T08:15:50+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "153b830bd879",
-      "title": "仁王像楽しむきっかけに 新見・哲西で愛好家渡辺さん写真展 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/1983612?kw=%E7%A6%8F%E7%A5%89",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-20T08:11:49.724796+09:00",
-      "published_at": "2026-11-20T06:39:25+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/a/b/0/0/ab00120d5a5f70ac7570bbd04b7fd19e_1.jpg",
-      "description": "新見市哲西町上神代出身の写真愛好家渡辺洋さん（８２）＝広島市＝が国内各地を訪ねて撮りためた金剛力士像の写真展「仁王像探訪」が、哲西公民...",
-      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
-      "ai": {
-        "score": 50,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "金剛力士像の写真展で仏像関連だが小規模",
-        "event": {
-          "event_name": "仁王像探訪 写真展",
-          "place": "哲西公民館（岡山県新見市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-20T08:15:50+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-09-05"
-      }
-    },
-    {
-      "id": "bb1e4e7a2ab8",
-      "title": "京都「瓢亭」、高橋英一のすべて② 器 【家庭画報創刊70周年記念企画】 - 家庭画報",
-      "url": "https://www.kateigaho.com/70th/specialfeature/183470",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-20T08:11:47.162319+09:00",
-      "published_at": "2026-11-20T07:11:58+09:00",
-      "image_url": "https://static.www.kateigaho.com/asset/frontend/img/og.png",
-      "description": "選りすぐりのレストラン、手土産、毎日のレシピ、旬のファッション、資産価値のあるジュエリーなど、人生を豊かに彩る情報をお届けします。",
-      "search_query": "\"南禅寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 料亭瓢亭の器に関する記事、仏教美術との関係が不明確",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-20T08:15:38+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "50df895c1779",
-      "title": "「ヒバクシャ」の苦しみ今も　クロスロード作戦80年　江東で企画展「核実験と太平洋の島々」 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/tokyo/region/tokyo-529437",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-20T08:11:45.832760+09:00",
-      "published_at": "2026-11-20T07:58:30+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/tokyo/m_tokyo-529437.jpg",
-      "description": "太平洋で最初の核実験シリーズ「クロスロード作戦」から80年が経過したのを受け、東京都立第五福竜丸展示…",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "核実験の企画展で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
           "start_date": "",
           "end_date": ""
         },
