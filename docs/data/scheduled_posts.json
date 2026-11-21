@@ -48,7 +48,8 @@
     ],
     "time": "12:34",
     "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg",
-    "label": "運慶マップ：関東"
+    "label": "運慶マップ：関東（控え）",
+    "enabled": false
   },
   {
     "id": "3aecc288d141",
@@ -98,6 +99,19 @@
     "enabled": true
   },
   {
+    "id": "line-hibutsu-thu",
+    "label": "LINE「秘仏」の案内（木曜昼）",
+    "weekdays": [
+      "thu"
+    ],
+    "time": "12:34",
+    "text": "週末どこの仏像に会いに行こうかなぁ、と迷ったら🤔\n\n仏像リンクのLINEで「秘仏」と送ると、今週末〜来月に御開帳の秘仏さんや、仏像の展覧会の一覧が届きます📩\nもうすぐ終わるものも分かるので、見逃しにくくなるかも\n\n毎朝更新・無料です\n友だち追加は返信のリンクから👇",
+    "reply_text": "仏像リンクのLINE（友だち追加）\nhttps://line.me/R/ti/p/%40vdn2047d",
+    "image_url": "https://butsuzolink.com/wp-content/uploads/2026/11/line-hibutsu-banner.jpg",
+    "use_media_upload": true,
+    "enabled": true
+  },
+  {
     "label": "【自動】今週見られる仏像展",
     "weekdays": [
       "mon"
@@ -106,11 +120,11 @@
     "reply_text": "会期・見どころつきの一覧（毎朝更新）はこちら\nhttps://butsuzolink.com/exhibition/",
     "id": "auto-exhibition-week",
     "auto": "exhibition_week",
-    "text": "🏛 今週見られる仏像展（11/21〜11/22）\n\n⏰ 未来へつなぐ 大津のたから 大津の文化財保護6…（大津市歴史博物館・11/23まで）\n⏰ みんなおいでん!東三河の普門寺さん（龍谷ミュージアム・11/23まで）\n🏛 豊原寺跡出土の石仏特別展（坂井市龍翔博物館）\n\n会期と見どころは一覧にまとめています👇",
+    "text": "🏛 今週見られる仏像展（11/22〜11/22）\n\n⏰ 未来へつなぐ 大津のたから 大津の文化財保護6…（大津市歴史博物館・11/23まで）\n⏰ みんなおいでん!東三河の普門寺さん（龍谷ミュージアム・11/23まで）\n🏛 特別展「南武蔵の平安仏」（横浜市歴史博物館）\n\n会期と見どころは一覧にまとめています👇",
     "image_url": "",
     "use_media_upload": false,
     "enabled": true,
-    "updated": "2026-11-21"
+    "updated": "2026-11-22"
   },
   {
     "label": "【自動】今月・来月の秘仏",
@@ -121,11 +135,11 @@
     "reply_text": "御開帳・特別公開の一覧（毎朝更新）はこちら\nhttps://butsuzolink.com/hibutsu/",
     "id": "auto-hibutsu-month",
     "auto": "hibutsu_month",
-    "text": "🔓 今月・来月に扉が開く秘仏（11/21時点）\n\n🔓 豊川稲荷 御開帳（愛知・72年ぶり・〜11/23）\n🔓 長福寺 開創1300年大祭 本尊御開帳（静岡・40年ぶり・〜11/21）\n🔓 長谷寺 御本尊十一面観世音菩薩 午歳全身総開帳…（神奈川・〜12/18）\n\nほかの御開帳・特別公開も一覧にしています👇",
+    "text": "🔓 今月・来月に扉が開く秘仏（11/22時点）\n\n🔓 豊川稲荷 御開帳（愛知・72年ぶり・〜11/23）\n🔓 足利の文化財特別公開2026（栃木・〜11/22）\n🔓 真観寺 聖観世音菩薩像 丙午歳御開帳（埼玉・〜11/23）\n\nほかの御開帳・特別公開も一覧にしています👇",
     "image_url": "",
     "use_media_upload": false,
     "enabled": true,
-    "updated": "2026-11-21"
+    "updated": "2026-11-22"
   },
   {
     "label": "【自動】今週末に会える仏像（LINE「秘仏」）",
@@ -136,10 +150,10 @@
     "reply_text": "仏像リンクのLINE（友だち追加）\nhttps://line.me/R/ti/p/%40vdn2047d\n\n解説つきの一覧はブログにも\nhttps://butsuzolink.com/hibutsu/",
     "id": "auto-weekend",
     "auto": "weekend",
-    "text": "🗓 今週末 11/21(土)・22(日)に会える仏像\n\n⏰ 長福寺 開創1300年大祭 本尊御開帳（静岡・〜11/21）\n⏰ 豊川稲荷 御開帳（愛知・〜11/23）\n⏰ 足利の文化財特別公開2026（栃木・〜11/22）\n\nほかの公開も、仏像リンクのLINEで「秘仏」と送ると一覧で届きます📩（リンクは返信に）",
+    "text": "🗓 今週末 11/28(土)・29(日)に会える仏像\n\n⏰ 宝林寺 重要文化財の仏像公開（京都・〜11/29）\n⏰ 興福寺 東金堂後堂 特別公開(東金堂創建1300年…（奈良・〜11/30）\n🔓 金剛峯寺 秋の特別拝観（和歌山）\n\nほかの公開も、仏像リンクのLINEで「秘仏」と送ると一覧で届きます📩（リンクは返信に）",
     "image_url": "",
     "use_media_upload": false,
     "enabled": true,
-    "updated": "2026-11-21"
+    "updated": "2026-11-22"
   }
 ]
