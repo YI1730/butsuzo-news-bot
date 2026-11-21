@@ -48,7 +48,8 @@
     ],
     "time": "12:34",
     "image_url": "https://pbs.twimg.com/media/HVyyr_XbQAAZm_O.jpg",
-    "label": "運慶マップ：関東"
+    "label": "運慶マップ：関東（控え）",
+    "enabled": false
   },
   {
     "id": "3aecc288d141",
@@ -92,6 +93,19 @@
     ],
     "time": "21:00",
     "text": "仏像リンクのLINEで「秘仏」と送ると、今週末〜来月に会える仏像の一覧が届きます📩\n\n🔓 ふだんは扉の奥の秘仏さんの御開帳\n🏛 博物館に出張中の仏像の展覧会\n⏰ もうすぐ終わるもの\n\n毎朝更新・無料。週末の行き先を決めるときに、どうぞ👣\n友だち追加は返信のリンクから👇",
+    "reply_text": "仏像リンクのLINE（友だち追加）\nhttps://line.me/R/ti/p/%40vdn2047d",
+    "image_url": "https://butsuzolink.com/wp-content/uploads/2026/11/line-hibutsu-banner.jpg",
+    "use_media_upload": true,
+    "enabled": true
+  },
+  {
+    "id": "line-hibutsu-thu",
+    "label": "LINE「秘仏」の案内（木曜昼）",
+    "weekdays": [
+      "thu"
+    ],
+    "time": "12:34",
+    "text": "週末どこの仏像に会いに行こうかなぁ、と迷ったら🤔\n\n仏像リンクのLINEで「秘仏」と送ると、今週末〜来月に御開帳の秘仏さんや、仏像の展覧会の一覧が届きます📩\nもうすぐ終わるものも分かるので、見逃しにくくなるかも\n\n毎朝更新・無料です\n友だち追加は返信のリンクから👇",
     "reply_text": "仏像リンクのLINE（友だち追加）\nhttps://line.me/R/ti/p/%40vdn2047d",
     "image_url": "https://butsuzolink.com/wp-content/uploads/2026/11/line-hibutsu-banner.jpg",
     "use_media_upload": true,
