@@ -1,6 +1,87 @@
 {
-  "last_updated": "2026-11-23T06:53:26.437573+09:00",
+  "last_updated": "2026-11-23T07:11:43.662888+09:00",
   "items": [
+    {
+      "id": "rem-b3a2c906fccc-ending",
+      "title": "残りあと5日！ 奈良・室生寺の紅葉ライトアップが佳境へ - Newscast.jp",
+      "url": "https://newscast.jp/smart/news/9440528",
+      "source": "reminder",
+      "header": "【公開はあと3日】",
+      "hashtags": "",
+      "fetched_at": "2026-11-23T07:14:15+09:00",
+      "published_at": "2026-11-23T07:14:15+09:00",
+      "image_url": "",
+      "ai": {
+        "score": 90,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "公開はあと3日（御開帳カレンダー）",
+        "post_text": "修復中の五重塔を覆う素屋根に、青龍を投影している今年だけの室生寺（奈良県宇陀市）。紅葉ライトアップは今夜と28・29日の17〜20時。修復期間ならではの光景みたい。",
+        "post_header": "【公開はあと3日】",
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "b9bfae5d21c6",
+      "title": "仁王像楽しむきっかけに 新見・哲西で愛好家渡辺さん写真展 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1983612?kw=%E9%80%A3%E5%90%88",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T07:11:40.162564+09:00",
+      "published_at": "2026-11-22T11:14:41+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/a/b/0/0/ab00120d5a5f70ac7570bbd04b7fd19e_1.jpg",
+      "description": "新見市哲西町上神代出身の写真愛好家渡辺洋さん（８２）＝広島市＝が国内各地を訪ねて撮りためた金剛力士像の写真展「仁王像探訪」が、哲西公民...",
+      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
+      "ai": {
+        "score": 45,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "仁王像の写真展。仏像関連だが小規模で個人の写真展。開催中の告知で緊急性は低い",
+        "event": {
+          "event_name": "仁王像探訪 写真展",
+          "place": "哲西公民館（岡山県新見市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T07:14:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "9bec415f0b1a",
+      "title": "国宝でフルコースに舌鼓 高岡・勝興寺 - 47NEWS",
+      "url": "https://www.47news.jp/15271487.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T07:11:38.717173+09:00",
+      "published_at": "2026-11-23T05:00:00+09:00",
+      "image_url": "https://img.cf.47news.jp/static/renewal/common/img/thumb_large.png",
+      "description": "●建物ガイドも楽しむ 高岡市伏木古国府の国宝勝興寺を舞台としたＪＴＢの特別企画ツアーは２２日行われ、関東や石川県から訪れた１０人が特別に提供されたフルコースランチに舌鼓を打ち、観光ガイドによる ...",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 25,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "勝興寺での建物見学とランチのツアー報告。仏像に触れず終了済みの出来事",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T07:14:14+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "日本民藝館 「蓮の意匠－東アジアの絵画と工芸」（6月10日~8月15日）",
       "url": "https://mingeikan.or.jp/",
@@ -11366,67 +11447,6 @@
         "model": "claude-haiku-5-5",
         "prefiltered": true,
         "scored_at": "2026-11-21T15:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "217814290cb5",
-      "title": "日本、米国に敗れる ソフトボール - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779185/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T15:11:55.953843+09:00",
-      "published_at": "2026-11-20T01:05:02+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "ソフトボール女子の日米対抗戦は１９日、バンテリンドームナゴヤで第１戦が行われ、日本は米国に延長１１回タイブレークの末、７―１１で敗れた。写真は力投する後藤。 【時事通信社】",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: ソフトボール日米戦の記事でスポーツ話題",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T15:14:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "26f94b984943",
-      "title": "アン・ボヒョン＆イ・ソンミンら集結！JTBC新ドラマ「神の玉」メインポスター解禁 - Danmee ダンミ",
-      "url": "https://danmee.jp/knews/koreandrama/sacredjewel-tpnews-5/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T15:11:53.667812+09:00",
-      "published_at": "2026-11-20T09:57:24+09:00",
-      "image_url": "https://danmee.jp/wp-content/uploads/2026/11/Sacred-Jewel-JTBC.jpg",
-      "description": "JTBC新土日ドラマ『神の玉』(原題：신의 구슬)が、アン・ボヒョン、イ・ソンミン、スヒョンら5人が登場するメインポスターを公開した。1258年の高麗を舞台に、国を守る聖物・観音宝珠を探す護送隊と、彼らを救おうとする皇女の戦いを描く時代劇。12月5日 午後10時40分より韓国で放送開始。演出はチョン・デユン氏、脚本はチョン・ヒョンミン氏が担当する。",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "韓国ドラマのポスター解禁で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T15:14:44+09:00",
         "score_version": 8
       }
     },
