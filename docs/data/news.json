@@ -1,6 +1,190 @@
 {
-  "last_updated": "2026-11-22T22:11:43.983023+09:00",
+  "last_updated": "2026-11-22T23:11:51.494735+09:00",
   "items": [
+    {
+      "id": "d8c1ae871b2a",
+      "title": "ケロロ軍曹 2ndシーズン #75〜78【無料ビデオ1週間】 - ABEMA",
+      "url": "https://abema.tv/channels/family-anime-1/slots/91ZoyrmDiDxB3m",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T23:11:51.494035+09:00",
+      "published_at": "2026-11-21T05:00:58+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: アニメ作品の配信告知で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-22T23:14:23+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e7757c23c9b3",
+      "title": "麻績村の重要文化財の神社で前衛的ダンスの催し 地域おこし協力隊員が23日 - 47NEWS",
+      "url": "https://www.47news.jp/15265610.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T23:11:49.222727+09:00",
+      "published_at": "2026-11-21T11:06:00+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/ef48e9a292c86c37b3e1283b11232548/photo.jpg",
+      "description": "麻績村の地域おこし協力隊員伊藤朱音さん（28）が23日、重要文化財の麻績神明宮でダンサーの小川未祐さん（東京都）を招いたダンスの催しを開く。神社の新嘗祭（にいなめさい）に合わせて企画。ダンスをきっか ...",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "神社のダンス催しで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T23:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "765d28d98d41",
+      "title": "残りあと5日！ 奈良・室生寺の紅葉ライトアップが佳境へ - アットプレス",
+      "url": "https://www.atpress.ne.jp/news/9440528",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T23:11:47.765704+09:00",
+      "published_at": "2026-11-21T11:10:00+09:00",
+      "image_url": "https://www.atpress.ne.jp/attachments/el4BIIn3l6ZPTctCMGFR.jpg",
+      "description": "室生寺の紅葉ライトアップ2026では、国宝・五重塔の保存修復中にしか見られない素屋根への「青龍」投影や、約100本の和傘アートが紅葉と重なる幻想的な夜景が楽しめます。夜間特別拝観は11月21日から29...",
+      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 50,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "室生寺の夜間ライトアップで仏像に触れず上限内。残りあと5日だが減点なし",
+        "event": {
+          "event_name": "室生寺 紅葉ライトアップ",
+          "place": "室生寺（奈良県宇陀市）",
+          "start_date": "2026-11-21",
+          "end_date": "2026-11-29"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T23:14:27+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-21"
+      }
+    },
+    {
+      "id": "3bd0ad46e56f",
+      "title": "残りあと5日！ 奈良・室生寺の紅葉ライトアップが佳境へ - Excite エキサイト",
+      "url": "http://www.excite.co.jp/news/article/Atpress_652162/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T23:11:47.270858+09:00",
+      "published_at": "2026-11-21T11:10:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 28,
+        "category": "寺院の行事",
+        "duplicate": true,
+        "reason": "室生寺ライトアップの同一内容の重複記事",
+        "event": {
+          "event_name": "室生寺 紅葉ライトアップ",
+          "place": "室生寺（奈良県宇陀市）",
+          "start_date": "2026-11-21",
+          "end_date": "2026-11-29"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T23:14:27+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "cd524f15ca8d",
+      "title": "荒木優奈逆転、今季初Ｖ 女子ゴルフ - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779258/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T23:11:44.159382+09:00",
+      "published_at": "2026-11-22T16:54:14+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "大王製紙エリエール・レディースオープン最終日。２位で出た荒木優奈が１イーグル、５バーディー、２ボギーの６６をマークして逆転し、通算１３アンダーで今季初勝利を挙げた＝２２日、愛媛・エリエールＧＣ松山 【時事通信社】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 女子ゴルフの試合結果で仏教と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-22T23:14:23+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "7dae6444d433",
+      "title": "アラフィフ辛酸なめ子、人生後半戦に突入し「神社よりもお寺に引き寄せられる」理由【大徳寺展＋「ZEN NIGHT TOKYO」レポ】 - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/4713faa4183b581485780022f2751cfc422a202e?page=2",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T23:11:42.120510+09:00",
+      "published_at": "2026-11-22T19:03:16+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-00062141-mimollet-000-1-view.jpg?exp=10800",
+      "description": "「アラフィフの壁」を無理なく、軽やかに越え続ける漫画家・コラムニストの辛酸なめ子さんのコラム連載です。スピリチュアル分野にも一家言あるなめ子さんですが、近年は「神社よりもお寺に引き寄せられる」そう。",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 35,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "大徳寺展のコラム体験レポで仏像の具体性が薄い。事後レポート寄り",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T23:14:27+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "54f73bf7a482",
       "title": "『開運！なんでも鑑定団』“総額250万円”1500年以上前の仏像、驚きの鑑定結果へ - 山陽新聞",
@@ -10920,189 +11104,6 @@
           "event_name": "",
           "place": "",
           "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T12:16:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "c76944a85694",
-      "title": "奈良県 なら歴史芸術文化村 ワークショップ「平安時代の蓮弁を彫ってみよう」【2026年12月5日（土曜日）】開催のお知らせ - ラブすぽ",
-      "url": "https://love-spo.com/article/%E5%A5%88%E8%89%AF%E7%9C%8C-%E3%81%AA%E3%82%89%E6%AD%B4%E5%8F%B2%E8%8A%B8%E8%A1%93%E6%96%87%E5%8C%96%E6%9D%91%E3%80%80%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%83%E3%83%97%E3%80%8C%E5%B9%B3/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T12:12:16.661921+09:00",
-      "published_at": "2026-11-20T09:24:51+09:00",
-      "image_url": "https://love-spo.com/wp-content/uploads/2026/11/142065-672-06e5cc13d9431d0650619c9c7c7b48af-1909x2700-1-scaled.jpg",
-      "description": "奈良県本企画チラシ 概要文 蓮の花をかたどった「蓮華座」と呼ばれる台座の上にのっている仏像をみたことはありますか？このワークショップでは、平安時代前期を代表する室生寺金堂の釈迦如来立像をモデルに、その蓮華座を構成する蓮弁（花びら）を彫刻（仕上げ作業を）します。 県内に伝わる仏像の蓮華座について分かりやすく解説するミニ講座も開催します。 彫刻体験と講座をとおして、仏像の蓮弁の世界を体感してみませんか？ 開催日時2026年12月5日（土曜日）14時00分から2026年12月5日（土曜日）16...",
-      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 42,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "蓮弁彫刻のワークショップ。室生寺像がモデルだが体験講座で優先度低",
-        "event": {
-          "event_name": "ワークショップ「平安時代の蓮弁を彫ってみよう」",
-          "place": "なら歴史芸術文化村（奈良県天理市）",
-          "start_date": "2026-12-05",
-          "end_date": "2026-12-05"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T12:16:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e489b5b27ada",
-      "title": "連続講座「豊臣兄弟と郡山〜最新研究で読み解く、兄弟の足跡」 - 大和郡山市",
-      "url": "https://www.city.yamatokoriyama.lg.jp/soshiki/machidukuri_senryaku/ibento/17768.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T12:12:14.436664+09:00",
-      "published_at": "2026-11-20T10:09:55+09:00",
-      "image_url": "https://www.city.yamatokoriyama.lg.jp/material/images/group/63/renzokukouza1.jpg",
-      "description": "令和8年放送の大河ドラマ『豊臣兄弟！』により、主人公・豊臣秀長とその統治拠点であり臨終の地となった郡山に、全国的な関心が高まっています。本講座では、豊臣期研究を牽引する第一線の研究者を招き、最新の学術的知見から郡山を中心とした豊臣兄弟の足跡を「深掘り」します。全3回の連続講座で、ドラマの背景にある歴史的実像を紐解くとともに、秀長が郡山に遺した歴史遺産の意義を多角的に再考します。",
-      "search_query": "\"興福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 大河ドラマ関連の講座で、寺院や仏像の話題が見当たらない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T12:16:03+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b387f32b0a1c",
-      "title": "伊豆の国・いずしるで北条氏規を解説　市内唯一の発給文書も - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/minkei/region/minkei-izunokuni191",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T12:12:11.525117+09:00",
-      "published_at": "2026-11-20T17:00:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/minkei/m_minkei-izunokuni191.jpg",
-      "description": "伊豆の国歴史館いずしる（伊豆の国市四日町）が11月22日、第1回企画展「韮山城をめぐるお城ネットワーク」…",
-      "search_query": "文化財 特別公開 仏像 市",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "城と北条氏の企画展で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T12:16:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "78a5d86b735f",
-      "title": "古刹を包む「紅葉の錦」　樹齢400年の大カエデ見ごろに　福岡 - Infoseek",
-      "url": "https://news.infoseek.co.jp/article/mainichi_20261118k0000m310137000c/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T12:12:09.500986+09:00",
-      "published_at": "2026-11-21T07:45:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/mainichi/mainichi_20261118k0000m310137000c_0-enlarge.jpg",
-      "description": "福岡県糸島市の雷山千如寺にある県指定天然記念物の大カエデが紅葉し、見ごろを迎えている。扇状に枝を広げた鮮やかな姿を",
-      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 22,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "大カエデの紅葉で仏像に触れず",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T12:16:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "81d6de3f59ec",
-      "title": "中道山 明王院　国宝・県重文・市重文　一挙建築物公開 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/eventbank/region/eventbank-10656053",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T12:12:07.763617+09:00",
-      "published_at": "2026-11-21T10:00:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10656053.jpg",
-      "description": "明王院に親しもう 国宝の本堂・五重塔をもつ福山市草戸町の明王院で、年に一度の建築物一挙公開。ふだん…",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 55,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "建築物公開で仏像は不明のため上限60点。公開は近い",
-        "event": {
-          "event_name": "明王院 建築物一挙公開",
-          "place": "明王院（広島県福山市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T12:16:11+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-21"
-      }
-    },
-    {
-      "id": "fb583bf50aa6",
-      "title": "闇夜に鮮やか永観堂の紅葉 京都、３千本ライトアップ - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2023289?rct=global_life_content",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T12:12:06.106346+09:00",
-      "published_at": "2026-11-21T11:02:28+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/0/0/f/1/00f121192acbc09d637e53f895e8e71a_1.jpg",
-      "description": "紅葉の名所として知られる永観堂禅林寺（京都市左京区）で１８日、夜の特別拝観のライトアップが２０日に始まるのを前に試験点灯が行われた。赤...",
-      "search_query": "\"永観堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 30,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "紅葉ライトアップで仏像に触れず。永観堂でも上限内",
-        "event": {
-          "event_name": "永観堂 紅葉ライトアップ",
-          "place": "永観堂禅林寺（京都府京都市）",
-          "start_date": "2026-11-20",
           "end_date": ""
         },
         "buddha_designation": false,
