@@ -1,6 +1,98 @@
 {
-  "last_updated": "2026-11-22T12:06:02.905684+09:00",
+  "last_updated": "2026-11-22T12:11:47.231100+09:00",
   "items": [
+    {
+      "id": "893d4bb88f15",
+      "title": "南禅寺｜令和8年12月の拝観時間と行事のご案内",
+      "url": "https://www.nanzenji.or.jp/information/20261122",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-22T12:11:47+09:00",
+      "published_at": "2026-11-22T12:11:47+09:00",
+      "image_url": "",
+      "description": "臨済宗大本山 南禅寺 公式サイト",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "来月の拝観時間と行事の案内。仏像の公開に直接触れず優先度低い",
+        "event": {
+          "event_name": "",
+          "place": "南禅寺（京都府京都市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T12:14:05+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "aff9d2622af9",
+      "title": "奈良：東金堂後堂３万人突破 興福寺 節目の拝観者に記念品 ：地域ニュース - 読売新聞",
+      "url": "https://www.yomiuri.co.jp/local/nara/news/20261120-GYTNT00176/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T12:11:44.158419+09:00",
+      "published_at": "2026-11-21T05:00:00+09:00",
+      "image_url": "https://www.yomiuri.co.jp/media/2026/11/20261120-GYTNI00179-1.jpg?type=ogp",
+      "description": "【読売新聞】 奈良市の興福寺で特別公開中の国宝・東金堂内の 後堂 （ ごどう ） の拝観者が３万人を突破し、２０日に記念セレモニーが開かれた。節目の拝観者となった静岡県藤枝市の主婦、秋山きよみさん（７５）と、友人で同県島田市の銀行員",
+      "search_query": "\"興福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 62,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "興福寺東金堂後堂の公開中の話題。節目の報告で、仏像の詳細は少ない",
+        "event": {
+          "event_name": "興福寺 東金堂後堂 特別公開",
+          "place": "興福寺（奈良県奈良市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T12:14:05+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-21"
+      }
+    },
+    {
+      "id": "a6f7ad9baca2",
+      "title": "般若心経を漢訳した玄奘三蔵の生き方説き…「自分の人生は自分で決断を」 薬師寺副住職、五泉で法話会 - 新潟日報",
+      "url": "https://www.niigata-nippo.co.jp/articles/-/945060",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T12:11:38.361969+09:00",
+      "published_at": "2026-11-22T11:30:00+09:00",
+      "image_url": "https://niigata-nippo.ismcdn.jp/mwimgs/3/8/1200m/img_389a6623c104ff1685c7ba82b0ca8ec6156419.jpg?rd=202611051124",
+      "description": "奈良県薬師寺の副住職、大谷徹奘（てつじょう）さん（６３）の法話会が、五泉市橋田の岩松院で開かれた。「西遊記」に登場する三蔵法師のモデルとなった玄奘三蔵（げんじょうさんぞう）の人生について解説し、「（玄奘に倣い）自分の人生は自分で決め...",
+      "search_query": "\"薬師寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 25,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "薬師寺副住職の法話会の報告。仏像に触れず事後レポートで優先度低い",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T12:14:05+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "京都市京セラ美術館 スタジオジブリ企画制作「白隠さんの禅　京都展」",
       "url": "https://kyotocity-kyocera.museum/",
@@ -11978,67 +12070,6 @@
           "event_name": "永観堂 夜の特別拝観ライトアップ",
           "place": "永観堂禅林寺（京都府京都市）",
           "start_date": "2026-11-20",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T05:09:51+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b9fa0a56c3f3",
-      "title": "南シナ海共同開発の進展確認 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/gpnews/1779221/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T05:07:19.292556+09:00",
-      "published_at": "2026-11-20T22:57:47+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
-      "description": "インドネシアのプラボウォ大統領（左手前）は２０日、訪問先の中国・深センで習近平国家主席（右手前）と会談した。両首脳は南シナ海での共同開発に向け、対象海域などに関する協議の進展を確認した。 【AFP時事】",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 南シナ海の共同開発など政治・経済の記事で仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T05:09:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "6bd88b43a0b4",
-      "title": "日テレNEWS NNN 11月20日(金) 18:38 国の重要文化財「石谷家住宅」で日本庭園の特別公開 年に一度、紅葉の時期にだけ 樹齢100年を超える大イチョウも見ごろ 4日間限定 11月23日まで公開 鳥取県智頭町｜報道／ドキュメンタリー｜見逃し無料配信はTVer！人気の動画 - TVer",
-      "url": "https://tver.jp/episodes/epnt9nscmk",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T05:07:16.490606+09:00",
-      "published_at": "2026-11-21T02:55:14+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "民家の庭園公開で寺院・仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
           "end_date": ""
         },
         "buddha_designation": false,
