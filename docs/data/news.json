@@ -1,6 +1,100 @@
 {
-  "last_updated": "2026-11-22T13:11:51.293788+09:00",
+  "last_updated": "2026-11-22T14:11:48.172741+09:00",
   "items": [
+    {
+      "id": "6139437c71d3",
+      "title": "京都市左京区に江戸初期の「ファッションリーダー」果たしたお后ゆかりの寺宝公開 寛永行幸で注目 - 京都新聞デジタル",
+      "url": "https://www.kyoto-np.co.jp/articles/-/1828239",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T14:11:48.172346+09:00",
+      "published_at": "2026-11-20T04:45:00+09:00",
+      "image_url": "https://kyoto-np.ismcdn.jp/mwimgs/8/9/1200wm/img_89051f3239bc818227b9d51a17e45cb21216837.jpg",
+      "description": "丸太町通と白川通が交差する京都市左京区東天王町から、東山の麓へと坂道を上る。鹿ヶ谷通を越えて別荘地に入ると、高い甍（いらか）を鈍く光らせる寺院が目を引く。 江戸時代初期、将軍家から朝廷に嫁いだ東福門院和子（まさこ）の菩提（ぼだい）寺・光雲寺である。威厳と優美さを備えた本堂を含め、肖像画など和子ゆかりの寺宝が２８日から１２月６日まで公開される。 臨済宗大本山南禅寺の境外塔頭（たっちゅう）光雲寺は、摂津国天王寺に１２８０（弘安３）年に開創された。戦乱で荒廃した同寺を",
+      "search_query": "文化財 特別公開 仏像 市",
+      "ai": {
+        "score": 55,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "光雲寺の和子ゆかり寺宝公開。肖像画・本堂が主で仏像の言及なし。上限60点内。11/28開始で近い",
+        "event": {
+          "event_name": "光雲寺 東福門院和子ゆかりの寺宝公開",
+          "place": "光雲寺（京都府京都市左京区）",
+          "start_date": "2026-11-28",
+          "end_date": "2026-12-06"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T14:15:21+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-20"
+      }
+    },
+    {
+      "id": "7339ce7bece9",
+      "title": "「周南 蚤の市」過去開催の様子（写真提供＝周南ツナガルコンソーシアム） - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/photoflash/11623/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T14:11:45.529241+09:00",
+      "published_at": "2026-11-20T19:52:32+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/photonews/1795170348_b.jpg",
+      "description": "「周南蚤（のみ）の市」が11月29日、徳山駅北口駅前広場と周辺の商店街で開催される。",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 蚤の市の告知で仏像・寺院の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-22T14:15:19+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "235d5f3277b9",
+      "title": "ブルーインパルス、22日に古都・奈良の空で展示飛行を披露 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/asahi_region/nation/asahi_region-ASVCP3W6NVCPPOMB019M",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T14:11:36.979102+09:00",
+      "published_at": "2026-11-22T10:45:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/asahi_region/m_asahi_region-ASVCP3W6NVCPPOMB019M.jpg",
+      "description": "航空自衛隊奈良基地の開庁70周年と「飛鳥・藤原の宮都」の世界遺産登録を記念し、航空自衛隊のアクロバッ…",
+      "search_query": "\"長谷寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ブルーインパルスの展示飛行で仏教関連の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-22T14:15:19+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "94fdb42bf498",
       "title": "愛子さま、マーライオン見学 - 岡山経済新聞",
@@ -11984,98 +12078,6 @@
         "model": "claude-haiku-5-5",
         "prefiltered": true,
         "scored_at": "2026-11-21T05:14:40+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1e431914443c",
-      "title": "旧住友本邸「長生庵」など大阪の13件、国登録文化財に 文化審答申 [大阪府] - 朝日新聞",
-      "url": "https://www.asahi.com/articles/ASVCF1D2VVCFPTIL00RM.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T05:11:59.371668+09:00",
-      "published_at": "2026-11-20T17:00:00+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "住友本邸など寺院と無関係の登録文化財",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T05:14:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "58e632f6d19d",
-      "title": "信長、秀吉、家康と深い関係があった滋賀県の「芦浦観音寺」が一般公開されます - やさしい朝日新聞",
-      "url": "https://yasashii.asahi.com/articles/article_0018469.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T05:11:48.989699+09:00",
-      "published_at": "2026-11-20T19:01:38+09:00",
-      "image_url": "https://yasashii.asahi.com/assets/entry-18469-og_image.webp",
-      "description": "織田信長や豊臣秀吉などと関係があった歴史の古いお寺です。仏教に関係する昔の絵4点を展示し、ボランティアが建物や歴史を案内します。予約は必要なく、料金は500円です。",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 50,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": false,
-        "reason": "寺院公開だが展示は仏画と建物案内で仏像なし、上限内",
-        "event": {
-          "event_name": "芦浦観音寺 一般公開",
-          "place": "芦浦観音寺（滋賀県草津市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T05:14:47+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-20"
-      }
-    },
-    {
-      "id": "d4e9085b0a3b",
-      "title": "『法華経の美術――つくるとは、願うこと』サントリー美術館で 国宝・重文を含む法華経美術が集結 (ぴあ) - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/d85e01f48fa5fcacfa114c647def83a13f84c01c",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T05:11:47.205023+09:00",
-      "published_at": "2026-11-20T19:03:50+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261120-00010018-piaeigat-000-1-view.jpg?exp=10800",
-      "description": "法華経信仰と一体となった造形美術を紹介する『法華経の美術――つくるとは、願うこと』が、12月12日（土）から2027年2月7日（日）まで、サントリー美術館で開催される。【全ての写真】『法華経の美術―",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 40,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "配信済みのサントリー美術館法華経展と同一で重複",
-        "event": {
-          "event_name": "法華経の美術――つくるとは、願うこと",
-          "place": "サントリー美術館（東京都港区）",
-          "start_date": "2026-12-12",
-          "end_date": "2027-02-07"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T05:14:47+09:00",
         "score_version": 8
       }
     },
