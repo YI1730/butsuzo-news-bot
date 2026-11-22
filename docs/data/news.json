@@ -1,6 +1,36 @@
 {
-  "last_updated": "2026-11-22T12:11:47.231100+09:00",
+  "last_updated": "2026-11-22T12:15:35.273606+09:00",
   "items": [
+    {
+      "id": "6bd88b43a0b4",
+      "title": "日テレNEWS NNN 11月20日(金) 18:38 国の重要文化財「石谷家住宅」で日本庭園の特別公開 年に一度、紅葉の時期にだけ 樹齢100年を超える大イチョウも見ごろ 4日間限定 11月23日まで公開 鳥取県智頭町｜報道／ドキュメンタリー｜見逃し無料配信はTVer！人気の動画 - TVer",
+      "url": "https://tver.jp/episodes/epnt9nscmk",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T12:15:34.390065+09:00",
+      "published_at": "2026-11-21T02:55:14+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "民家の重文と庭園の公開で仏像と無関係。速報性があっても低評価",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T12:17:56+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "893d4bb88f15",
       "title": "南禅寺｜令和8年12月の拝観時間と行事のご案内",
@@ -12046,36 +12076,6 @@
         "freshness": "durable",
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-21T05:14:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "22ea4f9ff37a",
-      "title": "闇夜に鮮やか永観堂の紅葉 京都、３千本ライトアップ - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2023289?rct=global_life_content&kw=%E3%81%AF%E3%81%A7",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T05:07:22.286707+09:00",
-      "published_at": "2026-11-20T16:50:31+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/0/0/f/1/00f121192acbc09d637e53f895e8e71a_1.jpg",
-      "description": "紅葉の名所として知られる永観堂禅林寺（京都市左京区）で１８日、夜の特別拝観のライトアップが２０日に始まるのを前に試験点灯が行われた。赤...",
-      "search_query": "\"永観堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 45,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "永観堂の夜間ライトアップで仏像に触れず上限内。開催中の紅葉話題",
-        "event": {
-          "event_name": "永観堂 夜の特別拝観ライトアップ",
-          "place": "永観堂禅林寺（京都府京都市）",
-          "start_date": "2026-11-20",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T05:09:51+09:00",
         "score_version": 8
       }
     },
