@@ -1,6 +1,97 @@
 {
-  "last_updated": "2026-11-22T12:15:35.273606+09:00",
+  "last_updated": "2026-11-22T13:11:51.293788+09:00",
   "items": [
+    {
+      "id": "94fdb42bf498",
+      "title": "愛子さま、マーライオン見学 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779232/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T13:11:49.678890+09:00",
+      "published_at": "2026-11-21T13:44:13+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "オン・エンチュアン駐日シンガポール大使から観光名所マーライオン像について説明を受けられる天皇、皇后両陛下の長女愛子さま＝２１日、シンガポール（代表撮影） 【時事通信社】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: マーライオン像は仏像ではなく、皇族の外遊記事で仏教と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-22T13:14:11+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "5899c46a64ba",
+      "title": "台湾のお寺巡りの音声ガイド「中台世界博物館・佛陀紀念館」貸出機とスマホの使い分け - 千葉テレビ放送株式会社",
+      "url": "https://www.chiba-tv.com/plus/detail/2026112247681",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T13:11:44.878260+09:00",
+      "published_at": "2026-11-21T22:39:32+09:00",
+      "image_url": "https://img.jp.ekkowassets.com/c_limit,w_360,f_auto,q_auto:eco/ch/images/1496868122825311811/origin_1.jpg",
+      "description": "仏像の手の形や建物に込められた意味を、自分のペースで聞きながら見学する。台湾のお寺巡りに仏教美術の鑑... （台湾さんぽ）（チバテレ+プラス）",
+      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
+      "ai": {
+        "score": 30,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "台湾の寺院の音声ガイド紹介。仏像は触れる程度で国内向け速報性なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T13:14:13+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "1338aab714a9",
+      "title": "台湾のお寺巡りの入館券「中台世界博物館・佛陀紀念館」2館共通券と無料入館 - 千葉テレビ放送株式会社",
+      "url": "https://www.chiba-tv.com/plus/detail/2026112248298",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-22T13:11:42.687624+09:00",
+      "published_at": "2026-11-22T09:39:18+09:00",
+      "image_url": "https://img.jp.ekkowassets.com/c_limit,w_360,f_auto,q_auto:eco/ch/images/1497034156023662176/origin_1.jpg",
+      "description": "台湾のお寺巡りに仏教美術の鑑賞を加えるなら、参拝する建物と、入館券が必要な展示施設を分けて調べると予... （台湾さんぽ）（チバテレ+プラス）",
+      "search_query": "(仁王 OR 三尊 OR 仏教美術)",
+      "ai": {
+        "score": 22,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "台湾の入館券案内で実用情報が中心。仏像の話題は薄く速報性もない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-22T13:14:13+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "6bd88b43a0b4",
       "title": "日テレNEWS NNN 11月20日(金) 18:38 国の重要文化財「石谷家住宅」で日本庭園の特別公開 年に一度、紅葉の時期にだけ 樹齢100年を超える大イチョウも見ごろ 4日間限定 11月23日まで公開 鳥取県智頭町｜報道／ドキュメンタリー｜見逃し無料配信はTVer！人気の動画 - TVer",
@@ -11975,97 +12066,6 @@
         "category": "展覧会",
         "duplicate": true,
         "reason": "配信済みのサントリー美術館法華経展と同一で重複",
-        "event": {
-          "event_name": "法華経の美術――つくるとは、願うこと",
-          "place": "サントリー美術館（東京都港区）",
-          "start_date": "2026-12-12",
-          "end_date": "2027-02-07"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T05:14:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "d3de21b523a6",
-      "title": "「旧山水樓」や旧住友家本邸「長生庵」など大阪の13件、国登録有形文化財に　文化審答申 - Infoseek",
-      "url": "https://news.infoseek.co.jp/amp/article/sankein__life_history_CBZKPV4725LCPI6W3AVZU4XHEU/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T05:11:44.382955+09:00",
-      "published_at": "2026-11-20T19:42:14+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/sankein/sankein__life_history_CBZKPV4725LCPI6W3AVZU4XHEU_0-enlarge.jpg",
-      "description": "国の文化審議会は20日、大阪府箕面市の旧山水樓（音羽山荘）や大阪市天王寺区の長生庵など6カ所13件を登録有形文化財",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "寺院と無関係の登録文化財で重複",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T05:14:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "07cf5ef9262f",
-      "title": "千葉、ダービー制し３連勝 Ｊリーグ - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/gpnews/1779222/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T05:11:42.603573+09:00",
-      "published_at": "2026-11-20T22:57:46+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
-      "description": "明治安田Ｊ１リーグ。千葉は柏を１―０で破り、Ｊ１で１７年ぶりとなった千葉ダービーを制した。千葉は３連勝。写真は後半、先制ゴールを決める呉屋（左）＝２０日、千葉・三協フロンテア柏スタジアム 【時事通信社】",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: Jリーグのサッカー記事で仏教・仏像とは無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T05:14:40+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "52654f26486a",
-      "title": "【プレビュー】「法華経の美術――つくるとは、願うこと」サントリー美術館で12月12日から 絵画・工芸・彫刻・書跡など珠玉の名宝で、法華経美術の真髄に触れる - 美術展ナビ",
-      "url": "https://artexhibition.jp/topics/news/20261116-AEJ3042337/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T05:11:40.413559+09:00",
-      "published_at": "2026-11-21T00:13:00+09:00",
-      "image_url": "https://artexhibition.jp/wp-content/uploads/2026/11/11200px-14.jpg",
-      "description": "サントリー美術館（東京都港区）で、「法華経の美術――つくるとは、願うこと」が12月12日から開催されます。 法華経は、誰もが平等に成仏できることや、現世のあらゆる苦しみ・災いからほとけによって救われることが説かれた仏教の",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 40,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "配信済みの法華経展と同一で重複、彫刻も含む",
         "event": {
           "event_name": "法華経の美術――つくるとは、願うこと",
           "place": "サントリー美術館（東京都港区）",
