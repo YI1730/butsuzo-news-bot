@@ -3227,6 +3227,20 @@
    "reminded": []
   },
   {
+   "id": "e9501a61cc00",
+   "event_name": "室生寺紅葉ライトアップ2026",
+   "place": "室生寺（奈良県宇陀市）",
+   "place_key": "室生寺",
+   "start": "",
+   "end": "2026-11-29",
+   "category": "寺院の行事",
+   "source_url": "https://news.nicovideo.jp/watch/nw20018482",
+   "source_title": "残りあと5日！ 奈良・室生寺の紅葉ライトアップが佳境へ - ニコニコニュース",
+   "source_score": 40,
+   "first_seen": "2026-11-23T11:15:16+09:00",
+   "reminded": []
+  },
+  {
    "id": "f03b663ba592",
    "event_name": "鳥追観音如法寺 紅葉まつり",
    "place": "鳥追観音如法寺（福島県西会津町）",
@@ -3398,6 +3412,20 @@
    "source_title": "切り絵の御朱印も、奈良の4寺院の紅葉楽しんで 恒例の「もみじ回廊」12月6日まで（産経新聞） - Yahoo!ニュース",
    "source_score": 52,
    "first_seen": "2026-11-15T14:14:25+09:00",
+   "reminded": []
+  },
+  {
+   "id": "a0efd7e13421",
+   "event_name": "開創700年記念 特別展「大徳寺 本朝無双之禅苑」",
+   "place": "東京国立博物館（東京都台東区）",
+   "place_key": "東京国立博物館",
+   "start": "",
+   "end": "2026-12-06",
+   "category": "展覧会",
+   "source_url": "https://www.chugainippoh.co.jp/article/news/20261120-001.html",
+   "source_title": "［ニュース］大徳寺や塔頭の寺宝、一堂に 東博で特別展 国宝「看読真詮榜」展観 真珠庵・山田住職指導の坐禅会も - 中外日報社",
+   "source_score": 60,
+   "first_seen": "2026-11-23T11:15:16+09:00",
    "reminded": []
   },
   {
@@ -3826,6 +3854,24 @@
    "news_candidate": true
   },
   {
+   "id": "ec11db7c03ec",
+   "event_name": "国宝 三井寺のすべて",
+   "place": "東京国立博物館（東京都）",
+   "place_key": "東京国立博物館",
+   "start": "2027-04-20",
+   "end": "2027-06-13",
+   "category": "展覧会",
+   "source_url": "https://www.museum.or.jp/event/127356",
+   "source_title": "特別展「国宝 三井寺のすべて」 東京国立博物館 | 東京都（2027年4月20日〜6月13日）",
+   "source_score": 50,
+   "first_seen": "2026-11-23T11:15:16+09:00",
+   "reminded": [],
+   "origin": "exhibition",
+   "remind": false,
+   "exhibit_score": 50,
+   "exhibit_reason": "美術展ナビの同展プレビューが配信済みで重複。大型特別展だが第一報ではなく大幅減点・重複"
+  },
+  {
    "id": "acfc82911400",
    "event_name": "春季特別展 「湯の街のほとけとかみ ―温泉と薬師信仰の美術―（仮称）」",
    "place": "龍谷ミュージアム（京都府京都市）",
@@ -3861,5 +3907,5 @@
    "news_candidate": true
   }
  ],
- "last_updated": "2026-11-23T10:52:56+09:00"
+ "last_updated": "2026-11-23T11:15:16+09:00"
 }
