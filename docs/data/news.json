@@ -1,6 +1,533 @@
 {
-  "last_updated": "2026-11-23T13:11:55.005584+09:00",
+  "last_updated": "2026-11-23T14:12:21.146310+09:00",
   "items": [
+    {
+      "id": "fb42d541ed6e",
+      "title": "首里城正殿、２２日完成式 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779233/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:12:19.866576+09:00",
+      "published_at": "2026-11-21T15:54:04+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "２０１９年の火災で焼失した首里城正殿の復元が終わり、２２日に政府主催の完成式が開かれる＝１２日撮影、那覇市（小型無人機で撮影） 【時事通信社】",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "首里城正殿の完成式で仏像と無関係。22日で終了済み",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T14:16:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "9f26663030ea",
+      "title": "残りあと5日！ 奈良・室生寺の紅葉ライトアップが佳境へ (2026年11月21日掲載) - ライブドアニュース",
+      "url": "https://news.livedoor.com/pr_topics/detail/32868428/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:12:17.787546+09:00",
+      "published_at": "2026-11-21T17:49:32+09:00",
+      "image_url": "https://image.news.livedoor.com/newsimage/stf/2/8/28e54_1886_d4e754a6e484e0e443fd5c0cf57fb3c1.jpg",
+      "description": "奈良の室生寺で紅葉ライトアップ2026が開催中で、境内は見頃の最盛期を迎えている。残る開催日は11月21〜23日と28・29日の5日間で、時間は17時から20時までである。修復中の五重塔の素屋根に青龍を投影し、本堂周辺では約100本の和傘アートも並ぶ",
+      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 45,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "室生寺のライトアップ。仏像に触れず上限内。残り日数わずか",
+        "event": {
+          "event_name": "室生寺 紅葉ライトアップ2026",
+          "place": "室生寺（奈良県宇陀市）",
+          "start_date": "",
+          "end_date": "2026-11-29"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T14:16:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "3f43f236d03f",
+      "title": "2026年度 中国新聞杯～広島市中学校軟式野球大会～ 11/21(土) 試合結果のお知らせ ｜ニュース｜野球振興 - 広島東洋カープ公式サイト",
+      "url": "https://www.carp.co.jp/baseball-promotion/news/20261121_01",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:12:16.365819+09:00",
+      "published_at": "2026-11-21T18:18:24+09:00",
+      "image_url": "https://storage.googleapis.com/production-os-assets/assets/3aea9f66-60f0-47e7-90f1-f69ae8b12790",
+      "description": "",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 中学校軟式野球大会の結果で仏教と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-23T14:16:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "9ce9444df585",
+      "title": "「髪型は観音菩薩」 金沢の社交界を見つめる”利恵ママ” の40年 原点は貧しい幼少期「新聞読めるようなお金持ちに」【前編】 - TBS NEWS DIG",
+      "url": "https://newsdig.tbs.co.jp/articles/mro/3093748",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:12:15.351220+09:00",
+      "published_at": "2026-11-21T18:30:00+09:00",
+      "image_url": "https://newsdig.ismcdn.jp/mwimgs/1/c/1200w/img_1c708c3cc47e626ba03b032f4bdeb176180872.jpg",
+      "description": "加賀百万石の歴史と文化がいまも息づく城下町、石川県金沢市。北陸随一の繁華街・片町は、1000軒を超える飲食店がひしめきます。店を切り盛りする「ママ」を中心に、女性従業員が客をもてなす「高級クラブ」。酒を…",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "「髪型は観音菩薩」は比喩で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T14:16:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e7851123ecf2",
+      "title": "山あいに浮かぶ巨大な顔 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779239/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:12:14.303874+09:00",
+      "published_at": "2026-11-21T19:35:22+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "東京都奥多摩町の山あいに２１日、巨大な人の顔が浮かび上がった。都などが主催する文化芸術祭のプログラムの一つ、「まさゆめ」という作品。国内外から公募して選ばれた実在する人の顔を立体的に再現して浮かべた。 【時事通信社】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 奥多摩の文化芸術祭の巨大な顔の作品で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-23T14:16:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c37aae802db1",
+      "title": "CBR1000RR-R FireBlade/SPの投稿 - GooBike",
+      "url": "https://www.goobike.com/motocle/detail/2122836",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:12:11.239943+09:00",
+      "published_at": "2026-11-21T21:01:50+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: バイク製品の投稿で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-23T14:16:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "f3b7578a399c",
+      "title": "松たか子、グルメロケ“禁断企画”挑戦 隣には復帰したサンドウィッチマン伊達みきお - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2017797?kw=.bhez",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:12:01.825216+09:00",
+      "published_at": "2026-11-22T04:08:12+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/8/2/f/d/82fdb805e4479883efcf1f06d664b652_1.jpg",
+      "description": "俳優の松たか子が、9日放送のテレビ朝日系『帰れマンデー見っけ隊!!』（毎週月曜 後7：00 ※一部地域を除く）に出演する。【写真複数】...",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 俳優のグルメロケ番組で仏教美術と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-23T14:16:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "cb4822318e44",
+      "title": "【札幌】十勝産大豆にこだわる本格台湾スイーツ！「ミミノヤ」の手づくり豆花 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/tjn_poroco/region/tjn_poroco-https_www.poroco.co.jp_newsreport_4151_",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:59.321956+09:00",
+      "published_at": "2026-11-22T07:00:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/-/20261110160945/img/dmenu_service-brand-logo_200x200.png",
+      "description": "台湾出身のオーナーが毎日手づくりする豆花 十勝産大豆と藻岩山の伏流水を使う老舗豆腐店「石田食品」の豆乳…",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 台湾スイーツ店の紹介で仏教関連の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-23T14:16:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "8be333d11501",
+      "title": "ブラジル前大統領、腸閉塞で入院 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779247/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:57.162033+09:00",
+      "published_at": "2026-11-22T09:54:13+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "ブラジルのジャイル・ボルソナロ前大統領（７１）が２０日、腹部の痛みなどを訴え、首都ブラジリアの病院に入院した。検査の結果、腸閉塞を起こしていることが分かり、集中治療室に移された＝２０２５年７月撮影 【AFP時事】",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ブラジル前大統領の入院ニュースで無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-23T14:16:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "baf2701bebc2",
+      "title": "吉田、２位で最終日へ 米女子ゴルフ - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779251/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:55.114696+09:00",
+      "published_at": "2026-11-22T10:04:13+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "ＣＭＥツアー選手権は２１日、フロリダ州ネープルズで第３ラウンドが行われ、前日３位の吉田優利が６バーディー、ノーボギーの６６をマークして通算１７アンダーに伸ばし、最終日を残して首位と１打差の２位につけた 【時事通信社】",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 女子ゴルフの試合結果で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-23T14:16:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "7ddc7fa7fe32",
+      "title": "（広島）福山市手城町４丁目で不審な訪問　１１月１４日［解決］ - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/fushinsha_joho/region/fushinsha_joho-1497160674612020053",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:51.956766+09:00",
+      "published_at": "2026-11-22T17:55:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/region_tmb/16_9/342076.png?fushinsha_joho-1497160674612020053",
+      "description": "広島県警によると、１１月１４日、福山市手城町４丁目で、不審な訪問が発生しました。（実行者の特徴：男性…",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 福山市の不審訪問事件で仏教とは無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-23T14:16:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c819ba72841f",
+      "title": "横綱大の里が７度目Ｖ - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779266/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:49.969018+09:00",
+      "published_at": "2026-11-22T18:54:14+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "大相撲九州場所千秋楽は２２日、福岡国際センターで行われ、横綱大の里（２６）＝石川県出身、二所ノ関部屋＝が１３勝２敗で並んだ平幕若元春との優勝決定戦を制し、２場所連続７度目の優勝を果たした。 【時事通信社】",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 大相撲の優勝記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-23T14:16:14+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "4b9109f47fef",
+      "title": "手を合わせ無病息災願う 井原・嫁いらず観音院で秋季大祭 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/1993267?kw=%E5%8F%96%E6%B0%B4",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:47.854135+09:00",
+      "published_at": "2026-11-23T08:17:51+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/5/c/6/9/5c6976f18663a75ee1e04f77353c3363_1.jpg",
+      "description": "老いても家族の手を煩わせることなく、健康に暮らせる御利益があるとされる嫁いらず観音院（井原市大江町）で２３日、秋季大祭が開かれ、多くの...",
+      "search_query": "(釈迦如来 OR 大日如来 OR 聖観音)",
+      "ai": {
+        "score": 50,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "観音院の秋季大祭の事後報告。仏像の詳細なく終了済み",
+        "event": {
+          "event_name": "嫁いらず観音院 秋季大祭",
+          "place": "嫁いらず観音院（岡山県井原市）",
+          "start_date": "2026-11-23",
+          "end_date": "2026-11-23"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T14:16:21+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-09-23"
+      }
+    },
+    {
+      "id": "9355e23531b8",
+      "title": "千葉・富津市の56m「東京湾観音」拝観終了へ 1961年建設 頭頂部上り絶景見渡す - khb東日本放送",
+      "url": "https://www.khb-tv.co.jp/news/17072613",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:46.535148+09:00",
+      "published_at": "2026-11-23T09:31:09+09:00",
+      "image_url": "https://news.tv-asahi.co.jp/articles_img/000549949_640.jpg",
+      "description": "千葉県富津市にそびえ立つ高さ56メートルの「東京湾観音」。 1961年、当時でおよそ1億2000万円をかけて建設。材木商の男性が、戦没者慰霊と世界平和を祈るために私財をなげうって建てました。 中には300段以上のらせん階段があって、頭頂部ま…",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 66,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "東京湾観音の拝観終了予定の報。時期不明で速報性は中程度",
+        "event": {
+          "event_name": "東京湾観音 拝観終了",
+          "place": "東京湾観音（千葉県富津市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T14:16:21+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-23"
+      }
+    },
+    {
+      "id": "0c45b370ca6f",
+      "title": "木更津で「きさらづコレクション」　指定文化財を一堂に展示 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/minkei/region/minkei-kisarazu53",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:40.474956+09:00",
+      "published_at": "2026-11-23T12:03:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/minkei/m_minkei-kisarazu53.jpg",
+      "description": "木更津市郷土博物館金のすず（木更津市太田）で現在、特別展「きさらづコレクション〜指定文化財展〜」が…",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 55,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "指定文化財展。仏像が含まれるか不明で開催中の告知",
+        "event": {
+          "event_name": "きさらづコレクション〜指定文化財展〜",
+          "place": "木更津市郷土博物館金のすず（千葉県木更津市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T14:16:21+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-23"
+      }
+    },
+    {
+      "id": "6c4f26066c6a",
+      "title": "11/19 つくば・森の里文化祭へ行ってきました。 - 選挙ドットコム",
+      "url": "https://go2senkyo.com/seijika/140975/posts/1588833",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:37.837655+09:00",
+      "published_at": "2026-11-23T13:13:03+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "地域の文化祭の個人ブログで仏像無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T14:16:21+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "1ffb9ad74bd7",
+      "title": "重文指定「新たな出発点」 南砺市・井波別院瑞泉寺の本堂、太子堂、山門、鐘楼堂が指定 - 47NEWS",
+      "url": "https://www.47news.jp/15273323.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-23T14:11:35.967930+09:00",
+      "published_at": "2026-11-23T13:24:15+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/d55df340b852c11321537a1369284561/photo.jpg",
+      "description": "南砺市の井波別院瑞泉寺の本堂、太子堂、山門、鐘楼堂の4棟が国重要文化財（重文）に指定されるのを祝う会が20日夜、同市の井波木彫りの里創遊館で開かれた。寺や同寺未来継承推進委、真宗大谷派（東本願寺）、 ...",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 55,
+        "category": "発見・研究・新指定",
+        "duplicate": false,
+        "reason": "瑞泉寺の建造物の重文指定祝賀会。仏像でなく指定後の話",
+        "event": {
+          "event_name": "",
+          "place": "井波別院瑞泉寺（富山県南砺市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-23T14:16:21+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-22"
+      }
+    },
     {
       "id": "4eb92b9ef099",
       "title": "真庭・普門寺で「四季桜」見頃 ２３日まで一帯でまつり - 山陽新聞",
@@ -11131,347 +11658,6 @@
       }
     },
     {
-      "id": "61566c62c7f4",
-      "title": "ベトナムで最も貴重な黄金の宝物が、1300年以上ぶりに一般公開される。 - Vietnam.vn",
-      "url": "https://www.vietnam.vn/ja/bao-vat-vang-doc-nhat-viet-nam-lan-dau-ra-mat-cong-chung-sau-hon-1-300-nam",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:12:00.188599+09:00",
-      "published_at": "2026-11-20T16:38:13+09:00",
-      "image_url": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/17/1794902469959_bao-vat-vang-doc-nhat-viet-nam-lan-dau-ra-mat-cong-chung-sau-hon-1-1419.jpeg",
-      "description": "ラム川沿いの古代の塔の奥深くに13世紀以上も眠っていた、金でできた唯一無二の国宝であるタップニャン遺物箱が、行列を組んで初めて一般公開されることになった。",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 15,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "ベトナムの遺物箱で仏像ではなく日本の読者向けでない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T21:14:35+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b611dcbba8aa",
-      "title": "闇夜に鮮やか永観堂の紅葉 京都、3千本ライトアップ - 北海道新聞デジタル",
-      "url": "https://www.hokkaido-np.co.jp/article_photo/list/?article_id=1410830&pid=15940188",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:55.270423+09:00",
-      "published_at": "2026-11-21T06:16:52+09:00",
-      "image_url": "https://static.hokkaido-np.co.jp/image/article/size1/3/e/c/2/3ec2df74fa173e3504476377a5269965_1.webp?20261121211154",
-      "description": "紅葉の名所として知られる永観堂禅林寺（京都市左京区）で18日、夜の特別拝観のライトアップが20日に始まるのを前に試験点灯が行われた。赤や黄に色づき始めたモミジが照らされ、闇夜に鮮やかに浮かび上がった...",
-      "search_query": "\"永観堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 35,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "永観堂の紅葉ライトアップで仏像に触れず上限内、開催中",
-        "event": {
-          "event_name": "永観堂 夜の特別拝観ライトアップ",
-          "place": "永観堂禅林寺（京都府京都市）",
-          "start_date": "2026-11-20",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T21:14:35+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "062bca2df5b0",
-      "title": "菊川観音 西福寺の今日・明日の天気 週末の天気・紫外線情報【お出かけスポット天気】 - tenki.jp",
-      "url": "https://tenki.jp/leisure/5/25/171/187875/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:52.902368+09:00",
-      "published_at": "2026-11-21T08:05:32+09:00",
-      "image_url": "https://d2goguvysdoarq.cloudfront.net/system/facility_photos/photos/311808/normal.jpeg?1786495411&w=640&h=640&t=r",
-      "description": "菊川観音 西福寺の今日明日の天気。紫外線情報やお出かけ指数などの天気予報の他、施設情報や口コミ、お得なチケット情報を掲載しています。10日間予報や3日先までの1時間予報も閲覧可能。天気予報専門サイトだからどこよりも詳しくお出かけ先の天気をお届けします。",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "天気予報ページで情報価値なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T21:14:35+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "4fa5384c2d39",
-      "title": "「カンヌ監督週間 in Tokio」12月5日から13日間開催！ ジュリアン・レジ×李相日監督など豪華ゲスト登壇決定 - Infoseek",
-      "url": "https://news.infoseek.co.jp/amp/article/eigacom_20261121009/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:51.663150+09:00",
-      "published_at": "2026-11-21T16:00:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/eigacom/eigacom_20261121009_0.jpg",
-      "description": "特定非営利活動法人映像産業振興機構（略称：VIPO［ヴィーポ］）は、ヒューマントラストシネマ渋谷にて「カンヌ監督週",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 映画祭の話題で仏像・寺院・仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T21:14:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "6952134c0dd7",
-      "title": "ケロロ軍曹☆ ＃９(テレ東、2026/11/28 09:30 OA)の番組情報ページ - www.tv-tokyo.co.jp",
-      "url": "https://www.tv-tokyo.co.jp/broad_tvtokyo/program/detail/202611/29314_202611280930.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:49.925477+09:00",
-      "published_at": "2026-11-21T16:21:14+09:00",
-      "image_url": "https://www.tv-tokyo.co.jp/txcms/media/pg/L/6f/90/5cb32fa64a6be1ebfe875e5fe8c6.jpg",
-      "description": "ケロロ軍曹☆ ＃９(テレ東、2026/11/28 09:30 OA)の番組情報ページ | テレ東・ＢＳテレ東 7ch(公式)",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: テレビアニメ番組情報で仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T21:14:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1d2277eb7825",
-      "title": "医療用超音波検査のシート開発 - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779235/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:47.919940+09:00",
-      "published_at": "2026-11-21T16:54:48+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "医療用の超音波検査の際、皮膚に塗るゼリーの代替品として、伸縮性のある透明なシートを開発したと、米マサチューセッツ工科大などの研究チームが２１日までに米科学誌サイエンスに発表した（同大提供） 【時事通信社】",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 医療用超音波シートの研究で仏教関連なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T21:14:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "892ea4f8cd56",
-      "title": "関文科相の進退焦点に - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779237/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:45.817019+09:00",
-      "published_at": "2026-11-21T17:55:07+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "会費９万円の政治資金パーティーを開催した関芳弘文部科学相の進退が、週明けの焦点となりそうだ。野党は２５日にも問責決議案提出の是非を判断する＝２０日撮影、東京・永田町 【時事通信社】",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 文科相の政治資金問題で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T21:14:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "73f9a8450ee2",
-      "title": "「髪型は観音菩薩」 金沢の社交界を見つめる”利恵ママ” の40年 原点は貧しい幼少期「新聞読めるようなお金持ちに」【前編】 - TBS NEWS DIG",
-      "url": "https://newsdig.tbs.co.jp/articles/mro/3093748?page=2",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:43.748179+09:00",
-      "published_at": "2026-11-21T18:30:00+09:00",
-      "image_url": "https://newsdig.ismcdn.jp/mwimgs/1/c/1200w/img_1c708c3cc47e626ba03b032f4bdeb176180872.jpg",
-      "description": "加賀百万石の歴史と文化がいまも息づく城下町、石川県金沢市。北陸随一の繁華街・片町は、1000軒を超える飲食店がひしめきます。店を切り盛りする「ママ」を中心に、女性従業員が客をもてなす「高級クラブ」。酒を… (2ページ)",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "髪型の比喩で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T21:14:35+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "2d7202fa380b",
-      "title": "ケロロ軍曹 #51【無料ビデオ1週間】 - ABEMA",
-      "url": "https://abema.tv/channels/family-anime-1/slots/F2LFStiwXcNVHy",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:41.462792+09:00",
-      "published_at": "2026-11-21T18:31:22+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: テレビアニメの配信案内で仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T21:14:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b1edac36fe8a",
-      "title": "日本、本玉真唯と坂詰姫野で連勝 - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779241/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:39.650421+09:00",
-      "published_at": "2026-11-21T19:54:09+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "女子テニスの国別対抗戦、ビリー・ジーン・キング杯プレーオフの日本―アルゼンチンは２１日、東京・有明コロシアムで開幕し、日本はシングルスで本玉真唯（写真）、坂詰姫野がそれぞれ勝利した。 【時事通信社】",
-      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 女子テニスの国別対抗戦でスポーツ記事のため無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T21:14:30+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "55a16c1eeceb",
-      "title": "50年ぶりの再公開！足利雷電神社の秘宝「江戸の薬師如来立像」に出会った日11月21日(土)足利... - 選挙ドットコム",
-      "url": "https://go2senkyo.com/seijika/158637/posts/1587797",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T21:11:37.538684+09:00",
-      "published_at": "2026-11-21T20:52:28+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 82,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": false,
-        "reason": "50年ぶり薬師如来立像の再公開、本日開催の第一報で速報性高い",
-        "event": {
-          "event_name": "足利雷電神社 薬師如来立像 再公開",
-          "place": "足利雷電神社（栃木県足利市）",
-          "start_date": "2026-11-21",
-          "end_date": "2026-11-21"
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T21:14:35+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "post_text": "50年ぶりに再公開された、足利雷電神社の薬師如来立像。江戸時代の像で、神社に伝わる秘宝とのこと。半世紀ぶりの姿、気になる。",
-        "post_attempts": 1,
-        "post_format": 7,
-        "notified": true
-      }
-    },
-    {
       "title": "成田山書道美術館 新春特別展「成田山の美術－七条袈裟を中心に－」（1月1日~2月14日）",
       "url": "https://www.naritashodo.jp/",
       "source": "kanbutsu",
@@ -11600,188 +11786,6 @@
       "id": "d5031e503189",
       "fetched_at": "2026-11-21T20:25:05.925847+09:00",
       "image_url": ""
-    },
-    {
-      "id": "6d6f3d2945da",
-      "title": "天の真珠が山々に帰るとき - Vietnam.vn",
-      "url": "https://www.vietnam.vn/ja/khi-nhung-hat-ngoc-troi-tro-ve-voi-nui-non",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T20:12:08.134554+09:00",
-      "published_at": "2026-11-20T10:17:19+09:00",
-      "image_url": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/20/1795136818678_hinh1le-hoi-van-hoa-thien-cam-son-lan-thu-i-chu-de-that-son-hon-thieng-di-san-179508066544217768617-0-0-662-1264-crop-17950807955332028889205.jpeg",
-      "description": "古代ベトナムの人々は米粒を「天の真珠」と呼び、金庫に保管するのではなく、何千年にもわたる建国と防衛の歴史の中で、毎日の食事に欠かせない宝物として大切にしてきた。旧暦10月半ば、これらの真珠は七山地域の「屋根」とされるティエンカムソンで、初めて天と地に捧げられる。",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "ベトナムの米の儀礼で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T20:14:44+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "abc012628752",
-      "title": "新車136万円から！ スバル新型「軽ワゴン」がすごい！ 便利な「電動スライドドア」＆パワフルな「ターボ×4WD」も用意！ リッター22.6km走れる低燃費な「ステラ」とは！ - Infoseek",
-      "url": "https://news.infoseek.co.jp/amp/article/kurumanews_1143782/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T20:12:02.229266+09:00",
-      "published_at": "2026-11-21T08:10:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/kurumanews/kurumanews_1143782_0-enlarge.jpg",
-      "description": "スバルは2026年8月6日、軽ハイトワゴン「ステラ」の改良モデルを発表しました。日常の足として親しまれる同車は、ど",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 自動車の新車情報で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T20:14:39+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "3da005789c62",
-      "title": "「髪型は観音菩薩」 金沢の社交界を見つめる”利恵ママ” の40年 原点は貧しい幼少期「新聞読めるようなお金持ちに」【前編】 - TBS NEWS DIG",
-      "url": "https://newsdig.tbs.co.jp/articles/-/3093748?page=7",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T20:12:00.514652+09:00",
-      "published_at": "2026-11-21T11:00:00+09:00",
-      "image_url": "https://newsdig.ismcdn.jp/mwimgs/1/c/1200w/img_1c708c3cc47e626ba03b032f4bdeb176180872.jpg",
-      "description": "加賀百万石の歴史と文化がいまも息づく城下町、石川県金沢市。北陸随一の繁華街・片町は、1000軒を超える飲食店がひしめきます。店を切り盛りする「ママ」を中心に、女性従業員が客をもてなす「高級クラブ」。酒を… (7ページ)",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "髪型の比喩で仏像と無関係のクラブママ記事",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T20:14:44+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "aaca868ca4fb",
-      "title": "「髪型は観音菩薩」 金沢の社交界を見つめる”利恵ママ” の40年 原点は貧しい幼少期「新聞読めるようなお金持ちに」【前編】 - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/02d0b5998f1264dc2f65ef8366036d73f8503355?page=4",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T20:11:57.329997+09:00",
-      "published_at": "2026-11-21T11:00:31+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261121-23093748-mrov-000-3-view.jpg?exp=10800",
-      "description": "加賀百万石の歴史と文化がいまも息づく城下町、石川県金沢市。北陸随一の繁華街・片町は、1000軒を超える飲食店がひしめきます。【写真で見る】2時間かけて髪をセット金沢の名物ママ店を切り盛りする「ママ」",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 1,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "仏像と無関係で同記事の重複",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T20:14:44+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e383fc640dc3",
-      "title": "金沢駅で工芸品アピール　県内の若手作家の九谷焼や輪島塗並ぶ - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/hokkoku/region/hokkoku-20261121133143",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T20:11:54.064018+09:00",
-      "published_at": "2026-11-21T15:50:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/hokkoku/m_hokkoku-20261121133143.jpg",
-      "description": "石川県伝統産業青年会議のイベント「ＩＳＨＩＫＡＷＡ ＢＬＵＥ ＣＲＡＦＴ 工芸を炙（あぶ）る「青」…",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 工芸品のPRで仏教美術・寺院の話題ではない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-21T20:14:39+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "01571136a98a",
-      "title": "紅葉映える「西の比叡山」参拝者から歓声 夜間ライトアップも 姫路・書写山円教寺 | おでかけトピック | 兵庫おでかけプラス - 神戸新聞",
-      "url": "https://www.kobe-np.co.jp/news/odekake-plus/news/detail.shtml?url=news/odekake-plus/news/pickup/202611/21059288",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-21T20:11:51.455138+09:00",
-      "published_at": "2026-11-21T17:27:00+09:00",
-      "image_url": "https://i.kobe-np.co.jp/news/odekake-plus/news/pickup/202611/21059288/20261121002.1.U01thumb.jpg",
-      "description": "静かな山道を抜けると空が広くなった。荘厳な木造建築が、イチョウやモミジなどに包まれている。橙、黄、赤。書写山円教寺（姫路市書写）の「顔」とも言える「摩尼殿」を目にした参拝者はみな声を上げる。 「…",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 35,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "紅葉とライトアップ中心で仏像に触れず上限内。鮮度は問わず",
-        "event": {
-          "event_name": "書写山円教寺 紅葉ライトアップ",
-          "place": "書写山円教寺（兵庫県姫路市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-21T20:14:44+09:00",
-        "score_version": 8
-      }
     },
     {
       "title": "四天王寺宝物館 「祈りの美－四天王寺と女性たち－」（1月1日~2月7日）",
