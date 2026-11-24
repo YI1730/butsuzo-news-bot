@@ -1,6 +1,98 @@
 {
-  "last_updated": "2026-11-25T03:12:06.444182+09:00",
+  "last_updated": "2026-11-25T03:52:49.193379+09:00",
   "items": [
+    {
+      "id": "de37a6d41df4",
+      "title": "男子は東大寺学園、女子は合同が優勝 - 全国高校ハンドボール選抜大会の奈良県予選 - 奈良新聞",
+      "url": "https://www.nara-np.co.jp/news/20261123204344.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T03:52:47.991604+09:00",
+      "published_at": "2026-11-23T06:00:00+09:00",
+      "image_url": "https://www.nara-np.co.jp/dbimage/article/ba/bac986a29f5137c7f6278efcc1046ded.jpg",
+      "description": "合同(添上・奈良・生駒・奈良女子・奈良大付)",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 東大寺学園は学校名で、ハンドボール大会の記事",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-25T03:55:15+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c4f73fdb3e6b",
+      "title": "【貝塚の国宝1300年大祭】歴史を守ってきたのは「人」だった！行基菩薩の足跡と地域の絆 - 選挙ドットコム",
+      "url": "https://go2senkyo.com/seijika/175592/posts/1588754",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T03:52:46.718566+09:00",
+      "published_at": "2026-11-23T09:41:54+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 40,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "貝塚の国宝（願泉寺か）1300年大祭の記事だが、仏像の具体情報や日程が不明で優先度低め",
+        "event": {
+          "event_name": "貝塚の国宝1300年大祭",
+          "place": "大阪府貝塚市",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-25T03:55:17+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "7f4a542ed002",
+      "title": "「大満足！花火の中にいたみたい…」約1万2000発の花火、晩秋の夜空を彩る…2026年で120回目「長野えびす講煙火大会」ミュージックスターマイン、ドローンと花火がコラボレーションした特別プログラム | SBC NEWS | 長野のニュース | SBC信越放送 (1ページ) - TBS NEWS DIG",
+      "url": "https://newsdig.tbs.co.jp/articles/sbc/3105955?display=1",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T03:52:44.907634+09:00",
+      "published_at": "2026-11-24T11:56:00+09:00",
+      "image_url": "https://newsdig.ismcdn.jp/mwimgs/c/0/1200w/img_c02393a613d427efe11f68610eab47ed82763.jpg",
+      "description": "長野えびす講煙火大会が23日行われ、およそ1万2000発の花火が夜空を彩りました。1899年＝明治32年から始まり、2026年で120回目を数える「長野えびす講煙火大会」。 中ではSBCで放送されたドラマ「VIVANT（… (1ページ)",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 花火大会の記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-25T03:55:15+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "9bec415f0b1a",
       "title": "国宝でフルコースに舌鼓 高岡・勝興寺 - 47NEWS",
@@ -12264,98 +12356,6 @@
         "post_attempts": 1,
         "post_format": 7,
         "notified": true
-      }
-    },
-    {
-      "id": "87d9eb46f09b",
-      "title": "【鎌倉の奇跡】覚園寺×ダニエル・オストの花芸術が圧巻！まさかの本人との出会いも♡ - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/eclat/trend/eclat-206781",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T10:11:46.698542+09:00",
-      "published_at": "2026-11-23T09:03:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eclat/m_eclat-206781.jpg",
-      "description": "鎌倉の静かな山あいに佇む古刹、覚園寺（かくおんじ）。 先日、こちらで開催さ…",
-      "search_query": "\"仁和寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 15,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "花芸術の催しで仏像に触れておらず、終了済みの報告",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T10:14:33+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "b791ebe5d980",
-      "title": "千葉・富津市の56m「東京湾観音」拝観終了へ 1961年建設 頭頂部上り絶景見渡す - テレ朝NEWS",
-      "url": "https://news.tv-asahi.co.jp/news_society/articles/000549949.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T10:11:44.116756+09:00",
-      "published_at": "2026-11-23T09:31:09+09:00",
-      "image_url": "https://news.tv-asahi.co.jp/articles_img/000549949_1200.jpg",
-      "description": "千葉県富津市にそびえ立つ高さ56メートルの「東京湾観音」。 1961年、当時でおよそ1億2000万円をかけて建設。材木商の男性が、戦没者慰霊と世界平和を祈るために私財をなげうって建てました。 中には",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 55,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "巨大観音像の拝観終了告知。仏像関連だが像自体の話は薄い",
-        "event": {
-          "event_name": "東京湾観音 拝観終了",
-          "place": "東京湾観音（千葉県富津市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T10:14:33+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-23"
-      }
-    },
-    {
-      "id": "9c1e5058fce5",
-      "title": "千葉・富津市の56m「東京湾観音」拝観終了へ 1961年建設 頭頂部上り絶景見渡す - ABEMA",
-      "url": "https://abema.tv/video/episode/89-42_s0_p549949",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T10:11:42.083158+09:00",
-      "published_at": "2026-11-23T09:40:32+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 30,
-        "category": "その他の仏像関連",
-        "duplicate": true,
-        "reason": "テレ朝NEWSと同じ東京湾観音の話題で重複",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T10:14:33+09:00",
-        "score_version": 8
       }
     },
     {
