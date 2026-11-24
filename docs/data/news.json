@@ -1,6 +1,128 @@
 {
-  "last_updated": "2026-11-24T15:31:15.440025+09:00",
+  "last_updated": "2026-11-24T15:58:11.712004+09:00",
   "items": [
+    {
+      "id": "4e02e5fc8301",
+      "title": "【社説】焼失から7年 よみがえった首里城正殿 人と技術を次世代へ [法隆寺みらいプロジェクト 金堂壁画] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCN1FLCVCNUSPT004M.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-24T15:58:10.957227+09:00",
+      "published_at": "2026-11-22T19:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "\"法隆寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "首里城正殿の社説で仏像と無関係。法隆寺金堂壁画は壁画で仏像ではない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-24T16:00:29+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e30049075c3e",
+      "title": "百済寺の秘仏公開 甲賀市の「MIHO MUSEUM」で特別展 [滋賀県] - 朝日新聞",
+      "url": "https://www.asahi.com/sp/articles/photo/AS20261122004218.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-24T15:58:01.951970+09:00",
+      "published_at": "2026-11-23T10:45:01+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 55,
+        "category": "展覧会",
+        "duplicate": true,
+        "reason": "配信済みの百済寺秘仏公開と同じ出来事のため重複。大きく減点",
+        "event": {
+          "event_name": "百済寺の秘仏公開 MIHO MUSEUM特別展",
+          "place": "MIHO MUSEUM（滋賀県甲賀市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-24T16:00:29+09:00",
+        "score_version": 8,
+        "page_checked": true
+      }
+    },
+    {
+      "id": "232e731a4ed3",
+      "title": "秘仏の午年開帳終わる 豊川稲荷、23日間の会期中に240万人参拝 - 47NEWS",
+      "url": "https://www.47news.jp/15278329.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-24T15:57:51.695283+09:00",
+      "published_at": "2026-11-24T05:05:00+09:00",
+      "image_url": "https://img.cf.47news.jp/public/photo/f79a3d25abfce0a4088bf75af75945b3/photo.jpg",
+      "description": "豊川市の豊川稲荷（妙厳寺）で72年ぶりに開催された秘仏の午（うま）年開帳が23日、最終日を迎えた。寺によると、23日間の会期中の参拝者数は当初の予想を上回る約240万人となった。 福山憲隆住職らが境 ...",
+      "search_query": "(仏像 OR 如来 OR 開帳)",
+      "ai": {
+        "score": 35,
+        "category": "秘仏・御開帳・特別公開",
+        "duplicate": false,
+        "reason": "72年ぶり開帳だが23日で終了済みの事後報告。終了済みで大幅減点",
+        "event": {
+          "event_name": "豊川稲荷 秘仏午年開帳",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "",
+          "end_date": "2026-11-23"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-24T16:00:29+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "aa97cc6be2e0",
+      "title": "立派なクリスマスツリー！ - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779305/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-24T15:57:46.754849+09:00",
+      "published_at": "2026-11-24T14:59:21+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "２３日、米首都ワシントンのホワイトハウスに到着したクリスマスツリー。高さは約５・５メートルあり、中西部ウィスコンシン州のツリー農園から運ばれてきたという。国賓などを迎える「ブルールーム」に飾られる。 【AFP時事】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ホワイトハウスのクリスマスツリーで仏教・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-24T16:00:25+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "木更津市郷土博物館金のすず 特別展「木更津コレクション－指定文化財展－」（11月3日~12月13日）",
       "url": "https://www.city.kisarazu.lg.jp/soshiki/kyoikuiinkai/kyodohakubutsukankinnosuzu/1/2742.html",
@@ -12222,126 +12344,6 @@
         "score_version": 8,
         "page_checked": true,
         "page_date": "2026-11-22"
-      }
-    },
-    {
-      "id": "16d06fe5b90a",
-      "title": "タップニャン寺の仏舎利箱 ― 遺産を呼び覚ます旅。 - Vietnam.vn",
-      "url": "https://www.vietnam.vn/ja/hop-xa-li-thap-nhan-hanh-trinh-danh-thuc-di-san",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-22T20:11:42.692992+09:00",
-      "published_at": "2026-11-22T19:23:27+09:00",
-      "image_url": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/22/1795336298538_anh-man-hinh-2026-11-22-luc-14-16-08-88203222841218084670924-29393535029634771163460.webp",
-      "description": "vtv8.vtv.vn - ゲアン・ソビエト・ゲティン博物館に、国宝であるタップニャン寺の仏舎利箱専用の展示スペースが開設され、一般の人々にとって特別な魅力となっています。千年以上の歴史を持つ貴重な物質的価値と精巧な工芸品であることに加え、この出来事は、古代ホアンチャウ地域の仏教の文化的・歴史的深みの保存、研究、普及において新たな方向性を示すものでもあります。",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 18,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "ベトナムの仏舎利箱の展示で日本の読者には関連が薄い",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-22T20:14:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "64af006fd6a2",
-      "title": "氷の城壁＞永瀬アンナ×和泉風花ガールズトーク 大人になったからこそ見えること 桃香を「すごく好きになった」 陽太は「菩薩」 湊は？ (MANTANWEB) - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/d1187e619a1165ca74f2c90cd054a7ed5395f0cd",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-22T19:12:13.271611+09:00",
-      "published_at": "2026-11-21T08:05:00+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261121-00000010-mantan-000-1-view.jpg?exp=10800",
-      "description": "阿賀沢紅茶さんのマンガが原作のテレビアニメ「氷の城壁」の第2期が、TBS系28局で毎週木曜午後11時56分に全国同時放送されている。同作は、人と接するのが苦手な氷川小雪、元学校のアイドル・安曇美姫、",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "アニメ作品の対談で「菩薩」は比喩。仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-22T19:14:45+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5e0078a35c77",
-      "title": "写真で観る竜王戦 第39期七番勝負第4局・2日目 藤井聡太竜王が６連覇 服部慎一郎七段を制す - 読売新聞",
-      "url": "https://www.yomiuri.co.jp/slides/s/39ryuousengame4secondday/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-22T19:12:12.031727+09:00",
-      "published_at": "2026-11-21T08:22:34+09:00",
-      "image_url": "https://www.yomiuri.co.jp/images/slides/39ryuousengame4secondday/ogpimage__eff389adac2776758063e308a9bef3cb.jpg?type=slideshow_ogp",
-      "description": "第39期竜王戦七番勝負第4局2日目の写真特集。藤井聡太竜王と挑戦者・服部慎一郎七段の表情や、会場の霧島創業記念館吉助（宮崎県都城市）の風景を紹介する（2026年11月21日公開)",
-      "search_query": "\"仁和寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "将棋の竜王戦の記事で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-22T19:14:45+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e1c459caf777",
-      "title": "映画『国宝』の音楽家・原摩利彦が京都・御寺 泉涌寺で体感した「間（あわい）」…自然と音楽と祈りが溶け合う夜【OTOBUTAI】 - TBS NEWS DIG",
-      "url": "https://newsdig.tbs.co.jp/articles/mbs/3090511?display=1",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-22T19:12:11.625785+09:00",
-      "published_at": "2026-11-21T09:00:00+09:00",
-      "image_url": "https://newsdig.ismcdn.jp/mwimgs/0/a/1200w/img_0a976bb76c79408f67efde9ceeb37fc2815175.jpg",
-      "description": "10月24日、京都にある皇室ゆかりの御寺 泉涌寺（京都・東山区）で「OTOBUTAI 2026 泉涌寺」が開催された。「OTOBUTAI（音舞台）」は、日本屈指の名刹を舞台に、世界で活躍するアーティストが珠玉のパフォーマンス… (1ページ)",
-      "search_query": "\"清水寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 22,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "泉涌寺の音楽イベントの事後レポート。仏像に触れず終了済み",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-22T19:14:45+09:00",
-        "score_version": 8
       }
     },
     {
