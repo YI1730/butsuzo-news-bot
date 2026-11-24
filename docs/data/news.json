@@ -1,6 +1,97 @@
 {
-  "last_updated": "2026-11-24T23:11:52.068706+09:00",
+  "last_updated": "2026-11-25T00:11:52.174578+09:00",
   "items": [
+    {
+      "id": "ccf0ab7a2116",
+      "title": "国宝でフルコースに舌鼓 高岡・勝興寺｜社会｜富山のニュース｜富山新聞 - 北國新聞",
+      "url": "https://www.hokkoku.co.jp/articles/-/2298659",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T00:11:50.751388+09:00",
+      "published_at": "2026-11-23T05:00:00+09:00",
+      "image_url": "https://hokkoku.ismcdn.jp/mwimgs/f/3/1200wm/img_f3e391c6dfd5c0818cd9bf79f93c844f191230.jpg",
+      "description": "●建物ガイドも楽しむ 高岡市伏木古国府の国宝勝興寺を舞台とし…",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 22,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "国宝勝興寺の食事企画で仏像に触れず建物中心。配信43時間経過",
+        "event": {
+          "event_name": "",
+          "place": "勝興寺（富山県高岡市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-25T00:14:23+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "650d0fff8914",
+      "title": "藤浪晋太郎投手の獲得を発表 プロ野球 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779274/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T00:11:49.130460+09:00",
+      "published_at": "2026-11-23T11:28:46+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "オリックスは２３日、ＤｅＮＡを戦力外になった藤浪晋太郎投手（３２）の獲得を発表した。同日、入団記者会見に臨む。背番号はＤｅＮＡでつけた２７。 【時事通信社】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: プロ野球選手の移籍記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-25T00:14:20+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "d2f347f0ea2a",
+      "title": "チームラボ、浜離宮庭園で特別企画展 - 川口経済新聞",
+      "url": "https://kawaguchi.keizai.biz/gpnews/1779328/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T00:11:45.213413+09:00",
+      "published_at": "2026-11-24T23:58:59+09:00",
+      "image_url": "https://images.keizai.biz/kawaguchi_keizai/globalphoto/",
+      "description": "都内の浜離宮恩賜庭園で内覧会が行われたアート集団ｔｅａｍＬａｂによる「チームラボ 浜離宮」。「ＡＲＴＥ ＴＯＫＹＯ（東京国際文化芸術祭）」の特別企画として１２月２４日まで開催＝２４日 【時事通信フォト】",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "庭園でのアート展で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-25T00:14:23+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "ef8a80806f24",
       "title": "行田市「真観寺」の秘仏・聖観世音菩薩立像。12年に１度の「午歳御開帳」。くじが吉で扉が開いた！（田中ひろみ） - エキスパート - Yahoo!ニュース",
@@ -12310,98 +12401,6 @@
         "model": "claude-haiku-5-5",
         "prefiltered": true,
         "scored_at": "2026-11-23T05:22:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "d88f1613f65e",
-      "title": "少数与党での新政権模索 イスラエル - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779259/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T05:20:05.152959+09:00",
-      "published_at": "2026-11-22T16:54:14+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "１０月下旬のイスラエル総選挙を受け、新政権樹立に向けた連立交渉を進める中道政党ヤシャルのアイゼンコット党首は、各党との交渉が不調に終わった場合、少数与党による政権発足を目指す構えだ＝１７日撮影 【EPA時事】",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 海外政治の記事で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-23T05:22:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1319fc9c09c3",
-      "title": "誠文堂新光社、在庫切れの書籍15点を重版 11月より順次入手可能に - Dellows News",
-      "url": "https://news.dellows.jp/984223/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T05:20:02.521333+09:00",
-      "published_at": "2026-11-23T02:25:26+09:00",
-      "image_url": "https://news.dellows.jp/wp-content/uploads/2026/11/984223_1.jpg",
-      "description": "株式会社 誠文堂新光社は、在庫切れとなっていた書籍15点を重版したと発表した。 対象となる書籍は、11月より順次各書店、ネット書店で入手可能になるとしている。実用書や教養書、料理書など多岐にわたる分野",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 出版社の重版情報で仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-23T05:22:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "66a70eb9f1cd",
-      "title": "氷の城壁＞永瀬アンナ×和泉風花ガールズトーク 大人になったからこそ見えること 桃香を「すごく好きになった」 陽太は「菩薩」 湊は？（MANTANWEB） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/d1187e619a1165ca74f2c90cd054a7ed5395f0cd?page=3",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T05:11:50.667111+09:00",
-      "published_at": "2026-11-21T08:05:00+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261121-00000010-mantan-000-1-view.jpg?exp=10800",
-      "description": "阿賀沢紅茶さんのマンガが原作のテレビアニメ「氷の城壁」の第2期が、TBS系28局で毎週木曜午後11時56分に全国同時放送されている。同作は、人と接するのが苦手な氷川小雪、元学校のアイドル・安曇美姫、",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "アニメの対談記事で「菩薩」は比喩。仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T05:15:49+09:00",
         "score_version": 8
       }
     },

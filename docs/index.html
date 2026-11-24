@@ -64,7 +64,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月24日 23:11<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
+        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月25日 00:11<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -659,7 +659,7 @@
         </a>
         <a href="https://go2senkyo.com/seijika/180455/posts/1582994" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0">
           <span class="text-xs font-bold text-brand-800 w-24 shrink-0">11/25〜11/25</span>
-          <span class="text-xs text-gray-700 leading-snug"> 古都鎌倉 秋の緑と歴史探訪<span class="block text-[11px] text-gray-400">鎌倉大仏・長谷寺（神奈川県鎌倉市）</span></span>
+          <span class="text-xs text-gray-700 leading-snug"><span class="text-[10px] font-bold text-white bg-brand-600 px-1.5 py-0.5 rounded">公開中</span> 古都鎌倉 秋の緑と歴史探訪<span class="block text-[11px] text-gray-400">鎌倉大仏・長谷寺（神奈川県鎌倉市）</span></span>
         </a>
         <a href="https://topics.smt.docomo.ne.jp/article/eventbank/region/eventbank-10653291" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0">
           <span class="text-xs font-bold text-brand-800 w-24 shrink-0">11/26〜11/27</span>
@@ -11442,9 +11442,10 @@
     </div>
       <div id="news-time-list" class="space-y-3"></div>
     <details id="prefiltered-box" class="rounded-xl border border-gray-200 bg-white px-3 py-2 mt-6">
-      <summary class="text-xs text-gray-500 cursor-pointer">一次判定で落とした記事（直近14日・511件）</summary>
+      <summary class="text-xs text-gray-500 cursor-pointer">一次判定で落とした記事（直近14日・512件）</summary>
       <p class="text-[11px] text-gray-400 mt-1">仏像と関係ありそうなのに落ちていたら教えてください</p>
       <ul class="mt-1">
+        <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://okayama.keizai.biz/gpnews/1779274/" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">藤浪晋太郎投手の獲得を発表 プロ野球 - 岡山経済新聞</a><span class="block text-[11px] text-gray-400">11-25・プロ野球選手の移籍記事で仏像・寺院と無関係</span></li>
         <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://okayama.keizai.biz/gpnews/1779298/" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">阿部が出場権獲得 米女子ゴルフ予選 - 岡山経済新聞</a><span class="block text-[11px] text-gray-400">11-24・ゴルフ選手の出場権獲得の記事で仏教と無関係</span></li>
         <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://topics.smt.docomo.ne.jp/amp/article/buzzfeed/entertainment/buzzfeed-8140184" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">「いつもと違う」ミセス大森の解禁された姿に「なんなんだこれは？」「いくつの顔があるのでしょうか」と驚きの声 - ｄメニューニュース</a><span class="block text-[11px] text-gray-400">11-24・芸能人のファッション記事で仏像・寺院と無関係</span></li>
         <li class="py-1.5 border-t border-gray-100 first:border-t-0"><a href="https://okayama.keizai.biz/gpnews/1779310/" target="_blank" rel="noopener" class="text-xs text-gray-700 underline break-words">２６日にダブル世界戦 ボクシング - 岡山経済新聞</a><span class="block text-[11px] text-gray-400">11-24・ボクシングの世界戦で仏教・仏像と無関係</span></li>
@@ -26340,7 +26341,7 @@ Deevoka レジン彫刻 仏像 細密彫刻 置物 伝統意匠 卓上装飾 四
 
     // 表示中のページより新しい版が公開されていれば読み直す（data/version.json と比べる）。
     // スマホによっては、アプリを開き直しても前の表示のまま残ることがあるため
-    const PAGE_UPDATED = '2026-11-24T23:11:52.068706+09:00';
+    const PAGE_UPDATED = '2026-11-25T00:11:52.174578+09:00';
     function checkFreshness() {
       fetch('data/version.json?t=' + Date.now(), { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
