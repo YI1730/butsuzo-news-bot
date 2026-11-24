@@ -1,6 +1,128 @@
 {
-  "last_updated": "2026-11-24T20:26:27.182983+09:00",
+  "last_updated": "2026-11-24T21:11:57.131076+09:00",
   "items": [
+    {
+      "id": "5af77348a85c",
+      "title": "ドイツで北海道誘客セミナー - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779297/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-24T21:11:54.729461+09:00",
+      "published_at": "2026-11-24T09:54:21+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "ドイツの首都ベルリンで２３日、北海道への誘客を狙った現地観光関係者向けのセミナーが開かれた。自然や食の魅力を打ち出し、「グルメにトレッキング、温泉と何でもそろっている」と売り込んだ。 【時事通信社】",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 北海道観光誘客セミナーで仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-24T21:14:30+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "0444f8c62705",
+      "title": "【開催済】御堂陽願寺 光格天皇とお茶【秋】 - ふーぽ",
+      "url": "https://fupo.jp/event/tujiri_2026/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-24T21:11:52.558863+09:00",
+      "published_at": "2026-11-24T12:01:05+09:00",
+      "image_url": "https://fupo.jp/wp-content/uploads/2026/11/a71da57d4ddc199808c182c94223a652_omote.jpg",
+      "description": "",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 10,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "開催済みの茶と光格天皇の催し。仏像の話題でなく終了済みで速報性なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-24T21:14:33+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "57b2d3d264c7",
+      "title": "絶景紅葉の舞台裏 担い手不足にシニア奮闘 大混雑も冷静対処 83歳、急斜面との戦い - テレ朝NEWS",
+      "url": "https://news.tv-asahi.co.jp/news_economy/articles/900205116.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-24T21:11:51.374301+09:00",
+      "published_at": "2026-11-24T16:05:00+09:00",
+      "image_url": "https://news.tv-asahi.co.jp/articles_img/900205116_1200.jpg",
+      "description": "今、各地で紅葉のイベントが盛り上がっています。そこには秋の絶景を支えているシニアの存在がありました。",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 紅葉イベントの担い手不足の話題で仏像・寺院の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-24T21:14:30+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "ca7ccc5b74a2",
+      "title": "樹齢800年超の大イチョウの枝、大雪で折れる 福島・新宮熊野神社 [福島県] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCS2VWJVCSUGTB009M.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-24T21:11:49.285261+09:00",
+      "published_at": "2026-11-24T18:15:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "神社の大イチョウの被害で仏像と無関係。速報でも配信対象外",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-24T21:14:33+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "碧南市藤井達吉現代美術館 「称名寺と時宗の宝物展」（1月23日~2月28日）",
       "url": "https://www.city.hekinan.lg.jp/museum/index.html",
@@ -12286,128 +12408,6 @@
         "post_attempts": 1,
         "post_format": 7,
         "notified": true
-      }
-    },
-    {
-      "id": "95be2c1344c5",
-      "title": "龍翔博物館で豊原寺跡の石仏を展示 大部分が初公開 - Dellows News",
-      "url": "https://news.dellows.jp/1228606/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T03:11:40.242740+09:00",
-      "published_at": "2026-11-23T02:24:55+09:00",
-      "image_url": "https://news.dellows.jp/wp-content/uploads/2026/11/1228606_1.jpg",
-      "description": "福井県坂井市の龍翔博物館で、特別展「豊原寺跡の石仏たち」が12月６日まで開かれている。豊原寺跡から出土した石仏17体をはじめ、石塔など約43点を展示し、大部分の石仏は今回が初公開となる。 豊原寺跡から",
-      "search_query": "(木像 OR 薬師如来 OR 阿弥陀如来)",
-      "ai": {
-        "score": 72,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "地域の石仏17体、大半が初公開の開催中展。12月6日まで",
-        "event": {
-          "event_name": "特別展「豊原寺跡の石仏たち」",
-          "place": "龍翔博物館（福井県坂井市）",
-          "start_date": "",
-          "end_date": "2026-12-06"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T03:15:54+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-17"
-      }
-    },
-    {
-      "id": "8be63d27b1bd",
-      "title": "京都府綾部市の法隆寺東光院で夜間イベント光幻の世界を開催へ 竹あかりと映像融合 - Dellows News",
-      "url": "https://news.dellows.jp/760300/?from=related-reading-list",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T02:11:54.795156+09:00",
-      "published_at": "2026-11-21T02:48:39+09:00",
-      "image_url": "https://news.dellows.jp/wp-content/uploads/2026/10/760300_1.jpg",
-      "description": "京都府綾部市上延町の法隆寺東光院で、10月30日(金)から11月3日(火)までの5日間、竹あかりとプロジェクションマッピングを融合した夜間特別イベント「光幻(こうげん)の世界」が開催されます。飛鳥時代",
-      "search_query": "\"法隆寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 15,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "夜間イベントで仏像に触れず、期間も11/3で終了済み",
-        "event": {
-          "event_name": "光幻の世界",
-          "place": "法隆寺東光院（京都府綾部市）",
-          "start_date": "2026-10-30",
-          "end_date": "2026-11-03"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T02:15:31+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "96884aa5ebab",
-      "title": "【紅葉・見ごろ】瑞宝寺公園 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/eventbank/region/eventbank-10655821",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T02:11:51.211311+09:00",
-      "published_at": "2026-11-21T10:00:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10655821.jpg",
-      "description": "太閤秀吉愛用の石の碁盤がある紅葉の名所 有馬温泉の南東部に位置する瑞宝寺公園は、1873年に廃寺になっ…",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "紅葉名所の紹介で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T02:15:31+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "78ae2899ce09",
-      "title": "【岡山市東区】西大寺観音院ちかくに「寺カフェ 五福のSANPOMICHI」ってテイクアウト専門お寺カフェができるみたい。12月12日（土）オープン - 岡山おにさんぽ",
-      "url": "https://onisanpo.com/open/111022/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T02:11:48.387488+09:00",
-      "published_at": "2026-11-21T20:14:42+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 10,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "寺カフェ開店の話題で仏像に触れていない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T02:15:31+09:00",
-        "score_version": 8
       }
     },
     {
