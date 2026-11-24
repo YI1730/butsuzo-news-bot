@@ -1,6 +1,247 @@
 {
-  "last_updated": "2026-11-25T06:53:42.925798+09:00",
+  "last_updated": "2026-11-25T07:12:12.159283+09:00",
   "items": [
+    {
+      "id": "rem-1f57e9543070-start",
+      "title": "池上大坊本行寺　暮秋ランタン祈願祭 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/eventbank/region/eventbank-10653291",
+      "source": "reminder",
+      "header": "【あすから公開】",
+      "hashtags": "",
+      "fetched_at": "2026-11-25T07:16:26+09:00",
+      "published_at": "2026-11-25T07:16:26+09:00",
+      "image_url": "",
+      "ai": {
+        "score": 90,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "あすから公開（御開帳カレンダー）",
+        "post_text": "あす11月26日・27日、東京・池上大坊本行寺で暮秋ランタン祈願祭。日蓮聖人の入滅時に季節外れの桜が咲いた伝承にちなみ、桜色のランタンバルーンが夜空へ。17時から21時、秘蔵の寺宝絵画の特別公開もあるみたい。",
+        "post_header": "【あすから公開】",
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "f5f3c477ad28",
+      "title": "イノシシの生命力にあやかる　縄文人の生活紹介する特別展　山梨 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/mainichi_20261122k0000m310052000c/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T07:12:12.158768+09:00",
+      "published_at": "2026-11-23T08:45:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/mainichi/mainichi_20261122k0000m310052000c_0-enlarge.jpg",
+      "description": "イノシシを装飾した土器や遺跡から大量に出土した骨など、イノシシと密接に関わっていた縄文人の生活を紹介する特別展「縄",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "縄文土器の特別展で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-25T07:15:43+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "f7807263a102",
+      "title": "百済寺の秘仏公開 甲賀市の「MIHO MUSEUM」で特別展 [滋賀県] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCQ460MVCQPTJB00PM.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T07:12:11.683202+09:00",
+      "published_at": "2026-11-23T10:45:01+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 80,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "百済寺の秘仏公開の特別展。内容詳細は不明だが告知として有効、期間不明",
+        "event": {
+          "event_name": "百済寺の秘仏公開 特別展",
+          "place": "MIHO MUSEUM（滋賀県甲賀市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-25T07:15:43+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-23",
+        "official_url": "",
+        "official_image": "",
+        "post_text": "滋賀・百済寺の秘仏が、甲賀市のMIHO MUSEUMの特別展で公開されるそう。ふだんは厨子の奥におられる像が、美術館でどんな姿を見せてくれるのか。気になる。",
+        "post_attempts": 1,
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "b4c3fdd544f9",
+      "title": "マルカンビル大食堂名物「ナポリかつ」、ロピア花巻店で発売 厳選厚切りカツを使用、ボリューム満点 - なびたび北東北",
+      "url": "https://www.navitabi.jp/article/11725",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T07:12:03.415370+09:00",
+      "published_at": "2026-11-23T10:56:29+09:00",
+      "image_url": "https://www.navitabi.jp/data/img/2026/1123/117250200MA37214197.jpg",
+      "description": "食品スーパー・ロピア花巻店は２１日、花巻市のマルカンビル大食堂との初のコラボ商品「ナポリかつ」を発売した。 豚カツとナポリタンを組み合わせた同食堂の看板料理をアレンジした。肉類の「目利き」に定評があ…",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: スーパーのグルメ商品で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-25T07:15:38+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "50a6d9d5d96d",
+      "title": "宮沢賢治と美術の関係ひもとく生誕130年企画展 文学作品や絵画など173点 花巻・萬鉄五郎記念美術館 - なびたび北東北",
+      "url": "https://www.navitabi.jp/article/11724",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T07:12:02.862872+09:00",
+      "published_at": "2026-11-23T10:56:29+09:00",
+      "image_url": "https://www.navitabi.jp/data/img/2026/1123/117240100MA25239360.jpg",
+      "description": "花巻市東和町の萬鉄五郎記念美術館は、企画展「生誕１３０年 宮沢賢治展 岩手の美術風土と賢治－」を開いている。同市で生まれ詩人、童話作家、科学者などとして多面的な活動を展開した宮沢賢治（１８９６～１９…",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "宮沢賢治の企画展で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-25T07:15:43+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "f0c086484a60",
+      "title": "（学びを語る）型にはまらず創作 音楽は人との関係性が生む 蓮沼執太さん - 朝日新聞",
+      "url": "https://www.asahi.com/articles/DA3S16594847.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T07:12:01.186690+09:00",
+      "published_at": "2026-11-25T05:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 音楽家インタビューで仏教美術や寺院の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-25T07:15:38+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "b2aa57c7e3df",
+      "title": "【ＢＳ日テレ】豊臣秀吉が寵愛した京極竜子の面影を映した“茶釜”や秀吉と対立の真相・・・切腹約1年前の千利休の直筆書簡を特別公開！「磯田道史の歴史をゆく」11月25日（水）よる9時放送 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/prtimes_000001127_000125910/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T07:11:51.691335+09:00",
+      "published_at": "2026-11-25T05:40:02+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "[画像1:https://prcdn.freetls.fastly.net/release_image/12591",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "テレビ番組の宣伝で千利休の書簡、仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-25T07:15:43+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "85a6ccaa8416",
+      "title": "［佐賀県］唐津描く屏風絵 寺に奉納 京都の絵描きユニット「だるま商店」制作 副住職と縁、妙智院で11月28、29日特別公開 - 西日本新聞me",
+      "url": "https://www.nishinippon.co.jp/item/1564104/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T07:11:49.718082+09:00",
+      "published_at": "2026-11-25T06:00:00+09:00",
+      "image_url": "https://www.nishinippon.co.jp/uploads/image/1963323/sns_IP261123JAA000127000.jpg",
+      "description": "深紫の海を泳ぐ呼子のイカ、唐津くんちの曳山（ひきやま）巡行…。京都を拠点に活動する2人組の絵描きユニット「だるま商店」が唐津の町を色鮮...｜西日本新聞meは、九州のニュースを中心に最新情報を伝えるニュースサイトです。九州・福岡の社会、政治、経済などのニュースを提供します。",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 38,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "屏風絵の奉納公開で絵画が主役、仏像に触れず。3日後開催だが上限内",
+        "event": {
+          "event_name": "唐津描く屏風絵 特別公開",
+          "place": "妙智院（佐賀県唐津市）",
+          "start_date": "2026-11-28",
+          "end_date": "2026-11-29"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-25T07:15:43+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "日本民藝館 「蓮の意匠－東アジアの絵画と工芸」（6月10日~8月15日）",
       "url": "https://mingeikan.or.jp/",
@@ -12107,227 +12348,6 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-23T11:14:58+09:00",
         "score_version": 8
-      }
-    },
-    {
-      "id": "12ccad296aff",
-      "title": "横浜が４強入り 明治神宮野球 - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779238/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T11:12:21.049956+09:00",
-      "published_at": "2026-11-21T19:35:22+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "第５７回明治神宮野球大会は２１日、神宮球場で準々決勝が行われ、高校の部で横浜（関東・神奈川）が仙台育英（東北・宮城）に８―７でサヨナラ勝ちし、準決勝に進んだ。写真は、力投する横浜の小林鉄。 【時事通信社】",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 明治神宮野球大会のスポーツ記事で仏教と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-23T11:14:48+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "6dba37d197e9",
-      "title": "台湾のお寺巡りの音声ガイド「中台世界博物館・佛陀紀念館」貸出機とスマホの使い分け - 千葉テレビ放送株式会社",
-      "url": "https://www.chiba-tv.com/plus/detail/amp/2026112247681",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T11:12:18.205841+09:00",
-      "published_at": "2026-11-21T22:39:32+09:00",
-      "image_url": "https://img.jp.ekkowassets.com/c_limit,w_360,f_auto,q_auto:eco/ch/images/1496868122825311811/origin_1.jpg",
-      "description": "仏像の手の形や建物に込められた意味を、自分のペースで聞きながら見学する。台湾のお寺巡りに仏教美術の鑑... （台湾さんぽ）（チバテレ+プラス）",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 30,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "台湾寺院の音声ガイド紹介で国内公開情報ではない",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T11:14:58+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5a54d2ae60a8",
-      "title": "室生寺紅葉ライトアップ2026が最盛期へ、五重塔の青龍投影など限定演出を実施 - South65",
-      "url": "https://south65.jp/%E5%AE%A4%E7%94%9F%E5%AF%BA%E7%B4%85%E8%91%89%E3%83%A9%E3%82%A4%E3%83%88%E3%82%A2%E3%83%83%E3%83%972026%E3%81%8C%E6%9C%80%E7%9B%9B%E6%9C%9F%E3%81%B8%E3%80%81%E4%BA%94%E9%87%8D%E5%A1%94%E3%81%AE/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T11:12:15.800215+09:00",
-      "published_at": "2026-11-22T01:45:29+09:00",
-      "image_url": "",
-      "description": "室生寺紅葉ライトアップ2026が、奈良県宇陀市の室生寺で開催中です。境内の紅葉が見頃の最盛期を迎える中、今秋限定の幻想的な特別演出が多くの参拝者を魅了しています。イベント概要大本山室生寺の境内を彩るモミジやカエデが見頃を迎えています。国宝・五重塔の保存修復工事に伴う特別演出や、夜間ならではの和傘アートなど、この時期だけの絶景が楽しめます。残り開催日：2026年11月21日（土）・22日（日）・23日（月・祝）、28日（土）・29日（日）時間：17:00〜20:00（入山受付は19:30まで）会場：大...",
-      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 38,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "室生寺ライトアップの重複記事。仏像不在で上限内",
-        "event": {
-          "event_name": "室生寺紅葉ライトアップ2026",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "2026-11-21",
-          "end_date": "2026-11-29"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T11:14:58+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "83eedb897372",
-      "title": "残りあと5日！ 奈良・室生寺の紅葉ライトアップが佳境へ - anemo（アネモ）",
-      "url": "https://www.anemo.co.jp/topics/lifestyle/leisure/443984-20261122/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T11:12:10.989381+09:00",
-      "published_at": "2026-11-22T09:11:08+09:00",
-      "image_url": "https://www.anemo.co.jp/wp-content/uploads/2026/11/443984.jpg",
-      "description": "大本山室生寺（奈良県宇陀市）で開催中の夜間特別拝観「室生寺紅葉ライトアップ2026」では、境内のモミジやカエデが一斉に色づき、いよいよ見頃の最盛期を迎えています。残りの開催日は本日11月21日（土）からの3連休と来週末（28日・29日）の5",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 30,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "室生寺ライトアップの重複記事で仏像に触れず",
-        "event": {
-          "event_name": "室生寺紅葉ライトアップ2026",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "2026-11-21",
-          "end_date": "2026-11-29"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T11:14:58+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "ce6b8d90abd9",
-      "title": "室生寺紅葉ライトアップ2026 - 奈良新聞",
-      "url": "https://www.nara-np.co.jp/event/ev10654216.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T11:12:06.080159+09:00",
-      "published_at": "2026-11-23T01:37:11+09:00",
-      "image_url": "https://www.nara-np.co.jp/dbimage/eventbank/10654216.jpg",
-      "description": "今年だけの貴重な景色に会いに行こう",
-      "search_query": "\"室生寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 28,
-        "category": "寺院の行事",
-        "duplicate": true,
-        "reason": "室生寺ライトアップの重複記事で仏像に触れず",
-        "event": {
-          "event_name": "室生寺紅葉ライトアップ2026",
-          "place": "室生寺（奈良県宇陀市）",
-          "start_date": "2026-11-21",
-          "end_date": "2026-11-29"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T11:14:58+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "6b5e4139b895",
-      "title": "千葉・富津市の56m「東京湾観音」拝観終了へ 1961年建設 頭頂部上り絶景見渡す - KFB福島放送",
-      "url": "https://www.kfb.co.jp/news/article/17072622",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T11:12:03.460885+09:00",
-      "published_at": "2026-11-23T09:31:00+09:00",
-      "image_url": "https://news.tv-asahi.co.jp/articles_img/000549949_640.jpg",
-      "description": "千葉県富津市にそびえ立つ高さ56メートルの「東京湾観音」。 1961年、当時でおよそ1億2000万円をかけて建設。材木商の男性が、戦没者慰霊と世界平和を祈るために私財をなげうって建てました。 中には300段以上のらせん階段があって、頭頂部ま…",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 55,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "東京湾観音の拝観終了の第一報。終了日不明で像の話題",
-        "event": {
-          "event_name": "東京湾観音 拝観",
-          "place": "東京湾観音（千葉県富津市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T11:14:58+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-23"
-      }
-    },
-    {
-      "id": "da435e1d8612",
-      "title": "百済寺の秘仏公開　甲賀市の「MIHO MUSEUM」で特別展 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/asahi_region/nation/asahi_region-ASVCQ460MVCQPTJB00PM",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T11:12:00.972683+09:00",
-      "published_at": "2026-11-23T10:45:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/-/20261110160945/img/dmenu_service-brand-logo_200x200.png",
-      "description": "湖東三山のひとつで、聖徳太子の創建と伝わる百済寺（滋賀県東近江市）の所蔵品などを紹介する秋季特別展…",
-      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
-      "ai": {
-        "score": 78,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "百済寺の秘仏公開の特別展の第一報。期間詳細不明",
-        "event": {
-          "event_name": "百済寺の秘仏公開 秋季特別展",
-          "place": "MIHO MUSEUM（滋賀県甲賀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T11:14:58+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-23",
-        "official_url": "",
-        "official_image": "",
-        "post_text": "像高約2.5メートルの秘仏・十一面観音立像が、本堂の修理に伴い寺外で初めて公開中。百済寺の品々約90件が、甲賀市のMIHO MUSEUMに並ぶ。12月6日まで。像の周りをぐるっと拝観できるのがうれしい。",
-        "post_attempts": 1,
-        "post_format": 7,
-        "notified": true
       }
     },
     {
