@@ -1,6 +1,38 @@
 {
-  "last_updated": "2026-11-25T03:52:49.193379+09:00",
+  "last_updated": "2026-11-25T04:11:39.850506+09:00",
   "items": [
+    {
+      "id": "b791ebe5d980",
+      "title": "千葉・富津市の56m「東京湾観音」拝観終了へ 1961年建設 頭頂部上り絶景見渡す - テレ朝NEWS",
+      "url": "https://news.tv-asahi.co.jp/news_society/articles/000549949.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-25T04:11:39.849591+09:00",
+      "published_at": "2026-11-23T09:31:09+09:00",
+      "image_url": "https://news.tv-asahi.co.jp/articles_img/000549949_1200.jpg",
+      "description": "千葉県富津市にそびえ立つ高さ56メートルの「東京湾観音」。 1961年、当時でおよそ1億2000万円をかけて建設。材木商の男性が、戦没者慰霊と世界平和を祈るために私財をなげうって建てました。 中には",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 56,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "東京湾観音の拝観終了は仏像関連で話題性あり。終了時期が記事で不明。配信42時間で速報性は中程度",
+        "event": {
+          "event_name": "東京湾観音 拝観終了",
+          "place": "東京湾観音（千葉県富津市）",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-25T04:13:58+09:00",
+        "score_version": 8,
+        "page_checked": true,
+        "page_date": "2026-11-23"
+      }
+    },
     {
       "id": "de37a6d41df4",
       "title": "男子は東大寺学園、女子は合同が優勝 - 全国高校ハンドボール選抜大会の奈良県予選 - 奈良新聞",
@@ -12320,42 +12352,6 @@
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-23T10:14:33+09:00",
         "score_version": 8
-      }
-    },
-    {
-      "id": "627011112c75",
-      "title": "小山寺で三重塔御開帳 23日まで桜川 釈迦三尊を拝観（茨城新聞クロスアイ） - Yahoo!ニュース",
-      "url": "https://news.yahoo.co.jp/articles/0543cc5f66a056c54ae8ea2a86650643d5b7b7b7",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-23T10:11:49.269651+09:00",
-      "published_at": "2026-11-23T09:00:00+09:00",
-      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261123-00000005-ibaraki-000-2-view.jpg?exp=10800",
-      "description": "桜川市富谷の小山寺(富谷観音)で国重要文化財「三重塔」の御開帳が行われている。普段は見られない「釈迦(しゃか)三尊」を拝観できる貴重な機会とあって、多くの人が訪れている。23日まで。聖武天皇の勅願に",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 80,
-        "category": "秘仏・御開帳・特別公開",
-        "duplicate": false,
-        "reason": "本日23日が最終日の釈迦三尊御開帳。今知らないと行けない情報",
-        "event": {
-          "event_name": "小山寺 三重塔御開帳（釈迦三尊）",
-          "place": "小山寺（茨城県桜川市）",
-          "start_date": "",
-          "end_date": "2026-11-23"
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-23T10:14:33+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-23",
-        "post_text": "関東以北で最も古いとされる室町時代の三重塔が、きょう23日まで御開帳。桜川市・小山寺の塔の中で、釈迦如来と文殊・普賢の三尊に会えるそう。紅葉との組み合わせも気になる。",
-        "post_attempts": 1,
-        "post_format": 7,
-        "notified": true
       }
     },
     {
