@@ -64,7 +64,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月26日 06:12<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
+        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月26日 06:53<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -282,7 +282,7 @@
         <button type="button" onclick="toggleSkip('7f5edb9089f6')" class="skip-btn text-xs text-gray-500 border border-gray-300 rounded-full px-2.5 py-1 shrink-0">スキップ</button>
       </div>
     </div>
-    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="489f0fe13684" data-fetched="2026-11-26T04:11:39.641518+09:00" data-url="https://www.famtimes.co.kr/ja/news/articleView.html?idxno=705626">
+    <div class="card bg-white rounded-2xl shadow-sm p-4 border border-brand-100 transition-opacity duration-300" data-item-id="489f0fe13684" data-fetched="2026-11-26T04:11:39.641518+09:00" data-url="https://www.famtimes.co.kr/ja/news/articleView.html?idxno=705626" data-skipped="1">
       <div class="flex items-center justify-between mb-2 gap-2">
         <span class="text-xs font-medium text-brand-800 bg-brand-50 px-2 py-0.5 rounded-full whitespace-nowrap">📰 ニュース</span>
         <div class="flex items-center gap-1.5 shrink-0">
@@ -26152,7 +26152,7 @@ Deevoka レジン彫刻 仏像 細密彫刻 置物 伝統意匠 卓上装飾 四
 
     // 表示中のページより新しい版が公開されていれば読み直す（data/version.json と比べる）。
     // スマホによっては、アプリを開き直しても前の表示のまま残ることがあるため
-    const PAGE_UPDATED = '2026-11-26T06:12:03.627040+09:00';
+    const PAGE_UPDATED = '2026-11-26T06:53:29.447349+09:00';
     function checkFreshness() {
       fetch('data/version.json?t=' + Date.now(), { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
