@@ -1,6 +1,340 @@
 {
-  "last_updated": "2026-11-26T07:12:16.049432+09:00",
+  "last_updated": "2026-11-26T07:29:51.542548+09:00",
   "items": [
+    {
+      "id": "936de8d6507d",
+      "title": "東京株、一時２８００円超上昇 - 周南経済新聞",
+      "url": "https://shunan.keizai.biz/gpnews/1779303/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:51.541196+09:00",
+      "published_at": "2026-11-24T14:46:26+09:00",
+      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
+      "description": "３連休明け２４日午前の東京株式市場で、日経平均株価は一時、前週末比２８００円超上昇した。午前の終値は、２２３９円１４銭高の５万８６７５円７９銭＝東京都中央区 【時事通信社】",
+      "search_query": "観音堂 開帳",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 株価ニュースで仏教・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-26T07:33:28+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "63f4bf7c65ad",
+      "title": "下松市の『天王森古墳を国指定史跡、出土埴輪群を重要文化財へ』するためのガバメントクラウドファンディング始動開始！ - PR TIMES",
+      "url": "https://prtimes.jp/main/html/rd/p/000000004.000193636.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:49.621251+09:00",
+      "published_at": "2026-11-24T15:35:09+09:00",
+      "image_url": "https://prcdn.freetls.fastly.net/release_image/193636/4/193636-4-610833f86a811fb51b462c503ad7e848-682x380.png?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
+      "description": "下松市のプレスリリース（2026年11月24日 15時35分）下松市の『天王森古墳を国指定史跡、出土埴輪群を重要文化財へ』するためのガバメントクラウドファンディング始動開始！",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "古墳・埴輪の指定に向けた寄付募集で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T07:33:33+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "69b1a7825021",
+      "title": "ヘルメット着用率向上へ 自転車の安全運転啓発へ警察が3人を「CSユナイテッド」に委嘱 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/mro/region/mro-3108551",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:49.323447+09:00",
+      "published_at": "2026-11-24T17:30:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/mro/m_mro-3108551.jpg",
+      "description": "運転技術や交通安全知識を競う高齢者自転車大会に出場し、日頃から交通安全の啓発活動を行っている男女3人が…",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 交通安全の啓発記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-26T07:33:28+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "ca7ccc5b74a2",
+      "title": "樹齢800年超の大イチョウの枝、大雪で折れる 福島・新宮熊野神社 [福島県] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCS2VWJVCSUGTB009M.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:48.004539+09:00",
+      "published_at": "2026-11-24T18:15:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "神社の大イチョウの枝折れで仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T07:33:33+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "51a23ad24f88",
+      "title": "【虎石晃の競馬戦記】秋の京都で元官僚の受け答えに思う「真っ当な大人の振る舞い」 - 東スポ競馬",
+      "url": "https://tospo-keiba.jp/keiba-senki/78097",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:39.878243+09:00",
+      "published_at": "2026-11-24T18:30:00+09:00",
+      "image_url": "https://tospo-keiba.jp/images/171069d781435e947059d9a7135cfcaa.jpg",
+      "description": "今秋も東福寺で誘導、案内の仕事を授かった。ピーク時で数万の来客からさまざまな質問を受けるが、基本的には即答、簡潔を心掛けている。",
+      "search_query": "\"東福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "競馬コラム。東福寺は誘導の場所として出るだけ",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T07:33:33+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "42baa73638f9",
+      "title": "（広島）広島市西区南観音２丁目で刃物突きつけ類似行為　１１月１１日［解決］ - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/fushinsha_joho/region/fushinsha_joho-1497957930451878660",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:39.240188+09:00",
+      "published_at": "2026-11-24T22:43:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/region_tmb/16_9/341045.png?fushinsha_joho-1497957930451878660",
+      "description": "広島県警によると、１１月１１日、広島市西区南観音２丁目の駐車場で、刃物突きつけ類似行為が発生しました…",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "地名に観音が入るだけの事件で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T07:33:33+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "b5479257dcc8",
+      "title": "ＳＮＳ発信に生かせることを実感 - 東日新聞",
+      "url": "https://source.tonichi.net/news/g400wm7ezi2eeuts/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:38.326448+09:00",
+      "published_at": "2026-11-25T00:02:47+09:00",
+      "image_url": "https://source.tonichi.net/wp-content/uploads/2026/11/20261125_20_1.jpg",
+      "description": "豊川稲荷で「御開帳秋季大祭」が開かれた22日、豊川市は市の魅力をＳＮＳなどで発信する「ともかな発信チーム」の受講者の撮影体験を開いた。 受講者15人は、大勢の参拝者らが列を作り、秘仏の本尊と「禅の綱」で結ばれた御縁柱が立ち、高さ約10メートルの巨大なちょうちんが掲げられた境内で、自身のスマートフォンで動画を撮影した。逆光にならないよう日差しの向きを考慮したり、",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "豊川稲荷の御開帳秋季大祭は22日で終了済み。撮影体験が主で仏像の詳細なし",
+        "event": {
+          "event_name": "豊川稲荷 御開帳秋季大祭",
+          "place": "豊川稲荷（愛知県豊川市）",
+          "start_date": "",
+          "end_date": "2026-11-22"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T07:33:33+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "394737c75dae",
+      "title": "ベトナム文化の日に、まばゆいばかりの「団結の夜 ― 平和の光」が開催された。 - Vietnam.vn",
+      "url": "https://www.vietnam.vn/ja/lung-linh-dem-hoi-doan-ket-anh-sang-binh-an-nhan-ngay-van-hoa-viet-nam",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:37.704002+09:00",
+      "published_at": "2026-11-25T00:38:29+09:00",
+      "image_url": "https://vstatic.vietnam.vn/vietnam/resource/IMAGE/2026/11/24/1795532850801_bna_dem-hoa-dang-truyen-dang-anh-diep-thanh00001.png",
+      "description": "11月24日の夜、ゲアン・ソビエト・ゲティン博物館では、「団結の夜―平和の光」と題したイベントで数千個の提灯が灯され、国家の平和と繁栄への願いが込められるとともに、国宝であるニャン寺の仏舎利箱の価値が称えられた。",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 22,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "ベトナムの仏舎利箱を称えるイベントで終了済み、日本の読者向けでない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T07:33:33+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "febb41c76a0c",
+      "title": "チームラボ、浜離宮庭園で特別企画展 - 函館経済新聞",
+      "url": "https://hakodate.keizai.biz/gpnews/1779328/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:36.367192+09:00",
+      "published_at": "2026-11-25T01:01:17+09:00",
+      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
+      "description": "都内の浜離宮恩賜庭園で内覧会が行われたアート集団ｔｅａｍＬａｂによる「チームラボ 浜離宮」。「ＡＲＴＥ ＴＯＫＹＯ（東京国際文化芸術祭）」の特別企画として１２月２４日まで開催＝２４日 【時事通信フォト】",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "庭園のデジタルアート展で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T07:33:33+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "65d50723e2f5",
+      "title": "ケロロ軍曹 2ndシーズン #71〜74【無料ビデオ1週間】 - ABEMA",
+      "url": "https://abema.tv/channels/family-anime-1/slots/91ZoJ9KdbS9kJB",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:35.588511+09:00",
+      "published_at": "2026-11-25T21:03:16+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: アニメ配信の宣伝で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-26T07:33:28+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "07e4984b5fe3",
+      "title": "｢星野リゾート｣が“泊まらない奈良”に影響！？ 新施設は予約率99％……入館できずに観に来る人も｢考えさせられる場所｣｢印象的だった｣ - まいどなニュース",
+      "url": "https://maidonanews.jp/article/17077305",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T07:29:33.872839+09:00",
+      "published_at": "2026-11-26T06:40:00+09:00",
+      "image_url": "https://p.potaufeu.asahi.com/e3fa-p/picture/31604956/767bc8f184f8992bbf69a1a663082404.jpg",
+      "description": "「星野リゾート」が運営する「奈良監獄ミュージアム by 星野リゾート」（奈良県奈良市）が、日経トレンディの「2026年ヒット商品ベスト30」で第20位に。1位は目印チャーム、2位はTikTok Shop、3位はボンボンシールとヒット商品も並…",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 奈良の監獄ミュージアムと商品ヒットの話題で仏教と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-26T07:33:28+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "rem-b511e355a0b1-ending",
       "title": "「国宝×肥後仏」展、来場1万人を突破　熊本県立美術館本館　29日まで - ｄメニューニュース",
@@ -10989,341 +11323,6 @@
         "score_version": 8,
         "page_checked": true,
         "page_date": "2026-11-23"
-      }
-    },
-    {
-      "id": "de37a6d41df4",
-      "title": "男子は東大寺学園、女子は合同が優勝 - 全国高校ハンドボール選抜大会の奈良県予選 - 奈良新聞",
-      "url": "https://www.nara-np.co.jp/news/20261123204344.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:52:47.991604+09:00",
-      "published_at": "2026-11-23T06:00:00+09:00",
-      "image_url": "https://www.nara-np.co.jp/dbimage/article/ba/bac986a29f5137c7f6278efcc1046ded.jpg",
-      "description": "合同(添上・奈良・生駒・奈良女子・奈良大付)",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 東大寺学園は学校名で、ハンドボール大会の記事",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-25T03:55:15+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "c4f73fdb3e6b",
-      "title": "【貝塚の国宝1300年大祭】歴史を守ってきたのは「人」だった！行基菩薩の足跡と地域の絆 - 選挙ドットコム",
-      "url": "https://go2senkyo.com/seijika/175592/posts/1588754",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:52:46.718566+09:00",
-      "published_at": "2026-11-23T09:41:54+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 40,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "貝塚の国宝（願泉寺か）1300年大祭の記事だが、仏像の具体情報や日程が不明で優先度低め",
-        "event": {
-          "event_name": "貝塚の国宝1300年大祭",
-          "place": "大阪府貝塚市",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T03:55:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "7f4a542ed002",
-      "title": "「大満足！花火の中にいたみたい…」約1万2000発の花火、晩秋の夜空を彩る…2026年で120回目「長野えびす講煙火大会」ミュージックスターマイン、ドローンと花火がコラボレーションした特別プログラム | SBC NEWS | 長野のニュース | SBC信越放送 (1ページ) - TBS NEWS DIG",
-      "url": "https://newsdig.tbs.co.jp/articles/sbc/3105955?display=1",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:52:44.907634+09:00",
-      "published_at": "2026-11-24T11:56:00+09:00",
-      "image_url": "https://newsdig.ismcdn.jp/mwimgs/c/0/1200w/img_c02393a613d427efe11f68610eab47ed82763.jpg",
-      "description": "長野えびす講煙火大会が23日行われ、およそ1万2000発の花火が夜空を彩りました。1899年＝明治32年から始まり、2026年で120回目を数える「長野えびす講煙火大会」。 中ではSBCで放送されたドラマ「VIVANT（… (1ページ)",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 花火大会の記事で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-25T03:55:15+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "9bec415f0b1a",
-      "title": "国宝でフルコースに舌鼓 高岡・勝興寺 - 47NEWS",
-      "url": "https://www.47news.jp/15271487.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:12:06.443715+09:00",
-      "published_at": "2026-11-23T05:00:00+09:00",
-      "image_url": "https://img.cf.47news.jp/static/renewal/common/img/thumb_large.png",
-      "description": "●建物ガイドも楽しむ 高岡市伏木古国府の国宝勝興寺を舞台としたＪＴＢの特別企画ツアーは２２日行われ、関東や石川県から訪れた１０人が特別に提供されたフルコースランチに舌鼓を打ち、観光ガイドによる ...",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 22,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "国宝寺院のツアーランチ報告で仏像に触れず・終了済み",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T03:16:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "11290b3721b6",
-      "title": "首里城の焼失前の柱で造った仏像「大日首里如来」を佐賀市の実相院で公開 11月23日に首里城正殿が一般公開 - 佐賀新聞",
-      "url": "https://www.saga-s.co.jp/articles/-/1835611",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:12:04.994860+09:00",
-      "published_at": "2026-11-23T07:30:00+09:00",
-      "image_url": "https://saga.ismcdn.jp/mwimgs/5/b/1200m/img_5bab4843cf296ffe78c1bcbad8ee395c966163.jpg",
-      "description": "焼失したはずの「沖縄の誇り」が佐賀の地で引き継がれていた-。2019年の火災で正殿などが全焼した首里城（那覇市）に関し、佐賀市大和町川上の実相院の中村光雲住職（64）が焼失前の柱を用いた木彫りの仏像を所有している。23日には首里城正殿の一般公開が始まり、中村さんは「再建されたこのタイミングで仏像を多くの人に見てもらいたい」と、実相院で公開している。 中村さんは沖縄県出身。50歳を過ぎてから仁和寺（京都市）で修行し、住職の資格を取得した。昨年7月から同院の住職を務める。",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 66,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "首里城の柱で造った仏像を公開中。話題性あるが期間不明",
-        "event": {
-          "event_name": "首里城焼失前の柱で造った仏像「大日首里如来」公開",
-          "place": "実相院（佐賀県佐賀市）",
-          "start_date": "2026-11-23",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T03:16:11+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-23"
-      }
-    },
-    {
-      "id": "96cf7fd16fb4",
-      "title": "74歳男性が買った150坪の\"廃墟\"､使い道は｢みんなで考える｣——840年前の薬草サウナが残る山口の山里で始まった挑戦 - Infoseek",
-      "url": "https://news.infoseek.co.jp/article/toyokeizai_20261123_964936/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:12:03.635890+09:00",
-      "published_at": "2026-11-23T07:45:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/toyokeizai/toyokeizai_20261123_964936_0-enlarge.jpg",
-      "description": "2025年の国土交通省、総務省の調査によると日本には3万を超える限界集落（集落人口の50％以上が65歳以上の高齢者",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "限界集落の廃墟再生の話で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T03:16:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "c5d085d7d6c7",
-      "title": "杉浦太陽＆辻希美の長女・希空、キュートなサンタ衣装に会場くぎ付け 【サツコレ2026AW】 - 朝日新聞",
-      "url": "https://www.asahi.com/and/entertainment/17074636",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:12:00.100482+09:00",
-      "published_at": "2026-11-24T13:21:45+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 芸能人のファッションイベントで仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-25T03:16:05+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "c2c2ccdf1ff8",
-      "title": "【ＢＳ日テレ】豊臣秀吉が寵愛した京極竜子の面影を映した“茶釜”や秀吉と対立の真相・・・切腹約1年前の千利休の直筆書簡を特別公開！「磯田道史の歴史をゆく」11月25日（水）よる9時放送 - Excite エキサイト",
-      "url": "http://www.excite.co.jp/news/article/Prtimes_2026-11-24-125910-1127/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:11:50.830881+09:00",
-      "published_at": "2026-11-24T23:45:00+09:00",
-      "image_url": "https://s.eximg.jp/exnews/feed/Prtimes/4c/Prtimes_2026-11-24-125910-1127/Prtimes_2026-11-24-125910-1127_1.jpg",
-      "description": "[画像1:https://prcdn.freetls.fastly.net/release_image/125910/1127/125910-1127-0c7eadcf6f34a86526958a7f...",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 24,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "テレビ番組の告知で茶釜・書簡が中心、仏像なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T03:16:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "d424f18344f7",
-      "title": "THE GALLERY企画展 三好和義 写真生活50周年記念写真展 「1976 楽園のはじまり」を開催 - ニコニコニュース",
-      "url": "https://news.nicovideo.jp/watch/nw20026651?news_ref=60_60",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:11:49.362091+09:00",
-      "published_at": "2026-11-25T00:00:30+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 10,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "写真展の告知で仏像との関連が不明",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T03:16:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "bfb3c8ba0e50",
-      "title": "チームラボ、浜離宮庭園で特別企画展 - 伊勢志摩経済新聞",
-      "url": "https://iseshima.keizai.biz/gpnews/1779328/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:11:48.082694+09:00",
-      "published_at": "2026-11-25T00:16:58+09:00",
-      "image_url": "https://images.keizai.biz/iseshima_keizai/globalphoto/",
-      "description": "都内の浜離宮恩賜庭園で内覧会が行われたアート集団ｔｅａｍＬａｂによる「チームラボ 浜離宮」。「ＡＲＴＥ ＴＯＫＹＯ（東京国際文化芸術祭）」の特別企画として１２月２４日まで開催＝２４日 【時事通信フォト】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "庭園でのデジタルアート展で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T03:16:11+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "54746d1a994b",
-      "title": "【磯田道史の歴史をゆく】「秀吉ゆかりの国宝をゆく」 11月25日放送 BS日テレ “奇跡の寺”奈良の當麻寺を訪問 秀吉寵愛の側室や利休の死をめぐるナゾに肉薄 - 美術展ナビ",
-      "url": "https://artexhibition.jp/topics/news/20261124-AEJ3048653/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T03:11:46.239701+09:00",
-      "published_at": "2026-11-25T02:19:00+09:00",
-      "image_url": "https://artexhibition.jp/wp-content/uploads/2026/11/470f6396f33082f90878409bb3d5236e-1200x630.jpg",
-      "description": "磯田先生のユニークな視点と絶妙な語り口。わかりやすい解説で歴史の『真実』と『ロマン』を解き明かす歴史同行取材番組です。 「磯田道史の歴史をゆく」 ◇秀吉ゆかりの国宝をゆく◇ 放送時間：2026年11月25日（水）よる9時",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 33,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "當麻寺訪問のテレビ番組告知。仏像の言及が少なく当日放送",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T03:16:11+09:00",
-        "score_version": 8
       }
     },
     {
