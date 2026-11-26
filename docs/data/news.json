@@ -1,6 +1,354 @@
 {
-  "last_updated": "2026-11-26T09:11:48.375918+09:00",
+  "last_updated": "2026-11-26T10:12:19.169182+09:00",
   "items": [
+    {
+      "id": "f28f44e39d91",
+      "title": "豚汁専門店「一杯完結」の豚汁・白味噌 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/photoflash/7683/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:12:19.168298+09:00",
+      "published_at": "2026-11-24T12:09:21+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/photonews/1795074213_b.jpg",
+      "description": "豚汁専門店「一杯完結」（岡山市北区柳町2）がオープンして11月26日で2カ月がたつ。",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 豚汁専門店の開店記事で仏教関連の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-26T10:15:48+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "b21a1eb3efa7",
+      "title": "THE GALLERY企画展 三好和義 写真生活50周年記念写真展 「1976 楽園のはじまり」を開催 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/prtimes_000000706_000016573/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:12:17.230763+09:00",
+      "published_at": "2026-11-24T15:45:40+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "株式会社ニコンの子会社、株式会社ニコンイメージングジャパンは、ニコンプラザ東京・大阪の写真展会場「THEGALLE",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "写真展で仏像と無関係。",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T10:15:52+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "bd021a38fc7e",
+      "title": "絶景紅葉の舞台裏 担い手不足にシニア奮闘 大混雑も冷静対処 83歳、急斜面との戦い - ABEMA TIMES",
+      "url": "https://times.abema.tv/articles/-/10291654",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:12:16.456841+09:00",
+      "published_at": "2026-11-24T16:15:33+09:00",
+      "image_url": "https://times-abema.ismcdn.jp/mwimgs/d/f/1200w/img_df5098df8bc7312efc8442728136eeb2163470.jpg",
+      "description": "今、各地で紅葉のイベントが盛り上がっています。そこには秋の絶景を支えているシニアの存在がありました。【画像】夜空に浮かび上がる真っ赤な紅葉 神奈川・伊勢原 赤や黄色に染まり、秋の深まりを感じさせる山肌。群馬県桐生市にある「宝徳寺」。室町時…",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 10,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "紅葉イベントの話題で仏像に触れていない。",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T10:15:52+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "a094b0906f13",
+      "title": "映画で『ちいかわ』にハマった横山ルリカ、母と京都旅で“ちい活”満喫 プライベートショット公開「ハマってますね〜」 - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2017261",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:12:15.588927+09:00",
+      "published_at": "2026-11-25T01:17:51+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/1/6/0/4/160470f3419b4618eb2aea612b5bb68e_1.jpg",
+      "description": "元アイドリング!!!のメンバーでタレントの横山ルリカ（35）が5日、自身のインスタグラムを更新。 “ちい活”を満喫する近況を報告し、プ...",
+      "search_query": "\"伏見稲荷\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "芸能人の旅行ショットで仏像と無関係。",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T10:15:52+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "f0c086484a60",
+      "title": "（学びを語る）型にはまらず創作 音楽は人との関係性が生む 蓮沼執太さん - 朝日新聞",
+      "url": "https://www.asahi.com/articles/DA3S16594847.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:12:14.793697+09:00",
+      "published_at": "2026-11-25T05:00:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 音楽家へのインタビューで仏像や寺院の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-26T10:15:48+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "b2aa57c7e3df",
+      "title": "【ＢＳ日テレ】豊臣秀吉が寵愛した京極竜子の面影を映した“茶釜”や秀吉と対立の真相・・・切腹約1年前の千利休の直筆書簡を特別公開！「磯田道史の歴史をゆく」11月25日（水）よる9時放送 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/prtimes_000001127_000125910/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:12:06.666460+09:00",
+      "published_at": "2026-11-25T05:40:02+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "[画像1:https://prcdn.freetls.fastly.net/release_image/12591",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "茶釜と利休書簡のテレビ番組で仏像と無関係。",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T10:15:52+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "413ae76add1b",
+      "title": "新十両の大碇 大相撲 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779341/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:12:05.052283+09:00",
+      "published_at": "2026-11-25T15:54:25+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "大相撲初場所の番付編成会議で新十両昇進が決まった碇潟改め大碇が２５日、福岡市の伊勢ノ海部屋宿舎で会見し、「前に出る思い切りのいい相撲を見てほしい」と抱負を語った。写真は兄の藤ノ川（右）と握手する大碇。 【時事通信社】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 大相撲の新十両昇進に関する記事で無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-26T10:15:48+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "73fe5310fdc9",
+      "title": "石川佳純さんが結婚発表 - 岡山経済新聞",
+      "url": "https://okayama.keizai.biz/gpnews/1779342/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:12:03.118196+09:00",
+      "published_at": "2026-11-25T15:54:25+09:00",
+      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
+      "description": "卓球女子で五輪３大会連続メダリストの石川佳純さんが２５日、自身のインスタグラムで結婚を発表。「かねてよりお付き合いしている方と結婚いたしました。笑顔あふれる家庭を築いていけたらと思います」と報告した。 【時事通信社】",
+      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 卓球選手の結婚発表で仏教関連の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-26T10:15:48+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "42069d21418c",
+      "title": "【学びの現在地】国際天文学・天体物理学五輪 - 山中さん(東大寺学園)金メダル - 奈良新聞",
+      "url": "https://www.nara-np.co.jp/news/20261126090435.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:12:01.188235+09:00",
+      "published_at": "2026-11-26T06:00:00+09:00",
+      "image_url": "https://www.nara-np.co.jp/dbimage/article/a5/a546346aebb5ac23e93ed6ccd854ccaa.jpg",
+      "description": "世界の高校生らが天文学や天体物理学の理論、データ解析、観測の知識や技能を競う国際大会「第19回国際天文学・天体物理学オリンピック(IOAA)」で、日本代表の一人、東大寺学園高校(奈良市山陵町)3年の山中友紘さん=奈良市=が金メダルを獲得した。同大会で県内校の生徒が金メダルを獲得するのは初めて。",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 天文学オリンピックの記事で仏教関連の話題なし。東大寺学園は校名のみ",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-26T10:15:48+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c74a64b06545",
+      "title": "オーストリアから帰国の中谷美紀「つかの間ながら奈良に」ビオラ奏者の夫との旅ショットが「ほんっと美しい」 - Infoseek",
+      "url": "https://news.infoseek.co.jp/amp/article/hochi_20261125-OHT1T51278/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:11:58.356532+09:00",
+      "published_at": "2026-11-26T07:25:00+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/hochi/hochi_20261125-OHT1T51278_0-enlarge.jpg",
+      "description": "オーストリアと日本の２拠点で暮らす女優の中谷美紀が、奈良を旅する様子を公開した。中谷は２６日までに自身のインスタグ",
+      "search_query": "\"東大寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 4,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "女優の奈良旅行ショットで仏像の話がない。",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T10:15:52+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "248fed427efb",
+      "title": "京都・室町に本店を構える「然花抄院」と『劇場版 薬屋のひとりごと 亡妃の秘宝』の特別コラボレーションが決定！ - PR TIMES",
+      "url": "https://prtimes.jp/main/html/rd/p/000000005.000174568.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:11:56.592533+09:00",
+      "published_at": "2026-11-26T10:00:03+09:00",
+      "image_url": "https://prcdn.freetls.fastly.net/release_image/174568/5/174568-5-f20b07029bea24bdeac3c86c063e1d43-1921x1281.jpg?format=jpeg&auto=webp&fit=bounds&width=2400&height=1260",
+      "description": "株式会社然花抄院のプレスリリース（2026年11月26日 10時00分）京都・室町に本店を構える「然花抄院」と『劇場版 薬屋のひとりごと 亡妃の秘宝』の特別コラボレーションが決定！",
+      "search_query": "薬師如来 公開 町"
+    },
+    {
+      "id": "5f3a227998b0",
+      "title": "七日町観音堂だるま祭り - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/eventbank/region/eventbank-10656552?fm=latestnews",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-26T10:11:55.217452+09:00",
+      "published_at": "2026-11-26T10:03:48+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10656552.jpg",
+      "description": "観音様のお年夜 七日町観音堂の例祭で、その昔、遊女たちが運命を変えるべく、観音様に願いをかけたこと…",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 22,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "観音堂の例祭だが仏像の言及が薄い。当日配信。",
+        "event": {
+          "event_name": "七日町観音堂だるま祭り",
+          "place": "七日町観音堂",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-26T10:15:52+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "a00ef45fc68d",
       "title": "シュワシュワの新酒からぬる燗、熟成酒は熱燗で　千利休ゆかりの紫野で秋酒の一期一会　ほろよい余話 - Infoseek",
@@ -10765,277 +11113,6 @@
       }
     },
     {
-      "id": "e94737fd5456",
-      "title": "菊の幻視 - アートアジェンダ",
-      "url": "https://www.artagenda.jp/impression/detail?event_id=12677&user_id=11959",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T09:11:45.054008+09:00",
-      "published_at": "2026-11-25T00:54:22+09:00",
-      "image_url": "https://www.artagenda.jp/img/event/12677/main_1.jpg",
-      "description": "菊の幻視",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "菊をテーマにした展覧会紹介で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T09:14:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "5ad695ad616b",
-      "title": "日野原重明「母を語る」アンコール！命と医師の原点 ラジオ深夜便 - NHK",
-      "url": "https://www.nhk.or.jp/yamaguchi/info/articles/310/077/57/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T09:11:42.586143+09:00",
-      "published_at": "2026-11-25T06:57:59+09:00",
-      "image_url": "https://www.nhk.or.jp/yamaguchi/info/articles/310/077/57/img/og.jpg",
-      "description": "【NHK】『ラジオ深夜便』母を語るアンコールに医師・日野原重明が登場（1997年収録）。生涯現役を貫いた名医が明かす母の記憶と人生の指針。11月18日放送、1週間聴き逃し配信あり。",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 医師日野原重明のラジオ番組で仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-25T09:14:42+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e063f8061924",
-      "title": "［佐賀県］唐津描く屏風絵 寺に奉納 京都の絵描きユニット「だるま商店」制作 副住職と縁、妙智院で11月28、29日特別公開 - Excite エキサイト",
-      "url": "http://www.excite.co.jp/news/article/nishinippon_1498089431970169357/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T09:11:40.814295+09:00",
-      "published_at": "2026-11-25T08:30:50+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 38,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "屏風絵の奉納と公開が主役で仏像は出ない。上限内。28日開始の第一報",
-        "event": {
-          "event_name": "妙智院 屏風絵特別公開",
-          "place": "妙智院（佐賀県唐津市）",
-          "start_date": "2026-11-28",
-          "end_date": "2026-11-29"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T09:14:47+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "6b5e4139b895",
-      "title": "千葉・富津市の56m「東京湾観音」拝観終了へ 1961年建設 頭頂部上り絶景見渡す - KFB福島放送",
-      "url": "https://www.kfb.co.jp/news/article/17072622",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T08:11:57.110408+09:00",
-      "published_at": "2026-11-23T09:31:00+09:00",
-      "image_url": "https://news.tv-asahi.co.jp/articles_img/000549949_640.jpg",
-      "description": "千葉県富津市にそびえ立つ高さ56メートルの「東京湾観音」。 1961年、当時でおよそ1億2000万円をかけて建設。材木商の男性が、戦没者慰霊と世界平和を祈るために私財をなげうって建てました。 中には300段以上のらせん階段があって、頭頂部ま…",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 35,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "東京湾観音の拝観終了。仏像関連だが建造物的で46時間経過。終了時期が不明",
-        "event": {
-          "event_name": "",
-          "place": "東京湾観音（千葉県富津市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T08:15:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "da435e1d8612",
-      "title": "百済寺の秘仏公開　甲賀市の「MIHO MUSEUM」で特別展 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/asahi_region/nation/asahi_region-ASVCQ460MVCQPTJB00PM",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T08:11:56.014680+09:00",
-      "published_at": "2026-11-23T10:45:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/-/20261110160945/img/dmenu_service-brand-logo_200x200.png",
-      "description": "湖東三山のひとつで、聖徳太子の創建と伝わる百済寺（滋賀県東近江市）の所蔵品などを紹介する秋季特別展…",
-      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
-      "ai": {
-        "score": 35,
-        "category": "展覧会",
-        "duplicate": true,
-        "reason": "百済寺秘仏の特別展。配信済みの記事と同じ出来事のため重複",
-        "event": {
-          "event_name": "百済寺の秘仏公開 秋季特別展",
-          "place": "MIHO MUSEUM（滋賀県甲賀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T08:15:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "9361d7f214d8",
-      "title": "この人キラリ＞不動明王のご利益を 佐賀市・有重不動尊覚盛寺の佐久間秀紘さん | まちの話題 | 佐賀県のニュース - 佐賀新聞",
-      "url": "https://www.saga-s.co.jp/articles/gallery/1836303?ph=1",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T08:11:52.570862+09:00",
-      "published_at": "2026-11-25T06:04:46+09:00",
-      "image_url": "https://saga.ismcdn.jp/mwimgs/a/2/1200m/img_a2a0fa4cdfff63812511ea68d105b9841309840.jpg",
-      "description": "有重（ありしげ）不動尊覚盛寺（佐賀市）は、不動明王を本尊とする真言密教の道場で、檀家（だんか）を持たない祈願寺です。住職の佐久間秀紘さん（58）は、毎月28日の不動尊縁日に、願い事が書かれた護摩（ごま）木を焚（た）いてその炎で煩悩を焼き払う「護摩修行」を行っており、毎年1月には「火渡りの荒行」も執り行われます。 境内には高さ約7メートルの巨大な不動明王像をはじめ多くの仏像が安置されており、昭和初期の開山以来、多くの信者でにぎわってきました。",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 42,
-        "category": "寺院の行事",
-        "duplicate": false,
-        "reason": "高さ約7mの不動明王像のある寺の住職紹介。像の詳細は少なく行事は毎月28日",
-        "event": {
-          "event_name": "",
-          "place": "有重不動尊覚盛寺（佐賀県佐賀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T08:15:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "e6093f01ba18",
-      "title": "和辻哲郎『古寺巡礼』とは？法隆寺金堂壁画に見る「美術」の誕生 - au Webポータル",
-      "url": "https://article.auone.jp/2101d9da-a6b7-4169-91ad-cc2087c9e75c",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T08:11:49.898001+09:00",
-      "published_at": "2026-11-25T07:00:45+09:00",
-      "image_url": "https://portal.auone.jp/media/thumbnails/2026/11/24/https___irohani_art__p_49109_w1000.webp",
-      "description": "人間を孤立した個人ではなく人と人との「間柄」においてある存在と捉え、倫理学を「人間の学」として組み立て直した近代日本の倫理学者・文化史家、和辻哲郎。 大正7年（1918）5月、29歳の和辻哲郎は友人",
-      "search_query": "\"唐招提寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 30,
-        "category": "その他の仏像関連",
-        "duplicate": false,
-        "reason": "和辻哲郎『古寺巡礼』の解説で壁画中心。仏像の話題性が低い",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T08:15:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "fe016028c38c",
-      "title": "［佐賀県］唐津描く屏風絵 寺に奉納 京都の絵描きユニット「だるま商店」制作 副住職と縁、妙智院で11月28、29日特別公開 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/article/nishinippon/region/nishinippon-1001564104?fm=latestnews",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T08:11:47.559142+09:00",
-      "published_at": "2026-11-25T07:19:49+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/nishinippon/m_nishinippon-1001564104.jpg",
-      "description": "深紫の海を泳ぐ呼子のイカ、唐津くんちの曳山（ひきやま）巡行…。京都を拠点に活動する2人組の絵描きユニ…",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 30,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "屏風絵の特別公開で仏像は出ない。28日開始だが絵画が主役のため低評価",
-        "event": {
-          "event_name": "だるま商店 屏風絵特別公開",
-          "place": "妙智院（佐賀県唐津市）",
-          "start_date": "2026-11-28",
-          "end_date": "2026-11-29"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T08:15:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "ef0e6b481098",
-      "title": "［佐賀県］唐津描く屏風絵 寺に奉納 京都の絵描きユニット「だるま商店」制作 副住職と縁、妙智院で11月28、29日特別公開 - UQライフ",
-      "url": "https://portal.uqmobile.jp/detail/1/2/5/10409_5_r_20261125_1795559694011735",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T08:11:45.178333+09:00",
-      "published_at": "2026-11-25T07:42:34+09:00",
-      "image_url": "https://www.uqwimax.jp/common2/images/ogp.png",
-      "description": "UQ mobile（モバイル）の公式サイトです。UQ mobileの「UQ LiFE ダウンロードのご案内」のサポートページ。au 5G/4G LTEで快適に、eSIM対応もUQ mobile！",
-      "search_query": "特別公開 (寺 OR 仏)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": true,
-        "reason": "同じ屏風絵公開の記事の重複で、仏像も出ない",
-        "event": {
-          "event_name": "だるま商店 屏風絵特別公開",
-          "place": "妙智院（佐賀県唐津市）",
-          "start_date": "2026-11-28",
-          "end_date": "2026-11-29"
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T08:15:37+09:00",
-        "score_version": 8
-      }
-    },
-    {
       "id": "rem-1f57e9543070-start",
       "title": "池上大坊本行寺　暮秋ランタン祈願祭 - ｄメニューニュース",
       "url": "https://topics.smt.docomo.ne.jp/article/eventbank/region/eventbank-10653291",
@@ -11054,105 +11131,6 @@
         "post_header": "【あすから公開】",
         "post_format": 7,
         "notified": true
-      }
-    },
-    {
-      "id": "f5f3c477ad28",
-      "title": "イノシシの生命力にあやかる　縄文人の生活紹介する特別展　山梨 - Infoseek",
-      "url": "https://news.infoseek.co.jp/article/mainichi_20261122k0000m310052000c/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T07:12:12.158768+09:00",
-      "published_at": "2026-11-23T08:45:00+09:00",
-      "image_url": "https://media.image.infoseek.co.jp/isnews/photos/mainichi/mainichi_20261122k0000m310052000c_0-enlarge.jpg",
-      "description": "イノシシを装飾した土器や遺跡から大量に出土した骨など、イノシシと密接に関わっていた縄文人の生活を紹介する特別展「縄",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 2,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "縄文土器の特別展で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T07:15:43+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "f7807263a102",
-      "title": "百済寺の秘仏公開 甲賀市の「MIHO MUSEUM」で特別展 [滋賀県] - 朝日新聞",
-      "url": "https://www.asahi.com/articles/ASVCQ460MVCQPTJB00PM.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T07:12:11.683202+09:00",
-      "published_at": "2026-11-23T10:45:01+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 80,
-        "category": "展覧会",
-        "duplicate": false,
-        "reason": "百済寺の秘仏公開の特別展。内容詳細は不明だが告知として有効、期間不明",
-        "event": {
-          "event_name": "百済寺の秘仏公開 特別展",
-          "place": "MIHO MUSEUM（滋賀県甲賀市）",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-25T07:15:43+09:00",
-        "score_version": 8,
-        "page_checked": true,
-        "page_date": "2026-11-23",
-        "official_url": "",
-        "official_image": "",
-        "post_text": "滋賀・百済寺の秘仏が、甲賀市のMIHO MUSEUMの特別展で公開されるそう。ふだんは厨子の奥におられる像が、美術館でどんな姿を見せてくれるのか。気になる。",
-        "post_attempts": 1,
-        "post_format": 7,
-        "notified": true
-      }
-    },
-    {
-      "id": "b4c3fdd544f9",
-      "title": "マルカンビル大食堂名物「ナポリかつ」、ロピア花巻店で発売 厳選厚切りカツを使用、ボリューム満点 - なびたび北東北",
-      "url": "https://www.navitabi.jp/article/11725",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-25T07:12:03.415370+09:00",
-      "published_at": "2026-11-23T10:56:29+09:00",
-      "image_url": "https://www.navitabi.jp/data/img/2026/1123/117250200MA37214197.jpg",
-      "description": "食品スーパー・ロピア花巻店は２１日、花巻市のマルカンビル大食堂との初のコラボ商品「ナポリかつ」を発売した。 豚カツとナポリタンを組み合わせた同食堂の看板料理をアレンジした。肉類の「目利き」に定評があ…",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: スーパーのグルメ商品で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-25T07:15:38+09:00",
-        "score_version": 8
       }
     },
     {
