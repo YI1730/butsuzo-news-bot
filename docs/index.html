@@ -64,7 +64,7 @@
     <div class="flex items-center justify-between py-3 max-w-xl mx-auto">
       <div>
         <h1 class="text-base font-bold leading-tight">🛕 仏像ニュース</h1>
-        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月26日 12:06<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
+        <p class="text-xs text-brand-200 mt-0.5" onclick="location.reload()">更新: 11月26日 12:43<span id="stale-note" class="hidden ml-1 font-bold text-amber-300"></span></p>
       </div>
       <span id="count" class="text-xs bg-brand-500 text-white px-2 py-1 rounded-full font-medium">0件</span>
     </div>
@@ -789,7 +789,7 @@
     </div>
     </div>
     <details id="calendar-box" class="bg-white rounded-2xl border border-brand-100 shadow-sm p-3" open>
-      <summary class="text-sm font-bold text-brand-800 cursor-pointer">📅 これからの公開（公開中・30日以内・74件）</summary>
+      <summary class="text-sm font-bold text-brand-800 cursor-pointer">📅 これからの公開（公開中・30日以内・72件）</summary>
       <p class="text-[11px] text-gray-500 mt-1 mb-1">記事からAIが抜き出した公開期間。「あすから」「終了まであと数日」で自動的に配信候補になります</p>
       <div>
         <a href="https://www.chugainippoh.co.jp/article/news/20261016-004.html" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0">
@@ -976,10 +976,6 @@
           <span class="text-xs font-bold text-brand-800 w-24 shrink-0">?〜11/29</span>
           <span class="text-xs text-gray-700 leading-snug"><span class="text-[10px] font-bold text-white bg-brand-600 px-1.5 py-0.5 rounded">公開中</span> 石山寺あたら夜もみじ<span class="block text-[11px] text-gray-400">石山寺（滋賀県大津市）</span></span>
         </a>
-        <a href="https://topics.smt.docomo.ne.jp/amp/article/kumanichi/region/kumanichi-dr2061629" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0">
-          <span class="text-xs font-bold text-brand-800 w-24 shrink-0">?〜11/29</span>
-          <span class="text-xs text-gray-700 leading-snug"><span class="text-[10px] font-bold text-white bg-brand-600 px-1.5 py-0.5 rounded">公開中</span> 熊本地震から10年 仏像 国宝×肥後仏<span class="block text-[11px] text-gray-400">熊本県立美術館本館（熊本市）</span></span>
-        </a>
         <a href="https://www.47news.jp/15199154.html" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0">
           <span class="text-xs font-bold text-brand-800 w-24 shrink-0">?〜11/30</span>
           <span class="text-xs text-gray-700 leading-snug"><span class="text-[10px] font-bold text-white bg-brand-600 px-1.5 py-0.5 rounded">公開中</span> 鳥追観音如法寺 紅葉まつり<span class="block text-[11px] text-gray-400">鳥追観音如法寺（福島県西会津町）</span></span>
@@ -1027,10 +1023,6 @@
         <a href="https://news.yahoo.co.jp/articles/841570dbfdafe5273d1497b00e63d68b54f8e910" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0">
           <span class="text-xs font-bold text-brand-800 w-24 shrink-0">?〜12/6</span>
           <span class="text-xs text-gray-700 leading-snug"><span class="text-[10px] font-bold text-white bg-brand-600 px-1.5 py-0.5 rounded">公開中</span> 大和観音もみじ回廊2026<span class="block text-[11px] text-gray-400">壷阪寺・岡寺・長谷寺・室生寺（奈良県）</span></span>
-        </a>
-        <a href="https://www.chiba-tv.com/plus/detail/2026112251667" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0">
-          <span class="text-xs font-bold text-brand-800 w-24 shrink-0">?〜12/6</span>
-          <span class="text-xs text-gray-700 leading-snug"><span class="text-[10px] font-bold text-white bg-brand-600 px-1.5 py-0.5 rounded">公開中</span> 特別展「大徳寺」<span class="block text-[11px] text-gray-400">東京国立博物館（東京都台東区）</span></span>
         </a>
         <a href="https://topics.smt.docomo.ne.jp/amp/article/tokkhankyu/trend/tokkhankyu-296319" target="_blank" rel="noopener noreferrer" class="flex items-start gap-2 py-2 border-b border-gray-100 last:border-0">
           <span class="text-xs font-bold text-brand-800 w-24 shrink-0">?〜12/7</span>
@@ -26346,7 +26338,7 @@ TEHAUX 銅製の仏像 仏像 不動明王 属工芸 家のための禅の装飾
 
     // 表示中のページより新しい版が公開されていれば読み直す（data/version.json と比べる）。
     // スマホによっては、アプリを開き直しても前の表示のまま残ることがあるため
-    const PAGE_UPDATED = '2026-11-26T12:06:04.101229+09:00';
+    const PAGE_UPDATED = '2026-11-26T12:43:13.941340+09:00';
     function checkFreshness() {
       fetch('data/version.json?t=' + Date.now(), { cache: 'no-store' })
         .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
