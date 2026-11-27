@@ -1,6 +1,218 @@
 {
-  "last_updated": "2026-11-28T07:11:47.535757+09:00",
+  "last_updated": "2026-11-28T08:12:17.942575+09:00",
   "items": [
+    {
+      "id": "2d6b2a82d2a3",
+      "title": "豊川稲荷｜2026.11.27 大掃除のお知らせ",
+      "url": "https://toyokawainari.jp/news/s5sZm4b1",
+      "source": "official_site",
+      "site_kind": "temple",
+      "header": "【仏像速報】",
+      "hashtags": "",
+      "fetched_at": "2026-11-28T08:12:18+09:00",
+      "published_at": "2026-11-28T08:12:18+09:00",
+      "image_url": "https://storage.googleapis.com/production-os-assets/assets/f03293b1-8d74-4062-9135-3039a4191b91",
+      "description": "愛知県豊川市にある曹洞宗の寺院 豊川閣妙厳寺のお知らせページです。日々のお知らせを更新いたします。",
+      "ai": {
+        "score": 3,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "大掃除のお知らせで仏像の話題なし",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T08:14:31+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "3f0fca0f76a7",
+      "title": "京の師走彩る「まねき上げ」 南座「顔見世興行」控え61枚 [京都府] - 朝日新聞",
+      "url": "https://www.asahi.com/articles/ASVCW30WZVCWPLZB002M.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T08:12:17.939568+09:00",
+      "published_at": "2026-11-27T19:15:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "\"永観堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 南座の顔見世興行の話題で、仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-28T08:14:26+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "7ead0dd8f904",
+      "title": "千利休が切腹する約1年前に書いた直筆書簡、テレビに登場 聖徳太子の弟が創建したとされる古刹で - 山陽新聞",
+      "url": "https://www.sanyonews.jp/article/2026853?kw=.ywcl",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T08:12:08.212556+09:00",
+      "published_at": "2026-11-28T04:04:22+09:00",
+      "image_url": "https://static.sanyonews.jp/image/article/size1/c/1/6/6/c16690dcd343ed3b66ef67c93765e8c0_1.jpg",
+      "description": "きょう25日放送のBS日テレ『磯田道史の歴史をゆく』（毎週水曜 後9：00）は、切腹約1年前の千利休の直筆書簡が紹介される。【写真複数...",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 18,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "利休の書簡のテレビ紹介。仏像に触れず放送も終了",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T08:14:31+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "9880128ad00c",
+      "title": "那須の文化財 １００点 - 下野新聞社",
+      "url": "https://www.shimotsuke.co.jp/articles/-/1467567",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T08:12:05.538179+09:00",
+      "published_at": "2026-11-28T05:00:00+09:00",
+      "image_url": "https://soon.ismcdn.jp/mwimgs/c/0/1200wm/img_c0748ee21dfffa52309692a46070396566421.jpg",
+      "description": "那須の文化財 １００点 歴史探訪館で特別展 来月６日まで 保存法など専門家講演も｜朝刊・夕刊ニュース｜下野新聞デジタル",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 42,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "那須の文化財展。仏像が含まれるか不明、12月6日まで開催中",
+        "event": {
+          "event_name": "那須の文化財100点 特別展",
+          "place": "那須歴史探訪館（栃木県那須町）",
+          "start_date": "",
+          "end_date": "2026-12-06"
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T08:14:31+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "2e44a47ffcc0",
+      "title": "「円山応挙 リアルの先へ 空間革命」（東京都江戸東京博物館）開幕レポート。階級も時代も超えて、その絵はなぜ愛されるのか - 美術手帖",
+      "url": "https://bijutsutecho.com/magazine/series/s103/33327",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T08:12:02.505422+09:00",
+      "published_at": "2026-11-28T07:10:08+09:00",
+      "image_url": "https://bt.imgix.net/magazine/33327/main/1795781090393_5e2f38f3f250d30be98a2e208548a358.jpg?v=82&cs=origin&q=90&fm=jpg&fit=crop&crop=faces%2Cedges&w=1200&h=630",
+      "description": "東京都江戸東京博物館でリニューアル記念特別展「円山応挙 リアルの先へ 空間革命」開幕した。会期は2027年1月24日まで。会場の様子をレポートする。",
+      "search_query": "\"三十三間堂\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "円山応挙の絵画展で仏像が主役でない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T08:14:31+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "0ada6671579b",
+      "title": "【きょうから】『VIVANT』再放送がスタート 第1シーズン全10話 - 朝日新聞",
+      "url": "https://www.asahi.com/and/entertainment/17088085",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T08:12:00.723445+09:00",
+      "published_at": "2026-11-28T07:20:00+09:00",
+      "image_url": "",
+      "description": "",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: ドラマ『VIVANT』の再放送で仏教美術と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-28T08:14:26+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "f55791f8256e",
+      "title": "松本市島立荒井で「観音様のだんご投げ」 室内でも楽しく - MGプレス",
+      "url": "https://mgpress.jp/2026/11/28/local_news/topic/55219/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T08:11:51.541550+09:00",
+      "published_at": "2026-11-28T08:04:00+09:00",
+      "image_url": "https://mgpress.jp/wp-content/uploads/2026/11/b2a3418a603bac3139e580086ccf2bed.jpg",
+      "description": "松本市島立荒井地区で11月15日、無病息災などを願って江戸時代から続く「観音様のだんご投げ」があった。例年は公民館前に建てる高さ約２㍍のやぐらから児童 […]",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 28,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "観音様のだんご投げは11月15日実施済みの事後報告",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T08:14:31+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "rem-c0f893b6bb02-start",
       "title": "鳳来寺山もみじまつり始まる 11月29日には鳳来寺宿坊を特別公開 - 47NEWS",
@@ -12142,190 +12354,6 @@
         "freshness": "durable",
         "model": "claude-sonnet-5-5",
         "scored_at": "2026-11-26T23:15:19+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "9c5968eae74e",
-      "title": "中部電、業務改善計画を提出 - 周南経済新聞",
-      "url": "https://shunan.keizai.biz/gpnews/1779375/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T23:11:45.894743+09:00",
-      "published_at": "2026-11-26T19:34:16+09:00",
-      "image_url": "https://images.keizai.biz/shunan_keizai/globalphoto/",
-      "description": "中部電力は２６日、浜岡原発のデータ不正問題などに関する業務改善計画を同日付で赤沢亮正経済産業相に提出したと発表した。写真は記者会見する安井稔社長＝同日午後、名古屋市東区 【時事通信社】",
-      "search_query": "観音堂 開帳",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 電力会社の業務改善計画で仏教・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-26T23:15:15+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "effe302a34a7",
-      "title": "【2026京都紅葉】ブラタモリ注目の世界遺産！天守閣跡から一望の紅葉絶景「元離宮二条城」 - Kyotopi [キョウトピ]",
-      "url": "https://kyotopi.jp/articles/BVbta.amp",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T23:11:43.888933+09:00",
-      "published_at": "2026-11-26T21:00:00+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "\"南禅寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "二条城の紅葉で寺院・仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-26T23:15:19+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "4ed69aacac82",
-      "title": "石井武志、王座守る ボクシング - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779386/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T23:11:42.020738+09:00",
-      "published_at": "2026-11-26T23:06:30+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "プロボクシングのダブル世界戦は２６日、東京・ＥＢＡＲＡ ＷＡＶＥアリーナおおたで行われ、ＷＢＡミニマム級王者の石井武志は同級１１位のサイバージョン・メデシロを３―０の判定で下し、初防衛に成功した。 【時事通信社】",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: プロボクシングの試合結果で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-26T23:15:15+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "572f1796a664",
-      "title": "栗山巧、球団特別補佐に就任 プロ野球 - 函館経済新聞",
-      "url": "https://hakodate.keizai.biz/gpnews/1779325/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T22:11:56.853672+09:00",
-      "published_at": "2026-11-25T01:01:17+09:00",
-      "image_url": "https://images.keizai.biz/hakodate_keizai/globalphoto/",
-      "description": "今季限りで現役を引退した西武の栗山巧外野手（４３）は２４日、球団スポンサーなどを招いて東京都内で行われた「感謝の集い」であいさつに立ち、来季から「球団本部付特別補佐」に就任することを明らかにした。 【時事通信社】",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: プロ野球選手の球団人事で仏教関連なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-26T22:14:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "630a1978e503",
-      "title": "日本初 重要文化財の監獄建築→ラグジュアリーホテルに 秘密を紐解く 5日放送『新美の巨人たち』 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/1984082?kw=%E4%BA%AC",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T22:11:54.830773+09:00",
-      "published_at": "2026-11-25T03:35:28+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/b/8/3/3/b8334b1075406532b378f8af29a5c5b1_1.jpg",
-      "description": "テレビ東京で5日午後10時から、『新美の巨人たち』が放送される。【写真】監獄だったとは思えない…超豪華な内装 日本初となる重要文化財の...",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 3,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "寺院と無関係の監獄建築ホテル。仏像なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-26T22:14:21+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "9ece9c9ecc55",
-      "title": "政治資金、振り込み限定に - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779338/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T22:11:52.981769+09:00",
-      "published_at": "2026-11-25T13:10:24+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "公明、立憲民主両党は２５日、企業・団体献金の受け皿を政党支部や都道府県連に絞る政治資金規正法改正案を参院に提出した。政治資金の流れを透明化するため、受け取る方法を口座振り込みに限定した＝国会内 【時事通信社】",
-      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 政治資金規正法の政治ニュースで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-26T22:14:17+09:00",
         "score_version": 8
       }
     },
