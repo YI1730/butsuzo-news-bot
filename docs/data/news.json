@@ -1,6 +1,208 @@
 {
-  "last_updated": "2026-11-28T06:53:40.045274+09:00",
+  "last_updated": "2026-11-28T07:11:47.535757+09:00",
   "items": [
+    {
+      "id": "rem-c0f893b6bb02-start",
+      "title": "鳳来寺山もみじまつり始まる 11月29日には鳳来寺宿坊を特別公開 - 47NEWS",
+      "url": "https://www.47news.jp/15210248.html",
+      "source": "reminder",
+      "header": "【あすから公開】",
+      "hashtags": "",
+      "fetched_at": "2026-11-28T07:14:05+09:00",
+      "published_at": "2026-11-28T07:14:05+09:00",
+      "image_url": "",
+      "ai": {
+        "score": 90,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "あすから公開（御開帳カレンダー）",
+        "post_text": "明日11月29日、愛知県新城市の鳳来寺で宿坊の特別公開があるそう。標高695メートルの鳳来寺山はもみじまつりの開催中で、紅葉の時期と重なるのがうれしい。",
+        "post_header": "【あすから公開】",
+        "post_format": 7,
+        "notified": true
+      }
+    },
+    {
+      "id": "5a1b9d6ed5f6",
+      "title": "七日町観音堂だるま祭り - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/article/eventbank/region/eventbank-10656552",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T07:11:47.535015+09:00",
+      "published_at": "2026-11-26T10:48:37+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/eventbank/m_eventbank-10656552.jpg",
+      "description": "観音様のお年夜 七日町観音堂の例祭で、その昔、遊女たちが運命を変えるべく、観音様に願いをかけたこと…",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 30,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "観音堂の例祭だが仏像への言及が薄く、すでに終了した行事",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T07:14:05+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "7859f33ea9ca",
+      "title": "山形県山形市の国指定重要文化財の石鳥居を観光資源に 12月2日から鳥居ケ丘イブニングマーケットを開催（YBC山形放送） - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/4f7334f4cdb1069c7c717d418879fad4ff1d5fc9",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T07:11:46.356908+09:00",
+      "published_at": "2026-11-26T12:54:00+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261126-03295977-ybc-000-2-view.jpg?exp=10800",
+      "description": "山形県山形市にある国指定重要文化財の「鳥居」を観光資源に、地域の魅力を発信するプロジェクトが始動しました。本格スタートを前に、25日、山形市でプレイベントが開かれました。ライトアップされたのは、国内",
+      "search_query": "(明王 OR 神像 OR 重要文化財)",
+      "ai": {
+        "score": 5,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "石鳥居の観光活用で寺院・仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T07:14:05+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c8278d3b7d53",
+      "title": "プロバスケ・金沢サムライズ 平均2000人以上の集客へ会場の魅力づくり ハーフタイムにゲスト招致も - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/mro/region/mro-3114385",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T07:11:45.455031+09:00",
+      "published_at": "2026-11-26T18:07:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/mro/m_mro-3114385.jpg",
+      "description": "プロバスケットボール・Bリーグワンに2026年シーズンに参入した金沢サムライズ。将来的なリーグ残留条件であ…",
+      "search_query": "(開扉 OR 菩薩 OR 秘仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: プロバスケの集客記事で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-28T07:14:01+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "9716cb360e03",
+      "title": "11月26日【びわ湖放送ニュース】湖南市 名刹の絶景「東寺」「西寺」の紅葉だより - webアミンチュ",
+      "url": "https://www.webaminchu.jp/news/15317/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T07:11:44.087447+09:00",
+      "published_at": "2026-11-26T19:26:35+09:00",
+      "image_url": "https://img.youtube.com/vi/-YGf2WH-4gM/hqdefault.jpg",
+      "description": "11月26日【びわ湖放送ニュース】湖南市 名刹の絶景「東寺」「西寺」の紅葉だより｜webとテレビで伝えるwebアミンチュ！滋賀県民の魅力を、県内はもとより全世界に発信！県民主役のweb＋テレビメディアが誕生します。県民ポータルサイトwebアミンチュで滋賀県民のおもしろ動画やお役立ち動画、ほのぼの動画を月間100本以上配信予定！アミンチュてれびBBCでも選りすぐりを放送します。",
+      "search_query": "国宝 (寺 OR 仏)",
+      "ai": {
+        "score": 35,
+        "category": "寺院の行事",
+        "duplicate": false,
+        "reason": "常楽寺・善水寺の紅葉紹介で仏像に触れず、上限内",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T07:14:05+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "1de3ab8d6fad",
+      "title": "アラフィフ辛酸なめ子、人生後半戦に突入し「神社よりもお寺に引き寄せられる」理由【大徳寺展＋「ZEN NIGHT TOKYO」レポ】 - Yahoo!ニュース",
+      "url": "https://news.yahoo.co.jp/articles/4713faa4183b581485780022f2751cfc422a202e",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T07:11:43.174079+09:00",
+      "published_at": "2026-11-27T10:21:00+09:00",
+      "image_url": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-00062141-mimollet-000-2-view.jpg?exp=10800",
+      "description": "「アラフィフの壁」を無理なく、軽やかに越え続ける漫画家・コラムニストの辛酸なめ子さんのコラム連載です。スピリチュアル分野にも一家言あるなめ子さんですが、近年は「神社よりもお寺に引き寄せられる」そう。",
+      "search_query": "特別展 (寺 OR 仏)",
+      "ai": {
+        "score": 40,
+        "category": "展覧会",
+        "duplicate": false,
+        "reason": "大徳寺展のコラム。レポで速報性が低く仏像主体でない",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T07:14:05+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "e6e9e8d9152d",
+      "title": "２７年「ほのぼの観音」カレンダー 願い込め６点つづる 画家の心澄さん作 糸魚川市 - 上越タイムス社",
+      "url": "https://j-times.jp/?p=158068",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T07:11:41.137361+09:00",
+      "published_at": "2026-11-28T05:08:12+09:00",
+      "image_url": "https://j-times.jp/pb5001h/wp-content/uploads/2026/11/20261127_191537_78039.jpg",
+      "description": "糸魚川市の画家、心澄（しんちょう）さんが描く「ほのぼの観音」の２０２７年カレンダーが完成した。 ２カ月ごとの",
+      "search_query": "(弥勒菩薩 OR 孔雀明王 OR 観音)",
+      "ai": {
+        "score": 15,
+        "category": "その他の仏像関連",
+        "duplicate": false,
+        "reason": "観音の絵のカレンダーで仏像ではなく商品告知",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T07:14:05+09:00",
+        "score_version": 8
+      }
+    },
     {
       "title": "龍谷ミュージアム 企画展「トルファン文書の世界－出口常順コレクションと大谷探検隊－」（9月18日~11月21日）",
       "url": "https://museum.ryukoku.ac.jp/",
@@ -12113,190 +12315,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "一次判定（Haiku）で対象外: 政治資金規正法の政治ニュースで無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-26T22:14:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "680402f67965",
-      "title": "白浜美術館 今月で閉館／老朽化 歓喜神社も休止／白浜観光協会 - AGARA 紀伊民報",
-      "url": "https://www.agara.co.jp/article/717166",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T22:11:52.264058+09:00",
-      "published_at": "2026-11-25T14:30:00+09:00",
-      "image_url": "https://www.agara.co.jp/image/article/size1/e/2/b/6/e2b6b049292511c1aef306630afa4d4b_1.jpg",
-      "description": "白浜町の南紀白浜観光協会は、指定管理者として運営する白浜美術館を１１月いっぱいで閉館する。老朽化が...",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 8,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "美術館閉館の話題で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-26T22:14:21+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "d24bb7c0bd95",
-      "title": "「岩谷時子賞」授賞式 - 岡山経済新聞",
-      "url": "https://okayama.keizai.biz/gpnews/1779340/",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T22:11:51.487218+09:00",
-      "published_at": "2026-11-25T14:54:25+09:00",
-      "image_url": "https://images.keizai.biz/okayama_keizai/globalphoto/",
-      "description": "文化・芸術の発展、向上に貢献した音楽・演劇界の人を表彰する第１５回岩谷時子賞を受賞したヴィオラ奏者の谷口朱佳さん、歌手の郷ひろみさん、歌舞伎俳優の片岡仁左衛門さん、日本歌劇団の翼和希さん＝２５日、都内 【時事通信フォト】",
-      "search_query": "(千手観音 OR 十一面観音 OR 愛染明王)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 音楽・演劇の賞の授賞式で仏教美術と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-26T22:14:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1473d99f2bf1",
-      "title": "【速報】水俣市など震度1 - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/kumanichi/region/kumanichi-dr2061722",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T22:11:50.588984+09:00",
-      "published_at": "2026-11-25T16:42:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/kumanichi/m_kumanichi-dr2061722.jpg",
-      "description": "25日午後4時38分ごろ、水俣市、芦北町で震度1の地震があった。熊本地方気象台によると、震源地は天草・芦…",
-      "search_query": "国宝 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 地震情報で仏教関連なし",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-26T22:14:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "684d2fad10a2",
-      "title": "描かれた『源氏物語』ーー絵から読む物語、物語から見る絵（芝久保公民館） - 西東京市",
-      "url": "https://www.city.nishitokyo.lg.jp/enjoy/kouminkan/kouza_johou/shibakubo/genji.html",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T22:11:49.492960+09:00",
-      "published_at": "2026-11-25T18:58:54+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 5,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "源氏物語の絵の講座で仏像と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "durable",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-26T22:14:21+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "47198e510c66",
-      "title": "FZ250 PHAZERの投稿一覧 - GooBike",
-      "url": "https://www.goobike.com/motocle/detail/2192676",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T22:11:47.609616+09:00",
-      "published_at": "2026-11-25T20:24:25+09:00",
-      "image_url": "",
-      "description": "",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: バイク製品の投稿一覧で無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-26T22:14:17+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "0345613c4f52",
-      "title": "総社出身の書家・高木聖雨さん、かなの名品「三色紙」古里に寄贈 父・聖鶴さん収集品 - 山陽新聞",
-      "url": "https://www.sanyonews.jp/article/2027199",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T22:11:45.457016+09:00",
-      "published_at": "2026-11-25T21:11:00+09:00",
-      "image_url": "https://static.sanyonews.jp/image/article/size1/2/f/8/f/2f8fbe119bb97db32c27948e5c94df6d_1.jpg",
-      "description": "文化功労者で総社市出身の漢字書家高木聖雨さん（７７）が２５日、平安時代の名筆として知られる「三色紙」を市に贈った。父で文化勲章受章のか...",
-      "search_query": "(明王 OR 神像 OR 重要文化財)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 書家の書の寄贈で仏像・寺宝とは無関係",
         "event": {
           "event_name": "",
           "place": "",
