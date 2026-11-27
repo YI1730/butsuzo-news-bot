@@ -1,6 +1,97 @@
 {
-  "last_updated": "2026-11-28T03:55:30.951992+09:00",
+  "last_updated": "2026-11-28T05:11:47.189207+09:00",
   "items": [
+    {
+      "id": "1e89d4f5baf0",
+      "title": "大阪大卒、東京大大学院で研究する元ABCテレビ女性アナ　京都で紅葉狩りショット公開　夕暮れの東福寺 - ｄメニューニュース",
+      "url": "https://topics.smt.docomo.ne.jp/amp/article/yorozoonews/entertainment/yorozoonews-17078629",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T05:11:47.188298+09:00",
+      "published_at": "2026-11-26T12:50:00+09:00",
+      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/yorozoonews/m_yorozoonews-17078629.jpg",
+      "description": "元ABCテレビの東留伽アナウンサー(29)が24日、インスタグラムを更新し、京都で紅葉狩りを楽しんだことを報…",
+      "search_query": "\"東福寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 8,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "元アナの紅葉狩りSNS投稿で東福寺は背景のみ。仏像に触れず無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T05:14:09+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "c989d3b77fa4",
+      "title": "不定期連載 市民健康の森だより 第253回 出店参加しました！「プラザ橘祭り」 - タウンニュース",
+      "url": "https://www.townnews.co.jp/0202/2026/11/27/863707.html",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T05:11:45.901660+09:00",
+      "published_at": "2026-11-27T00:00:00+09:00",
+      "image_url": "https://www.townnews.co.jp/0202/images/a001493769_15.jpg",
+      "description": "11月７日、久末のプラザ橘で「第27回プラザ橘祭り」が開催され、高津区健康の森の会は今年も出店参加しました。プラザ橘は高津図書館橘分館を併設し、研修室や学習室を備えた地...",
+      "search_query": "特別公開 (寺 OR 仏)",
+      "ai": {
+        "score": 0,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "一次判定（Haiku）で対象外: 地域の祭り出店の話題で仏像・寺院と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "breaking",
+        "model": "claude-haiku-5-5",
+        "prefiltered": true,
+        "scored_at": "2026-11-28T05:14:06+09:00",
+        "score_version": 8
+      }
+    },
+    {
+      "id": "71bca94877ed",
+      "title": "【ウェスティン都ホテル京都】坂東玉三郎に、春風亭小朝は何を聞く？ホテル初開催から1年、2月11日に京都で再び対談 - Infoseek",
+      "url": "https://news.infoseek.co.jp/article/prtimes_000002442_000023303/",
+      "source": "google_news",
+      "header": "【仏像速報】",
+      "hashtags": "#仏像 #仏像ニュース",
+      "fetched_at": "2026-11-28T05:11:43.873261+09:00",
+      "published_at": "2026-11-27T23:15:24+09:00",
+      "image_url": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+      "description": "歌舞伎女方の人間国宝と、語りの世界でトップを走り続ける落語家が客席の質問にも答える約60分。ウェスティン都ホテル京",
+      "search_query": "\"南禅寺\" (公開 OR 開帳 OR 仏像 OR 国宝 OR 重要文化財 OR 特別展 OR 特別拝観 OR 修理 OR 指定 OR 発見)",
+      "ai": {
+        "score": 2,
+        "category": "無関係",
+        "duplicate": false,
+        "reason": "ホテルでの歌舞伎・落語の対談イベント告知で仏像と無関係",
+        "event": {
+          "event_name": "",
+          "place": "",
+          "start_date": "",
+          "end_date": ""
+        },
+        "buddha_designation": false,
+        "freshness": "durable",
+        "model": "claude-sonnet-5-5",
+        "scored_at": "2026-11-28T05:14:09+09:00",
+        "score_version": 8
+      }
+    },
     {
       "id": "7f52e8adc96c",
       "title": "小倉～久留米の新ルート！「福岡南北道路」構想とは。 九州道に代わる高規格道路はどうなった？ 国道200号、322号も進化中【いま気になる道路計画】 - KURU KURA",
@@ -12178,97 +12269,6 @@
         "category": "無関係",
         "duplicate": false,
         "reason": "一次判定（Haiku）で対象外: 河川の治水対策に関する記事で仏像・寺院と無関係",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-haiku-5-5",
-        "prefiltered": true,
-        "scored_at": "2026-11-26T21:14:34+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1341e03fbc0c",
-      "title": "寺に侵入し仏像3体計110万円相当を盗んだ疑いで逮捕 74歳男性を不起訴処分 別の寺での容疑でも - ｄメニューニュース",
-      "url": "https://topics.smt.docomo.ne.jp/amp/article/tokaitv/nation/tokaitv-20261125-1928-49514",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T21:11:58.279804+09:00",
-      "published_at": "2026-11-25T19:28:00+09:00",
-      "image_url": "https://img.topics.smt.news.goo.ne.jp/picture/tokaitv/m_tokaitv-20261125-1928-49514.jpg",
-      "description": "三重県度会郡の寺に侵入し、仏像3体を盗んだとして逮捕されていた74歳の男性が、不起訴処分になりました…",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 25,
-        "category": "事件・被害",
-        "duplicate": true,
-        "reason": "仏像窃盗の不起訴報道。FNNと同一出来事で後追い、25時間経過",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-26T21:14:40+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "4f6dfea7bc60",
-      "title": "寺に侵入し仏像3体計110万円相当を盗んだ疑いで逮捕 74歳男性を不起訴処分 別の寺での容疑でも - FNNプライムオンライン",
-      "url": "https://www.fnn.jp/articles/-/1159374",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T21:11:57.154662+09:00",
-      "published_at": "2026-11-25T19:28:10+09:00",
-      "image_url": "https://fnn.ismcdn.jp/mwimgs/1/1/1200/img_11261d7618c7306c81ff36f00e53aa80638123.jpg",
-      "description": "三重県度会郡の寺に侵入し、仏像3体を盗んだとして逮捕されていた74歳の男性が、不起訴処分になりました。 伊勢市に住む無職の男性(74)は2026年1月、度会郡にある寺に侵入し、仏像3体計110万円相当を盗んだ疑いで逮捕されていました。 男性は、志摩市内の別の寺から仏像を盗んだ疑いでも逮捕されていましたが、津地検は「起訴するに足りる証拠の収集に至らなかった」として、いずれの事件も25日付けで不起訴処分としました。",
-      "search_query": "(仏像 OR 如来 OR 開帳)",
-      "ai": {
-        "score": 35,
-        "category": "事件・被害",
-        "duplicate": false,
-        "reason": "仏像窃盗事件の不起訴処分。続報で速報性は低め",
-        "event": {
-          "event_name": "",
-          "place": "",
-          "start_date": "",
-          "end_date": ""
-        },
-        "buddha_designation": false,
-        "freshness": "breaking",
-        "model": "claude-sonnet-5-5",
-        "scored_at": "2026-11-26T21:14:40+09:00",
-        "score_version": 8
-      }
-    },
-    {
-      "id": "1260bd5f31bc",
-      "title": "現代美術と美術史が出会う、ロンドンの熱い秋、フリーズ・ロンドン / フリーズ・マスターズ2026 - アートアジェンダ",
-      "url": "https://www.artagenda.jp/feature/news/20261125",
-      "source": "google_news",
-      "header": "【仏像速報】",
-      "hashtags": "#仏像 #仏像ニュース",
-      "fetched_at": "2026-11-26T21:11:55.832830+09:00",
-      "published_at": "2026-11-25T20:05:42+09:00",
-      "image_url": "https://i.artagenda.jp/feature/1/images/7e44083149625c6f15870b110229e621_middle.jpg?1795695115",
-      "description": "現代美術と美術史が出会う、ロンドンの熱い秋、フリーズ・ロンドン/フリーズ・マスターズ2026。アートフェアから始まる、都市とアートの旅へ｜Frieze London / Frieze Masters",
-      "search_query": "特別展 (寺 OR 仏)",
-      "ai": {
-        "score": 0,
-        "category": "無関係",
-        "duplicate": false,
-        "reason": "一次判定（Haiku）で対象外: 現代美術アートフェアの記事で仏教美術の話題はない",
         "event": {
           "event_name": "",
           "place": "",
