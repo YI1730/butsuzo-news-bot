@@ -55,6 +55,7 @@ JST = timezone(timedelta(hours=9))
 
 # リクエスト間隔（Amazon の負荷軽減・ブロック回避）
 SLEEP_BETWEEN_PAGES = 4
+BOOK_MAX_PAGES = 5
 SLEEP_BETWEEN_ITEMS = 0  # 検索結果ページは1リクエストで複数アイテム取得
 
 SOURCE_AMAZON = "amazon_goods"
@@ -343,11 +344,13 @@ def build_page_url(base_url: str, page: int) -> str:
 
 def scrape_amazon_search(url: str, item_type: str,
                           session: requests.Session,
-                          pages: int = 1) -> list[dict]:
+                          pages: int = 1,
+                          known_asins: set[str] | None = None) -> list[dict]:
     """Amazon 検索結果ページをスクレイピングして商品リストを返す。
 
     pages>1 のときは複数ページを取得して新着の取りこぼしを減らす。
-    ページ間は ASIN で重複排除する。
+    ページ間は ASIN で重複排除する。known_asins を渡すと、取り込み済みの商品だけの
+    ページに着いた時点で打ち切る（何日か取り込めなかったあとは、追いつくまで読み進める）。
     """
     collected: list[dict] = []
     seen_asins: set[str] = set()
@@ -366,6 +369,8 @@ def scrape_amazon_search(url: str, item_type: str,
             if asin:
                 seen_asins.add(asin)
             collected.append(it)
+        if known_asins is not None and page_items and all(it.get("asin") in known_asins for it in page_items):
+            break
         if p < pages:
             time.sleep(SLEEP_BETWEEN_PAGES)
     return collected
@@ -401,14 +406,16 @@ def main() -> int:
     all_new: list[dict] = []
 
     print("[1/2] 書籍カテゴリー（仏像 新着順）を取得中...")
-    # 新刊の取りこぼし防止のため書籍は2ページ取得
-    book_items = scrape_amazon_search(BOOK_URL, "book", session, pages=2)
+    # 新刊の取りこぼし防止のため、書籍は取り込み済みの商品に追いつくまで（最大5ページ）
+    book_items = scrape_amazon_search(BOOK_URL, "book", session, pages=BOOK_MAX_PAGES,
+                                      known_asins=existing_asins)
     print(f"  取得: {len(book_items)}件")
     all_new.extend(book_items)
     time.sleep(SLEEP_BETWEEN_PAGES)
 
     print("[2/2] ホビー/グッズ（仏像 -仏具 -神具 新着順）を取得中...")
-    goods_items = scrape_amazon_search(GOODS_URL, "goods", session, pages=2)
+    # グッズは新しいものが入れば十分なので1ページ。書籍が取れなかった回（断られている）は検索しない
+    goods_items = scrape_amazon_search(GOODS_URL, "goods", session, pages=1) if book_items else []
     print(f"  取得: {len(goods_items)}件")
     all_new.extend(goods_items)
 
@@ -447,7 +454,7 @@ def main() -> int:
     data["last_updated"] = datetime.now(JST).isoformat()
     save_news_data(data)
     print(f"追加件数: {added_count} / 合計: {len(data['items'])}件")
-    return 0
+    return 0 if book_items else 3   # 3: 書籍が取れなかった（Mac の実行はあすもう一度動かす）
 
 
 if __name__ == "__main__":

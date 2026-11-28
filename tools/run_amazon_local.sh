@@ -29,32 +29,42 @@ cd "$WORK" || exit 1
 git config user.name "butsuzo-amazon (Mac)"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-for attempt in 1 2 3; do
-  git fetch -q origin main && git reset -q --hard origin/main || { sleep 30; continue; }
-  if [ "$MODE" = upgrade ]; then
-    waiting=$($PY -c "import json, scrape_magazines as m; print(m.missing_asin_count(json.load(open('docs/data/news.json'))['items']))" 2>/dev/null || echo 0)
-    if [ "$waiting" = 0 ]; then echo "前回から 2 日たっておらず、Amazon のリンク待ちの雑誌も無いので見送り"; exit 0; fi
-    echo "Amazon のリンク待ちの雑誌 $waiting 件を探し直す"
-    $PY scrape_magazines.py --upgrade-only; mag=1   # 合間の実行なので、2 日おきの記録（STAMP）は更新しない
-  else
-  # 雑誌を先に（書籍の検索のあとだと、続けて検索したことで確認ページを返されやすい）。間に休みを入れる
-  $PY scrape_magazines.py --amazon-only; mag=$?
-  [ $mag -ne 0 ] && echo "雑誌は途中まで（終了コード $mag）。あすもう一度動かす"
-  if [ $mag -eq 0 ]; then
+git fetch -q origin main && git reset -q --hard origin/main || { echo "最新を取得できませんでした"; exit 1; }
+
+ok=1   # 1: 2 日おきの記録（STAMP）を更新しない
+if [ "$MODE" = upgrade ]; then
+  waiting=$($PY -c "import json, scrape_magazines as m; print(m.missing_asin_count(json.load(open('docs/data/news.json'))['items']))" 2>/dev/null || echo 0)
+  if [ "$waiting" = 0 ]; then echo "前回から 2 日たっておらず、Amazon のリンク待ちの雑誌も無いので見送り"; exit 0; fi
+  echo "Amazon のリンク待ちの雑誌 $waiting 件を探し直す"
+  $PY scrape_magazines.py --upgrade-only
+else
+  # 書籍を先に（検索の回数が少ないので、雑誌の検索で断られても書籍は取れるようにする）。間に休みを入れる
+  $PY scrape_amazon.py; book=$?
+  if [ $book -eq 0 ]; then
     sleep 120
-    $PY scrape_amazon.py || echo "scrape_amazon.py が失敗（続行）"
+    $PY scrape_magazines.py --amazon-only; mag=$?
+    [ $mag -eq 0 ] && ok=0 || echo "雑誌は途中まで（終了コード $mag）。あすもう一度動かす"
   else
-    echo "Amazon に断られているので、書籍・グッズもあすに回す"
+    echo "書籍を取れませんでした（終了コード $book）。雑誌も含めて、あすもう一度動かす"
   fi
-  fi
-  if git diff --quiet -- docs/data/news.json; then
-    echo "変更なし"; [ $mag -eq 0 ] && date +%s > "$STAMP"; exit 0
-  fi
+fi
+
+# 送信がほかの更新とぶつかったら、Amazon を検索し直さず、取れた分を最新の news.json に合流させる
+RESULT=$(mktemp)
+cp docs/data/news.json "$RESULT"
+trap 'rm -f "$RESULT"' EXIT
+changed=1; git diff --quiet -- docs/data/news.json && changed=0
+if [ $changed -eq 0 ]; then
+  echo "変更なし"; [ $ok -eq 0 ] && date +%s > "$STAMP"; exit 0
+fi
+for attempt in 1 2 3 4 5; do
   git add docs/data/news.json
-  git commit -q -m "chore: Amazon の新刊・雑誌を取り込み（Mac）"
+  git commit -q -m "chore: Amazon の新刊・雑誌を取り込み（Mac）" || { echo "追加分は最新に入っていました"; [ $ok -eq 0 ] && date +%s > "$STAMP"; exit 0; }
   if git push -q origin HEAD:main; then
-    echo "push しました"; [ $mag -eq 0 ] && date +%s > "$STAMP"; exit 0
+    echo "push しました"; [ $ok -eq 0 ] && date +%s > "$STAMP"; exit 0
   fi
-  echo "push に失敗（ほかの更新と重なった）。取り直します ($attempt)"; sleep 60
+  echo "push に失敗（ほかの更新と重なった）。最新に合流させます ($attempt)"; sleep 30
+  git fetch -q origin main && git reset -q --hard origin/main || continue
+  $PY tools/merge_amazon.py "$RESULT" || exit 1
 done
-echo "3 回とも push できませんでした"; exit 1
+echo "push できませんでした"; exit 1

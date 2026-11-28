@@ -19,14 +19,20 @@ CANDIDATE_THRESHOLD = 70   # これ以上を「⭐配信候補」として投稿
 NOISE_THRESHOLD = 30       # これ未満はダッシュボードのニュースタブに出さない
 
 
+MAX_BOOK_ITEMS = 5000   # 書籍と雑誌は漏らさず残す（グッズの新着に押し出されないよう、別の枠にする）
+
+
 def trim_per_source(items: list[dict], cap: int = MAX_ITEMS_PER_SOURCE) -> list[dict]:
-    """並び順（新しい順）を保ったまま、各 source を先頭から cap 件までに絞る。"""
-    counts: dict[str, int] = defaultdict(int)
+    """並び順（新しい順）を保ったまま、各 source を先頭から cap 件までに絞る。
+    Amazon の書籍と雑誌は、グッズとは別の枠（MAX_BOOK_ITEMS 件）で数える。"""
+    counts: dict[tuple, int] = defaultdict(int)
     kept = []
     for item in items:
         src = item.get("source", "")
-        if counts[src] < cap:
-            counts[src] += 1
+        is_book = src == "amazon_goods" and goods_kind(item) != "goods"
+        key = (src, is_book)
+        if counts[key] < (MAX_BOOK_ITEMS if is_book else cap):
+            counts[key] += 1
             kept.append(item)
     return kept
 
